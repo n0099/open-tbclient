@@ -16,15 +16,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d {
-    private HttpMessageListener dcx;
+    private HttpMessageListener dbF;
     private String mFrom;
-    private a ddj = null;
-    private CustomMessageListener dcB = new CustomMessageListener(2016489) { // from class: com.baidu.tieba.NEGFeedBack.d.1
+    private a dcr = null;
+    private CustomMessageListener dbJ = new CustomMessageListener(2016489) { // from class: com.baidu.tieba.NEGFeedBack.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                d.this.bB((JSONObject) customResponsedMessage.getData());
+                d.this.bC((JSONObject) customResponsedMessage.getData());
             }
         }
     };
@@ -36,33 +36,33 @@ public class d {
 
     public d(String str) {
         this.mFrom = str;
-        if (this.dcx == null) {
-            this.dcx = new HttpMessageListener(CmdConfigHttp.CMD_NEG_DELETE_THREAD) { // from class: com.baidu.tieba.NEGFeedBack.d.2
+        if (this.dbF == null) {
+            this.dbF = new HttpMessageListener(CmdConfigHttp.CMD_NEG_DELETE_THREAD) { // from class: com.baidu.tieba.NEGFeedBack.d.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && d.this.ddj != null) {
-                        d.this.ddj.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
+                    if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && d.this.dcr != null) {
+                        d.this.dcr.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.dcx);
-        MessageManager.getInstance().registerListener(this.dcB);
+        MessageManager.getInstance().registerListener(this.dbF);
+        MessageManager.getInstance().registerListener(this.dbJ);
     }
 
     public void registerListener() {
-        MessageManager.getInstance().registerListener(this.dcx);
-        MessageManager.getInstance().registerListener(this.dcB);
+        MessageManager.getInstance().registerListener(this.dbF);
+        MessageManager.getInstance().registerListener(this.dbJ);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dcB);
-        MessageManager.getInstance().unRegisterListener(this.dcx);
+        MessageManager.getInstance().unRegisterListener(this.dbJ);
+        MessageManager.getInstance().unRegisterListener(this.dbF);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bB(JSONObject jSONObject) {
+    public void bC(JSONObject jSONObject) {
         if (jSONObject != null && j.isNetworkAvailableForImmediately()) {
             try {
                 int i = jSONObject.getInt("type");
@@ -83,6 +83,6 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.ddj = aVar;
+        this.dcr = aVar;
     }
 }

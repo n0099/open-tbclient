@@ -47,19 +47,19 @@ public class b {
             jSONObject.put("type", "0");
             if (!TextUtils.isEmpty(jVar.getContent())) {
                 jSONObject.put("content", jVar.getContent());
-            } else if (jVar.acL() != null) {
-                jSONObject.put("content", jVar.acL().toString());
+            } else if (jVar.acJ() != null) {
+                jSONObject.put("content", jVar.acJ().toString());
             }
-            if (!TextUtils.isEmpty(jVar.acK())) {
-                jSONObject.put("abtest", jVar.acK());
+            if (!TextUtils.isEmpty(jVar.acI())) {
+                jSONObject.put("abtest", jVar.acI());
             }
             if (!TextUtils.isEmpty(jVar.getCategory())) {
                 jSONObject.put("c", jVar.getCategory());
             }
-            if (jVar.acG()) {
+            if (jVar.acE()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", e.cAV().lx(jVar.getId()));
+            jSONObject.put("idtype", e.cAT().lx(jVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -145,7 +145,7 @@ public class b {
                                 j2 = j3;
                             }
                         }
-                        sVar.bs(jSONObject);
+                        sVar.bt(jSONObject);
                         b = true;
                     } catch (Exception e) {
                         if (bufferedReader != null) {
@@ -217,7 +217,7 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            sVar.bs(jSONObject);
+                            sVar.bt(jSONObject);
                             i++;
                         } catch (Exception e) {
                             e = e;

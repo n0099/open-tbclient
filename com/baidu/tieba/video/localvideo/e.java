@@ -45,7 +45,7 @@ public class e {
                     }
                     dVar.setDuration(com.baidu.adp.lib.g.b.toInt(cursor.getString(cursor.getColumnIndex("duration")), 0));
                     dVar.EX(cursor.getString(cursor.getColumnIndex("mime_type")));
-                    dVar.ea(Long.parseLong(cursor.getString(cursor.getColumnIndex("date_modified"))));
+                    dVar.dZ(Long.parseLong(cursor.getString(cursor.getColumnIndex("date_modified"))));
                     try {
                         cursor2 = contentResolver.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, strArr, "video_id=" + string2, null, null);
                         if (cursor2 != null) {
@@ -142,7 +142,7 @@ public class e {
         }
         d dVar = new d();
         dVar.setVideoPath(str);
-        dVar.ea(file.lastModified());
+        dVar.dZ(file.lastModified());
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
             try {
@@ -187,7 +187,7 @@ public class e {
         }
         d dVar = new d();
         dVar.setVideoPath(str);
-        dVar.ea(file.lastModified());
+        dVar.dZ(file.lastModified());
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
             try {
@@ -252,10 +252,10 @@ public class e {
         /* renamed from: a */
         public int compare(d dVar, d dVar2) {
             int i = 0;
-            if (dVar.cuq() < dVar2.cuq()) {
+            if (dVar.cuo() < dVar2.cuo()) {
                 i = 1;
             }
-            if (dVar.cuq() > dVar2.cuq()) {
+            if (dVar.cuo() > dVar2.cuo()) {
                 return -1;
             }
             return i;

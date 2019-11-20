@@ -12,57 +12,57 @@ import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e kub;
-    private final m<PointF, PointF> kuc;
-    private final g kud;
-    private final b kue;
-    private final d kuf;
+    private final e ktk;
+    private final m<PointF, PointF> ktl;
+    private final g ktm;
+    private final b ktn;
+    private final d kto;
     @Nullable
-    private final b kug;
+    private final b ktp;
     @Nullable
-    private final b kuh;
+    private final b ktq;
 
     private l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.kub = eVar;
-        this.kuc = mVar;
-        this.kud = gVar;
-        this.kue = bVar;
-        this.kuf = dVar;
-        this.kug = bVar2;
-        this.kuh = bVar3;
+        this.ktk = eVar;
+        this.ktl = mVar;
+        this.ktm = gVar;
+        this.ktn = bVar;
+        this.kto = dVar;
+        this.ktp = bVar2;
+        this.ktq = bVar3;
     }
 
-    public e cLv() {
-        return this.kub;
+    public e cLt() {
+        return this.ktk;
     }
 
-    public m<PointF, PointF> cLw() {
-        return this.kuc;
+    public m<PointF, PointF> cLu() {
+        return this.ktl;
     }
 
-    public g cLx() {
-        return this.kud;
+    public g cLv() {
+        return this.ktm;
     }
 
+    public b cLw() {
+        return this.ktn;
+    }
+
+    public d cLx() {
+        return this.kto;
+    }
+
+    @Nullable
     public b cLy() {
-        return this.kue;
-    }
-
-    public d cLz() {
-        return this.kuf;
+        return this.ktp;
     }
 
     @Nullable
-    public b cLA() {
-        return this.kug;
+    public b cLz() {
+        return this.ktq;
     }
 
-    @Nullable
-    public b cLB() {
-        return this.kuh;
-    }
-
-    public p cLC() {
+    public p cLA() {
         return new p(this);
     }
 
@@ -74,8 +74,8 @@ public class l implements com.tb.airbnb.lottie.model.content.b {
 
     /* loaded from: classes6.dex */
     public static class a {
-        public static l cLD() {
-            return new l(new e(), new e(), g.a.cLs(), b.a.cLo(), d.a.cLp(), b.a.cLo(), b.a.cLo());
+        public static l cLB() {
+            return new l(new e(), new e(), g.a.cLq(), b.a.cLm(), d.a.cLn(), b.a.cLm(), b.a.cLm());
         }
 
         public static l n(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {

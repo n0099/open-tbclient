@@ -46,8 +46,8 @@ public class b {
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public boolean onPreDownload(DownloadData downloadData2) {
                 c cVar = new c();
-                cVar.Vz = 1;
-                cVar.VA = downloadData2;
+                cVar.Vg = 1;
+                cVar.Vh = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 return BdNetTypeUtil.isWifiNet() || z;
             }
@@ -55,8 +55,8 @@ public class b {
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public boolean onFileDownloaded(DownloadData downloadData2) {
                 c cVar = new c();
-                cVar.Vz = 4;
-                cVar.VA = downloadData2;
+                cVar.Vg = 4;
+                cVar.Vh = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 return true;
             }
@@ -70,8 +70,8 @@ public class b {
             public void onFileDownloadFailed(DownloadData downloadData2, int i2, String str7) {
                 BdLog.e("failed to donwload dynamic gift zip" + str7);
                 c cVar = new c();
-                cVar.Vz = 2;
-                cVar.VA = downloadData2;
+                cVar.Vg = 2;
+                cVar.Vh = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
             }
         });
@@ -117,14 +117,14 @@ public class b {
                 if (bool.booleanValue()) {
                     if (a.existFile(str)) {
                         c cVar = new c();
-                        cVar.Vz = 5;
-                        cVar.VA = DownloadData.this;
+                        cVar.Vg = 5;
+                        cVar.Vh = DownloadData.this;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                         return;
                     }
                     c cVar2 = new c();
-                    cVar2.Vz = 6;
-                    cVar2.VA = DownloadData.this;
+                    cVar2.Vg = 6;
+                    cVar2.Vh = DownloadData.this;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar2));
                     BdLog.e("zip empty");
                     return;

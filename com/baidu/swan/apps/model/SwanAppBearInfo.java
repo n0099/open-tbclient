@@ -9,12 +9,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SwanAppBearInfo extends SwanAppIPCData {
-    public String aXA;
-    public String aXB;
-    public String aXw;
-    public String aXx;
-    public String aXy;
-    public String aXz;
+    public String aXe;
+    public String aXf;
+    public String aXg;
+    public String aXh;
+    public String aXi;
+    public String aXj;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static final Parcelable.Creator<SwanAppBearInfo> CREATOR = new Parcelable.Creator<SwanAppBearInfo>() { // from class: com.baidu.swan.apps.model.SwanAppBearInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -33,45 +33,45 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     };
 
     public SwanAppBearInfo() {
-        this.aXw = "";
-        this.aXx = "";
-        this.aXy = "";
-        this.aXz = "";
-        this.aXA = "";
-        this.aXB = "";
+        this.aXe = "";
+        this.aXf = "";
+        this.aXg = "";
+        this.aXh = "";
+        this.aXi = "";
+        this.aXj = "";
     }
 
     private SwanAppBearInfo(Parcel parcel) {
-        this.aXw = "";
-        this.aXx = "";
-        this.aXy = "";
-        this.aXz = "";
-        this.aXA = "";
-        this.aXB = "";
-        this.aXw = parcel.readString();
-        this.aXx = parcel.readString();
-        this.aXy = parcel.readString();
-        this.aXz = parcel.readString();
-        this.aXA = parcel.readString();
-        this.aXB = parcel.readString();
+        this.aXe = "";
+        this.aXf = "";
+        this.aXg = "";
+        this.aXh = "";
+        this.aXi = "";
+        this.aXj = "";
+        this.aXe = parcel.readString();
+        this.aXf = parcel.readString();
+        this.aXg = parcel.readString();
+        this.aXh = parcel.readString();
+        this.aXi = parcel.readString();
+        this.aXj = parcel.readString();
     }
 
     public SwanAppBearInfo(String str) {
-        this.aXw = "";
-        this.aXx = "";
-        this.aXy = "";
-        this.aXz = "";
-        this.aXA = "";
-        this.aXB = "";
+        this.aXe = "";
+        this.aXf = "";
+        this.aXg = "";
+        this.aXh = "";
+        this.aXi = "";
+        this.aXj = "";
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.aXw = jSONObject.optString("office_id");
-                this.aXA = jSONObject.optString("sign");
-                this.aXz = jSONObject.optString("url");
-                this.aXy = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-                this.aXx = jSONObject.optString("name");
-                this.aXB = jSONObject.optString("v_type");
+                this.aXe = jSONObject.optString("office_id");
+                this.aXi = jSONObject.optString("sign");
+                this.aXh = jSONObject.optString("url");
+                this.aXg = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                this.aXf = jSONObject.optString("name");
+                this.aXj = jSONObject.optString("v_type");
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -81,7 +81,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aXw);
+        return !TextUtils.isEmpty(this.aXe);
     }
 
     @Override // android.os.Parcelable
@@ -91,11 +91,11 @@ public class SwanAppBearInfo extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.aXw);
-        parcel.writeString(this.aXx);
-        parcel.writeString(this.aXy);
-        parcel.writeString(this.aXz);
-        parcel.writeString(this.aXA);
-        parcel.writeString(this.aXB);
+        parcel.writeString(this.aXe);
+        parcel.writeString(this.aXf);
+        parcel.writeString(this.aXg);
+        parcel.writeString(this.aXh);
+        parcel.writeString(this.aXi);
+        parcel.writeString(this.aXj);
     }
 }

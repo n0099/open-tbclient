@@ -6,7 +6,7 @@ import com.facebook.imagepipeline.request.a;
 public class y implements r {
     @Override // com.facebook.imagepipeline.c.r
     public bolts.g<com.facebook.imagepipeline.request.a> a(String str, a.C0567a c0567a) {
-        return bolts.g.g((Object) null);
+        return bolts.g.g(null);
     }
 
     @Override // com.facebook.imagepipeline.c.r

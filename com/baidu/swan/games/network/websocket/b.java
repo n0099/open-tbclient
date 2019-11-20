@@ -7,32 +7,32 @@ import kotlin.jvm.internal.p;
 public final class b {
     public final void a(WebSocketTask webSocketTask) {
         p.i(webSocketTask, "task");
-        k XA = XA();
-        if (XA != null) {
-            XA.a(webSocketTask);
+        k Xy = Xy();
+        if (Xy != null) {
+            Xy.a(webSocketTask);
         }
     }
 
     public final void gt(String str) {
         p.i(str, "taskId");
-        k XA = XA();
-        if (XA != null) {
-            XA.gt(str);
+        k Xy = Xy();
+        if (Xy != null) {
+            Xy.gt(str);
         }
     }
 
-    public final boolean MQ() {
-        k XA = XA();
-        if (XA != null) {
-            return XA.MQ();
+    public final boolean MR() {
+        k Xy = Xy();
+        if (Xy != null) {
+            return Xy.MR();
         }
         return false;
     }
 
-    private final k XA() {
-        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
-        if (QZ != null) {
-            return QZ.Rh();
+    private final k Xy() {
+        com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
+        if (Ra != null) {
+            return Ra.Rj();
         }
         return null;
     }

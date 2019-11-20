@@ -11,22 +11,22 @@ import java.io.IOException;
 /* loaded from: classes2.dex */
 public class e implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private d aMu;
-    private String aMv;
-    private String aMw;
-    private boolean aMx;
-    private boolean aMy;
+    private d aMc;
+    private String aMd;
+    private String aMe;
+    private boolean aMf;
+    private boolean aMg;
 
     public e(Context context) {
     }
 
     @Override // com.baidu.swan.apps.core.g.a
     public void loadUrl(String str) {
-        if (this.aMu == null) {
-            final String GW = com.baidu.swan.apps.core.j.c.GO().GW();
-            this.aMu = new d(GW, "runtime/index.js");
-            this.aMv = str;
-            this.aMu.a(new V8EngineConfiguration.JSCacheCallback() { // from class: com.baidu.swan.apps.core.g.e.1
+        if (this.aMc == null) {
+            final String GX = com.baidu.swan.apps.core.j.c.GP().GX();
+            this.aMc = new d(GX, "runtime/index.js");
+            this.aMd = str;
+            this.aMc.a(new V8EngineConfiguration.JSCacheCallback() { // from class: com.baidu.swan.apps.core.g.e.1
                 @Override // com.baidu.searchbox.v8engine.V8EngineConfiguration.JSCacheCallback
                 public void onCacheResult(V8EngineConfiguration.CacheInfo cacheInfo) {
                     if (e.DEBUG) {
@@ -35,10 +35,10 @@ public class e implements a {
                     if (cacheInfo.cached && !TextUtils.isEmpty(cacheInfo.jsPath)) {
                         File file = new File(cacheInfo.jsPath);
                         try {
-                            if (file.getPath().startsWith(new File(GW).getCanonicalPath())) {
-                                e.this.aMx = true;
-                            } else if (!TextUtils.isEmpty(e.this.aMw) && file.getCanonicalPath().startsWith(new File(e.this.aMw).getCanonicalPath())) {
-                                e.this.aMy = true;
+                            if (file.getPath().startsWith(new File(GX).getCanonicalPath())) {
+                                e.this.aMf = true;
+                            } else if (!TextUtils.isEmpty(e.this.aMe) && file.getCanonicalPath().startsWith(new File(e.this.aMe).getCanonicalPath())) {
+                                e.this.aMg = true;
                             }
                         } catch (IOException e) {
                             if (e.DEBUG) {
@@ -55,12 +55,12 @@ public class e implements a {
 
     @Override // com.baidu.swan.apps.core.g.a
     public void a(final com.baidu.swan.apps.core.c cVar) {
-        if (this.aMu != null) {
-            this.aMu.a(new d.b() { // from class: com.baidu.swan.apps.core.g.e.2
+        if (this.aMc != null) {
+            this.aMc.a(new d.b() { // from class: com.baidu.swan.apps.core.g.e.2
                 @Override // com.baidu.swan.apps.core.g.d.b
                 public void c(com.baidu.swan.games.e.a aVar) {
                     if (cVar != null) {
-                        cVar.db(e.this.aMv);
+                        cVar.db(e.this.aMd);
                     }
                 }
             });
@@ -69,33 +69,33 @@ public class e implements a {
 
     @Override // com.baidu.swan.apps.core.g.a
     public void destroy() {
-        if (this.aMu != null) {
-            this.aMu.finish();
+        if (this.aMc != null) {
+            this.aMc.finish();
         }
     }
 
     @Override // com.baidu.swan.apps.core.g.a
     public void x(Activity activity) {
-        this.aMu.x(activity);
+        this.aMc.x(activity);
     }
 
     @Override // com.baidu.swan.apps.core.g.a
-    public com.baidu.swan.apps.core.container.a FY() {
-        return this.aMu.getV8Engine();
+    public com.baidu.swan.apps.core.container.a FZ() {
+        return this.aMc.getV8Engine();
     }
 
     @Override // com.baidu.swan.apps.core.g.a
     public void a(com.baidu.swan.apps.core.j.a aVar) {
-        if (com.baidu.swan.apps.u.a.Jl().Br() && aVar != null) {
+        if (com.baidu.swan.apps.u.a.Jm().Bs() && aVar != null) {
             if (DEBUG) {
-                Log.d("V8MasterAdapter", "pathList item: " + aVar.aNR);
+                Log.d("V8MasterAdapter", "pathList item: " + aVar.aNz);
             }
-            this.aMw = aVar.aNR;
-            this.aMu.setCodeCacheSetting(com.baidu.swan.apps.core.b.a.ag("appjs", aVar.aNR));
+            this.aMe = aVar.aNz;
+            this.aMc.setCodeCacheSetting(com.baidu.swan.apps.core.b.a.ag("appjs", aVar.aNz));
         }
     }
 
-    public int Gd() {
-        return com.baidu.swan.apps.core.b.a.i(this.aMx, this.aMy);
+    public int Ge() {
+        return com.baidu.swan.apps.core.b.a.i(this.aMf, this.aMg);
     }
 }

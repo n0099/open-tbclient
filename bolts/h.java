@@ -1,22 +1,22 @@
 package bolts;
 /* loaded from: classes2.dex */
 public class h<TResult> {
-    private final g<TResult> cY = new g<>();
+    private final g<TResult> cz = new g<>();
 
     public g<TResult> aP() {
-        return this.cY;
+        return this.cz;
     }
 
     public boolean aO() {
-        return this.cY.aO();
+        return this.cz.aO();
     }
 
     public boolean h(TResult tresult) {
-        return this.cY.h(tresult);
+        return this.cz.h(tresult);
     }
 
-    public boolean g(Exception exc) {
-        return this.cY.g(exc);
+    public boolean f(Exception exc) {
+        return this.cz.f(exc);
     }
 
     public void aQ() {
@@ -26,13 +26,13 @@ public class h<TResult> {
     }
 
     public void i(TResult tresult) {
-        if (!h((h<TResult>) tresult)) {
+        if (!h(tresult)) {
             throw new IllegalStateException("Cannot set the result of a completed task.");
         }
     }
 
-    public void h(Exception exc) {
-        if (!g(exc)) {
+    public void g(Exception exc) {
+        if (!f(exc)) {
             throw new IllegalStateException("Cannot set the error on a completed task.");
         }
     }

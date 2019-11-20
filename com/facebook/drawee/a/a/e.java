@@ -9,13 +9,13 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.facebook.common.references.a<com.facebook.imagepipeline.f.b>, com.facebook.imagepipeline.f.e> {
-    private final com.facebook.imagepipeline.d.g kcH;
-    private final g kcw;
+    private final g kbF;
+    private final com.facebook.imagepipeline.d.g kbQ;
 
     public e(Context context, g gVar, com.facebook.imagepipeline.d.g gVar2, Set<com.facebook.drawee.controller.c> set) {
         super(context, set);
-        this.kcH = gVar2;
-        this.kcw = gVar;
+        this.kbQ = gVar2;
+        this.kbF = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,47 +25,47 @@ public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.face
         if (uri == null) {
             return (e) super.aJ(null);
         }
-        return (e) super.aJ(ImageRequestBuilder.R(uri).a(com.facebook.imagepipeline.common.d.cFZ()).cJI());
+        return (e) super.aJ(ImageRequestBuilder.R(uri).a(com.facebook.imagepipeline.common.d.cFX()).cJG());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
-    /* renamed from: cDH */
-    public d cDL() {
-        com.facebook.drawee.d.a cEg = cEg();
-        if (cEg instanceof d) {
-            d dVar = (d) cEg;
-            dVar.a(cEk(), cEj(), cDI(), cEb());
+    /* renamed from: cDF */
+    public d cDJ() {
+        com.facebook.drawee.d.a cEe = cEe();
+        if (cEe instanceof d) {
+            d dVar = (d) cEe;
+            dVar.a(cEi(), cEh(), cDG(), cDZ());
             return dVar;
         }
-        return this.kcw.b(cEk(), cEj(), cDI(), cEb());
+        return this.kbF.b(cEi(), cEh(), cDG(), cDZ());
     }
 
-    private com.facebook.cache.common.b cDI() {
-        ImageRequest cEc = cEc();
-        com.facebook.imagepipeline.c.f cGl = this.kcH.cGl();
-        if (cGl == null || cEc == null) {
+    private com.facebook.cache.common.b cDG() {
+        ImageRequest cEa = cEa();
+        com.facebook.imagepipeline.c.f cGj = this.kbQ.cGj();
+        if (cGj == null || cEa == null) {
             return null;
         }
-        if (cEc.cJE() != null) {
-            return cGl.b(cEc, cEb());
+        if (cEa.cJC() != null) {
+            return cGj.b(cEa, cDZ());
         }
-        return cGl.a(cEc, cEb());
+        return cGj.a(cEa, cDZ());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
     public com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> a(ImageRequest imageRequest, Object obj, AbstractDraweeControllerBuilder.CacheLevel cacheLevel) {
-        return this.kcH.a(imageRequest, obj, a(cacheLevel));
+        return this.kbQ.a(imageRequest, obj, a(cacheLevel));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
-    /* renamed from: cDJ */
-    public e cDK() {
+    /* renamed from: cDH */
+    public e cDI() {
         return this;
     }
 

@@ -11,29 +11,29 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes6.dex */
 public class a extends BaseAdapter {
-    private static final int ekE = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds160);
-    public static final int ekF = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds152);
-    public static final int ekG = (BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst())[1] - (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60) * 2)) / 4;
-    private final int[] ekH;
-    private final short[] ekI;
-    private final int[] ekJ;
-    private InterfaceC0365a ekK;
-    private View.OnClickListener ekL = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.panel.a.1
+    private static final int ejN = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds160);
+    public static final int ejO = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds152);
+    public static final int ejP = (BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst())[1] - (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60) * 2)) / 4;
+    private final int[] ejQ;
+    private final short[] ejR;
+    private final int[] ejS;
+    private InterfaceC0365a ejT;
+    private View.OnClickListener ejU = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.panel.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int i = 0;
             boolean z = true;
             if (view instanceof AlaMasterOperationSwitchItemView) {
                 int itemId = ((AlaMasterOperationSwitchItemView) view).getItemId();
-                int nS = a.this.nS(itemId);
-                if (nS >= 0) {
-                    if (a.this.ekI[nS] == 1) {
-                        a.this.ekI[nS] = 2;
-                    } else if (a.this.ekI[nS] == 2) {
-                        a.this.ekI[nS] = 1;
+                int nR = a.this.nR(itemId);
+                if (nR >= 0) {
+                    if (a.this.ejR[nR] == 1) {
+                        a.this.ejR[nR] = 2;
+                    } else if (a.this.ejR[nR] == 2) {
+                        a.this.ejR[nR] = 1;
                     }
                     a.this.notifyDataSetChanged();
-                    if (a.this.ekI[nS] != 1) {
+                    if (a.this.ejR[nR] != 1) {
                         z = false;
                     }
                 }
@@ -41,8 +41,8 @@ public class a extends BaseAdapter {
             } else if (view instanceof AlaMasterOperationEntryItemView) {
                 i = ((AlaMasterOperationEntryItemView) view).getItemId();
             }
-            if (a.this.ekK != null) {
-                a.this.ekK.y(i, z);
+            if (a.this.ejT != null) {
+                a.this.ejT.y(i, z);
             }
         }
     };
@@ -58,23 +58,23 @@ public class a extends BaseAdapter {
         this.mContext = context;
         if (z) {
             if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-                this.ekH = new int[]{a.i.ala_operation_panel_text_mute, 0, a.i.ala_operation_panel_text_admin, a.i.ala_operation_panel_text_black};
-                this.ekJ = new int[]{4, 0, 5, 6};
+                this.ejQ = new int[]{a.i.ala_operation_panel_text_mute, 0, a.i.ala_operation_panel_text_admin, a.i.ala_operation_panel_text_black};
+                this.ejS = new int[]{4, 0, 5, 6};
             } else {
-                this.ekH = new int[]{a.i.ala_operation_panel_text_mute, a.i.ala_operation_panel_text_admin, a.i.ala_operation_panel_text_black};
-                this.ekJ = new int[]{4, 5, 6};
+                this.ejQ = new int[]{a.i.ala_operation_panel_text_mute, a.i.ala_operation_panel_text_admin, a.i.ala_operation_panel_text_black};
+                this.ejS = new int[]{4, 5, 6};
             }
-            this.ekI = new short[]{1, 1, 1};
+            this.ejR = new short[]{1, 1, 1};
             return;
         }
-        this.ekH = new int[]{a.i.ala_operation_panel_text_camera, a.i.ala_operation_panel_text_falshing, a.i.ala_operation_panel_text_mirror_off, a.i.ala_operation_panel_text_mute, a.i.ala_operation_panel_text_admin, a.i.ala_operation_panel_text_black};
-        this.ekI = new short[]{1, 1, 1, 1, 1, 1};
-        this.ekJ = new int[]{1, 2, 3, 4, 5, 6};
+        this.ejQ = new int[]{a.i.ala_operation_panel_text_camera, a.i.ala_operation_panel_text_falshing, a.i.ala_operation_panel_text_mirror_off, a.i.ala_operation_panel_text_mute, a.i.ala_operation_panel_text_admin, a.i.ala_operation_panel_text_black};
+        this.ejR = new short[]{1, 1, 1, 1, 1, 1};
+        this.ejS = new int[]{1, 2, 3, 4, 5, 6};
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.ekJ.length;
+        return this.ejS.length;
     }
 
     @Override // android.widget.Adapter
@@ -84,15 +84,15 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (i < 0 || i >= this.ekJ.length) {
+        if (i < 0 || i >= this.ejS.length) {
             return -1L;
         }
-        return this.ekJ[i];
+        return this.ejS[i];
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return nO(this.ekJ[i]) ? 0 : 1;
+        return nN(this.ejS[i]) ? 0 : 1;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -109,53 +109,53 @@ public class a extends BaseAdapter {
         AlaMasterOperationEntryItemView alaMasterOperationEntryItemView;
         AlaMasterOperationSwitchItemView alaMasterOperationSwitchItemView;
         AlaMasterOperationSwitchItemView alaMasterOperationSwitchItemView2;
-        if (i < 0 || i >= this.ekJ.length) {
+        if (i < 0 || i >= this.ejS.length) {
             return null;
         }
-        int i2 = this.ekJ[i];
-        int i3 = this.ekH[i];
-        if (nO(i2)) {
+        int i2 = this.ejS[i];
+        int i3 = this.ejQ[i];
+        if (nN(i2)) {
             if (view instanceof AlaMasterOperationSwitchItemView) {
                 alaMasterOperationSwitchItemView2 = (AlaMasterOperationSwitchItemView) view;
             } else {
                 AlaMasterOperationSwitchItemView alaMasterOperationSwitchItemView3 = new AlaMasterOperationSwitchItemView(this.mContext, i2);
-                alaMasterOperationSwitchItemView3.setLayoutParams(new AbsListView.LayoutParams(aUo(), aUp()));
+                alaMasterOperationSwitchItemView3.setLayoutParams(new AbsListView.LayoutParams(aUm(), aUn()));
                 alaMasterOperationSwitchItemView2 = alaMasterOperationSwitchItemView3;
             }
-            alaMasterOperationSwitchItemView2.setTextResIdAndOnIconIdAndOffIconId(i3, nP(i2), nQ(i2));
-            alaMasterOperationSwitchItemView2.f(this.ekI[i]);
+            alaMasterOperationSwitchItemView2.setTextResIdAndOnIconIdAndOffIconId(i3, nO(i2), nP(i2));
+            alaMasterOperationSwitchItemView2.e(this.ejR[i]);
             alaMasterOperationSwitchItemView = alaMasterOperationSwitchItemView2;
         } else {
             if (view instanceof AlaMasterOperationEntryItemView) {
                 alaMasterOperationEntryItemView = (AlaMasterOperationEntryItemView) view;
             } else {
                 AlaMasterOperationEntryItemView alaMasterOperationEntryItemView2 = new AlaMasterOperationEntryItemView(this.mContext, i2);
-                alaMasterOperationEntryItemView2.setLayoutParams(new AbsListView.LayoutParams(aUo(), aUp()));
+                alaMasterOperationEntryItemView2.setLayoutParams(new AbsListView.LayoutParams(aUm(), aUn()));
                 alaMasterOperationEntryItemView = alaMasterOperationEntryItemView2;
             }
-            alaMasterOperationEntryItemView.setTextResIdAndIconResId(i3, nR(i2));
+            alaMasterOperationEntryItemView.setTextResIdAndIconResId(i3, nQ(i2));
             alaMasterOperationSwitchItemView = alaMasterOperationEntryItemView;
         }
-        alaMasterOperationSwitchItemView.setOnClickListener(this.ekL);
+        alaMasterOperationSwitchItemView.setOnClickListener(this.ejU);
         return alaMasterOperationSwitchItemView;
     }
 
-    private boolean nO(int i) {
+    private boolean nN(int i) {
         return i == 1 || i == 2 || i == 3 || i == 4;
     }
 
-    private int aUo() {
+    private int aUm() {
         if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-            return ekE;
+            return ejN;
         }
         return -1;
     }
 
-    private int aUp() {
-        return UtilHelper.getRealScreenOrientation(this.mContext) == 2 ? ekG : ekF;
+    private int aUn() {
+        return UtilHelper.getRealScreenOrientation(this.mContext) == 2 ? ejP : ejO;
     }
 
-    private int nP(int i) {
+    private int nO(int i) {
         if (i == 1) {
             return a.f.btn_camera_exchange_white;
         }
@@ -171,7 +171,7 @@ public class a extends BaseAdapter {
         return 0;
     }
 
-    private int nQ(int i) {
+    private int nP(int i) {
         if (i == 1) {
             return a.f.btn_camera_exchange_white;
         }
@@ -187,7 +187,7 @@ public class a extends BaseAdapter {
         return 0;
     }
 
-    private int nR(int i) {
+    private int nQ(int i) {
         if (i == 5) {
             return a.f.btn_live_admin;
         }
@@ -198,9 +198,9 @@ public class a extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int nS(int i) {
-        for (int i2 = 0; i2 < this.ekJ.length; i2++) {
-            if (this.ekJ[i2] == i) {
+    public int nR(int i) {
+        for (int i2 = 0; i2 < this.ejS.length; i2++) {
+            if (this.ejS[i2] == i) {
                 return i2;
             }
         }
@@ -208,13 +208,13 @@ public class a extends BaseAdapter {
     }
 
     public void a(int i, short s) {
-        int nS = nS(i);
-        if (nS >= 0) {
-            this.ekI[nS] = s;
+        int nR = nR(i);
+        if (nR >= 0) {
+            this.ejR[nR] = s;
         }
     }
 
     public void a(InterfaceC0365a interfaceC0365a) {
-        this.ekK = interfaceC0365a;
+        this.ejT = interfaceC0365a;
     }
 }

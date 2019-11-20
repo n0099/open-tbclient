@@ -5,123 +5,123 @@ import java.util.HashMap;
 import java.util.UUID;
 /* loaded from: classes5.dex */
 public class j implements com.baidu.tieba.j.h {
-    private String hxc;
-    private HashMap<String, com.baidu.tieba.j.f> iCI;
+    private String hwl;
+    private HashMap<String, com.baidu.tieba.j.f> iBR;
     private String mUuid;
 
     /* loaded from: classes5.dex */
     private static class a {
-        private static final com.baidu.tieba.j.h iCJ = new j();
+        private static final com.baidu.tieba.j.h iBS = new j();
     }
 
-    public static com.baidu.tieba.j.h cdL() {
-        return a.iCJ;
+    public static com.baidu.tieba.j.h cdJ() {
+        return a.iBS;
     }
 
     private j() {
-        this.iCI = new HashMap<>();
+        this.iBR = new HashMap<>();
     }
 
     @Override // com.baidu.tieba.j.h
-    public void bMB() {
+    public void bMz() {
         this.mUuid = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.j.h
+    public void au(int i, String str) {
+        cdK().m(this.mUuid, i, str);
+    }
+
+    @Override // com.baidu.tieba.j.h
     public void av(int i, String str) {
-        cdM().m(this.mUuid, i, str);
+        cdK().n(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void aw(int i, String str) {
-        cdM().n(this.mUuid, i, str);
+        cdK().o(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void ax(int i, String str) {
-        cdM().o(this.mUuid, i, str);
-    }
-
-    @Override // com.baidu.tieba.j.h
-    public void bMC() {
-        cdM().zO(this.mUuid);
+    public void bMA() {
+        cdK().zO(this.mUuid);
     }
 
     @Override // com.baidu.tieba.j.h
     public void h(int i, int i2, String str) {
-        cdM().e(this.mUuid, i, i2, str);
+        cdK().e(this.mUuid, i, i2, str);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void bMD() {
-        cdM().zP(this.mUuid);
+    public void bMB() {
+        cdK().zP(this.mUuid);
         dK(this.mUuid);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void ay(int i, String str) {
-        cdM().p(this.mUuid, i, str);
+    public void ax(int i, String str) {
+        cdK().p(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void zS(String str) {
-        if (!StringUtils.isNull(this.hxc)) {
-            if (zQ(this.hxc) || zR(this.hxc)) {
-                dK(this.hxc);
+        if (!StringUtils.isNull(this.hwl)) {
+            if (zQ(this.hwl) || zR(this.hwl)) {
+                dK(this.hwl);
             } else {
-                com.baidu.tieba.j.d.zN(this.hxc);
-                this.iCI.remove(this.mUuid);
+                com.baidu.tieba.j.d.zN(this.hwl);
+                this.iBR.remove(this.mUuid);
             }
-            bMB();
-            cdM().dr(this.hxc, str);
-            this.hxc = null;
+            bMz();
+            cdK().dr(this.hwl, str);
+            this.hwl = null;
         }
     }
 
     @Override // com.baidu.tieba.j.h
-    public void bME() {
-        this.hxc = this.mUuid;
+    public void bMC() {
+        this.hwl = this.mUuid;
     }
 
     @Override // com.baidu.tieba.j.h
     public void zT(String str) {
-        cdM().ds(this.mUuid, str);
+        cdK().ds(this.mUuid, str);
         if (zQ(this.mUuid) || zR(this.mUuid)) {
             dK(this.mUuid);
         } else {
             com.baidu.tieba.j.d.zN(this.mUuid);
-            this.iCI.remove(this.mUuid);
+            this.iBR.remove(this.mUuid);
         }
         this.mUuid = null;
     }
 
     public boolean zQ(String str) {
-        return cdM().zQ(str);
+        return cdK().zQ(str);
     }
 
     public boolean zR(String str) {
-        return cdM().zR(str);
+        return cdK().zR(str);
     }
 
     public void dK(String str) {
-        com.baidu.tieba.j.f fVar = this.iCI.get(str);
+        com.baidu.tieba.j.f fVar = this.iBR.get(str);
         if (fVar != null) {
             fVar.dK(str);
-            this.iCI.remove(str);
+            this.iBR.remove(str);
         }
     }
 
-    private com.baidu.tieba.j.f cdM() {
-        com.baidu.tieba.j.f fVar = this.iCI.get(this.mUuid);
+    private com.baidu.tieba.j.f cdK() {
+        com.baidu.tieba.j.f fVar = this.iBR.get(this.mUuid);
         if (fVar == null) {
-            return cdN();
+            return cdL();
         }
         return fVar;
     }
 
-    private com.baidu.tieba.j.f cdN() {
+    private com.baidu.tieba.j.f cdL() {
         i iVar = new i(this.mUuid);
-        this.iCI.put(this.mUuid, iVar);
+        this.iBR.put(this.mUuid, iVar);
         return iVar;
     }
 }

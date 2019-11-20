@@ -6,9 +6,9 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage {
-    private v dZV;
-    private w dZW;
-    private w dZX;
+    private v dZe;
+    private w dZf;
+    private w dZg;
 
     public AlaGetChallengeInfoResponseMessage() {
         super(1021112);
@@ -22,33 +22,33 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
             if (optJSONObject != null && getError() == 0) {
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("challenge_info");
                 if (optJSONObject2 != null) {
-                    this.dZV = new v();
-                    this.dZV.parseJson(optJSONObject2);
+                    this.dZe = new v();
+                    this.dZe.parseJson(optJSONObject2);
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("anchor_info");
                 if (optJSONObject3 != null) {
-                    this.dZW = new w();
-                    this.dZW.parseJson(optJSONObject3);
+                    this.dZf = new w();
+                    this.dZf.parseJson(optJSONObject3);
                 }
                 JSONObject optJSONObject4 = optJSONObject.optJSONObject("rival_info");
                 if (optJSONObject4 != null) {
-                    this.dZX = new w();
-                    this.dZX.parseJson(optJSONObject4);
+                    this.dZg = new w();
+                    this.dZg.parseJson(optJSONObject4);
                 }
             }
             jSONObject.optString("logid");
         }
     }
 
-    public v aQl() {
-        return this.dZV;
+    public v aQj() {
+        return this.dZe;
     }
 
-    public w aQm() {
-        return this.dZW;
+    public w aQk() {
+        return this.dZf;
     }
 
-    public w aQn() {
-        return this.dZX;
+    public w aQl() {
+        return this.dZg;
     }
 }

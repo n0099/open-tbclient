@@ -16,15 +16,15 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class SampleGroupDescriptionBox extends AbstractFullBox {
     public static final String TYPE = "sgpd";
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_8 = null;
     private int defaultLength;
     private int descriptionLength;
     private List<GroupEntry> groupEntries;
@@ -160,7 +160,7 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
     }
 
     public void setDefaultLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dk(i)));
         this.defaultLength = i;
     }
 

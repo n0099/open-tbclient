@@ -14,9 +14,9 @@ import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.res.widget.dialog.b {
-    private TextView aMf;
-    private SelectorTextView aMg;
-    private a aMh;
+    private TextView aLN;
+    private SelectorTextView aLO;
+    private a aLP;
     private View mView;
 
     protected c(Context context) {
@@ -24,63 +24,63 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
     }
 
     public void a(a aVar) {
-        this.aMh = aVar;
+        this.aLP = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
     protected View i(ViewGroup viewGroup) {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_safe_dialog, viewGroup, false);
-        this.aMf = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
-        this.aMf.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
-        this.aMg = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
-        this.aMg.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
-        FV();
+        this.aLN = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
+        this.aLN.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
+        this.aLO = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
+        this.aLO.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
+        FW();
         return this.mView;
     }
 
-    private void FV() {
-        if (this.aMh == null) {
+    private void FW() {
+        if (this.aLP == null) {
             return;
         }
-        this.aMf.setText(this.mContext.getText(this.aMh.aDI));
-        this.aMf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
+        this.aLN.setText(this.mContext.getText(this.aLP.aDq));
+        this.aLN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.aMh.aMm != null) {
-                    c.this.aMh.aMm.ac(view);
+                if (c.this.aLP.aLU != null) {
+                    c.this.aLP.aLU.ac(view);
                 }
             }
         });
-        if (this.aMh.aMj > 0) {
-            this.aMg.setVisibility(0);
-            this.aMg.setText(this.mContext.getText(this.aMh.aMj));
-            this.aMg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
+        if (this.aLP.aLR > 0) {
+            this.aLO.setVisibility(0);
+            this.aLO.setText(this.mContext.getText(this.aLP.aLR));
+            this.aLO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.aMh.aMl != null) {
-                        c.this.aMh.aMl.ac(view);
+                    if (c.this.aLP.aLT != null) {
+                        c.this.aLP.aLT.ac(view);
                     }
                 }
             });
         } else {
-            this.aMg.setVisibility(8);
+            this.aLO.setVisibility(8);
         }
-        if (this.aMh.aMk <= 0) {
+        if (this.aLP.aLS <= 0) {
             return;
         }
-        Drawable drawable = this.mContext.getResources().getDrawable(this.aMh.aMk);
+        Drawable drawable = this.mContext.getResources().getDrawable(this.aLP.aLS);
         s.a(getContext(), drawable);
         drawable.setBounds(0, 0, z.dip2px(this.mContext, 12.0f), z.dip2px(this.mContext, 12.0f));
-        this.aMg.setCompoundDrawables(drawable, null, null, null);
+        this.aLO.setCompoundDrawables(drawable, null, null, null);
     }
 
     /* loaded from: classes2.dex */
     public static class a extends b.C0212b {
-        private int aDI;
-        private int aMj;
-        private int aMk;
-        public b.c aMl;
-        public b.c aMm;
+        private int aDq;
+        private int aLR;
+        private int aLS;
+        public b.c aLT;
+        public b.c aLU;
 
         public a(Context context) {
             super(context);
@@ -103,19 +103,19 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
         /* renamed from: dh */
         public a di(int i) {
-            this.aDI = i;
+            this.aDq = i;
             return this;
         }
 
         public a a(int i, b.c cVar) {
-            this.aDI = i;
-            this.aMm = cVar;
+            this.aDq = i;
+            this.aLU = cVar;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.b.C0212b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g FW() {
-            c cVar = (c) super.FW();
+        public g FX() {
+            c cVar = (c) super.FX();
             cVar.a(this);
             return cVar;
         }

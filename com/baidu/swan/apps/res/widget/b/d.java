@@ -11,25 +11,25 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.z;
 /* loaded from: classes2.dex */
 public class d {
-    private static boolean aTf = com.baidu.swan.apps.b.DEBUG;
-    private CharSequence bjG;
-    private CharSequence bjH;
-    private Drawable bjI;
-    private Uri bjJ;
-    private int bjK;
-    private a bjL;
-    private boolean bjP;
+    private static boolean aSN = com.baidu.swan.apps.b.DEBUG;
+    private CharSequence bjo;
+    private CharSequence bjp;
+    private Drawable bjq;
+    private Uri bjr;
+    private int bjs;
+    private a bjt;
+    private boolean bjx;
     private Context mContext;
     private CharSequence mTitleText;
-    private int bjM = 2;
-    private int bjN = 1;
-    private int bjO = 1;
+    private int bju = 2;
+    private int bjv = 1;
+    private int bjw = 1;
     private int mDuration = 2;
     private int mTextSize = 14;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void QT();
+        void QU();
     }
 
     private d(Context context) {
@@ -42,23 +42,23 @@ public class d {
 
     public static d a(@NonNull Context context, @NonNull CharSequence charSequence) {
         d dVar = new d(context);
-        dVar.bjG = charSequence;
+        dVar.bjo = charSequence;
         return dVar;
     }
 
     public static d i(@NonNull Context context, @StringRes int i) {
         d dVar = new d(context);
-        dVar.bjG = context.getText(i);
+        dVar.bjo = context.getText(i);
         return dVar;
     }
 
     public d eB(@NonNull int i) {
-        this.bjK = i;
+        this.bjs = i;
         return this;
     }
 
     public d cF(boolean z) {
-        this.bjP = z;
+        this.bjx = z;
         return this;
     }
 
@@ -68,27 +68,27 @@ public class d {
     }
 
     public d f(@NonNull CharSequence charSequence) {
-        this.bjG = charSequence;
+        this.bjo = charSequence;
         return this;
     }
 
     public d eC(int i) {
-        this.bjM = i;
+        this.bju = i;
         return this;
     }
 
     public d eD(int i) {
-        this.bjN = i;
+        this.bjv = i;
         return this;
     }
 
     public d eE(int i) {
-        this.bjO = i;
+        this.bjw = i;
         return this;
     }
 
     public d g(@NonNull CharSequence charSequence) {
-        this.bjH = charSequence;
+        this.bjp = charSequence;
         return this;
     }
 
@@ -102,35 +102,35 @@ public class d {
     }
 
     public d b(a aVar) {
-        this.bjL = aVar;
+        this.bjt = aVar;
         return this;
     }
 
-    public d b(@NonNull Drawable drawable) {
-        this.bjI = drawable;
+    public d c(@NonNull Drawable drawable) {
+        this.bjq = drawable;
         return this;
     }
 
     public d eG(@DrawableRes int i) {
         if (this.mContext != null && this.mContext.getResources() != null) {
-            this.bjI = this.mContext.getResources().getDrawable(i);
+            this.bjq = this.mContext.getResources().getDrawable(i);
         }
         return this;
     }
 
     public d d(@NonNull Uri uri) {
-        this.bjJ = uri;
+        this.bjr = uri;
         return this;
     }
 
-    private boolean QM() {
+    private boolean QN() {
         if (this.mContext == null) {
-            if (aTf) {
+            if (aSN) {
                 throw new IllegalArgumentException("UniversalToast mContext is null!!!");
             }
             return false;
-        } else if (this.bjG == null) {
-            if (aTf) {
+        } else if (this.bjo == null) {
+            if (aSN) {
                 throw new IllegalArgumentException("UniversalToast toast text is null!!!");
             }
             return false;
@@ -139,92 +139,92 @@ public class d {
         }
     }
 
-    public void QN() {
+    public void QO() {
         cG(false);
     }
 
-    public void QO() {
-        if (QM()) {
+    public void QP() {
+        if (QN()) {
             cancelToast();
-            com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjG, this.mDuration, false, this.bjK, this.bjP);
+            com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.mDuration, false, this.bjs, this.bjx);
         }
     }
 
     public void cG(boolean z) {
-        if (QM()) {
+        if (QN()) {
             cancelToast();
             if (!z && (this.mContext instanceof Activity)) {
-                e.a((Activity) this.mContext, this.bjG, this.mDuration, this.bjK, this.bjP);
+                e.a((Activity) this.mContext, this.bjo, this.mDuration, this.bjs, this.bjx);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjG, this.mDuration, true, this.bjK, this.bjP);
-            }
-        }
-    }
-
-    public void QP() {
-        cH(false);
-    }
-
-    public void cH(boolean z) {
-        if (QM()) {
-            cancelToast();
-            if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjG, this.mDuration);
-            } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.bjG, this.mDuration);
-            } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjG, this.mDuration);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.mDuration, true, this.bjs, this.bjx);
             }
         }
     }
 
     public void QQ() {
-        cI(false);
+        cH(false);
     }
 
-    public void cI(boolean z) {
-        if (QM()) {
+    public void cH(boolean z) {
+        if (QN()) {
             cancelToast();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjG, this.bjI, this.mDuration, this.bjP);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.mDuration);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.bjG, this.bjI, this.mDuration, this.bjP);
+                e.a((Activity) this.mContext, this.bjo, this.mDuration);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjG, this.bjI, this.mDuration, this.bjP);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.mDuration);
             }
         }
     }
 
     public void QR() {
-        cJ(false);
+        cI(false);
     }
 
-    public void cJ(boolean z) {
-        if (QM()) {
+    public void cI(boolean z) {
+        if (QN()) {
             cancelToast();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjG, this.mDuration, this.bjP);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.bjq, this.mDuration, this.bjx);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.bjG, this.mDuration, this.bjP);
+                e.a((Activity) this.mContext, this.bjo, this.bjq, this.mDuration, this.bjx);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjG, this.mDuration, this.bjP);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.bjq, this.mDuration, this.bjx);
             }
         }
     }
 
     public void QS() {
+        cJ(false);
+    }
+
+    public void cJ(boolean z) {
+        if (QN()) {
+            cancelToast();
+            if (z) {
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.mDuration, this.bjx);
+            } else if (this.mContext instanceof Activity) {
+                e.a((Activity) this.mContext, this.bjo, this.mDuration, this.bjx);
+            } else {
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.mDuration, this.bjx);
+            }
+        }
+    }
+
+    public void QT() {
         cK(false);
     }
 
     public void cK(boolean z) {
-        if (QM()) {
+        if (QN()) {
             cancelToast();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjJ, this.bjO, this.mTitleText, this.bjG, this.bjH, this.bjM, this.mDuration, this.bjL);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjr, this.bjw, this.mTitleText, this.bjo, this.bjp, this.bju, this.mDuration, this.bjt);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.bjJ, this.bjO, this.mTitleText, this.bjG, this.bjH, this.bjM, this.bjN, this.mDuration, this.bjL);
+                e.a((Activity) this.mContext, this.bjr, this.bjw, this.mTitleText, this.bjo, this.bjp, this.bju, this.bjv, this.mDuration, this.bjt);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjJ, this.bjO, this.mTitleText, this.bjG, this.bjH, this.bjM, this.mDuration, this.bjL);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjr, this.bjw, this.mTitleText, this.bjo, this.bjp, this.bju, this.mDuration, this.bjt);
             }
         }
     }

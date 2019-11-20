@@ -29,16 +29,16 @@ import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public abstract class BasePraiseView<T> extends LinearLayout {
     protected int agreeType;
-    protected long cdQ;
-    protected long cdR;
-    protected ScaleAnimation cmG;
-    protected View.OnClickListener cmo;
-    protected int cnb;
-    public int cnc;
-    public int cnd;
-    public int cne;
-    protected TextView cnf;
-    protected ImageView cng;
+    protected long ccZ;
+    protected long cda;
+    protected ScaleAnimation clO;
+    protected View.OnClickListener clw;
+    protected int cmk;
+    public int cml;
+    public int cmm;
+    public int cmn;
+    protected TextView cmo;
+    protected ImageView cmp;
     public int drawableResId;
     protected T mData;
     protected String mForumId;
@@ -63,41 +63,41 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         this.mSkinType = 3;
         this.agreeType = 2;
         this.objType = 3;
-        this.cnb = 1;
+        this.cmk = 1;
         this.mFrom = 2;
         this.textResId = R.string.action_praise_default;
         this.drawableResId = R.drawable.icon_card_like_n;
-        this.cnc = R.drawable.icon_card_like_s;
-        this.cnd = R.color.cp_cont_j;
-        this.cne = R.color.cp_cont_h;
+        this.cml = R.drawable.icon_card_like_s;
+        this.cmm = R.color.cp_cont_j;
+        this.cmn = R.color.cp_cont_h;
         this.mThreadId = "";
         this.mForumId = "";
         this.mPostId = "";
         setOrientation(0);
         setGravity(17);
         initView(context);
-        anw();
+        anu();
     }
 
     protected void initView(Context context) {
         if (context != null) {
             View inflate = View.inflate(context, R.layout.praise_view, this);
-            this.cnf = (TextView) inflate.findViewById(R.id.thread_info_praise_num);
-            this.cng = (ImageView) inflate.findViewById(R.id.thread_info_praise_img);
+            this.cmo = (TextView) inflate.findViewById(R.id.thread_info_praise_num);
+            this.cmp = (ImageView) inflate.findViewById(R.id.thread_info_praise_img);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void anw() {
+    public void anu() {
         this.agreeType = 2;
         this.textResId = R.string.action_praise_default;
-        this.cnd = R.color.cp_cont_j;
-        this.cne = R.color.cp_cont_h;
+        this.cmm = R.color.cp_cont_j;
+        this.cmn = R.color.cp_cont_h;
         this.drawableResId = R.drawable.icon_card_like_n;
-        this.cnc = R.drawable.icon_card_like_s;
+        this.cml = R.drawable.icon_card_like_s;
     }
 
-    public StateListDrawable ad(int i, int i2) {
+    public StateListDrawable ab(int i, int i2) {
         Drawable drawable = am.getDrawable(i);
         Drawable drawable2 = am.getDrawable(i2);
         StateListDrawable stateListDrawable = new StateListDrawable();
@@ -115,19 +115,19 @@ public abstract class BasePraiseView<T> extends LinearLayout {
 
     public void a(int i, bh bhVar) {
         com.baidu.tbadk.data.j jVar = new com.baidu.tbadk.data.j();
-        jVar.cEc = i;
-        jVar.cEd = bhVar;
+        jVar.cDl = i;
+        jVar.cDm = bhVar;
         jVar.forumId = this.mForumId;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, jVar));
     }
 
-    public void iz(int i) {
-        if (this.cng != null && i == 0) {
-            this.cng.startAnimation(getScaleAnimation());
+    public void iy(int i) {
+        if (this.cmp != null && i == 0) {
+            this.cmp.startAnimation(getScaleAnimation());
         }
     }
 
-    public void iy(int i) {
+    public void ix(int i) {
         if (this.mData != null) {
             HttpMessage httpMessage = new HttpMessage(1001601);
             httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
@@ -147,11 +147,11 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public Animation getScaleAnimation() {
-        if (this.cmG == null) {
-            this.cmG = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
-            this.cmG.setDuration(200L);
+        if (this.clO == null) {
+            this.clO = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
+            this.clO.setDuration(200L);
         }
-        return this.cmG;
+        return this.clO;
     }
 
     public void onChangeSkinType(int i) {
@@ -162,7 +162,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public void setDisPraiseFrom(int i) {
-        this.cnb = i;
+        this.cmk = i;
     }
 
     public void setFrom(int i) {
@@ -187,12 +187,12 @@ public abstract class BasePraiseView<T> extends LinearLayout {
 
     public void setViewEnabled(boolean z) {
         setClickable(z);
-        this.cng.setEnabled(z);
-        this.cnf.setEnabled(z);
+        this.cmp.setEnabled(z);
+        this.cmo.setEnabled(z);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.cmo = onClickListener;
+        this.clw = onClickListener;
     }
 
     public TbPageContext<?> getTbPageContext() {
@@ -216,11 +216,11 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public ImageView getImageView() {
-        return this.cng;
+        return this.cmp;
     }
 
     public TextView getTextView() {
-        return this.cnf;
+        return this.cmo;
     }
 
     public void eq(boolean z) {
@@ -232,12 +232,12 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         anVar.O("obj_type", getObjType());
         anVar.O("obj_locate", getObjLocate());
         anVar.O("obj_id", z ? 1 : 0);
-        anVar.O("obj_param1", com.baidu.tbadk.util.a.axp().aoP() ? 1 : 0);
+        anVar.O("obj_param1", com.baidu.tbadk.util.a.axn().aoN() ? 1 : 0);
         TiebaStatic.log(anVar);
     }
 
     private int getObjLocate() {
-        return this.cnb;
+        return this.cmk;
     }
 
     private int getObjType() {

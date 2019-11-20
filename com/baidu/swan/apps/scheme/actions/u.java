@@ -52,7 +52,7 @@ public class u extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.swan.apps.scheme.actions.i.g.RR().a(bVar.Iy(), bVar.id, bVar.getVersion(), optString2, hq, com.baidu.swan.apps.w.e.LD().Lm(), null, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.u.1
+            com.baidu.swan.apps.scheme.actions.i.g.RT().a(bVar.Iz(), bVar.id, bVar.getVersion(), optString2, hq, com.baidu.swan.apps.w.e.LE().Ln(), null, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.u.1
                 @Override // com.baidu.swan.apps.scheme.actions.i.g.a
                 public void fO(String str) {
                     com.baidu.swan.apps.console.c.i("PreloadSubPackage", "preload subPackage success");

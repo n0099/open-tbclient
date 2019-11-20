@@ -15,8 +15,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CoverViewHelper {
     private static final boolean DEBUG = b.DEBUG;
-    protected com.baidu.swan.apps.view.coverview.a bwh;
-    private a bwi = new a();
+    protected com.baidu.swan.apps.view.coverview.a bvq;
+    private a bvr = new a();
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -32,12 +32,12 @@ public class CoverViewHelper {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ax(final View view) {
-        if (!com.baidu.swan.apps.view.container.b.b.Vi()) {
+        if (!com.baidu.swan.apps.view.container.b.b.Vg()) {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.coverview.subview.CoverViewHelper.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (CoverViewHelper.this.bwh != null) {
-                        CoverViewHelper.this.bwh.a(2, view, null);
+                    if (CoverViewHelper.this.bvq != null) {
+                        CoverViewHelper.this.bvq.a(2, view, null);
                     }
                 }
             });
@@ -46,8 +46,8 @@ public class CoverViewHelper {
                 @SuppressLint({"ClickableViewAccessibility"})
                 public boolean onTouch(View view2, MotionEvent motionEvent) {
                     if (motionEvent.getAction() == 1) {
-                        CoverViewHelper.this.bwi.x = motionEvent.getRawX();
-                        CoverViewHelper.this.bwi.y = motionEvent.getRawY();
+                        CoverViewHelper.this.bvr.x = motionEvent.getRawX();
+                        CoverViewHelper.this.bvr.y = motionEvent.getRawY();
                         return false;
                     }
                     return false;
@@ -57,13 +57,13 @@ public class CoverViewHelper {
     }
 
     public void setOnActionCallback(com.baidu.swan.apps.view.coverview.a aVar) {
-        if (this.bwh != aVar) {
-            this.bwh = aVar;
+        if (this.bvq != aVar) {
+            this.bvq = aVar;
         }
     }
 
-    public com.baidu.swan.apps.view.coverview.a Vm() {
-        return this.bwh;
+    public com.baidu.swan.apps.view.coverview.a Vk() {
+        return this.bvq;
     }
 
     public void a(@NonNull View view, @NonNull JSONObject jSONObject) {
@@ -97,16 +97,16 @@ public class CoverViewHelper {
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(i);
-        gradientDrawable.setCornerRadius(aN(jSONObject));
+        gradientDrawable.setCornerRadius(aO(jSONObject));
         gradientDrawable.setStroke(optInt, i2);
         view.setBackground(gradientDrawable);
     }
 
-    public int aN(@NonNull JSONObject jSONObject) {
+    public int aO(@NonNull JSONObject jSONObject) {
         return z.S(jSONObject.optInt("borderRadius"));
     }
 
     public a getClickPosition() {
-        return this.bwi;
+        return this.bvr;
     }
 }

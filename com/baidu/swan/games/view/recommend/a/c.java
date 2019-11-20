@@ -6,41 +6,41 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class c {
-    public static final String bFT = null;
-    private List<String> bFU = new ArrayList();
+    public static final String bFc = null;
+    private List<String> bFd = new ArrayList();
 
     public void g(int i, String str, String str2) {
-        String gj = gj(i);
-        String E = E(gj, str, str2);
-        if (!this.bFU.contains(E)) {
-            String appKey = com.baidu.swan.apps.ae.b.QZ() == null ? null : com.baidu.swan.apps.ae.b.QZ().getAppKey();
+        String gi = gi(i);
+        String E = E(gi, str, str2);
+        if (!this.bFd.contains(E)) {
+            String appKey = com.baidu.swan.apps.ae.b.Ra() == null ? null : com.baidu.swan.apps.ae.b.Ra().getAppKey();
             f fVar = new f();
             fVar.mType = "click";
-            fVar.aTe = gj;
+            fVar.aSM = gi;
             fVar.mValue = str;
             if (str2 != null) {
                 fVar.h("target_appkey", str2);
             }
             fVar.h("current_appkey", appKey);
             com.baidu.swan.apps.statistic.e.d(fVar);
-            this.bFU.add(E);
+            this.bFd.add(E);
         }
     }
 
     public void a(int i, com.baidu.swan.games.view.recommend.d.b bVar) {
-        String gj = gj(i);
+        String gi = gi(i);
         JSONArray b = b(bVar);
         f fVar = new f();
         fVar.mType = "show";
-        fVar.aTe = gj;
+        fVar.aSM = gi;
         if (b != null) {
             fVar.h("game_list", b);
         }
         com.baidu.swan.apps.statistic.e.d(fVar);
-        this.bFU.clear();
+        this.bFd.clear();
     }
 
-    private String gj(int i) {
+    private String gi(int i) {
         switch (i) {
             case 1:
                 return "carousel";
@@ -52,11 +52,11 @@ public class c {
     }
 
     private JSONArray b(com.baidu.swan.games.view.recommend.d.b bVar) {
-        if (bVar == null || bVar.bGq == null) {
+        if (bVar == null || bVar.bFz == null) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        for (com.baidu.swan.games.view.recommend.d.a aVar : bVar.bGq) {
+        for (com.baidu.swan.games.view.recommend.d.a aVar : bVar.bFz) {
             jSONArray.put(aVar.appKey);
         }
         return jSONArray;

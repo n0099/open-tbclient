@@ -3,36 +3,36 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class p {
-    public String SA;
-    public int Su;
-    public String Sv;
-    public int Sw;
-    public int Sx;
-    public r Sy;
-    public int Sz;
+    public int Sb;
+    public String Sc;
+    public int Sd;
+    public int Se;
+    public r Sf;
+    public int Sg;
+    public String Sh;
     public int status;
 
     public void parseJson(JSONObject jSONObject) {
-        this.Su = jSONObject.optInt("taskid");
-        this.Sv = jSONObject.optString("taskname");
+        this.Sb = jSONObject.optInt("taskid");
+        this.Sc = jSONObject.optString("taskname");
         this.status = jSONObject.optInt("status");
-        this.Sw = jSONObject.optInt("cur_step");
-        this.Sx = jSONObject.optInt("total_step");
+        this.Sd = jSONObject.optInt("cur_step");
+        this.Se = jSONObject.optInt("total_step");
         JSONObject optJSONObject = jSONObject.optJSONObject("param");
         if (optJSONObject != null) {
-            this.Sy = new r();
-            this.Sy.parseJson(optJSONObject);
+            this.Sf = new r();
+            this.Sf.parseJson(optJSONObject);
         }
-        this.Sz = jSONObject.optInt("award_num");
-        this.SA = jSONObject.optString("taskdetail");
+        this.Sg = jSONObject.optInt("award_num");
+        this.Sh = jSONObject.optString("taskdetail");
     }
 
     public boolean op() {
-        return this.Su == 1;
+        return this.Sb == 1;
     }
 
     public boolean oq() {
-        return this.Su == 6;
+        return this.Sb == 6;
     }
 
     public boolean or() {

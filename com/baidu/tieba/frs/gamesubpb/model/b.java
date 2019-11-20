@@ -5,12 +5,12 @@ import com.baidu.adp.widget.ListView.m;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b implements m {
-    public static final BdUniqueId fKM = BdUniqueId.gen();
+    public static final BdUniqueId fJV = BdUniqueId.gen();
     public String content;
     public String createTime;
-    public String fKN;
-    public int fKO;
-    public boolean fKP;
+    public String fJW;
+    public int fJX;
+    public boolean fJY;
     public String forumId;
     public String id;
     public String portrait;
@@ -25,10 +25,10 @@ public class b implements m {
             this.forumId = jSONObject.optString("forum_id");
             this.score = jSONObject.optString("score");
             this.createTime = jSONObject.optString("create_time");
-            this.fKN = jSONObject.optString("time_passed");
+            this.fJW = jSONObject.optString("time_passed");
             this.content = jSONObject.optString("content");
-            this.fKO = jSONObject.optInt("zan_num");
-            this.fKP = jSONObject.optInt("is_zan", 0) == 1;
+            this.fJX = jSONObject.optInt("zan_num");
+            this.fJY = jSONObject.optInt("is_zan", 0) == 1;
             this.userName = jSONObject.optString("user_name");
             this.portrait = jSONObject.optString("portrait");
         }
@@ -36,6 +36,6 @@ public class b implements m {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fKM;
+        return fJV;
     }
 }

@@ -11,7 +11,7 @@ public class a implements g {
     public void zb(String str) {
         Activity currentActivity;
         if (!StringUtils.isNull(str) && (currentActivity = com.baidu.adp.base.a.em().currentActivity()) != null) {
-            ba.amQ().a((TbPageContext) i.ab(currentActivity), new String[]{str}, true);
+            ba.amO().a((TbPageContext) i.ab(currentActivity), new String[]{str}, true);
         }
     }
 

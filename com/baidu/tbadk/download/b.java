@@ -24,22 +24,22 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b cEC = null;
-    private static DownloadData cEF = null;
+    private static b cDL = null;
+    private static DownloadData cDO = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private final int cED = 5;
-    private a cEE = null;
+    private final int cDM = 5;
+    private a cDN = null;
 
     private b() {
     }
 
-    public static b atT() {
+    public static b atR() {
         synchronized (b.class) {
-            if (cEC == null) {
-                cEC = new b();
+            if (cDL == null) {
+                cDL = new b();
             }
         }
-        return cEC;
+        return cDL;
     }
 
     public void a(String str, String str2, String str3, String[] strArr) {
@@ -67,7 +67,7 @@ public class b {
 
     public void a(DownloadData downloadData) {
         if (downloadData != null) {
-            List<DownloadData> downloadList = d.atV().getDownloadList();
+            List<DownloadData> downloadList = d.atT().getDownloadList();
             if (downloadList != null && downloadList.size() >= 5) {
                 downloadData.setStatus(2);
                 downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_over_max));
@@ -76,18 +76,18 @@ public class b {
                 return;
             }
             mTaskList.add(downloadData);
-            atU();
+            atS();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void atU() {
-        if (cEF == null) {
-            cEF = (DownloadData) v.getItem(mTaskList, 0);
-            if (cEF != null) {
-                this.cEE = new a();
-                this.cEE.setPriority(3);
-                this.cEE.execute(cEF);
+    public void atS() {
+        if (cDO == null) {
+            cDO = (DownloadData) v.getItem(mTaskList, 0);
+            if (cDO != null) {
+                this.cDN = new a();
+                this.cDN.setPriority(3);
+                this.cDN.execute(cDO);
             }
         }
     }
@@ -123,10 +123,10 @@ public class b {
     /* renamed from: com.baidu.tbadk.download.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private class C0293b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
-        ArrayList<AdvertAppInfo> cEH;
+        ArrayList<AdvertAppInfo> cDQ;
 
         private C0293b() {
-            this.cEH = null;
+            this.cDQ = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -139,12 +139,12 @@ public class b {
             if (arrayList == null) {
                 return linkedList;
             }
-            this.cEH = arrayList;
+            this.cDQ = arrayList;
             Iterator<AdvertAppInfo> it = arrayList.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                String str = next.bXo;
-                if (m.GetFile(b.this.getFileOfUrl(next.bXn)) != null) {
+                String str = next.bWx;
+                if (m.GetFile(b.this.getFileOfUrl(next.bWw)) != null) {
                     DownloadData downloadData = new DownloadData(str);
                     downloadData.setStatus(3);
                     linkedList.add(downloadData);
@@ -162,16 +162,16 @@ public class b {
             if (list == null) {
                 list = new LinkedList<>();
             }
-            for (DownloadData downloadData : d.atV().getDownloadList()) {
-                Iterator<AdvertAppInfo> it = this.cEH.iterator();
+            for (DownloadData downloadData : d.atT().getDownloadList()) {
+                Iterator<AdvertAppInfo> it = this.cDQ.iterator();
                 while (it.hasNext()) {
-                    if (TextUtils.equals(it.next().bXo, downloadData.getId())) {
+                    if (TextUtils.equals(it.next().bWx, downloadData.getId())) {
                         list.add(downloadData);
                     }
                 }
             }
             b.this.aB(list);
-            this.cEH = null;
+            this.cDQ = null;
         }
     }
 
@@ -232,7 +232,7 @@ public class b {
         /* renamed from: e */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            b.this.cEE = null;
+            b.this.cDN = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
                     b.this.b(downloadData);
@@ -240,7 +240,7 @@ public class b {
                         UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(DefaultConfig.TOKEN_SEPARATOR, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
                     }
                 } else {
-                    d.atV().a(downloadData, 5);
+                    d.atT().a(downloadData, 5);
                     int ca = b.this.ca(downloadData.getId(), downloadData.getName());
                     if (downloadData.isNeedNotify() && ca <= 0) {
                         String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_will_begin);
@@ -249,10 +249,10 @@ public class b {
                         b.this.c(downloadData);
                     }
                 }
-                DownloadData unused = b.cEF = null;
+                DownloadData unused = b.cDO = null;
                 if (!b.mTaskList.isEmpty()) {
                     b.mTaskList.remove(0);
-                    b.this.atU();
+                    b.this.atS();
                 }
             }
         }
@@ -277,7 +277,7 @@ public class b {
     }
 
     public boolean pu(String str) {
-        for (DownloadData downloadData : d.atV().getDownloadList()) {
+        for (DownloadData downloadData : d.atT().getDownloadList()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
                 return true;
             }
@@ -299,7 +299,7 @@ public class b {
 
     public void pv(String str) {
         if (!StringUtils.isNull(str)) {
-            d.atV().cancelDownLoadByUrl(str);
+            d.atT().cancelDownLoadByUrl(str);
         }
     }
 

@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    private static a kU;
+    private static a kt;
     private static ArrayList<SoftReference<Activity>> sActivityStack;
-    private InterfaceC0011a kV;
+    private InterfaceC0011a ku;
     private int mActivityStackMaxSize = 0;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
@@ -23,7 +23,7 @@ public final class a {
     }
 
     public void a(InterfaceC0011a interfaceC0011a) {
-        this.kV = interfaceC0011a;
+        this.ku = interfaceC0011a;
     }
 
     private a() {
@@ -33,10 +33,10 @@ public final class a {
     }
 
     public static a em() {
-        if (kU == null) {
-            kU = new a();
+        if (kt == null) {
+            kt = new a();
         }
-        return kU;
+        return kt;
     }
 
     public int getSize() {
@@ -69,8 +69,8 @@ public final class a {
         if (activity != null) {
             int size = sActivityStack.size();
             if (size == 0) {
-                if (this.kV != null) {
-                    this.kV.onActivityClosed();
+                if (this.ku != null) {
+                    this.ku.onActivityClosed();
                     return;
                 }
                 return;
@@ -81,13 +81,13 @@ public final class a {
                     sActivityStack.remove(i);
                 } else if (activity.equals(softReference.get())) {
                     sActivityStack.remove(i);
-                    if (sActivityStack.size() == 0 && this.kV != null) {
-                        this.kV.onActivityClosed();
+                    if (sActivityStack.size() == 0 && this.ku != null) {
+                        this.ku.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (sActivityStack.size() == 0 && this.kV != null) {
-                    this.kV.onActivityClosed();
+                } else if (sActivityStack.size() == 0 && this.ku != null) {
+                    this.ku.onActivityClosed();
                 }
             }
         }
@@ -122,8 +122,8 @@ public final class a {
                 }
             }
         }
-        if (this.kV != null) {
-            this.kV.onActivityClosed();
+        if (this.ku != null) {
+            this.ku.onActivityClosed();
         }
     }
 

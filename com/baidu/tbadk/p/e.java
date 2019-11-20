@@ -7,24 +7,24 @@ import com.baidu.mobstat.Config;
 public class e extends o {
     @Override // com.baidu.tbadk.p.o
     public void a(i iVar) {
-        if (m.awN().awO()) {
+        if (m.awL().awM()) {
             com.baidu.adp.lib.stats.a fU = fU();
             fU.append("action", "time_t");
             a(fU, iVar);
-            fU.append("ishttp", iVar.cMl ? "1" : "0");
+            fU.append("ishttp", iVar.cLu ? "1" : "0");
             fU.append("issuccess", iVar.isSuccess ? "1" : "0");
-            fU.append("nettype", m.awN().getNetType());
-            fU.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.cMa));
-            fU.append("wt", String.valueOf(iVar.cMi));
-            fU.append("qt", String.valueOf(iVar.cMb));
-            fU.append("connt", String.valueOf(iVar.cMc));
-            fU.append("rwt", String.valueOf(iVar.cMd));
-            fU.append("dect", String.valueOf(iVar.cMe));
-            fU.append("parset", String.valueOf(iVar.cMf));
-            fU.append("rendert", String.valueOf(iVar.cMh));
-            fU.append("ss", String.valueOf(iVar.cMj));
-            fU.append("hs", String.valueOf(iVar.cMk));
-            if (iVar.cMl && iVar.socketErrNo != 0) {
+            fU.append("nettype", m.awL().getNetType());
+            fU.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.cLj));
+            fU.append("wt", String.valueOf(iVar.cLr));
+            fU.append("qt", String.valueOf(iVar.cLk));
+            fU.append("connt", String.valueOf(iVar.cLl));
+            fU.append("rwt", String.valueOf(iVar.cLm));
+            fU.append("dect", String.valueOf(iVar.cLn));
+            fU.append("parset", String.valueOf(iVar.cLo));
+            fU.append("rendert", String.valueOf(iVar.cLq));
+            fU.append("ss", String.valueOf(iVar.cLs));
+            fU.append("hs", String.valueOf(iVar.cLt));
+            if (iVar.cLu && iVar.socketErrNo != 0) {
                 fU.append("salno", String.valueOf(iVar.socketErrNo));
                 if (iVar.socketCostTime != 0) {
                     fU.append("scosttime", String.valueOf(iVar.socketCostTime));
@@ -33,8 +33,8 @@ public class e extends o {
             if (iVar.errCode != 0) {
                 fU.append("errcode", Integer.valueOf(iVar.errCode));
             }
-            if (iVar.cMl) {
-                fU.append(BdStatsConstant.StatsKey.LOGID, String.valueOf(iVar.cMp));
+            if (iVar.cLu) {
+                fU.append(BdStatsConstant.StatsKey.LOGID, String.valueOf(iVar.cLy));
             } else {
                 fU.append(BdStatsConstant.StatsKey.SEQUENCEID, String.valueOf(iVar.sequenceID & 4294967295L));
             }
@@ -44,12 +44,12 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.p.o
     public void a(h hVar, String str) {
-        if (hVar != null && str != null && m.awN().awO()) {
+        if (hVar != null && str != null && m.awL().awM()) {
             com.baidu.adp.lib.stats.a fU = fU();
             fU.append("action", "resource_t");
             fU.append("actype", str);
             fU.append("issuccess", hVar.isSuccess ? "1" : "0");
-            fU.append("isfs", hVar.cLY ? "1" : "0");
+            fU.append("isfs", hVar.cLh ? "1" : "0");
             fU.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.costTime));
             fU.append("from", String.valueOf(hVar.resourceFromType));
             BdStatisticsManager.getInstance().performance(this.subType, fU);
@@ -64,29 +64,29 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.p.o
     public void a(i iVar, boolean z) {
-        if (m.awN().awO()) {
-            if (!z || iVar.cMq > 0) {
-                if (z || iVar.cMr > 0) {
+        if (m.awL().awM()) {
+            if (!z || iVar.cLz > 0) {
+                if (z || iVar.cLA > 0) {
                     com.baidu.adp.lib.stats.a fU = fU();
                     fU.append("action", "time_t");
                     a(fU, iVar);
                     if (z) {
-                        fU.append("put", String.valueOf(iVar.cMq));
+                        fU.append("put", String.valueOf(iVar.cLz));
                     } else {
-                        fU.append("pdt", String.valueOf(iVar.cMr));
+                        fU.append("pdt", String.valueOf(iVar.cLA));
                     }
-                    fU.append("ishttp", iVar.cMl ? "1" : "0");
+                    fU.append("ishttp", iVar.cLu ? "1" : "0");
                     fU.append("issuccess", iVar.isSuccess ? "1" : "0");
-                    fU.append("nettype", m.awN().getNetType());
-                    fU.append("qt", String.valueOf(iVar.cMb));
-                    fU.append("connt", String.valueOf(iVar.cMc));
-                    fU.append("rwt", String.valueOf(iVar.cMd));
-                    fU.append("dect", String.valueOf(iVar.cMe));
-                    fU.append("parset", String.valueOf(iVar.cMf));
-                    fU.append("rendert", String.valueOf(iVar.cMh));
-                    fU.append("ss", String.valueOf(iVar.cMj));
-                    fU.append("hs", String.valueOf(iVar.cMk));
-                    if (iVar.cMl && iVar.socketErrNo != 0) {
+                    fU.append("nettype", m.awL().getNetType());
+                    fU.append("qt", String.valueOf(iVar.cLk));
+                    fU.append("connt", String.valueOf(iVar.cLl));
+                    fU.append("rwt", String.valueOf(iVar.cLm));
+                    fU.append("dect", String.valueOf(iVar.cLn));
+                    fU.append("parset", String.valueOf(iVar.cLo));
+                    fU.append("rendert", String.valueOf(iVar.cLq));
+                    fU.append("ss", String.valueOf(iVar.cLs));
+                    fU.append("hs", String.valueOf(iVar.cLt));
+                    if (iVar.cLu && iVar.socketErrNo != 0) {
                         fU.append("salno", String.valueOf(iVar.socketErrNo));
                         if (iVar.socketCostTime != 0) {
                             fU.append("scosttime", String.valueOf(iVar.socketCostTime));
@@ -103,11 +103,11 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.p.o
     public void a(i iVar, int i) {
-        if (m.awN().awO() && iVar.cMs > 0) {
+        if (m.awL().awM() && iVar.cLB > 0) {
             com.baidu.adp.lib.stats.a fU = fU();
             fU.append("action", "time_t");
             a(fU, iVar);
-            fU.append("pct", String.valueOf(iVar.cMs));
+            fU.append("pct", String.valueOf(iVar.cLB));
             switch (i) {
                 case 0:
                     fU.append("pct_type", String.valueOf(100));

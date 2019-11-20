@@ -14,129 +14,129 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.base.b<UpdatesActivity> {
-    private TextView cpb;
-    private UpdatesActivity gMf;
-    private View gMg;
-    private HeadImageView gMh;
-    private TextView gMi;
-    private TextView gMj;
-    private TextView gMk;
-    private ImageView gMl;
-    private RelativeLayout gMm;
-    private RelativeLayout gMn;
-    private UpdatesItemData gMo;
+    private TextView cok;
+    private UpdatesActivity gLo;
+    private View gLp;
+    private HeadImageView gLq;
+    private TextView gLr;
+    private TextView gLs;
+    private TextView gLt;
+    private ImageView gLu;
+    private RelativeLayout gLv;
+    private RelativeLayout gLw;
+    private UpdatesItemData gLx;
 
     public b(UpdatesActivity updatesActivity) {
         super(updatesActivity.getPageContext(), R.layout.updates_item);
-        this.gMf = updatesActivity;
+        this.gLo = updatesActivity;
         initView();
     }
 
     void initView() {
-        this.gMg = this.mConvertView.findViewById(R.id.root_view);
-        this.gMh = (HeadImageView) this.gMg.findViewById(R.id.iv_head);
-        this.gMi = (TextView) this.gMg.findViewById(R.id.tv_group_name);
-        this.gMj = (TextView) this.gMg.findViewById(R.id.tv_content);
-        this.cpb = (TextView) this.gMg.findViewById(R.id.tv_title);
-        this.gMk = (TextView) this.gMg.findViewById(R.id.tv_time);
-        this.gMl = (ImageView) this.gMg.findViewById(R.id.cb_select);
-        this.gMm = (RelativeLayout) this.gMg.findViewById(R.id.layout_body);
-        this.gMn = (RelativeLayout) this.gMg.findViewById(R.id.layout_title);
-        this.gMh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.1
+        this.gLp = this.mConvertView.findViewById(R.id.root_view);
+        this.gLq = (HeadImageView) this.gLp.findViewById(R.id.iv_head);
+        this.gLr = (TextView) this.gLp.findViewById(R.id.tv_group_name);
+        this.gLs = (TextView) this.gLp.findViewById(R.id.tv_content);
+        this.cok = (TextView) this.gLp.findViewById(R.id.tv_title);
+        this.gLt = (TextView) this.gLp.findViewById(R.id.tv_time);
+        this.gLu = (ImageView) this.gLp.findViewById(R.id.cb_select);
+        this.gLv = (RelativeLayout) this.gLp.findViewById(R.id.layout_body);
+        this.gLw = (RelativeLayout) this.gLp.findViewById(R.id.layout_title);
+        this.gLq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
         });
-        this.gMm.setClickable(true);
-        this.gMm.setLongClickable(true);
-        this.gMn.setClickable(true);
-        this.gMn.setLongClickable(true);
-        this.gMm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.2
+        this.gLv.setClickable(true);
+        this.gLv.setLongClickable(true);
+        this.gLw.setClickable(true);
+        this.gLw.setLongClickable(true);
+        this.gLv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.gMf.biX()) {
-                    b.this.gMl.performClick();
+                if (b.this.gLo.biV()) {
+                    b.this.gLu.performClick();
                 } else {
-                    b.this.gMf.a(b.this.gMg, 101, 0, 0L, b.this.gMo);
+                    b.this.gLo.a(b.this.gLp, 101, 0, 0L, b.this.gLx);
                 }
             }
         });
-        this.gMm.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.3
+        this.gLv.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.gMf.b(b.this.gMg, 200, 0, 0L, b.this.gMo);
+                b.this.gLo.b(b.this.gLp, 200, 0, 0L, b.this.gLx);
                 return true;
             }
         });
-        this.gMn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.4
+        this.gLw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.gMf.a(b.this.gMg, 101, 0, 0L, b.this.gMo);
+                b.this.gLo.a(b.this.gLp, 101, 0, 0L, b.this.gLx);
             }
         });
-        this.gMn.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.5
+        this.gLw.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.5
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.gMf.b(b.this.gMg, 200, 0, 0L, b.this.gMo);
+                b.this.gLo.b(b.this.gLp, 200, 0, 0L, b.this.gLx);
                 return true;
             }
         });
-        this.gMl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.6
+        this.gLu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 view.setSelected(!view.isSelected());
-                b.this.gMf.a(view, view.isSelected(), b.this.gMo);
+                b.this.gLo.a(view, view.isSelected(), b.this.gLx);
             }
         });
     }
 
     public void refresh() {
-        if (this.gMo != null) {
-            if (this.gMf.biX()) {
-                this.gMl.setVisibility(0);
+        if (this.gLx != null) {
+            if (this.gLo.biV()) {
+                this.gLu.setVisibility(0);
             } else {
-                this.gMl.setVisibility(8);
-                this.gMm.setSelected(false);
+                this.gLu.setVisibility(8);
+                this.gLv.setSelected(false);
             }
-            String groupHeadUrl = this.gMo.getGroupHeadUrl();
+            String groupHeadUrl = this.gLx.getGroupHeadUrl();
             if (!TextUtils.isEmpty(groupHeadUrl)) {
-                this.gMh.setTag(groupHeadUrl);
-                this.gMh.startLoad(groupHeadUrl, 10, false);
+                this.gLq.setTag(groupHeadUrl);
+                this.gLq.startLoad(groupHeadUrl, 10, false);
             } else {
-                this.gMh.setTag(null);
+                this.gLq.setTag(null);
             }
-            this.gMh.setClickable(false);
-            if (!TextUtils.isEmpty(this.gMo.getTitle())) {
-                this.cpb.setText(this.gMo.getTitle());
+            this.gLq.setClickable(false);
+            if (!TextUtils.isEmpty(this.gLx.getTitle())) {
+                this.cok.setText(this.gLx.getTitle());
             } else {
-                this.cpb.setText(this.gMf.getPageContext().getString(R.string.inform));
+                this.cok.setText(this.gLo.getPageContext().getString(R.string.inform));
             }
             Date date = new Date();
-            date.setTime(this.gMo.getTime());
-            this.gMk.setText(aq.j(date));
-            if (!TextUtils.isEmpty(this.gMo.getContent())) {
-                this.gMj.setText(this.gMo.getContent());
+            date.setTime(this.gLx.getTime());
+            this.gLt.setText(aq.j(date));
+            if (!TextUtils.isEmpty(this.gLx.getContent())) {
+                this.gLs.setText(this.gLx.getContent());
             } else {
-                this.gMj.setText("");
+                this.gLs.setText("");
             }
-            if (!TextUtils.isEmpty(this.gMo.getGroupName())) {
-                this.gMi.setText(this.gMo.getGroupName());
+            if (!TextUtils.isEmpty(this.gLx.getGroupName())) {
+                this.gLr.setText(this.gLx.getGroupName());
             } else {
-                this.gMi.setText("");
+                this.gLr.setText("");
             }
-            int paddingLeft = this.gMm.getPaddingLeft();
-            int paddingTop = this.gMm.getPaddingTop();
-            int paddingRight = this.gMm.getPaddingRight();
-            int paddingBottom = this.gMm.getPaddingBottom();
-            this.gMf.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-            this.gMf.getLayoutMode().onModeChanged(this.mConvertView);
-            this.gMl.setSelected(this.gMo.isSelected());
-            if (this.gMo.isSelected() && this.gMf.biX()) {
-                am.setBackgroundResource(this.gMm, R.drawable.bg_information_down_s);
+            int paddingLeft = this.gLv.getPaddingLeft();
+            int paddingTop = this.gLv.getPaddingTop();
+            int paddingRight = this.gLv.getPaddingRight();
+            int paddingBottom = this.gLv.getPaddingBottom();
+            this.gLo.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+            this.gLo.getLayoutMode().onModeChanged(this.mConvertView);
+            this.gLu.setSelected(this.gLx.isSelected());
+            if (this.gLx.isSelected() && this.gLo.biV()) {
+                am.setBackgroundResource(this.gLv, R.drawable.bg_information_down_s);
             } else {
-                am.setBackgroundResource(this.gMm, R.drawable.selector_group_updates_bottom_bg);
+                am.setBackgroundResource(this.gLv, R.drawable.selector_group_updates_bottom_bg);
             }
-            this.gMm.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            this.gLv.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
     }
 
@@ -146,6 +146,6 @@ public class b extends com.baidu.adp.base.b<UpdatesActivity> {
     }
 
     public void c(UpdatesItemData updatesItemData) {
-        this.gMo = updatesItemData;
+        this.gLx = updatesItemData;
     }
 }

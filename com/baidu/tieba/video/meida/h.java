@@ -30,21 +30,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class h {
-    private static volatile h jCJ;
+    private static volatile h jBS;
 
     private h() {
-        g.cuu();
+        g.cus();
     }
 
-    public static h cuA() {
-        if (jCJ == null) {
+    public static h cuy() {
+        if (jBS == null) {
             synchronized (h.class) {
-                if (jCJ == null) {
-                    jCJ = new h();
+                if (jBS == null) {
+                    jBS = new h();
                 }
             }
         }
-        return jCJ;
+        return jBS;
     }
 
     public i a(List<String> list, String str, boolean z) {
@@ -105,7 +105,7 @@ public class h {
         try {
             e d = d(str, linkedList, null);
             if (d.length == -1) {
-                return new i(d.jCF == 1 ? 218 : d.jCF == 2 ? 219 : 220, d.errorMsg);
+                return new i(d.jBO == 1 ? 218 : d.jBO == 2 ? 219 : 220, d.errorMsg);
             }
             BdLog.e("mixingVideoByAudio videoTracks = " + linkedList.size());
             c(str2, linkedList, null);
@@ -124,7 +124,7 @@ public class h {
             return new i(209, TbadkCoreApplication.getInst().getString(R.string.illegal_argument));
         }
         long currentTimeMillis = System.currentTimeMillis();
-        String str4 = com.baidu.tieba.video.c.jwU + (as.getNameMd5FromUrl(str + str2 + str3) + "/");
+        String str4 = com.baidu.tieba.video.c.jwd + (as.getNameMd5FromUrl(str + str2 + str3) + "/");
         new File(str4).mkdirs();
         File file = new File(str3);
         file.mkdirs();
@@ -139,11 +139,11 @@ public class h {
             e d = d(str, linkedList, linkedList2);
             long j = d.length;
             if (j == -1) {
-                return new i(d.jCF == 1 ? 210 : d.jCF == 2 ? 211 : 212, d.errorMsg);
+                return new i(d.jBO == 1 ? 210 : d.jBO == 2 ? 211 : 212, d.errorMsg);
             }
             long r = r(str2, linkedList3);
             if (r == -1) {
-                return new i(d.jCF == 1 ? 213 : d.jCF == 2 ? 214 : 215, d.errorMsg);
+                return new i(d.jBO == 1 ? 213 : d.jBO == 2 ? 214 : 215, d.errorMsg);
             }
             a(j, r, linkedList3, linkedList4);
             if (z && linkedList2.size() > 0 && Build.VERSION.SDK_INT >= 16) {
@@ -208,10 +208,10 @@ public class h {
                 }
                 String str5 = str2 + "temp_" + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
                 if (new b(strArr[i]).a(str5, z, Fe, aVar) != null) {
-                    if (!z && i != 0 && aVar.cuv()) {
+                    if (!z && i != 0 && aVar.cut()) {
                         str3 = str2 + "resample_" + System.currentTimeMillis();
                         long currentTimeMillis = System.currentTimeMillis();
-                        boolean e = g.e(str5, str3, aVar.aWk, Fe.aWk);
+                        boolean e = g.e(str5, str3, aVar.aVS, Fe.aVS);
                         BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
                     }
                     str3 = str5;
@@ -221,26 +221,26 @@ public class h {
                 aVar2 = aVar;
                 z2 = z;
             }
-            MultiAudioMixer cuy = MultiAudioMixer.cuy();
-            cuy.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.h.1
-                FileOutputStream jCK;
+            MultiAudioMixer cuw = MultiAudioMixer.cuw();
+            cuw.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.h.1
+                FileOutputStream jBT;
 
                 {
-                    this.jCK = new FileOutputStream(str4);
+                    this.jBT = new FileOutputStream(str4);
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
-                public void H(byte[] bArr) throws IOException {
-                    if (this.jCK != null) {
-                        this.jCK.write(bArr);
+                public void G(byte[] bArr) throws IOException {
+                    if (this.jBT != null) {
+                        this.jBT.write(bArr);
                     }
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
-                public void AW(int i2) {
+                public void AV(int i2) {
                     try {
-                        if (this.jCK != null) {
-                            this.jCK.close();
+                        if (this.jBT != null) {
+                            this.jBT.close();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -248,19 +248,19 @@ public class h {
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
-                public void cuz() {
+                public void cux() {
                     try {
-                        if (this.jCK != null) {
-                            this.jCK.close();
+                        if (this.jBT != null) {
+                            this.jBT.close();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 }
             });
-            cuy.e(fileArr);
+            cuw.e(fileArr);
             d Fd = d.Fd(str4);
-            Fd.setSampleRate(Fe.aWk);
+            Fd.setSampleRate(Fe.aVS);
             Fd.setChannelCount(Fe.channelCount);
             Fd.Fc(str);
             return true;

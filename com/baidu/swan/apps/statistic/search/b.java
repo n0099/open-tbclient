@@ -9,7 +9,7 @@ import com.baidu.swan.apps.v.b.c;
 /* loaded from: classes2.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static a bpR;
+    public static a bpz;
 
     public static synchronized void a(SearchFlowEvent searchFlowEvent) {
         synchronized (b.class) {
@@ -18,23 +18,23 @@ public final class b {
                     Log.d("SwanAppSearchFlowUBC", "Event is null...");
                 }
             } else {
-                switch (searchFlowEvent.bpQ) {
+                switch (searchFlowEvent.bpy) {
                     case START:
-                        SH();
-                        if (bpR != null) {
-                            bpR.a(searchFlowEvent);
+                        SJ();
+                        if (bpz != null) {
+                            bpz.a(searchFlowEvent);
                             break;
                         }
                         break;
                     case END:
-                        if (bpR != null) {
-                            bpR.a(searchFlowEvent);
+                        if (bpz != null) {
+                            bpz.a(searchFlowEvent);
                         }
-                        SI();
+                        SK();
                         break;
                     case NORMAL:
-                        if (bpR != null) {
-                            bpR.a(searchFlowEvent);
+                        if (bpz != null) {
+                            bpz.a(searchFlowEvent);
                             break;
                         }
                         break;
@@ -49,10 +49,10 @@ public final class b {
     public static synchronized void w(com.baidu.swan.apps.v.b.b bVar) {
         synchronized (b.class) {
             if (bVar != null) {
-                c(bVar.KI(), bVar.KE());
-                if (bpR != null) {
-                    bpR.setAppId(bVar.getAppId());
-                    bpR.setSource(bVar.KE());
+                c(bVar.KJ(), bVar.KF());
+                if (bpz != null) {
+                    bpz.setAppId(bVar.getAppId());
+                    bpz.setSource(bVar.KF());
                 }
             }
         }
@@ -61,26 +61,26 @@ public final class b {
     public static synchronized void f(c cVar) {
         synchronized (b.class) {
             if (cVar != null) {
-                c(cVar.Ks(), cVar.mFrom);
-                if (bpR != null) {
-                    bpR.setAppId(cVar.mAppId);
-                    bpR.setSource(cVar.mFrom);
+                c(cVar.Kt(), cVar.mFrom);
+                if (bpz != null) {
+                    bpz.setAppId(cVar.mAppId);
+                    bpz.setSource(cVar.mFrom);
                 }
             }
         }
     }
 
-    private static void SH() {
-        if (bpR != null) {
-            bpR.destroy();
-            bpR = null;
+    private static void SJ() {
+        if (bpz != null) {
+            bpz.destroy();
+            bpz = null;
         }
-        bpR = new a("772");
+        bpz = new a("772");
     }
 
-    private static void SI() {
-        if (bpR != null) {
-            bpR.send();
+    private static void SK() {
+        if (bpz != null) {
+            bpz.send();
         }
     }
 
@@ -95,9 +95,9 @@ public final class b {
                 return;
             }
             a(new SearchFlowEvent("dom_click", bundle.getLong("search_dom_click_timestamp"), "", "", SearchFlowEvent.EventType.START));
-            if (bpR != null) {
-                bpR.addExt("searchid", string == null ? "" : string);
-                bpR.addExt("url", bundle.getString("search_url"));
+            if (bpz != null) {
+                bpz.addExt("searchid", string == null ? "" : string);
+                bpz.addExt("url", bundle.getString("search_url"));
             }
         }
     }

@@ -47,16 +47,16 @@ public class e extends a {
         if (c.mText == null || c.mText.length() <= 0) {
             i = 0;
         } else {
-            if (c.aGw && c.mItalic) {
+            if (c.aGe && c.mItalic) {
                 i2 = 3;
-            } else if (c.aGw) {
+            } else if (c.aGe) {
                 i2 = 1;
             } else {
                 i2 = c.mItalic ? 2 : 0;
             }
             TextPaint textPaint = new TextPaint();
-            textPaint.setTypeface(Typeface.create(c.aGu, i2));
-            textPaint.setTextSize(c.aGv);
+            textPaint.setTypeface(Typeface.create(c.aGc, i2));
+            textPaint.setTextSize(c.aGd);
             textPaint.getTextBounds(c.mText, 0, c.mText.length(), new Rect());
             i = z.U(rect.width());
         }

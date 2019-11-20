@@ -166,7 +166,7 @@ public class DealIntentService extends BdBaseService {
             bS.O("obj_source", i);
             TiebaStatic.log(bS);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                jp(i2);
+                jo(i2);
             }
             String string = this.intent.getExtras().getString("stat");
             if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
@@ -174,7 +174,7 @@ public class DealIntentService extends BdBaseService {
             }
             if (com.baidu.adp.base.a.em().currentActivity() != null) {
                 if (5 == this.intent.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                    if (com.baidu.adp.base.a.em().currentActivity().getClass().getName().equalsIgnoreCase(b.alJ())) {
+                    if (com.baidu.adp.base.a.em().currentActivity().getClass().getName().equalsIgnoreCase(b.alH())) {
                         this.intent.putExtra(DealIntentService.KEY_CLASS, 5);
                     } else {
                         this.intent.putExtra(DealIntentService.KEY_CLASS, 21);
@@ -188,7 +188,7 @@ public class DealIntentService extends BdBaseService {
                 TiebaStatic.eventStat(DealIntentService.this, "open_push", "start", 1, new Object[0]);
             }
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                jo(i2);
+                jn(i2);
             }
             return DealIntentService.ACTION_ON_POST_START;
         }
@@ -212,7 +212,7 @@ public class DealIntentService extends BdBaseService {
             DealIntentService.this.stopSelf();
         }
 
-        private void jo(int i) {
+        private void jn(int i) {
             switch (i) {
                 case 0:
                 case 1:
@@ -228,7 +228,7 @@ public class DealIntentService extends BdBaseService {
             }
         }
 
-        private void jp(int i) {
+        private void jo(int i) {
             switch (i) {
                 case 6:
                     TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", "click");

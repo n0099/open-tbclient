@@ -19,7 +19,7 @@ public class a extends JSEvent {
         super("sconsoleCmdMessage", obj);
     }
 
-    public static a aO(JSONObject jSONObject) {
+    public static a aP(JSONObject jSONObject) {
         C0242a c0242a = new C0242a();
         if (jSONObject == null) {
             jSONObject = new JSONObject();

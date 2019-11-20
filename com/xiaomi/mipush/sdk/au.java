@@ -1,19 +1,23 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.l;
+import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class au {
-    public static AbstractPushManager a(Context context, f fVar) {
-        return b(context, fVar);
+public final class au implements Runnable {
+    final /* synthetic */ Context a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ Intent f39a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public au(Context context, Intent intent) {
+        this.a = context;
+        this.f39a = intent;
     }
 
-    private static AbstractPushManager b(Context context, f fVar) {
-        l.a a = l.a(fVar);
-        if (a == null || TextUtils.isEmpty(a.a) || TextUtils.isEmpty(a.b)) {
-            return null;
-        }
-        return (AbstractPushManager) com.xiaomi.channel.commonutils.reflect.a.a(a.a, a.b, context);
+    @Override // java.lang.Runnable
+    public void run() {
+        PushMessageHandler.b(this.a, this.f39a);
     }
 }

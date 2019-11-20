@@ -17,17 +17,17 @@ public class a {
         personUserData.user_info = new s();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.SH = bVar.metaKey;
+        personUserData.user_info.Sn = bVar.metaKey;
         personUserData.user_info.user_id = bVar.id;
         personUserData.user_info.user_name = bVar.name;
         personUserData.user_info.user_nickname = bVar.name_show;
         personUserData.user_info.description = bVar.intro;
         personUserData.user_info.portrait = bVar.portrait;
-        personUserData.relation_info.follow_status = bVar.dRG;
+        personUserData.relation_info.follow_status = bVar.dQP;
         return personUserData;
     }
 
-    public static String ae(int i, String str) {
+    public static String ad(int i, String str) {
         String str2;
         String str3;
         String str4 = null;
@@ -76,7 +76,7 @@ public class a {
         return null;
     }
 
-    public static String cp(long j) {
+    public static String co(long j) {
         return j / 10000 > 0 ? i(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 

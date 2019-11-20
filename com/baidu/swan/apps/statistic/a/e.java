@@ -8,9 +8,9 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String aTe;
-    protected JSONObject bpu;
-    protected JSONObject bpv;
+    public String aSM;
+    protected JSONObject bpc;
+    protected JSONObject bpd;
     public String mAppId;
     public String mFrom = "swan";
     public String mSource;
@@ -33,16 +33,16 @@ public class e {
                 this.mSource = "NA";
             }
             jSONObject.put("source", this.mSource);
-            if (!TextUtils.isEmpty(this.aTe)) {
-                jSONObject.put("page", this.aTe);
+            if (!TextUtils.isEmpty(this.aSM)) {
+                jSONObject.put("page", this.aSM);
             }
-            if (this.bpu == null) {
-                this.bpu = new JSONObject();
+            if (this.bpc == null) {
+                this.bpc = new JSONObject();
             }
             if (!TextUtils.isEmpty(this.mAppId)) {
-                this.bpu.put("appid", this.mAppId);
+                this.bpc.put("appid", this.mAppId);
             }
-            jSONObject.put("ext", this.bpu);
+            jSONObject.put("ext", this.bpc);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -52,16 +52,16 @@ public class e {
         }
     }
 
-    public void aH(JSONObject jSONObject) {
+    public void aI(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.bpu == null) {
-                this.bpu = new JSONObject();
+            if (this.bpc == null) {
+                this.bpc = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.bpu.put(next, jSONObject.opt(next));
+                    this.bpc.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -71,20 +71,20 @@ public class e {
         }
     }
 
-    public void aI(JSONObject jSONObject) {
+    public void aJ(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.bpu == null) {
-                this.bpu = new JSONObject();
+            if (this.bpc == null) {
+                this.bpc = new JSONObject();
             }
-            this.bpv = this.bpu.optJSONObject("extlog");
-            if (this.bpv == null) {
-                this.bpv = new JSONObject();
+            this.bpd = this.bpc.optJSONObject("extlog");
+            if (this.bpd == null) {
+                this.bpd = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.bpv.put(next, jSONObject.opt(next));
+                    this.bpd.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -92,7 +92,7 @@ public class e {
                 }
             }
             try {
-                this.bpu.put("extlog", this.bpv);
+                this.bpc.put("extlog", this.bpd);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -102,11 +102,11 @@ public class e {
     }
 
     public void h(@NonNull String str, Object obj) {
-        if (this.bpu == null) {
-            this.bpu = new JSONObject();
+        if (this.bpc == null) {
+            this.bpc = new JSONObject();
         }
         try {
-            this.bpu.put(str, obj);
+            this.bpc.put(str, obj);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

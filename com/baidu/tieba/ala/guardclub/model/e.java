@@ -4,23 +4,23 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
 /* loaded from: classes6.dex */
 public class e extends HttpMessage {
-    private long OF;
-    private int dOi;
-    private long dOo;
-    private String dOp;
+    private long Of;
+    private int dNr;
+    private long dNx;
+    private String dNy;
     private String sign;
 
     public e() {
         super(1021142);
-        this.dOi = 2;
+        this.dNr = 2;
     }
 
-    public void cb(long j) {
-        this.dOo = j;
+    public void ca(long j) {
+        this.dNx = j;
     }
 
     public void tl(String str) {
-        this.dOp = str;
+        this.dNy = str;
     }
 
     public void tm(String str) {
@@ -28,10 +28,10 @@ public class e extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("guard_club_id", this.dOo);
-        addParam("club_name", this.dOp);
+        addParam("guard_club_id", this.dNx);
+        addParam("club_name", this.dNy);
         addParam("sign", this.sign);
-        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.OF + ""));
-        addParam("client_type", this.dOi);
+        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.Of + ""));
+        addParam("client_type", this.dNr);
     }
 }

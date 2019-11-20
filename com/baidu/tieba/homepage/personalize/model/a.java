@@ -20,13 +20,13 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class a {
-    private int gmO = 0;
-    private com.baidu.tieba.homepage.personalize.b.d gmP = new com.baidu.tieba.homepage.personalize.b.d();
-    private final c gfi = new c();
-    private final int gmN = com.baidu.tbadk.core.sharedPref.b.alR().getInt("home_page_max_thread_count", 300);
+    private int glX = 0;
+    private com.baidu.tieba.homepage.personalize.b.d glY = new com.baidu.tieba.homepage.personalize.b.d();
+    private final c ger = new c();
+    private final int glW = com.baidu.tbadk.core.sharedPref.b.alP().getInt("home_page_max_thread_count", 300);
 
-    public int bvk() {
-        return this.gmN;
+    public int bvi() {
+        return this.glW;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -42,15 +42,15 @@ public class a {
         d.c(builder);
         d.c(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.gmN);
+        a(builder, i, this.glW);
         d.e(builder);
         List<p> b = d.b(builder);
         cT(b);
         List<m> l = l(builder.thread_list, b);
-        this.gmP.cW(l);
+        this.glY.cW(l);
         b.a(builder, l);
-        this.gfi.dbM = l;
-        return this.gfi;
+        this.ger.daV = l;
+        return this.ger;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -68,7 +68,7 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.gmO);
+        d.a(z, builder, builder2, i, this.glX);
     }
 
     private void a(boolean z, List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
@@ -84,7 +84,7 @@ public class a {
                 }
             }
             if (i == 1) {
-                this.gmP.aY(list);
+                this.glY.aY(list);
                 for (ThreadInfo threadInfo2 : list2) {
                     if (threadInfo2 != null && !TextUtils.isEmpty(threadInfo2.lego_card)) {
                         if (!hashSet2.contains(threadInfo2.lego_card)) {
@@ -95,7 +95,7 @@ public class a {
                     }
                 }
             } else {
-                this.gmP.a(z, list2.size() - 1, list, list2);
+                this.glY.a(z, list2.size() - 1, list, list2);
                 for (int count2 = v.getCount(list2) - 1; count2 >= 0; count2--) {
                     ThreadInfo threadInfo3 = (ThreadInfo) v.getItem(list2, count2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
@@ -108,8 +108,8 @@ public class a {
                 }
             }
             int count3 = v.getCount(list);
-            this.gfi.gmR = count3 - count;
-            this.gmO = count3 - count;
+            this.ger.gma = count3 - count;
+            this.glX = count3 - count;
         }
     }
 
@@ -148,15 +148,15 @@ public class a {
                 bh bhVar = new bh();
                 bhVar.a(threadInfo);
                 bhVar.setCurrentPage(1);
-                if (!TextUtils.isEmpty(bhVar.ajI())) {
+                if (!TextUtils.isEmpty(bhVar.ajG())) {
                     ad adVar = new ad();
-                    adVar.mP(bhVar.ajI());
+                    adVar.mP(bhVar.ajG());
                     adVar.position = i5;
                     linkedList.add(adVar);
                 } else if (com.baidu.tieba.homepage.topic.topictab.b.a.V(bhVar)) {
-                    if (!StringUtils.isNull(bhVar.akx().topic_name)) {
+                    if (!StringUtils.isNull(bhVar.akv().topic_name)) {
                         com.baidu.tieba.homepage.topic.topictab.b.a aVar = new com.baidu.tieba.homepage.topic.topictab.b.a();
-                        aVar.a(bhVar.akx());
+                        aVar.a(bhVar.akv());
                         aVar.from = 1;
                         aVar.position = i5;
                         aVar.ai(bhVar);
@@ -164,7 +164,7 @@ public class a {
                     }
                 } else if (k.V(bhVar) || l.V(bhVar)) {
                     if ((TbSingleton.getInstance().getHomePageStyleAbTest() & 4) != 0) {
-                        imageWidthAndHeight = bhVar.aky();
+                        imageWidthAndHeight = bhVar.akw();
                     } else {
                         imageWidthAndHeight = bhVar.getImageWidthAndHeight();
                     }
@@ -182,11 +182,11 @@ public class a {
                         ao.tid = bhVar.getTid();
                         ao.position = i5;
                         if (ao instanceof k) {
-                            if (bhVar.ajE() == 1) {
+                            if (bhVar.ajC() == 1) {
                                 d.b(ao);
-                                ao.cbr = imageWidthAndHeight[0];
-                                ao.cbs = imageWidthAndHeight[1];
-                            } else if (bhVar.ajE() >= 2) {
+                                ao.caA = imageWidthAndHeight[0];
+                                ao.caB = imageWidthAndHeight[1];
+                            } else if (bhVar.ajC() >= 2) {
                                 d.c(ao);
                             } else {
                                 d.d(ao);

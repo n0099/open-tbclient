@@ -13,14 +13,14 @@ import java.util.zip.DeflaterOutputStream;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class c {
-    private static SimpleDateFormat Kw;
-    private static PackageManager Kx;
+    private static SimpleDateFormat JW;
+    private static PackageManager JX;
 
     public static String a(Date date) {
-        if (Kw == null) {
-            Kw = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (JW == null) {
+            JW = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return Kw.format(date);
+        return JW.format(date);
     }
 
     public static void a(SharedPreferences.Editor editor, boolean z) {
@@ -144,11 +144,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (Kx == null) {
-            Kx = context.getPackageManager();
+        if (JX == null) {
+            JX = context.getPackageManager();
         }
         try {
-            return Kx.checkPermission(str, context.getPackageName()) == 0;
+            return JX.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
@@ -158,7 +158,7 @@ public final class c {
         return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 
-    public static String q(long j) {
+    public static String p(long j) {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / 1000000 > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 }

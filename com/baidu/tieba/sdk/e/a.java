@@ -57,11 +57,11 @@ public class a implements ILiveScheme {
             e.printStackTrace();
         }
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.tieba.sdk.a.chx().a(TbadkCoreApplication.getInst(), str, "1".equals(str4), str7, jSONObject);
+            com.baidu.tieba.sdk.a.chv().a(TbadkCoreApplication.getInst(), str, "1".equals(str4), str7, jSONObject);
         } else if (!TextUtils.isEmpty(str2)) {
-            com.baidu.tieba.sdk.a.chx().a(TbadkCoreApplication.getInst(), Long.parseLong(str2), "1".equals(str4), str7, jSONObject);
+            com.baidu.tieba.sdk.a.chv().a(TbadkCoreApplication.getInst(), Long.parseLong(str2), "1".equals(str4), str7, jSONObject);
         } else if (!TextUtils.isEmpty(str3)) {
-            com.baidu.tieba.sdk.a.chx().b(TbadkCoreApplication.getInst(), str3, "1".equals(str4), str7, jSONObject);
+            com.baidu.tieba.sdk.a.chv().b(TbadkCoreApplication.getInst(), str3, "1".equals(str4), str7, jSONObject);
         }
     }
 }

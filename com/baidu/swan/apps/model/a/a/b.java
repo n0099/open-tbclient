@@ -1,43 +1,43 @@
 package com.baidu.swan.apps.model.a.a;
 /* loaded from: classes2.dex */
 public class b {
-    protected boolean aXL;
-    protected boolean aXM;
-    private boolean aXN;
+    protected boolean aXt;
+    protected boolean aXu;
+    private boolean aXv;
     protected int height;
     protected int left;
     protected int top;
     protected int width;
 
     public b() {
-        this.aXL = false;
-        this.aXM = false;
+        this.aXt = false;
+        this.aXu = false;
     }
 
     public b(b bVar) {
-        this.aXL = false;
-        this.aXM = false;
+        this.aXt = false;
+        this.aXu = false;
         if (bVar != null) {
             this.left = bVar.left;
             this.top = bVar.top;
             this.width = bVar.width;
             this.height = bVar.height;
-            this.aXL = bVar.aXL;
-            this.aXM = bVar.aXM;
-            this.aXN = bVar.aXN;
+            this.aXt = bVar.aXt;
+            this.aXu = bVar.aXu;
+            this.aXv = bVar.aXv;
         }
     }
 
     public b(int i, int i2, int i3, int i4) {
-        this.aXL = false;
-        this.aXM = false;
+        this.aXt = false;
+        this.aXu = false;
         this.left = i;
         this.top = i2;
         this.width = i3;
         this.height = i4;
     }
 
-    public static b Ms() {
+    public static b Mt() {
         b bVar = new b();
         bVar.bT(true);
         bVar.bU(true);
@@ -47,19 +47,19 @@ public class b {
     }
 
     public void bT(boolean z) {
-        this.aXL = z;
+        this.aXt = z;
     }
 
     public void bU(boolean z) {
-        this.aXM = z;
+        this.aXu = z;
     }
 
     public boolean isFixed() {
-        return this.aXN;
+        return this.aXv;
     }
 
     public void bV(boolean z) {
-        this.aXN = z;
+        this.aXv = z;
     }
 
     public int getLeft() {
@@ -70,7 +70,7 @@ public class b {
         this.left = i;
     }
 
-    public int Mt() {
+    public int Mu() {
         return this.top;
     }
 
@@ -96,8 +96,8 @@ public class b {
 
     public boolean isValid() {
         boolean z = false;
-        boolean z2 = this.aXL || this.width >= 0;
-        if (this.aXM || this.height >= 0) {
+        boolean z2 = this.aXt || this.width >= 0;
+        if (this.aXu || this.height >= 0) {
             z = true;
         }
         return z2 & z;
@@ -109,12 +109,12 @@ public class b {
         }
         if (obj instanceof b) {
             b bVar = (b) obj;
-            return this.left == bVar.left && this.top == bVar.top && this.height == bVar.height && this.width == bVar.width && this.aXN == bVar.aXN;
+            return this.left == bVar.left && this.top == bVar.top && this.height == bVar.height && this.width == bVar.width && this.aXv == bVar.aXv;
         }
         return false;
     }
 
     public String toString() {
-        return "Position{l=" + this.left + ", t=" + this.top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.aXL + ", HAuto=" + this.aXM + ", fixed=" + this.aXN + '}';
+        return "Position{l=" + this.left + ", t=" + this.top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.aXt + ", HAuto=" + this.aXu + ", fixed=" + this.aXv + '}';
     }
 }

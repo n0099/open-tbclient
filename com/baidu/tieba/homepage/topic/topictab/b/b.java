@@ -7,8 +7,8 @@ import tbclient.NewTopicList.PkModule;
 /* loaded from: classes4.dex */
 public class b {
     public int from;
-    public a gpl;
-    public a gpm;
+    public a gou;
+    public a gov;
     public long pkId;
     public long topicId;
     public long userPkId;
@@ -17,22 +17,22 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.gpl = new a();
-            this.gpl.gpn = pkModule.agree.pk_num.longValue();
-            this.gpl.gpo = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.gpl.gpp = pkModule.agree.last_username;
-            this.gpl.gpq = pkModule.agree.pk_icon;
-            this.gpl.gpr = pkModule.agree.has_clicked.longValue() == 1;
-            this.gpl.gps = pkModule.agree.pk_index.longValue();
-            this.gpl.gpt = pkModule.agree.pk_icon_after;
-            this.gpm = new a();
-            this.gpm.gpn = pkModule.disagree.pk_num.longValue();
-            this.gpm.gpo = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.gpm.gpp = pkModule.disagree.last_username;
-            this.gpm.gpq = pkModule.disagree.pk_icon;
-            this.gpm.gpr = pkModule.disagree.has_clicked.longValue() == 1;
-            this.gpm.gps = pkModule.disagree.pk_index.longValue();
-            this.gpm.gpt = pkModule.disagree.pk_icon_after;
+            this.gou = new a();
+            this.gou.gow = pkModule.agree.pk_num.longValue();
+            this.gou.gox = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.gou.goy = pkModule.agree.last_username;
+            this.gou.goz = pkModule.agree.pk_icon;
+            this.gou.goA = pkModule.agree.has_clicked.longValue() == 1;
+            this.gou.goB = pkModule.agree.pk_index.longValue();
+            this.gou.goC = pkModule.agree.pk_icon_after;
+            this.gov = new a();
+            this.gov.gow = pkModule.disagree.pk_num.longValue();
+            this.gov.gox = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.gov.goy = pkModule.disagree.last_username;
+            this.gov.goz = pkModule.disagree.pk_icon;
+            this.gov.goA = pkModule.disagree.has_clicked.longValue() == 1;
+            this.gov.goB = pkModule.disagree.pk_index.longValue();
+            this.gov.goC = pkModule.disagree.pk_icon_after;
         }
     }
 
@@ -40,22 +40,22 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.gpl = new a();
-            this.gpl.gpn = pkModule.agree.pk_num.longValue();
-            this.gpl.gpo = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.gpl.gpp = pkModule.agree.last_username;
-            this.gpl.gpq = pkModule.agree.pk_icon;
-            this.gpl.gpr = pkModule.agree.has_clicked.longValue() == 1;
-            this.gpl.gps = pkModule.agree.pk_index.longValue();
-            this.gpl.gpt = pkModule.agree.pk_icon_after;
-            this.gpm = new a();
-            this.gpm.gpn = pkModule.disagree.pk_num.longValue();
-            this.gpm.gpo = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.gpm.gpp = pkModule.disagree.last_username;
-            this.gpm.gpq = pkModule.disagree.pk_icon;
-            this.gpm.gpr = pkModule.disagree.has_clicked.longValue() == 1;
-            this.gpm.gps = pkModule.disagree.pk_index.longValue();
-            this.gpm.gpt = pkModule.disagree.pk_icon_after;
+            this.gou = new a();
+            this.gou.gow = pkModule.agree.pk_num.longValue();
+            this.gou.gox = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.gou.goy = pkModule.agree.last_username;
+            this.gou.goz = pkModule.agree.pk_icon;
+            this.gou.goA = pkModule.agree.has_clicked.longValue() == 1;
+            this.gou.goB = pkModule.agree.pk_index.longValue();
+            this.gou.goC = pkModule.agree.pk_icon_after;
+            this.gov = new a();
+            this.gov.gow = pkModule.disagree.pk_num.longValue();
+            this.gov.gox = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.gov.goy = pkModule.disagree.last_username;
+            this.gov.goz = pkModule.disagree.pk_icon;
+            this.gov.goA = pkModule.disagree.has_clicked.longValue() == 1;
+            this.gov.goB = pkModule.disagree.pk_index.longValue();
+            this.gov.goC = pkModule.disagree.pk_icon_after;
         }
     }
 
@@ -63,34 +63,34 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.gpl = new a();
-            this.gpl.gpn = pkModule.agree.pk_num.longValue();
-            this.gpl.gpo = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.gpl.gpp = pkModule.agree.last_username;
-            this.gpl.gpq = pkModule.agree.pk_icon;
-            this.gpl.gpr = pkModule.agree.has_clicked.longValue() == 1;
-            this.gpl.gps = pkModule.agree.pk_index.longValue();
-            this.gpl.gpt = pkModule.agree.pk_icon_after;
-            this.gpm = new a();
-            this.gpm.gpn = pkModule.disagree.pk_num.longValue();
-            this.gpm.gpo = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.gpm.gpp = pkModule.disagree.last_username;
-            this.gpm.gpq = pkModule.disagree.pk_icon;
-            this.gpm.gpr = pkModule.disagree.has_clicked.longValue() == 1;
-            this.gpm.gps = pkModule.disagree.pk_index.longValue();
-            this.gpm.gpt = pkModule.disagree.pk_icon_after;
+            this.gou = new a();
+            this.gou.gow = pkModule.agree.pk_num.longValue();
+            this.gou.gox = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.gou.goy = pkModule.agree.last_username;
+            this.gou.goz = pkModule.agree.pk_icon;
+            this.gou.goA = pkModule.agree.has_clicked.longValue() == 1;
+            this.gou.goB = pkModule.agree.pk_index.longValue();
+            this.gou.goC = pkModule.agree.pk_icon_after;
+            this.gov = new a();
+            this.gov.gow = pkModule.disagree.pk_num.longValue();
+            this.gov.gox = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.gov.goy = pkModule.disagree.last_username;
+            this.gov.goz = pkModule.disagree.pk_icon;
+            this.gov.goA = pkModule.disagree.has_clicked.longValue() == 1;
+            this.gov.goB = pkModule.disagree.pk_index.longValue();
+            this.gov.goC = pkModule.disagree.pk_icon_after;
         }
     }
 
     /* loaded from: classes4.dex */
     public class a {
-        public long gpn;
-        public String gpo;
-        public String gpp;
-        public String gpq;
-        public boolean gpr;
-        public long gps;
-        public String gpt;
+        public boolean goA;
+        public long goB;
+        public String goC;
+        public long gow;
+        public String gox;
+        public String goy;
+        public String goz;
 
         public a() {
         }

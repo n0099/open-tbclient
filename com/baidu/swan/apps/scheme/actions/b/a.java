@@ -15,13 +15,13 @@ import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends z {
-    public static final String bmi = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    public static final String bmj = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    public static final String blQ = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    public static final String blR = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     /* renamed from: com.baidu.swan.apps.scheme.actions.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0214a {
-        void az(JSONObject jSONObject);
+        void aA(JSONObject jSONObject);
     }
 
     public a(j jVar) {
@@ -55,7 +55,7 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "the context is not an activity");
             return false;
         } else {
-            bVar.Rd().a((Activity) context, "mapp_i_get_history", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.a.1
+            bVar.Rf().a((Activity) context, "mapp_i_get_history", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
@@ -81,7 +81,7 @@ public class a extends z {
         c.i("history", "start get history");
         com.baidu.swan.apps.database.a.b.a(new InterfaceC0214a() { // from class: com.baidu.swan.apps.scheme.actions.b.a.2
             @Override // com.baidu.swan.apps.scheme.actions.b.a.InterfaceC0214a
-            public void az(JSONObject jSONObject) {
+            public void aA(JSONObject jSONObject) {
                 if (jSONObject == null || jSONObject.length() == 0) {
                     c.i("history", "none history");
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(null, 0).toString(), str);

@@ -7,7 +7,7 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes2.dex */
 public final class CompletableOnSubscribeConcat implements b.a {
-    final rx.d<rx.b> kzg;
+    final rx.d<rx.b> kyp;
     final int prefetch;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,7 +16,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
     public void call(rx.c cVar) {
         CompletableConcatSubscriber completableConcatSubscriber = new CompletableConcatSubscriber(cVar, this.prefetch);
         cVar.onSubscribe(completableConcatSubscriber);
-        this.kzg.a((rx.j<? super rx.b>) completableConcatSubscriber);
+        this.kyp.a((rx.j<? super rx.b>) completableConcatSubscriber);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,15 +25,15 @@ public final class CompletableOnSubscribeConcat implements b.a {
         volatile boolean active;
         final rx.c actual;
         volatile boolean done;
-        final rx.internal.util.a.q<rx.b> kzi;
-        final SequentialSubscription kzh = new SequentialSubscription();
-        final ConcatInnerSubscriber kzj = new ConcatInnerSubscriber();
+        final rx.internal.util.a.q<rx.b> kyr;
+        final SequentialSubscription kyq = new SequentialSubscription();
+        final ConcatInnerSubscriber kys = new ConcatInnerSubscriber();
         final AtomicBoolean once = new AtomicBoolean();
 
         public CompletableConcatSubscriber(rx.c cVar, int i) {
             this.actual = cVar;
-            this.kzi = new rx.internal.util.a.q<>(i);
-            add(this.kzh);
+            this.kyr = new rx.internal.util.a.q<>(i);
+            add(this.kyq);
             request(i);
         }
 
@@ -41,7 +41,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
         @Override // rx.e
         /* renamed from: a */
         public void onNext(rx.b bVar) {
-            if (!this.kzi.offer(bVar)) {
+            if (!this.kyr.offer(bVar)) {
                 onError(new MissingBackpressureException());
             } else {
                 drain();
@@ -65,23 +65,23 @@ public final class CompletableOnSubscribeConcat implements b.a {
             }
         }
 
-        void L(Throwable th) {
+        void M(Throwable th) {
             unsubscribe();
             onError(th);
         }
 
-        void cOy() {
+        void cOw() {
             this.active = false;
             drain();
         }
 
         void drain() {
-            ConcatInnerSubscriber concatInnerSubscriber = this.kzj;
+            ConcatInnerSubscriber concatInnerSubscriber = this.kys;
             if (concatInnerSubscriber.getAndIncrement() == 0) {
                 while (!isUnsubscribed()) {
                     if (!this.active) {
                         boolean z = this.done;
-                        rx.b poll = this.kzi.poll();
+                        rx.b poll = this.kyr.poll();
                         boolean z2 = poll == null;
                         if (z && z2) {
                             this.actual.onCompleted();
@@ -109,17 +109,17 @@ public final class CompletableOnSubscribeConcat implements b.a {
 
             @Override // rx.c
             public void onSubscribe(rx.k kVar) {
-                CompletableConcatSubscriber.this.kzh.set(kVar);
+                CompletableConcatSubscriber.this.kyq.set(kVar);
             }
 
             @Override // rx.c
             public void onError(Throwable th) {
-                CompletableConcatSubscriber.this.L(th);
+                CompletableConcatSubscriber.this.M(th);
             }
 
             @Override // rx.c
             public void onCompleted() {
-                CompletableConcatSubscriber.this.cOy();
+                CompletableConcatSubscriber.this.cOw();
             }
         }
     }

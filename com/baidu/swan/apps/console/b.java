@@ -13,25 +13,25 @@ import com.baidu.swan.apps.storage.b.e;
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.Dd().putBoolean(str, z);
+            a.De().putBoolean(str, z);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0169b.class, n(str, z));
         }
     }
 
     public static void bn(boolean z) {
-        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
-        if (QZ != null) {
-            putBoolean(eb(QZ.getAppKey()), z);
+        com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
+        if (Ra != null) {
+            putBoolean(eb(Ra.getAppKey()), z);
         }
     }
 
     public static boolean ea(String str) {
-        return !TextUtils.isEmpty(str) && a.Dd().getBoolean(eb(str), false);
+        return !TextUtils.isEmpty(str) && a.De().getBoolean(eb(str), false);
     }
 
     private static String eb(String str) {
-        String be = com.baidu.swan.apps.u.a.Jn().be(com.baidu.swan.apps.u.a.Ji());
+        String be = com.baidu.swan.apps.u.a.Jo().be(com.baidu.swan.apps.u.a.Jj());
         return "consoleSwitch" + str + (TextUtils.isEmpty(be) ? "" : v.c(be.getBytes(), false));
     }
 
@@ -52,11 +52,11 @@ public class b {
         /* renamed from: com.baidu.swan.apps.console.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         public static final class C0168a {
-            private static final a aHs = new a();
+            private static final a aHa = new a();
         }
 
-        public static a Dd() {
-            return C0168a.aHs;
+        public static a De() {
+            return C0168a.aHa;
         }
     }
 
@@ -69,7 +69,7 @@ public class b {
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
-            a.Dd().putBoolean(bundle.getString(TiebaInitialize.Params.KEY), bundle.getBoolean("value"));
+            a.De().putBoolean(bundle.getString(TiebaInitialize.Params.KEY), bundle.getBoolean("value"));
             return Bundle.EMPTY;
         }
     }

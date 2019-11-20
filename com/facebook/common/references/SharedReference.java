@@ -7,45 +7,45 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> kbz = new IdentityHashMap();
+    private static final Map<Object, Integer> kaI = new IdentityHashMap();
     @GuardedBy("this")
-    private T bY;
-    private final c<T> kbe;
+    private T bw;
+    private final c<T> kan;
     @GuardedBy("this")
     private int mRefCount = 1;
 
     public SharedReference(T t, c<T> cVar) {
-        this.bY = (T) g.checkNotNull(t);
-        this.kbe = (c) g.checkNotNull(cVar);
+        this.bw = (T) g.checkNotNull(t);
+        this.kan = (c) g.checkNotNull(cVar);
         az(t);
     }
 
     private static void az(Object obj) {
-        synchronized (kbz) {
-            Integer num = kbz.get(obj);
+        synchronized (kaI) {
+            Integer num = kaI.get(obj);
             if (num == null) {
-                kbz.put(obj, 1);
+                kaI.put(obj, 1);
             } else {
-                kbz.put(obj, Integer.valueOf(num.intValue() + 1));
+                kaI.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
     private static void aA(Object obj) {
-        synchronized (kbz) {
-            Integer num = kbz.get(obj);
+        synchronized (kaI) {
+            Integer num = kaI.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.h("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                kbz.remove(obj);
+                kaI.remove(obj);
             } else {
-                kbz.put(obj, Integer.valueOf(num.intValue() - 1));
+                kaI.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
 
     public synchronized T get() {
-        return this.bY;
+        return this.bw;
     }
 
     public synchronized boolean isValid() {
@@ -56,31 +56,31 @@ public class SharedReference<T> {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void cDb() {
-        cDe();
+    public synchronized void cCZ() {
+        cDc();
         this.mRefCount++;
     }
 
-    public void cDc() {
+    public void cDa() {
         T t;
-        if (cDd() == 0) {
+        if (cDb() == 0) {
             synchronized (this) {
-                t = this.bY;
-                this.bY = null;
+                t = this.bw;
+                this.bw = null;
             }
-            this.kbe.release(t);
+            this.kan.release(t);
             aA(t);
         }
     }
 
-    private synchronized int cDd() {
-        cDe();
+    private synchronized int cDb() {
+        cDc();
         g.checkArgument(this.mRefCount > 0);
         this.mRefCount--;
         return this.mRefCount;
     }
 
-    private void cDe() {
+    private void cDc() {
         if (!a(this)) {
             throw new NullReferenceException();
         }

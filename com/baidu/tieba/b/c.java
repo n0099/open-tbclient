@@ -50,18 +50,18 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, c
         aVar.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.b.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (aVar2.cDK == -100) {
+                if (aVar2.cCT == -100) {
                     TiebaStatic.log(TbadkCoreStatisticKey.ALA_FOLLOW_LIVE_SQUARE_ITEM_CLICK);
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_ALA_GET_LIVE_FORUM_URL, String.class);
                     if (runTask == null || StringUtils.isNull((String) runTask.getData())) {
                         com.baidu.tbadk.core.f.b.b(c.this.mPageContext.getPageActivity(), 15, true);
                         return;
                     } else {
-                        ba.amQ().a(c.this.mPageContext, new String[]{(String) runTask.getData()}, true);
+                        ba.amO().a(c.this.mPageContext, new String[]{(String) runTask.getData()}, true);
                         return;
                     }
                 }
-                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.cDJ;
+                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.cCS;
                 if (alaLiveInfoCoreData != null) {
                     TiebaStatic.log(TbadkCoreStatisticKey.ALA_FOLLOW_LIVE_LIVE_ITEM_CLICK);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(c.this.mPageContext.getPageActivity(), alaLiveInfoCoreData, "ala_concern_tab_top_live", TbadkCoreApplication.getCurrentAccount(), false, "")));

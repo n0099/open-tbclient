@@ -1,31 +1,83 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.channel.commonutils.misc.h;
-import java.util.Iterator;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ProviderInfo;
+import android.content.pm.ResolveInfo;
+import android.content.pm.ServiceInfo;
+import android.os.Build;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class f extends h.a {
-    private XMPushService a;
-
-    public f(XMPushService xMPushService) {
-        this.a = xMPushService;
-    }
-
-    @Override // com.xiaomi.channel.commonutils.misc.h.a
-    public int a() {
-        return 15;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Iterator<com.xiaomi.push.service.module.a> it = i.a(this.a).a().iterator();
-        while (it.hasNext()) {
-            com.xiaomi.push.service.module.a next = it.next();
-            if (next.a() < System.currentTimeMillis()) {
-                if (i.a(this.a).a(next.b()) == 0) {
-                    com.xiaomi.channel.commonutils.logger.b.a("GeofenceDbCleaner delete a geofence message failed message_id:" + next.b());
+public class f {
+    public static boolean a(Context context, String str) {
+        try {
+            ServiceInfo[] serviceInfoArr = context.getPackageManager().getPackageInfo(str, 4).services;
+            if (serviceInfoArr != null) {
+                for (ServiceInfo serviceInfo : serviceInfoArr) {
+                    if (serviceInfo.exported && serviceInfo.enabled && "com.xiaomi.mipush.sdk.PushMessageHandler".equals(serviceInfo.name) && !context.getPackageName().equals(serviceInfo.packageName)) {
+                        return true;
+                    }
                 }
-                x.a(this.a, x.a(next.d()), false, false, true);
+                return false;
             }
+            return false;
+        } catch (PackageManager.NameNotFoundException e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            return false;
+        }
+    }
+
+    public static boolean a(Context context, String str, String str2) {
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            Intent intent = new Intent(str2);
+            intent.setPackage(str);
+            List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, 32);
+            if (queryIntentServices != null) {
+                return !queryIntentServices.isEmpty();
+            }
+            return false;
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            return false;
+        }
+    }
+
+    public static boolean b(Context context, String str) {
+        boolean z = false;
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            if (Build.VERSION.SDK_INT >= 19) {
+                List<ProviderInfo> queryContentProviders = packageManager.queryContentProviders(null, 0, 8);
+                if (queryContentProviders == null || queryContentProviders.isEmpty()) {
+                    return false;
+                }
+                for (ProviderInfo providerInfo : queryContentProviders) {
+                    z = (providerInfo.enabled && providerInfo.exported && providerInfo.authority.equals(str)) ? true : z;
+                }
+                return z;
+            }
+            return true;
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            return z;
+        }
+    }
+
+    public static boolean b(Context context, String str, String str2) {
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            Intent intent = new Intent(str2);
+            intent.setPackage(str);
+            List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(intent, 32);
+            if (queryIntentActivities != null) {
+                return !queryIntentActivities.isEmpty();
+            }
+            return false;
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            return false;
         }
     }
 }

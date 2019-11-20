@@ -3,7 +3,7 @@ package com.baidu.tbadk.t;
 public class at extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void C(int i) {
-        com.baidu.tbadk.o.e.awz().setSamllFlowOpen(1 == i);
+        com.baidu.tbadk.o.e.awx().setSamllFlowOpen(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a

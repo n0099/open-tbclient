@@ -5,22 +5,22 @@ import android.support.annotation.FloatRange;
 import com.baidu.mapapi.map.WeightedLatLng;
 /* loaded from: classes6.dex */
 public class c extends ValueAnimator {
-    private long iF;
-    private boolean iE = false;
+    private long ia;
+    private boolean hZ = false;
     private float speed = 1.0f;
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float value = 0.0f;
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
-    private float iG = 0.0f;
+    private float ib = 0.0f;
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
-    private float iH = 1.0f;
+    private float ic = 1.0f;
 
     public c() {
         setInterpolator(null);
         addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.tb.airbnb.lottie.c.c.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (!c.this.iE) {
+                if (!c.this.hZ) {
                     c.this.value = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 }
             }
@@ -29,18 +29,18 @@ public class c extends ValueAnimator {
     }
 
     public void bg() {
-        this.iE = true;
+        this.hZ = true;
     }
 
-    public void h(long j) {
-        this.iF = j;
+    public void g(long j) {
+        this.ia = j;
         dr();
     }
 
     public void l(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        float clamp = e.clamp(f, this.iG, this.iH);
+        float clamp = e.clamp(f, this.ib, this.ic);
         this.value = clamp;
-        float abs = (isReversed() ? this.iH - clamp : clamp - this.iG) / Math.abs(this.iH - this.iG);
+        float abs = (isReversed() ? this.ic - clamp : clamp - this.ib) / Math.abs(this.ic - this.ib);
         if (getDuration() > 0) {
             setCurrentPlayTime(abs * ((float) getDuration()));
         }
@@ -51,24 +51,24 @@ public class c extends ValueAnimator {
     }
 
     public void j(@FloatRange(from = 0.0d, to = 1.0d) float f, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        this.iG = f;
-        this.iH = f2;
+        this.ib = f;
+        this.ic = f2;
         dr();
     }
 
     public void m(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (f >= this.iH) {
+        if (f >= this.ic) {
             throw new IllegalArgumentException("Min value must be smaller then max value.");
         }
-        this.iG = f;
+        this.ib = f;
         dr();
     }
 
     public void n(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (f <= this.iG) {
+        if (f <= this.ib) {
             throw new IllegalArgumentException("Max value must be greater than min value.");
         }
-        this.iH = f;
+        this.ic = f;
         dr();
     }
 
@@ -87,7 +87,7 @@ public class c extends ValueAnimator {
 
     public void playAnimation() {
         start();
-        l(isReversed() ? this.iH : this.iG);
+        l(isReversed() ? this.ic : this.ib);
     }
 
     public void pauseAnimation() {
@@ -98,10 +98,10 @@ public class c extends ValueAnimator {
 
     public void resumeAnimation() {
         float f = this.value;
-        if (isReversed() && this.value == this.iG) {
-            f = this.iH;
-        } else if (!isReversed() && this.value == this.iH) {
-            f = this.iG;
+        if (isReversed() && this.value == this.ib) {
+            f = this.ic;
+        } else if (!isReversed() && this.value == this.ic) {
+            f = this.ib;
         }
         start();
         l(f);
@@ -112,10 +112,10 @@ public class c extends ValueAnimator {
     }
 
     private void dr() {
-        setDuration((((float) this.iF) * (this.iH - this.iG)) / Math.abs(this.speed));
+        setDuration((((float) this.ia) * (this.ic - this.ib)) / Math.abs(this.speed));
         float[] fArr = new float[2];
-        fArr[0] = this.speed < 0.0f ? this.iH : this.iG;
-        fArr[1] = this.speed < 0.0f ? this.iG : this.iH;
+        fArr[0] = this.speed < 0.0f ? this.ic : this.ib;
+        fArr[1] = this.speed < 0.0f ? this.ib : this.ic;
         setFloatValues(fArr);
         l(this.value);
     }

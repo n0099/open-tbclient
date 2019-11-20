@@ -8,16 +8,15 @@ import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.model.ReportUserInfoModel;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a oC = null;
+    private static a oa = null;
     public long mTimeOutValue = 10000;
     public long lastLocationTime = 0;
-    private long location_expiration = ReportUserInfoModel.TIME_INTERVAL;
+    private long location_expiration = 300000;
     private boolean mLastAddressIsAccuracy = false;
     private boolean mCurrentLocationIsAccurcy = false;
     private boolean mIsExecLocationTask = false;
@@ -26,7 +25,7 @@ public class a {
     private ArrayList<SoftReference<InterfaceC0015a>> mLocationCallBacks = null;
     private ArrayList<com.baidu.adp.lib.d.b> mLocationProviders = new ArrayList<>();
     private Handler handler = null;
-    private b oD = new b() { // from class: com.baidu.adp.lib.d.a.1
+    private b ob = new b() { // from class: com.baidu.adp.lib.d.a.1
         @Override // com.baidu.adp.lib.d.a.b
         public void onProviderGetLocation(int i, String str, Address address, long j, boolean z) {
             a.this.lastLocationTime = j;
@@ -79,21 +78,21 @@ public class a {
     }
 
     public static a fw() {
-        if (oC == null) {
+        if (oa == null) {
             synchronized (a.class) {
-                if (oC == null) {
-                    oC = new a();
+                if (oa == null) {
+                    oa = new a();
                 }
             }
         }
-        return oC;
+        return oa;
     }
 
     public void a(com.baidu.adp.lib.d.b bVar) {
         if (bVar != null) {
             synchronized (this.mLocationProviders) {
                 if (!this.mLocationProviders.contains(bVar)) {
-                    bVar.a(this.oD);
+                    bVar.a(this.ob);
                     this.mLocationProviders.add(bVar);
                 }
             }

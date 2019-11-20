@@ -15,22 +15,22 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> implements f {
-    private ICardInfo AW;
-    private TbPageContext AX;
-    private com.baidu.tieba.frs.aggregation.a AY;
-    private com.baidu.tieba.frs.videomiddlepage.c AZ;
-    private j Ba;
-    private List<j> Bb;
-    private f Bc;
+    private f AA;
+    private ICardInfo Au;
+    private TbPageContext Av;
+    private com.baidu.tieba.frs.aggregation.a Aw;
+    private com.baidu.tieba.frs.videomiddlepage.c Ax;
+    private j Ay;
+    private List<j> Az;
     private com.baidu.afd.d adFacadeData;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, com.baidu.tieba.frs.aggregation.a aVar, com.baidu.tieba.frs.videomiddlepage.c cVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.Bb = new ArrayList();
-        this.AX = tbPageContext;
-        this.AY = aVar;
-        this.AZ = cVar;
-        this.Bc = fVar;
+        this.Az = new ArrayList();
+        this.Av = tbPageContext;
+        this.Aw = aVar;
+        this.Ax = cVar;
+        this.AA = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,11 +39,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
     /* renamed from: c */
     public a b(ViewGroup viewGroup) {
         e a;
-        if (this.AW == null || (a = com.baidu.tieba.lego.card.b.bHK().a(this.AX, this.AW, 2)) == null) {
+        if (this.Au == null || (a = com.baidu.tieba.lego.card.b.bHI().a(this.Av, this.Au, 2)) == null) {
             return null;
         }
         if (a instanceof j) {
-            this.Bb.add((j) a);
+            this.Az.add((j) a);
         }
         a.setAfterClickSchemeListener(new com.baidu.tieba.lego.card.a() { // from class: com.baidu.afd.a.b.1
             @Override // com.baidu.tieba.lego.card.a
@@ -66,7 +66,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
             return null;
         }
         this.adFacadeData = dVar;
-        this.AW = dVar.kc();
+        this.Au = dVar.kc();
         return b(viewGroup);
     }
 
@@ -80,7 +80,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
             }
             com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(kd, i2, i);
             c.CT(str2);
-            com.baidu.tieba.recapp.report.c.cgI().a(c);
+            com.baidu.tieba.recapp.report.c.cgG().a(c);
             com.baidu.tieba.lego.card.b.c.a(dVar);
         }
     }
@@ -94,8 +94,8 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
         }
         if (aVar.kh() instanceof h) {
             h hVar = (h) aVar.kh();
-            hVar.setAutoPlayCallBack(this.AY);
-            hVar.setOnVideoContainerForegroundClickListener(this.AZ);
+            hVar.setAutoPlayCallBack(this.Aw);
+            hVar.setOnVideoContainerForegroundClickListener(this.Ax);
             hVar.setCurrentPlayCallBack(this);
         }
         dVar.kf();
@@ -111,39 +111,39 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
     /* renamed from: a */
     public View getView(int i, View view, ViewGroup viewGroup, com.baidu.afd.d dVar) {
         this.adFacadeData = dVar;
-        this.AW = dVar.kc();
+        this.Au = dVar.kc();
         return super.getView(i, view, viewGroup, dVar);
     }
 
     public void ki() {
-        if (this.Ba != null) {
-            this.Ba.pausePlay();
+        if (this.Ay != null) {
+            this.Ay.pausePlay();
         }
     }
 
     public void kj() {
-        if (this.Ba != null) {
-            this.Ba.stopPlay();
+        if (this.Ay != null) {
+            this.Ay.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.f
     public void a(j jVar) {
-        this.Ba = jVar;
-        if (this.Bc != null) {
-            this.Bc.a(this.Ba);
+        this.Ay = jVar;
+        if (this.AA != null) {
+            this.AA.a(this.Ay);
         }
     }
 
     public boolean kk() {
-        if (this.Ba != null) {
-            return this.Ba.isPlaying();
+        if (this.Ay != null) {
+            return this.Ay.isPlaying();
         }
         return false;
     }
 
     public void onDestory() {
-        for (j jVar : this.Bb) {
+        for (j jVar : this.Az) {
             if (jVar != null) {
                 jVar.onDestroy();
             }

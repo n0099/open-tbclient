@@ -22,7 +22,6 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.coloros.mcssdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
-import com.xiaomi.mipush.sdk.MIPushNotificationHelper4Hybrid;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class e {
@@ -99,7 +98,7 @@ public class e {
         intent.putExtra("pushService_package_name", context.getPackageName());
         intent.putExtra("service_name", "com.baidu.android.pushservice.PushService");
         intent.putExtra("notify_type", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
-        intent.putExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, str);
+        intent.putExtra("message_id", str);
         intent.putExtra(Constants.APP_ID, str2);
         intent.putExtra("baidu_message_type", i);
         if (l.m(context, publicMsg.mPkgName) > 45) {

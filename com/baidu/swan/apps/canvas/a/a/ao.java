@@ -8,22 +8,22 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class ao extends a {
-    private int aGl;
-    private int aGm;
-    private String mText;
-    private float aGT = -1.0f;
-    private float aGU = 0.0f;
+    private int aFT;
+    private int aFU;
+    private float aGB = -1.0f;
+    private float aGC = 0.0f;
     private float mStrokeWidth = 1.0f;
+    private String mText;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() > 2) {
                 this.mText = jSONArray.optString(0);
-                this.aGl = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(1));
-                this.aGm = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(2));
+                this.aFT = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(1));
+                this.aFU = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(2));
                 if (jSONArray.length() > 3) {
-                    this.aGT = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(3));
+                    this.aGB = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(3));
                 }
                 this.mStrokeWidth = com.baidu.swan.apps.an.z.S(1.0f);
             }
@@ -39,32 +39,32 @@ public class ao extends a {
         float f;
         Rect rect;
         if (!TextUtils.isEmpty(this.mText)) {
-            TextPaint textPaint = bVar.aFT;
-            int i = bVar.aFY;
+            TextPaint textPaint = bVar.aFB;
+            int i = bVar.aFG;
             Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-            float f2 = fontMetrics.top + this.aGm;
-            float f3 = fontMetrics.ascent + this.aGm;
-            float f4 = fontMetrics.bottom + this.aGm;
+            float f2 = fontMetrics.top + this.aFU;
+            float f3 = fontMetrics.ascent + this.aFU;
+            float f4 = fontMetrics.bottom + this.aFU;
             switch (i) {
                 case 1:
-                    f = this.aGm + ((f4 - f2) / 2.0f) + (f3 - f2);
+                    f = this.aFU + ((f4 - f2) / 2.0f) + (f3 - f2);
                     break;
                 case 2:
-                    f = (this.aGm + ((fontMetrics.bottom - fontMetrics.top) / 2.0f)) - fontMetrics.bottom;
+                    f = (this.aFU + ((fontMetrics.bottom - fontMetrics.top) / 2.0f)) - fontMetrics.bottom;
                     break;
                 case 3:
-                    f = this.aGm - (f3 - f2);
+                    f = this.aFU - (f3 - f2);
                     break;
                 default:
-                    f = this.aGm;
+                    f = this.aFU;
                     break;
             }
-            if (this.aGU == 0.0d) {
+            if (this.aGC == 0.0d) {
                 textPaint.getTextBounds(this.mText, 0, this.mText.length(), new Rect());
-                if (this.aGT == -1.0f || rect.width() <= this.aGT) {
-                    this.aGU = 1.0f;
+                if (this.aGB == -1.0f || rect.width() <= this.aGB) {
+                    this.aGC = 1.0f;
                 } else {
-                    this.aGU = this.aGT / rect.width();
+                    this.aGC = this.aGB / rect.width();
                 }
             }
             canvas.save();
@@ -74,8 +74,8 @@ public class ao extends a {
             textPaint.setStrokeWidth(this.mStrokeWidth);
             textPaint.setColor(bVar.mStrokeColor);
             bVar.a(textPaint);
-            canvas.scale(this.aGU, 1.0f);
-            canvas.drawText(this.mText, this.aGl, f, textPaint);
+            canvas.scale(this.aGC, 1.0f);
+            canvas.drawText(this.mText, this.aFT, f, textPaint);
             textPaint.setStyle(Paint.Style.FILL);
             textPaint.setAlpha(alpha);
             textPaint.setColor(color);

@@ -19,15 +19,15 @@ import java.util.regex.Pattern;
 public class l {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern jii = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern jhq = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String jig = null;
-    private SpannableStringBuilder jih = null;
-    private boolean jif = false;
+    private String jho = null;
+    private SpannableStringBuilder jhp = null;
+    private boolean jhn = false;
 
-    public static boolean cs(int i, int i2) {
+    public static boolean cq(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -43,20 +43,20 @@ public class l {
         return this.text;
     }
 
-    public String cnZ() {
+    public String cnX() {
         return this.c;
     }
 
-    public SpannableStringBuilder coa() {
-        return this.jih;
+    public SpannableStringBuilder cnY() {
+        return this.jhp;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.jih == null) {
-            this.jih = new SpannableStringBuilder();
+        if (this.jhp == null) {
+            this.jhp = new SpannableStringBuilder();
         }
-        this.jih.append((CharSequence) spannableString);
-        return this.jih;
+        this.jhp.append((CharSequence) spannableString);
+        return this.jhp;
     }
 
     public SpannableString ea(Context context) {
@@ -82,7 +82,7 @@ public class l {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = l.jii.matcher(l.this.link);
+                        Matcher matcher2 = l.jhq.matcher(l.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();

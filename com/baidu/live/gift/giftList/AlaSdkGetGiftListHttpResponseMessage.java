@@ -11,9 +11,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<com.baidu.live.gift.a.a> Zf;
-    private ArrayList<com.baidu.live.gift.a.b> Zg;
-    private ArrayList<h> aci;
+    private ArrayList<com.baidu.live.gift.a.a> YN;
+    private ArrayList<com.baidu.live.gift.a.b> YO;
+    private ArrayList<h> abQ;
     private String scene_from;
 
     public AlaSdkGetGiftListHttpResponseMessage() {
@@ -45,8 +45,8 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
 
     private void j(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aci = new ArrayList<>();
-            this.Zf = new ArrayList<>();
+            this.abQ = new ArrayList<>();
+            this.YN = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("category_id");
@@ -63,7 +63,7 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                     aVar.setCategoryName(optString);
                     aVar.g(arrayList);
                     aVar.ah(z);
-                    this.Zf.add(aVar);
+                    this.YN.add(aVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -82,7 +82,7 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                     hVar.setCategoryName(optString);
                     hVar.s(arrayList2);
                     hVar.ah(z);
-                    this.aci.add(hVar);
+                    this.abQ.add(hVar);
                 }
             }
         }
@@ -90,13 +90,13 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.Zg = new ArrayList<>();
+            this.YO = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     com.baidu.live.gift.a.b bVar = new com.baidu.live.gift.a.b();
                     bVar.parser(optJSONObject);
-                    this.Zg.add(bVar);
+                    this.YO.add(bVar);
                 }
             }
         }
@@ -105,20 +105,20 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
     private void L(String str, String str2) {
         BdKVCache<String> stringCacheWithSapce;
         if (str2 != null && (stringCacheWithSapce = DBKVCacheManager.getInstance().getStringCacheWithSapce(DBKVCacheManager.ALA_GIFT_LIST_CACHE_KEY)) != null) {
-            stringCacheWithSapce.asyncSet(b.h(str, 0L), str2, b.ach);
+            stringCacheWithSapce.asyncSet(b.h(str, 0L), str2, b.abP);
         }
     }
 
-    public ArrayList<h> qX() {
-        return this.aci;
+    public ArrayList<h> qY() {
+        return this.abQ;
     }
 
     public ArrayList<com.baidu.live.gift.a.a> getCategoryList() {
-        return this.Zf;
+        return this.YN;
     }
 
-    public ArrayList<com.baidu.live.gift.a.b> qY() {
-        return this.Zg;
+    public ArrayList<com.baidu.live.gift.a.b> qZ() {
+        return this.YO;
     }
 
     public String getSceneFrom() {

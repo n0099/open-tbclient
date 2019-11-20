@@ -5,28 +5,28 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class a {
-    private static final ReentrantLock bEO = new ReentrantLock();
-    private static volatile a bEP;
-    private d byP;
-    private List<c> bzF = new ArrayList(3);
+    private static final ReentrantLock bDX = new ReentrantLock();
+    private static volatile a bDY;
+    private d bxY;
+    private List<c> byO = new ArrayList(3);
 
     private a() {
     }
 
-    public static a Yn() {
-        if (bEP == null) {
+    public static a Yl() {
+        if (bDY == null) {
             synchronized (a.class) {
-                if (bEP == null) {
-                    bEP = new a();
+                if (bDY == null) {
+                    bDY = new a();
                 }
             }
         }
-        return bEP;
+        return bDY;
     }
 
     public void a(d dVar) {
-        this.byP = dVar;
-        Yo();
+        this.bxY = dVar;
+        Ym();
     }
 
     public void J(String str, boolean z) {
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.byP = null;
-        this.bzF.clear();
+        this.bxY = null;
+        this.byO.clear();
     }
 
     private void a(c cVar) {
-        bEO.lock();
+        bDX.lock();
         try {
-            if (this.byP != null) {
-                this.byP.c(cVar);
+            if (this.bxY != null) {
+                this.bxY.c(cVar);
             } else {
-                this.bzF.add(cVar);
+                this.byO.add(cVar);
             }
         } finally {
-            bEO.unlock();
+            bDX.unlock();
         }
     }
 
-    private void Yo() {
-        if (!this.bzF.isEmpty() && this.byP != null) {
-            bEO.lock();
+    private void Ym() {
+        if (!this.byO.isEmpty() && this.bxY != null) {
+            bDX.lock();
             try {
-                for (c cVar : this.bzF) {
-                    this.byP.c(cVar);
+                for (c cVar : this.byO) {
+                    this.bxY.c(cVar);
                 }
-                this.bzF.clear();
+                this.byO.clear();
             } finally {
-                bEO.unlock();
+                bDX.unlock();
             }
         }
     }

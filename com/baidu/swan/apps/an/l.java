@@ -8,12 +8,12 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public final class l {
-    private static final Pattern btB;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static HashMap<String, Integer> btx = new HashMap<>();
-    private static HashMap<String, Integer> bty = new HashMap<>();
-    private static HashMap<String, String> btz = new HashMap<>();
-    public static HashMap<String, String> btA = new HashMap<>();
+    private static HashMap<String, Integer> bsG = new HashMap<>();
+    private static HashMap<String, Integer> bsH = new HashMap<>();
+    private static HashMap<String, String> bsI = new HashMap<>();
+    public static HashMap<String, String> bsJ = new HashMap<>();
+    private static final Pattern bsK;
 
     static {
         e("application/andrew-inset", "ez", 5);
@@ -334,15 +334,15 @@ public final class l {
         e("audio/aac", "aac", 1);
         e("application/vnd.rn-realmedia", "rm", 0);
         e("message/rfc822", "mht", 11);
-        btB = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        bsK = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void e(String str, String str2, int i) {
-        btx.put(str2, Integer.valueOf(i));
-        bty.put(str, Integer.valueOf(i));
-        btz.put(str2, str);
-        if (!btA.containsKey(str)) {
-            btA.put(str, str2);
+        bsG.put(str2, Integer.valueOf(i));
+        bsH.put(str, Integer.valueOf(i));
+        bsI.put(str2, str);
+        if (!bsJ.containsKey(str)) {
+            bsJ.put(str, str2);
         }
     }
 }

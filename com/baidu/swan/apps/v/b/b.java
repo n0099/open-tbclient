@@ -22,28 +22,28 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String aOH;
-    private String aOI;
-    private String aON;
-    private String aOO;
-    private String aOP;
-    private int aOZ = 0;
-    private long aSO;
-    private String aSP;
-    private String aSQ;
-    private Bundle aSR;
-    private String aSS;
-    private boolean aST;
-    private String aSU;
-    private SwanCoreVersion aSV;
-    private ExtensionCore aSW;
-    private boolean aSX;
-    private int aSY;
-    private long aSZ;
-    private long aTa;
-    private String aTb;
-    private PMSAppInfo aTc;
-    private JSONObject aTd;
+    private int aOH = 0;
+    private String aOp;
+    private String aOq;
+    private String aOv;
+    private String aOw;
+    private String aOx;
+    private String aSA;
+    private boolean aSB;
+    private String aSC;
+    private SwanCoreVersion aSD;
+    private ExtensionCore aSE;
+    private boolean aSF;
+    private int aSG;
+    private long aSH;
+    private long aSI;
+    private String aSJ;
+    private PMSAppInfo aSK;
+    private JSONObject aSL;
+    private long aSw;
+    private String aSx;
+    private String aSy;
+    private Bundle aSz;
     private String page;
 
     public static b L(Intent intent) {
@@ -51,19 +51,19 @@ public final class b {
             throw new IllegalArgumentException("intent must not be null.");
         }
         b bVar = new b();
-        bVar.e((PMSAppInfo) n.d(intent, "swan_pms_db_info"));
-        bVar.Y(n.a(intent, "aiapps_navigatebar_color", (long) IjkMediaMeta.AV_CH_WIDE_LEFT));
+        bVar.e((PMSAppInfo) n.c(intent, "swan_pms_db_info"));
+        bVar.X(n.a(intent, "aiapps_navigatebar_color", (long) IjkMediaMeta.AV_CH_WIDE_LEFT));
         if (d.N(intent)) {
             bVar.fv("1250000000000000");
         } else {
-            bVar.fv(n.b(intent, "aiapps_launch_from"));
+            bVar.fv(n.a(intent, "aiapps_launch_from"));
         }
-        bVar.fw(n.b(intent, "aiapps_launch_scheme"));
-        if (bVar.KF() != null) {
-            String queryParameter = Uri.parse(bVar.KF()).getQueryParameter("_baiduboxapp");
+        bVar.fw(n.a(intent, "aiapps_launch_scheme"));
+        if (bVar.KG() != null) {
+            String queryParameter = Uri.parse(bVar.KG()).getQueryParameter("_baiduboxapp");
             if (!TextUtils.isEmpty(queryParameter)) {
                 try {
-                    bVar.ac(new JSONObject(queryParameter).optJSONObject("ext"));
+                    bVar.ad(new JSONObject(queryParameter).optJSONObject("ext"));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -71,74 +71,74 @@ public final class b {
                 }
             }
         }
-        bVar.setPage(n.b(intent, "aiapps_page"));
+        bVar.setPage(n.a(intent, "aiapps_page"));
         bVar.setDebug(n.a(intent, "aiapps_is_debug", true));
-        bVar.fx(n.b(intent, "aiapps_max_swan_version"));
-        bVar.fy(n.b(intent, "aiapps_min_swan_version"));
-        bVar.p(n.c(intent, "aiapps_extra_data"));
-        bVar.fz(n.b(intent, "aiapps_add_click_id"));
-        bVar.fA(n.b(intent, "aiapps_not_in_history"));
-        bVar.fB(n.b(intent, "aiapps_app_open_url"));
-        bVar.fC(n.b(intent, "aiapps_app_download_url"));
-        bVar.fD(n.b(intent, "aiapps_app_cur_swan_version"));
-        bVar.a((SwanCoreVersion) n.d(intent, "aiapps_swan_core_version"));
-        bVar.a((ExtensionCore) n.d(intent, "aiapps_extension_core"));
+        bVar.fx(n.a(intent, "aiapps_max_swan_version"));
+        bVar.fy(n.a(intent, "aiapps_min_swan_version"));
+        bVar.p(n.b(intent, "aiapps_extra_data"));
+        bVar.fz(n.a(intent, "aiapps_add_click_id"));
+        bVar.fA(n.a(intent, "aiapps_not_in_history"));
+        bVar.fB(n.a(intent, "aiapps_app_open_url"));
+        bVar.fC(n.a(intent, "aiapps_app_download_url"));
+        bVar.fD(n.a(intent, "aiapps_app_cur_swan_version"));
+        bVar.a((SwanCoreVersion) n.c(intent, "aiapps_swan_core_version"));
+        bVar.a((ExtensionCore) n.c(intent, "aiapps_extension_core"));
         bVar.m19do(n.a(intent, "aiapps_app_frame_type", 0));
         bVar.bo(n.a(intent, "aiapps_app_console_switch", false));
         bVar.dB(n.a(intent, "aiapps_app_launch_flags", 0));
         bVar.setOrientation(n.a(intent, "ai_launch_app_orientation", 0));
-        bVar.fE(n.b(intent, "remoteDebugUrl"));
+        bVar.fE(n.a(intent, "remoteDebugUrl"));
         return bVar;
     }
 
     public static Intent b(Context context, b bVar) {
-        if (context == null || bVar == null || !bVar.Kt()) {
+        if (context == null || bVar == null || !bVar.Ku()) {
             return null;
         }
         Intent intent = new Intent();
         intent.setAction("com.baidu.searchbox.action.aiapps.LAUNCH");
         intent.setComponent(new ComponentName(context, SwanAppLauncherActivity.class));
-        intent.putExtra("swan_pms_db_info", bVar.KU());
+        intent.putExtra("swan_pms_db_info", bVar.KV());
         intent.putExtra("aiapps_is_debug", bVar.isDebug());
-        intent.putExtra("aiapps_max_swan_version", bVar.KG());
-        intent.putExtra("aiapps_min_swan_version", bVar.KH());
-        intent.putExtra("aiapps_extra_data", bVar.KI());
-        intent.putExtra("aiapps_add_click_id", bVar.KJ());
-        intent.putExtra("aiapps_app_frame_type", bVar.KO());
+        intent.putExtra("aiapps_max_swan_version", bVar.KH());
+        intent.putExtra("aiapps_min_swan_version", bVar.KI());
+        intent.putExtra("aiapps_extra_data", bVar.KJ());
+        intent.putExtra("aiapps_add_click_id", bVar.KK());
+        intent.putExtra("aiapps_app_frame_type", bVar.KP());
         intent.putExtra("ai_launch_app_orientation", bVar.getOrientation());
-        if (bVar.KD() != IjkMediaMeta.AV_CH_WIDE_LEFT) {
-            intent.putExtra("aiapps_navigatebar_color", bVar.KD());
-        }
-        if (!TextUtils.isEmpty(bVar.KE())) {
-            intent.putExtra("aiapps_launch_from", bVar.KE());
+        if (bVar.KE() != IjkMediaMeta.AV_CH_WIDE_LEFT) {
+            intent.putExtra("aiapps_navigatebar_color", bVar.KE());
         }
         if (!TextUtils.isEmpty(bVar.KF())) {
-            intent.putExtra("aiapps_launch_scheme", bVar.KF());
+            intent.putExtra("aiapps_launch_from", bVar.KF());
+        }
+        if (!TextUtils.isEmpty(bVar.KG())) {
+            intent.putExtra("aiapps_launch_scheme", bVar.KG());
         }
         if (!TextUtils.isEmpty(bVar.getPage())) {
             intent.putExtra("aiapps_page", bVar.getPage());
         }
-        if (!TextUtils.isEmpty(bVar.KK())) {
-            intent.putExtra("aiapps_not_in_history", bVar.KK());
-        }
         if (!TextUtils.isEmpty(bVar.KL())) {
-            intent.putExtra("aiapps_app_open_url", bVar.KL());
+            intent.putExtra("aiapps_not_in_history", bVar.KL());
         }
         if (!TextUtils.isEmpty(bVar.KM())) {
-            intent.putExtra("aiapps_app_download_url", bVar.KM());
+            intent.putExtra("aiapps_app_open_url", bVar.KM());
         }
-        if (bVar.Hg() != null) {
-            intent.putExtra("aiapps_swan_core_version", bVar.Hg());
+        if (!TextUtils.isEmpty(bVar.KN())) {
+            intent.putExtra("aiapps_app_download_url", bVar.KN());
         }
         if (bVar.Hh() != null) {
-            intent.putExtra("aiapps_extension_core", bVar.Hh());
+            intent.putExtra("aiapps_swan_core_version", bVar.Hh());
         }
-        if (bVar.KN() != null) {
-            intent.putExtra("aiapps_app_cur_swan_version", bVar.KN());
+        if (bVar.Hi() != null) {
+            intent.putExtra("aiapps_extension_core", bVar.Hi());
+        }
+        if (bVar.KO() != null) {
+            intent.putExtra("aiapps_app_cur_swan_version", bVar.KO());
         }
         intent.putExtra("aiapps_app_console_switch", com.baidu.swan.apps.console.b.ea(bVar.getAppKey()));
-        intent.putExtra("remoteDebugUrl", bVar.KT());
-        intent.putExtra("aiapps_app_launch_flags", bVar.KQ());
+        intent.putExtra("remoteDebugUrl", bVar.KU());
+        intent.putExtra("aiapps_app_launch_flags", bVar.KR());
         return intent;
     }
 
@@ -147,15 +147,15 @@ public final class b {
             return null;
         }
         Intent intent = new Intent();
-        intent.putExtra("swan_pms_db_info", bVar.KU());
+        intent.putExtra("swan_pms_db_info", bVar.KV());
         return intent;
     }
 
-    public static b Kq() {
+    public static b Kr() {
         b bVar = new b();
         bVar.eM("小程序测试");
         bVar.setAppId("wSfMyKIbrbNg7ogTFTcBuk1P8mgGTlB1");
-        bVar.Y(Color.parseColor("#FF308EF0"));
+        bVar.X(Color.parseColor("#FF308EF0"));
         bVar.fv("1230000000000000");
         bVar.fs("小程序简介");
         bVar.ft("测试服务类目");
@@ -185,9 +185,9 @@ public final class b {
         return null;
     }
 
-    public JSONObject Kr() {
-        if (this.aSQ != null) {
-            String queryParameter = Uri.parse(this.aSQ).getQueryParameter("_swaninfo");
+    public JSONObject Ks() {
+        if (this.aSy != null) {
+            String queryParameter = Uri.parse(this.aSy).getQueryParameter("_swaninfo");
             if (!TextUtils.isEmpty(queryParameter)) {
                 try {
                     return new JSONObject(queryParameter).optJSONObject("baidusearch");
@@ -206,121 +206,121 @@ public final class b {
     }
 
     @NonNull
-    public Bundle Ks() {
-        if (this.aSR == null) {
-            this.aSR = new Bundle();
+    public Bundle Kt() {
+        if (this.aSz == null) {
+            this.aSz = new Bundle();
         }
-        return this.aSR;
+        return this.aSz;
     }
 
     public void ar(String str, String str2) {
         if (str != null && str2 != null) {
-            Ks().putString(str, str2);
+            Kt().putString(str, str2);
         }
     }
 
-    private boolean Kt() {
-        return (TextUtils.isEmpty(getAppId()) || TextUtils.isEmpty(Ht())) ? false : true;
-    }
-
-    public String Hs() {
-        return "SwanAppLaunchInfo{mAppId='" + getAppId() + "', mAppKey='" + getAppKey() + "', mAppTitle='" + Ht() + "', pmsAppInfo is null='" + (this.aTc == null) + "', launchFrom='" + KE() + "', launchScheme='" + KF() + "', page='" + getPage() + "', mErrorCode=" + Kv() + ", mErrorDetail='" + Kw() + "', mErrorMsg='" + Kx() + "', mResumeDate='" + Ky() + "', maxSwanVersion='" + KG() + "', minSwanVersion='" + KH() + "', mVersion='" + getVersion() + "', mType=" + getType() + ", extraData=" + KI() + ", isDebug=" + isDebug() + ", targetSwanVersion='" + KN() + "', swanCoreVersion=" + Hg() + ", appFrameType=" + KO() + ", consoleSwitch=" + KP() + ", orientation=" + getOrientation() + ", versionCode='" + getVersionCode() + "', launchFlags=" + KQ() + ", swanAppStartTime=" + KR() + ", extStartTimestamp=" + KS() + ", remoteDebug='" + KT() + "', extJSonObject=" + KV() + '}';
+    private boolean Ku() {
+        return (TextUtils.isEmpty(getAppId()) || TextUtils.isEmpty(Hu())) ? false : true;
     }
 
     public String Ht() {
-        return this.aTc == null ? "" : this.aTc.appName;
+        return "SwanAppLaunchInfo{mAppId='" + getAppId() + "', mAppKey='" + getAppKey() + "', mAppTitle='" + Hu() + "', pmsAppInfo is null='" + (this.aSK == null) + "', launchFrom='" + KF() + "', launchScheme='" + KG() + "', page='" + getPage() + "', mErrorCode=" + Kw() + ", mErrorDetail='" + Kx() + "', mErrorMsg='" + Ky() + "', mResumeDate='" + Kz() + "', maxSwanVersion='" + KH() + "', minSwanVersion='" + KI() + "', mVersion='" + getVersion() + "', mType=" + getType() + ", extraData=" + KJ() + ", isDebug=" + isDebug() + ", targetSwanVersion='" + KO() + "', swanCoreVersion=" + Hh() + ", appFrameType=" + KP() + ", consoleSwitch=" + KQ() + ", orientation=" + getOrientation() + ", versionCode='" + getVersionCode() + "', launchFlags=" + KR() + ", swanAppStartTime=" + KS() + ", extStartTimestamp=" + KT() + ", remoteDebug='" + KU() + "', extJSonObject=" + KW() + '}';
+    }
+
+    public String Hu() {
+        return this.aSK == null ? "" : this.aSK.appName;
     }
 
     public void eM(String str) {
-        if (this.aTc != null) {
-            this.aTc.appName = str;
+        if (this.aSK != null) {
+            this.aSK.appName = str;
         }
     }
 
     public String getAppKey() {
-        return this.aTc == null ? "" : this.aTc.appKey;
+        return this.aSK == null ? "" : this.aSK.appKey;
     }
 
     public void setAppKey(String str) {
-        if (this.aTc != null) {
-            this.aTc.appKey = str;
+        if (this.aSK != null) {
+            this.aSK.appKey = str;
         }
     }
 
     public String getAppId() {
-        return this.aTc == null ? "" : this.aTc.appId;
+        return this.aSK == null ? "" : this.aSK.appId;
     }
 
     public void setAppId(String str) {
-        if (this.aTc != null) {
-            this.aTc.appId = str;
+        if (this.aSK != null) {
+            this.aSK.appId = str;
         }
     }
 
     public String getIconUrl() {
-        return this.aTc == null ? "" : this.aTc.iconUrl;
+        return this.aSK == null ? "" : this.aSK.iconUrl;
     }
 
     public void setIconUrl(String str) {
-        if (this.aTc != null) {
-            this.aTc.iconUrl = str;
+        if (this.aSK != null) {
+            this.aSK.iconUrl = str;
         }
     }
 
-    public String Ku() {
-        return this.aTc == null ? "" : this.aTc.description;
+    public String Kv() {
+        return this.aSK == null ? "" : this.aSK.description;
     }
 
     public void fs(String str) {
-        if (this.aTc != null) {
-            this.aTc.description = str;
+        if (this.aSK != null) {
+            this.aSK.description = str;
         }
     }
 
-    public int Kv() {
-        if (this.aTc == null) {
+    public int Kw() {
+        if (this.aSK == null) {
             return 0;
         }
-        return this.aTc.appStatus;
-    }
-
-    public String Kw() {
-        return this.aTc == null ? "" : this.aTc.bLQ;
+        return this.aSK.appStatus;
     }
 
     public String Kx() {
-        return this.aTc == null ? "" : this.aTc.bLR;
+        return this.aSK == null ? "" : this.aSK.bKZ;
     }
 
     public String Ky() {
-        return this.aTc == null ? "" : this.aTc.aOG;
+        return this.aSK == null ? "" : this.aSK.bLa;
     }
 
     public String Kz() {
-        return this.aTc == null ? "" : this.aTc.aOJ;
-    }
-
-    public void ft(String str) {
-        if (this.aTc != null) {
-            this.aTc.aOJ = str;
-        }
+        return this.aSK == null ? "" : this.aSK.aOo;
     }
 
     public String KA() {
-        return this.aTc == null ? "" : this.aTc.aOK;
+        return this.aSK == null ? "" : this.aSK.aOr;
+    }
+
+    public void ft(String str) {
+        if (this.aSK != null) {
+            this.aSK.aOr = str;
+        }
+    }
+
+    public String KB() {
+        return this.aSK == null ? "" : this.aSK.aOs;
     }
 
     public void fu(String str) {
-        if (this.aTc != null) {
-            this.aTc.aOK = str;
+        if (this.aSK != null) {
+            this.aSK.aOs = str;
         }
     }
 
-    public SwanAppBearInfo KB() {
-        if (this.aTc == null) {
+    public SwanAppBearInfo KC() {
+        if (this.aSK == null) {
             return null;
         }
-        String str = this.aTc.aOL;
+        String str = this.aSK.aOt;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -328,13 +328,13 @@ public final class b {
     }
 
     public String getVersion() {
-        return this.aTc == null ? "" : String.valueOf(this.aTc.versionCode);
+        return this.aSK == null ? "" : String.valueOf(this.aSK.versionCode);
     }
 
     public void setVersion(String str) {
-        if (!TextUtils.isEmpty(str) && this.aTc != null) {
+        if (!TextUtils.isEmpty(str) && this.aSK != null) {
             try {
-                this.aTc.versionCode = Integer.parseInt(str);
+                this.aSK.versionCode = Integer.parseInt(str);
             } catch (NumberFormatException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -344,58 +344,58 @@ public final class b {
     }
 
     public String getVersionCode() {
-        return this.aTc == null ? "" : this.aTc.versionName;
+        return this.aSK == null ? "" : this.aSK.versionName;
     }
 
     public int getType() {
-        if (this.aTc == null) {
+        if (this.aSK == null) {
             return 0;
         }
-        return this.aTc.type;
-    }
-
-    public long KC() {
-        if (this.aTc == null) {
-            return 0L;
-        }
-        return this.aTc.bLS;
-    }
-
-    public int getOrientation() {
-        if (this.aTc == null) {
-            return 0;
-        }
-        return this.aTc.orientation;
-    }
-
-    public void setOrientation(int i) {
-        if (this.aTc != null) {
-            this.aTc.orientation = i;
-        }
+        return this.aSK.type;
     }
 
     public long KD() {
-        return this.aSO;
+        if (this.aSK == null) {
+            return 0L;
+        }
+        return this.aSK.bLb;
     }
 
-    public void Y(long j) {
-        this.aSO = j;
+    public int getOrientation() {
+        if (this.aSK == null) {
+            return 0;
+        }
+        return this.aSK.orientation;
     }
 
-    public String KE() {
-        return this.aSP;
+    public void setOrientation(int i) {
+        if (this.aSK != null) {
+            this.aSK.orientation = i;
+        }
     }
 
-    public void fv(String str) {
-        this.aSP = str;
+    public long KE() {
+        return this.aSw;
+    }
+
+    public void X(long j) {
+        this.aSw = j;
     }
 
     public String KF() {
-        return this.aSQ;
+        return this.aSx;
+    }
+
+    public void fv(String str) {
+        this.aSx = str;
+    }
+
+    public String KG() {
+        return this.aSy;
     }
 
     public void fw(String str) {
-        this.aSQ = str;
+        this.aSy = str;
     }
 
     public String getPage() {
@@ -406,165 +406,165 @@ public final class b {
         this.page = str;
     }
 
-    public String KG() {
-        return this.aOH;
+    public String KH() {
+        return this.aOp;
     }
 
     public void fx(String str) {
-        this.aOH = str;
+        this.aOp = str;
     }
 
-    public String KH() {
-        return this.aOI;
+    public String KI() {
+        return this.aOq;
     }
 
     public void fy(String str) {
-        this.aOI = str;
+        this.aOq = str;
     }
 
-    public Bundle KI() {
-        return this.aSR;
+    public Bundle KJ() {
+        return this.aSz;
     }
 
     public void p(Bundle bundle) {
-        this.aSR = bundle;
-    }
-
-    public String KJ() {
-        return this.aSS;
-    }
-
-    public void fz(String str) {
-        this.aSS = str;
-    }
-
-    public boolean isDebug() {
-        return this.aST;
-    }
-
-    public void setDebug(boolean z) {
-        this.aST = z;
+        this.aSz = bundle;
     }
 
     public String KK() {
-        return this.aSU;
+        return this.aSA;
     }
 
-    public void fA(String str) {
-        this.aSU = str;
+    public void fz(String str) {
+        this.aSA = str;
+    }
+
+    public boolean isDebug() {
+        return this.aSB;
+    }
+
+    public void setDebug(boolean z) {
+        this.aSB = z;
     }
 
     public String KL() {
-        return this.aON;
+        return this.aSC;
     }
 
-    public void fB(String str) {
-        this.aON = str;
+    public void fA(String str) {
+        this.aSC = str;
     }
 
     public String KM() {
-        return this.aOO;
+        return this.aOv;
     }
 
-    public void fC(String str) {
-        this.aOO = str;
+    public void fB(String str) {
+        this.aOv = str;
     }
 
     public String KN() {
-        return this.aOP;
+        return this.aOw;
+    }
+
+    public void fC(String str) {
+        this.aOw = str;
+    }
+
+    public String KO() {
+        return this.aOx;
     }
 
     public void fD(String str) {
-        this.aOP = str;
+        this.aOx = str;
     }
 
-    public SwanCoreVersion Hg() {
-        return this.aSV;
+    public SwanCoreVersion Hh() {
+        return this.aSD;
     }
 
     public void a(SwanCoreVersion swanCoreVersion) {
-        this.aSV = swanCoreVersion;
+        this.aSD = swanCoreVersion;
     }
 
-    public ExtensionCore Hh() {
-        return this.aSW;
+    public ExtensionCore Hi() {
+        return this.aSE;
     }
 
     public void a(ExtensionCore extensionCore) {
-        this.aSW = extensionCore;
+        this.aSE = extensionCore;
     }
 
-    public int KO() {
-        return this.aOZ;
+    public int KP() {
+        return this.aOH;
     }
 
     /* renamed from: do  reason: not valid java name */
     public void m19do(int i) {
-        this.aOZ = i;
+        this.aOH = i;
     }
 
-    public boolean KP() {
-        return this.aSX;
+    public boolean KQ() {
+        return this.aSF;
     }
 
     public void bo(boolean z) {
-        this.aSX = z;
+        this.aSF = z;
     }
 
-    public int KQ() {
-        return this.aSY;
+    public int KR() {
+        return this.aSG;
     }
 
     public void dB(int i) {
-        this.aSY = i;
-    }
-
-    public long KR() {
-        return this.aSZ;
-    }
-
-    public void Z(long j) {
-        this.aSZ = j;
+        this.aSG = i;
     }
 
     public long KS() {
-        return this.aTa;
+        return this.aSH;
     }
 
-    public void aa(long j) {
-        this.aTa = j;
+    public void Y(long j) {
+        this.aSH = j;
     }
 
-    public String KT() {
-        return this.aTb;
+    public long KT() {
+        return this.aSI;
+    }
+
+    public void Z(long j) {
+        this.aSI = j;
+    }
+
+    public String KU() {
+        return this.aSJ;
     }
 
     public void fE(String str) {
-        this.aTb = str;
+        this.aSJ = str;
     }
 
-    public PMSAppInfo KU() {
-        return this.aTc;
+    public PMSAppInfo KV() {
+        return this.aSK;
     }
 
     public void e(PMSAppInfo pMSAppInfo) {
-        this.aTc = pMSAppInfo;
+        this.aSK = pMSAppInfo;
     }
 
-    public JSONObject KV() {
-        return this.aTd;
+    public JSONObject KW() {
+        return this.aSL;
     }
 
-    public void ac(JSONObject jSONObject) {
-        this.aTd = jSONObject;
+    public void ad(JSONObject jSONObject) {
+        this.aSL = jSONObject;
     }
 
     public static b a(b bVar, b bVar2) {
-        if (bVar2 == null || bVar2.aTc == null) {
+        if (bVar2 == null || bVar2.aSK == null) {
             return bVar;
         }
-        if (bVar != null && bVar.aTc != null && bVar.aTc.versionCode < bVar2.aTc.versionCode) {
-            bVar2.aTc = bVar.aTc;
+        if (bVar != null && bVar.aSK != null && bVar.aSK.versionCode < bVar2.aSK.versionCode) {
+            bVar2.aSK = bVar.aSK;
             return bVar2;
         }
         return bVar2;

@@ -6,9 +6,9 @@ import java.util.RandomAccess;
 import kotlin.TypeCastException;
 /* loaded from: classes2.dex */
 final class af<T> extends d<T> implements RandomAccess {
-    private int arh;
+    private int aqP;
     private final int capacity;
-    private final Object[] kvG;
+    private final Object[] kuP;
     private int size;
 
     public af(int i) {
@@ -16,7 +16,7 @@ final class af<T> extends d<T> implements RandomAccess {
         if (!(this.capacity >= 0)) {
             throw new IllegalArgumentException(("ring buffer capacity should not be negative but it is " + this.capacity).toString());
         }
-        this.kvG = new Object[this.capacity];
+        this.kuP = new Object[this.capacity];
     }
 
     public final int getCapacity() {
@@ -34,8 +34,8 @@ final class af<T> extends d<T> implements RandomAccess {
 
     @Override // kotlin.collections.d, java.util.List
     public T get(int i) {
-        d.kvy.cJ(i, size());
-        return (T) this.kvG[(this.arh + i) % getCapacity()];
+        d.kuH.cH(i, size());
+        return (T) this.kuP[(this.aqP + i) % getCapacity()];
     }
 
     public final boolean isFull() {
@@ -50,15 +50,15 @@ final class af<T> extends d<T> implements RandomAccess {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
             this.count = af.this.size();
-            this.index = af.this.arh;
+            this.index = af.this.aqP;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.collections.af$a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // kotlin.collections.b
-        protected void cMC() {
+        protected void cMA() {
             if (this.count != 0) {
-                bc(af.this.kvG[this.index]);
+                bc(af.this.kuP[this.index]);
                 this.index = (this.index + 1) % af.this.getCapacity();
                 this.count--;
                 return;
@@ -84,15 +84,15 @@ final class af<T> extends d<T> implements RandomAccess {
             kotlin.jvm.internal.p.h(tArr, "java.util.Arrays.copyOf(this, newSize)");
         }
         int size = size();
-        int i2 = this.arh;
+        int i2 = this.aqP;
         int i3 = 0;
         while (i3 < size && i2 < this.capacity) {
-            tArr[i3] = this.kvG[i2];
+            tArr[i3] = this.kuP[i2];
             i2++;
             i3++;
         }
         while (i3 < size) {
-            tArr[i3] = this.kvG[i];
+            tArr[i3] = this.kuP[i];
             i3++;
             i++;
         }
@@ -117,13 +117,13 @@ final class af<T> extends d<T> implements RandomAccess {
         if (isFull()) {
             throw new IllegalStateException("ring buffer is full");
         }
-        this.kvG[(this.arh + size()) % getCapacity()] = t;
+        this.kuP[(this.aqP + size()) % getCapacity()] = t;
         setSize(size() + 1);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: kotlin.collections.af<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public final void Dg(int i) {
+    public final void Df(int i) {
         if (!(i >= 0)) {
             throw new IllegalArgumentException(("n shouldn't be negative but it is " + i).toString());
         }
@@ -131,15 +131,15 @@ final class af<T> extends d<T> implements RandomAccess {
             throw new IllegalArgumentException(("n shouldn't be greater than the buffer size: n = " + i + ", size = " + size()).toString());
         }
         if (i > 0) {
-            int i2 = this.arh;
+            int i2 = this.aqP;
             int capacity = (i2 + i) % getCapacity();
             if (i2 > capacity) {
-                a(this.kvG, null, i2, this.capacity);
-                a(this.kvG, null, 0, capacity);
+                a(this.kuP, null, i2, this.capacity);
+                a(this.kuP, null, 0, capacity);
             } else {
-                a(this.kvG, null, i2, capacity);
+                a(this.kuP, null, i2, capacity);
             }
-            this.arh = capacity;
+            this.aqP = capacity;
             setSize(size() - i);
         }
     }

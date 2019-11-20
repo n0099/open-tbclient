@@ -14,30 +14,30 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a implements View.OnClickListener {
-    private boolean fSG;
-    private PopupWindow fcN;
+    private boolean fRP;
+    private PopupWindow fbW;
     private View mAnchor;
     private TbPageContext mPageContext;
-    private int fSF = R.string.attention_post_update_tip;
+    private int fRO = R.string.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable fSH = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
+    private Runnable fRQ = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.mAnchor != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int dimens = l.getDimens(pageActivity, R.dimen.ds64);
-                View e = a.this.e(pageActivity, a.this.fSF);
+                View e = a.this.e(pageActivity, a.this.fRO);
                 int[] iArr = new int[2];
                 a.this.mAnchor.getLocationInWindow(iArr);
                 int dimens2 = l.getDimens(pageActivity, R.dimen.ds32);
                 int dimens3 = l.getDimens(pageActivity, R.dimen.ds16) + (iArr[1] - dimens);
-                a.this.fcN = new PopupWindow(e, -2, dimens);
-                a.this.fcN.showAtLocation(a.this.mAnchor, 53, dimens2, dimens3);
+                a.this.fbW = new PopupWindow(e, -2, dimens);
+                a.this.fbW.showAtLocation(a.this.mAnchor, 53, dimens2, dimens3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.fcN != null) {
-                            a.this.bqh();
+                        if (a.this.fbW != null) {
+                            a.this.bqf();
                         }
                     }
                 }, 3000L);
@@ -47,24 +47,24 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.fSG = z;
+        this.fRP = z;
     }
 
     public void bV(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.mAnchor = view;
-            if (this.fSG) {
-                this.fSF = R.string.attention_post_update_tip;
+            if (this.fRP) {
+                this.fRO = R.string.attention_post_update_tip;
                 String str = currentAccount + SharedPrefConfig.FRS_GOD_NEW_POST_TIP_COUNT;
-                int i = com.baidu.tbadk.core.sharedPref.b.alR().getInt(str, 0);
+                int i = com.baidu.tbadk.core.sharedPref.b.alP().getInt(str, 0);
                 if (i >= 3) {
-                    this.fSG = false;
+                    this.fRP = false;
                     return;
                 }
-                com.baidu.tbadk.core.sharedPref.b.alR().putInt(str, i + 1);
-                this.fSG = false;
-                this.mHandler.postDelayed(this.fSH, 500L);
+                com.baidu.tbadk.core.sharedPref.b.alP().putInt(str, i + 1);
+                this.fRP = false;
+                this.mHandler.postDelayed(this.fRQ, 500L);
             }
         }
     }
@@ -87,18 +87,18 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bqh();
+        bqf();
     }
 
-    public void bqh() {
-        if (this.fcN != null) {
-            this.fcN.dismiss();
-            this.fcN = null;
+    public void bqf() {
+        if (this.fbW != null) {
+            this.fbW.dismiss();
+            this.fbW = null;
         }
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        bqh();
+        bqf();
     }
 }

@@ -3,19 +3,19 @@ package com.baidu.live.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes6.dex */
 public class b extends HttpMessage {
-    private long ajM;
-    private String ajR;
+    private long aju;
+    private String ajz;
 
     public b(long j, String str) {
         super(1021050);
-        this.ajM = 0L;
-        this.ajM = j;
-        this.ajR = str;
+        this.aju = 0L;
+        this.aju = j;
+        this.ajz = str;
     }
 
     public void setParams() {
-        addParam("live_id", this.ajM);
+        addParam("live_id", this.aju);
         addParam("query_type", "live_realtime_status");
-        addParam("request_type", this.ajR);
+        addParam("request_type", this.ajz);
     }
 }

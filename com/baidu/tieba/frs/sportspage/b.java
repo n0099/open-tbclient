@@ -15,21 +15,21 @@ import com.baidu.tieba.R;
 import tbclient.SportScheduleInfo;
 /* loaded from: classes4.dex */
 public class b {
-    private TbPageContext cfl;
-    private String dhg;
-    private TextView fQp;
-    private TbImageView fQq;
-    private TbImageView fQr;
-    private TextView fQs;
-    private TextView fQt;
-    private TextView fQu;
-    private TextView fQv;
-    private TextView fQw;
-    private final View.OnClickListener fxy = new View.OnClickListener() { // from class: com.baidu.tieba.frs.sportspage.b.1
+    private TbPageContext ceu;
+    private String dgp;
+    private TbImageView fPA;
+    private TextView fPB;
+    private TextView fPC;
+    private TextView fPD;
+    private TextView fPE;
+    private TextView fPF;
+    private TextView fPy;
+    private TbImageView fPz;
+    private final View.OnClickListener fwH = new View.OnClickListener() { // from class: com.baidu.tieba.frs.sportspage.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!aq.isEmpty(b.this.dhg)) {
-                ba.amQ().a(b.this.cfl, new String[]{b.this.dhg}, true);
+            if (!aq.isEmpty(b.this.dgp)) {
+                ba.amO().a(b.this.ceu, new String[]{b.this.dgp}, true);
                 TiebaStatic.log(new an("c13418").bS("fid", b.this.mForumId));
             }
         }
@@ -39,33 +39,33 @@ public class b {
 
     public b(FrsSportsRecommendFragment frsSportsRecommendFragment, View view) {
         if (frsSportsRecommendFragment != null && view != null) {
-            this.cfl = frsSportsRecommendFragment.getPageContext();
+            this.ceu = frsSportsRecommendFragment.getPageContext();
             BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
             this.mRootView = view.findViewById(R.id.frs_sports_schedule_card_layout);
-            this.fQp = (TextView) view.findViewById(R.id.frs_sports_tab_view);
-            this.fQq = (TbImageView) view.findViewById(R.id.frs_sports_schedule_left_team_icon);
-            this.fQr = (TbImageView) view.findViewById(R.id.frs_sports_schedule_right_team_icon);
-            this.fQs = (TextView) view.findViewById(R.id.frs_sports_schedule_left_team_name);
-            this.fQt = (TextView) view.findViewById(R.id.frs_sports_schedule_right_team_name);
-            this.fQu = (TextView) view.findViewById(R.id.frs_sports_schedule_match_top);
-            this.fQv = (TextView) view.findViewById(R.id.frs_sports_schedule_match_middle);
-            this.fQw = (TextView) view.findViewById(R.id.frs_sports_schedule_match_bottom);
-            this.fQq.setPageId(uniqueId);
-            this.fQr.setPageId(uniqueId);
+            this.fPy = (TextView) view.findViewById(R.id.frs_sports_tab_view);
+            this.fPz = (TbImageView) view.findViewById(R.id.frs_sports_schedule_left_team_icon);
+            this.fPA = (TbImageView) view.findViewById(R.id.frs_sports_schedule_right_team_icon);
+            this.fPB = (TextView) view.findViewById(R.id.frs_sports_schedule_left_team_name);
+            this.fPC = (TextView) view.findViewById(R.id.frs_sports_schedule_right_team_name);
+            this.fPD = (TextView) view.findViewById(R.id.frs_sports_schedule_match_top);
+            this.fPE = (TextView) view.findViewById(R.id.frs_sports_schedule_match_middle);
+            this.fPF = (TextView) view.findViewById(R.id.frs_sports_schedule_match_bottom);
+            this.fPz.setPageId(uniqueId);
+            this.fPA.setPageId(uniqueId);
         }
     }
 
     public void a(SportScheduleInfo sportScheduleInfo, String str) {
         if (sportScheduleInfo == null) {
             this.mRootView.setVisibility(8);
-            this.fQp.setVisibility(0);
-            this.fQp.setText(R.string.frs_sports_recommend_tab_txt);
+            this.fPy.setVisibility(0);
+            this.fPy.setText(R.string.frs_sports_recommend_tab_txt);
             return;
         }
         this.mRootView.setVisibility(0);
-        this.fQp.setVisibility(8);
-        this.fQq.startLoad(sportScheduleInfo.home_team_icon, 10, false);
-        this.fQr.startLoad(sportScheduleInfo.guest_team_icon, 10, false);
+        this.fPy.setVisibility(8);
+        this.fPz.startLoad(sportScheduleInfo.home_team_icon, 10, false);
+        this.fPA.startLoad(sportScheduleInfo.guest_team_icon, 10, false);
         String str2 = sportScheduleInfo.home_team_name;
         if (aq.getChineseAndEnglishLength(str2) > 14) {
             str2 = aq.cutForumNameWithSuffix(str2, 14, StringHelper.STRING_MORE);
@@ -74,24 +74,24 @@ public class b {
         if (aq.getChineseAndEnglishLength(str3) > 14) {
             str3 = aq.cutForumNameWithSuffix(str3, 14, StringHelper.STRING_MORE);
         }
-        this.fQs.setText(str2);
-        this.fQt.setText(str3);
-        this.fQu.setText(sportScheduleInfo.match_top_info);
-        this.fQv.setText(sportScheduleInfo.match_middle_info);
-        this.fQw.setText(sportScheduleInfo.match_bottom_info);
-        this.dhg = sportScheduleInfo.msg_url;
+        this.fPB.setText(str2);
+        this.fPC.setText(str3);
+        this.fPD.setText(sportScheduleInfo.match_top_info);
+        this.fPE.setText(sportScheduleInfo.match_middle_info);
+        this.fPF.setText(sportScheduleInfo.match_bottom_info);
+        this.dgp = sportScheduleInfo.msg_url;
         this.mForumId = str;
-        this.mRootView.setOnClickListener(this.fxy);
+        this.mRootView.setOnClickListener(this.fwH);
     }
 
     public void onChangeSkinType() {
         am.setBackgroundResource(this.mRootView, R.drawable.bg_sports_frs_schedule_card_shape);
-        am.setBackgroundResource(this.fQp, R.drawable.bg_sports_frs_schedule_card_shape);
-        am.setViewTextColor(this.fQp, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.fQs, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.fQt, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.fQu, (int) R.color.cp_cont_c);
-        am.setViewTextColor(this.fQv, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.fQw, (int) R.color.cp_cont_c);
+        am.setBackgroundResource(this.fPy, R.drawable.bg_sports_frs_schedule_card_shape);
+        am.setViewTextColor(this.fPy, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.fPB, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.fPC, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.fPD, (int) R.color.cp_cont_c);
+        am.setViewTextColor(this.fPE, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.fPF, (int) R.color.cp_cont_c);
     }
 }

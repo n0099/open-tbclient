@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.b.c;
 /* loaded from: classes2.dex */
 public interface j {
-    i Cv();
+    i Cw();
 
-    h Cw();
+    h Cx();
 }

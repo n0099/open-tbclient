@@ -4,22 +4,22 @@ import com.baidu.swan.apps.b.b.e;
 /* loaded from: classes4.dex */
 public class a implements e {
     @Override // com.baidu.swan.apps.b.b.e
-    public int BF() {
+    public int BG() {
         return 10150;
     }
 
     @Override // com.baidu.swan.apps.b.b.e
-    public boolean BG() {
+    public boolean BH() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.b.b.e
-    public boolean BH() {
+    public boolean BI() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.b.b.e
-    public int BI() {
+    public int BJ() {
         return 3000;
     }
 

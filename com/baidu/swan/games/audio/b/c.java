@@ -3,7 +3,7 @@ package com.baidu.swan.games.audio.b;
 import android.media.MediaPlayer;
 /* loaded from: classes2.dex */
 public interface c extends com.baidu.swan.games.audio.a {
-    boolean VV();
+    boolean VT();
 
     void a(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener);
 

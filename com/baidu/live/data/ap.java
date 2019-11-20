@@ -1,10 +1,10 @@
 package com.baidu.live.data;
 /* loaded from: classes6.dex */
 public class ap {
-    public boolean Vj;
-    public boolean Vk = false;
-    public boolean Vl;
-    public boolean Vm;
-    public boolean Vn;
-    public boolean Vo;
+    public boolean UQ;
+    public boolean UR = false;
+    public boolean US;
+    public boolean UT;
+    public boolean UU;
+    public boolean UV;
 }

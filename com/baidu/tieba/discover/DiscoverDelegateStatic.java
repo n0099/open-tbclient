@@ -40,7 +40,7 @@ public class DiscoverDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c avy() {
+    public c avw() {
         c cVar = new c();
         cVar.frag = new DiscoverFragment();
         cVar.type = 10;
@@ -51,13 +51,13 @@ public class DiscoverDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator cB(Context context) {
-        this.cKb = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.cJk = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.cKv = this.cKb;
+        aVar.cJE = this.cJk;
         aVar.offsetX = l.dip2px(context, 3.0f);
         aVar.bgDayRes = R.drawable.icon_news_down_bar_one;
-        this.cKb.a("emotion", aVar);
-        return this.cKb;
+        this.cJk.a("emotion", aVar);
+        return this.cJk;
     }
 
     @Override // com.baidu.tbadk.mainTab.b

@@ -1,128 +1,114 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.os.Build;
-import com.baidu.live.adp.lib.cache.BdKVCache;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.xiaomi.network.Fallback;
-import com.xiaomi.network.HostFilter;
-import com.xiaomi.network.HostManager;
-import com.xiaomi.push.protobuf.a;
-import com.xiaomi.push.protobuf.b;
-import com.xiaomi.push.service.bh;
-import java.io.IOException;
-import java.net.URL;
+import android.os.Looper;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class ax extends bh.a implements HostManager.HostManagerFactory {
-    private XMPushService a;
-    private long b;
+public class ax {
+    private static ax a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public static class a implements HostManager.HttpGet {
-        a() {
+    /* renamed from: a  reason: collision with other field name */
+    private static String f876a = null;
+
+    /* renamed from: a  reason: collision with other field name */
+    private Context f877a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private boolean f880a;
+    private Messenger b;
+
+    /* renamed from: a  reason: collision with other field name */
+    private List<Message> f879a = new ArrayList();
+
+    /* renamed from: b  reason: collision with other field name */
+    private boolean f881b = false;
+
+    /* renamed from: a  reason: collision with other field name */
+    private Messenger f878a = new Messenger(new ay(this, Looper.getMainLooper()));
+
+    private ax(Context context) {
+        this.f880a = false;
+        this.f877a = context.getApplicationContext();
+        if (a()) {
+            com.xiaomi.channel.commonutils.logger.b.c("use miui push service");
+            this.f880a = true;
         }
+    }
 
-        @Override // com.xiaomi.network.HostManager.HttpGet
-        public String a(String str) {
-            Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-            buildUpon.appendQueryParameter("sdkver", String.valueOf(37));
-            buildUpon.appendQueryParameter("osver", String.valueOf(Build.VERSION.SDK_INT));
-            buildUpon.appendQueryParameter("os", com.xiaomi.smack.util.d.a(Build.MODEL + ":" + Build.VERSION.INCREMENTAL));
-            buildUpon.appendQueryParameter(BdStatsConstant.StatsKey.MERGE_ITEM, String.valueOf(com.xiaomi.channel.commonutils.android.n.b()));
-            String builder = buildUpon.toString();
-            com.xiaomi.channel.commonutils.logger.b.c("fetch bucket from : " + builder);
-            URL url = new URL(builder);
-            int port = url.getPort() == -1 ? 80 : url.getPort();
+    private Message a(Intent intent) {
+        Message obtain = Message.obtain();
+        obtain.what = 17;
+        obtain.obj = intent;
+        return obtain;
+    }
+
+    public static ax a(Context context) {
+        if (a == null) {
+            a = new ax(context);
+        }
+        return a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    private synchronized void m507a(Intent intent) {
+        if (this.f881b) {
+            Message a2 = a(intent);
+            if (this.f879a.size() >= 50) {
+                this.f879a.remove(0);
+            }
+            this.f879a.add(a2);
+        } else if (this.b == null) {
+            Context context = this.f877a;
+            az azVar = new az(this);
+            Context context2 = this.f877a;
+            context.bindService(intent, azVar, 1);
+            this.f881b = true;
+            this.f879a.clear();
+            this.f879a.add(a(intent));
+        } else {
             try {
-                long currentTimeMillis = System.currentTimeMillis();
-                String a = com.xiaomi.channel.commonutils.network.d.a(com.xiaomi.channel.commonutils.android.n.a(), url);
-                com.xiaomi.stats.h.a(url.getHost() + ":" + port, (int) (System.currentTimeMillis() - currentTimeMillis), null);
-                return a;
-            } catch (IOException e) {
-                com.xiaomi.stats.h.a(url.getHost() + ":" + port, -1, e);
-                throw e;
+                this.b.send(a(intent));
+            } catch (RemoteException e) {
+                this.b = null;
+                this.f881b = false;
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    static class b extends HostManager {
-        protected b(Context context, HostFilter hostFilter, HostManager.HttpGet httpGet, String str) {
-            super(context, hostFilter, httpGet, str);
+    private boolean a() {
+        if (com.xiaomi.push.ab.e) {
+            return false;
         }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.xiaomi.network.HostManager
-        public String getRemoteFallbackJSON(ArrayList<String> arrayList, String str, String str2, boolean z) {
-            try {
-                if (com.xiaomi.stats.f.a().c()) {
-                    str2 = bh.e();
-                }
-                return super.getRemoteFallbackJSON(arrayList, str, str2, z);
-            } catch (IOException e) {
-                com.xiaomi.stats.h.a(0, com.xiaomi.push.thrift.a.GSLB_ERR.a(), 1, null, com.xiaomi.channel.commonutils.network.d.c(sAppContext) ? 1 : 0);
-                throw e;
+        try {
+            PackageInfo packageInfo = this.f877a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
+            if (packageInfo != null) {
+                return packageInfo.versionCode >= 104;
             }
+            return false;
+        } catch (Exception e) {
+            return false;
         }
     }
 
-    ax(XMPushService xMPushService) {
-        this.a = xMPushService;
-    }
-
-    public static void a(XMPushService xMPushService) {
-        ax axVar = new ax(xMPushService);
-        bh.a().a(axVar);
-        synchronized (HostManager.class) {
-            HostManager.setHostManagerFactory(axVar);
-            HostManager.init(xMPushService, null, new a(), "0", "push", "2.2");
-        }
-    }
-
-    @Override // com.xiaomi.network.HostManager.HostManagerFactory
-    public HostManager a(Context context, HostFilter hostFilter, HostManager.HttpGet httpGet, String str) {
-        return new b(context, hostFilter, httpGet, str);
-    }
-
-    @Override // com.xiaomi.push.service.bh.a
-    public void a(a.C0598a c0598a) {
-    }
-
-    @Override // com.xiaomi.push.service.bh.a
-    public void a(b.C0599b c0599b) {
-        Fallback fallbacksByHost;
-        boolean z;
-        if (c0599b.e() && c0599b.d() && System.currentTimeMillis() - this.b > BdKVCache.MILLS_1Hour) {
-            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0599b.d());
-            this.b = System.currentTimeMillis();
-            HostManager hostManager = HostManager.getInstance();
-            hostManager.clear();
-            hostManager.refreshFallbacks();
-            com.xiaomi.smack.a g = this.a.g();
-            if (g == null || (fallbacksByHost = hostManager.getFallbacksByHost(g.d().e())) == null) {
-                return;
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m508a(Intent intent) {
+        try {
+            if (com.xiaomi.push.l.m466a() || Build.VERSION.SDK_INT < 26) {
+                this.f877a.startService(intent);
+            } else {
+                m507a(intent);
             }
-            ArrayList<String> d = fallbacksByHost.d();
-            Iterator<String> it = d.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = true;
-                    break;
-                } else if (it.next().equals(g.e())) {
-                    z = false;
-                    break;
-                }
-            }
-            if (!z || d.isEmpty()) {
-                return;
-            }
-            com.xiaomi.channel.commonutils.logger.b.a("bucket changed, force reconnect");
-            this.a.a(0, (Exception) null);
-            this.a.a(false);
+            return true;
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            return false;
         }
     }
 }

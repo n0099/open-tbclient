@@ -1,35 +1,28 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import com.xiaomi.push.service.XMPushService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.NotificationManager;
+import com.xiaomi.push.ai;
 /* loaded from: classes3.dex */
-public final class aa extends XMPushService.i {
-    final /* synthetic */ XMPushService b;
-    final /* synthetic */ com.xiaomi.xmpush.thrift.af c;
+final class aa extends ai.a {
+    final /* synthetic */ int a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ NotificationManager f839a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aa(int i, XMPushService xMPushService, com.xiaomi.xmpush.thrift.af afVar) {
-        super(i);
-        this.b = xMPushService;
-        this.c = afVar;
+    public aa(int i, NotificationManager notificationManager) {
+        this.a = i;
+        this.f839a = notificationManager;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        try {
-            com.xiaomi.xmpush.thrift.af a = x.a((Context) this.b, this.c);
-            a.m().a("message_obsleted", "1");
-            af.a(this.b, a);
-        } catch (com.xiaomi.smack.l e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.b.a(10, e);
-        }
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public int mo140a() {
+        return this.a;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String b() {
-        return "send ack message for obsleted message.";
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f839a.cancel(this.a);
     }
 }

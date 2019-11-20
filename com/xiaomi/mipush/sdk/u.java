@@ -1,185 +1,117 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
-import android.net.http.Headers;
-import android.net.wifi.ScanResult;
-import android.net.wifi.WifiManager;
-import android.telephony.NeighboringCellInfo;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.xiaomi.channel.commonutils.misc.h;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class u extends h.a {
-    private final int a = -1;
-    private final int b = 3600;
-    private Context c;
-    private int d;
+public class u {
+    private static volatile u a;
 
-    public u(Context context, int i) {
-        this.c = context;
-        this.d = i;
+    /* renamed from: a  reason: collision with other field name */
+    private static final Object f75a = new Object();
+
+    /* renamed from: a  reason: collision with other field name */
+    private Context f76a;
+
+    private u(Context context) {
+        this.f76a = context;
     }
 
-    private static Location a(Location location, Location location2) {
-        return location == null ? location2 : (location2 == null || location.getTime() > location2.getTime()) ? location : location2;
-    }
-
-    public static void a(Context context, boolean z) {
-        com.xiaomi.xmpush.thrift.p b = b(context);
-        byte[] a = com.xiaomi.xmpush.thrift.at.a(b);
-        com.xiaomi.xmpush.thrift.ai aiVar = new com.xiaomi.xmpush.thrift.ai(LivenessStat.TYPE_STRING_DEFAULT, false);
-        aiVar.c(com.xiaomi.xmpush.thrift.r.GeoUpdateLoc.aa);
-        aiVar.a(a);
-        aiVar.a(new HashMap());
-        aiVar.j().put(Constants.EXTRA_KEY_INITIAL_WIFI_UPLOAD, String.valueOf(z));
-        boolean b2 = com.xiaomi.push.service.j.b(context);
-        if (b2) {
-            aiVar.j().put(Constants.EXTRA_KEY_XMSF_GEO_IS_WORK, String.valueOf(b2));
-        }
-        com.xiaomi.channel.commonutils.logger.b.c("reportLocInfo locInfo timestamp:" + System.currentTimeMillis() + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(b.c() != null ? b.c() : "null") + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(b.b != null ? b.b.toString() : null) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(b.a != null ? b.a.toString() : null));
-        az.a(context).a((az) aiVar, com.xiaomi.xmpush.thrift.a.Notification, true, (com.xiaomi.xmpush.thrift.u) null);
-        g(context);
-    }
-
-    private boolean a(long j) {
-        return ((float) Math.abs((System.currentTimeMillis() / 1000) - this.c.getSharedPreferences("mipush_extra", 4).getLong("last_upload_lbs_data_timestamp", -1L))) > ((float) j) * 0.9f;
-    }
-
-    protected static boolean a(Context context) {
-        PackageManager packageManager = context.getPackageManager();
-        String packageName = context.getPackageName();
-        return (packageManager.checkPermission("android.permission.ACCESS_COARSE_LOCATION", packageName) == 0) || (packageManager.checkPermission("android.permission.ACCESS_FINE_LOCATION", packageName) == 0);
-    }
-
-    private static com.xiaomi.xmpush.thrift.p b(Context context) {
-        com.xiaomi.xmpush.thrift.p pVar = new com.xiaomi.xmpush.thrift.p();
-        if (!com.xiaomi.channel.commonutils.android.f.g()) {
-            pVar.a(c(context));
-            pVar.b(d(context));
-            pVar.a(e(context));
-        }
-        return pVar;
-    }
-
-    private boolean b() {
-        if (com.xiaomi.channel.commonutils.network.d.e(this.c)) {
-            return true;
-        }
-        return com.xiaomi.channel.commonutils.network.d.f(this.c) && a((long) Math.max(60, com.xiaomi.push.service.an.a(this.c).a(com.xiaomi.xmpush.thrift.g.UploadNOWIFIGeoLocFrequency.a(), 3600)));
-    }
-
-    private static List<com.xiaomi.xmpush.thrift.y> c(Context context) {
-        v vVar = new v();
-        try {
-            List<ScanResult> scanResults = ((WifiManager) context.getSystemService("wifi")).getScanResults();
-            if (com.xiaomi.channel.commonutils.misc.c.a(scanResults)) {
-                return null;
-            }
-            Collections.sort(scanResults, vVar);
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < Math.min(30, scanResults.size()); i++) {
-                ScanResult scanResult = scanResults.get(i);
-                if (scanResult != null) {
-                    com.xiaomi.xmpush.thrift.y yVar = new com.xiaomi.xmpush.thrift.y();
-                    yVar.a(TextUtils.isEmpty(scanResult.BSSID) ? "" : scanResult.BSSID);
-                    yVar.a(scanResult.level);
-                    yVar.b(scanResult.SSID);
-                    arrayList.add(yVar);
+    public static u a(Context context) {
+        if (a == null) {
+            synchronized (u.class) {
+                if (a == null) {
+                    a = new u(context);
                 }
             }
-            return arrayList;
-        } catch (Throwable th) {
-            return null;
         }
+        return a;
     }
 
-    private static List<com.xiaomi.xmpush.thrift.c> d(Context context) {
-        try {
-            List neighboringCellInfo = ((TelephonyManager) context.getSystemService("phone")).getNeighboringCellInfo();
-            int i = 0;
-            ArrayList arrayList = null;
-            while (i < neighboringCellInfo.size()) {
-                NeighboringCellInfo neighboringCellInfo2 = (NeighboringCellInfo) neighboringCellInfo.get(i);
-                ArrayList arrayList2 = new ArrayList();
-                if (neighboringCellInfo2.getLac() > 0 || neighboringCellInfo2.getCid() > 0) {
-                    com.xiaomi.xmpush.thrift.c cVar = new com.xiaomi.xmpush.thrift.c();
-                    cVar.a(neighboringCellInfo2.getCid());
-                    cVar.b((neighboringCellInfo2.getRssi() * 2) - 113);
-                    arrayList2.add(cVar);
-                }
-                i++;
-                arrayList = arrayList2;
+    private File a(String str) {
+        File file = new File(this.f76a.getFilesDir() + "/crash");
+        if (!file.exists()) {
+            file.mkdirs();
+            return null;
+        }
+        File[] listFiles = file.listFiles();
+        for (int i = 0; i < listFiles.length; i++) {
+            if (listFiles[i].isFile() && listFiles[i].getName().startsWith(str)) {
+                return listFiles[i];
             }
-            return arrayList;
-        } catch (Throwable th) {
-            return null;
-        }
-    }
-
-    private static com.xiaomi.xmpush.thrift.l e(Context context) {
-        Location f;
-        if (a(context) && (f = f(context)) != null) {
-            com.xiaomi.xmpush.thrift.o oVar = new com.xiaomi.xmpush.thrift.o();
-            oVar.b(f.getLatitude());
-            oVar.a(f.getLongitude());
-            com.xiaomi.xmpush.thrift.l lVar = new com.xiaomi.xmpush.thrift.l();
-            lVar.a(f.getAccuracy());
-            lVar.a(oVar);
-            lVar.a(f.getProvider());
-            lVar.a(new Date().getTime() - f.getTime());
-            return lVar;
         }
         return null;
     }
 
-    private static Location f(Context context) {
-        Location location;
-        Location location2;
-        Location location3;
-        LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
-        try {
-            location = locationManager.getLastKnownLocation("network");
-        } catch (Exception e) {
-            location = null;
+    public String a(File file) {
+        if (file == null) {
+            return "";
         }
-        try {
-            location2 = locationManager.getLastKnownLocation("gps");
-        } catch (Exception e2) {
-            location2 = null;
-        }
-        try {
-            location3 = locationManager.getLastKnownLocation("passive");
-        } catch (Exception e3) {
-            location3 = null;
-        }
-        return a(location3, a(location, location2));
+        String[] split = file.getName().split(":");
+        return split.length != 2 ? "" : split[0];
     }
 
-    private static void g(Context context) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 4).edit();
-        edit.putLong("last_upload_lbs_data_timestamp", System.currentTimeMillis() / 1000);
-        edit.commit();
+    public ArrayList<File> a() {
+        ArrayList<File> arrayList = new ArrayList<>();
+        File file = new File(this.f76a.getFilesDir() + "/crash");
+        if (!file.exists()) {
+            file.mkdirs();
+            return arrayList;
+        }
+        File[] listFiles = file.listFiles();
+        for (int i = 0; i < listFiles.length; i++) {
+            String[] split = listFiles[i].getName().split(":");
+            if (split.length >= 2 && Integer.parseInt(split[1]) >= 1 && listFiles[i].isFile()) {
+                arrayList.add(listFiles[i]);
+            }
+        }
+        return arrayList;
     }
 
-    @Override // com.xiaomi.channel.commonutils.misc.h.a
-    public int a() {
-        return 11;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        if (com.xiaomi.push.service.j.e(this.c) && com.xiaomi.push.service.an.a(this.c).a(com.xiaomi.xmpush.thrift.g.UploadGeoAppLocSwitch.a(), true) && com.xiaomi.channel.commonutils.network.d.d(this.c) && b() && com.xiaomi.channel.commonutils.misc.f.a(this.c, String.valueOf(11), this.d)) {
-            a(this.c, false);
+    public void a(String str, String str2) {
+        FileOutputStream fileOutputStream;
+        String[] split;
+        if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (f75a) {
+            File a2 = a(str2);
+            if (a2 != null) {
+                if (a2.getName().split(":").length < 2) {
+                    return;
+                }
+                a2.renameTo(new File(this.f76a.getFilesDir() + "/crash/" + str2 + ":" + String.valueOf(Integer.parseInt(split[1]) + 1)));
+            } else {
+                FileOutputStream fileOutputStream2 = null;
+                try {
+                    fileOutputStream = new FileOutputStream(new File(this.f76a.getFilesDir() + "/crash/" + str2 + ":1"));
+                    try {
+                        try {
+                            fileOutputStream.write(str.getBytes());
+                            fileOutputStream.flush();
+                            com.xiaomi.push.y.a(fileOutputStream);
+                        } catch (Exception e) {
+                            e = e;
+                            com.xiaomi.channel.commonutils.logger.b.a(e);
+                            com.xiaomi.push.y.a(fileOutputStream);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream2 = fileOutputStream;
+                        com.xiaomi.push.y.a(fileOutputStream2);
+                        throw th;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    fileOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    com.xiaomi.push.y.a(fileOutputStream2);
+                    throw th;
+                }
+            }
         }
     }
 }

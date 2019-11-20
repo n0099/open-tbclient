@@ -8,7 +8,7 @@ public class ac {
     private String forumGameLabel;
     private String forumId;
     private String forumName;
-    private final List<com.baidu.tbadk.mainTab.b> fuF = new LinkedList();
+    private final List<com.baidu.tbadk.mainTab.b> ftO = new LinkedList();
     private Context mContext;
 
     public ac(Context context) {
@@ -16,18 +16,18 @@ public class ac {
     }
 
     public void b(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.avz() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.fuF) {
-                if (bVar2 != null && bVar2.avz() != null && bVar2.avz().type == bVar.avz().type) {
+        if (bVar != null && bVar.avx() != null) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.ftO) {
+                if (bVar2 != null && bVar2.avx() != null && bVar2.avx().type == bVar.avx().type) {
                     return;
                 }
             }
-            this.fuF.add(bVar);
+            this.ftO.add(bVar);
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bjw() {
-        return this.fuF;
+    public List<com.baidu.tbadk.mainTab.b> bju() {
+        return this.ftO;
     }
 
     public void setForumName(String str) {

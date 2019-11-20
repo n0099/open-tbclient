@@ -23,9 +23,9 @@ public class h {
     }
 
     public static void a(m mVar, BdUniqueId bdUniqueId) {
-        if (mVar != null && !StringUtils.isNull(mVar.atF()) && v.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
+        if (mVar != null && !StringUtils.isNull(mVar.atD()) && v.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(1003063);
-            httpMessage.addParam("pic_url", mVar.atF());
+            httpMessage.addParam("pic_url", mVar.atD());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -33,13 +33,13 @@ public class h {
 
     public static void a(m mVar, List<com.baidu.adp.widget.ListView.m> list) {
         m mVar2;
-        if (mVar != null && !v.isEmpty(list) && !StringUtils.isNull(mVar.atF())) {
+        if (mVar != null && !v.isEmpty(list) && !StringUtils.isNull(mVar.atD())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.m mVar3 = list.get(i);
-                if ((mVar3 instanceof m) && (mVar2 = (m) mVar3) != mVar && !mVar2.atG()) {
-                    jSONArray.put(mVar2.atF());
+                if ((mVar3 instanceof m) && (mVar2 = (m) mVar3) != mVar && !mVar2.atE()) {
+                    jSONArray.put(mVar2.atD());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(1003064);
@@ -64,8 +64,8 @@ public class h {
                 com.baidu.adp.widget.ListView.m mVar = list.get(i);
                 if (mVar instanceof m) {
                     m mVar2 = (m) mVar;
-                    if (!mVar2.atG()) {
-                        jSONArray.put(mVar2.atF());
+                    if (!mVar2.atE()) {
+                        jSONArray.put(mVar2.atD());
                     }
                 }
             }

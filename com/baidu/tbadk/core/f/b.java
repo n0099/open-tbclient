@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.f;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a chx = null;
+    private static a cgG = null;
 
     public static void m(Context context, int i) {
-        if (chx != null) {
-            chx.m(context, i);
+        if (cgG != null) {
+            cgG.m(context, i);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (chx != null) {
-            chx.b(context, i, z);
+        if (cgG != null) {
+            cgG.b(context, i, z);
         }
     }
 
     public static void co(Context context) {
-        if (chx != null) {
-            chx.co(context);
+        if (cgG != null) {
+            cgG.co(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (chx != null) {
-            chx.c(context, i, z);
+        if (cgG != null) {
+            cgG.c(context, i, z);
         }
     }
 
-    public static Class<?> alI() {
-        if (chx == null) {
+    public static Class<?> alG() {
+        if (cgG == null) {
             return null;
         }
-        return chx.alI();
+        return cgG.alG();
     }
 
-    public static String alJ() {
-        if (chx == null) {
+    public static String alH() {
+        if (cgG == null) {
             return null;
         }
-        return chx.alJ();
+        return cgG.alH();
     }
 
     public static void a(a aVar) {
-        chx = aVar;
+        cgG = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (chx == null) {
+        if (cgG == null) {
             return -1;
         }
-        return chx.getCurrentTabType();
+        return cgG.getCurrentTabType();
     }
 }

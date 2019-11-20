@@ -35,7 +35,7 @@ public class f implements com.baidu.tieba.tbadkCore.e.b {
         }
     };
     private final CustomMessageListener downloadListener = new CustomMessageListener(CmdConfigCustom.CMD_FILE_DOWNLOAD) { // from class: com.baidu.tieba.ad.browser.newstyle.f.2
-        private boolean bVt;
+        private boolean bUC;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -46,16 +46,16 @@ public class f implements com.baidu.tieba.tbadkCore.e.b {
                     for (DownloadData downloadData : downloadMessage.getData()) {
                         if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                             if (downloadData.getStatus() == 5) {
-                                if (!this.bVt) {
-                                    this.bVt = true;
+                                if (!this.bUC) {
+                                    this.bUC = true;
                                     f.this.callDownloadListener(1);
                                 }
                             } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
                                 f.this.callDownloadListener(2);
-                                this.bVt = false;
+                                this.bUC = false;
                             } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
                                 f.this.callDownloadListener(0);
-                                this.bVt = false;
+                                this.bUC = false;
                             }
                         }
                     }
@@ -183,7 +183,7 @@ public class f implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.atT().b("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.atR().b("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

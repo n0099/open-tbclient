@@ -6,7 +6,7 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 /* loaded from: classes6.dex */
 public abstract class a {
-    protected g atw;
+    protected g ate;
     protected Handler mHandler;
 
     public abstract void cZ(String str);
@@ -25,8 +25,8 @@ public abstract class a {
         this.mHandler.post(new Runnable() { // from class: com.baidu.live.view.web.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.atw != null) {
-                    a.this.atw.df(str);
+                if (a.this.ate != null) {
+                    a.this.ate.df(str);
                 } else {
                     a.this.cZ(str);
                 }
@@ -49,6 +49,6 @@ public abstract class a {
     }
 
     public void a(g gVar) {
-        this.atw = gVar;
+        this.ate = gVar;
     }
 }

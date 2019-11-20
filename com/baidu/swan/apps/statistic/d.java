@@ -2,7 +2,7 @@ package com.baidu.swan.apps.statistic;
 /* loaded from: classes2.dex */
 public final class d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bpk = 0;
+    private static int boS = 0;
 
     public static String eJ(int i) {
         switch (i) {
@@ -17,11 +17,11 @@ public final class d {
         }
     }
 
-    public static int Sx() {
-        return bpk;
+    public static int Sz() {
+        return boS;
     }
 
     public static void eK(int i) {
-        bpk = i;
+        boS = i;
     }
 }

@@ -5,6 +5,10 @@ public interface o {
 
     void b(h<?, ?> hVar);
 
+    void cFA();
+
+    void cFB();
+
     void cFC();
 
     void cFD();
@@ -16,10 +20,6 @@ public interface o {
     void cFG();
 
     void cFH();
-
-    void cFI();
-
-    void cFJ();
 
     void n(com.facebook.cache.common.b bVar);
 

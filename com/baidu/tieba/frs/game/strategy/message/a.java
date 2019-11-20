@@ -50,10 +50,10 @@ public class a {
             bVar.ai(bhVar);
             bhVar.a(list.get(i2));
             bhVar.setCurrentPage(3);
-            bhVar.ajw();
-            if (!TextUtils.isEmpty(bhVar.ajI())) {
+            bhVar.aju();
+            if (!TextUtils.isEmpty(bhVar.ajG())) {
                 ad adVar = new ad();
-                adVar.mP(bhVar.ajI());
+                adVar.mP(bhVar.ajG());
                 linkedList.add(adVar);
             } else {
                 linkedList.add(bVar);

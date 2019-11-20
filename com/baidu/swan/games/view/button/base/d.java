@@ -20,9 +20,9 @@ public class d {
         return PathType.RELATIVE;
     }
 
-    public static String YN() {
+    public static String YL() {
         File am;
-        if (com.baidu.swan.apps.ae.b.isDataValid() && com.baidu.swan.apps.ae.b.QZ().getVersion() != null && (am = a.d.am(com.baidu.swan.apps.ae.b.Rk(), com.baidu.swan.apps.ae.b.QZ().getVersion())) != null && am.exists()) {
+        if (com.baidu.swan.apps.ae.b.isDataValid() && com.baidu.swan.apps.ae.b.Ra().getVersion() != null && (am = a.d.am(com.baidu.swan.apps.ae.b.Rm(), com.baidu.swan.apps.ae.b.Ra().getVersion())) != null && am.exists()) {
             return SkiaImageDecoder.FILE_PREFIX + am.getAbsolutePath();
         }
         return null;

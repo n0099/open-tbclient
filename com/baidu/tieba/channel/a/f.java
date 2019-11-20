@@ -13,11 +13,11 @@ import com.baidu.tieba.channel.activity.ChannelListActivity;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class f extends BaseAdapter {
-    private ChannelListActivity eSJ;
+    private ChannelListActivity eRS;
     private List<com.baidu.tieba.channel.data.f> mData;
 
     public f(ChannelListActivity channelListActivity) {
-        this.eSJ = channelListActivity;
+        this.eRS = channelListActivity;
     }
 
     public void setData(List<com.baidu.tieba.channel.data.f> list) {
@@ -34,7 +34,7 @@ public class f extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oU */
+    /* renamed from: oT */
     public com.baidu.tieba.channel.data.f getItem(int i) {
         if (this.mData != null) {
             return this.mData.get(i);
@@ -53,38 +53,38 @@ public class f extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.eSJ.getPageContext().getPageActivity()).inflate(R.layout.channel_list_item_layout, viewGroup, false);
+            view = LayoutInflater.from(this.eRS.getPageContext().getPageActivity()).inflate(R.layout.channel_list_item_layout, viewGroup, false);
             a aVar2 = new a();
-            aVar2.eSK = (TbImageView) view.findViewById(R.id.channel_avatar);
-            aVar2.eSK.setDefaultErrorResource(R.drawable.avatar_channel_poto_defaul160);
-            aVar2.eSK.setDefaultResource(R.drawable.avatar_channel_poto_defaul160);
-            aVar2.eSL = (TextView) view.findViewById(R.id.channel_title);
-            aVar2.eSM = (TextView) view.findViewById(R.id.channel_intro);
+            aVar2.eRT = (TbImageView) view.findViewById(R.id.channel_avatar);
+            aVar2.eRT.setDefaultErrorResource(R.drawable.avatar_channel_poto_defaul160);
+            aVar2.eRT.setDefaultResource(R.drawable.avatar_channel_poto_defaul160);
+            aVar2.eRU = (TextView) view.findViewById(R.id.channel_title);
+            aVar2.eRV = (TextView) view.findViewById(R.id.channel_intro);
             view.setTag(aVar2);
             aVar = aVar2;
         }
         com.baidu.tieba.channel.data.f item = getItem(i);
         if (item != null) {
-            if (!TextUtils.isEmpty(item.bbq())) {
-                aVar.eSK.startLoad(item.bbq(), 10, false);
+            if (!TextUtils.isEmpty(item.bbo())) {
+                aVar.eRT.startLoad(item.bbo(), 10, false);
             }
-            if (!TextUtils.isEmpty(item.bbp())) {
-                aVar.eSL.setText(item.bbp());
+            if (!TextUtils.isEmpty(item.bbn())) {
+                aVar.eRU.setText(item.bbn());
             }
             if (!TextUtils.isEmpty(item.getDescription())) {
-                aVar.eSM.setText(item.getDescription());
+                aVar.eRV.setText(item.getDescription());
             }
         }
-        this.eSJ.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.eSJ.getLayoutMode().onModeChanged(view);
+        this.eRS.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.eRS.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* loaded from: classes6.dex */
     private class a {
-        TbImageView eSK;
-        TextView eSL;
-        TextView eSM;
+        TbImageView eRT;
+        TextView eRU;
+        TextView eRV;
 
         private a() {
         }

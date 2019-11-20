@@ -7,14 +7,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes4.dex */
 public class b {
-    public static boolean beT() {
+    public static boolean beR() {
         if (j.isNetWorkAvailable()) {
             return d.ft().af("is_call_test_https") == 1;
         }
         return false;
     }
 
-    public static void beU() {
+    public static void beS() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.enterForum.model.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

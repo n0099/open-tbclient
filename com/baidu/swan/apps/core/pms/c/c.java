@@ -18,14 +18,14 @@ public class c {
     public static void a(String str, final a aVar) {
         Uri jb = ac.jb(str);
         if (jb == null) {
-            e.TT().b(new com.baidu.swan.apps.ak.a().as(4L).at(10L).iL("download icon fail: icon url is null"));
+            e.TR().b(new com.baidu.swan.apps.ak.a().ar(4L).as(10L).iL("download icon fail: icon url is null"));
             if (aVar != null) {
                 aVar.i(null);
                 return;
             }
             return;
         }
-        com.facebook.drawee.a.a.c.cDD().e(ImageRequestBuilder.R(jb).cJI(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.c.c.1
+        com.facebook.drawee.a.a.c.cDB().e(ImageRequestBuilder.R(jb).cJG(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.c.c.1
             @Override // com.facebook.imagepipeline.e.b
             protected void h(Bitmap bitmap) {
                 Bitmap copy;
@@ -63,6 +63,6 @@ public class c {
                     a.this.i(null);
                 }
             }
-        }, f.cCI());
+        }, f.cCG());
     }
 }

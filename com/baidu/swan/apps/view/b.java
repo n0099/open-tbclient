@@ -21,89 +21,89 @@ import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.baidu.swan.apps.statistic.a.f;
 /* loaded from: classes2.dex */
 public class b {
-    public SwanAppRoundedImageView aKk;
-    public BdBaseImageView aKl;
-    public TextView aKm;
-    public View bvi;
-    public TextView bvj;
-    public ImageView bvk;
-    public ImageView bvl;
-    private ImageView bvm;
-    private ImageView bvn;
-    public RelativeLayout bvo;
-    private View bvp;
-    private com.baidu.swan.apps.e.a bvq;
-    private SwanAppActivity bvr;
-    private View bvs;
+    public SwanAppRoundedImageView aJS;
+    public BdBaseImageView aJT;
+    public TextView aJU;
+    private SwanAppActivity buA;
+    private View buB;
+    public View bur;
+    public TextView bus;
+    public ImageView but;
+    public ImageView buu;
+    private ImageView buv;
+    private ImageView buw;
+    public RelativeLayout bux;
+    private View buy;
+    private com.baidu.swan.apps.e.a buz;
 
     public b(SwanAppActivity swanAppActivity) {
-        this.bvr = swanAppActivity;
+        this.buA = swanAppActivity;
     }
 
     public void l(boolean z, boolean z2) {
         int i;
-        if (this.bvq == null) {
-            this.bvq = new com.baidu.swan.apps.e.a();
+        if (this.buz == null) {
+            this.buz = new com.baidu.swan.apps.e.a();
         }
         if (z) {
             i = z2 ? a.g.ai_games_loading_fragment_landscape : a.g.ai_games_loading_fragment;
         } else {
             i = a.g.aiapps_loading_fragment;
         }
-        this.bvi = LayoutInflater.from(this.bvr).inflate(i, (ViewGroup) null);
-        this.bvr.AD().am(this.bvi);
+        this.bur = LayoutInflater.from(this.buA).inflate(i, (ViewGroup) null);
+        this.buA.AE().am(this.bur);
         if (!z) {
-            this.bvi.setPadding(0, com.baidu.swan.apps.res.widget.a.bhi ? z.getStatusBarHeight() : 0, 0, 0);
+            this.bur.setPadding(0, com.baidu.swan.apps.res.widget.a.bgQ ? z.getStatusBarHeight() : 0, 0, 0);
         }
-        this.bvj = (TextView) this.bvi.findViewById(a.f.aiapps_title);
-        this.aKk = (SwanAppRoundedImageView) this.bvi.findViewById(a.f.aiapps_icon);
-        this.aKl = (BdBaseImageView) this.bvi.findViewById(a.f.aiapps_label_bg);
-        this.aKm = (TextView) this.bvi.findViewById(a.f.aiapps_label_tv);
-        this.bvo = (RelativeLayout) this.bvi.findViewById(a.f.aiapps_icon_rl);
-        this.bvj.setText(this.bvr.AJ().Ht());
-        this.aKk.setImageBitmap(ac.a(this.bvr.AJ().getIconUrl(), "SwanAppLoadingView", true, new m.a() { // from class: com.baidu.swan.apps.view.b.1
+        this.bus = (TextView) this.bur.findViewById(a.f.aiapps_title);
+        this.aJS = (SwanAppRoundedImageView) this.bur.findViewById(a.f.aiapps_icon);
+        this.aJT = (BdBaseImageView) this.bur.findViewById(a.f.aiapps_label_bg);
+        this.aJU = (TextView) this.bur.findViewById(a.f.aiapps_label_tv);
+        this.bux = (RelativeLayout) this.bur.findViewById(a.f.aiapps_icon_rl);
+        this.bus.setText(this.buA.AK().Hu());
+        this.aJS.setImageBitmap(ac.a(this.buA.AK().getIconUrl(), "SwanAppLoadingView", true, new m.a() { // from class: com.baidu.swan.apps.view.b.1
             @Override // com.baidu.swan.apps.an.m.a
             public void e(String str, Bitmap bitmap) {
-                if (bitmap != null && com.baidu.swan.apps.ae.b.QZ() != null && (com.baidu.swan.apps.ae.b.QZ().getActivity() instanceof SwanAppActivity)) {
-                    SwanAppActivity swanAppActivity = (SwanAppActivity) com.baidu.swan.apps.ae.b.QZ().getActivity();
-                    b AE = swanAppActivity.AE();
-                    com.baidu.swan.apps.v.b.b AJ = swanAppActivity.AJ();
-                    if (AE != null && AJ != null && TextUtils.equals(str, AJ.getIconUrl())) {
-                        AE.l(bitmap);
+                if (bitmap != null && com.baidu.swan.apps.ae.b.Ra() != null && (com.baidu.swan.apps.ae.b.Ra().getActivity() instanceof SwanAppActivity)) {
+                    SwanAppActivity swanAppActivity = (SwanAppActivity) com.baidu.swan.apps.ae.b.Ra().getActivity();
+                    b AF = swanAppActivity.AF();
+                    com.baidu.swan.apps.v.b.b AK = swanAppActivity.AK();
+                    if (AF != null && AK != null && TextUtils.equals(str, AK.getIconUrl())) {
+                        AF.l(bitmap);
                     }
                 }
             }
         }));
-        fF(this.bvr.AJ().getType());
-        this.bvk = (ImageView) this.bvi.findViewById(a.f.light_print);
-        this.bvl = (ImageView) this.bvi.findViewById(a.f.dark_print);
-        this.bvm = (ImageView) this.bvi.findViewById(a.f.titlebar_right_menu_img);
-        this.bvn = (ImageView) this.bvi.findViewById(a.f.titlebar_right_menu_exit);
-        this.bvp = this.bvi.findViewById(a.f.titlebar_right_menu);
+        fE(this.buA.AK().getType());
+        this.but = (ImageView) this.bur.findViewById(a.f.light_print);
+        this.buu = (ImageView) this.bur.findViewById(a.f.dark_print);
+        this.buv = (ImageView) this.bur.findViewById(a.f.titlebar_right_menu_img);
+        this.buw = (ImageView) this.bur.findViewById(a.f.titlebar_right_menu_exit);
+        this.buy = this.bur.findViewById(a.f.titlebar_right_menu);
         if (z) {
-            this.bvm.setClickable(true);
-            this.bvm.setImageResource(a.e.aiapps_action_bar_single_menu_white_selector);
-            this.bvn.setImageResource(a.e.aiapps_action_bar_exit_white_selector);
-            this.bvp.setBackgroundResource(a.e.aiapps_action_bar_right_menu_bg_solid);
-            this.bvs = this.bvi.findViewById(a.f.titlebar_right_menu_line);
-            this.bvs.setBackgroundResource(a.c.aiapps_action_bar_menu_line_white);
+            this.buv.setClickable(true);
+            this.buv.setImageResource(a.e.aiapps_action_bar_single_menu_white_selector);
+            this.buw.setImageResource(a.e.aiapps_action_bar_exit_white_selector);
+            this.buy.setBackgroundResource(a.e.aiapps_action_bar_right_menu_bg_solid);
+            this.buB = this.bur.findViewById(a.f.titlebar_right_menu_line);
+            this.buB.setBackgroundResource(a.c.aiapps_action_bar_menu_line_white);
         } else {
-            this.bvm.setImageResource(a.e.aiapps_action_bar_menu_black_selector);
-            this.bvn.setImageResource(a.e.aiapps_action_bar_exit_black_selector);
-            this.bvp.setBackgroundResource(a.e.aiapps_action_bar_right_menu_bg);
+            this.buv.setImageResource(a.e.aiapps_action_bar_menu_black_selector);
+            this.buw.setImageResource(a.e.aiapps_action_bar_exit_black_selector);
+            this.buy.setBackgroundResource(a.e.aiapps_action_bar_right_menu_bg);
         }
-        this.bvl.setAlpha(0.0f);
-        this.bvq.c(this.bvr);
-        UY();
+        this.buu.setAlpha(0.0f);
+        this.buz.c(this.buA);
+        UW();
     }
 
-    private void UY() {
-        this.bvn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.b.2
+    private void UW() {
+        this.buw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.bvr != null && !b.this.bvr.isFinishing()) {
-                    b.this.bvr.moveTaskToBack(true);
-                    b.this.UZ();
+                if (b.this.buA != null && !b.this.buA.isFinishing()) {
+                    b.this.buA.moveTaskToBack(true);
+                    b.this.UX();
                     com.baidu.swan.apps.statistic.b.c.c(new com.baidu.swan.apps.statistic.b.a("cancel"));
                 }
             }
@@ -111,45 +111,45 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void UZ() {
-        Bundle KI;
-        com.baidu.swan.apps.v.b.b AJ = this.bvr.AJ();
-        if (AJ != null && (KI = AJ.KI()) != null) {
-            long j = KI.getLong("page_display_flag_for_statistic");
-            KI.remove("page_display_flag_for_statistic");
+    public void UX() {
+        Bundle KJ;
+        com.baidu.swan.apps.v.b.b AK = this.buA.AK();
+        if (AK != null && (KJ = AK.KJ()) != null) {
+            long j = KJ.getLong("page_display_flag_for_statistic");
+            KJ.remove("page_display_flag_for_statistic");
             if (j > 0) {
-                String valueOf = String.valueOf(System.currentTimeMillis() - KI.getLong("ext_launch_time", 0L));
+                String valueOf = String.valueOf(System.currentTimeMillis() - KJ.getLong("ext_launch_time", 0L));
                 f fVar = new f();
                 fVar.mType = Config.LAUNCH;
                 fVar.mValue = "realcancel";
-                fVar.bpB = valueOf;
+                fVar.bpj = valueOf;
                 fVar.h(TiebaInitialize.LogFields.REASON, "close");
-                if (AJ.KO() == 1) {
-                    fVar.h("errorList", com.baidu.swan.games.r.b.Ya().Yb());
+                if (AK.KP() == 1) {
+                    fVar.h("errorList", com.baidu.swan.games.r.b.XY().XZ());
                 }
-                this.bvr.a(fVar);
+                this.buA.a(fVar);
             }
         }
     }
 
-    private void fF(int i) {
-        z.a(this.aKl, this.aKm, String.valueOf(i));
+    private void fE(int i) {
+        z.a(this.aJT, this.aJU, String.valueOf(i));
     }
 
-    public void fG(int i) {
-        com.baidu.swan.apps.performance.f.NJ().f(new UbcFlowEvent("first_anim_end"));
-        com.baidu.swan.apps.y.f.Mw().gj("first_anim_end");
-        this.bvq.a(this.bvr, i);
+    public void fF(int i) {
+        com.baidu.swan.apps.performance.f.NK().f(new UbcFlowEvent("first_anim_end"));
+        com.baidu.swan.apps.y.f.Mx().gj("first_anim_end");
+        this.buz.a(this.buA, i);
     }
 
-    public void CC() {
-        this.bvq.CC();
+    public void CD() {
+        this.buz.CD();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(Bitmap bitmap) {
-        if (bitmap != null && this.aKk != null) {
-            this.aKk.setImageBitmap(bitmap);
+        if (bitmap != null && this.aJS != null) {
+            this.aJS.setImageBitmap(bitmap);
         }
     }
 }

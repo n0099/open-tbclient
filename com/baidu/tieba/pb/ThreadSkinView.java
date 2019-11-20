@@ -17,8 +17,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo hGR;
-    private a.C0520a hGS;
+    private SkinInfo hGa;
+    private a.C0520a hGb;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -46,16 +46,16 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.hGR != skinInfo && c0520a != null) {
-            this.hGS = c0520a;
-            this.hGS.delete("action_type");
-            this.hGS.ea("obj_id", skinInfo.obj_id);
-            this.hGS.ea(TiebaInitialize.Params.OBJ_URL, skinInfo.url);
-            this.hGS.ea("obj_name", skinInfo.monitor_id);
-            this.hGS.ea("action_type", "VIEW_TRUE");
-            this.hGS.save();
+        if (this.hGa != skinInfo && c0520a != null) {
+            this.hGb = c0520a;
+            this.hGb.delete("action_type");
+            this.hGb.ea("obj_id", skinInfo.obj_id);
+            this.hGb.ea(TiebaInitialize.Params.OBJ_URL, skinInfo.url);
+            this.hGb.ea("obj_name", skinInfo.monitor_id);
+            this.hGb.ea("action_type", "VIEW_TRUE");
+            this.hGb.save();
         }
-        this.hGR = skinInfo;
+        this.hGa = skinInfo;
         int equipmentWidth = l.getEquipmentWidth(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = equipmentWidth;
@@ -82,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hGR != null && !StringUtils.isNull(this.hGR.url)) {
-            if (this.hGS != null) {
-                this.hGS.delete("action_type");
-                this.hGS.ea("action_type", "CLICK");
-                this.hGS.save();
+        if (this.hGa != null && !StringUtils.isNull(this.hGa.url)) {
+            if (this.hGb != null) {
+                this.hGb.delete("action_type");
+                this.hGb.ea("action_type", "CLICK");
+                this.hGb.save();
             }
-            ba.amQ().b(this.mTbPageContext, new String[]{this.hGR.url});
+            ba.amO().b(this.mTbPageContext, new String[]{this.hGa.url});
         }
     }
 }

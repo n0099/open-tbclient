@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<com.baidu.live.gift.b> acd;
+    private ArrayList<com.baidu.live.gift.b> abL;
 
     public AlaDynamicGiftListHttpResponseMessage(int i) {
         super(i);
@@ -21,15 +21,15 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.acd = u(optJSONObject);
-                if (this.acd.size() <= 0) {
-                    com.baidu.live.gift.b.a.ra();
+                this.abL = v(optJSONObject);
+                if (this.abL.size() <= 0) {
+                    com.baidu.live.gift.b.a.rb();
                     com.baidu.live.c.np().putString("dynamic_cache_data_list", "");
                     return;
                 }
                 cx(com.baidu.live.c.np().getSharedPreferences().getString("dynamic_cache_data_list", ""));
                 com.baidu.live.c.np().putString("dynamic_cache_data_list", optJSONObject.toString());
-                qV();
+                qW();
             }
         }
     }
@@ -38,7 +38,7 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
         ArrayList<com.baidu.live.gift.b> arrayList;
         if (!TextUtils.isEmpty(str)) {
             try {
-                arrayList = u(new JSONObject(str));
+                arrayList = v(new JSONObject(str));
             } catch (Exception e) {
                 arrayList = null;
             }
@@ -51,36 +51,36 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
                 }
                 for (int i2 = 0; i2 < arrayList2.size(); i2++) {
                     com.baidu.live.gift.b bVar = (com.baidu.live.gift.b) arrayList2.get(i2);
-                    if (bVar != null && bVar.Wk != null && !TextUtils.isEmpty(bVar.Wk.zipName)) {
-                        com.baidu.live.gift.b.a.cA(bVar.Wk.zipName);
+                    if (bVar != null && bVar.VR != null && !TextUtils.isEmpty(bVar.VR.zipName)) {
+                        com.baidu.live.gift.b.a.cA(bVar.VR.zipName);
                     }
                 }
             }
         }
     }
 
-    private void qV() {
-        for (int i = 0; i < this.acd.size(); i++) {
-            com.baidu.live.gift.b bVar = this.acd.get(i);
-            if (bVar.Wk != null) {
-                com.baidu.live.gift.b.a.b(bVar.giftId, bVar.Wk.zipDownloadUrl, bVar.Wk.zipName, bVar.Wk.zipMD5, false);
+    private void qW() {
+        for (int i = 0; i < this.abL.size(); i++) {
+            com.baidu.live.gift.b bVar = this.abL.get(i);
+            if (bVar.VR != null) {
+                com.baidu.live.gift.b.a.b(bVar.giftId, bVar.VR.zipDownloadUrl, bVar.VR.zipName, bVar.VR.zipMD5, false);
             }
         }
     }
 
     private boolean a(com.baidu.live.gift.b bVar) {
-        if (bVar == null || bVar.Wk == null || StringUtils.isNull(bVar.Wk.zipMD5)) {
+        if (bVar == null || bVar.VR == null || StringUtils.isNull(bVar.VR.zipMD5)) {
             return false;
         }
-        for (int i = 0; i < this.acd.size(); i++) {
-            if (this.acd.get(i).Wk.zipMD5.equals(bVar.Wk.zipMD5)) {
+        for (int i = 0; i < this.abL.size(); i++) {
+            if (this.abL.get(i).VR.zipMD5.equals(bVar.VR.zipMD5)) {
                 return true;
             }
         }
         return false;
     }
 
-    private ArrayList<com.baidu.live.gift.b> u(JSONObject jSONObject) throws Exception {
+    private ArrayList<com.baidu.live.gift.b> v(JSONObject jSONObject) throws Exception {
         ArrayList<com.baidu.live.gift.b> arrayList = new ArrayList<>();
         JSONArray optJSONArray = jSONObject.optJSONArray("dynamic_gift_list");
         if (optJSONArray != null) {
@@ -96,7 +96,7 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
         return arrayList;
     }
 
-    public ArrayList<com.baidu.live.gift.b> qW() {
-        return this.acd;
+    public ArrayList<com.baidu.live.gift.b> qX() {
+        return this.abL;
     }
 }

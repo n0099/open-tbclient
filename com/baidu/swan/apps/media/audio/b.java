@@ -5,39 +5,39 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String aUU;
-    public String aUO = "";
-    public String aUP = "";
+    public String aUC;
+    public String aUw = "";
+    public String aUx = "";
     public String mUrl = "";
-    public int aUS = 0;
-    public boolean aUX = false;
-    public boolean aUY = false;
-    public boolean aUZ = true;
+    public int aUA = 0;
+    public boolean aUF = false;
+    public boolean aUG = false;
+    public boolean aUH = true;
     public int mPos = 0;
-    public float aVa = 1.0f;
+    public float aUI = 1.0f;
 
     public static b a(JSONObject jSONObject, b bVar) {
         b bVar2 = new b();
         if (jSONObject != null) {
-            bVar2.aUO = jSONObject.optString("audioId", bVar.aUO);
-            bVar2.aUP = jSONObject.optString("slaveId", bVar.aUP);
-            bVar2.aUX = jSONObject.optBoolean("autoplay", bVar.aUX);
-            bVar2.aUY = jSONObject.optBoolean("loop", bVar.aUY);
+            bVar2.aUw = jSONObject.optString("audioId", bVar.aUw);
+            bVar2.aUx = jSONObject.optString("slaveId", bVar.aUx);
+            bVar2.aUF = jSONObject.optBoolean("autoplay", bVar.aUF);
+            bVar2.aUG = jSONObject.optBoolean("loop", bVar.aUG);
             bVar2.mUrl = jSONObject.optString("src", bVar.mUrl);
-            bVar2.aUS = jSONObject.optInt("startTime", bVar.aUS);
-            bVar2.aUZ = jSONObject.optBoolean("obeyMuteSwitch", bVar.aUZ);
+            bVar2.aUA = jSONObject.optInt("startTime", bVar.aUA);
+            bVar2.aUH = jSONObject.optBoolean("obeyMuteSwitch", bVar.aUH);
             bVar2.mPos = jSONObject.optInt("position", bVar.mPos);
-            bVar2.aVa = (float) jSONObject.optDouble("volume", bVar.aVa);
-            bVar2.aUU = jSONObject.optString("cb", bVar.aUU);
+            bVar2.aUI = (float) jSONObject.optDouble("volume", bVar.aUI);
+            bVar2.aUC = jSONObject.optString("cb", bVar.aUC);
         }
         return bVar2;
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aUO);
+        return !TextUtils.isEmpty(this.aUw);
     }
 
     public String toString() {
-        return "playerId : " + this.aUO + "; slaveId : " + this.aUP + "; url : " + this.mUrl + "; AutoPlay : " + this.aUX + "; Loop : " + this.aUY + "; startTime : " + this.aUS + "; ObeyMute : " + this.aUZ + "; pos : " + this.mPos;
+        return "playerId : " + this.aUw + "; slaveId : " + this.aUx + "; url : " + this.mUrl + "; AutoPlay : " + this.aUF + "; Loop : " + this.aUG + "; startTime : " + this.aUA + "; ObeyMute : " + this.aUH + "; pos : " + this.mPos;
     }
 }

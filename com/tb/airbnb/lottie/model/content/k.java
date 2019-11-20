@@ -6,21 +6,21 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class k implements b {
     private final int index;
-    private final com.tb.airbnb.lottie.model.a.h kuH;
+    private final com.tb.airbnb.lottie.model.a.h ktQ;
     private final String name;
 
     private k(String str, int i, com.tb.airbnb.lottie.model.a.h hVar) {
         this.name = str;
         this.index = i;
-        this.kuH = hVar;
+        this.ktQ = hVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.h cMc() {
-        return this.kuH;
+    public com.tb.airbnb.lottie.model.a.h cMa() {
+        return this.ktQ;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -29,7 +29,7 @@ public class k implements b {
     }
 
     public String toString() {
-        return "ShapePath{name=" + this.name + ", index=" + this.index + ", hasAnimation=" + this.kuH.hasAnimation() + '}';
+        return "ShapePath{name=" + this.name + ", index=" + this.index + ", hasAnimation=" + this.ktQ.hasAnimation() + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

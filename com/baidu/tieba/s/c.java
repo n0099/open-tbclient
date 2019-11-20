@@ -44,7 +44,7 @@ public class c {
         return sb.toString().getBytes();
     }
 
-    public static byte[] cr(JSONObject jSONObject) {
+    public static byte[] cs(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

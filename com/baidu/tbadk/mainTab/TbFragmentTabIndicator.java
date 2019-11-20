@@ -10,37 +10,37 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected float cKr;
-    protected float cKs;
-    protected int cKt;
-    protected int cKu;
+    protected float cJA;
+    protected float cJB;
+    protected int cJC;
+    protected int cJD;
     protected boolean mIsContentSelectBold;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
         this.mIsContentSelectBold = false;
-        this.cKr = 0.0f;
-        this.cKs = 0.0f;
-        this.cKt = 0;
-        this.cKu = 0;
+        this.cJA = 0.0f;
+        this.cJB = 0.0f;
+        this.cJC = 0;
+        this.cJD = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mIsContentSelectBold = false;
-        this.cKr = 0.0f;
-        this.cKs = 0.0f;
-        this.cKt = 0;
-        this.cKu = 0;
+        this.cJA = 0.0f;
+        this.cJB = 0.0f;
+        this.cJC = 0;
+        this.cJD = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mIsContentSelectBold = false;
-        this.cKr = 0.0f;
-        this.cKs = 0.0f;
-        this.cKt = 0;
-        this.cKu = 0;
+        this.cJA = 0.0f;
+        this.cJB = 0.0f;
+        this.cJC = 0;
+        this.cJD = 0;
     }
 
     public void onChangeSkin(int i) {
@@ -102,7 +102,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void avA() {
+    public void avy() {
     }
 
     public void setAnimationResId(int i) {
@@ -113,25 +113,25 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     }
 
     public void setContentSelectTextSize(float f) {
-        this.cKr = f;
+        this.cJA = f;
     }
 
     public void setContentDefaultTextSize(float f) {
-        this.cKs = f;
+        this.cJB = f;
     }
 
     public void setContentSelectTextColor(int i) {
-        this.cKt = i;
+        this.cJC = i;
     }
 
     public void setContentDefaultTextColor(int i) {
-        this.cKu = i;
+        this.cJD = i;
     }
 
     /* loaded from: classes.dex */
     public static class a {
         public int bgDayRes;
-        public TbFragmentTabIndicator cKv;
+        public TbFragmentTabIndicator cJE;
         public int offsetX;
         public View view;
         public boolean isRight = true;

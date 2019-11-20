@@ -10,25 +10,25 @@ public class HWPushHelper {
     private static boolean a = false;
 
     public static void convertMessage(Intent intent) {
-        i.a(intent);
+        j.a(intent);
     }
 
     public static boolean hasNetwork(Context context) {
-        return i.a(context);
+        return j.m88a(context);
     }
 
     public static boolean isHmsTokenSynced(Context context) {
-        String a2 = i.a(f.ASSEMBLE_PUSH_HUAWEI);
+        String a2 = j.a(f.ASSEMBLE_PUSH_HUAWEI);
         if (TextUtils.isEmpty(a2)) {
             return false;
         }
-        String a3 = i.a(context, a2);
-        String a4 = ap.a(context).a(be.UPLOAD_HUAWEI_TOKEN);
+        String a3 = j.a(context, a2);
+        String a4 = ao.a(context).a(bd.UPLOAD_HUAWEI_TOKEN);
         return (TextUtils.isEmpty(a3) || TextUtils.isEmpty(a4) || !"synced".equals(a4)) ? false : true;
     }
 
-    public static boolean isUserOpenHmsPush() {
-        return MiPushClient.getOpenHmsPush();
+    public static boolean isUserOpenHmsPush(Context context) {
+        return MiPushClient.getOpenHmsPush(context);
     }
 
     public static boolean needConnect() {
@@ -63,9 +63,13 @@ public class HWPushHelper {
                 com.xiaomi.channel.commonutils.logger.b.d(e.toString());
             }
         }
-        PushMessageReceiver b = i.b(context);
-        if (b != null) {
-            b.onNotificationMessageClicked(context, i.a(str2));
+        PushMessageReceiver a2 = j.a(context);
+        if (a2 != null) {
+            MiPushMessage a3 = j.a(str2);
+            if (a3.getExtra().containsKey("notify_effect")) {
+                return;
+            }
+            a2.onNotificationMessageClicked(context, a3);
         }
     }
 
@@ -81,21 +85,21 @@ public class HWPushHelper {
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.d(e.toString());
         }
-        PushMessageReceiver b = i.b(context);
-        if (b != null) {
-            b.onReceivePassThroughMessage(context, i.a(str2));
+        PushMessageReceiver a2 = j.a(context);
+        if (a2 != null) {
+            a2.onReceivePassThroughMessage(context, j.a(str2));
         }
     }
 
     public static void registerHuaWeiAssemblePush(Context context) {
-        AbstractPushManager c = g.a(context).c(f.ASSEMBLE_PUSH_HUAWEI);
-        if (c != null) {
-            c.register();
+        AbstractPushManager a2 = g.a(context).a(f.ASSEMBLE_PUSH_HUAWEI);
+        if (a2 != null) {
+            a2.register();
         }
     }
 
     public static void reportError(String str, int i) {
-        i.a(str, i);
+        j.a(str, i);
     }
 
     public static synchronized void setConnectTime(Context context) {
@@ -131,6 +135,6 @@ public class HWPushHelper {
     }
 
     public static void uploadToken(Context context, String str) {
-        i.a(context, f.ASSEMBLE_PUSH_HUAWEI, str);
+        j.a(context, f.ASSEMBLE_PUSH_HUAWEI, str);
     }
 }

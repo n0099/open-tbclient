@@ -10,23 +10,23 @@ import javax.annotation.concurrent.Immutable;
 /* loaded from: classes2.dex */
 public class ImageRequest {
     @Nullable
-    private final com.facebook.imagepipeline.common.c kgC;
-    private final com.facebook.imagepipeline.common.d kgD;
-    private final com.facebook.imagepipeline.common.a kgE;
-    private final boolean kiQ;
+    private final com.facebook.imagepipeline.common.c kfL;
+    private final com.facebook.imagepipeline.common.d kfM;
+    private final com.facebook.imagepipeline.common.a kfN;
+    private final boolean khY;
     @Nullable
-    private final com.facebook.imagepipeline.g.b kil;
-    private final RequestLevel klc;
-    private final b kmu;
-    private final CacheChoice kna;
-    private final Uri knb;
-    private final int knc;
+    private final com.facebook.imagepipeline.g.b kht;
+    private final RequestLevel kkl;
+    private final b klD;
+    private final CacheChoice kmj;
+    private final Uri kmk;
+    private final int kml;
     @Nullable
-    private final a knd;
-    private File kne;
-    private final boolean knf;
-    private final Priority kng;
-    private final boolean knh;
+    private final a kmm;
+    private File kmn;
+    private final boolean kmo;
+    private final Priority kmp;
+    private final boolean kmq;
 
     /* loaded from: classes2.dex */
     public enum CacheChoice {
@@ -38,122 +38,122 @@ public class ImageRequest {
         if (uri == null) {
             return null;
         }
-        return ImageRequestBuilder.R(uri).cJI();
+        return ImageRequestBuilder.R(uri).cJG();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ImageRequest(ImageRequestBuilder imageRequestBuilder) {
-        this.kna = imageRequestBuilder.cJt();
-        this.knb = imageRequestBuilder.cJu();
-        this.knc = Q(this.knb);
-        this.knd = imageRequestBuilder.cJw();
-        this.kiQ = imageRequestBuilder.cGH();
-        this.knf = imageRequestBuilder.cJG();
-        this.kgE = imageRequestBuilder.cJz();
-        this.kgC = imageRequestBuilder.cJx();
-        this.kgD = imageRequestBuilder.cJy() == null ? com.facebook.imagepipeline.common.d.cFY() : imageRequestBuilder.cJy();
-        this.kng = imageRequestBuilder.cJH();
-        this.klc = imageRequestBuilder.cIJ();
-        this.knh = imageRequestBuilder.cJC();
-        this.kmu = imageRequestBuilder.cJE();
-        this.kil = imageRequestBuilder.cJF();
+        this.kmj = imageRequestBuilder.cJr();
+        this.kmk = imageRequestBuilder.cJs();
+        this.kml = Q(this.kmk);
+        this.kmm = imageRequestBuilder.cJu();
+        this.khY = imageRequestBuilder.cGF();
+        this.kmo = imageRequestBuilder.cJE();
+        this.kfN = imageRequestBuilder.cJx();
+        this.kfL = imageRequestBuilder.cJv();
+        this.kfM = imageRequestBuilder.cJw() == null ? com.facebook.imagepipeline.common.d.cFW() : imageRequestBuilder.cJw();
+        this.kmp = imageRequestBuilder.cJF();
+        this.kkl = imageRequestBuilder.cIH();
+        this.kmq = imageRequestBuilder.cJA();
+        this.klD = imageRequestBuilder.cJC();
+        this.kht = imageRequestBuilder.cJD();
     }
 
-    public CacheChoice cJt() {
-        return this.kna;
+    public CacheChoice cJr() {
+        return this.kmj;
     }
 
-    public Uri cJu() {
-        return this.knb;
+    public Uri cJs() {
+        return this.kmk;
     }
 
-    public int cJv() {
-        return this.knc;
+    public int cJt() {
+        return this.kml;
     }
 
     @Nullable
-    public a cJw() {
-        return this.knd;
+    public a cJu() {
+        return this.kmm;
     }
 
     public int getPreferredWidth() {
-        if (this.kgC != null) {
-            return this.kgC.width;
+        if (this.kfL != null) {
+            return this.kfL.width;
         }
         return 2048;
     }
 
     public int getPreferredHeight() {
-        if (this.kgC != null) {
-            return this.kgC.height;
+        if (this.kfL != null) {
+            return this.kfL.height;
         }
         return 2048;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.c cJx() {
-        return this.kgC;
+    public com.facebook.imagepipeline.common.c cJv() {
+        return this.kfL;
     }
 
-    public com.facebook.imagepipeline.common.d cJy() {
-        return this.kgD;
+    public com.facebook.imagepipeline.common.d cJw() {
+        return this.kfM;
     }
 
-    public com.facebook.imagepipeline.common.a cJz() {
-        return this.kgE;
+    public com.facebook.imagepipeline.common.a cJx() {
+        return this.kfN;
+    }
+
+    public boolean cJy() {
+        return this.khY;
+    }
+
+    public boolean cJz() {
+        return this.kmo;
+    }
+
+    public Priority cIJ() {
+        return this.kmp;
+    }
+
+    public RequestLevel cIH() {
+        return this.kkl;
     }
 
     public boolean cJA() {
-        return this.kiQ;
+        return this.kmq;
     }
 
-    public boolean cJB() {
-        return this.knf;
-    }
-
-    public Priority cIL() {
-        return this.kng;
-    }
-
-    public RequestLevel cIJ() {
-        return this.klc;
-    }
-
-    public boolean cJC() {
-        return this.knh;
-    }
-
-    public synchronized File cJD() {
-        if (this.kne == null) {
-            this.kne = new File(this.knb.getPath());
+    public synchronized File cJB() {
+        if (this.kmn == null) {
+            this.kmn = new File(this.kmk.getPath());
         }
-        return this.kne;
+        return this.kmn;
     }
 
     @Nullable
-    public b cJE() {
-        return this.kmu;
+    public b cJC() {
+        return this.klD;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.g.b cJF() {
-        return this.kil;
+    public com.facebook.imagepipeline.g.b cJD() {
+        return this.kht;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ImageRequest) {
             ImageRequest imageRequest = (ImageRequest) obj;
-            return f.equal(this.knb, imageRequest.knb) && f.equal(this.kna, imageRequest.kna) && f.equal(this.knd, imageRequest.knd) && f.equal(this.kne, imageRequest.kne);
+            return f.equal(this.kmk, imageRequest.kmk) && f.equal(this.kmj, imageRequest.kmj) && f.equal(this.kmm, imageRequest.kmm) && f.equal(this.kmn, imageRequest.kmn);
         }
         return false;
     }
 
     public int hashCode() {
-        return f.I(this.kna, this.knb, this.knd, this.kne);
+        return f.I(this.kmj, this.kmk, this.kmm, this.kmn);
     }
 
     public String toString() {
-        return f.ax(this).q("uri", this.knb).q("cacheChoice", this.kna).q("decodeOptions", this.kgE).q("postprocessor", this.kmu).q("priority", this.kng).q("resizeOptions", this.kgC).q("rotationOptions", this.kgD).q("mediaVariations", this.knd).toString();
+        return f.ax(this).q("uri", this.kmk).q("cacheChoice", this.kmj).q("decodeOptions", this.kfN).q("postprocessor", this.klD).q("priority", this.kmp).q("resizeOptions", this.kfL).q("rotationOptions", this.kfM).q("mediaVariations", this.kmm).toString();
     }
 
     /* loaded from: classes2.dex */

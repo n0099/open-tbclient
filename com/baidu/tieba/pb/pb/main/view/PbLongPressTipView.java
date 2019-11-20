@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class PbLongPressTipView extends LinearLayout {
-    private TextView aqv;
+    private TextView aqd;
     private Context context;
-    private TextView fab;
+    private TextView eZk;
     private LinearLayout mRootView;
     private ImageView tipImage;
 
@@ -39,10 +39,10 @@ public class PbLongPressTipView extends LinearLayout {
         setOrientation(1);
         this.mRootView = (LinearLayout) findViewById(R.id.pb_long_tip_content);
         this.tipImage = (ImageView) findViewById(R.id.pb_long_tip_image);
-        this.aqv = (TextView) findViewById(R.id.long_hint_title);
-        this.fab = (TextView) findViewById(R.id.long_hint_text);
-        am.setViewTextColor(this.aqv, R.color.cp_cont_b, 1);
-        am.setViewTextColor(this.fab, R.color.common_color_10037, 1);
+        this.aqd = (TextView) findViewById(R.id.long_hint_title);
+        this.eZk = (TextView) findViewById(R.id.long_hint_text);
+        am.setViewTextColor(this.aqd, R.color.cp_cont_b, 1);
+        am.setViewTextColor(this.eZk, R.color.common_color_10037, 1);
         am.setImageResource(this.tipImage, R.drawable.pic_pb_popup_longpress);
     }
 }

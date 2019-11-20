@@ -27,16 +27,16 @@ import com.baidu.tieba.ala.charm.view.AlaCharmDetailEmptyView;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class b {
-    private boolean ahd;
-    private String ahe;
-    private TextView dFO;
-    private ImageView dFP;
-    private TbListViewPullView dFQ;
-    private RelativeLayout dFR;
-    private TextView dFS;
-    private AlaCharmDetailEmptyView dFT;
-    private com.baidu.tieba.ala.charm.view.a dFU;
-    private LoadingView dFV;
+    private boolean agL;
+    private String agM;
+    private TextView dEX;
+    private ImageView dEY;
+    private TbListViewPullView dEZ;
+    private RelativeLayout dFa;
+    private TextView dFb;
+    private AlaCharmDetailEmptyView dFc;
+    private com.baidu.tieba.ala.charm.view.a dFd;
+    private LoadingView dFe;
     private String mGroupId;
     private BdListView mListView;
     private String mLiveId;
@@ -45,49 +45,49 @@ public class b {
     private View mRootView;
     private boolean mIsLoading = false;
     private int mSkinType = 0;
-    private View.OnClickListener dFW = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.b.1
+    private View.OnClickListener dFf = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == b.this.dFS || view == b.this.dFR) {
-                if (b.this.dFS.getVisibility() == 0) {
-                    b.this.dFS.setVisibility(8);
+            if (view == b.this.dFb || view == b.this.dFa) {
+                if (b.this.dFb.getVisibility() == 0) {
+                    b.this.dFb.setVisibility(8);
                 }
-            } else if (view == b.this.dFP) {
-                if (b.this.dFS.getVisibility() == 8) {
-                    b.this.dFS.setVisibility(0);
+            } else if (view == b.this.dEY) {
+                if (b.this.dFb.getVisibility() == 8) {
+                    b.this.dFb.setVisibility(0);
                 } else {
-                    b.this.dFS.setVisibility(8);
+                    b.this.dFb.setVisibility(8);
                 }
             }
         }
     };
-    private View.OnClickListener dFA = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.b.2
+    private View.OnClickListener dEJ = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && (view.getTag() instanceof Integer)) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (b.this.dFU != null) {
-                    b.this.a(b.this.dFU.getItem(intValue));
+                if (b.this.dFd != null) {
+                    b.this.a(b.this.dFd.getItem(intValue));
                 }
             }
         }
     };
-    private View.OnClickListener dFX = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.b.3
+    private View.OnClickListener dFg = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ALaCharmData item;
             if (view != null && (view.getTag() instanceof Integer)) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (b.this.dFU != null && ViewHelper.checkUpIsLogin(b.this.mPageContext.getPageActivity()) && (item = b.this.dFU.getItem(intValue)) != null && item.pay_userid != null) {
+                if (b.this.dFd != null && ViewHelper.checkUpIsLogin(b.this.mPageContext.getPageActivity()) && (item = b.this.dFd.getItem(intValue)) != null && item.pay_userid != null) {
                     boolean z = item.follow_status != 0;
                     item.follow_status = z ? 0 : 1;
-                    b.this.dFU.notifyDataSetChanged();
+                    b.this.dFd.notifyDataSetChanged();
                     com.baidu.live.data.b bVar = new com.baidu.live.data.b();
                     bVar.setUserId(item.pay_userid);
                     bVar.setPortrait(item.portrait);
                     bVar.setPageId(b.this.mPageId);
                     bVar.setIsAttention(z ? false : true);
-                    com.baidu.live.view.a.wx().a(item.pay_userid, bVar);
+                    com.baidu.live.view.a.wy().a(item.pay_userid, bVar);
                 }
             }
         }
@@ -98,64 +98,64 @@ public class b {
         this.mPageId = bdUniqueId;
         this.mGroupId = str;
         this.mLiveId = str2;
-        this.ahd = z;
-        this.ahe = str3;
+        this.agL = z;
+        this.agM = str3;
         initView();
     }
 
     public void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_game_live_layout, (ViewGroup) null);
-        this.dFR = (RelativeLayout) this.mRootView.findViewById(a.g.ala_charm_game_live_header_layout);
-        this.dFR.setOnClickListener(this.dFW);
-        this.dFO = (TextView) this.mRootView.findViewById(a.g.ala_charm_game_live_charm_value);
-        this.dFS = (TextView) this.mRootView.findViewById(a.g.ala_charm_game_live_help_tips);
-        this.dFS.setOnClickListener(this.dFW);
-        this.dFP = (ImageView) this.mRootView.findViewById(a.g.ala_charm_game_live_help_img);
-        this.dFP.setOnClickListener(this.dFW);
+        this.dFa = (RelativeLayout) this.mRootView.findViewById(a.g.ala_charm_game_live_header_layout);
+        this.dFa.setOnClickListener(this.dFf);
+        this.dEX = (TextView) this.mRootView.findViewById(a.g.ala_charm_game_live_charm_value);
+        this.dFb = (TextView) this.mRootView.findViewById(a.g.ala_charm_game_live_help_tips);
+        this.dFb.setOnClickListener(this.dFf);
+        this.dEY = (ImageView) this.mRootView.findViewById(a.g.ala_charm_game_live_help_img);
+        this.dEY.setOnClickListener(this.dFf);
         this.mListView = (BdListView) this.mRootView.findViewById(a.g.ala_charm_game_live_detail_list);
-        this.dFU = new com.baidu.tieba.ala.charm.view.a(this.mPageContext, 2);
-        this.dFU.m(this.dFX);
-        this.dFU.n(this.dFA);
-        this.mListView.setAdapter((ListAdapter) this.dFU);
-        this.dFT = (AlaCharmDetailEmptyView) this.mRootView.findViewById(a.g.emptyView);
-        this.dFT.setParams(a.f.sdk_emotion07, -1, a.i.ala_charm_empty_msg);
-        this.mListView.setEmptyView(this.dFT);
-        this.dFQ = new TbListViewPullView(this.mPageContext);
-        this.dFQ.setTag(this.mPageContext.getUniqueId());
-        this.dFQ.setSkinType(this.mSkinType);
-        this.mListView.setPullRefresh(this.dFQ);
+        this.dFd = new com.baidu.tieba.ala.charm.view.a(this.mPageContext, 2);
+        this.dFd.m(this.dFg);
+        this.dFd.n(this.dEJ);
+        this.mListView.setAdapter((ListAdapter) this.dFd);
+        this.dFc = (AlaCharmDetailEmptyView) this.mRootView.findViewById(a.g.emptyView);
+        this.dFc.setParams(a.f.sdk_emotion07, -1, a.i.ala_charm_empty_msg);
+        this.mListView.setEmptyView(this.dFc);
+        this.dEZ = new TbListViewPullView(this.mPageContext);
+        this.dEZ.setTag(this.mPageContext.getUniqueId());
+        this.dEZ.setSkinType(this.mSkinType);
+        this.mListView.setPullRefresh(this.dEZ);
     }
 
     public void sW(String str) {
         String format = String.format(this.mPageContext.getString(a.i.ala_charm_game_live_name), StringHelper.formatTosepara(JavaTypesHelper.toLong(str, 0L)));
-        if (this.dFO != null) {
-            this.dFO.setText(format);
+        if (this.dEX != null) {
+            this.dEX.setText(format);
         }
     }
 
     public void showLoadingView() {
-        if (this.mRootView != null && !this.mIsLoading && this.dFV == null) {
-            this.dFV = new LoadingView(this.mPageContext.getPageActivity(), this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds248));
-            this.dFV.setSkinType(this.mSkinType);
-            this.dFV.onChangeSkinType();
-            this.dFV.attachView(this.mRootView, false);
+        if (this.mRootView != null && !this.mIsLoading && this.dFe == null) {
+            this.dFe = new LoadingView(this.mPageContext.getPageActivity(), this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds248));
+            this.dFe.setSkinType(this.mSkinType);
+            this.dFe.onChangeSkinType();
+            this.dFe.attachView(this.mRootView, false);
             this.mIsLoading = true;
         }
     }
 
     public void hideLoadingView() {
         if (this.mIsLoading) {
-            if (this.dFV != null) {
-                this.dFV.dettachView(this.mRootView);
-                this.dFV = null;
+            if (this.dFe != null) {
+                this.dFe.dettachView(this.mRootView);
+                this.dFe = null;
             }
             this.mIsLoading = false;
         }
     }
 
     public void a(TbListCommonPullView.ListPullRefreshListener listPullRefreshListener) {
-        if (this.dFQ != null) {
-            this.dFQ.setListPullRefreshListener(listPullRefreshListener);
+        if (this.dEZ != null) {
+            this.dEZ.setListPullRefreshListener(listPullRefreshListener);
         }
     }
 
@@ -164,46 +164,46 @@ public class b {
     }
 
     public void K(ArrayList<ALaCharmData> arrayList) {
-        this.dFU.setData(arrayList);
+        this.dFd.setData(arrayList);
     }
 
     public void completePullRefresh() {
         this.mListView.completePullRefresh();
     }
 
-    public void aKx() {
-        this.dFU.notifyDataSetChanged();
+    public void aKv() {
+        this.dFd.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ALaCharmData aLaCharmData) {
         if (aLaCharmData != null && aLaCharmData.pay_userid != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.ahd, this.ahe, aLaCharmData.appId, aLaCharmData.user_name, "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.agL, this.agM, aLaCharmData.appId, aLaCharmData.user_name, "")));
         }
     }
 
     public void T(String str, boolean z) {
-        if (this.dFU != null) {
-            this.dFU.T(str, z);
+        if (this.dFd != null) {
+            this.dFd.T(str, z);
         }
     }
 
     public void onSkinTypeChanged(int i) {
         this.mSkinType = i;
-        SkinManager.setBackgroundResource(this.dFR, a.f.ala_charm_game_live_header_bg, i);
-        SkinManager.setViewTextColor(this.dFO, a.d.sdk_cp_cont_f, i);
-        SkinManager.setImageResource(this.dFP, a.f.sdk_icon_follow_explain_n, i);
-        SkinManager.setViewTextColor(this.dFS, a.d.sdk_cp_cont_d, i);
-        if (this.dFU != null) {
-            this.dFU.setSkinType(i);
-            this.dFU.notifyDataSetChanged();
+        SkinManager.setBackgroundResource(this.dFa, a.f.ala_charm_game_live_header_bg, i);
+        SkinManager.setViewTextColor(this.dEX, a.d.sdk_cp_cont_f, i);
+        SkinManager.setImageResource(this.dEY, a.f.sdk_icon_follow_explain_n, i);
+        SkinManager.setViewTextColor(this.dFb, a.d.sdk_cp_cont_d, i);
+        if (this.dFd != null) {
+            this.dFd.setSkinType(i);
+            this.dFd.notifyDataSetChanged();
         }
-        if (this.dFV != null) {
-            this.dFV.setSkinType(i);
-            this.dFV.onChangeSkinType();
+        if (this.dFe != null) {
+            this.dFe.setSkinType(i);
+            this.dFe.onChangeSkinType();
         }
-        if (this.dFQ != null) {
-            this.dFQ.setSkinType(i);
+        if (this.dEZ != null) {
+            this.dEZ.setSkinType(i);
         }
     }
 }

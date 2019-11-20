@@ -14,20 +14,20 @@ import com.baidu.tieba.R;
 import java.util.Date;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, b> {
-    private TextView crd;
-    private TextView exe;
-    private TextView hAF;
+    private TextView cql;
+    private TextView ewn;
+    private TextView hzO;
     private View mLine;
     private View mRootView;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.hAF = (TextView) view.findViewById(R.id.title);
-        this.crd = (TextView) view.findViewById(R.id.content);
-        this.crd.setSingleLine();
-        this.crd.setEllipsize(TextUtils.TruncateAt.END);
-        this.exe = (TextView) view.findViewById(R.id.time);
+        this.hzO = (TextView) view.findViewById(R.id.title);
+        this.cql = (TextView) view.findViewById(R.id.content);
+        this.cql.setSingleLine();
+        this.cql.setEllipsize(TextUtils.TruncateAt.END);
+        this.ewn = (TextView) view.findViewById(R.id.time);
         this.mLine = view.findViewById(R.id.line);
     }
 
@@ -37,34 +37,34 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public void ab(com.baidu.tieba.myCollection.baseHistory.a aVar) {
         super.ab(aVar);
         if (aVar != null) {
-            if (this.hAF != null) {
+            if (this.hzO != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
-                        this.hAF.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
+                        this.hzO.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
                     } else {
-                        this.hAF.setText(aVar.getDescription());
+                        this.hzO.setText(aVar.getDescription());
                     }
-                } else if (aVar.bNS() != null) {
+                } else if (aVar.bNQ() != null) {
                     if (aVar.isShareThread()) {
-                        this.hAF.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.bNS()));
+                        this.hzO.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.bNQ()));
                     } else {
-                        this.hAF.setText(aVar.bNS());
+                        this.hzO.setText(aVar.bNQ());
                     }
                 }
             }
-            if (this.crd != null) {
+            if (this.cql != null) {
                 if (aVar.getThreadType() == 49 && !TextUtils.isEmpty(aVar.getUserName())) {
-                    this.crd.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
+                    this.cql.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
                 } else if (aVar.getForumName() != null) {
-                    this.crd.setText(aVar.getForumName());
+                    this.cql.setText(aVar.getForumName());
                 }
             }
-            if (this.exe != null) {
+            if (this.ewn != null) {
                 String j = aq.j(new Date(aVar.getTime()));
                 if (j == null) {
                     j = "";
                 }
-                this.exe.setText(j);
+                this.ewn.setText(j);
             }
         }
     }
@@ -74,9 +74,9 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundResource(this.mRootView, R.drawable.list_item_selector);
         am.setBackgroundResource(this.mLine, R.color.cp_bg_line_c);
-        am.setViewTextColor(this.hAF, R.color.cp_cont_b, 1);
-        am.setViewTextColor(this.crd, R.color.cp_cont_d, 1);
-        am.setViewTextColor(this.exe, R.color.cp_cont_d, 1);
+        am.setViewTextColor(this.hzO, R.color.cp_cont_b, 1);
+        am.setViewTextColor(this.cql, R.color.cp_cont_d, 1);
+        am.setViewTextColor(this.ewn, R.color.cp_cont_d, 1);
         return true;
     }
 }

@@ -7,32 +7,32 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static String ayV = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
-    private SharedPreferences ayW;
-    private Set<String> ayX;
+    private static String ayD = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
+    private SharedPreferences ayE;
+    private Set<String> ayF;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static b ayY = new b();
+        public static b ayG = new b();
     }
 
-    public static b zd() {
-        return a.ayY;
+    public static b ze() {
+        return a.ayG;
     }
 
     private b() {
-        this.ayW = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
+        this.ayE = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
     public void dt(String str) {
         if (!StringUtils.isNull(str)) {
-            this.ayX = this.ayW.getStringSet(ayV, null);
-            if (this.ayX == null) {
-                this.ayX = new HashSet();
+            this.ayF = this.ayE.getStringSet(ayD, null);
+            if (this.ayF == null) {
+                this.ayF = new HashSet();
             }
-            this.ayX.add(str);
-            this.ayW.edit().putStringSet(ayV, this.ayX).commit();
+            this.ayF.add(str);
+            this.ayE.edit().putStringSet(ayD, this.ayF).commit();
         }
     }
 
@@ -40,11 +40,11 @@ public class b {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (this.ayX == null) {
-            this.ayX = this.ayW.getStringSet(ayV, null);
+        if (this.ayF == null) {
+            this.ayF = this.ayE.getStringSet(ayD, null);
         }
-        if (this.ayX != null) {
-            return this.ayX.contains(str);
+        if (this.ayF != null) {
+            return this.ayF.contains(str);
         }
         return false;
     }

@@ -44,35 +44,35 @@ public class d extends z {
             return false;
         }
         boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
-        com.baidu.swan.apps.core.d.e AH = ((SwanAppActivity) context).AH();
-        if (AH == null) {
+        com.baidu.swan.apps.core.d.e AI = ((SwanAppActivity) context).AI();
+        if (AI == null) {
             com.baidu.swan.apps.console.c.e("showLoading", "none fragment");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragment");
             return false;
         }
-        com.baidu.swan.apps.core.d.b Fq = AH.Fq();
-        if (!(Fq instanceof a.InterfaceC0213a)) {
+        com.baidu.swan.apps.core.d.b Fr = AI.Fr();
+        if (!(Fr instanceof a.InterfaceC0213a)) {
             com.baidu.swan.apps.console.c.e("showLoading", "fragment not support");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
             return false;
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a AD = ((a.InterfaceC0213a) Fq).AD();
-        if (AD == null) {
+        com.baidu.swan.apps.res.widget.floatlayer.a AE = ((a.InterfaceC0213a) Fr).AE();
+        if (AE == null) {
             com.baidu.swan.apps.console.c.e("showLoading", "can't get floatLayer");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");
             return false;
         }
-        View view = AD.getView();
+        View view = AE.getView();
         if (view instanceof LoadingView) {
             loadingView = (LoadingView) view;
         } else {
             loadingView = new LoadingView(context);
-            AD.am(loadingView);
+            AE.am(loadingView);
         }
         if (!TextUtils.isEmpty(optString)) {
             loadingView.setMsg(optString);
         }
-        AD.setMask(optBoolean);
+        AE.setMask(optBoolean);
         com.baidu.swan.apps.console.c.i("showLoading", "show loading success");
         unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;

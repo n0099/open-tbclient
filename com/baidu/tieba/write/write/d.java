@@ -10,13 +10,13 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
-    private c jTT;
+    private c jTc;
     private List<String> mDataList;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public TbImageView jFH;
-        public TbImageView jFI;
+        public TbImageView jEQ;
+        public TbImageView jER;
     }
 
     @Override // android.widget.Adapter
@@ -44,31 +44,31 @@ public class d extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pic_sticker_item, (ViewGroup) null);
             aVar = new a();
-            aVar.jFH = (TbImageView) view.findViewById(R.id.top_sticker);
-            aVar.jFI = (TbImageView) view.findViewById(R.id.bottom_sticker);
+            aVar.jEQ = (TbImageView) view.findViewById(R.id.top_sticker);
+            aVar.jER = (TbImageView) view.findViewById(R.id.bottom_sticker);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.jFH.setGifIconSupport(false);
-        aVar.jFI.setGifIconSupport(false);
-        aVar.jFH.startLoad(this.mDataList.get(i * 2), 10, true);
-        aVar.jFH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
+        aVar.jEQ.setGifIconSupport(false);
+        aVar.jER.setGifIconSupport(false);
+        aVar.jEQ.startLoad(this.mDataList.get(i * 2), 10, true);
+        aVar.jEQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 TbImageView tbImageView = (TbImageView) view2;
-                if (d.this.jTT != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().getRawBitmap() != null) {
-                    d.this.jTT.d(tbImageView.getBdImage().getRawBitmap(), false);
+                if (d.this.jTc != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().getRawBitmap() != null) {
+                    d.this.jTc.d(tbImageView.getBdImage().getRawBitmap(), false);
                 }
             }
         });
-        aVar.jFI.startLoad(this.mDataList.get((i * 2) + 1), 10, true);
-        aVar.jFI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.2
+        aVar.jER.startLoad(this.mDataList.get((i * 2) + 1), 10, true);
+        aVar.jER.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 TbImageView tbImageView = (TbImageView) view2;
-                if (d.this.jTT != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().getRawBitmap() != null) {
-                    d.this.jTT.d(tbImageView.getBdImage().getRawBitmap(), true);
+                if (d.this.jTc != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().getRawBitmap() != null) {
+                    d.this.jTc.d(tbImageView.getBdImage().getRawBitmap(), true);
                 }
             }
         });
@@ -76,7 +76,7 @@ public class d extends BaseAdapter {
     }
 
     public void b(c cVar) {
-        this.jTT = cVar;
+        this.jTc = cVar;
     }
 
     public void setData(List<String> list) {

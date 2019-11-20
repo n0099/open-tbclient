@@ -14,28 +14,28 @@ import javax.net.ssl.SSLSession;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class b {
-    private static b clr = null;
+    private static b ckA = null;
     private HashMap<String, a> mCache = new HashMap<>();
 
     private b() {
     }
 
-    public static b and() {
-        if (clr == null) {
+    public static b anb() {
+        if (ckA == null) {
             synchronized (b.class) {
-                if (clr == null) {
-                    clr = new b();
+                if (ckA == null) {
+                    ckA = new b();
                 }
             }
         }
-        return clr;
+        return ckA;
     }
 
     public c oc(String str) {
         c cVar = new c();
         a aVar = this.mCache.get(str);
-        if (aVar != null && !aVar.aW(System.currentTimeMillis()) && aVar.anc() != null && aVar.anc().size() > 0) {
-            cVar.oh(aVar.anc().get(0));
+        if (aVar != null && !aVar.aV(System.currentTimeMillis()) && aVar.ana() != null && aVar.ana().size() > 0) {
+            cVar.oh(aVar.ana().get(0));
         }
         return cVar;
     }
@@ -46,28 +46,28 @@ public class b {
             return cVar;
         }
         a aVar = this.mCache.get(str);
-        if (aVar != null && !aVar.aW(System.currentTimeMillis()) && aVar.anc() != null && aVar.anc().size() > 0) {
-            cVar.oh(aVar.anc().get(0));
+        if (aVar != null && !aVar.aV(System.currentTimeMillis()) && aVar.ana() != null && aVar.ana().size() > 0) {
+            cVar.oh(aVar.ana().get(0));
             return cVar;
         }
         int i = 0;
         while (i < 2) {
-            cVar.anf();
+            cVar.and();
             cVar.eo(i == 1);
             long currentTimeMillis = System.currentTimeMillis();
             a a = a(str, cVar);
-            cVar.aX(System.currentTimeMillis() - currentTimeMillis);
-            if (a != null && a.anc() != null && a.anc().size() > 0) {
-                a.aV(300L);
+            cVar.aW(System.currentTimeMillis() - currentTimeMillis);
+            if (a != null && a.ana() != null && a.ana().size() > 0) {
+                a.aU(300L);
                 this.mCache.put(str, a);
-                cVar.oh(a.anc().get(0));
+                cVar.oh(a.ana().get(0));
                 return cVar;
             }
             a aVar2 = this.mCache.get(str);
-            if (aVar2 == null || aVar2.anc() == null || aVar2.anc().size() <= 0) {
+            if (aVar2 == null || aVar2.ana() == null || aVar2.ana().size() <= 0) {
                 i++;
             } else {
-                cVar.oh(aVar2.anc().get(0));
+                cVar.oh(aVar2.ana().get(0));
                 return cVar;
             }
         }
@@ -98,7 +98,7 @@ public class b {
         cVar.em(true);
         StringBuffer stringBuffer = new StringBuffer();
         try {
-            if (cVar.ane()) {
+            if (cVar.anc()) {
                 HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL("http://180.76.76.112/v2/0011/?dn=" + str).openConnection();
                 try {
                     httpURLConnection3.setDoOutput(true);
@@ -229,7 +229,7 @@ public class b {
                     }
                     a aVar = new a();
                     aVar.setStartTime(System.currentTimeMillis());
-                    cVar.anf();
+                    cVar.and();
                     a ob = aVar.ob(stringBuffer.toString());
                     if (inputStreamReader != null) {
                         try {

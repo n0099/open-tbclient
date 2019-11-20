@@ -17,90 +17,90 @@ import com.baidu.tieba.enterForum.recommend.model.RecommendModel;
 import com.baidu.tieba.enterForum.recommend.view.RecommendView;
 /* loaded from: classes4.dex */
 public class RecommendFragment extends BaseFragment implements h.c, a {
-    private c fbv;
-    private RecommendModel fdB;
-    private RecommendView fdC;
-    private boolean fdD;
+    private c faE;
+    private RecommendModel fcK;
+    private RecommendView fcL;
+    private boolean fcM;
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.fdC == null) {
-            this.fdC = new RecommendView(getPageContext());
-            this.fdC.setTabViewController(this.fbv);
-            this.fdC.setPresenter(this);
-            this.fdC.setListPullRefreshListener(this);
-            this.fdC.setPageUniqueId(getUniqueId());
+        if (this.fcL == null) {
+            this.fcL = new RecommendView(getPageContext());
+            this.fcL.setTabViewController(this.faE);
+            this.fcL.setPresenter(this);
+            this.fcL.setListPullRefreshListener(this);
+            this.fcL.setPageUniqueId(getUniqueId());
         }
-        if (this.fdC.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.fdC.getParent()).removeView(this.fdC);
+        if (this.fcL.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.fcL.getParent()).removeView(this.fcL);
         }
-        com.baidu.tieba.q.c.cnk().v(getUniqueId());
-        return this.fdC;
+        com.baidu.tieba.q.c.cni().v(getUniqueId());
+        return this.fcL;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        if (this.fdB == null) {
-            this.fdB = new RecommendModel(getPageContext());
-            this.fdB.setPresenter(this);
-            this.fdB.setUniqueId(getUniqueId());
+        if (this.fcK == null) {
+            this.fcK = new RecommendModel(getPageContext());
+            this.fcK.setPresenter(this);
+            this.fcK.setUniqueId(getUniqueId());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        if (!this.fdD && !TbadkCoreApplication.getInst().checkInterrupt()) {
-            this.fdC.dp(false);
-            this.fdB.bfe();
-            this.fdD = true;
+        if (!this.fcM && !TbadkCoreApplication.getInst().checkInterrupt()) {
+            this.fcL.dp(false);
+            this.fcK.bfc();
+            this.fcM = true;
         }
     }
 
     @Override // com.baidu.tbadk.core.view.h.c
     public void onListPullRefresh(boolean z) {
-        if (this.fdB != null) {
-            this.fdB.bfe();
+        if (this.fcK != null) {
+            this.fcK.bfc();
         }
-        com.baidu.tieba.q.c.cnk().y(getUniqueId());
+        com.baidu.tieba.q.c.cni().y(getUniqueId());
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
     public void loadData() {
         if (j.isNetWorkAvailable()) {
-            this.fdC.aJo();
-            this.fdC.dp(false);
-            this.fdB.bfe();
+            this.fcL.aJm();
+            this.fcL.dp(false);
+            this.fcK.bfc();
         }
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
     public void a(int i, com.baidu.tieba.enterForum.recommend.b.a aVar) {
-        this.fdC.hideLoadingView();
-        this.fdC.aJH();
+        this.fcL.hideLoadingView();
+        this.fcL.aJF();
         if (i != 0 || aVar == null) {
-            this.fdC.jm(false);
+            this.fcL.jm(false);
             return;
         }
-        this.fdC.aJo();
-        this.fdC.aMq();
-        this.fdC.setData(aVar);
+        this.fcL.aJm();
+        this.fcL.aMo();
+        this.fcL.setData(aVar);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.fdC != null) {
-            this.fdC.onChangeSkinType();
+        if (this.fcL != null) {
+            this.fcL.onChangeSkinType();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        this.fbv = null;
-        this.fdC.onDestroy();
-        this.fdB.onDestroy();
-        com.baidu.tieba.q.c.cnk().w(getUniqueId());
+        this.faE = null;
+        this.fcL.onDestroy();
+        this.fcK.onDestroy();
+        com.baidu.tieba.q.c.cni().w(getUniqueId());
         super.onDestroyView();
     }
 
@@ -109,19 +109,19 @@ public class RecommendFragment extends BaseFragment implements h.c, a {
         super.onPrimary();
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921385));
-            if (!this.fdD) {
+            if (!this.fcM) {
                 loadData();
-                this.fdD = true;
+                this.fcM = true;
                 return;
             }
             return;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921386));
-        com.baidu.tieba.q.c.cnk().b(getUniqueId(), false);
+        com.baidu.tieba.q.c.cni().b(getUniqueId(), false);
     }
 
     public void setTabViewController(c cVar) {
-        this.fbv = cVar;
+        this.faE = cVar;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.o.a

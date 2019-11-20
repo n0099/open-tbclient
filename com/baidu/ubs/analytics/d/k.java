@@ -11,16 +11,16 @@ public final class k {
         c.a(new d() { // from class: com.baidu.ubs.analytics.d.k.1
             @Override // com.baidu.ubs.analytics.d.d
             public final void a() {
-                if (g.Gj(a.jYH)) {
-                    for (File file : k.Gn(a.jYH)) {
+                if (g.Gj(a.jXQ)) {
+                    for (File file : k.Gn(a.jXQ)) {
                         if (com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), (b.a) null)) {
                             g.Gk(file.getPath());
                         }
                     }
                 }
-                if (g.Gj(a.jYI)) {
-                    for (File file2 : k.Gn(a.jYI)) {
-                        if (!file2.getName().equals(b.cBE()) && com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), (b.a) null)) {
+                if (g.Gj(a.jXR)) {
+                    for (File file2 : k.Gn(a.jXR)) {
+                        if (!file2.getName().equals(b.cBC()) && com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), (b.a) null)) {
                             g.Gk(file2.getPath());
                         }
                     }

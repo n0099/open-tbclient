@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 /* loaded from: classes6.dex */
 public class c {
-    private static int arn = 0;
-    private static boolean aro = false;
-    private static boolean arp = false;
+    private static int aqV = 0;
+    private static boolean aqW = false;
+    private static boolean aqX = false;
 
     public static boolean at(Context context) {
         return new Intent("android.intent.action.VIEW", Uri.parse("alipays://platformapi/startApp")).resolveActivity(context.getPackageManager()) != null;

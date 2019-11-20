@@ -17,7 +17,7 @@ public class m extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int fj() {
-        return com.baidu.tbadk.core.sharedPref.b.alR().getInt("key_bigday_sync_switch", 0);
+        return com.baidu.tbadk.core.sharedPref.b.alP().getInt("key_bigday_sync_switch", 0);
     }
 
     @Override // com.baidu.adp.lib.b.a

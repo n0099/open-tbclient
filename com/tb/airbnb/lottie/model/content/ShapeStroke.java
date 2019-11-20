@@ -14,14 +14,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ShapeStroke implements b {
-    private final List<com.tb.airbnb.lottie.model.a.b> hf;
-    private final com.tb.airbnb.lottie.model.a.a ktX;
+    private final List<com.tb.airbnb.lottie.model.a.b> gF;
+    private final LineCapType ktA;
+    private final LineJoinType ktB;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b kuE;
-    private final com.tb.airbnb.lottie.model.a.d kuf;
-    private final com.tb.airbnb.lottie.model.a.b kuq;
-    private final LineCapType kur;
-    private final LineJoinType kus;
+    private final com.tb.airbnb.lottie.model.a.b ktN;
+    private final com.tb.airbnb.lottie.model.a.a ktg;
+    private final com.tb.airbnb.lottie.model.a.d kto;
+    private final com.tb.airbnb.lottie.model.a.b ktz;
     private final String name;
 
     /* loaded from: classes6.dex */
@@ -64,13 +64,13 @@ public class ShapeStroke implements b {
 
     private ShapeStroke(String str, @Nullable com.tb.airbnb.lottie.model.a.b bVar, List<com.tb.airbnb.lottie.model.a.b> list, com.tb.airbnb.lottie.model.a.a aVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType) {
         this.name = str;
-        this.kuE = bVar;
-        this.hf = list;
-        this.ktX = aVar;
-        this.kuf = dVar;
-        this.kuq = bVar2;
-        this.kur = lineCapType;
-        this.kus = lineJoinType;
+        this.ktN = bVar;
+        this.gF = list;
+        this.ktg = aVar;
+        this.kto = dVar;
+        this.ktz = bVar2;
+        this.ktA = lineCapType;
+        this.ktB = lineJoinType;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -116,31 +116,31 @@ public class ShapeStroke implements b {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.a cMb() {
-        return this.ktX;
+    public com.tb.airbnb.lottie.model.a.a cLZ() {
+        return this.ktg;
     }
 
-    public com.tb.airbnb.lottie.model.a.d cLz() {
-        return this.kuf;
+    public com.tb.airbnb.lottie.model.a.d cLx() {
+        return this.kto;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLK() {
-        return this.kuq;
+    public com.tb.airbnb.lottie.model.a.b cLI() {
+        return this.ktz;
     }
 
     public List<com.tb.airbnb.lottie.model.a.b> cE() {
-        return this.hf;
+        return this.gF;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLN() {
-        return this.kuE;
+    public com.tb.airbnb.lottie.model.a.b cLL() {
+        return this.ktN;
     }
 
-    public LineCapType cLL() {
-        return this.kur;
+    public LineCapType cLJ() {
+        return this.ktA;
     }
 
-    public LineJoinType cLM() {
-        return this.kus;
+    public LineJoinType cLK() {
+        return this.ktB;
     }
 }

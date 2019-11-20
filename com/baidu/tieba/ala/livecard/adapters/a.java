@@ -8,7 +8,7 @@ import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes6.dex */
 public class a extends h<com.baidu.tieba.tbadkCore.f, com.baidu.tieba.ala.livecard.a.b> implements z {
-    private com.baidu.tieba.ala.livecard.b.a dSW;
+    private com.baidu.tieba.ala.livecard.b.a dSf;
     private String mForumName;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -24,9 +24,9 @@ public class a extends h<com.baidu.tieba.tbadkCore.f, com.baidu.tieba.ala.liveca
         if (this.mPageContext == null) {
             return null;
         }
-        this.dSW = new com.baidu.tieba.ala.livecard.b.a(this.mPageContext);
-        this.dSW.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.b(this.dSW);
+        this.dSf = new com.baidu.tieba.ala.livecard.b.a(this.mPageContext);
+        this.dSf.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.b(this.dSf);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,12 +35,12 @@ public class a extends h<com.baidu.tieba.tbadkCore.f, com.baidu.tieba.ala.liveca
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.f fVar, com.baidu.tieba.ala.livecard.a.b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) fVar, (com.baidu.tieba.tbadkCore.f) bVar);
         if (fVar != null) {
-            int topThreadSize = this.fuR != null ? this.fuR.getTopThreadSize() : 0;
-            if (fVar.jgf != null && fVar.jgf.get(0) != null) {
-                fVar.jgf.get(0).cez = (i + 1) - topThreadSize;
+            int topThreadSize = this.fua != null ? this.fua.getTopThreadSize() : 0;
+            if (fVar.jfo != null && fVar.jfo.get(0) != null) {
+                fVar.jfo.get(0).cdI = (i + 1) - topThreadSize;
             }
-            bVar.dTn.setForumName(this.mForumName);
-            bVar.dTn.a(fVar);
+            bVar.dSw.setForumName(this.mForumName);
+            bVar.dSw.a(fVar);
         }
         return view;
     }
@@ -51,6 +51,6 @@ public class a extends h<com.baidu.tieba.tbadkCore.f, com.baidu.tieba.ala.liveca
     }
 
     @Override // com.baidu.tieba.card.z
-    public void mX(int i) {
+    public void mW(int i) {
     }
 }

@@ -6,14 +6,14 @@ import kotlin.coroutines.experimental.d;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class a implements d {
-    private final d kvI;
-    private final d.b kvJ;
+    private final d kuR;
+    private final d.b kuS;
 
     public a(d dVar, d.b bVar) {
         p.i(dVar, "left");
         p.i(bVar, "element");
-        this.kvI = dVar;
-        this.kvJ = bVar;
+        this.kuR = dVar;
+        this.kuS = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
@@ -21,9 +21,9 @@ public final class a implements d {
         p.i(cVar, TiebaInitialize.Params.KEY);
         a aVar = this;
         while (true) {
-            E e = (E) aVar.kvJ.a(cVar);
+            E e = (E) aVar.kuS.a(cVar);
             if (e == null) {
-                d dVar = aVar.kvI;
+                d dVar = aVar.kuR;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -38,33 +38,33 @@ public final class a implements d {
     @Override // kotlin.coroutines.experimental.d
     public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
         p.i(cVar, "operation");
-        return cVar.invoke((Object) this.kvI.a(r, cVar), this.kvJ);
+        return cVar.invoke((Object) this.kuR.a(r, cVar), this.kuS);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
         p.i(cVar, TiebaInitialize.Params.KEY);
-        if (this.kvJ.a(cVar) != null) {
-            return this.kvI;
+        if (this.kuS.a(cVar) != null) {
+            return this.kuR;
         }
-        d b = this.kvI.b(cVar);
-        return b == this.kvI ? this : b == e.kvM ? this.kvJ : new a(b, this.kvJ);
+        d b = this.kuR.b(cVar);
+        return b == this.kuR ? this : b == e.kuV ? this.kuS : new a(b, this.kuS);
     }
 
     private final int size() {
-        if (this.kvI instanceof a) {
-            return ((a) this.kvI).size() + 1;
+        if (this.kuR instanceof a) {
+            return ((a) this.kuR).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return p.f(a((d.c<d.b>) bVar.cMU()), bVar);
+        return p.f(a((d.c<d.b>) bVar.cMS()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.kvJ)) {
-            d dVar = aVar.kvI;
+        while (a(aVar.kuS)) {
+            d dVar = aVar.kuR;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -81,7 +81,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.kvI.hashCode() + this.kvJ.hashCode();
+        return this.kuR.hashCode() + this.kuS.hashCode();
     }
 
     public String toString() {

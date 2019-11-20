@@ -4,22 +4,22 @@ import com.baidu.swan.apps.an.x;
 import java.io.File;
 /* loaded from: classes2.dex */
 public final class b {
-    public static File HY() {
-        return new File(x.Ut().get(0).mPath, "baidu/aiapps_debug_extension_core/");
+    public static File HZ() {
+        return new File(x.Ur().get(0).mPath, "baidu/aiapps_debug_extension_core/");
     }
 
-    public static void HZ() {
-        File HY = HY();
-        if (HY.exists()) {
-            com.baidu.swan.c.a.deleteFile(HY);
+    public static void Ia() {
+        File HZ = HZ();
+        if (HZ.exists()) {
+            com.baidu.swan.c.a.deleteFile(HZ);
         }
     }
 
-    public static File Ia() {
-        File HY = HY();
-        if (!HY.exists()) {
-            HY.mkdirs();
+    public static File Ib() {
+        File HZ = HZ();
+        if (!HZ.exists()) {
+            HZ.mkdirs();
         }
-        return new File(HY, "debugExtensionCore.zip");
+        return new File(HZ, "debugExtensionCore.zip");
     }
 }

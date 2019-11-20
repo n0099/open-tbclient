@@ -22,13 +22,13 @@ import com.baidu.tieba.barselect.a.a;
 import com.baidu.tieba.barselect.data.f;
 /* loaded from: classes3.dex */
 public class NewAnounceLayout extends CardBasicLayout {
-    private float crC;
-    private View.OnClickListener czV;
-    private View eJc;
-    private TextView eJd;
-    private View eJe;
-    private TextView eJf;
-    private TextView eJg;
+    private float cqK;
+    private View.OnClickListener cze;
+    private View eIl;
+    private TextView eIm;
+    private View eIn;
+    private TextView eIo;
+    private TextView eIp;
     private Context mContext;
 
     public NewAnounceLayout(Context context) {
@@ -37,13 +37,13 @@ public class NewAnounceLayout extends CardBasicLayout {
 
     public NewAnounceLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.czV = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.NewAnounceLayout.1
+        this.cze = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.NewAnounceLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                new an("c13447").amK();
-                if (NewAnounceLayout.this.eJb != null && NewAnounceLayout.this.eJb.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.eJb.aZn())) {
+                new an("c13447").amI();
+                if (NewAnounceLayout.this.eIk != null && NewAnounceLayout.this.eIk.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.eIk.aZl())) {
                     PbActivityConfig pbActivityConfig = new PbActivityConfig(NewAnounceLayout.this.mContext);
-                    pbActivityConfig.createNormalCfg(NewAnounceLayout.this.eJb.getTid() + "", (String) null, (String) null, true);
+                    pbActivityConfig.createNormalCfg(NewAnounceLayout.this.eIk.getTid() + "", (String) null, (String) null, true);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
                 }
             }
@@ -64,77 +64,77 @@ public class NewAnounceLayout extends CardBasicLayout {
     }
 
     private void md() {
-        this.eJc = findViewById(R.id.announce_content);
-        this.eJc.setOnClickListener(this.czV);
-        this.eJd = (TextView) findViewById(R.id.first_line_tv);
-        this.eJe = findViewById(R.id.second_content);
-        this.eJf = (TextView) findViewById(R.id.second_line_tv);
-        this.eJg = (TextView) findViewById(R.id.announce_tail);
+        this.eIl = findViewById(R.id.announce_content);
+        this.eIl.setOnClickListener(this.cze);
+        this.eIm = (TextView) findViewById(R.id.first_line_tv);
+        this.eIn = findViewById(R.id.second_content);
+        this.eIo = (TextView) findViewById(R.id.second_line_tv);
+        this.eIp = (TextView) findViewById(R.id.announce_tail);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.eFp == null || this.eJb == null || this.status < 0) {
+        if (this.eEy == null || this.eIk == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.crC = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds70) * 2);
-        if (this.status == a.eJq) {
-            this.crC = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds116) * 2);
+        this.cqK = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds70) * 2);
+        if (this.status == a.eIz) {
+            this.cqK = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds116) * 2);
         }
-        if (this.status == a.eJs) {
-            this.crC = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds96) * 2);
+        if (this.status == a.eIB) {
+            this.cqK = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds96) * 2);
         }
-        if (this.status == a.eJr) {
-            this.crC = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds86) * 2);
-            this.eJc.setPadding(0, 0, 0, 0);
-            this.eJd.setPadding(0, 0, 0, 0);
-            this.eJf.setPadding(0, 0, 0, 0);
-            this.eJg.setPadding(0, 0, 0, 0);
+        if (this.status == a.eIA) {
+            this.cqK = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds86) * 2);
+            this.eIl.setPadding(0, 0, 0, 0);
+            this.eIm.setPadding(0, 0, 0, 0);
+            this.eIo.setPadding(0, 0, 0, 0);
+            this.eIp.setPadding(0, 0, 0, 0);
         }
-        ux(this.eJb.aZn());
+        ux(this.eIk.aZl());
     }
 
     private void ux(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
-            this.eJe.setVisibility(8);
-            this.eJd.setText(getResources().getString(R.string.empty_announce));
+            this.eIn.setVisibility(8);
+            this.eIm.setText(getResources().getString(R.string.empty_announce));
             return;
         }
-        this.eJe.setVisibility(0);
-        int lineEnd = new StaticLayout(str, this.eJd.getPaint(), (int) this.crC, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
+        this.eIn.setVisibility(0);
+        int lineEnd = new StaticLayout(str, this.eIm.getPaint(), (int) this.cqK, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
         String substring = str.substring(0, lineEnd);
         if (lineEnd >= str.length()) {
-            this.eJe.setVisibility(8);
-            this.eJd.setText(substring);
+            this.eIn.setVisibility(8);
+            this.eIm.setText(substring);
             return;
         }
         String substring2 = str.substring(lineEnd, str.length());
-        if (new StaticLayout(substring2, this.eJf.getPaint(), (int) this.crC, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
-            this.eJg.setVisibility(8);
+        if (new StaticLayout(substring2, this.eIo.getPaint(), (int) this.cqK, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
+            this.eIp.setVisibility(8);
         } else {
-            this.eJg.setVisibility(0);
+            this.eIp.setVisibility(0);
         }
-        this.eJe.setVisibility(0);
-        this.eJd.setText(substring);
-        this.eJf.setText(substring2);
+        this.eIn.setVisibility(0);
+        this.eIm.setText(substring);
+        this.eIo.setText(substring2);
     }
 
-    public void mE(int i) {
-        if (this.eJb != null) {
-            if (this.status != a.eJr) {
-                am.setBackgroundColor(this.eJc, R.color.cp_bg_line_e, i);
-            } else if (this.eJc != null) {
-                this.eJc.setBackgroundColor(0);
+    public void mD(int i) {
+        if (this.eIk != null) {
+            if (this.status != a.eIA) {
+                am.setBackgroundColor(this.eIl, R.color.cp_bg_line_e, i);
+            } else if (this.eIl != null) {
+                this.eIl.setBackgroundColor(0);
             }
-            if (TextUtils.isEmpty(this.eJb.aZn())) {
-                am.setViewTextColor(this.eJd, R.color.cp_cont_d, 1, i);
+            if (TextUtils.isEmpty(this.eIk.aZl())) {
+                am.setViewTextColor(this.eIm, R.color.cp_cont_d, 1, i);
             } else {
-                am.setViewTextColor(this.eJd, R.color.cp_cont_b, 1, i);
+                am.setViewTextColor(this.eIm, R.color.cp_cont_b, 1, i);
             }
-            am.setViewTextColor(this.eJf, R.color.cp_cont_b, 1, i);
-            am.setViewTextColor(this.eJg, R.color.cp_link_tip_c, 1, i);
+            am.setViewTextColor(this.eIo, R.color.cp_cont_b, 1, i);
+            am.setViewTextColor(this.eIp, R.color.cp_link_tip_c, 1, i);
         }
     }
 }

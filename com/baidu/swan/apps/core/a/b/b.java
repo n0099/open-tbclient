@@ -10,10 +10,10 @@ import java.util.List;
 /* loaded from: classes2.dex */
 class b extends e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String aJN;
-    private a.InterfaceC0173a aJR;
-    private c aJS;
-    private List<UbcFlowEvent> aJy;
+    private c aJA;
+    private List<UbcFlowEvent> aJg;
+    private String aJv;
+    private a.InterfaceC0173a aJz;
     private String mAppId;
     private Context mContext;
 
@@ -21,11 +21,11 @@ class b extends e {
         super(str);
         this.mAppId = str;
         this.mContext = context;
-        this.aJR = interfaceC0173a;
-        this.aJy = new ArrayList();
-        this.aJS = new c();
-        this.aJS.mAppId = str;
-        this.aJy.add(new UbcFlowEvent("na_aps_start_req"));
-        this.aJN = str2;
+        this.aJz = interfaceC0173a;
+        this.aJg = new ArrayList();
+        this.aJA = new c();
+        this.aJA.mAppId = str;
+        this.aJg.add(new UbcFlowEvent("na_aps_start_req"));
+        this.aJv = str2;
     }
 }

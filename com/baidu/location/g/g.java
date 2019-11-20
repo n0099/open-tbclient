@@ -14,7 +14,6 @@ import com.baidu.android.bbalbs.common.security.Base64;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.tieba.model.ReportUserInfoModel;
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigInteger;
@@ -101,7 +100,7 @@ public class g {
     public static long ai = 180000;
     public static long aj = 0;
     public static long ak = 15;
-    public static long al = ReportUserInfoModel.TIME_INTERVAL;
+    public static long al = 300000;
     public static int am = 1000;
     public static int an = 0;
     public static int ao = 30000;

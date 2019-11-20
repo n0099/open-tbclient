@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private List<d> dfi = new ArrayList();
-    private long dfj = 0;
+    private List<d> deq = new ArrayList();
+    private long der = 0;
 
-    public List<d> aCq() {
-        return this.dfi;
+    public List<d> aCo() {
+        return this.deq;
     }
 
-    public long aCr() {
-        return this.dfj;
+    public long aCp() {
+        return this.der;
     }
 
     public void a(d dVar) {
-        if (this.dfi != null) {
-            this.dfi.add(dVar);
+        if (this.deq != null) {
+            this.deq.add(dVar);
             if (dVar != null) {
-                this.dfj += dVar.aCA();
+                this.der += dVar.aCy();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.dfi != null) {
-            this.dfi.remove(dVar);
+        if (this.deq != null) {
+            this.deq.remove(dVar);
             if (dVar != null) {
-                this.dfj -= dVar.aCA();
+                this.der -= dVar.aCy();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.dfi != null) {
-            d dVar = this.dfi.get(i);
+        if (this.deq != null) {
+            d dVar = this.deq.get(i);
             if (dVar != null) {
-                this.dfj -= dVar.aCA();
+                this.der -= dVar.aCy();
             }
-            this.dfi.remove(i);
+            this.deq.remove(i);
         }
     }
 
-    public int aCs() {
-        if (this.dfi != null) {
-            return this.dfi.size();
+    public int aCq() {
+        if (this.deq != null) {
+            return this.deq.size();
         }
         return 0;
     }
 
-    public d lt(int i) {
-        if (this.dfi != null) {
-            return this.dfi.get(i);
+    public d ls(int i) {
+        if (this.deq != null) {
+            return this.deq.get(i);
         }
         return null;
     }

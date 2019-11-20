@@ -18,7 +18,7 @@ public class e {
         }
     };
 
-    public static e alW() {
+    public static e alU() {
         return new e();
     }
 

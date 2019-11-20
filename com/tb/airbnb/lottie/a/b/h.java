@@ -34,10 +34,10 @@ public class h extends com.tb.airbnb.lottie.a.a<PointF> {
                 pointF = com.tb.airbnb.lottie.c.b.a(optJSONArray, eVar.bb());
                 pointF2 = a2;
             }
-            h hVar = new h(eVar, (PointF) a.ej, (PointF) a.ek, a.el, a.em, a.en);
-            boolean z = (a.ek == 0 || a.ej == 0 || !((PointF) a.ej).equals(((PointF) a.ek).x, ((PointF) a.ek).y)) ? false : true;
-            if (hVar.ek != 0 && !z) {
-                hVar.path = com.tb.airbnb.lottie.c.f.a((PointF) a.ej, (PointF) a.ek, pointF2, pointF);
+            h hVar = new h(eVar, (PointF) a.dK, (PointF) a.dL, a.dM, a.dN, a.dO);
+            boolean z = (a.dL == 0 || a.dK == 0 || !((PointF) a.dK).equals(((PointF) a.dL).x, ((PointF) a.dL).y)) ? false : true;
+            if (hVar.dL != 0 && !z) {
+                hVar.path = com.tb.airbnb.lottie.c.f.a((PointF) a.dK, (PointF) a.dL, pointF2, pointF);
             }
             return hVar;
         }

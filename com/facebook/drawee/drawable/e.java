@@ -17,7 +17,7 @@ public class e {
 
     public static void a(Drawable drawable, d dVar) {
         if (drawable != null && dVar != null) {
-            dVar.g(drawable);
+            dVar.h(drawable);
         }
     }
 
@@ -30,7 +30,7 @@ public class e {
         }
     }
 
-    public static int cE(int i, int i2) {
+    public static int cC(int i, int i2) {
         if (i2 != 255) {
             if (i2 == 0) {
                 return i & ViewCompat.MEASURED_SIZE_MASK;
@@ -40,7 +40,7 @@ public class e {
         return i;
     }
 
-    public static int Cg(int i) {
+    public static int Cf(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

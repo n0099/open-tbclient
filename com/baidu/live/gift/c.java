@@ -8,22 +8,22 @@ import java.util.Collections;
 import java.util.Comparator;
 /* loaded from: classes6.dex */
 public class c {
-    public b Wm;
+    public b VT;
     public ArrayList<String> unZipFilesPathList;
     public String upZipDirPath;
 
     public String getDynamicGiftId() {
-        if (this.Wm == null) {
+        if (this.VT == null) {
             return null;
         }
-        return this.Wm.giftId;
+        return this.VT.giftId;
     }
 
     public boolean isLandScapeZip() {
-        if (this.Wm == null || this.Wm.Wk == null) {
+        if (this.VT == null || this.VT.VR == null) {
             return false;
         }
-        return this.Wm.Wk.isLandScape();
+        return this.VT.VR.isLandScape();
     }
 
     public ArrayList<String> getDynamicGiftPicPathList() {

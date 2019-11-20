@@ -11,32 +11,32 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private com.baidu.live.gift.c.a ady;
+    private com.baidu.live.gift.c.a adg;
     private Context mContext;
 
     public a(Context context) {
         this.mContext = context;
     }
 
-    public void rr() {
-        if (this.ady == null) {
+    public void rs() {
+        if (this.adg == null) {
             dv();
         }
-        this.ady.ro();
+        this.adg.rp();
     }
 
-    public void rs() {
+    public void rt() {
     }
 
     public void release() {
-        if (this.ady != null) {
-            this.ady.release();
+        if (this.adg != null) {
+            this.adg.release();
         }
     }
 
     private void dv() {
-        this.ady = new com.baidu.live.gift.c.a();
-        this.ady.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
+        this.adg = new com.baidu.live.gift.c.a();
+        this.adg.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
             @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
             public void a(boolean z, String str, ArrayList<h> arrayList, ArrayList<com.baidu.live.gift.a.a> arrayList2, ArrayList<com.baidu.live.gift.a.b> arrayList3) {
                 super.a(z, str, arrayList, arrayList2, arrayList3);
@@ -68,10 +68,10 @@ public class a {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.ady == null) {
-                this.ady = new com.baidu.live.gift.c.a();
+            if (this.adg == null) {
+                this.adg = new com.baidu.live.gift.c.a();
             }
-            this.ady.ro();
+            this.adg.rp();
         }
     }
 
@@ -92,7 +92,7 @@ public class a {
                     } else {
                         for (g gVar : pt) {
                             if (gVar.pc().equals(str)) {
-                                gVar.WH.WL = i;
+                                gVar.Wo.Ws = i;
                             }
                         }
                     }

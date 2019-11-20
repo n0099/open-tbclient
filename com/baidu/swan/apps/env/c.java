@@ -35,12 +35,12 @@ public class c {
             return null;
         }
         HashSet hashSet = new HashSet();
-        for (a.b bVar : com.baidu.swan.apps.process.messaging.service.a.Ov().Ow()) {
-            if (bVar.bbv && bVar.OH() && list.contains(bVar.OD())) {
+        for (a.b bVar : com.baidu.swan.apps.process.messaging.service.a.Ow().Ox()) {
+            if (bVar.bbd && bVar.OI() && list.contains(bVar.OE())) {
                 serviceObject.sendMessageToClient(bVar, i, (Bundle) null);
-                hashSet.add(bVar.OD());
+                hashSet.add(bVar.OE());
                 if (DEBUG) {
-                    Log.i("PurgerUtils", "sent msg(" + i + ") to active aiapp(" + bVar.OD() + ")");
+                    Log.i("PurgerUtils", "sent msg(" + i + ") to active aiapp(" + bVar.OE() + ")");
                 }
             }
         }

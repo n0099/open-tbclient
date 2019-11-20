@@ -27,8 +27,8 @@ public class b extends g {
     /* loaded from: classes2.dex */
     static class a extends g.a {
         private final Handler handler;
-        private final rx.a.a.b kyO = rx.a.a.a.cOo().cOp();
-        private volatile boolean kyP;
+        private final rx.a.a.b kxX = rx.a.a.a.cOm().cOn();
+        private volatile boolean kxY;
 
         a(Handler handler) {
             this.handler = handler;
@@ -36,29 +36,29 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.kyP = true;
+            this.kxY = true;
             this.handler.removeCallbacksAndMessages(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.kyP;
+            return this.kxY;
         }
 
         @Override // rx.g.a
         public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            if (this.kyP) {
-                return e.cQf();
+            if (this.kxY) {
+                return e.cQd();
             }
-            RunnableC0612b runnableC0612b = new RunnableC0612b(this.kyO.d(aVar), this.handler);
-            Message obtain = Message.obtain(this.handler, runnableC0612b);
+            RunnableC0600b runnableC0600b = new RunnableC0600b(this.kxX.d(aVar), this.handler);
+            Message obtain = Message.obtain(this.handler, runnableC0600b);
             obtain.obj = this;
             this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-            if (this.kyP) {
-                this.handler.removeCallbacks(runnableC0612b);
-                return e.cQf();
+            if (this.kxY) {
+                this.handler.removeCallbacks(runnableC0600b);
+                return e.cQd();
             }
-            return runnableC0612b;
+            return runnableC0600b;
         }
 
         @Override // rx.g.a
@@ -70,12 +70,12 @@ public class b extends g {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.a.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class RunnableC0612b implements Runnable, k {
+    public static final class RunnableC0600b implements Runnable, k {
         private final rx.functions.a action;
         private final Handler handler;
-        private volatile boolean kyP;
+        private volatile boolean kxY;
 
-        RunnableC0612b(rx.functions.a aVar, Handler handler) {
+        RunnableC0600b(rx.functions.a aVar, Handler handler) {
             this.action = aVar;
             this.handler = handler;
         }
@@ -91,7 +91,7 @@ public class b extends g {
                 } else {
                     illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
                 }
-                f.cPB().cPC().B(illegalStateException);
+                f.cPz().cPA().C(illegalStateException);
                 Thread currentThread = Thread.currentThread();
                 currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
             }
@@ -99,13 +99,13 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.kyP = true;
+            this.kxY = true;
             this.handler.removeCallbacks(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.kyP;
+            return this.kxY;
         }
     }
 }

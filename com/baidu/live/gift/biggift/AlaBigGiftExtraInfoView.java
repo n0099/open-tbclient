@@ -14,11 +14,11 @@ import com.baidu.live.k.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes6.dex */
 public class AlaBigGiftExtraInfoView extends LinearLayout {
-    private TextView XA;
-    private AlphaAnimation XB;
-    private AlphaAnimation XC;
-    private HeadImageView Xy;
-    private TextView Xz;
+    private HeadImageView Xg;
+    private TextView Xh;
+    private TextView Xi;
+    private AlphaAnimation Xj;
+    private AlphaAnimation Xk;
 
     public AlaBigGiftExtraInfoView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -27,33 +27,33 @@ public class AlaBigGiftExtraInfoView extends LinearLayout {
 
     public void setData(d dVar) {
         if (dVar.portrait != null) {
-            this.Xy.startLoad(dVar.portrait, 12, false);
+            this.Xg.startLoad(dVar.portrait, 12, false);
         }
         if (!TextUtils.isEmpty(dVar.userName)) {
-            this.Xz.setText(dVar.userName);
+            this.Xh.setText(dVar.userName);
         }
-        if (dVar.aaR != null) {
-            this.XA.setText(getResources().getString(a.i.gift_name_prefix) + dVar.aaR.pd());
+        if (dVar.aaz != null) {
+            this.Xi.setText(getResources().getString(a.i.gift_name_prefix) + dVar.aaz.pd());
         }
     }
 
     public void pP() {
         setVisibility(0);
-        if (this.XB == null) {
-            this.XB = new AlphaAnimation(0.0f, 1.0f);
-            this.XB.setDuration(500L);
-            this.XB.setFillAfter(true);
+        if (this.Xj == null) {
+            this.Xj = new AlphaAnimation(0.0f, 1.0f);
+            this.Xj.setDuration(500L);
+            this.Xj.setFillAfter(true);
         }
-        startAnimation(this.XB);
+        startAnimation(this.Xj);
     }
 
     public void pQ() {
-        if (this.XC == null) {
-            this.XC = new AlphaAnimation(1.0f, 0.0f);
-            this.XC.setDuration(500L);
-            this.XC.setFillAfter(true);
+        if (this.Xk == null) {
+            this.Xk = new AlphaAnimation(1.0f, 0.0f);
+            this.Xk.setDuration(500L);
+            this.Xk.setFillAfter(true);
         }
-        startAnimation(this.XC);
+        startAnimation(this.Xk);
     }
 
     public void onDestroy() {
@@ -76,11 +76,11 @@ public class AlaBigGiftExtraInfoView extends LinearLayout {
         setBackgroundColor(0);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.popup_extra_info_layout, (ViewGroup) this, true);
-        this.Xy = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.Xz = (TextView) findViewById(a.g.tv_sender);
-        this.XA = (TextView) findViewById(a.g.tv_tip);
-        this.Xy.setIsRound(true);
-        this.Xy.setAutoChangeStyle(false);
-        this.Xy.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.Xg = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.Xh = (TextView) findViewById(a.g.tv_sender);
+        this.Xi = (TextView) findViewById(a.g.tv_tip);
+        this.Xg.setIsRound(true);
+        this.Xg.setAutoChangeStyle(false);
+        this.Xg.setDefaultBgResource(a.f.sdk_default_avatar);
     }
 }

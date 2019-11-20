@@ -14,7 +14,7 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     public m() {
         this.width = 0;
         this.height = 0;
-        ano();
+        anm();
     }
 
     public m(int i, int i2) {
@@ -25,10 +25,10 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             this.height = i2;
             return;
         }
-        ano();
+        anm();
     }
 
-    private void ano() {
+    private void anm() {
         this.width = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         this.height = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
     }
@@ -42,7 +42,7 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(oo(str), com.baidu.tbadk.imageManager.c.avu().pY(oo(str)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(oo(str), com.baidu.tbadk.imageManager.c.avs().pY(oo(str)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -65,7 +65,7 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.ac(i);
             aVar.ad(i2);
-            com.baidu.tbadk.imageManager.c.avu().c(oo(str), aVar);
+            com.baidu.tbadk.imageManager.c.avs().c(oo(str), aVar);
         }
     }
 
@@ -101,11 +101,11 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     }
 
     public String oo(String str) {
-        ImageOperation ao = com.baidu.tbadk.img.effect.d.ao(this.width, this.height);
+        ImageOperation am = com.baidu.tbadk.img.effect.d.am(this.width, this.height);
         StringBuilder sb = new StringBuilder();
         sb.append("image_");
         sb.append(str);
-        sb.append(':').append(ao.actionName).append('=').append(ao.actionParam);
+        sb.append(':').append(am.actionName).append('=').append(am.actionParam);
         return sb.toString();
     }
 }

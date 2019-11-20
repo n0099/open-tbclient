@@ -10,17 +10,17 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static String bQz;
+    private static String bPI;
 
     private static String ci(Context context) {
         return U(context, "channels/tnconfig.ini");
     }
 
-    public static String adu() {
-        if (TextUtils.isEmpty(bQz)) {
-            bQz = cj(AppRuntime.getAppContext());
+    public static String ads() {
+        if (TextUtils.isEmpty(bPI)) {
+            bPI = cj(AppRuntime.getAppContext());
         }
-        return bQz;
+        return bPI;
     }
 
     private static String cj(Context context) {

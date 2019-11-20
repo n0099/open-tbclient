@@ -35,43 +35,43 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b implements QRCodeView.a {
-    private com.baidu.tieba.ueg.c gZA;
-    private boolean iEC;
-    private final com.baidu.tieba.qrcode.activity.a iEJ;
-    private c iEK;
-    private C0501b iEL;
+    private com.baidu.tieba.ueg.c gYJ;
+    private boolean iDL;
+    private final com.baidu.tieba.qrcode.activity.a iDS;
+    private c iDT;
+    private C0501b iDU;
     private final TbPageContext mTbPageContext;
 
     public b(com.baidu.tieba.qrcode.activity.a aVar, TbPageContext tbPageContext) {
-        this.iEJ = aVar;
+        this.iDS = aVar;
         this.mTbPageContext = tbPageContext;
     }
 
     public void pY(boolean z) {
-        this.iEC = z;
+        this.iDL = z;
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
     public void Ci(String str) {
         if (StringUtils.isNull(str)) {
-            this.iEJ.ceN();
-            this.iEJ.ceL();
-        } else if (this.iEC) {
+            this.iDS.ceL();
+            this.iDS.ceJ();
+        } else if (this.iDL) {
             Intent intent = new Intent();
             intent.putExtra(QRCodeScanActivityConfig.RESULT_SCAN_CODE, str);
             this.mTbPageContext.getPageActivity().setResult(-1, intent);
             this.mTbPageContext.getPageActivity().finish();
         } else if (Cl(str)) {
-            this.iEJ.ceN();
+            this.iDS.ceL();
         } else if (!StringUtils.isNull(str) && str.contains("feedavatar.baidu.com")) {
-            this.iEJ.ceN();
+            this.iDS.ceL();
             Cm(str);
         } else if (Ck(str)) {
-            this.iEJ.ceN();
+            this.iDS.ceL();
             this.mTbPageContext.getPageActivity().finish();
         } else if (!aq.nT(str)) {
-            this.iEJ.ceN();
-            this.iEJ.ceL();
+            this.iDS.ceL();
+            this.iDS.ceJ();
         } else {
             Cj(str);
         }
@@ -79,40 +79,40 @@ public class b implements QRCodeView.a {
 
     private void Cj(final String str) {
         if (!l.isNetOk()) {
-            this.iEJ.ceN();
+            this.iDS.ceL();
             l.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getResources().getString(R.string.network_not_available));
             return;
         }
-        if (this.gZA != null && !this.gZA.isCancelled()) {
-            this.gZA.cancel();
+        if (this.gYJ != null && !this.gYJ.isCancelled()) {
+            this.gYJ.cancel();
         }
-        this.gZA = new com.baidu.tieba.ueg.c(str, new c.a() { // from class: com.baidu.tieba.qrcode.activity.b.1
+        this.gYJ = new com.baidu.tieba.ueg.c(str, new c.a() { // from class: com.baidu.tieba.qrcode.activity.b.1
             @Override // com.baidu.tieba.ueg.c.a
-            public void bGH() {
-                b.this.iEJ.ceN();
+            public void bGF() {
+                b.this.iDS.ceL();
                 b.this.openUrl(str);
             }
 
             @Override // com.baidu.tieba.ueg.c.a
-            public void bGI() {
-                b.this.iEJ.ceN();
-                b.this.iEJ.Ch(str);
+            public void bGG() {
+                b.this.iDS.ceL();
+                b.this.iDS.Ch(str);
             }
 
             @Override // com.baidu.tieba.ueg.c.a
-            public void bGJ() {
-                b.this.iEJ.ceN();
-                b.this.iEJ.ceO();
+            public void bGH() {
+                b.this.iDS.ceL();
+                b.this.iDS.ceM();
             }
 
             @Override // com.baidu.tieba.ueg.c.a
             public void onError(String str2) {
-                b.this.iEJ.ceN();
-                b.this.iEJ.ceL();
+                b.this.iDS.ceL();
+                b.this.iDS.ceJ();
             }
         });
-        this.gZA.setPriority(3);
-        this.gZA.execute(new String[0]);
+        this.gYJ.setPriority(3);
+        this.gYJ.execute(new String[0]);
     }
 
     public void openUrl(String str) {
@@ -151,42 +151,42 @@ public class b implements QRCodeView.a {
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
-    public void ceP() {
+    public void ceN() {
         l.showToast(this.mTbPageContext.getPageActivity(), (int) R.string.disallow_camera_permission);
         this.mTbPageContext.getPageActivity().finish();
     }
 
     public void Cn(String str) {
         if (!StringUtils.isNull(str)) {
-            this.iEJ.ceM();
-            if (this.iEK != null) {
-                this.iEK.cancel();
+            this.iDS.ceK();
+            if (this.iDT != null) {
+                this.iDT.cancel();
             }
-            this.iEK = new c();
-            this.iEK.execute(str);
+            this.iDT = new c();
+            this.iDT.execute(str);
         }
     }
 
-    public void ceQ() {
+    public void ceO() {
         if (this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null) {
             if (Build.VERSION.SDK_INT < 23 || (this.mTbPageContext.getPageActivity().checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0 && this.mTbPageContext.getPageActivity().checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0)) {
                 String b = b(this.mTbPageContext.getPageActivity().getContentResolver());
-                if (!TextUtils.isEmpty(b) && !b.endsWith(".gif") && !b.endsWith(".GIF") && !b.equals(com.baidu.tbadk.core.sharedPref.b.alR().getString("key_gallery_last_image_path", null))) {
-                    if (this.iEL != null) {
-                        this.iEL.cancel();
+                if (!TextUtils.isEmpty(b) && !b.endsWith(".gif") && !b.endsWith(".GIF") && !b.equals(com.baidu.tbadk.core.sharedPref.b.alP().getString("key_gallery_last_image_path", null))) {
+                    if (this.iDU != null) {
+                        this.iDU.cancel();
                     }
-                    this.iEL = new C0501b(new C0501b.a() { // from class: com.baidu.tieba.qrcode.activity.b.2
+                    this.iDU = new C0501b(new C0501b.a() { // from class: com.baidu.tieba.qrcode.activity.b.2
                         @Override // com.baidu.tieba.qrcode.activity.b.C0501b.a
                         public void dI(String str, String str2) {
                             if (!TextUtils.isEmpty(str)) {
-                                com.baidu.tbadk.core.sharedPref.b.alR().putString("key_gallery_last_image_path", str);
+                                com.baidu.tbadk.core.sharedPref.b.alP().putString("key_gallery_last_image_path", str);
                                 if (!TextUtils.isEmpty(str2)) {
-                                    b.this.iEJ.dH(str, str2);
+                                    b.this.iDS.dH(str, str2);
                                 }
                             }
                         }
                     });
-                    this.iEL.execute(b);
+                    this.iDU.execute(b);
                 }
             }
         }
@@ -196,7 +196,7 @@ public class b implements QRCodeView.a {
     /* loaded from: classes5.dex */
     public static class C0501b extends BdAsyncTask<String, Void, String> {
         private String filePath;
-        private a iEO;
+        private a iDX;
 
         /* renamed from: com.baidu.tieba.qrcode.activity.b$b$a */
         /* loaded from: classes5.dex */
@@ -205,7 +205,7 @@ public class b implements QRCodeView.a {
         }
 
         public C0501b(a aVar) {
-            this.iEO = aVar;
+            this.iDX = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -224,8 +224,8 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0501b) str);
-            if (this.iEO != null) {
-                this.iEO.dI(this.filePath, str);
+            if (this.iDX != null) {
+                this.iDX.dI(this.filePath, str);
             }
         }
     }
@@ -296,16 +296,16 @@ public class b implements QRCodeView.a {
     }
 
     public void onDestroy() {
-        if (this.gZA != null && !this.gZA.isCancelled()) {
-            this.gZA.cancel();
+        if (this.gYJ != null && !this.gYJ.isCancelled()) {
+            this.gYJ.cancel();
         }
-        if (this.iEK != null) {
-            this.iEK.cancel();
-            this.iEK = null;
+        if (this.iDT != null) {
+            this.iDT.cancel();
+            this.iDT = null;
         }
-        if (this.iEL != null) {
-            this.iEL.cancel();
-            this.iEL = null;
+        if (this.iDU != null) {
+            this.iDU.cancel();
+            this.iDU = null;
         }
     }
 
@@ -318,7 +318,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            b.this.iEJ.ceM();
+            b.this.iDS.ceK();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -336,7 +336,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((c) str);
-            b.this.iEJ.ceN();
+            b.this.iDS.ceL();
             b.this.Ci(str);
         }
     }

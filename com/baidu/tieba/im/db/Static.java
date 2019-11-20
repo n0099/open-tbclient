@@ -17,7 +17,7 @@ public class Static {
                     z.b(new y<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.y
-                        /* renamed from: aEg */
+                        /* renamed from: aEe */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
                                 g.xN((String) customResponsedMessage.getData());

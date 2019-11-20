@@ -20,12 +20,12 @@ import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes6.dex */
 public class b {
-    private a adA;
-    private int adB;
-    private CustomMessageListener adC;
-    private CustomMessageListener adD;
-    private CustomMessageListener adE;
-    private CustomMessageListener adF;
+    private a adi;
+    private int adj;
+    private CustomMessageListener adk;
+    private CustomMessageListener adl;
+    private CustomMessageListener adm;
+    private CustomMessageListener adn;
     private TbPageContext mContext;
     private Handler mHandler;
 
@@ -43,7 +43,7 @@ public class b {
     }
 
     public void a(Intent intent, a aVar) {
-        this.adA = aVar;
+        this.adi = aVar;
         registerListener();
         x(intent);
         this.mHandler = new Handler();
@@ -57,69 +57,69 @@ public class b {
     }
 
     public void release() {
-        this.adA = null;
+        this.adi = null;
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        MessageManager.getInstance().unRegisterListener(this.adC);
-        MessageManager.getInstance().unRegisterListener(this.adD);
-        MessageManager.getInstance().unRegisterListener(this.adE);
-        MessageManager.getInstance().unRegisterListener(this.adF);
+        MessageManager.getInstance().unRegisterListener(this.adk);
+        MessageManager.getInstance().unRegisterListener(this.adl);
+        MessageManager.getInstance().unRegisterListener(this.adm);
+        MessageManager.getInstance().unRegisterListener(this.adn);
     }
 
     private void registerListener() {
-        rt();
         ru();
         rv();
         rw();
-    }
-
-    private void rt() {
-        this.adC = new CustomMessageListener(2913097) { // from class: com.baidu.live.gift.panel.b.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.adA != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    b.this.adA.onClose();
-                }
-            }
-        };
-        MessageManager.getInstance().registerListener(this.adC);
+        rx();
     }
 
     private void ru() {
-        this.adD = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.live.gift.panel.b.3
+        this.adk = new CustomMessageListener(2913097) { // from class: com.baidu.live.gift.panel.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                b.this.refreshCurUserScores();
-            }
-        };
-        MessageManager.getInstance().registerListener(this.adD);
-    }
-
-    private void rv() {
-        this.adE = new CustomMessageListener(2913024) { // from class: com.baidu.live.gift.panel.b.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.adA != null) {
-                    b.this.adA.onClose();
+                if (b.this.adi != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
+                    b.this.adi.onClose();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.adE);
+        MessageManager.getInstance().registerListener(this.adk);
     }
 
-    private void rw() {
-        this.adF = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.live.gift.panel.b.5
+    private void rv() {
+        this.adl = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.live.gift.panel.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 b.this.refreshCurUserScores();
             }
         };
-        MessageManager.getInstance().registerListener(this.adF);
+        MessageManager.getInstance().registerListener(this.adl);
+    }
+
+    private void rw() {
+        this.adm = new CustomMessageListener(2913024) { // from class: com.baidu.live.gift.panel.b.4
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (b.this.adi != null) {
+                    b.this.adi.onClose();
+                }
+            }
+        };
+        MessageManager.getInstance().registerListener(this.adm);
+    }
+
+    private void rx() {
+        this.adn = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.live.gift.panel.b.5
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                b.this.refreshCurUserScores();
+            }
+        };
+        MessageManager.getInstance().registerListener(this.adn);
     }
 
     private void x(Intent intent) {
@@ -128,9 +128,9 @@ public class b {
         GiftPanelTabBaseFragment bt = GiftPanelTabBaseFragment.bt(0);
         bt.a(new c.a() { // from class: com.baidu.live.gift.panel.b.6
             @Override // com.baidu.live.gift.panel.c.a
-            public void rx() {
-                if (b.this.adA != null) {
-                    b.this.adA.bh(1);
+            public void ry() {
+                if (b.this.adi != null) {
+                    b.this.adi.bh(1);
                 }
             }
         });
@@ -138,14 +138,14 @@ public class b {
         GiftPanelTabBaseFragment bt2 = GiftPanelTabBaseFragment.bt(1);
         bt2.a(new c.a() { // from class: com.baidu.live.gift.panel.b.7
             @Override // com.baidu.live.gift.panel.c.a
-            public void rx() {
-                if (b.this.adA != null) {
-                    b.this.adA.bh(0);
+            public void ry() {
+                if (b.this.adi != null) {
+                    b.this.adi.bh(0);
                 }
             }
         });
         bt2.a(y);
-        switch (this.adB) {
+        switch (this.adj) {
             case 1:
                 i = 0;
                 break;
@@ -156,8 +156,8 @@ public class b {
                 i = 0;
                 break;
         }
-        if (this.adA != null) {
-            this.adA.a(i, bt, bt2);
+        if (this.adi != null) {
+            this.adi.a(i, bt, bt2);
         }
     }
 
@@ -166,23 +166,23 @@ public class b {
         if (intent == null) {
             return eVar;
         }
-        this.adB = intent.getIntExtra("custom_tab_id", 1);
+        this.adj = intent.getIntExtra("custom_tab_id", 1);
         eVar.mUserName = intent.getStringExtra("user_name");
         eVar.mUserId = intent.getStringExtra("user_id");
         eVar.mLiveId = intent.getStringExtra("live_Id");
-        eVar.abd = intent.getStringExtra("room_id");
-        eVar.abe = intent.getStringExtra("feed_id");
-        eVar.abf = intent.getIntExtra("is_block", 0);
-        eVar.abg = intent.getStringExtra(FaceBaseDTO.KEY_BUSINESS_SCENE);
+        eVar.aaK = intent.getStringExtra("room_id");
+        eVar.aaL = intent.getStringExtra("feed_id");
+        eVar.aaM = intent.getIntExtra("is_block", 0);
+        eVar.aaN = intent.getStringExtra(FaceBaseDTO.KEY_BUSINESS_SCENE);
         eVar.mAppId = intent.getStringExtra(Constants.APP_ID);
-        eVar.abh = intent.getBooleanExtra("can_graffiti", true);
-        eVar.aae = intent.getIntExtra("custom_category_id", -1);
-        eVar.aaf = intent.getIntExtra("custom_gift_id", -1);
-        eVar.Yn = intent.getBooleanExtra("new_gift_t_dou_strategy", false);
-        eVar.Yl = intent.getIntExtra("user_level", -1);
-        eVar.Zn = intent.getBooleanExtra("isJoinGuardClub", false);
+        eVar.aaO = intent.getBooleanExtra("can_graffiti", true);
+        eVar.ZM = intent.getIntExtra("custom_category_id", -1);
+        eVar.ZN = intent.getIntExtra("custom_gift_id", -1);
+        eVar.XV = intent.getBooleanExtra("new_gift_t_dou_strategy", false);
+        eVar.XT = intent.getIntExtra("user_level", -1);
+        eVar.YV = intent.getBooleanExtra("isJoinGuardClub", false);
         eVar.isNewUser = intent.getBooleanExtra("is_new_user", false);
-        eVar.aah = intent.getIntExtra("guard_club_join_amount", 1000);
+        eVar.ZP = intent.getIntExtra("guard_club_join_amount", 1000);
         String stringExtra = intent.getStringExtra(IntentConfig.OTHER_PARAMS);
         if (stringExtra == null) {
             stringExtra = "";

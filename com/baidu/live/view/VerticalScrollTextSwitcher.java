@@ -14,7 +14,7 @@ import android.widget.ViewSwitcher;
 import com.baidu.live.k.a;
 /* loaded from: classes6.dex */
 public class VerticalScrollTextSwitcher extends TextSwitcher implements ViewSwitcher.ViewFactory {
-    private float ath;
+    private float asP;
     private int mTextColor;
 
     public VerticalScrollTextSwitcher(Context context, AttributeSet attributeSet) {
@@ -27,7 +27,7 @@ public class VerticalScrollTextSwitcher extends TextSwitcher implements ViewSwit
         TextView textView = new TextView(getContext());
         textView.setGravity(16);
         textView.setTextColor(this.mTextColor);
-        textView.setTextSize(0, this.ath);
+        textView.setTextSize(0, this.asP);
         textView.setMaxLines(1);
         textView.setEllipsize(TextUtils.TruncateAt.END);
         textView.setIncludeFontPadding(false);
@@ -37,18 +37,18 @@ public class VerticalScrollTextSwitcher extends TextSwitcher implements ViewSwit
 
     private void init(AttributeSet attributeSet) {
         initAttrs(attributeSet);
-        wI();
+        wJ();
         setFactory(this);
     }
 
     private void initAttrs(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.k.sdk_VerticalScrollTextSwitcher);
         this.mTextColor = obtainStyledAttributes.getColor(a.k.sdk_VerticalScrollTextSwitcher_sdk_vsts_text_color, -1);
-        this.ath = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_VerticalScrollTextSwitcher_sdk_vsts_text_size, 20);
+        this.asP = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_VerticalScrollTextSwitcher_sdk_vsts_text_size, 20);
         obtainStyledAttributes.recycle();
     }
 
-    private void wI() {
+    private void wJ() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(1000L);
         translateAnimation.setInterpolator(new LinearInterpolator());

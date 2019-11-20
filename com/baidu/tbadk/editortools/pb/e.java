@@ -8,51 +8,51 @@ import com.baidu.tbadk.editortools.k;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e extends k {
-    private EditText cHi;
+    private EditText cGr;
 
     public e(Context context) {
         super(context, (String) null, 27);
-        this.cFX = false;
-        this.cFW = 3;
-        this.cFe = new PbNewInputContainer(context);
-        this.cHi = ((PbNewInputContainer) this.cFe).getInputView();
-        ((PbNewInputContainer) this.cFe).setHint(context.getString(R.string.say_your_point));
-        this.cFY = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
+        this.cFg = false;
+        this.cFf = 3;
+        this.cEn = new PbNewInputContainer(context);
+        this.cGr = ((PbNewInputContainer) this.cEn).getInputView();
+        ((PbNewInputContainer) this.cEn).setHint(context.getString(R.string.say_your_point));
+        this.cFh = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
     }
 
     public void c(TextWatcher textWatcher) {
-        this.cHi.addTextChangedListener(textWatcher);
+        this.cGr.addTextChangedListener(textWatcher);
     }
 
     public void d(TextWatcher textWatcher) {
-        this.cHi.removeTextChangedListener(textWatcher);
+        this.cGr.removeTextChangedListener(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.cFe != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.cFe).setHint(str);
+        if (this.cEn != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.cEn).setHint(str);
         }
     }
 
     public void setDefaultHint(String str) {
-        if (this.cFe != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.cFe).setDefaultHint(str);
+        if (this.cEn != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.cEn).setDefaultHint(str);
         }
     }
 
     public EditText getInputView() {
-        return this.cHi;
+        return this.cGr;
     }
 
     public void setType(int i) {
-        if (this.cFe != null) {
-            ((PbNewInputContainer) this.cFe).setType(i);
+        if (this.cEn != null) {
+            ((PbNewInputContainer) this.cEn).setType(i);
         }
     }
 
-    public void jT(int i) {
-        if (this.cFe != null) {
-            ((PbNewInputContainer) this.cFe).jT(i);
+    public void jS(int i) {
+        if (this.cEn != null) {
+            ((PbNewInputContainer) this.cEn).jS(i);
         }
     }
 }

@@ -9,19 +9,19 @@ import com.baidu.swan.games.view.recommend.a.b;
 import com.baidu.swan.games.view.recommend.a.d;
 /* loaded from: classes2.dex */
 public class a implements b {
-    private b bGr;
+    private b bFA;
 
     public a(final int i, @NonNull final d dVar, final a.InterfaceC0261a interfaceC0261a) {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.1
             @Override // java.lang.Runnable
             public void run() {
-                Context Ys = com.baidu.swan.games.view.a.Ys();
-                if (Ys == null) {
+                Context Yq = com.baidu.swan.games.view.a.Yq();
+                if (Yq == null) {
                     c.e("RecommendButton", "context is null.");
                     return;
                 }
-                a.this.bGr = com.baidu.swan.games.view.recommend.a.a.a(i, Ys, dVar);
-                a.this.bGr.a(interfaceC0261a);
+                a.this.bFA = com.baidu.swan.games.view.recommend.a.a.a(i, Yq, dVar);
+                a.this.bFA.a(interfaceC0261a);
             }
         });
     }
@@ -31,8 +31,8 @@ public class a implements b {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bGr != null) {
-                    a.this.bGr.a(bVar);
+                if (a.this.bFA != null) {
+                    a.this.bFA.a(bVar);
                 }
             }
         });
@@ -43,8 +43,8 @@ public class a implements b {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bGr != null) {
-                    a.this.bGr.a(interfaceC0261a);
+                if (a.this.bFA != null) {
+                    a.this.bFA.a(interfaceC0261a);
                 }
             }
         });
@@ -55,8 +55,8 @@ public class a implements b {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.4
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bGr != null) {
-                    a.this.bGr.bQ(z);
+                if (a.this.bFA != null) {
+                    a.this.bFA.bQ(z);
                 }
             }
         });
@@ -67,8 +67,8 @@ public class a implements b {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.5
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bGr != null) {
-                    a.this.bGr.show();
+                if (a.this.bFA != null) {
+                    a.this.bFA.show();
                 }
             }
         });
@@ -79,8 +79,8 @@ public class a implements b {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.6
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bGr != null) {
-                    a.this.bGr.hide();
+                if (a.this.bFA != null) {
+                    a.this.bFA.hide();
                 }
             }
         });
@@ -91,8 +91,8 @@ public class a implements b {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.7
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bGr != null) {
-                    a.this.bGr.destroy();
+                if (a.this.bFA != null) {
+                    a.this.bFA.destroy();
                 }
             }
         });
@@ -103,8 +103,8 @@ public class a implements b {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.8
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bGr != null) {
-                    a.this.bGr.update();
+                if (a.this.bFA != null) {
+                    a.this.bFA.update();
                 }
             }
         });

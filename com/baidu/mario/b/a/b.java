@@ -14,33 +14,33 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private e axP;
-    private volatile boolean ayi = false;
-    private HandlerThread ayn;
-    private Handler ayo;
-    private com.baidu.mario.gldraw2d.a ayp;
-    private g ayq;
+    private volatile boolean axQ = false;
+    private HandlerThread axV;
+    private Handler axW;
+    private com.baidu.mario.gldraw2d.a axX;
+    private g axY;
+    private e axx;
 
     private void a(e eVar, c cVar) {
-        this.ayn = new HandlerThread("VideoRecorderThread");
-        this.ayn.start();
-        this.ayo = new HandlerC0101b(this.ayn.getLooper());
+        this.axV = new HandlerThread("VideoRecorderThread");
+        this.axV.start();
+        this.axW = new HandlerC0101b(this.axV.getLooper());
         if (Build.VERSION.SDK_INT >= 18) {
-            this.ayq = new g();
-            this.ayq.a(cVar);
-            this.axP = eVar;
+            this.axY = new g();
+            this.axY.a(cVar);
+            this.axx = eVar;
         }
     }
 
-    public long yg() {
-        if (this.ayq != null) {
-            return this.ayq.yg();
+    public long yh() {
+        if (this.axY != null) {
+            return this.axY.yh();
         }
         return 0L;
     }
 
     public boolean isRunning() {
-        return this.ayn != null && this.ayn.isAlive();
+        return this.axV != null && this.axV.isAlive();
     }
 
     public boolean a(ArrayList<com.baidu.mario.gldraw2d.params.c> arrayList, d dVar, e eVar, c cVar) {
@@ -49,50 +49,50 @@ public class b {
             return false;
         }
         a(eVar, cVar);
-        this.ayo.sendMessage(this.ayo.obtainMessage(1001, new a(arrayList, dVar)));
-        this.ayi = true;
+        this.axW.sendMessage(this.axW.obtainMessage(1001, new a(arrayList, dVar)));
+        this.axQ = true;
         return true;
     }
 
-    public void yx() {
-        if (this.ayo != null) {
-            this.ayo.sendMessage(this.ayo.obtainMessage(1002));
+    public void yy() {
+        if (this.axW != null) {
+            this.axW.sendMessage(this.axW.obtainMessage(1002));
         }
     }
 
     public void j(ArrayList<com.baidu.mario.gldraw2d.params.c> arrayList) {
-        if (this.ayo != null) {
-            this.ayo.sendMessage(this.ayo.obtainMessage(1003, arrayList));
+        if (this.axW != null) {
+            this.axW.sendMessage(this.axW.obtainMessage(1003, arrayList));
         }
     }
 
-    public void M(long j) {
+    public void L(long j) {
         int i = (int) (j >> 32);
         int i2 = (int) j;
-        if (this.ayo != null && this.ayi) {
-            this.ayo.sendMessage(this.ayo.obtainMessage(1005, i, i2));
+        if (this.axW != null && this.axQ) {
+            this.axW.sendMessage(this.axW.obtainMessage(1005, i, i2));
         }
     }
 
-    public void yE() {
-        if (this.ayo != null && this.ayi) {
-            this.ayo.removeMessages(1005);
-        }
-    }
-
-    public void yy() {
-        if (this.ayo != null && this.ayi) {
-            this.ayi = false;
-            this.ayo.removeMessages(1005);
-            this.ayo.sendMessage(this.ayo.obtainMessage(1006));
+    public void yF() {
+        if (this.axW != null && this.axQ) {
+            this.axW.removeMessages(1005);
         }
     }
 
     public void yz() {
-        if (this.ayo != null) {
-            this.ayo.removeCallbacksAndMessages(null);
-            this.ayo.sendMessage(this.ayo.obtainMessage(1007));
-            this.ayo.sendMessage(this.ayo.obtainMessage(1008));
+        if (this.axW != null && this.axQ) {
+            this.axQ = false;
+            this.axW.removeMessages(1005);
+            this.axW.sendMessage(this.axW.obtainMessage(1006));
+        }
+    }
+
+    public void yA() {
+        if (this.axW != null) {
+            this.axW.removeCallbacksAndMessages(null);
+            this.axW.sendMessage(this.axW.obtainMessage(1007));
+            this.axW.sendMessage(this.axW.obtainMessage(1008));
         }
     }
 
@@ -109,10 +109,10 @@ public class b {
             switch (message.what) {
                 case 1001:
                     a aVar = (a) message.obj;
-                    b.this.a(aVar.axY, aVar.axy);
+                    b.this.a(aVar.axG, aVar.axg);
                     return;
                 case 1002:
-                    b.this.yA();
+                    b.this.yB();
                     return;
                 case 1003:
                     b.this.k((ArrayList) message.obj);
@@ -121,13 +121,13 @@ public class b {
                     b.this.d((com.baidu.mario.gldraw2d.c.c) message.obj);
                     return;
                 case 1005:
-                    b.this.R((message.arg1 << 32) | (message.arg2 & 4294967295L));
+                    b.this.Q((message.arg1 << 32) | (message.arg2 & 4294967295L));
                     return;
                 case 1006:
-                    b.this.yF();
+                    b.this.yG();
                     return;
                 case 1007:
-                    b.this.yG();
+                    b.this.yH();
                     return;
                 case 1008:
                     b.this.handleQuit();
@@ -141,81 +141,81 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ArrayList<com.baidu.mario.gldraw2d.params.c> arrayList, d dVar) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.ayq.a(dVar, this.axP);
-            if (this.ayp == null) {
-                this.ayp = new com.baidu.mario.gldraw2d.a(this.ayq.getInputSurface(), arrayList);
+            this.axY.a(dVar, this.axx);
+            if (this.axX == null) {
+                this.axX = new com.baidu.mario.gldraw2d.a(this.axY.getInputSurface(), arrayList);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yA() {
+    public void yB() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.ayq.yK();
+            this.axY.yL();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(ArrayList<com.baidu.mario.gldraw2d.params.c> arrayList) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.ayp.M(arrayList);
+            this.axX.M(arrayList);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.mario.gldraw2d.c.c cVar) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.ayp.a(cVar);
+            this.axX.a(cVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void R(long j) {
+    public void Q(long j) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.ayq.bg(false);
-            this.ayp.M(j);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void yF() {
-        if (Build.VERSION.SDK_INT >= 18) {
-            this.ayq.bg(true);
+            this.axY.bg(false);
+            this.axX.L(j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void yG() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.ayq.yJ();
-            this.ayq.yI();
-            this.ayq = null;
-            this.axP = null;
-            this.ayp.xt();
-            this.ayp = null;
+            this.axY.bg(true);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void yH() {
+        if (Build.VERSION.SDK_INT >= 18) {
+            this.axY.yK();
+            this.axY.yJ();
+            this.axY = null;
+            this.axx = null;
+            this.axX.xu();
+            this.axX = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleQuit() {
-        if (this.ayo != null) {
-            this.ayo.removeCallbacksAndMessages(null);
-            this.ayo = null;
+        if (this.axW != null) {
+            this.axW.removeCallbacksAndMessages(null);
+            this.axW = null;
         }
-        if (this.ayn != null) {
-            this.ayn.quit();
-            this.ayn = null;
+        if (this.axV != null) {
+            this.axV.quit();
+            this.axV = null;
         }
     }
 
     /* loaded from: classes2.dex */
     class a {
-        ArrayList<com.baidu.mario.gldraw2d.params.c> axY;
-        d axy;
+        ArrayList<com.baidu.mario.gldraw2d.params.c> axG;
+        d axg;
 
         public a(ArrayList<com.baidu.mario.gldraw2d.params.c> arrayList, d dVar) {
-            this.axY = arrayList;
-            this.axy = dVar;
+            this.axG = arrayList;
+            this.axg = dVar;
         }
     }
 }

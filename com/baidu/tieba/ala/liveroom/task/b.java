@@ -34,28 +34,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
-    private static b eoG = null;
+    private static b enP = null;
     private long currLiveId;
-    private Dialog egu;
-    private boolean eoH = false;
-    private boolean eoI = false;
+    private Dialog efD;
+    private boolean enQ = false;
+    private boolean enR = false;
     private Handler handler = new Handler();
     private long startTime;
 
-    public static b aWc() {
-        if (eoG == null) {
+    public static b aWa() {
+        if (enP == null) {
             synchronized (b.class) {
-                if (eoG == null) {
-                    eoG = new b();
+                if (enP == null) {
+                    enP = new b();
                 }
             }
         }
-        return eoG;
+        return enP;
     }
 
-    public void aAm() {
-        if (this.egu != null && this.egu.isShowing()) {
-            Context context = this.egu.getContext();
+    public void aAk() {
+        if (this.efD != null && this.efD.isShowing()) {
+            Context context = this.efD.getContext();
             if (context != null) {
                 if (context instanceof Activity) {
                     Activity activity = (Activity) context;
@@ -67,19 +67,19 @@ public class b {
                         return;
                     }
                 }
-                this.egu.dismiss();
+                this.efD.dismiss();
             } else {
                 return;
             }
         }
-        this.egu = null;
+        this.efD = null;
     }
 
     public void a(final Context context, final long j, long j2, String str, String str2) {
         if (TbConfig.FLOWER_GUIDE_STATUS != 2) {
             this.currLiveId = 0L;
-            this.eoH = false;
-            this.eoI = false;
+            this.enQ = false;
+            this.enR = false;
             if (!isEnable(str2)) {
                 if (TbConfig.FLOWER_GUIDE_STATUS != 2) {
                     TbConfig.FLOWER_GUIDE_STATUS = 0;
@@ -90,7 +90,7 @@ public class b {
             TbConfig.FLOWER_GUIDE_STATUS = 1;
             this.currLiveId = j;
             this.startTime = System.currentTimeMillis();
-            this.eoI = true;
+            this.enR = true;
             if (isDebug()) {
                 this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.b.1
                     @Override // java.lang.Runnable
@@ -114,8 +114,8 @@ public class b {
 
     public void a(Context context, long j, int[] iArr) {
         boolean isDebug = isDebug();
-        if (this.eoI && this.startTime > 0 && this.currLiveId == j) {
-            if ((!this.eoH || TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || isDebug) && TbadkCoreApplication.isLogin()) {
+        if (this.enR && this.startTime > 0 && this.currLiveId == j) {
+            if ((!this.enQ || TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || isDebug) && TbadkCoreApplication.isLogin()) {
                 long j2 = 60;
                 if (isDebug) {
                     j2 = 3;
@@ -146,7 +146,7 @@ public class b {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                b.this.aAm();
+                b.this.aAk();
             }
         });
     }
@@ -162,8 +162,8 @@ public class b {
                 return;
             }
         }
-        if (this.egu != null && this.egu.isShowing()) {
-            this.egu.dismiss();
+        if (this.efD != null && this.efD.isShowing()) {
+            this.efD.dismiss();
         }
         View inflate = LayoutInflater.from(context).inflate(a.h.dialog_flower_guide, (ViewGroup) null);
         final Dialog dialog = new Dialog(context, a.j.FlowerGuideDialogStyle);
@@ -178,7 +178,7 @@ public class b {
                 if (iArr != null && iArr.length >= 2 && (iArr[0] != 0 || iArr[1] != 0)) {
                     b.this.a(findViewById, iArr);
                 } else {
-                    b.this.aAm();
+                    b.this.aAk();
                 }
             }
         };
@@ -215,8 +215,8 @@ public class b {
         });
         try {
             dialog.show();
-            this.egu = dialog;
-            this.eoI = false;
+            this.efD = dialog;
+            this.enR = false;
             com.baidu.live.c.np().putInt("showtimes_flower_task_dialog", com.baidu.live.c.np().getInt("showtimes_flower_task_dialog", 0) + 1);
         } catch (Exception e) {
             e.printStackTrace();
@@ -241,7 +241,7 @@ public class b {
         al alVar;
         an anVar;
         boolean isDebug = isDebug();
-        if ((!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin()) || !TbadkCoreApplication.isLogin() || (afVar = com.baidu.live.l.a.uA().akM) == null || (alVar = afVar.Ue) == null || (anVar = alVar.UL) == null) {
+        if ((!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin()) || !TbadkCoreApplication.isLogin() || (afVar = com.baidu.live.l.a.uB().aku) == null || (alVar = afVar.TK) == null || (anVar = alVar.Uq) == null) {
             return false;
         }
         if (!(anVar.isShow == 1)) {
@@ -251,7 +251,7 @@ public class b {
             TbConfig.FLOWER_GUIDE_STATUS = 2;
             return false;
         } else {
-            boolean z = anVar.UT == 1;
+            boolean z = anVar.Ux == 1;
             long j = TbadkCoreApplication.getInst().currentAccountFlowerNum;
             if (z) {
                 if (TbadkCoreApplication.getInst().isHaokan()) {
@@ -273,12 +273,12 @@ public class b {
                     if (j > 0 && !isDebug) {
                         return false;
                     }
-                    this.eoH = true;
+                    this.enQ = true;
                 }
             } else if (j > 0 && !isDebug) {
                 return false;
             } else {
-                this.eoH = true;
+                this.enQ = true;
             }
             return true;
         }
@@ -286,11 +286,11 @@ public class b {
 
     public void release() {
         this.currLiveId = 0L;
-        this.eoH = false;
-        this.eoI = false;
+        this.enQ = false;
+        this.enR = false;
         TbConfig.FLOWER_GUIDE_STATUS = 0;
         this.handler.removeCallbacksAndMessages(null);
-        aAm();
+        aAk();
     }
 
     private boolean dl(Context context) {

@@ -31,7 +31,7 @@ public class a {
             return false;
         }
         String path = parse.getPath();
-        String str2 = c.GO().Hg() != null ? c.GO().Hg().bql + "/abtest/config.js" : "/abtest/config.js";
+        String str2 = c.GP().Hh() != null ? c.GP().Hh().bpT + "/abtest/config.js" : "/abtest/config.js";
         if (DEBUG) {
             Log.d("SwanCoreConfigHelper", "path:" + path);
             Log.d("SwanCoreConfigHelper", "configCheckPath:" + str2);
@@ -39,10 +39,10 @@ public class a {
         return TextUtils.isEmpty(parse.getHost()) && TextUtils.equals(str2, path);
     }
 
-    public static InputStream SV() {
+    public static InputStream SX() {
         String str = "";
-        if (com.baidu.swan.apps.u.a.Jl() != null) {
-            str = SW().toString();
+        if (com.baidu.swan.apps.u.a.Jm() != null) {
+            str = SY().toString();
         }
         String str2 = "(function(global){global.extraConfig= {abTestSwitch:" + str + "}})(window)";
         if (DEBUG) {
@@ -51,21 +51,21 @@ public class a {
         return new ByteArrayInputStream(str2.getBytes());
     }
 
-    private static JSONObject SW() {
-        JSONObject Bi = com.baidu.swan.apps.u.a.Jl().Bi();
-        Iterator<String> keys = Bi.keys();
+    private static JSONObject SY() {
+        JSONObject Bj = com.baidu.swan.apps.u.a.Jm().Bj();
+        Iterator<String> keys = Bj.keys();
         while (keys.hasNext()) {
             if (!keys.next().startsWith("swanswitch")) {
                 keys.remove();
             }
         }
-        return Bi;
+        return Bj;
     }
 
-    public static JSONObject SX() {
+    public static JSONObject SZ() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("abTestSwitch", SW());
+            jSONObject.put("abTestSwitch", SY());
         } catch (JSONException e) {
             e.printStackTrace();
         }

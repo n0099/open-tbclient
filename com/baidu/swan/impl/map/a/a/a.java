@@ -9,23 +9,23 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
 
-    public static a Zt() {
+    public static a Zr() {
         return new a();
     }
 
     private boolean b(Context context, com.baidu.swan.apps.x.a.c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2, JSONObject jSONObject) {
         com.baidu.swan.apps.console.c.i("map", "GetCenterLcationAction start");
-        com.baidu.swan.apps.b.c.e eH = com.baidu.swan.apps.w.e.LD().eH(cVar.aXH);
+        com.baidu.swan.apps.b.c.e eH = com.baidu.swan.apps.w.e.LE().eH(cVar.aXp);
         if (!(eH instanceof com.baidu.swan.apps.b.c.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.b kN = com.baidu.swan.impl.map.c.Zp().h((com.baidu.swan.apps.b.c.c) eH).kN(cVar.id);
+        com.baidu.swan.impl.map.item.b kN = com.baidu.swan.impl.map.c.Zn().h((com.baidu.swan.apps.b.c.c) eH).kN(cVar.id);
         if (kN == null) {
             com.baidu.swan.apps.console.c.e("map", "can not find map by id " + cVar.id);
             return false;
         }
-        MapStatus mapStatus = kN.bHp.getMap().getMapStatus();
+        MapStatus mapStatus = kN.bGy.getMap().getMapStatus();
         com.baidu.swan.apps.x.a.a.c cVar2 = new com.baidu.swan.apps.x.a.a.c();
         cVar2.latitude = mapStatus.target.latitude;
         cVar2.longitude = mapStatus.target.longitude;

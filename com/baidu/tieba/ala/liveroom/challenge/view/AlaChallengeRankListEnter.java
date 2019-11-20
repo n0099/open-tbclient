@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UrlManager;
 /* loaded from: classes6.dex */
 public class AlaChallengeRankListEnter extends LinearLayout {
-    private TextView eei;
+    private TextView edr;
 
     public AlaChallengeRankListEnter(Context context) {
         super(context);
@@ -33,11 +33,11 @@ public class AlaChallengeRankListEnter extends LinearLayout {
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_challenge_rank_list_entry, this);
-        this.eei = (TextView) findViewById(a.g.ala_challenge_rank_enter);
+        this.edr = (TextView) findViewById(a.g.ala_challenge_rank_enter);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeRankListEnter.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                String str = com.baidu.live.l.a.uA().ajX.RV;
+                String str = com.baidu.live.l.a.uB().ajF.Rs;
                 if (!StringUtils.isNull(str)) {
                     UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(AlaChallengeRankListEnter.this.getContext()), new String[]{str}, true);
                 }

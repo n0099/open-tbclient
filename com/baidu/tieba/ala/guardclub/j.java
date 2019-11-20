@@ -5,9 +5,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.guardclub.k;
 /* loaded from: classes6.dex */
 public class j {
-    private a dNh;
-    private boolean dNi;
-    private k dNj;
+    private a dMq;
+    private boolean dMr;
+    private k dMs;
     private TbPageContext mPageContext;
 
     /* loaded from: classes6.dex */
@@ -20,23 +20,23 @@ public class j {
     }
 
     public void a(a aVar) {
-        this.dNh = aVar;
+        this.dMq = aVar;
     }
 
     public void release() {
-        this.dNi = false;
-        aAm();
+        this.dMr = false;
+        aAk();
     }
 
     public void b(final com.baidu.tieba.ala.guardclub.model.g gVar, final int i) {
-        if (!this.dNi && TbadkCoreApplication.isLogin() && this.dNh != null && this.dNj == null) {
-            this.dNj = new k(this.mPageContext.getPageActivity());
-            this.dNj.show();
-            this.dNj.a(new k.a() { // from class: com.baidu.tieba.ala.guardclub.j.1
+        if (!this.dMr && TbadkCoreApplication.isLogin() && this.dMq != null && this.dMs == null) {
+            this.dMs = new k(this.mPageContext.getPageActivity());
+            this.dMs.show();
+            this.dMs.a(new k.a() { // from class: com.baidu.tieba.ala.guardclub.j.1
                 @Override // com.baidu.tieba.ala.guardclub.k.a
                 public void onConfirm() {
-                    if (j.this.dNh != null) {
-                        j.this.dNh.c(gVar, i);
+                    if (j.this.dMq != null) {
+                        j.this.dMq.c(gVar, i);
                     }
                     j.this.release();
                 }
@@ -49,10 +49,10 @@ public class j {
         }
     }
 
-    private void aAm() {
-        if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing() && this.dNj != null) {
-            this.dNj.dismiss();
-            this.dNj = null;
+    private void aAk() {
+        if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing() && this.dMs != null) {
+            this.dMs.dismiss();
+            this.dMs = null;
         }
     }
 }

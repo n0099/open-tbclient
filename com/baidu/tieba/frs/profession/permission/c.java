@@ -16,11 +16,11 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c implements NetModel.b {
-    private TbPageContext<?> cfl;
-    private int fPn;
-    private FrsProfessionPermissionModel fPr;
-    private com.baidu.tieba.frs.profession.permission.a fPs = new com.baidu.tieba.frs.profession.permission.a();
-    private a fPt;
+    private TbPageContext<?> ceu;
+    private FrsProfessionPermissionModel fOA;
+    private com.baidu.tieba.frs.profession.permission.a fOB = new com.baidu.tieba.frs.profession.permission.a();
+    private a fOC;
+    private int fOw;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -32,43 +32,43 @@ public class c implements NetModel.b {
     }
 
     public c(TbPageContext<?> tbPageContext) {
-        this.cfl = tbPageContext;
-        this.fPr = new FrsProfessionPermissionModel(tbPageContext, this.fPs);
-        this.fPr.a(this);
+        this.ceu = tbPageContext;
+        this.fOA = new FrsProfessionPermissionModel(tbPageContext, this.fOB);
+        this.fOA.a(this);
     }
 
     public void a(a aVar) {
-        this.fPt = aVar;
+        this.fOC = aVar;
     }
 
-    public void rz(int i) {
-        this.fPn = i;
-        this.fPs.fPn = i;
+    public void ry(int i) {
+        this.fOw = i;
+        this.fOB.fOw = i;
     }
 
     public void ws(String str) {
-        this.fPs.fPm = 1;
-        this.fPs.forum_id = str;
+        this.fOB.fOv = 1;
+        this.fOB.forum_id = str;
         loadData();
     }
 
     public void at(String str, int i) {
-        this.fPs.fPl = i;
-        this.fPs.forum_id = str;
-        this.fPs.fPm = 2;
+        this.fOB.fOu = i;
+        this.fOB.forum_id = str;
+        this.fOB.fOv = 2;
         loadData();
     }
 
     public void z(String str, long j) {
-        this.fPs.forum_id = str;
-        this.fPs.thread_id = j;
-        this.fPs.fPm = 3;
+        this.fOB.forum_id = str;
+        this.fOB.thread_id = j;
+        this.fOB.fOv = 3;
         loadData();
     }
 
     private void loadData() {
-        if (!this.fPr.isLoading()) {
-            this.fPr.loadData();
+        if (!this.fOA.isLoading()) {
+            this.fOA.loadData();
         }
     }
 
@@ -77,13 +77,13 @@ public class c implements NetModel.b {
         if (mvcNetMessage != null && (mvcNetMessage.getRequestData() instanceof com.baidu.tieba.frs.profession.permission.a) && mvcHttpResponsedMessage != null && (mvcHttpResponsedMessage.getData() instanceof b)) {
             com.baidu.tieba.frs.profession.permission.a aVar = (com.baidu.tieba.frs.profession.permission.a) mvcNetMessage.getRequestData();
             b bVar = (b) mvcHttpResponsedMessage.getData();
-            if (aVar.fPn == this.fPn) {
-                switch (aVar.fPm) {
+            if (aVar.fOw == this.fOw) {
+                switch (aVar.fOv) {
                     case 1:
                         a(bVar);
                         return;
                     case 2:
-                        a(bVar, aVar.fPl);
+                        a(bVar, aVar.fOu);
                         return;
                     case 3:
                         a(bVar, aVar.forum_id);
@@ -100,13 +100,13 @@ public class c implements NetModel.b {
         if (mvcNetMessage != null && (mvcNetMessage.getRequestData() instanceof com.baidu.tieba.frs.profession.permission.a) && mvcSocketResponsedMessage != null && (mvcSocketResponsedMessage.getData() instanceof b)) {
             com.baidu.tieba.frs.profession.permission.a aVar = (com.baidu.tieba.frs.profession.permission.a) mvcNetMessage.getRequestData();
             b bVar = (b) mvcSocketResponsedMessage.getData();
-            if (aVar.fPn == this.fPn) {
-                switch (aVar.fPm) {
+            if (aVar.fOw == this.fOw) {
+                switch (aVar.fOv) {
                     case 1:
                         a(bVar);
                         return;
                     case 2:
-                        a(bVar, aVar.fPl);
+                        a(bVar, aVar.fOu);
                         return;
                     case 3:
                         a(bVar, aVar.forum_id);
@@ -122,22 +122,22 @@ public class c implements NetModel.b {
         if (bVar != null) {
             if (bVar.errorCode != 0) {
                 if (StringUtils.isNull(bVar.errorString)) {
-                    this.cfl.showToast((int) R.string.neterror);
+                    this.ceu.showToast((int) R.string.neterror);
                     return;
                 } else {
-                    this.cfl.showToast(bVar.errorString);
+                    this.ceu.showToast(bVar.errorString);
                     return;
                 }
             }
-            if (!bVar.fPo) {
-                if (bVar.fPp == 1) {
-                    cN(bVar.fPq, str);
-                } else if (bVar.fPp == 3) {
-                    wt(bVar.fPq);
+            if (!bVar.fOx) {
+                if (bVar.fOy == 1) {
+                    cN(bVar.fOz, str);
+                } else if (bVar.fOy == 3) {
+                    wt(bVar.fOz);
                 }
             }
-            if (this.fPt != null) {
-                this.fPt.jX(bVar.fPo);
+            if (this.fOC != null) {
+                this.fOC.jX(bVar.fOx);
             }
         }
     }
@@ -146,36 +146,36 @@ public class c implements NetModel.b {
         if (bVar != null) {
             if (bVar.errorCode != 0) {
                 if (StringUtils.isNull(bVar.errorString)) {
-                    this.cfl.showToast((int) R.string.neterror);
+                    this.ceu.showToast((int) R.string.neterror);
                 } else {
-                    this.cfl.showToast(bVar.errorString);
+                    this.ceu.showToast(bVar.errorString);
                 }
-            } else if (this.fPt != null) {
-                this.fPt.o(bVar.fPo, i);
+            } else if (this.fOC != null) {
+                this.fOC.o(bVar.fOx, i);
             }
         }
     }
 
     private void a(b bVar) {
         if (bVar != null && bVar.errorCode == 0) {
-            if (!bVar.fPo && bVar.fPp == 2) {
-                wt(bVar.fPq);
+            if (!bVar.fOx && bVar.fOy == 2) {
+                wt(bVar.fOz);
             }
-            if (this.fPt != null) {
-                this.fPt.jW(bVar.fPo);
+            if (this.fOC != null) {
+                this.fOC.jW(bVar.fOx);
             }
         }
     }
 
     private void cN(String str, final String str2) {
-        final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.cfl.getPageActivity());
+        final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.ceu.getPageActivity());
         aVar.eh(false);
         aVar.eg(false);
         aVar.nn(str);
         aVar.a(R.string.comfirm_imediate, new a.b() { // from class: com.baidu.tieba.frs.profession.permission.c.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                MembercenterActivityConfig membercenterActivityConfig = new MembercenterActivityConfig(c.this.cfl.getPageActivity());
+                MembercenterActivityConfig membercenterActivityConfig = new MembercenterActivityConfig(c.this.ceu.getPageActivity());
                 membercenterActivityConfig.setUrl("https://tieba.baidu.com/mo/q/prozone/view?fid=" + str2);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, membercenterActivityConfig));
                 aVar.dismiss();
@@ -187,12 +187,12 @@ public class c implements NetModel.b {
                 aVar.dismiss();
             }
         });
-        aVar.b(this.cfl);
-        aVar.akO();
+        aVar.b(this.ceu);
+        aVar.akM();
     }
 
     public void wt(String str) {
-        final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.cfl.getPageActivity());
+        final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.ceu.getPageActivity());
         aVar.eh(false);
         aVar.eg(false);
         aVar.nn(str);
@@ -202,7 +202,7 @@ public class c implements NetModel.b {
                 aVar.dismiss();
             }
         });
-        aVar.b(this.cfl);
-        aVar.akO();
+        aVar.b(this.ceu);
+        aVar.akM();
     }
 }

@@ -6,106 +6,106 @@ import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes3.dex */
 public class l extends c implements com.baidu.tbadk.core.util.g.a {
-    public static final BdUniqueId cbI = BdUniqueId.gen();
-    public static final BdUniqueId eQC = BdUniqueId.gen();
-    public static final BdUniqueId eQD = BdUniqueId.gen();
-    public static String eQl = "";
-    public static String eQm = "";
-    public static String eQE = "";
-    public static String eQk = "";
-    public static String eQF = "";
-    public static String eQG = "";
-    public static String eQH = "";
-    public boolean eQB = false;
-    public boolean eQI = true;
-    public boolean cbg = false;
-    public boolean eQJ = false;
-    public boolean cbl = false;
-    public boolean cbm = false;
-    public boolean eQA = false;
+    public static final BdUniqueId caR = BdUniqueId.gen();
+    public static final BdUniqueId ePL = BdUniqueId.gen();
+    public static final BdUniqueId ePM = BdUniqueId.gen();
+    public static String ePu = "";
+    public static String ePv = "";
+    public static String ePN = "";
+    public static String ePt = "";
+    public static String ePO = "";
+    public static String ePP = "";
+    public static String ePQ = "";
+    public boolean ePK = false;
+    public boolean ePR = true;
+    public boolean cap = false;
+    public boolean ePS = false;
+    public boolean cau = false;
+    public boolean cav = false;
+    public boolean ePJ = false;
     public int sourceType = 0;
 
     public l(bh bhVar) {
-        this.cbq = bhVar;
+        this.caz = bhVar;
     }
 
     public static boolean V(bh bhVar) {
-        return (bhVar == null || bhVar.aiX() == null) ? false : true;
+        return (bhVar == null || bhVar.aiV() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        if (this.cbq == null) {
+        if (this.caz == null) {
             return k.TYPE;
         }
-        if (this.cbg) {
-            return k.eQp;
+        if (this.cap) {
+            return k.ePy;
         }
-        if (this.eQJ) {
-            return cbI;
+        if (this.ePS) {
+            return caR;
         }
-        if (this.cbl) {
-            return k.eQw;
+        if (this.cau) {
+            return k.ePF;
         }
-        if (this.cbm) {
-            return k.eQv;
+        if (this.cav) {
+            return k.ePE;
         }
-        if (this.eQA) {
-            return k.eQu;
+        if (this.ePJ) {
+            return k.ePD;
         }
-        return cbI;
+        return caR;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public bh agI() {
-        if (this.cbq == null) {
+    public bh agG() {
+        if (this.caz == null) {
             return null;
         }
-        if (this.cbq.aiu() != 5) {
-            this.cbq.hH(1);
+        if (this.caz.ais() != 5) {
+            this.caz.hG(1);
         }
-        return this.cbq;
+        return this.caz;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String agJ() {
-        if (this.cbq == null) {
+    public String agH() {
+        if (this.caz == null) {
             return null;
         }
-        return this.cbq.cdG;
+        return this.caz.ccP;
     }
 
     public an uF(String str) {
         an anVar = new an(str);
-        if (this.cbq != null) {
-            anVar.p("fid", this.cbq.getFid());
-            anVar.bS("tid", this.cbq.getTid());
+        if (this.caz != null) {
+            anVar.p("fid", this.caz.getFid());
+            anVar.bS("tid", this.caz.getTid());
             anVar.O("obj_type", 2);
-            anVar.O("obj_param1", baL() ? 2 : 1);
-            if (this.cbq.aiG() != null) {
-                anVar.bS("obj_id", this.cbq.aiG().getUserId());
+            anVar.O("obj_param1", baJ() ? 2 : 1);
+            if (this.caz.aiE() != null) {
+                anVar.bS("obj_id", this.caz.aiE().getUserId());
             }
         }
         return anVar;
     }
 
-    public an baR() {
-        an ab = ab(eQE, true);
-        if (ab != null && agI() != null) {
-            bh agI = agI();
-            ab.O("obj_name", agI.akd() != null && (agI.akd().cor() != null || agI.akd().azr() != null) ? 1 : 0);
-            if (agI.aiG() != null) {
-                ab.O(TiebaInitialize.Params.AB_TYPE, agI.aiG().hadConcerned() ? 1 : 0);
+    public an baP() {
+        an ab = ab(ePN, true);
+        if (ab != null && agG() != null) {
+            bh agG = agG();
+            ab.O("obj_name", agG.akb() != null && (agG.akb().cop() != null || agG.akb().azp() != null) ? 1 : 0);
+            if (agG.aiE() != null) {
+                ab.O(TiebaInitialize.Params.AB_TYPE, agG.aiE().hadConcerned() ? 1 : 0);
             }
         }
         return ab;
     }
 
     public an b(bh bhVar, int i) {
-        if (bhVar.ajP() != null && bhVar.ajP().channelId > 0) {
-            return ab(eQF, true);
+        if (bhVar.ajN() != null && bhVar.ajN().channelId > 0) {
+            return ab(ePO, true);
         }
-        an ab = ab(eQk, true);
+        an ab = ab(ePt, true);
         if (ab != null && i != -1) {
             ab.O("click_locate", i);
             return ab;
@@ -117,23 +117,23 @@ public class l extends c implements com.baidu.tbadk.core.util.g.a {
         return b(bhVar, -1);
     }
 
-    public an baY() {
-        return ab(eQH, true);
+    public an baW() {
+        return ab(ePQ, true);
     }
 
-    public an baT() {
-        return ab(eQm, true);
+    public an baR() {
+        return ab(ePv, true);
     }
 
     public an Y(bh bhVar) {
-        return (bhVar.ajP() == null || bhVar.ajP().channelId <= 0) ? ab(eQl, true) : ab(eQG, true);
+        return (bhVar.ajN() == null || bhVar.ajN().channelId <= 0) ? ab(ePu, true) : ab(ePP, true);
     }
 
     @Override // com.baidu.tbadk.core.util.g.a
     public String getVideoUrl() {
-        if (this.cbq == null || this.cbq.aiX() == null || this.cbq.aiX().video_url == null) {
+        if (this.caz == null || this.caz.aiV() == null || this.caz.aiV().video_url == null) {
             return null;
         }
-        return this.cbq.aiX().video_url;
+        return this.caz.aiV().video_url;
     }
 }

@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class m {
-    public static long arv;
+    public static long ard;
 
     public static void i(String str, long j) {
         a(str, j, false);
@@ -22,17 +22,17 @@ public class m {
 
     public static void a(String str, long j, boolean z) {
         com.baidu.live.message.f fVar = new com.baidu.live.message.f();
-        fVar.WX = str;
+        fVar.WE = str;
         fVar.liveId = j;
-        fVar.akj = z;
+        fVar.ajR = z;
         fVar.setParams();
         MessageManager.getInstance().sendMessage(fVar);
     }
 
     public static void k(Context context, String str, String str2) {
-        af afVar = com.baidu.live.l.a.uA().akM;
-        if (afVar != null && afVar.Ui != null) {
-            String str3 = afVar.Ui.Vr;
+        af afVar = com.baidu.live.l.a.uB().aku;
+        if (afVar != null && afVar.TP != null) {
+            String str3 = afVar.TP.UY;
             if (!TextUtils.isEmpty(str3)) {
                 BrowserHelper.startInternalWebActivity(context, str3 + (str3.contains("?") ? "&" : "?") + "feed_id=" + str + "&live_id=" + str2 + "&subapp_type=" + TbConfig.getSubappType());
             }
@@ -40,15 +40,15 @@ public class m {
     }
 
     public static String a(String str, String str2, long j, boolean z, int i, String str3, String str4, String str5, String str6, String str7) {
-        af afVar = com.baidu.live.l.a.uA().akM;
-        if (afVar == null || afVar.Ui == null) {
+        af afVar = com.baidu.live.l.a.uB().aku;
+        if (afVar == null || afVar.TP == null) {
             return "";
         }
-        String str8 = afVar.Ui.Vq;
+        String str8 = afVar.TP.UX;
         if (TextUtils.isEmpty(str8)) {
             return "";
         }
-        String str9 = afVar.Ui.appKey;
+        String str9 = afVar.TP.appKey;
         StringBuffer stringBuffer = new StringBuffer(str8);
         stringBuffer.append(str8.contains("?") ? "&" : "?");
         stringBuffer.append("from=");

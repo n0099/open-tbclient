@@ -15,7 +15,7 @@ public class AuthTokenData implements Serializable {
             return null;
         }
         AuthTokenData authTokenData = new AuthTokenData();
-        authTokenData.bx(jSONObject);
+        authTokenData.by(jSONObject);
         return authTokenData;
     }
 
@@ -28,7 +28,7 @@ public class AuthTokenData implements Serializable {
         return authTokenData;
     }
 
-    private void bx(JSONObject jSONObject) {
+    private void by(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.errorCode = jSONObject.optInt("error_code");
             JSONObject optJSONObject = jSONObject.optJSONObject(Config.LAUNCH_INFO);

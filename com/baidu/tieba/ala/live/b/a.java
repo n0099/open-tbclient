@@ -7,7 +7,7 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.pay.PayConfig;
 /* loaded from: classes6.dex */
 public class a extends BdBaseModel {
-    private String dQL;
+    private String dPU;
 
     public a(BdPageContext bdPageContext) {
         super(bdPageContext);
@@ -26,8 +26,8 @@ public class a extends BdBaseModel {
     private com.baidu.tieba.ala.live.message.a a(PayConfig payConfig) {
         com.baidu.tieba.ala.live.message.a aVar = new com.baidu.tieba.ala.live.message.a();
         aVar.a(payConfig.getPayType(), JavaTypesHelper.toInt(payConfig.getIsLeft(), 0), payConfig.getPropsId(), JavaTypesHelper.toInt(payConfig.getMoney(), 0), JavaTypesHelper.toInt(payConfig.getPropsMon(), 0), payConfig.isAutoPay(), payConfig.paymentPosKey, payConfig.mReferPage, payConfig.mClickZone);
-        if (!TextUtils.isEmpty(this.dQL)) {
-            aVar.addParam("wallet_sdk_ua", this.dQL);
+        if (!TextUtils.isEmpty(this.dPU)) {
+            aVar.addParam("wallet_sdk_ua", this.dPU);
         }
         if (TextUtils.equals("firstCharge", payConfig.from)) {
             aVar.addParam("payment_pos_id", "3204");
@@ -44,6 +44,6 @@ public class a extends BdBaseModel {
     }
 
     public void setWalletSdkUa(String str) {
-        this.dQL = str;
+        this.dPU = str;
     }
 }

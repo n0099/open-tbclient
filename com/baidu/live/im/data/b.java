@@ -4,20 +4,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
-    public boolean ahJ;
-    public String ahK;
+    public boolean ahr;
+    public String ahs;
     public String liveId;
 
     public b(boolean z, String str, String str2) {
-        this.ahJ = z;
-        this.ahK = str;
+        this.ahr = z;
+        this.ahs = str;
         this.liveId = str2;
     }
 
     public b(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ahJ = jSONObject.optBoolean("useCard");
-            this.ahK = jSONObject.optString("benefitUid");
+            this.ahr = jSONObject.optBoolean("useCard");
+            this.ahs = jSONObject.optString("benefitUid");
             this.liveId = jSONObject.optString("liveId");
         }
     }
@@ -25,8 +25,8 @@ public class b {
     public String toJsonString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("useCard", this.ahJ);
-            jSONObject.put("benefitUid", this.ahK);
+            jSONObject.put("useCard", this.ahr);
+            jSONObject.put("benefitUid", this.ahs);
             jSONObject.put("liveId", this.liveId);
         } catch (JSONException e) {
             e.printStackTrace();

@@ -10,9 +10,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes6.dex */
 public class l implements ILoginListener {
-    private static l agJ;
-    private boolean agH = false;
-    private a agI;
+    private static l agr;
+    private boolean agp = false;
+    private a agq;
     private boolean mIsDestroy;
     private boolean mIsLogin;
 
@@ -24,15 +24,15 @@ public class l implements ILoginListener {
     private l() {
     }
 
-    public static l sR() {
-        if (agJ == null) {
+    public static l sS() {
+        if (agr == null) {
             synchronized (l.class) {
-                if (agJ == null) {
-                    agJ = new l();
+                if (agr == null) {
+                    agr = new l();
                 }
             }
         }
-        return agJ;
+        return agr;
     }
 
     public void init(Context context) {
@@ -48,12 +48,12 @@ public class l implements ILoginListener {
             BIMManager.init(context, 10773430L, 0, cuid);
         }
         LogUtils.d("imlog", "BIMManager init env:" + i);
-        this.agH = true;
+        this.agp = true;
     }
 
     public void a(a aVar) {
         this.mIsLogin = true;
-        this.agI = aVar;
+        this.agq = aVar;
         String fromHost = TbConfig.getFromHost();
         String currentFromHost = TbConfig.getCurrentFromHost();
         if (TbadkCoreApplication.isLogin()) {
@@ -69,24 +69,24 @@ public class l implements ILoginListener {
     }
 
     public void ay(boolean z) {
-        if (this.agH) {
-            if (z && this.agI != null) {
-                a(this.agI);
+        if (this.agp) {
+            if (z && this.agq != null) {
+                a(this.agq);
             } else if (!z) {
                 a(null);
             }
         }
     }
 
-    public void sS() {
+    public void sT() {
         AccountManager.disconnect(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i, String str) {
-        if (this.agI != null) {
-            this.agI.k(i, str);
-            this.agI = null;
+        if (this.agq != null) {
+            this.agq.k(i, str);
+            this.agq = null;
         }
     }
 
@@ -99,6 +99,6 @@ public class l implements ILoginListener {
 
     public void destroy() {
         this.mIsDestroy = true;
-        sS();
+        sT();
     }
 }

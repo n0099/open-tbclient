@@ -3,60 +3,60 @@ package com.baidu.tieba.h;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String arY;
-    private String dhg;
-    private String fYr;
-    private String fYs;
-    private String fYt;
-    private String fYu;
+    private String arG;
+    private String dgp;
+    private String fXA;
+    private String fXB;
+    private String fXC;
+    private String fXD;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.fYr = String.valueOf(esportRank.rank);
-            this.fYs = esportRank.text;
-            this.dhg = esportRank.url;
+            this.fXA = String.valueOf(esportRank.rank);
+            this.fXB = esportRank.text;
+            this.dgp = esportRank.url;
             if (esportRank.user != null) {
-                this.fYt = esportRank.user.steam_name;
-                this.fYu = esportRank.user.steam_portrait;
+                this.fXC = esportRank.user.steam_name;
+                this.fXD = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String brK() {
+    public String brI() {
         return this.mTitle;
     }
 
+    public String brJ() {
+        return this.fXA;
+    }
+
+    public String brK() {
+        return this.fXB;
+    }
+
     public String brL() {
-        return this.fYr;
+        return this.fXC;
     }
 
     public String brM() {
-        return this.fYs;
+        return this.fXD;
     }
 
     public String brN() {
-        return this.fYt;
-    }
-
-    public String brO() {
-        return this.fYu;
-    }
-
-    public String brP() {
-        return this.arY;
+        return this.arG;
     }
 
     public void wF(String str) {
-        this.arY = str;
+        this.arG = str;
     }
 
-    public String brQ() {
-        return this.dhg;
+    public String brO() {
+        return this.dgp;
     }
 
     public void wG(String str) {
-        this.dhg = str;
+        this.dgp = str;
     }
 }

@@ -16,21 +16,21 @@ import com.baidu.live.widget.HeartSurfaceView;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class a implements com.baidu.c.a.d.a {
-    private int auG;
-    private int auH;
+    private int auo;
+    private int aup;
 
     @Override // com.baidu.c.a.d.a
     public void a(final Activity activity, a.InterfaceC0043a interfaceC0043a) {
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        this.auG = inst.getResources().getDimensionPixelSize(a.C0070a.like_explosion_size);
-        this.auH = inst.getResources().getDimensionPixelSize(a.C0070a.like_heart_size);
+        this.auo = inst.getResources().getDimensionPixelSize(a.C0070a.like_explosion_size);
+        this.aup = inst.getResources().getDimensionPixelSize(a.C0070a.like_heart_size);
         final HeartSurfaceView heartSurfaceView = new HeartSurfaceView(inst);
         heartSurfaceView.setZOrderOnTop(true);
         heartSurfaceView.getHolder().setFormat(-3);
         interfaceC0043a.b(0, heartSurfaceView);
         final a.b bVar = new a.b() { // from class: com.baidu.live.widget.a.1
             @Override // com.baidu.c.a.d.a.b
-            public void D(final int i, final int i2) {
+            public void B(final int i, final int i2) {
                 if (a.u(activity)) {
                     activity.runOnUiThread(new Runnable() { // from class: com.baidu.live.widget.a.1.1
                         @Override // java.lang.Runnable
@@ -43,8 +43,8 @@ public class a implements com.baidu.c.a.d.a {
         };
         heartSurfaceView.setAnimateEndListener(new HeartSurfaceView.b() { // from class: com.baidu.live.widget.a.2
             @Override // com.baidu.live.widget.HeartSurfaceView.b
-            public void C(int i, int i2) {
-                bVar.D(i, i2);
+            public void A(int i, int i2) {
+                bVar.B(i, i2);
             }
         });
     }
@@ -80,12 +80,12 @@ public class a implements com.baidu.c.a.d.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public RelativeLayout.LayoutParams a(ViewGroup viewGroup, View view, int i, int i2) {
-        int i3 = (this.auG - this.auH) / 2;
+        int i3 = (this.auo - this.aup) / 2;
         int left = (view.getLeft() + i) - i3;
         int top = (view.getTop() + i2) - i3;
-        int width = viewGroup.getWidth() - (this.auG + left);
-        int height = viewGroup.getHeight() - (this.auG + top);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.auG, this.auG);
+        int width = viewGroup.getWidth() - (this.auo + left);
+        int height = viewGroup.getHeight() - (this.auo + top);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.auo, this.auo);
         layoutParams.setMargins(left, top, width, height);
         return layoutParams;
     }

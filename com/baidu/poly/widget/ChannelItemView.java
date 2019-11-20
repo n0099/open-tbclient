@@ -13,15 +13,15 @@ import com.baidu.poly.b;
 import com.baidu.poly.bean.PayChannel;
 /* loaded from: classes2.dex */
 public class ChannelItemView extends RelativeLayout implements View.OnClickListener {
-    private ImageView aCf;
-    private TextView aCg;
-    private TextView aCh;
-    private ImageView aCi;
-    private a aCj;
+    private ImageView aBN;
+    private TextView aBO;
+    private TextView aBP;
+    private ImageView aBQ;
+    private a aBR;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void zT();
+        void zU();
     }
 
     public ChannelItemView(Context context) {
@@ -39,10 +39,10 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
 
     private void initView(Context context) {
         LayoutInflater.from(context).inflate(b.e.view_channel_list_item, (ViewGroup) this, true);
-        this.aCf = (ImageView) findViewById(b.d.channel_icon_view);
-        this.aCg = (TextView) findViewById(b.d.channel_name_view);
-        this.aCh = (TextView) findViewById(b.d.channel_desc_view);
-        this.aCi = (ImageView) findViewById(b.d.channel_select_view);
+        this.aBN = (ImageView) findViewById(b.d.channel_icon_view);
+        this.aBO = (TextView) findViewById(b.d.channel_name_view);
+        this.aBP = (TextView) findViewById(b.d.channel_desc_view);
+        this.aBQ = (ImageView) findViewById(b.d.channel_select_view);
         setOnClickListener(this);
     }
 
@@ -52,39 +52,39 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         String icon = payChannel.getIcon();
         boolean isSelected = payChannel.isSelected();
         boolean isEnable = payChannel.isEnable();
-        com.baidu.poly.b.b.zH().b(this.aCf, icon);
-        this.aCg.setText(displayName);
+        com.baidu.poly.b.b.zI().b(this.aBN, icon);
+        this.aBO.setText(displayName);
         if (isSelected) {
-            this.aCi.setImageResource(b.c.channel_checked);
+            this.aBQ.setImageResource(b.c.channel_checked);
         } else {
-            this.aCi.setImageResource(b.c.unchecked);
+            this.aBQ.setImageResource(b.c.unchecked);
         }
         if (isEnable) {
-            this.aCj = aVar;
+            this.aBR = aVar;
         } else {
-            this.aCf.setAlpha(0.4f);
-            this.aCg.setAlpha(0.4f);
-            this.aCh.setAlpha(0.4f);
-            this.aCi.setVisibility(8);
+            this.aBN.setAlpha(0.4f);
+            this.aBO.setAlpha(0.4f);
+            this.aBP.setAlpha(0.4f);
+            this.aBQ.setVisibility(8);
         }
         if (!TextUtils.isEmpty(payText)) {
             if ("度小满支付".equals(displayName)) {
-                this.aCh.setTextColor(getResources().getColor(b.C0130b.duxiaomancolor));
+                this.aBP.setTextColor(getResources().getColor(b.C0130b.duxiaomancolor));
             }
-            this.aCh.setText(payText);
+            this.aBP.setText(payText);
             return;
         }
-        this.aCh.setVisibility(8);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aCg.getLayoutParams();
+        this.aBP.setVisibility(8);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aBO.getLayoutParams();
         layoutParams.addRule(15);
         layoutParams.topMargin = 0;
-        this.aCg.setLayoutParams(layoutParams);
+        this.aBO.setLayoutParams(layoutParams);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aCj != null) {
-            this.aCj.zT();
+        if (this.aBR != null) {
+            this.aBR.zU();
         }
     }
 }

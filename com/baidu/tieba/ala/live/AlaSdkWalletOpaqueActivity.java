@@ -33,7 +33,7 @@ import com.baidu.tieba.ala.live.message.GetOrderHttpResponsedMessage;
 /* loaded from: classes6.dex */
 public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueActivity> {
     private static long lastClickTime;
-    private AlaSdkWalletOpaqueActivity dQC;
+    private AlaSdkWalletOpaqueActivity dPL;
     private Context mContext;
     private PayConfig mCurPayConfig;
     private ah mCurPayOrderInfo;
@@ -73,10 +73,10 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
             if (httpResponsedMessage == null || !(httpResponsedMessage instanceof GetOrderHttpResponsedMessage)) {
                 AlaSdkWalletOpaqueActivity.this.showToast(a.i.sdk_pay_fail);
                 AlaSdkWalletOpaqueActivity.this.mPayStatus = 3;
-                AlaSdkWalletOpaqueActivity.this.aMm();
+                AlaSdkWalletOpaqueActivity.this.aMk();
                 return;
             }
-            ah aMn = ((GetOrderHttpResponsedMessage) httpResponsedMessage).aMn();
+            ah aMl = ((GetOrderHttpResponsedMessage) httpResponsedMessage).aMl();
             if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     errorString = AlaSdkWalletOpaqueActivity.this.mContext.getResources().getString(a.i.sdk_neterror);
@@ -85,19 +85,19 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
                 }
                 AlaSdkWalletOpaqueActivity.this.showToast(errorString);
                 AlaSdkWalletOpaqueActivity.this.mPayStatus = 3;
-                AlaSdkWalletOpaqueActivity.this.aMm();
-            } else if (aMn == null) {
+                AlaSdkWalletOpaqueActivity.this.aMk();
+            } else if (aMl == null) {
                 AlaSdkWalletOpaqueActivity.this.showToast(a.i.sdk_pay_fail);
                 AlaSdkWalletOpaqueActivity.this.mPayStatus = 3;
-                AlaSdkWalletOpaqueActivity.this.aMm();
+                AlaSdkWalletOpaqueActivity.this.aMk();
             } else {
-                AlaSdkWalletOpaqueActivity.this.mOrderId = aMn.orderId;
-                AlaSdkWalletOpaqueActivity.this.mCurPayOrderInfo = aMn;
+                AlaSdkWalletOpaqueActivity.this.mOrderId = aMl.orderId;
+                AlaSdkWalletOpaqueActivity.this.mCurPayOrderInfo = aMl;
                 if (TextUtils.isEmpty(AlaSdkWalletOpaqueActivity.this.mCurPayOrderInfo.pay_channel) || "url".equalsIgnoreCase(AlaSdkWalletOpaqueActivity.this.mCurPayOrderInfo.call_type)) {
                     AlaSdkWalletOpaqueActivity.this.payByWallet();
                     return;
                 }
-                AlaSdkWalletOpaqueActivity.this.mViewController = new a(AlaSdkWalletOpaqueActivity.this.dQC, AlaSdkWalletOpaqueActivity.this.mCallback, AlaSdkWalletOpaqueActivity.this.mCurPayConfig);
+                AlaSdkWalletOpaqueActivity.this.mViewController = new a(AlaSdkWalletOpaqueActivity.this.dPL, AlaSdkWalletOpaqueActivity.this.mCallback, AlaSdkWalletOpaqueActivity.this.mCurPayConfig);
                 AlaSdkWalletOpaqueActivity.this.mViewController.isValidData(AlaSdkWalletOpaqueActivity.this.mCurPayOrderInfo.pay_channel);
                 AlaSdkWalletOpaqueActivity.this.mViewController.hideLoadingView();
                 AlaSdkWalletOpaqueActivity.this.mViewController.a(AlaSdkWalletOpaqueActivity.this.mCurPayOrderInfo);
@@ -111,7 +111,7 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
             AlaSdkWalletOpaqueActivity.this.closeLoadingDialog();
             if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001505) {
                 AlaSdkWalletOpaqueActivity.this.mPayStatus = 4;
-                AlaSdkWalletOpaqueActivity.this.aMm();
+                AlaSdkWalletOpaqueActivity.this.aMk();
                 return;
             }
             ResponseGetPayinfoMessage responseGetPayinfoMessage = (ResponseGetPayinfoMessage) httpResponsedMessage;
@@ -150,7 +150,7 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
 
         @Override // com.baidu.tieba.ala.live.a.b
         public void doPay(String str) {
-            AlaSdkWalletOpaqueActivity.this.mCurPayOrderInfo.UB = str;
+            AlaSdkWalletOpaqueActivity.this.mCurPayOrderInfo.Uh = str;
             AlaSdkWalletOpaqueActivity.this.realPay();
         }
     };
@@ -159,7 +159,7 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                AlaSdkWalletOpaqueActivity.this.aMm();
+                AlaSdkWalletOpaqueActivity.this.aMk();
             }
         }
     };
@@ -175,7 +175,7 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
         registerTask();
         registerListener();
         this.mContext = getPageContext().getPageActivity();
-        this.dQC = this;
+        this.dPL = this;
         this.mOrderModel = new com.baidu.tieba.ala.live.b.a(getPageContext());
         this.mPayChannel = PayChannelManager.getInstance().buildPayChannel();
         showLoadingDialog(this.mContext.getString(a.i.sdk_pay_loading));
@@ -233,7 +233,7 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
         if (this.mCurPayConfig == null) {
             showToast(a.i.sdk_pay_fail);
             this.mPayStatus = 2;
-            aMm();
+            aMk();
         }
     }
 
@@ -247,12 +247,12 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
                         break;
                     case 2:
                         AlaSdkWalletOpaqueActivity.this.mPayStatus = 1;
-                        AlaSdkWalletOpaqueActivity.this.aMm();
+                        AlaSdkWalletOpaqueActivity.this.aMk();
                         break;
                     case 3:
                         AlaSdkWalletOpaqueActivity.this.showToast(a.i.sdk_pay_fail);
                         AlaSdkWalletOpaqueActivity.this.mPayStatus = 5;
-                        AlaSdkWalletOpaqueActivity.this.aMm();
+                        AlaSdkWalletOpaqueActivity.this.aMk();
                         break;
                 }
                 AlaSdkWalletOpaqueActivity.this.mPayChannel.release();
@@ -295,7 +295,7 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
             }
             closeLoadingDialog();
             showToast(a.i.sdk_pay_fail);
-            aMm();
+            aMk();
         }
     }
 
@@ -304,7 +304,7 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
         if (this.mCurPayOrderInfo == null) {
             showToast(a.i.sdk_pay_fail);
             this.mPayStatus = 3;
-            aMm();
+            aMk();
             return;
         }
         realPay();
@@ -337,7 +337,7 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
             this.mViewController.payResult(z);
         }
         this.mPayStatus = z ? 0 : 4;
-        aMm();
+        aMk();
     }
 
     public static boolean isFastDoubleClick() {
@@ -359,7 +359,7 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aMm() {
+    public boolean aMk() {
         Intent intent = new Intent();
         getActivity().setResult(-1, intent);
         intent.putExtra("result_code", this.mPayStatus);

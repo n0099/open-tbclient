@@ -11,12 +11,12 @@ public class e extends a {
 
     @Override // com.baidu.swan.games.e.a
     @NonNull
-    public EventTarget Wv() {
+    public EventTarget Wt() {
         return new com.baidu.swan.games.binding.c(this);
     }
 
     @Override // com.baidu.swan.games.e.a
-    public EventTarget Ww() {
+    public EventTarget Wu() {
         return new com.baidu.swan.games.binding.a.a(this);
     }
 
@@ -26,7 +26,7 @@ public class e extends a {
     }
 
     @Override // com.baidu.swan.games.e.a
-    protected String WH() {
-        return com.baidu.swan.games.i.a.bk(this.bzy.Gb(), this.bzy.Gc());
+    protected String WF() {
+        return com.baidu.swan.games.i.a.bk(this.byH.Gc(), this.byH.Gd());
     }
 }

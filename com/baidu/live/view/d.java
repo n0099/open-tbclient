@@ -21,12 +21,12 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
 /* loaded from: classes6.dex */
 public class d implements View.OnClickListener {
-    private TextView ahP;
-    private a asi;
-    private ImageView asj;
-    private TextView ask;
-    private TextView asl;
-    private AnimatorSet asm;
+    private TextView ahx;
+    private a arQ;
+    private ImageView arR;
+    private TextView arS;
+    private TextView arT;
+    private AnimatorSet arU;
     private Context mContext;
     private Dialog mDialog;
     private View mRootView;
@@ -34,9 +34,9 @@ public class d implements View.OnClickListener {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void qx();
-
         void qy();
+
+        void qz();
     }
 
     public d(Context context) {
@@ -45,7 +45,7 @@ public class d implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.asi = aVar;
+        this.arQ = aVar;
     }
 
     public void setCancelable(boolean z) {
@@ -58,8 +58,8 @@ public class d implements View.OnClickListener {
     }
 
     public void aU(boolean z) {
-        if (this.asj != null) {
-            this.asj.setVisibility(z ? 0 : 8);
+        if (this.arR != null) {
+            this.arR.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -70,16 +70,16 @@ public class d implements View.OnClickListener {
     }
 
     public void co(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ahP.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ahx.getLayoutParams();
         layoutParams.topMargin = i;
-        this.ahP.setLayoutParams(layoutParams);
+        this.ahx.setLayoutParams(layoutParams);
     }
 
     public void k(String str, String str2, String str3, String str4) {
         this.mTitleTextView.setText(str);
-        this.ahP.setText(str2);
-        this.ask.setText(str3);
-        this.asl.setText(str4);
+        this.ahx.setText(str2);
+        this.arS.setText(str3);
+        this.arT.setText(str4);
     }
 
     public void setTitleTextColor(int i) {
@@ -87,17 +87,17 @@ public class d implements View.OnClickListener {
     }
 
     public void cp(int i) {
-        this.ahP.setTextColor(i);
+        this.ahx.setTextColor(i);
     }
 
     public void cq(int i) {
-        this.asl.setTextColor(i);
+        this.arT.setTextColor(i);
     }
 
     public void show() {
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && this.mDialog != null) {
             this.mDialog.show();
-            tw();
+            tx();
         }
     }
 
@@ -114,26 +114,26 @@ public class d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mRootView || view == this.asj || view == this.ask || view == this.asl) {
+        if (view == this.mRootView || view == this.arR || view == this.arS || view == this.arT) {
             dismiss();
         }
-        if (this.asi != null) {
-            if (view == this.ask) {
-                this.asi.qx();
-            } else if (view == this.asl) {
-                this.asi.qy();
+        if (this.arQ != null) {
+            if (view == this.arS) {
+                this.arQ.qy();
+            } else if (view == this.arT) {
+                this.arQ.qz();
             }
         }
     }
 
     private void initDialog() {
         this.mDialog = new e(this.mContext);
-        wC();
+        wD();
         initView();
         pv();
     }
 
-    private void wC() {
+    private void wD() {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();
@@ -157,37 +157,37 @@ public class d implements View.OnClickListener {
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.h.sdk_dialog_common_alert, (ViewGroup) null);
         this.mDialog.setContentView(this.mRootView);
-        this.asj = (ImageView) this.mRootView.findViewById(a.g.iv_close);
+        this.arR = (ImageView) this.mRootView.findViewById(a.g.iv_close);
         this.mTitleTextView = (TextView) this.mRootView.findViewById(a.g.tv_title);
-        this.ahP = (TextView) this.mRootView.findViewById(a.g.tv_content);
-        this.ask = (TextView) this.mRootView.findViewById(a.g.tv_confirm);
-        this.asl = (TextView) this.mRootView.findViewById(a.g.tv_cancel);
+        this.ahx = (TextView) this.mRootView.findViewById(a.g.tv_content);
+        this.arS = (TextView) this.mRootView.findViewById(a.g.tv_confirm);
+        this.arT = (TextView) this.mRootView.findViewById(a.g.tv_cancel);
         this.mRootView.setOnClickListener(this);
-        this.asj.setOnClickListener(this);
-        this.ask.setOnClickListener(this);
-        this.asl.setOnClickListener(this);
+        this.arR.setOnClickListener(this);
+        this.arS.setOnClickListener(this);
+        this.arT.setOnClickListener(this);
     }
 
     private void pv() {
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.live.view.d.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (d.this.asm != null) {
-                    d.this.asm.cancel();
+                if (d.this.arU != null) {
+                    d.this.arU.cancel();
                 }
             }
         });
     }
 
-    private void tw() {
-        if (this.asm == null) {
+    private void tx() {
+        if (this.arU == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mRootView, "ScaleX", 0.5f, 1.2f, 1.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mRootView, "ScaleY", 0.5f, 1.2f, 1.0f);
-            this.asm = new AnimatorSet();
-            this.asm.playTogether(ofFloat, ofFloat2);
-            this.asm.setDuration(300L);
-            this.asm.setInterpolator(new LinearInterpolator());
+            this.arU = new AnimatorSet();
+            this.arU.playTogether(ofFloat, ofFloat2);
+            this.arU.setDuration(300L);
+            this.arU.setInterpolator(new LinearInterpolator());
         }
-        this.asm.start();
+        this.arU.start();
     }
 }

@@ -17,7 +17,7 @@ public class a {
         return null;
     }
 
-    public static String MO() {
+    public static String MP() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(AppRuntime.getAppContext());
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return "no";

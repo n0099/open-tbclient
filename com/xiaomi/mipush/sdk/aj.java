@@ -1,31 +1,22 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.text.TextUtils;
+import com.xiaomi.push.eu;
+import com.xiaomi.push.service.ag;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-final class aj implements Runnable {
-    final /* synthetic */ String[] a;
-    final /* synthetic */ Context b;
+public final class aj extends ag.a {
+    final /* synthetic */ Context a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(String[] strArr, Context context) {
-        this.a = strArr;
-        this.b = context;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aj(int i, String str, Context context) {
+        super(i, str);
+        this.a = context;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String[] strArr;
-        PackageInfo packageInfo;
-        try {
-            for (String str : this.a) {
-                if (!TextUtils.isEmpty(str) && (packageInfo = this.b.getPackageManager().getPackageInfo(str, 4)) != null) {
-                    MiPushClient.awakePushServiceByPackageInfo(this.b, packageInfo);
-                }
-            }
-        } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.a(th);
-        }
+    @Override // com.xiaomi.push.service.ag.a
+    protected void a() {
+        eu.m244a(this.a);
     }
 }

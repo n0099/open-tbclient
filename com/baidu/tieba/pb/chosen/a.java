@@ -23,10 +23,10 @@ import com.baidu.tieba.pb.chosen.view.ShareThreadView;
 import java.text.MessageFormat;
 /* loaded from: classes5.dex */
 public class a {
-    private PbChosenActivity hHN;
+    private PbChosenActivity hGW;
 
     public a(PbChosenActivity pbChosenActivity) {
-        this.hHN = pbChosenActivity;
+        this.hGW = pbChosenActivity;
     }
 
     public void a(com.baidu.tieba.pb.chosen.net.a aVar, String str) {
@@ -34,29 +34,29 @@ public class a {
             String str2 = aVar.getThreadInfo().forum.forum_name;
             String str3 = aVar.getThreadInfo().title;
             String str4 = aVar.getThreadInfo()._abstract;
-            Resources resources = this.hHN.getPageContext().getPageActivity().getResources();
+            Resources resources = this.hGW.getPageContext().getPageActivity().getResources();
             String format = MessageFormat.format(resources.getString(R.string.share_content_tpl), str3, str4);
             String string = resources.getString(R.string.chosen_pb_share_content, str3);
             final e eVar = new e();
             eVar.title = str3;
             eVar.content = format;
             eVar.linkUrl = "http://tieba.baidu.com/mo/q/recommendpb?ftid=" + aVar.getThreadInfo().excid;
-            eVar.cyL = string;
-            eVar.cyK = str4;
-            eVar.cyJ = Long.toString(aVar.getThreadInfo().excid.longValue());
+            eVar.cxU = string;
+            eVar.cxT = str4;
+            eVar.cxS = Long.toString(aVar.getThreadInfo().excid.longValue());
             eVar.tid = Long.toString(aVar.getThreadInfo().thread_id.longValue());
-            eVar.cys = true;
+            eVar.cxB = true;
             if (!StringUtils.isNull(str)) {
                 eVar.imageUri = Uri.parse(str);
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.hHN.getPageContext().getPageActivity(), eVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.hGW.getPageContext().getPageActivity(), eVar, true);
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.addOutsideTextView(R.string.forum_friend, R.drawable.icon_share_friends_n, new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.hHN.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(a.this.hHN.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_SHARE_FRIEND_FORUM)));
-                    TiebaStatic.eventStat(a.this.hHN.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
+                    a.this.hGW.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(a.this.hGW.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_SHARE_FRIEND_FORUM)));
+                    TiebaStatic.eventStat(a.this.hGW.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
                 }
             });
             shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.a.2
@@ -64,10 +64,10 @@ public class a {
                 public void onClick(View view) {
                     eVar.linkUrl = f.bY(eVar.linkUrl, eVar.tid);
                     com.baidu.adp.lib.util.a.copyToClipboard(eVar.linkUrl);
-                    l.showToast(a.this.hHN.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+                    l.showToast(a.this.hGW.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
                 }
             });
-            this.hHN.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
+            this.hGW.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         }
     }
 
@@ -113,7 +113,7 @@ public class a {
                 }
             });
             aVar2.eh(false);
-            aVar2.b(pbChosenActivity.getPageContext()).akO();
+            aVar2.b(pbChosenActivity.getPageContext()).akM();
         }
     }
 
@@ -143,7 +143,7 @@ public class a {
                 }
             });
             aVar2.eh(false);
-            aVar2.b(pbChosenActivity.getPageContext()).akO();
+            aVar2.b(pbChosenActivity.getPageContext()).akM();
         }
     }
 }

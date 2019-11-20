@@ -17,7 +17,6 @@ import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
-import com.baidu.tieba.model.ReportUserInfoModel;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import com.tencent.connect.common.Constants;
 import java.lang.reflect.Method;
@@ -496,7 +495,7 @@ public class d {
             address = new Address.Builder().build();
         }
         long currentTimeMillis = System.currentTimeMillis() - this.t;
-        if (currentTimeMillis > ReportUserInfoModel.TIME_INTERVAL || currentTimeMillis < -10000) {
+        if (currentTimeMillis > 300000 || currentTimeMillis < -10000) {
             this.t = System.currentTimeMillis();
             c();
         }

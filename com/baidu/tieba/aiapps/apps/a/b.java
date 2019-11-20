@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.a;
 public class b {
     public String bduss;
     public String displayName;
-    public String dmo;
-    public String dmp;
+    public String dlx;
+    public String dly;
     public String uid;
 }

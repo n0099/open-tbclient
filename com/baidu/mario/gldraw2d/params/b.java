@@ -3,42 +3,42 @@ package com.baidu.mario.gldraw2d.params;
 import android.opengl.Matrix;
 /* loaded from: classes2.dex */
 public class b implements Cloneable {
-    private float[] axg;
-    private boolean axh;
-    private boolean axi;
-    private float[] iQ = new float[16];
+    private float[] awO;
+    private boolean awP;
+    private boolean awQ;
+    private float[] im = new float[16];
     private long mTimestamp;
 
     public b() {
-        Matrix.setIdentityM(this.iQ, 0);
-        this.axg = new float[16];
-        Matrix.setIdentityM(this.axg, 0);
-        this.axh = false;
-        this.axi = false;
-    }
-
-    public float[] xL() {
-        return this.iQ;
-    }
-
-    public void e(float[] fArr) {
-        this.iQ = fArr;
+        Matrix.setIdentityM(this.im, 0);
+        this.awO = new float[16];
+        Matrix.setIdentityM(this.awO, 0);
+        this.awP = false;
+        this.awQ = false;
     }
 
     public float[] xM() {
-        return this.axg;
+        return this.im;
+    }
+
+    public void e(float[] fArr) {
+        this.im = fArr;
+    }
+
+    public float[] xN() {
+        return this.awO;
     }
 
     public void f(float[] fArr) {
-        this.axg = fArr;
-    }
-
-    public boolean xN() {
-        return this.axh;
+        this.awO = fArr;
     }
 
     public boolean xO() {
-        return this.axi;
+        return this.awP;
+    }
+
+    public boolean xP() {
+        return this.awQ;
     }
 
     public void setTimestamp(long j) {
@@ -46,7 +46,7 @@ public class b implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: xP */
+    /* renamed from: xQ */
     public b clone() {
         b bVar = null;
         try {
@@ -55,8 +55,8 @@ public class b implements Cloneable {
             e.printStackTrace();
         }
         if (bVar != null) {
-            bVar.e((float[]) this.iQ.clone());
-            bVar.f((float[]) this.axg.clone());
+            bVar.e((float[]) this.im.clone());
+            bVar.f((float[]) this.awO.clone());
         }
         return bVar;
     }

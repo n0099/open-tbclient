@@ -4,47 +4,47 @@ import android.text.TextUtils;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.swan.apps.model.a.a.a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String aUO;
-    public boolean aUX;
-    public boolean aUY;
-    public boolean aWS;
-    public String aWT;
-    public int aWU;
-    public String aWV;
-    public String aWX;
-    public String aWY;
-    public boolean aWZ;
-    public boolean aXa;
-    public boolean aXb;
+    public boolean aUF;
+    public boolean aUG;
+    public String aUw;
+    public boolean aWA;
+    public String aWB;
+    public int aWC;
+    public String aWD;
+    public String aWF;
+    public String aWG;
+    public boolean aWH;
+    public boolean aWI;
+    public boolean aWJ;
     public int duration;
     public int mPos;
     public String mSrc;
 
     public c() {
         super("viewId", "video");
-        this.aUO = "";
-        this.aWS = false;
-        this.aWT = "";
-        this.aWU = 0;
+        this.aUw = "";
+        this.aWA = false;
+        this.aWB = "";
+        this.aWC = 0;
         this.duration = 0;
-        this.aUX = false;
-        this.aUY = false;
-        this.aWV = "";
+        this.aUF = false;
+        this.aUG = false;
+        this.aWD = "";
         this.mPos = 0;
-        this.aWX = "";
-        this.aWY = "";
-        this.aWZ = false;
-        this.aXa = false;
-        this.aXb = true;
+        this.aWF = "";
+        this.aWG = "";
+        this.aWH = false;
+        this.aWI = false;
+        this.aWJ = true;
         this.mSrc = "";
     }
 
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aUO);
+        return !TextUtils.isEmpty(this.aUw);
     }
 
     public String toString() {
-        return "VideoPlayerParams{mPlayerId='" + this.aUO + "', mSlaveId='" + this.aXH + "', mMuted=" + this.aWS + "', mObjectFit='" + this.aWV + "', mControl=" + this.aXb + '}';
+        return "VideoPlayerParams{mPlayerId='" + this.aUw + "', mSlaveId='" + this.aXp + "', mMuted=" + this.aWA + "', mObjectFit='" + this.aWD + "', mControl=" + this.aWJ + '}';
     }
 }

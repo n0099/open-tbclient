@@ -4,22 +4,22 @@ import java.util.List;
 import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class o {
-    private String agP;
-    private long baF;
-    private String dhg;
-    private String jjx;
-    private List<String> jjy;
+    private String agx;
+    private long ban;
+    private String dgp;
+    private String jiG;
+    private List<String> jiH;
     private long mStartTime;
     private int mType;
 
     public void a(RedpacketRain redpacketRain) {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
-            this.baF = redpacketRain.end_time.longValue() * 1000;
-            this.dhg = redpacketRain.jump_url;
-            this.jjx = redpacketRain.float_url;
-            this.jjy = redpacketRain.dynamic_img;
-            this.agP = redpacketRain.activity_id;
+            this.ban = redpacketRain.end_time.longValue() * 1000;
+            this.dgp = redpacketRain.jump_url;
+            this.jiG = redpacketRain.float_url;
+            this.jiH = redpacketRain.dynamic_img;
+            this.agx = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -29,23 +29,23 @@ public class o {
     }
 
     public long getEndTime() {
-        return this.baF;
+        return this.ban;
     }
 
-    public String aDs() {
-        return this.dhg;
+    public String aDq() {
+        return this.dgp;
+    }
+
+    public String coB() {
+        return this.jiG;
+    }
+
+    public List<String> coC() {
+        return this.jiH;
     }
 
     public String coD() {
-        return this.jjx;
-    }
-
-    public List<String> coE() {
-        return this.jjy;
-    }
-
-    public String coF() {
-        return this.agP;
+        return this.agx;
     }
 
     public void setStartTime(long j) {
@@ -53,23 +53,23 @@ public class o {
     }
 
     public void setEndTime(long j) {
-        this.baF = j;
+        this.ban = j;
     }
 
     public void DP(String str) {
-        this.dhg = str;
+        this.dgp = str;
     }
 
     public void DQ(String str) {
-        this.jjx = str;
+        this.jiG = str;
     }
 
     public void eq(List<String> list) {
-        this.jjy = list;
+        this.jiH = list;
     }
 
     public void DR(String str) {
-        this.agP = str;
+        this.agx = str;
     }
 
     public int getType() {

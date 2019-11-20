@@ -9,8 +9,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    public long rd = 0;
-    public String re = null;
+    public long qE = 0;
+    public String qF = null;
 
     public boolean gK() {
         String str = null;
@@ -26,8 +26,8 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.rd = jSONObject.getLong("time");
-            this.re = jSONObject.getString("data");
+            this.qE = jSONObject.getLong("time");
+            this.qF = jSONObject.getString("data");
         } catch (JSONException e) {
             e.printStackTrace();
         }

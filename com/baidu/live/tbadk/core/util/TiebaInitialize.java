@@ -22,7 +22,6 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.xiaomi.mipush.sdk.Constants;
-import com.xiaomi.mipush.sdk.MIPushNotificationHelper4Hybrid;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class TiebaInitialize {
@@ -142,7 +141,7 @@ public class TiebaInitialize {
     }
 
     public static void pushMsg(long j, int i, String str, String str2) {
-        BdStatisticsManager.getInstance().log("msg", MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, Long.valueOf(j), "op_type", Integer.valueOf(i), "stat", str2, "link", str);
+        BdStatisticsManager.getInstance().log("msg", "message_id", Long.valueOf(j), "op_type", Integer.valueOf(i), "stat", str2, "link", str);
     }
 
     public static void crash(String str) {

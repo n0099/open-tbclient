@@ -8,16 +8,16 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class c {
-    private HttpMessageListener fND = new HttpMessageListener(1001713) { // from class: com.baidu.tieba.frs.live.c.1
+    private a fMI;
+    private HttpMessageListener fMM = new HttpMessageListener(1001713) { // from class: com.baidu.tieba.frs.live.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.fNz != null) {
-                c.this.fNz.a((FrsLiveTipResponseMessage) httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.fMI != null) {
+                c.this.fMI.a((FrsLiveTipResponseMessage) httpResponsedMessage);
             }
         }
     };
-    private a fNz;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -25,9 +25,9 @@ public class c {
     }
 
     public c(a aVar) {
-        this.fNz = aVar;
+        this.fMI = aVar;
         registerTask();
-        MessageManager.getInstance().registerListener(this.fND);
+        MessageManager.getInstance().registerListener(this.fMM);
     }
 
     private void registerTask() {
@@ -39,7 +39,7 @@ public class c {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void rv(int i) {
+    public void ru(int i) {
         HttpMessage httpMessage = new HttpMessage(1001713);
         httpMessage.addParam("forum_id", i);
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -47,6 +47,6 @@ public class c {
 
     public void onDestory() {
         MessageManager.getInstance().unRegisterTask(1001713);
-        MessageManager.getInstance().unRegisterListener(this.fND);
+        MessageManager.getInstance().unRegisterListener(this.fMM);
     }
 }

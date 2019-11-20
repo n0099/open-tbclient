@@ -34,9 +34,9 @@ public abstract class a {
             arrayMap.put("ma_ids", list);
             JSONObject jSONObject = new JSONObject();
             try {
-                com.baidu.swan.apps.setting.oauth.f Kd = com.baidu.swan.apps.u.a.JF().Kd();
+                com.baidu.swan.apps.setting.oauth.f Ke = com.baidu.swan.apps.u.a.JG().Ke();
                 jSONObject.put("accredit", new JSONObject(arrayMap));
-                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.u.a.Ju().BL())).addParam("data", jSONObject.toString()).cookieManager(Kd)).build().executeAsyncOnUIBack(HL());
+                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.u.a.Jv().BM())).addParam("data", jSONObject.toString()).cookieManager(Ke)).build().executeAsyncOnUIBack(HM());
             } catch (JSONException e) {
                 e.printStackTrace();
                 if (DEBUG) {
@@ -86,12 +86,12 @@ public abstract class a {
 
     public void eY(String str) {
         SwanAppDbControl.aZ(AppRuntime.getAppContext()).r(str, false);
-        com.baidu.swan.pms.database.a.aaX().kU(str);
-        com.baidu.swan.pms.database.a.aaX().b(com.baidu.swan.pms.model.f.class, str);
+        com.baidu.swan.pms.database.a.aaV().kU(str);
+        com.baidu.swan.pms.database.a.aaV().b(com.baidu.swan.pms.model.f.class, str);
     }
 
     public void eX(String str) {
-        com.baidu.swan.apps.database.subpackage.a.HI().eX(str);
+        com.baidu.swan.apps.database.subpackage.a.HJ().eX(str);
     }
 
     private void eZ(String str) {
@@ -102,7 +102,7 @@ public abstract class a {
     }
 
     @NonNull
-    private ResponseCallback<JSONObject> HL() {
+    private ResponseCallback<JSONObject> HM() {
         return new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.env.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -162,7 +162,7 @@ public abstract class a {
         }
         try {
             try {
-                cursor = AppRuntime.getAppContext().getContentResolver().query(com.baidu.swan.apps.database.subpackage.b.aPt, new String[]{SubPackageTable.Table.aps_package_name.toString()}, SubPackageTable.Table.app_id + " =? ", new String[]{str}, null);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(com.baidu.swan.apps.database.subpackage.b.aPb, new String[]{SubPackageTable.Table.aps_package_name.toString()}, SubPackageTable.Table.app_id + " =? ", new String[]{str}, null);
             } catch (Throwable th) {
                 th = th;
                 closeable = " =? ";

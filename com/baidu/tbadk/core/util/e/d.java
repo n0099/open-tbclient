@@ -19,7 +19,7 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.avu().pY(str);
+        return com.baidu.tbadk.imageManager.c.avs().pY(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (aVar != null) {
             e eVar = new e();
             eVar.f(cVar);
-            aVar.pM = eVar;
+            aVar.pi = eVar;
         }
         boolean isWifiNet = com.baidu.adp.lib.util.j.isWifiNet();
         if (com.baidu.adp.lib.Disk.d.eP().c(cVar)) {
@@ -75,10 +75,10 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (!StringUtils.isNull(str)) {
             com.baidu.tbadk.core.util.a.i iVar = new com.baidu.tbadk.core.util.a.i();
             if (aVar != null) {
-                aVar.pM = iVar;
+                aVar.pi = iVar;
             }
             byte[] P = iVar.P(str, false);
-            if ((P != null || iVar.fK().pz) && !iVar.clm) {
+            if ((P != null || iVar.fK().oT) && !iVar.ckv) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, as.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setData(P);
@@ -89,7 +89,7 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
                 if (aVar != null) {
                     e eVar = new e();
                     eVar.f(cVar);
-                    aVar.pM = eVar;
+                    aVar.pi = eVar;
                 }
             }
         }
@@ -99,13 +99,13 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
-            com.baidu.tbadk.imageManager.c.avu().c(str, (com.baidu.adp.widget.ImageView.a) obj);
+            com.baidu.tbadk.imageManager.c.avs().c(str, (com.baidu.adp.widget.ImageView.a) obj);
         }
     }
 
     @Override // com.baidu.adp.lib.f.e
     public BdAsyncTaskParallel fX() {
-        return j.anm().fX();
+        return j.ank().fX();
     }
 
     @Override // com.baidu.adp.lib.f.e

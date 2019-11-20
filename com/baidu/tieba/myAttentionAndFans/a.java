@@ -6,26 +6,26 @@ import android.view.animation.Transformation;
 import android.widget.FrameLayout;
 /* loaded from: classes5.dex */
 public class a extends Animation {
-    private View hyE;
-    private int hyF;
-    private FrameLayout.LayoutParams hyG;
+    private View hxN;
+    private int hxO;
+    private FrameLayout.LayoutParams hxP;
     private int mType;
 
     public a(View view, int i, int i2) {
         if (view != null) {
-            this.hyE = view;
-            if (this.hyE.getVisibility() == 8 && i2 > 0) {
-                this.hyF = i2;
+            this.hxN = view;
+            if (this.hxN.getVisibility() == 8 && i2 > 0) {
+                this.hxO = i2;
             } else {
-                this.hyF = this.hyE.getMeasuredHeight();
+                this.hxO = this.hxN.getMeasuredHeight();
             }
-            this.hyG = (FrameLayout.LayoutParams) view.getLayoutParams();
+            this.hxP = (FrameLayout.LayoutParams) view.getLayoutParams();
             this.mType = i;
             if (this.mType == 0) {
-                this.hyG.bottomMargin = -this.hyF;
+                this.hxP.bottomMargin = -this.hxO;
                 return;
             }
-            this.hyG.bottomMargin = 0;
+            this.hxP.bottomMargin = 0;
         }
     }
 
@@ -34,19 +34,19 @@ public class a extends Animation {
         super.applyTransformation(f, transformation);
         if (f < 1.0f) {
             if (this.mType == 0) {
-                this.hyG.bottomMargin = (-this.hyF) + ((int) (this.hyF * f));
+                this.hxP.bottomMargin = (-this.hxO) + ((int) (this.hxO * f));
             } else {
-                this.hyG.bottomMargin = -((int) (this.hyF * f));
+                this.hxP.bottomMargin = -((int) (this.hxO * f));
             }
-            this.hyE.requestLayout();
+            this.hxN.requestLayout();
         } else if (this.mType == 0) {
-            this.hyG.bottomMargin = 0;
-            this.hyE.requestLayout();
-            this.hyF = this.hyE.getMeasuredHeight();
+            this.hxP.bottomMargin = 0;
+            this.hxN.requestLayout();
+            this.hxO = this.hxN.getMeasuredHeight();
         } else {
-            this.hyG.bottomMargin = -this.hyF;
-            this.hyE.setVisibility(8);
-            this.hyE.requestLayout();
+            this.hxP.bottomMargin = -this.hxO;
+            this.hxN.setVisibility(8);
+            this.hxN.requestLayout();
         }
     }
 }

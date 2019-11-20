@@ -5,9 +5,9 @@ import android.graphics.Bitmap;
 public interface c {
     boolean N(Bitmap bitmap);
 
+    void czi();
+
+    void czj();
+
     void czk();
-
-    void czl();
-
-    void czm();
 }

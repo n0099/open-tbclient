@@ -33,7 +33,7 @@ public class a {
         if (DEBUG) {
             String b = com.baidu.swan.c.b.b(new File(str2), false);
             if (!TextUtils.isEmpty(b)) {
-                f.SR().putString(com.baidu.swan.apps.swancore.a.eM(i), b);
+                f.ST().putString(com.baidu.swan.apps.swancore.a.eM(i), b);
             }
         }
         com.baidu.swan.apps.swancore.b.c(fl(i), j(fj(i), iu));
@@ -41,11 +41,11 @@ public class a {
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + iu);
         }
-        return C0227a.Td();
+        return C0227a.Tf();
     }
 
     private static ArrayList<Long> j(long j, long j2) {
-        SwanCoreVersion Hg;
+        SwanCoreVersion Hh;
         ArrayList<Long> arrayList = new ArrayList<>();
         if (j != 0) {
             arrayList.add(Long.valueOf(j));
@@ -54,9 +54,9 @@ public class a {
         if (SwanAppMessengerService.getServiceObject() == null) {
             return arrayList;
         }
-        for (a.b bVar : com.baidu.swan.apps.process.messaging.service.a.Ov().Ow()) {
-            if (bVar.bbv && bVar.bbs != null && (Hg = bVar.bbs.Hg()) != null && !arrayList.contains(Long.valueOf(Hg.bqi))) {
-                arrayList.add(Long.valueOf(Hg.bqi));
+        for (a.b bVar : com.baidu.swan.apps.process.messaging.service.a.Ow().Ox()) {
+            if (bVar.bbd && bVar.bba != null && (Hh = bVar.bba.Hh()) != null && !arrayList.contains(Long.valueOf(Hh.bpQ))) {
+                arrayList.add(Long.valueOf(Hh.bpQ));
             }
         }
         if (DEBUG) {
@@ -66,7 +66,7 @@ public class a {
     }
 
     public static long fj(int i) {
-        return f.SR().getLong(fk(i), 0L);
+        return f.ST().getLong(fk(i), 0L);
     }
 
     private static String fk(int i) {
@@ -74,12 +74,12 @@ public class a {
     }
 
     private static void f(final long j, final int i) {
-        f.SR().putLong(fk(i), j);
+        f.ST().putLong(fk(i), j);
         j.a(new Runnable() { // from class: com.baidu.swan.apps.swancore.e.a.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    com.baidu.swan.apps.swancore.a.SS().c(j, i);
+                    com.baidu.swan.apps.swancore.a.SU().c(j, i);
                 } catch (Exception e) {
                     if (a.DEBUG) {
                         e.printStackTrace();
@@ -107,7 +107,7 @@ public class a {
             return this.statusCode == 0;
         }
 
-        public static C0227a Td() {
+        public static C0227a Tf() {
             return u(0, "");
         }
 

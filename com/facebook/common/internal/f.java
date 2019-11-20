@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0555a kaS;
-        private C0555a kaT;
-        private boolean kaU;
+        private C0555a kab;
+        private C0555a kac;
+        private boolean kad;
 
         private a(String str) {
-            this.kaS = new C0555a();
-            this.kaT = this.kaS;
-            this.kaU = false;
+            this.kab = new C0555a();
+            this.kac = this.kab;
+            this.kad = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,10 +54,10 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.kaU;
+            boolean z = this.kad;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0555a c0555a = this.kaS.kaV; c0555a != null; c0555a = c0555a.kaV) {
+            for (C0555a c0555a = this.kab.kae; c0555a != null; c0555a = c0555a.kae) {
                 if (!z || c0555a.value != null) {
                     append.append(str);
                     str = ", ";
@@ -70,17 +70,17 @@ public final class f {
             return append.append('}').toString();
         }
 
-        private C0555a cCJ() {
+        private C0555a cCH() {
             C0555a c0555a = new C0555a();
-            this.kaT.kaV = c0555a;
-            this.kaT = c0555a;
+            this.kac.kae = c0555a;
+            this.kac = c0555a;
             return c0555a;
         }
 
         private a r(String str, @Nullable Object obj) {
-            C0555a cCJ = cCJ();
-            cCJ.value = obj;
-            cCJ.name = (String) g.checkNotNull(str);
+            C0555a cCH = cCH();
+            cCH.value = obj;
+            cCH.name = (String) g.checkNotNull(str);
             return this;
         }
 
@@ -88,7 +88,7 @@ public final class f {
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         public static final class C0555a {
-            C0555a kaV;
+            C0555a kae;
             String name;
             Object value;
 

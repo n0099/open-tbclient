@@ -19,5 +19,5 @@ public interface b {
 
     boolean i(String str, boolean z);
 
-    void wL();
+    void wM();
 }

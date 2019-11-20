@@ -7,29 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> agQ = new ArrayList();
-    private BdTypeListView dvB;
-    private com.baidu.tieba.card.divider.a gck;
-    private c gcl;
-    private b gcm;
+    private List<com.baidu.adp.widget.ListView.a> agy = new ArrayList();
+    private BdTypeListView duK;
+    private com.baidu.tieba.card.divider.a gbt;
+    private c gbu;
+    private b gbv;
 
-    public List<com.baidu.adp.widget.ListView.a> aJs() {
-        return this.agQ;
+    public List<com.baidu.adp.widget.ListView.a> aJq() {
+        return this.agy;
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.dvB = bdTypeListView;
-        this.gck = new com.baidu.tieba.card.divider.a(tbPageContext);
-        this.gcl = new c(tbPageContext);
-        this.gcm = new b(tbPageContext);
-        this.agQ.add(this.gck);
-        this.agQ.add(this.gcl);
-        this.agQ.add(this.gcm);
+        this.duK = bdTypeListView;
+        this.gbt = new com.baidu.tieba.card.divider.a(tbPageContext);
+        this.gbu = new c(tbPageContext);
+        this.gbv = new b(tbPageContext);
+        this.agy.add(this.gbt);
+        this.agy.add(this.gbu);
+        this.agy.add(this.gbv);
     }
 
     public void notifyDataSetChanged() {
-        if (this.dvB != null && (this.dvB.getAdapter() instanceof e)) {
-            this.dvB.getAdapter().notifyDataSetChanged();
+        if (this.duK != null && (this.duK.getAdapter() instanceof e)) {
+            this.duK.getAdapter().notifyDataSetChanged();
         }
     }
 }

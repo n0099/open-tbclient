@@ -14,7 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c implements m {
-    protected String dqw = "";
+    protected String dpF = "";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
@@ -41,13 +41,13 @@ public class c implements m {
             return null;
         }
         com.baidu.swan.apps.media.a t = com.baidu.swan.apps.media.b.t(str, str2, str3);
-        if (t == null && aq.equals("/swan/live/open", this.dqw)) {
-            this.dqw = "";
+        if (t == null && aq.equals("/swan/live/open", this.dpF)) {
+            this.dpF = "";
             return new e(context, str3);
-        } else if (t == null || !(t.LM() instanceof e)) {
+        } else if (t == null || !(t.LN() instanceof e)) {
             return null;
         } else {
-            return (e) t.LM();
+            return (e) t.LN();
         }
     }
 
@@ -66,7 +66,7 @@ public class c implements m {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.tieba.aiapps.apps.media.b.a a2 = com.baidu.tieba.aiapps.apps.media.b.a.a(fT, d.aGZ());
+        com.baidu.tieba.aiapps.apps.media.b.a a2 = com.baidu.tieba.aiapps.apps.media.b.a.a(fT, d.aGX());
         if (!a2.isValid()) {
             com.baidu.swan.apps.console.c.e("Live", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -104,7 +104,7 @@ public class c implements m {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.c.3
             @Override // com.baidu.tieba.aiapps.apps.media.b.c.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, e eVar) {
-                com.baidu.swan.apps.view.container.a ji = com.baidu.swan.apps.view.container.c.c.ji(aVar.aXH);
+                com.baidu.swan.apps.view.container.a ji = com.baidu.swan.apps.view.container.c.c.ji(aVar.aXp);
                 SwanAppNAViewContainer a2 = com.baidu.swan.apps.view.container.c.b.a(aVar, ji);
                 if (ji != null && a2 != null) {
                     com.baidu.swan.apps.view.container.c.c.b(a2, ji);
@@ -121,7 +121,7 @@ public class c implements m {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.c.4
             @Override // com.baidu.tieba.aiapps.apps.media.b.c.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, e eVar) {
-                eVar.k(aVar.aWW, aVar.mDirection);
+                eVar.k(aVar.aWE, aVar.mDirection);
                 return true;
             }
         });
@@ -131,7 +131,7 @@ public class c implements m {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.c.5
             @Override // com.baidu.tieba.aiapps.apps.media.b.c.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, e eVar) {
-                eVar.bJ(aVar.dqr);
+                eVar.bJ(aVar.dpA);
                 return true;
             }
         });
@@ -183,7 +183,7 @@ public class c implements m {
 
     @Override // com.baidu.swan.apps.u.b.m
     public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        this.dqw = "/swan/live/open";
+        this.dpF = "/swan/live/open";
         return v(context, unitedSchemeEntity, callbackHandler, bVar);
     }
 

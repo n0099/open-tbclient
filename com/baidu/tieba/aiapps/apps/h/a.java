@@ -46,12 +46,12 @@ public class a implements n {
     }
 
     @Override // com.baidu.swan.apps.u.b.n
-    public com.baidu.swan.apps.scheme.actions.e.b Ke() {
+    public com.baidu.swan.apps.scheme.actions.e.b Kf() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.u.b.n
-    public void Kf() {
+    public void Kg() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -8,7 +8,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.SystemClock;
 import com.baidu.android.pushservice.i.l;
-import com.baidu.tieba.model.ReportUserInfoModel;
 @TargetApi(21)
 /* loaded from: classes3.dex */
 public class a {
@@ -36,10 +35,10 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(boolean z) {
             if (z || this.c) {
-                long j = ReportUserInfoModel.TIME_INTERVAL;
+                long j = 300000;
                 if (z) {
                     a();
-                    j = ReportUserInfoModel.TIME_INTERVAL - (SystemClock.elapsedRealtime() % ReportUserInfoModel.TIME_INTERVAL);
+                    j = 300000 - (SystemClock.elapsedRealtime() % 300000);
                 }
                 this.c = true;
                 JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.a.getPackageName(), PushJobService.class.getName()));

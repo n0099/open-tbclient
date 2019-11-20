@@ -13,32 +13,32 @@ import okhttp3.Response;
 /* loaded from: classes2.dex */
 class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String byr;
-    private com.baidu.swan.games.network.b bys;
-    private a bzR;
+    private String bxA;
+    private com.baidu.swan.games.network.b bxB;
+    private a bza;
     private String mSrc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.baidu.swan.games.network.b bVar, String str, String str2, a aVar) {
         this.mSrc = "";
-        this.byr = "";
-        this.bys = bVar;
-        this.byr = str;
+        this.bxA = "";
+        this.bxB = bVar;
+        this.bxA = str;
         this.mSrc = str2;
-        this.bzR = aVar;
+        this.bza = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void load() {
-        this.bys.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.e.c.c.1
+        this.bxB.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.e.c.c.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (c.DEBUG) {
                     Log.e("ImageDownloader", c.this.mSrc + " load failed");
                     iOException.printStackTrace();
                 }
-                if (c.this.bzR != null) {
-                    c.this.bzR.x(-1, c.this.mSrc);
+                if (c.this.bza != null) {
+                    c.this.bza.w(-1, c.this.mSrc);
                 }
             }
 
@@ -60,7 +60,7 @@ class c {
                     try {
                         try {
                             String jt = f.jt(c.this.mSrc);
-                            String str = c.this.byr + jt.substring(0, jt.lastIndexOf("/"));
+                            String str = c.this.bxA + jt.substring(0, jt.lastIndexOf("/"));
                             File file2 = new File(str);
                             if (!file2.exists() || !file2.isDirectory()) {
                                 file2.mkdirs();
@@ -88,8 +88,8 @@ class c {
                                             if (file != null) {
                                                 file.delete();
                                             }
-                                            if (c.this.bzR != null) {
-                                                c.this.bzR.x(-1, c.this.mSrc);
+                                            if (c.this.bza != null) {
+                                                c.this.bza.w(-1, c.this.mSrc);
                                             }
                                             if (inputStream2 != null) {
                                                 try {
@@ -148,16 +148,16 @@ class c {
                                     if (c.DEBUG) {
                                         Log.e("ImageDownloader", c.this.mSrc + " load rename success path = " + absolutePath);
                                     }
-                                    if (c.this.bzR != null) {
-                                        c.this.bzR.aX(c.this.mSrc, absolutePath);
+                                    if (c.this.bza != null) {
+                                        c.this.bza.aX(c.this.mSrc, absolutePath);
                                     }
                                 } else {
                                     if (c.DEBUG) {
                                         Log.e("ImageDownloader", c.this.mSrc + " load rename error path = " + absolutePath);
                                     }
                                     file3.delete();
-                                    if (c.this.bzR != null) {
-                                        c.this.bzR.x(-1, absolutePath);
+                                    if (c.this.bza != null) {
+                                        c.this.bza.w(-1, absolutePath);
                                     }
                                 }
                                 if (inputStream != null) {

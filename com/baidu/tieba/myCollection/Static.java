@@ -95,11 +95,11 @@ public class Static {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        com.baidu.tieba.myCollection.a.a.bNV().destroy();
+                        com.baidu.tieba.myCollection.a.a.bNT().destroy();
                     } else if (TbadkCoreApplication.isLogin()) {
-                        com.baidu.tieba.myCollection.a.a.bNV().start();
+                        com.baidu.tieba.myCollection.a.a.bNT().start();
                     } else {
-                        com.baidu.tieba.myCollection.a.a.bNV().destroy();
+                        com.baidu.tieba.myCollection.a.a.bNT().destroy();
                     }
                 }
             }
@@ -109,9 +109,9 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    com.baidu.tieba.myCollection.a.a.bNV().restart();
+                    com.baidu.tieba.myCollection.a.a.bNT().restart();
                 } else {
-                    com.baidu.tieba.myCollection.a.a.bNV().destroy();
+                    com.baidu.tieba.myCollection.a.a.bNT().destroy();
                 }
             }
         });
@@ -120,8 +120,8 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                    b.bNw().bNz();
-                    b.bNw().nt(true);
+                    b.bNu().bNx();
+                    b.bNu().nt(true);
                 }
             }
         });

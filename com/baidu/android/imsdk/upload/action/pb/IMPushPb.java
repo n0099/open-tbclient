@@ -325,8 +325,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -800,8 +801,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -1382,8 +1384,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -1826,8 +1829,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -2382,8 +2386,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -3084,8 +3089,9 @@ public final class IMPushPb {
             return i2;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -3710,8 +3716,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -4427,8 +4434,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -5007,8 +5015,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -5652,8 +5661,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -6380,8 +6390,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -7019,8 +7030,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -7638,8 +7650,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -8229,8 +8242,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 
@@ -8769,8 +8783,9 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
         }
 

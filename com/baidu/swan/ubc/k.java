@@ -6,17 +6,17 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public interface k {
-    int AB();
+    int AC();
 
-    ExecutorService BE();
+    ExecutorService BF();
 
-    String JV();
+    String JW();
 
-    l Kg();
+    l Kh();
 
-    String Nc();
+    String Nd();
 
-    boolean Nd();
+    boolean Ne();
 
     void a(String str, int i, JSONArray jSONArray);
 

@@ -13,31 +13,31 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class c extends a {
-    private TbImageView cmP;
-    private ViewGroup dDu;
+    private TbImageView clX;
+    private ViewGroup dCD;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        aKl();
+        aKj();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void init() {
-        this.dDu = new FrameLayout(this.mTbPageContext.getPageActivity());
-        this.cmP = new TbImageView(this.mTbPageContext.getPageActivity());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mScreenWidth, this.dwC);
-        this.cmP.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.cmP.setDefaultErrorResource(R.drawable.pic_live_ufan);
-        this.cmP.setLayoutParams(layoutParams);
-        this.dDu.addView(this.cmP);
+        this.dCD = new FrameLayout(this.mTbPageContext.getPageActivity());
+        this.clX = new TbImageView(this.mTbPageContext.getPageActivity());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mScreenWidth, this.dvL);
+        this.clX.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.clX.setDefaultErrorResource(R.drawable.pic_live_ufan);
+        this.clX.setLayoutParams(layoutParams);
+        this.dCD.addView(this.clX);
         this.mMaskView.setVisibility(8);
-        this.dDu.addView(this.mMaskView);
-        this.cmP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.c.1
+        this.dCD.addView(this.mMaskView);
+        this.clX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!TextUtils.isEmpty(c.this.dDt.dBU)) {
-                    ba.amQ().a(c.this.mTbPageContext, new String[]{c.this.dDt.dBU}, true);
-                    com.baidu.tieba.ala.alasquare.c.a.aJO().c("c12909", c.this.dDt.dBW, 3, LivenessStat.TYPE_STRING_DEFAULT);
+                if (!TextUtils.isEmpty(c.this.dCC.dBd)) {
+                    ba.amO().a(c.this.mTbPageContext, new String[]{c.this.dCC.dBd}, true);
+                    com.baidu.tieba.ala.alasquare.c.a.aJM().c("c12909", c.this.dCC.dBf, 3, LivenessStat.TYPE_STRING_DEFAULT);
                 }
             }
         });
@@ -50,30 +50,30 @@ public class c extends a {
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public boolean b(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return (aVar == null || 3 != aVar.dBV || TextUtils.isEmpty(aVar.dBS)) ? false : true;
+        return (aVar == null || 3 != aVar.dBe || TextUtils.isEmpty(aVar.dBb)) ? false : true;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void aKm() {
-        super.aKm();
-        if (this.cmP != null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.cmP.getLayoutParams();
+    public void aKk() {
+        super.aKk();
+        if (this.clX != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.clX.getLayoutParams();
             layoutParams.width = this.mScreenWidth;
-            layoutParams.height = this.dwC;
-            this.cmP.setLayoutParams(layoutParams);
+            layoutParams.height = this.dvL;
+            this.clX.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public View getContentView() {
-        return this.dDu;
+        return this.dCD;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
         super.a(aVar);
-        this.cmP.startLoad(aVar.dBS, 10, false);
-        com.baidu.tieba.ala.alasquare.c.a.aJO().c("c12908", this.dDt.dBW, 3, LivenessStat.TYPE_STRING_DEFAULT);
+        this.clX.startLoad(aVar.dBb, 10, false);
+        com.baidu.tieba.ala.alasquare.c.a.aJM().c("c12908", this.dCC.dBf, 3, LivenessStat.TYPE_STRING_DEFAULT);
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
@@ -95,6 +95,6 @@ public class c extends a {
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void onDestroy() {
-        this.cmP = null;
+        this.clX = null;
     }
 }

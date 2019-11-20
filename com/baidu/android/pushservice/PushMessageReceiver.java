@@ -14,7 +14,6 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.message.a.k;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.xiaomi.mipush.sdk.Constants;
-import com.xiaomi.mipush.sdk.MIPushNotificationHelper4Hybrid;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import java.lang.ref.WeakReference;
@@ -257,7 +256,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 if ((!com.baidu.android.pushservice.b.d.k(context) || com.baidu.android.pushservice.b.d.c(context)) && intent.getExtras() != null) {
                     final byte[] byteArrayExtra = intent.getByteArrayExtra("baidu_message_secur_info");
                     final byte[] byteArrayExtra2 = intent.getByteArrayExtra("baidu_message_body");
-                    final String stringExtra = intent.getStringExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID);
+                    final String stringExtra = intent.getStringExtra("message_id");
                     final int intExtra = intent.getIntExtra("baidu_message_type", -1);
                     final String stringExtra2 = intent.getStringExtra(Constants.APP_ID);
                     if (byteArrayExtra == null || byteArrayExtra2 == null || TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2) || intExtra == -1) {

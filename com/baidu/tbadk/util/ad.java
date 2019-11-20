@@ -20,7 +20,7 @@ import java.net.URLDecoder;
 public class ad {
     private static BaseWebView mBaseWebView;
 
-    public static void axW() {
+    public static void axU() {
         try {
             if (mBaseWebView == null) {
                 mBaseWebView = new BaseWebView(TbadkCoreApplication.getInst());
@@ -30,8 +30,9 @@ public class ad {
         }
     }
 
+    @Deprecated
     public static String getUserAgent() {
-        axW();
+        axU();
         if (mBaseWebView == null || mBaseWebView.getSettings() == null) {
             return null;
         }

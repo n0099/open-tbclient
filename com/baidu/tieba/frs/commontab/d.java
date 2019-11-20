@@ -15,11 +15,11 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public class d implements j {
-    public int fDq;
-    public String fDr;
-    public String fDs;
-    public boolean fDt;
-    public SportScheduleInfo fDu;
+    public String fCA;
+    public String fCB;
+    public boolean fCC;
+    public SportScheduleInfo fCD;
+    public int fCz;
     public boolean hasMore;
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public ArrayList<m> threadList = new ArrayList<>();
@@ -46,18 +46,18 @@ public class d implements j {
                         bhVar.setUserMap(this.userMap);
                         bhVar.a(threadInfo);
                         bhVar.setCurrentPage(3);
-                        bhVar.ajw();
+                        bhVar.aju();
                         this.threadList.add(bhVar);
                     }
                 }
             }
-            this.fDq = dataRes.new_thread_num.intValue();
+            this.fCz = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.fDr = dataRes.sport_head_info.head_url;
-                this.fDs = dataRes.sport_head_info.jump_url;
-                this.fDt = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.fCA = dataRes.sport_head_info.head_url;
+                this.fCB = dataRes.sport_head_info.jump_url;
+                this.fCC = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.fDu = dataRes.sport_schedule_info;
+            this.fCD = dataRes.sport_schedule_info;
         }
     }
 

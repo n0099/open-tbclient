@@ -3,7 +3,7 @@ package com.baidu.mobads;
 public interface f {
     void zA();
 
-    void zw();
+    void zB();
 
     void zx();
 

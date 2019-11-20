@@ -6,34 +6,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ar {
-    private ArrayList<UserData> cam = new ArrayList<>();
-    private ArrayList<UserData> can = new ArrayList<>();
-    private an cao = new an();
-    private int cap = 0;
-    private int caq = 0;
+    private ArrayList<UserData> bZv = new ArrayList<>();
+    private ArrayList<UserData> bZw = new ArrayList<>();
+    private an bZx = new an();
+    private int bZy = 0;
+    private int bZz = 0;
 
     public void setPage(an anVar) {
-        this.cao = anVar;
+        this.bZx = anVar;
     }
 
     public an getPage() {
-        return this.cao;
+        return this.bZx;
     }
 
-    public ArrayList<UserData> ahD() {
-        return this.cam;
+    public ArrayList<UserData> ahB() {
+        return this.bZv;
     }
 
-    public ArrayList<UserData> ahE() {
-        return this.can;
+    public ArrayList<UserData> ahC() {
+        return this.bZw;
     }
 
-    public int ahF() {
-        return this.cap;
+    public int ahD() {
+        return this.bZy;
     }
 
-    public int ahG() {
-        return this.caq;
+    public int ahE() {
+        return this.bZz;
     }
 
     public void parserJson(String str) {
@@ -54,7 +54,7 @@ public class ar {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.cam.add(userData);
+                        this.bZv.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -62,12 +62,12 @@ public class ar {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.can.add(userData2);
+                        this.bZw.add(userData2);
                     }
                 }
-                this.cao.parserJson(jSONObject.optJSONObject("page"));
-                this.cap = jSONObject.optInt("tafriendnum", 0);
-                this.caq = jSONObject.optInt("commonfriendnum", 0);
+                this.bZx.parserJson(jSONObject.optJSONObject("page"));
+                this.bZy = jSONObject.optInt("tafriendnum", 0);
+                this.bZz = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

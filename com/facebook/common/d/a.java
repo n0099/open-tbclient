@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a {
-    public static final Map<String, String> kbb = ImmutableMap.of("mkv", "video/x-matroska");
+    public static final Map<String, String> kak = ImmutableMap.of("mkv", "video/x-matroska");
 
     public static boolean Gy(@Nullable String str) {
         return str != null && str.startsWith("video/");
@@ -22,7 +22,7 @@ public class a {
         String lowerCase = GA.toLowerCase(Locale.US);
         String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
         if (mimeTypeFromExtension == null) {
-            return kbb.get(lowerCase);
+            return kak.get(lowerCase);
         }
         return mimeTypeFromExtension;
     }

@@ -33,6 +33,6 @@ public class VideoCacheService extends Service {
         if (this.mHttpServer != null) {
             this.mHttpServer.destroy();
         }
-        l.aCL().destroy();
+        l.aCJ().destroy();
     }
 }

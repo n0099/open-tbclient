@@ -21,14 +21,14 @@ import com.baidu.tieba.ala.liveroom.b;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private b dYQ;
-    private ViewGroup dYV;
-    private com.baidu.live.m.b egD;
+    private b dXZ;
+    private ViewGroup dYe;
+    private com.baidu.live.m.b efM;
     private String otherParams;
 
     public a(TbPageContext tbPageContext, b bVar) {
         super(tbPageContext);
-        this.dYQ = bVar;
+        this.dXZ = bVar;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
@@ -39,12 +39,12 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
 
     public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         CustomResponsedMessage runTask;
-        if (com.baidu.live.l.a.uA().ajX.oo()) {
-            if (this.egD == null && (runTask = MessageManager.getInstance().runTask(2913034, com.baidu.live.m.b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
-                this.egD = (com.baidu.live.m.b) runTask.getData();
+        if (com.baidu.live.l.a.uB().ajF.oo()) {
+            if (this.efM == null && (runTask = MessageManager.getInstance().runTask(2913034, com.baidu.live.m.b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
+                this.efM = (com.baidu.live.m.b) runTask.getData();
             }
-            if (this.egD != null) {
-                this.egD.uM();
+            if (this.efM != null) {
+                this.efM.uN();
             }
             b(viewGroup, layoutParams);
         }
@@ -53,21 +53,21 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     private void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         View view;
         if (viewGroup != null) {
-            this.dYV = viewGroup;
-            if (this.egD != null && (view = this.egD.getView()) != null) {
+            this.dYe = viewGroup;
+            if (this.efM != null && (view = this.efM.getView()) != null) {
                 view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.i.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.CLICK_FLOWER);
                         alaStaticItem.addParams("feed_id", HKStaticManager.FEED_ID);
                         alaStaticItem.addParams("live_id", HKStaticManager.LIVE_ID);
-                        alaStaticItem.addParams("other_params", a.this.tm());
+                        alaStaticItem.addParams("other_params", a.this.tn());
                         AlaStaticsManager.getInst().onStatic(alaStaticItem);
                         if (TbadkCoreApplication.isLogin()) {
-                            if (a.this.dYQ != null) {
-                                a.this.dYQ.na(8);
+                            if (a.this.dXZ != null) {
+                                a.this.dXZ.mZ(8);
                             }
-                            a.this.aRV();
+                            a.this.aRT();
                             return;
                         }
                         ViewHelper.skipToLoginActivity(a.this.getPageContext().getPageActivity());
@@ -75,7 +75,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 });
                 if (viewGroup.indexOfChild(view) < 0) {
                     if (layoutParams == null) {
-                        layoutParams = aRU();
+                        layoutParams = aRS();
                     }
                     viewGroup.addView(view, layoutParams);
                 }
@@ -83,7 +83,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    private ViewGroup.LayoutParams aRU() {
+    private ViewGroup.LayoutParams aRS() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(11);
         layoutParams.rightMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds24);
@@ -94,59 +94,59 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     @Override // com.baidu.tieba.ala.liveroom.a
     public void nA() {
         super.nA();
-        if (this.egD != null) {
-            View view = this.egD.getView();
+        if (this.efM != null) {
+            View view = this.efM.getView();
             if (view != null && view.getParent() != null) {
                 ((ViewGroup) view.getParent()).removeView(view);
             }
-            this.egD.uN();
+            this.efM.uO();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.egD != null) {
-            View view = this.egD.getView();
+        if (this.efM != null) {
+            View view = this.efM.getView();
             if (view != null && view.getParent() != null) {
                 ((ViewGroup) view.getParent()).removeView(view);
             }
-            this.egD.onDestroy();
+            this.efM.onDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aRV() {
+    public void aRT() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new d(getPageContext().getPageActivity())));
     }
 
-    public void x(JSONObject jSONObject) {
-        if (this.egD != null) {
-            this.egD.y(jSONObject);
+    public void y(JSONObject jSONObject) {
+        if (this.efM != null) {
+            this.efM.z(jSONObject);
         }
     }
 
     public void k(i iVar) {
         if (!TbadkCoreApplication.isLogin()) {
-            aRW();
+            aRU();
         }
-        if (this.egD != null && this.egD.getView() != null && iVar != null && iVar.PU != null) {
-            this.egD.a(iVar.PU);
+        if (this.efM != null && this.efM.getView() != null && iVar != null && iVar.Pp != null) {
+            this.efM.a(iVar.Pp);
         }
     }
 
     public void setCanVisible(boolean z) {
-        if (this.egD != null) {
-            this.egD.setCanVisible(z);
+        if (this.efM != null) {
+            this.efM.setCanVisible(z);
         }
     }
 
-    public void aRW() {
-        if (this.egD != null && this.egD.getView() != null) {
-            this.egD.getView().setVisibility(8);
+    public void aRU() {
+        if (this.efM != null && this.efM.getView() != null) {
+            this.efM.getView().setVisibility(8);
         }
     }
 
-    public String tm() {
+    public String tn() {
         return this.otherParams;
     }
 

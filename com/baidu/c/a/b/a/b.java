@@ -9,5 +9,5 @@ public interface b {
 
     void dm(String str);
 
-    void sy();
+    void sz();
 }

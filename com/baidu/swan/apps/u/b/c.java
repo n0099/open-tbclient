@@ -11,7 +11,7 @@ public interface c {
     public interface a {
         void bp(boolean z);
 
-        void k(Exception exc);
+        void j(Exception exc);
     }
 
     void a(Activity activity, Bundle bundle, com.baidu.swan.apps.a.a aVar);

@@ -129,6 +129,8 @@ public interface j {
 
     void d(long j, long j2);
 
+    void m(int i2, int i3);
+
     void nA();
 
     void nK();
@@ -151,15 +153,13 @@ public interface j {
 
     long nT();
 
-    void o(int i2, int i3);
-
     void onDestroy();
+
+    void q(long j);
 
     void r(long j);
 
     void s(long j);
 
     void t(long j);
-
-    void u(long j);
 }

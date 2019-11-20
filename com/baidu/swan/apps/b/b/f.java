@@ -5,11 +5,9 @@ import java.util.Map;
 import okhttp3.Request;
 /* loaded from: classes2.dex */
 public interface f {
-    String BJ();
+    String BK();
 
-    boolean BK();
-
-    String BL();
+    boolean BL();
 
     String BM();
 
@@ -17,9 +15,9 @@ public interface f {
 
     String BO();
 
-    void BP();
+    String BP();
 
-    String BQ();
+    void BQ();
 
     String BR();
 
@@ -48,6 +46,8 @@ public interface f {
     String Cd();
 
     String Ce();
+
+    String Cf();
 
     String aN(Context context);
 

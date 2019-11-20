@@ -7,7 +7,7 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class SettingTextFunctionIntroView extends TbSettingTextTipView {
-    public static String iWt = "has_shown_funtion_intro";
+    public static String iVC = "has_shown_funtion_intro";
 
     public SettingTextFunctionIntroView(Context context) {
         super(context);

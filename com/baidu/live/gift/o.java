@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class o {
-    private Map<String, n> Xu;
-    private Map<String, Integer> Xv;
+    private Map<String, n> Xc;
+    private Map<String, Integer> Xd;
     private List<h> mDatas;
 
     public static o pI() {
-        return a.Xw;
+        return a.Xe;
     }
 
     public void t(List<h> list) {
@@ -34,45 +34,45 @@ public class o {
     }
 
     public Map<String, n> pJ() {
-        return this.Xu;
+        return this.Xc;
     }
 
     public Map<String, Integer> pK() {
-        return this.Xv;
+        return this.Xd;
     }
 
     public void release() {
         if (this.mDatas != null) {
             this.mDatas.clear();
         }
-        if (this.Xu != null) {
-            this.Xu.clear();
+        if (this.Xc != null) {
+            this.Xc.clear();
         }
-        if (this.Xv != null) {
-            this.Xv.clear();
+        if (this.Xd != null) {
+            this.Xd.clear();
         }
     }
 
     private void pL() {
         g.a.C0065a c0065a;
-        if (this.Xu == null) {
-            this.Xu = new HashMap();
+        if (this.Xc == null) {
+            this.Xc = new HashMap();
         }
-        this.Xu.clear();
-        if (this.Xv == null) {
-            this.Xv = new HashMap();
+        this.Xc.clear();
+        if (this.Xd == null) {
+            this.Xd = new HashMap();
         }
-        this.Xv.clear();
+        this.Xd.clear();
         if (this.mDatas != null && this.mDatas.size() > 0) {
             for (h hVar : this.mDatas) {
                 List<g> pt = hVar.pt();
                 if (pt != null && !pt.isEmpty()) {
                     for (g gVar : pt) {
-                        if (gVar.WH != null && (c0065a = gVar.WH.WO) != null && c0065a.key == 10 && c0065a.WQ != null) {
-                            String optString = c0065a.WQ.optString("id");
-                            if (this.Xu.get(optString) == null) {
-                                this.Xu.put(optString, new n(gVar.pc(), gVar.WH.WK, gVar.WB));
-                                this.Xv.put(optString, Integer.valueOf(gVar.WH.WL));
+                        if (gVar.Wo != null && (c0065a = gVar.Wo.Wv) != null && c0065a.key == 10 && c0065a.Wx != null) {
+                            String optString = c0065a.Wx.optString("id");
+                            if (this.Xc.get(optString) == null) {
+                                this.Xc.put(optString, new n(gVar.pc(), gVar.Wo.Wr, gVar.Wi));
+                                this.Xd.put(optString, Integer.valueOf(gVar.Wo.Ws));
                             }
                         }
                     }
@@ -86,6 +86,6 @@ public class o {
 
     /* loaded from: classes6.dex */
     private static class a {
-        private static final o Xw = new o();
+        private static final o Xe = new o();
     }
 }

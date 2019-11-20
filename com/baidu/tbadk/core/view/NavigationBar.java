@@ -627,7 +627,7 @@ public class NavigationBar extends RelativeLayout {
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             am.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else {
-            SvgManager.amN().a(this.mBackImageView, R.drawable.icon_pure_topbar_return_n_svg, R.color.cp_cont_b, null);
+            SvgManager.amL().a(this.mBackImageView, R.drawable.icon_pure_topbar_return_n_svg, R.color.cp_cont_b, null);
         }
     }
 
@@ -638,7 +638,7 @@ public class NavigationBar extends RelativeLayout {
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             am.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else {
-            SvgManager.amN().a(this.mBackImageView, R.drawable.icon_pure_topbar_return_n_svg, i2, null);
+            SvgManager.amL().a(this.mBackImageView, R.drawable.icon_pure_topbar_return_n_svg, i2, null);
         }
     }
 

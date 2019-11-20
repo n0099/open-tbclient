@@ -5,11 +5,11 @@ import com.tb.airbnb.lottie.e;
 import java.io.InputStream;
 /* loaded from: classes6.dex */
 public final class e extends b<InputStream> {
-    private final Resources gk;
+    private final Resources fL;
     private final com.tb.airbnb.lottie.h loadedListener;
 
     public e(Resources resources, com.tb.airbnb.lottie.h hVar) {
-        this.gk = resources;
+        this.fL = resources;
         this.loadedListener = hVar;
     }
 
@@ -18,7 +18,7 @@ public final class e extends b<InputStream> {
     @Override // android.os.AsyncTask
     /* renamed from: b */
     public com.tb.airbnb.lottie.e doInBackground(InputStream... inputStreamArr) {
-        return e.a.b(this.gk, inputStreamArr[0]);
+        return e.a.b(this.fL, inputStreamArr[0]);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

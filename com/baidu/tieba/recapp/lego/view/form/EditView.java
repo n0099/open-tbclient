@@ -17,70 +17,70 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class EditView extends FormItemBaseView {
-    private EditText iMd;
-    private VerificationCodeView iMe;
-    private String iMf;
-    private String iMg;
+    private EditText iLm;
+    private VerificationCodeView iLn;
+    private String iLo;
+    private String iLp;
 
     public EditView(Context context) {
         super(context);
-        this.iMd = null;
-        this.iMe = null;
-        this.iMf = "";
-        this.iMg = "";
+        this.iLm = null;
+        this.iLn = null;
+        this.iLo = "";
+        this.iLp = "";
         init();
     }
 
     public EditView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iMd = null;
-        this.iMe = null;
-        this.iMf = "";
-        this.iMg = "";
+        this.iLm = null;
+        this.iLn = null;
+        this.iLo = "";
+        this.iLp = "";
         init();
     }
 
     public EditView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iMd = null;
-        this.iMe = null;
-        this.iMf = "";
-        this.iMg = "";
+        this.iLm = null;
+        this.iLn = null;
+        this.iLo = "";
+        this.iLp = "";
         init();
     }
 
     private void init() {
-        cgp();
-        cgq();
+        cgn();
+        cgo();
     }
 
-    private void cgp() {
-        this.iMd = new EditText(this.mContext);
-        this.iMd.setId(1);
-        this.iMd.setTextSize(0, this.aGv);
-        this.iMd.setTextColor(this.iMD);
-        this.iMd.setHintTextColor(this.iME);
-        this.iMd.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
-        this.iMd.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.recapp.lego.view.form.EditView.1
+    private void cgn() {
+        this.iLm = new EditText(this.mContext);
+        this.iLm.setId(1);
+        this.iLm.setTextSize(0, this.aGd);
+        this.iLm.setTextColor(this.iLM);
+        this.iLm.setHintTextColor(this.iLN);
+        this.iLm.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
+        this.iLm.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.recapp.lego.view.form.EditView.1
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
-                if (z || EditView.this.cgo()) {
-                    EditView.this.a(EditView.this.iMd, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+                if (z || EditView.this.cgm()) {
+                    EditView.this.a(EditView.this.iLm, FormItemBaseView.DrawableType.ORDINARY_FRAME);
                 } else {
-                    EditView.this.a(EditView.this.iMd, FormItemBaseView.DrawableType.ERROR_FRAME);
+                    EditView.this.a(EditView.this.iLm, FormItemBaseView.DrawableType.ERROR_FRAME);
                 }
             }
         });
-        a(this.iMd, FormItemBaseView.DrawableType.ORDINARY_FRAME);
-        addView(this.iMd, new RelativeLayout.LayoutParams(-1, -2));
+        a(this.iLm, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+        addView(this.iLm, new RelativeLayout.LayoutParams(-1, -2));
     }
 
-    private void cgq() {
-        this.iMe = new VerificationCodeView(this.mContext);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.iMA);
-        layoutParams.topMargin = this.iMy;
-        layoutParams.addRule(3, this.iMd.getId());
-        addView(this.iMe, layoutParams);
+    private void cgo() {
+        this.iLn = new VerificationCodeView(this.mContext);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.iLJ);
+        layoutParams.topMargin = this.iLH;
+        layoutParams.addRule(3, this.iLm.getId());
+        addView(this.iLn, layoutParams);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
@@ -88,39 +88,39 @@ public class EditView extends FormItemBaseView {
         int i;
         if (super.a(bVar)) {
             FormCard.d dVar = (FormCard.d) bVar;
-            this.iMd.setTextSize(0, this.aGv);
+            this.iLm.setTextSize(0, this.aGd);
             switch (dVar.type) {
                 case 3:
-                    int i2 = this.iMA;
-                    this.iMd.setInputType(1);
-                    this.iMd.setFilters(new InputFilter[]{new a(20)});
+                    int i2 = this.iLJ;
+                    this.iLm.setInputType(1);
+                    this.iLm.setFilters(new InputFilter[]{new a(20)});
                     i = i2;
                     break;
                 case 4:
-                    int i3 = this.iMC;
-                    this.iMd.setInputType(131072);
-                    this.iMd.setFilters(new InputFilter[]{new a(100)});
-                    this.iMd.setSingleLine(false);
-                    this.iMd.setHorizontallyScrolling(false);
-                    this.iMd.setGravity(51);
-                    this.iMd.setPadding(this.iMx, this.iMx, this.iMx, this.iMx);
+                    int i3 = this.iLL;
+                    this.iLm.setInputType(131072);
+                    this.iLm.setFilters(new InputFilter[]{new a(100)});
+                    this.iLm.setSingleLine(false);
+                    this.iLm.setHorizontallyScrolling(false);
+                    this.iLm.setGravity(51);
+                    this.iLm.setPadding(this.iLG, this.iLG, this.iLG, this.iLG);
                     i = i3;
                     break;
                 case 5:
-                    i = this.iMA;
-                    this.iMd.setInputType(2);
-                    this.iMd.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
-                    if (dVar.iJy != null) {
-                        this.iMe.setVisibility(0);
-                        this.iMe.au(this.iMs);
-                        this.iMe.a(dVar.iJy);
-                        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iMe.getLayoutParams();
-                        marginLayoutParams.topMargin = this.iMy;
-                        marginLayoutParams.height = this.iMA;
-                        this.iMe.setListener(new VerificationCodeView.a() { // from class: com.baidu.tieba.recapp.lego.view.form.EditView.2
+                    i = this.iLJ;
+                    this.iLm.setInputType(2);
+                    this.iLm.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
+                    if (dVar.iIH != null) {
+                        this.iLn.setVisibility(0);
+                        this.iLn.au(this.iLB);
+                        this.iLn.a(dVar.iIH);
+                        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iLn.getLayoutParams();
+                        marginLayoutParams.topMargin = this.iLH;
+                        marginLayoutParams.height = this.iLJ;
+                        this.iLn.setListener(new VerificationCodeView.a() { // from class: com.baidu.tieba.recapp.lego.view.form.EditView.2
                             @Override // com.baidu.tieba.recapp.lego.view.form.VerificationCodeView.a
-                            public void cgr() {
-                                EditView.this.iMe.setVerificationInfo(((Object) EditView.this.iMd.getText()) + "");
+                            public void cgp() {
+                                EditView.this.iLn.setVerificationInfo(((Object) EditView.this.iLm.getText()) + "");
                             }
                         });
                         break;
@@ -129,16 +129,16 @@ public class EditView extends FormItemBaseView {
                 default:
                     return false;
             }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iMd.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iLm.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = i;
             } else {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
                 layoutParams2.height = i;
-                this.iMd.setLayoutParams(layoutParams2);
+                this.iLm.setLayoutParams(layoutParams2);
             }
-            this.iMd.setHint(dVar.content);
-            this.iMf = dVar.iJx;
+            this.iLm.setHint(dVar.content);
+            this.iLo = dVar.iIG;
             return true;
         }
         return false;
@@ -146,47 +146,47 @@ public class EditView extends FormItemBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     protected void reset() {
-        this.iMd.setPadding(this.iMx, 0, 0, 0);
-        this.iMd.setText("");
-        this.iMd.setGravity(19);
-        this.iMd.setSingleLine(true);
-        this.iMd.setHorizontallyScrolling(true);
-        this.iMd.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
-        this.iMe.setVisibility(8);
+        this.iLm.setPadding(this.iLG, 0, 0, 0);
+        this.iLm.setText("");
+        this.iLm.setGravity(19);
+        this.iLm.setSingleLine(true);
+        this.iLm.setHorizontallyScrolling(true);
+        this.iLm.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+        this.iLn.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public boolean cgo() {
-        if (TextUtils.isEmpty(this.iMf)) {
+    public boolean cgm() {
+        if (TextUtils.isEmpty(this.iLo)) {
             return true;
         }
-        Editable text = this.iMd.getText();
+        Editable text = this.iLm.getText();
         if (text != null) {
-            this.iMg = text.toString().trim();
+            this.iLp = text.toString().trim();
         }
-        return Pattern.matches(this.iMf, this.iMg);
+        return Pattern.matches(this.iLo, this.iLp);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
     public String getResult() {
-        return this.iMg;
+        return this.iLp;
     }
 
     /* loaded from: classes3.dex */
     private class a implements InputFilter {
-        int iMi;
+        int iLr;
         String regEx = "[\\u4e00-\\u9fa5]";
 
         public a(int i) {
-            this.iMi = i;
+            this.iLr = i;
         }
 
         @Override // android.text.InputFilter
         public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
             int length = spanned.toString().length() + CK(spanned.toString());
             int length2 = charSequence.toString().length() + CK(charSequence.toString());
-            if (length + length2 > this.iMi) {
-                int i5 = this.iMi - length;
+            if (length + length2 > this.iLr) {
+                int i5 = this.iLr - length;
                 String str = "";
                 int i6 = i5;
                 int i7 = 0;

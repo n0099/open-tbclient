@@ -6,38 +6,38 @@ import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.l;
 /* loaded from: classes6.dex */
 public class h {
-    private i dMO;
-    private com.baidu.tieba.ala.guardclub.model.l dMP;
+    private i dLX;
+    private com.baidu.tieba.ala.guardclub.model.l dLY;
 
     public h(BaseActivity baseActivity, long j, long j2, long j3, boolean z, boolean z2, boolean z3, boolean z4, String str, BdUniqueId bdUniqueId, l.a aVar) {
-        this.dMO = new i(baseActivity, j, j2, z, z2, z3, z4, bdUniqueId);
-        this.dMP = new com.baidu.tieba.ala.guardclub.model.l(j3, z3, aVar);
-        this.dMO.setOtherParams(str);
-        this.dMP.j(this.dMO);
-        this.dMO.a(this.dMP);
+        this.dLX = new i(baseActivity, j, j2, z, z2, z3, z4, bdUniqueId);
+        this.dLY = new com.baidu.tieba.ala.guardclub.model.l(j3, z3, aVar);
+        this.dLX.setOtherParams(str);
+        this.dLY.j(this.dLX);
+        this.dLX.a(this.dLY);
     }
 
     public void he(boolean z) {
-        this.dMO.he(z);
+        this.dLX.he(z);
     }
 
-    public void pZ() {
-        if (this.dMO != null) {
-            this.dMO.pZ();
+    public void qa() {
+        if (this.dLX != null) {
+            this.dLX.qa();
         }
     }
 
     public View getView() {
-        return this.dMO.getView();
+        return this.dLX.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aLq() {
-        if (this.dMP != null) {
-            this.dMP.onDestory();
+    public void aLo() {
+        if (this.dLY != null) {
+            this.dLY.onDestory();
         }
-        if (this.dMO != null) {
-            this.dMO.aLp();
+        if (this.dLX != null) {
+            this.dLX.aLn();
         }
     }
 }

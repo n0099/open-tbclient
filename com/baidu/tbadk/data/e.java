@@ -6,7 +6,7 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static e cDR;
+    private static e cDa;
     public String isOn;
     public final String NET_TYPENAME_2G = BdNetTypeUtil.NET_TYPENAME_2G;
     public final String NET_TYPENAME_3G = BdNetTypeUtil.NET_TYPENAME_3G;
@@ -16,13 +16,13 @@ public class e {
     public HashMap<String, String> uploadDataNumMap = new HashMap<>();
     public HashMap<String, String> mergeDataFrequencyMap = new HashMap<>();
 
-    public static synchronized e atv() {
+    public static synchronized e att() {
         e eVar;
         synchronized (e.class) {
-            if (cDR == null) {
-                cDR = new e();
+            if (cDa == null) {
+                cDa = new e();
             }
-            eVar = cDR;
+            eVar = cDa;
         }
         return eVar;
     }

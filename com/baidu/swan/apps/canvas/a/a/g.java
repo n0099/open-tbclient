@@ -11,7 +11,7 @@ public class g extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        bVar.aFU = true;
+        bVar.aFC = true;
         canvas.clipPath(bVar.mPath, Region.Op.INTERSECT);
     }
 }

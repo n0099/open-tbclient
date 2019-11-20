@@ -8,14 +8,14 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static b.a aRO;
+    private static b.a aRw;
 
     public static void a(b.a aVar) {
-        aRO = aVar;
+        aRw = aVar;
     }
 
     public static void a(EditText editText, int i) {
-        if (editText != null && aRO != null) {
+        if (editText != null && aRw != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -27,7 +27,7 @@ public class e {
                     e.printStackTrace();
                 }
             }
-            aRO.d(String.valueOf(editText.getTag()), jSONObject);
+            aRw.d(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 
@@ -44,7 +44,7 @@ public class e {
     }
 
     private static void a(EditText editText, String str, int i) {
-        if (editText != null && aRO != null) {
+        if (editText != null && aRw != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -56,7 +56,7 @@ public class e {
                     e.printStackTrace();
                 }
             }
-            aRO.d(String.valueOf(editText.getTag()), jSONObject);
+            aRw.d(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

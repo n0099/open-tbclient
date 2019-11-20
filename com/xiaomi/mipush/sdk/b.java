@@ -2,6 +2,7 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import com.xiaomi.push.hl;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class b {
@@ -15,7 +16,7 @@ public class b {
     }
 
     public static void a(Context context) {
-        com.xiaomi.channel.commonutils.misc.h.a(context).a(new c(context), 20);
+        com.xiaomi.push.ai.a(context).a(new c(context), 20);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -35,16 +36,17 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean d(Context context) {
-        com.xiaomi.push.service.an a2 = com.xiaomi.push.service.an.a(context);
-        if (a2.a(com.xiaomi.xmpush.thrift.g.AggregationSdkMonitorSwitch.a(), false)) {
-            return Math.abs(System.currentTimeMillis() - context.getSharedPreferences("mipush_extra", 0).getLong("last_upload_call_stack_timestamp", 0L)) >= ((long) Math.max(60, a2.a(com.xiaomi.xmpush.thrift.g.AggregationSdkMonitorFrequency.a(), 86400)));
+    /* renamed from: b  reason: collision with other method in class */
+    public static boolean m67b(Context context) {
+        com.xiaomi.push.service.ag a2 = com.xiaomi.push.service.ag.a(context);
+        if (a2.a(hl.AggregationSdkMonitorSwitch.a(), false)) {
+            return Math.abs(System.currentTimeMillis() - context.getSharedPreferences("mipush_extra", 0).getLong("last_upload_call_stack_timestamp", 0L)) >= ((long) Math.max(60, a2.a(hl.AggregationSdkMonitorFrequency.a(), 86400)));
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void e(Context context) {
+    public static void c(Context context) {
         SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
         edit.putLong("last_upload_call_stack_timestamp", System.currentTimeMillis());
         edit.commit();

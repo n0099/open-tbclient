@@ -27,10 +27,10 @@ public class MsgPhotoLiveItemAdapter extends e<MsgPhotoLiveCardVew> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgPhotoLiveCardVew> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgPhotoLiveCardVew byk = aVar.byk();
-        byk.a(this.mPageContext, chatMessage, viewGroup);
-        byk.a(this.gzu);
-        byk.setPosition(i);
+        MsgPhotoLiveCardVew byi = aVar.byi();
+        byi.a(this.mPageContext, chatMessage, viewGroup);
+        byi.a(this.gyD);
+        byi.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

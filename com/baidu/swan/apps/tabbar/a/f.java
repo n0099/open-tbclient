@@ -24,8 +24,8 @@ public class f extends z {
         }
         int optInt = optParamsAsJo.optInt("index");
         String optString = optParamsAsJo.optString("text");
-        com.baidu.swan.apps.core.d.e AH = com.baidu.swan.apps.w.e.LD().AH();
-        if (AH == null) {
+        com.baidu.swan.apps.core.d.e AI = com.baidu.swan.apps.w.e.LE().AI();
+        if (AI == null) {
             com.baidu.swan.apps.console.c.e("setTabBarBadge", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -33,18 +33,18 @@ public class f extends z {
         if (optString.length() > 3) {
             optString = context.getString(a.h.aiapps_tabbar_badge_over_length);
         }
-        com.baidu.swan.apps.core.d.d Fr = AH.Fr();
-        if (Fr == null) {
+        com.baidu.swan.apps.core.d.d Fs = AI.Fs();
+        if (Fs == null) {
             com.baidu.swan.apps.console.c.e("setTabBarBadge", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.tabbar.b.a Fd = Fr.Fd();
-        if (Fd == null) {
+        com.baidu.swan.apps.tabbar.b.a Fe = Fs.Fe();
+        if (Fe == null) {
             com.baidu.swan.apps.console.c.e("setTabBarBadge", "bottomBarViewController is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!Fd.w(optInt, optString)) {
+        } else if (!Fe.v(optInt, optString)) {
             com.baidu.swan.apps.console.c.e("setTabBarBadge", "set bottom badge fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

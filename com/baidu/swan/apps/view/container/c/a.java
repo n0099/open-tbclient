@@ -3,11 +3,11 @@ package com.baidu.swan.apps.view.container.c;
 public class a {
     private int mFlag = 0;
 
-    public void fH(int i) {
+    public void fG(int i) {
         this.mFlag |= i;
     }
 
-    public int Vl() {
+    public int Vj() {
         return this.mFlag;
     }
 }

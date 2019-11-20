@@ -5,19 +5,19 @@ import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.bh;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.data.b implements m {
-    public static final BdUniqueId fGX = BdUniqueId.gen();
-    private bh cbq;
+    public static final BdUniqueId fGg = BdUniqueId.gen();
+    private bh caz;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fGX;
+        return fGg;
     }
 
-    public bh agI() {
-        return this.cbq;
+    public bh agG() {
+        return this.caz;
     }
 
     public void ai(bh bhVar) {
-        this.cbq = bhVar;
+        this.caz = bhVar;
     }
 }

@@ -39,7 +39,7 @@ public class e implements d {
                     java.net.URLConnection r0 = r0.openConnection()     // Catch: java.lang.Throwable -> L3a
                     java.net.HttpURLConnection r0 = (java.net.HttpURLConnection) r0     // Catch: java.lang.Throwable -> L3a
                     com.baidu.poly.a.b r1 = r3     // Catch: java.lang.Throwable -> L3a
-                    java.util.Map r1 = r1.zD()     // Catch: java.lang.Throwable -> L3a
+                    java.util.Map r1 = r1.zE()     // Catch: java.lang.Throwable -> L3a
                     java.util.Set r1 = r1.entrySet()     // Catch: java.lang.Throwable -> L3a
                     java.util.Iterator r4 = r1.iterator()     // Catch: java.lang.Throwable -> L3a
                 L1e:

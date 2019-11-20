@@ -11,14 +11,14 @@ import org.json.JSONObject;
 public class d {
     @ColorInt
     public int color;
-    public String fontName;
-    int ge;
-    public int gf;
-    double gg;
-    public double gh;
+    int fF;
+    public int fG;
+    double fH;
+    public double fI;
     @ColorInt
-    public int gi;
-    public boolean gj;
+    public int fJ;
+    public boolean fK;
+    public String fontName;
     public int size;
     public int strokeWidth;
     public String text;
@@ -27,14 +27,14 @@ public class d {
         this.text = str;
         this.fontName = str2;
         this.size = i;
-        this.ge = i2;
-        this.gf = i3;
-        this.gg = d;
-        this.gh = d2;
+        this.fF = i2;
+        this.fG = i3;
+        this.fH = d;
+        this.fI = d2;
         this.color = i4;
-        this.gi = i5;
+        this.fJ = i5;
         this.strokeWidth = i6;
-        this.gj = z;
+        this.fK = z;
     }
 
     /* loaded from: classes2.dex */
@@ -59,7 +59,7 @@ public class d {
     }
 
     public int hashCode() {
-        long doubleToLongBits = Double.doubleToLongBits(this.gg);
-        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.ge) * 31) + this.gf) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
+        long doubleToLongBits = Double.doubleToLongBits(this.fH);
+        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.fF) * 31) + this.fG) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
     }
 }

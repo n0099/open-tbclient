@@ -6,9 +6,9 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.pms.e.DEBUG;
-    private String bMh;
-    private long bMi;
-    private JSONObject bMj;
+    private String bLq;
+    private long bLr;
+    private JSONObject bLs;
     private int mErrorCode = -1;
 
     public int getErrorCode() {
@@ -19,20 +19,20 @@ public class c {
         this.mErrorCode = i;
     }
 
-    public JSONObject abi() {
-        return this.bMj;
+    public JSONObject abg() {
+        return this.bLs;
     }
 
-    public void aZ(JSONObject jSONObject) {
-        this.bMj = jSONObject;
+    public void ba(JSONObject jSONObject) {
+        this.bLs = jSONObject;
     }
 
     public void setErrorMessage(String str) {
-        this.bMh = str;
+        this.bLq = str;
     }
 
-    public void ay(long j) {
-        this.bMi = j;
+    public void ax(long j) {
+        this.bLr = j;
     }
 
     public static c kW(String str) {
@@ -40,7 +40,7 @@ public class c {
             return null;
         }
         try {
-            return ba(new JSONObject(str));
+            return bb(new JSONObject(str));
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -50,12 +50,12 @@ public class c {
         }
     }
 
-    public static c ba(JSONObject jSONObject) {
+    public static c bb(JSONObject jSONObject) {
         c cVar = new c();
         cVar.setErrorCode(jSONObject.optInt("errno", -1));
         cVar.setErrorMessage(jSONObject.optString("errmsg"));
-        cVar.ay(jSONObject.optLong("request_id"));
-        cVar.aZ(jSONObject.optJSONObject("data"));
+        cVar.ax(jSONObject.optLong("request_id"));
+        cVar.ba(jSONObject.optJSONObject("data"));
         return cVar;
     }
 }

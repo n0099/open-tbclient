@@ -20,15 +20,15 @@ import org.json.JSONObject;
 public class d extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public d(Context context) {
-        super(context, com.baidu.live.im.a.aeK);
+        super(context, com.baidu.live.im.a.aes);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void sZ() {
-        if (ta()) {
-            tb();
-        } else {
+    protected void ta() {
+        if (tb()) {
             tc();
+        } else {
+            td();
         }
     }
 
@@ -75,7 +75,7 @@ public class d extends b {
                 str4 = "";
                 str5 = str2;
                 if (!TextUtils.isEmpty(str4)) {
-                    aVar.te().level_id = JavaTypesHelper.toInt(str4, 0);
+                    aVar.tf().level_id = JavaTypesHelper.toInt(str4, 0);
                 }
                 if (str5 != null) {
                 }
@@ -88,49 +88,49 @@ public class d extends b {
             str2 = null;
         }
         if (!TextUtils.isEmpty(str4) && JavaTypesHelper.toInt(str4, 0) > 0) {
-            aVar.te().level_id = JavaTypesHelper.toInt(str4, 0);
+            aVar.tf().level_id = JavaTypesHelper.toInt(str4, 0);
         }
         if (str5 != null) {
             str3 = aVar.getContent();
         } else if (str5.equals("enter_live")) {
-            i = ta() ? -1647769 : TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_cont_d);
+            i = tb() ? -1647769 : TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_cont_d);
             String string = TextUtils.isEmpty(null) ? this.mContext.getString(a.i.ala_enter_live) : null;
-            a(spannableStringBuilder, aVar.te(), cVar, false, false, false);
+            a(spannableStringBuilder, aVar.tf(), cVar, false, false, false);
             str3 = string;
             color = i;
         } else if (!str5.equals("backstage_live") && !str5.equals("offline_type")) {
             if (str5.equals("close_live")) {
                 str3 = this.mContext.getString(a.i.ala_close_live);
             } else if (str5.equals("follow_anchor")) {
-                i = ta() ? -1647769 : color;
+                i = tb() ? -1647769 : color;
                 str3 = this.mContext.getString(a.i.ala_follow_live);
-                a(spannableStringBuilder, aVar.te(), cVar, false, false);
+                a(spannableStringBuilder, aVar.tf(), cVar, false, false);
                 color = i;
             } else if (str5.equals(TbConfig.TMP_SHARE_DIR_NAME)) {
-                i = ta() ? -1647769 : color;
+                i = tb() ? -1647769 : color;
                 str3 = this.mContext.getString(a.i.ala_share_live);
-                a(spannableStringBuilder, aVar.te(), cVar, false, false);
+                a(spannableStringBuilder, aVar.tf(), cVar, false, false);
                 color = i;
             } else if (!str5.equals("share_tieba") && !str5.equals("remove_video") && !str5.equals("ueg_warn")) {
                 if (str5.equals("live_admin")) {
-                    a(spannableStringBuilder, aVar.te(), cVar, false, false);
+                    a(spannableStringBuilder, aVar.tf(), cVar, false, false);
                 } else if (str5.equals("live_talk_ban")) {
-                    a(spannableStringBuilder, aVar.te(), cVar, false, false);
+                    a(spannableStringBuilder, aVar.tf(), cVar, false, false);
                 } else if (!str5.equals("challenge_direct_start") && !str5.equals("challenge_direct_matched") && !str5.equals("challenge_random_start") && !str5.equals("challenge_random_matched") && !str5.equals("avts") && !str5.equals("allin")) {
                     if (str5.equals("share_rmb")) {
-                        i = ta() ? -1647769 : color;
+                        i = tb() ? -1647769 : color;
                         str3 = this.mContext.getString(a.i.ala_share_rmb);
-                        a(spannableStringBuilder, aVar.te(), cVar, false, false);
+                        a(spannableStringBuilder, aVar.tf(), cVar, false, false);
                         color = i;
                     } else if (str5.equals("zan_rmb")) {
-                        i = ta() ? -1647769 : color;
+                        i = tb() ? -1647769 : color;
                         str3 = this.mContext.getString(a.i.ala_zan_rmb);
-                        a(spannableStringBuilder, aVar.te(), cVar, false, false);
+                        a(spannableStringBuilder, aVar.tf(), cVar, false, false);
                         color = i;
                     } else if (str5.equals("guard_club_join")) {
                         color = -22844;
                         String string2 = this.mContext.getString(a.i.ala_guard_club_join);
-                        str3 = (aVar.te() == null || TextUtils.isEmpty(aVar.te().getNameShow())) ? String.format(string2, "") : String.format(string2, "【" + aVar.te().getNameShow() + "】");
+                        str3 = (aVar.tf() == null || TextUtils.isEmpty(aVar.tf().getNameShow())) ? String.format(string2, "") : String.format(string2, "【" + aVar.tf().getNameShow() + "】");
                     } else {
                         str3 = aVar.getContent();
                     }
@@ -157,9 +157,9 @@ public class d extends b {
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            if (1 == b.ahb) {
+            if (1 == b.agJ) {
                 textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_im_attention_color));
-            } else if (2 == b.ahb) {
+            } else if (2 == b.agJ) {
                 textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_link_tip_a));
             }
             textPaint.setUnderlineText(true);

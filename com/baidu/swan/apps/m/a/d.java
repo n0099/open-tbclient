@@ -6,12 +6,12 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final String aNu;
-    public final String aPZ;
+    public final String aNc;
+    public final String aPH;
 
     public d(String str, String str2) {
-        this.aNu = str;
-        this.aPZ = str2;
+        this.aNc = str;
+        this.aPH = str2;
     }
 
     public static d ff(String str) {

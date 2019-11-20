@@ -7,14 +7,14 @@ import com.baidu.poly.a.e;
 import com.baidu.poly.widget.ChannelListView;
 /* loaded from: classes2.dex */
 public class a {
-    private ChannelListView aAL;
+    private ChannelListView aAt;
     private Context context;
 
     /* loaded from: classes2.dex */
     public static class b {
-        public static int aAR = 1;
-        public static int aAS = 2;
-        public static int aAT = 3;
+        public static int aAz = 1;
+        public static int aAA = 2;
+        public static int aAB = 3;
     }
 
     public a(Context context, d dVar, com.baidu.poly.b.c cVar, com.baidu.poly.d.a aVar, int i) {
@@ -27,7 +27,7 @@ public class a {
         com.baidu.poly.a.a.a.a(dVar, i);
         com.baidu.poly.b.b.a(cVar);
         com.baidu.poly.d.b.b(aVar);
-        if (i == b.aAR) {
+        if (i == b.aAz) {
             com.baidu.poly.util.b.enable(false);
         }
     }
@@ -36,13 +36,13 @@ public class a {
         if (bundle == null) {
             throw new NullPointerException("arguments can not be null");
         }
-        if (this.aAL == null || !this.aAL.zX()) {
-            this.aAL = new ChannelListView(this.context).j(i(bundle)).a(cVar).a(new ChannelListView.a() { // from class: com.baidu.poly.a.1
+        if (this.aAt == null || !this.aAt.zY()) {
+            this.aAt = new ChannelListView(this.context).j(i(bundle)).a(cVar).a(new ChannelListView.a() { // from class: com.baidu.poly.a.1
                 @Override // com.baidu.poly.widget.ChannelListView.a
                 public void onClose() {
-                    a.this.aAL = null;
+                    a.this.aAt = null;
                 }
-            }).zW();
+            }).zX();
         }
     }
 
@@ -52,10 +52,10 @@ public class a {
         return bundle;
     }
 
-    public boolean zC() {
-        if (this.aAL != null) {
-            this.aAL.detach();
-            this.aAL = null;
+    public boolean zD() {
+        if (this.aAt != null) {
+            this.aAt.detach();
+            this.aAt = null;
             return true;
         }
         return false;
@@ -76,23 +76,23 @@ public class a {
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0126a {
-        private d aAN;
-        private com.baidu.poly.b.c aAO;
-        private com.baidu.poly.d.a aAP;
-        private int aAQ = b.aAR;
+        private d aAv;
+        private com.baidu.poly.b.c aAw;
+        private com.baidu.poly.d.a aAx;
+        private int aAy = b.aAz;
 
         public C0126a a(com.baidu.poly.d.a aVar) {
-            this.aAP = aVar;
+            this.aAx = aVar;
             return this;
         }
 
         public C0126a cA(int i) {
-            this.aAQ = i;
+            this.aAy = i;
             return this;
         }
 
         public a aD(Context context) {
-            return new a(context, this.aAN, this.aAO, this.aAP, this.aAQ);
+            return new a(context, this.aAv, this.aAw, this.aAx, this.aAy);
         }
     }
 }

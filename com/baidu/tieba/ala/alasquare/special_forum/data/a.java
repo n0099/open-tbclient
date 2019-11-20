@@ -8,24 +8,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    public String dBS;
-    public String dBT;
-    public String dBU;
-    public int dBV;
-    public int dBW;
-    public List<bh> dbM;
+    public String dBb;
+    public String dBc;
+    public String dBd;
+    public int dBe;
+    public int dBf;
+    public List<bh> daV;
 
     public void parse(JSONObject jSONObject) {
         int i = 0;
         if (jSONObject != null) {
-            this.dBS = jSONObject.optString("head_pic");
-            this.dBT = jSONObject.optString(ConstantData.Logo.LOGO_JUMP_URL_TPYE);
-            this.dBU = jSONObject.optString("url");
-            this.dBV = jSONObject.optInt("head_type", 0);
-            this.dBW = jSONObject.optInt("is_set", -1);
+            this.dBb = jSONObject.optString("head_pic");
+            this.dBc = jSONObject.optString(ConstantData.Logo.LOGO_JUMP_URL_TPYE);
+            this.dBd = jSONObject.optString("url");
+            this.dBe = jSONObject.optInt("head_type", 0);
+            this.dBf = jSONObject.optInt("is_set", -1);
             JSONArray optJSONArray = jSONObject.optJSONArray("head_thread");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.dbM = new ArrayList(optJSONArray.length());
+                this.daV = new ArrayList(optJSONArray.length());
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
@@ -33,7 +33,7 @@ public class a {
                         if (jSONObject2 != null) {
                             bh bhVar = new bh();
                             bhVar.parserJson(jSONObject2);
-                            this.dbM.add(bhVar);
+                            this.daV.add(bhVar);
                         }
                         i = i2 + 1;
                     } else {

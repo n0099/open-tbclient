@@ -17,31 +17,31 @@ import java.lang.reflect.Method;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public class c {
-    private static String bjD = null;
-    private static String bjE = null;
-    private static String bjF = null;
-    private static boolean bjo = com.baidu.swan.apps.b.DEBUG;
+    private static String bjl = null;
+    private static String bjm = null;
+    private static String bjn = null;
+    private static boolean biW = com.baidu.swan.apps.b.DEBUG;
 
     public static boolean bu(Context context) {
-        return (bv(context) || QI()) || bw(context);
+        return (bv(context) || QJ()) || bw(context);
     }
 
     private static boolean bv(Context context) {
-        if (QJ()) {
-            return (QH() && isFloatWindowOpAllowed(context)) ? false : true;
+        if (QK()) {
+            return (QI() && isFloatWindowOpAllowed(context)) ? false : true;
         }
         return false;
     }
 
-    private static boolean QH() {
+    private static boolean QI() {
         String[] split;
-        if (bjE == null) {
-            bjE = hk("ro.build.version.incremental");
+        if (bjm == null) {
+            bjm = hk("ro.build.version.incremental");
         }
-        if (bjo) {
-            Log.d("ToastUtils", "sMiuiVersion = " + bjE);
+        if (biW) {
+            Log.d("ToastUtils", "sMiuiVersion = " + bjm);
         }
-        if (!TextUtils.isEmpty(bjE) && (split = bjE.split(DefaultConfig.TOKEN_SEPARATOR)) != null && split.length >= 1 && split[0].length() >= 2) {
+        if (!TextUtils.isEmpty(bjm) && (split = bjm.split(DefaultConfig.TOKEN_SEPARATOR)) != null && split.length >= 1 && split[0].length() >= 2) {
             String substring = split[0].substring(1);
             if (TextUtils.isEmpty(substring)) {
                 return false;
@@ -55,35 +55,35 @@ public class c {
         return false;
     }
 
-    private static boolean QI() {
+    private static boolean QJ() {
         return Build.VERSION.SDK_INT >= 25;
     }
 
-    private static boolean QJ() {
-        if (bjD == null) {
-            bjD = hk("ro.miui.ui.version.name");
+    private static boolean QK() {
+        if (bjl == null) {
+            bjl = hk("ro.miui.ui.version.name");
         }
-        if (bjo) {
-            Log.d("ToastUtils", "OsName = " + bjD);
+        if (biW) {
+            Log.d("ToastUtils", "OsName = " + bjl);
         }
-        return !TextUtils.isEmpty(bjD);
+        return !TextUtils.isEmpty(bjl);
     }
 
-    public static boolean QK() {
-        if (bjF == null) {
-            bjF = hk("ro.build.version.opporom");
+    public static boolean QL() {
+        if (bjn == null) {
+            bjn = hk("ro.build.version.opporom");
         }
-        if (bjo) {
-            Log.d("ToastUtils", "OsName = " + bjF);
+        if (biW) {
+            Log.d("ToastUtils", "OsName = " + bjn);
         }
-        return !TextUtils.isEmpty(bjF);
+        return !TextUtils.isEmpty(bjn);
     }
 
     private static boolean bw(Context context) {
-        return QL() && !isFloatWindowOpAllowed(context) && Build.VERSION.SDK_INT >= 23;
+        return QM() && !isFloatWindowOpAllowed(context) && Build.VERSION.SDK_INT >= 23;
     }
 
-    private static boolean QL() {
+    private static boolean QM() {
         return Build.FINGERPRINT.contains("Flyme") || Pattern.compile("Flyme", 2).matcher(Build.DISPLAY).find();
     }
 

@@ -17,7 +17,7 @@ public class q extends p {
                     if (!it.hasNext()) {
                         z = true;
                         break;
-                    } else if (!a.isWhitespace(charSequence.charAt(((y) it).cMP()))) {
+                    } else if (!a.isWhitespace(charSequence.charAt(((y) it).cMN()))) {
                         z = false;
                         break;
                     }

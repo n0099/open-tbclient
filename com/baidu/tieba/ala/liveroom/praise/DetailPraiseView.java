@@ -14,26 +14,26 @@ import com.tb.airbnb.lottie.LottieAnimationView;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class DetailPraiseView extends FrameLayout {
-    private ArrayList<LottieAnimationView> ehm;
-    private final int enD;
-    private int enE;
-    private boolean enF;
-    private a enG;
-    private boolean enH;
-    private boolean enI;
-    private GestureDetector.SimpleOnGestureListener enJ;
+    private ArrayList<LottieAnimationView> egv;
+    private final int emK;
+    private int emL;
+    private boolean emM;
+    private a emN;
+    private boolean emO;
+    private boolean emP;
+    private GestureDetector.SimpleOnGestureListener emQ;
     private GestureDetector mDetector;
 
     /* loaded from: classes6.dex */
     public interface a {
-        void aVF();
+        void aVD();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.enI) {
-            if (!this.enH) {
-                this.enH = true;
+        if (this.emP) {
+            if (!this.emO) {
+                this.emO = true;
                 return false;
             }
             return super.dispatchTouchEvent(motionEvent);
@@ -43,15 +43,15 @@ public class DetailPraiseView extends FrameLayout {
 
     public DetailPraiseView(@NonNull Context context) {
         super(context);
-        this.enD = 150;
-        this.ehm = new ArrayList<>();
-        this.enF = true;
-        this.enH = true;
-        this.enI = true;
-        this.enJ = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.1
+        this.emK = 150;
+        this.egv = new ArrayList<>();
+        this.emM = true;
+        this.emO = true;
+        this.emP = true;
+        this.emQ = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
-                return DetailPraiseView.this.enF;
+                return DetailPraiseView.this.emM;
             }
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -76,15 +76,15 @@ public class DetailPraiseView extends FrameLayout {
 
     public DetailPraiseView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.enD = 150;
-        this.ehm = new ArrayList<>();
-        this.enF = true;
-        this.enH = true;
-        this.enI = true;
-        this.enJ = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.1
+        this.emK = 150;
+        this.egv = new ArrayList<>();
+        this.emM = true;
+        this.emO = true;
+        this.emP = true;
+        this.emQ = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
-                return DetailPraiseView.this.enF;
+                return DetailPraiseView.this.emM;
             }
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -109,15 +109,15 @@ public class DetailPraiseView extends FrameLayout {
 
     public DetailPraiseView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
         super(context, attributeSet, i);
-        this.enD = 150;
-        this.ehm = new ArrayList<>();
-        this.enF = true;
-        this.enH = true;
-        this.enI = true;
-        this.enJ = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.1
+        this.emK = 150;
+        this.egv = new ArrayList<>();
+        this.emM = true;
+        this.emO = true;
+        this.emP = true;
+        this.emQ = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
-                return DetailPraiseView.this.enF;
+                return DetailPraiseView.this.emM;
             }
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -141,17 +141,17 @@ public class DetailPraiseView extends FrameLayout {
     }
 
     private void init(Context context) {
-        this.enE = (int) TypedValue.applyDimension(1, 150.0f, getResources().getDisplayMetrics());
-        this.mDetector = new GestureDetector(context, this.enJ);
+        this.emL = (int) TypedValue.applyDimension(1, 150.0f, getResources().getDisplayMetrics());
+        this.mDetector = new GestureDetector(context, this.emQ);
     }
 
     public void setShowPraise(boolean z) {
-        this.enH = z;
+        this.emO = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        this.ehm.clear();
+        this.egv.clear();
         super.onDetachedFromWindow();
     }
 
@@ -161,7 +161,7 @@ public class DetailPraiseView extends FrameLayout {
     }
 
     public void setOnDoubleClickListener(a aVar) {
-        this.enG = aVar;
+        this.emN = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -169,11 +169,11 @@ public class DetailPraiseView extends FrameLayout {
         final LottieAnimationView lottieAnimationView;
         int i = 0;
         while (true) {
-            if (i >= this.ehm.size()) {
+            if (i >= this.egv.size()) {
                 lottieAnimationView = null;
                 break;
             }
-            lottieAnimationView = this.ehm.get(i);
+            lottieAnimationView = this.egv.get(i);
             if (!lottieAnimationView.isAnimating()) {
                 break;
             }
@@ -181,7 +181,7 @@ public class DetailPraiseView extends FrameLayout {
         }
         if (lottieAnimationView == null) {
             lottieAnimationView = new LottieAnimationView(getContext());
-            lottieAnimationView.setLayoutParams(new FrameLayout.LayoutParams(this.enE, this.enE, 119));
+            lottieAnimationView.setLayoutParams(new FrameLayout.LayoutParams(this.emL, this.emL, 119));
             lottieAnimationView.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.2
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
@@ -204,24 +204,24 @@ public class DetailPraiseView extends FrameLayout {
             lottieAnimationView.setImageAssetsFolder("/");
             lottieAnimationView.setAnimation("double_click_praise.json", LottieAnimationView.CacheStrategy.Strong);
             addView(lottieAnimationView);
-            this.ehm.add(lottieAnimationView);
+            this.egv.add(lottieAnimationView);
         }
-        lottieAnimationView.setX(f - (this.enE / 2));
-        lottieAnimationView.setY(f2 - (this.enE / 2));
+        lottieAnimationView.setX(f - (this.emL / 2));
+        lottieAnimationView.setY(f2 - (this.emL / 2));
         lottieAnimationView.setVisibility(0);
         lottieAnimationView.bringToFront();
         lottieAnimationView.playAnimation();
-        if (this.enG != null) {
-            this.enG.aVF();
+        if (this.emN != null) {
+            this.emN.aVD();
         }
     }
 
-    public void aMg() {
+    public void aMe() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.ehm.size()) {
-                LottieAnimationView lottieAnimationView = this.ehm.get(i2);
+            if (i2 < this.egv.size()) {
+                LottieAnimationView lottieAnimationView = this.egv.get(i2);
                 if (lottieAnimationView != null && lottieAnimationView.isAnimating()) {
                     lottieAnimationView.cancelAnimation();
                 }
@@ -233,6 +233,6 @@ public class DetailPraiseView extends FrameLayout {
     }
 
     public void setPraiseEnable(boolean z) {
-        this.enI = z;
+        this.emP = z;
     }
 }

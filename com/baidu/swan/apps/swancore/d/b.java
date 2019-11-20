@@ -7,19 +7,19 @@ import java.util.Iterator;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile b bqp;
-    private ArrayList<com.baidu.swan.apps.swancore.a.a> bqq = new ArrayList<>();
-    private ArrayList<com.baidu.swan.apps.swancore.a.a> bqr = new ArrayList<>();
+    public static volatile b bpX;
+    private ArrayList<com.baidu.swan.apps.swancore.a.a> bpY = new ArrayList<>();
+    private ArrayList<com.baidu.swan.apps.swancore.a.a> bpZ = new ArrayList<>();
 
-    public static b Tc() {
-        if (bqp == null) {
+    public static b Te() {
+        if (bpX == null) {
             synchronized (b.class) {
-                if (bqp == null) {
-                    bqp = new b();
+                if (bpX == null) {
+                    bpX = new b();
                 }
             }
         }
-        return bqp;
+        return bpX;
     }
 
     public void fh(int i) {
@@ -43,9 +43,9 @@ public final class b {
                 return;
             }
             if (i == 1) {
-                arrayList = this.bqr;
+                arrayList = this.bpZ;
             } else {
-                arrayList = this.bqq;
+                arrayList = this.bpY;
             }
             if (arrayList.isEmpty()) {
                 new Thread(new Runnable() { // from class: com.baidu.swan.apps.swancore.d.b.1
@@ -73,17 +73,17 @@ public final class b {
     public void fi(int i) {
         synchronized (b.class) {
             if (i == 0) {
-                Iterator<com.baidu.swan.apps.swancore.a.a> it = this.bqq.iterator();
+                Iterator<com.baidu.swan.apps.swancore.a.a> it = this.bpY.iterator();
                 while (it.hasNext()) {
                     a(it.next());
                 }
-                this.bqq.clear();
+                this.bpY.clear();
             } else if (i == 1) {
-                Iterator<com.baidu.swan.apps.swancore.a.a> it2 = this.bqr.iterator();
+                Iterator<com.baidu.swan.apps.swancore.a.a> it2 = this.bpZ.iterator();
                 while (it2.hasNext()) {
                     a(it2.next());
                 }
-                this.bqr.clear();
+                this.bpZ.clear();
             }
         }
     }
@@ -93,7 +93,7 @@ public final class b {
             ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.swancore.d.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    aVar.AT();
+                    aVar.AU();
                 }
             });
         }

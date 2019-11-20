@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c implements d, k, a.InterfaceC0007a {
-    private final com.airbnb.lottie.f dh;
-    private final List<b> eC;
+    private final com.airbnb.lottie.f cG;
+    private final List<b> ec;
     @Nullable
-    private List<k> eD;
+    private List<k> ed;
     @Nullable
-    private com.airbnb.lottie.a.b.p eE;
+    private com.airbnb.lottie.a.b.p ee;
     private final Matrix matrix;
     private final String name;
     private final Path path;
@@ -67,12 +67,12 @@ public class c implements d, k, a.InterfaceC0007a {
         this.path = new Path();
         this.rect = new RectF();
         this.name = str;
-        this.dh = fVar;
-        this.eC = list;
+        this.cG = fVar;
+        this.ec = list;
         if (lVar != null) {
-            this.eE = lVar.cq();
-            this.eE.a(aVar);
-            this.eE.a(this);
+            this.ee = lVar.cq();
+            this.ee.a(aVar);
+            this.ee.a(this);
         }
         ArrayList arrayList = new ArrayList();
         for (int size = list.size() - 1; size >= 0; size--) {
@@ -88,7 +88,7 @@ public class c implements d, k, a.InterfaceC0007a {
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
     public void bt() {
-        this.dh.invalidateSelf();
+        this.cG.invalidateSelf();
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -101,8 +101,8 @@ public class c implements d, k, a.InterfaceC0007a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.eC.size()) {
-                b bVar = this.eC.get(i2);
+            if (i2 < this.ec.size()) {
+                b bVar = this.ec.get(i2);
                 if (bVar instanceof d) {
                     d dVar = (d) bVar;
                     if (str2 == null || str2.equals(bVar.getName())) {
@@ -120,39 +120,39 @@ public class c implements d, k, a.InterfaceC0007a {
 
     @Override // com.airbnb.lottie.a.a.b
     public void b(List<b> list, List<b> list2) {
-        ArrayList arrayList = new ArrayList(list.size() + this.eC.size());
+        ArrayList arrayList = new ArrayList(list.size() + this.ec.size());
         arrayList.addAll(list);
-        for (int size = this.eC.size() - 1; size >= 0; size--) {
-            b bVar = this.eC.get(size);
-            bVar.b(arrayList, this.eC.subList(0, size));
+        for (int size = this.ec.size() - 1; size >= 0; size--) {
+            b bVar = this.ec.get(size);
+            bVar.b(arrayList, this.ec.subList(0, size));
             arrayList.add(bVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<k> bu() {
-        if (this.eD == null) {
-            this.eD = new ArrayList();
+        if (this.ed == null) {
+            this.ed = new ArrayList();
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.eC.size()) {
+                if (i2 >= this.ec.size()) {
                     break;
                 }
-                b bVar = this.eC.get(i2);
+                b bVar = this.ec.get(i2);
                 if (bVar instanceof k) {
-                    this.eD.add((k) bVar);
+                    this.ed.add((k) bVar);
                 }
                 i = i2 + 1;
             }
         }
-        return this.eD;
+        return this.ed;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Matrix bv() {
-        if (this.eE != null) {
-            return this.eE.getMatrix();
+        if (this.ee != null) {
+            return this.ee.getMatrix();
         }
         this.matrix.reset();
         return this.matrix;
@@ -161,12 +161,12 @@ public class c implements d, k, a.InterfaceC0007a {
     @Override // com.airbnb.lottie.a.a.k
     public Path bw() {
         this.matrix.reset();
-        if (this.eE != null) {
-            this.matrix.set(this.eE.getMatrix());
+        if (this.ee != null) {
+            this.matrix.set(this.ee.getMatrix());
         }
         this.path.reset();
-        for (int size = this.eC.size() - 1; size >= 0; size--) {
-            b bVar = this.eC.get(size);
+        for (int size = this.ec.size() - 1; size >= 0; size--) {
+            b bVar = this.ec.get(size);
             if (bVar instanceof k) {
                 this.path.addPath(((k) bVar).bw(), this.matrix);
             }
@@ -177,12 +177,12 @@ public class c implements d, k, a.InterfaceC0007a {
     @Override // com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         this.matrix.set(matrix);
-        if (this.eE != null) {
-            this.matrix.preConcat(this.eE.getMatrix());
-            i = (int) ((((this.eE.bP().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
+        if (this.ee != null) {
+            this.matrix.preConcat(this.ee.getMatrix());
+            i = (int) ((((this.ee.bP().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
-        for (int size = this.eC.size() - 1; size >= 0; size--) {
-            b bVar = this.eC.get(size);
+        for (int size = this.ec.size() - 1; size >= 0; size--) {
+            b bVar = this.ec.get(size);
             if (bVar instanceof d) {
                 ((d) bVar).a(canvas, this.matrix, i);
             }
@@ -192,12 +192,12 @@ public class c implements d, k, a.InterfaceC0007a {
     @Override // com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         this.matrix.set(matrix);
-        if (this.eE != null) {
-            this.matrix.preConcat(this.eE.getMatrix());
+        if (this.ee != null) {
+            this.matrix.preConcat(this.ee.getMatrix());
         }
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.eC.size() - 1; size >= 0; size--) {
-            b bVar = this.eC.get(size);
+        for (int size = this.ec.size() - 1; size >= 0; size--) {
+            b bVar = this.ec.get(size);
             if (bVar instanceof d) {
                 ((d) bVar).a(this.rect, this.matrix);
                 if (rectF.isEmpty()) {

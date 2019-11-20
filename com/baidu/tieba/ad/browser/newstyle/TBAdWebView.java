@@ -32,7 +32,7 @@ public class TBAdWebView extends BaseAdWebView {
         if (!ab.checkWriteExternalStorage(getContext())) {
             ab.requestWriteExternalStorage((Activity) getContext(), 0);
         } else {
-            com.baidu.tieba.ad.download.d.aDI().c(downloadCacheKey, null);
+            com.baidu.tieba.ad.download.d.aDG().c(downloadCacheKey, null);
         }
     }
 }

@@ -18,58 +18,58 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.live.tbadk.statics.AlaStaticsManager;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tieba.ala.liveroom.a {
-    CustomMessageListener agm;
-    private BdAlertDialog dWB;
-    CustomMessageListener dWC;
-    private Runnable dWD;
+    CustomMessageListener afT;
+    private BdAlertDialog dVK;
+    CustomMessageListener dVL;
+    private Runnable dVM;
     private Handler mHandler;
     private TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.agm = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.liveroom.attentionpop.b.1
+        this.afT = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.liveroom.attentionpop.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 b.this.nA();
             }
         };
-        this.dWC = new CustomMessageListener(2913092) { // from class: com.baidu.tieba.ala.liveroom.attentionpop.b.2
+        this.dVL = new CustomMessageListener(2913092) { // from class: com.baidu.tieba.ala.liveroom.attentionpop.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                b.this.aOf();
+                b.this.aOd();
             }
         };
-        this.dWD = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.attentionpop.b.3
+        this.dVM = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.attentionpop.b.3
             @Override // java.lang.Runnable
             public void run() {
-                b.this.aOg();
+                b.this.aOe();
             }
         };
         this.mTbPageContext = tbPageContext;
         this.mHandler = new Handler();
-        MessageManager.getInstance().registerListener(this.agm);
-        MessageManager.getInstance().registerListener(this.dWC);
+        MessageManager.getInstance().registerListener(this.afT);
+        MessageManager.getInstance().registerListener(this.dVL);
     }
 
-    public void aOf() {
-        if (this.dWB == null || !this.dWB.isShowing()) {
-            if (this.dWB == null) {
-                this.dWB = new BdAlertDialog(this.mTbPageContext.getPageActivity());
+    public void aOd() {
+        if (this.dVK == null || !this.dVK.isShowing()) {
+            if (this.dVK == null) {
+                this.dVK = new BdAlertDialog(this.mTbPageContext.getPageActivity());
                 View inflate = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.ala_liveroom_attention_guide_layout, (ViewGroup) null);
-                this.dWB.setContentViewSize(1);
-                this.dWB.setContentView(inflate);
-                this.dWB.create(this.mTbPageContext);
+                this.dVK.setContentViewSize(1);
+                this.dVK.setContentView(inflate);
+                this.dVK.create(this.mTbPageContext);
                 inflate.findViewById(a.g.id_ala_liveroom_attention_guide_btn).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.attentionpop.b.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        b.this.aOg();
+                        b.this.aOe();
                     }
                 });
             }
-            this.dWB.show();
-            this.mHandler.postDelayed(this.dWD, 5000L);
+            this.dVK.show();
+            this.mHandler.postDelayed(this.dVM, 5000L);
             c.np().putBoolean("ala_attention_guide_has_displayed" + TbadkCoreApplication.getCurrentAccount(), true);
             AlaStaticItem alaStaticItem = new AlaStaticItem(AlaStaticKeys.ALA_STATIC_KEY);
             alaStaticItem.addParams("from", AlaStaticKeys.ALA_STATIC_VALUE_FROM);
@@ -83,21 +83,21 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
     @Override // com.baidu.tieba.ala.liveroom.a
     public void nA() {
         super.nA();
-        aOg();
+        aOe();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOg() {
-        if (this.dWB != null && this.dWB.isShowing()) {
-            this.dWB.dismiss();
+    public void aOe() {
+        if (this.dVK != null && this.dVK.isShowing()) {
+            this.dVK.dismiss();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
         super.onDestroy();
-        this.mHandler.removeCallbacks(this.dWD);
-        MessageManager.getInstance().unRegisterListener(this.agm);
-        MessageManager.getInstance().unRegisterListener(this.dWC);
+        this.mHandler.removeCallbacks(this.dVM);
+        MessageManager.getInstance().unRegisterListener(this.afT);
+        MessageManager.getInstance().unRegisterListener(this.dVL);
     }
 }

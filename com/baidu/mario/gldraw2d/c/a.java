@@ -17,7 +17,7 @@ public abstract class a {
 
     protected abstract void xB();
 
-    protected abstract void xx();
+    protected abstract void xC();
 
     protected abstract void xy();
 

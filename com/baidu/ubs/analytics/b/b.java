@@ -62,7 +62,7 @@ public final class b {
             httpURLConnection.setReadTimeout(MessageConfig.SOCKET_TIME_OUT_MS_2G);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
-            httpURLConnection.setRequestProperty("token", d.cBd().k());
+            httpURLConnection.setRequestProperty("token", d.cBb().k());
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), "utf-8"));
             printWriter.write(str2);
             printWriter.flush();
@@ -109,7 +109,7 @@ public final class b {
                 httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
                 httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
-                httpURLConnection.setRequestProperty("token", d.cBd().k());
+                httpURLConnection.setRequestProperty("token", d.cBb().k());
                 if (file != null) {
                     DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     StringBuffer stringBuffer = new StringBuffer();
@@ -227,7 +227,7 @@ public final class b {
             httpURLConnection.setRequestProperty(HTTP.CONTENT_LEN, String.valueOf(str.toString().getBytes(HTTP.UTF_8).length));
             httpURLConnection.setReadTimeout(MessageConfig.SOCKET_TIME_OUT_MS_2G);
             httpURLConnection.setConnectTimeout(10000);
-            httpURLConnection.setRequestProperty("token", d.cBd().k());
+            httpURLConnection.setRequestProperty("token", d.cBb().k());
             httpURLConnection.connect();
             OutputStream outputStream = httpURLConnection.getOutputStream();
             outputStream.write(str.getBytes(HTTP.UTF_8));
@@ -291,7 +291,7 @@ public final class b {
             return false;
         } else {
             if (jSONObject.getString("status").equals("2")) {
-                g.d(d.cBd().getContext());
+                g.d(d.cBb().getContext());
                 com.baidu.ubs.analytics.d.b.Gf("net  token error ");
                 return false;
             }

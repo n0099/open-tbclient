@@ -6,8 +6,8 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class AlaTaskRewardHttpResponsedMessage extends JsonHttpResponsedMessage {
-    public AlaLiveUserInfoData eCX;
-    public q eCY;
+    public AlaLiveUserInfoData eCg;
+    public q eCh;
 
     public AlaTaskRewardHttpResponsedMessage() {
         super(1021066);
@@ -20,13 +20,13 @@ public class AlaTaskRewardHttpResponsedMessage extends JsonHttpResponsedMessage 
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("user_info");
             if (optJSONObject2 != null) {
-                this.eCX = new AlaLiveUserInfoData();
-                this.eCX.parserJson(optJSONObject2);
+                this.eCg = new AlaLiveUserInfoData();
+                this.eCg.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("task");
             if (optJSONObject3 != null) {
-                this.eCY = new q();
-                this.eCY.parserJson(optJSONObject3);
+                this.eCh = new q();
+                this.eCh.parserJson(optJSONObject3);
             }
         }
     }

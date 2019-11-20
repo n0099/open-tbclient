@@ -8,26 +8,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static e cma;
-    private int cmb = 3;
+    private static e clj;
+    private int clk = 3;
     private boolean isWifi = true;
     private int mSize = 0;
 
-    public static e anp() {
-        if (cma == null) {
+    public static e ann() {
+        if (clj == null) {
             synchronized (e.class) {
-                if (cma == null) {
-                    cma = new e();
+                if (clj == null) {
+                    clj = new e();
                 }
             }
         }
-        return cma;
+        return clj;
     }
 
     private e() {
         g.log("PreLoadVideoSwitchManager init ");
         try {
-            parseJson(com.baidu.tbadk.core.sharedPref.b.alR().getString("video_sync_switch_json", ""));
+            parseJson(com.baidu.tbadk.core.sharedPref.b.alP().getString("video_sync_switch_json", ""));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -41,8 +41,8 @@ public class e {
         return false;
     }
 
-    public int anq() {
-        return this.cmb;
+    public int ano() {
+        return this.clk;
     }
 
     public int getSize() {
@@ -57,7 +57,7 @@ public class e {
         if (!TextUtils.isEmpty(str)) {
             try {
                 parseJson(str);
-                com.baidu.tbadk.core.sharedPref.b.alR().putString("video_sync_switch_json", str);
+                com.baidu.tbadk.core.sharedPref.b.alP().putString("video_sync_switch_json", str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -67,10 +67,10 @@ public class e {
     private void parseJson(String str) throws JSONException {
         if (!TextUtils.isEmpty(str)) {
             JSONObject jSONObject = new JSONObject(str);
-            this.cmb = jSONObject.optInt("num", 3);
+            this.clk = jSONObject.optInt("num", 3);
             this.isWifi = jSONObject.optInt("is_wifi", 1) == 1;
             this.mSize = jSONObject.optInt(TiebaInitialize.LogFields.SIZE, 512000);
-            g.log("PreLoadVideoSwitchManager parseJson:   num: " + this.cmb + " size: " + this.mSize + " isWifi " + this.isWifi);
+            g.log("PreLoadVideoSwitchManager parseJson:   num: " + this.clk + " size: " + this.mSize + " isWifi " + this.isWifi);
         }
     }
 }

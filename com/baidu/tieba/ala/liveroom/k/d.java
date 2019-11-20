@@ -19,13 +19,13 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes6.dex */
 public class d extends Dialog implements View.OnClickListener {
-    private HeadImageView Xy;
-    private ImageView asj;
-    private TextView ask;
-    private TextView asl;
-    private AnimatorSet asm;
-    private View dNm;
-    private a ehC;
+    private HeadImageView Xg;
+    private ImageView arR;
+    private TextView arS;
+    private TextView arT;
+    private AnimatorSet arU;
+    private View dMv;
+    private a egL;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -40,51 +40,51 @@ public class d extends Dialog implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.ehC = aVar;
+        this.egL = aVar;
     }
 
     public void tD(String str) {
-        aSx();
-        this.Xy.startLoad(str, 25, false, false);
-        tw();
+        aSv();
+        this.Xg.startLoad(str, 25, false, false);
+        tx();
         show();
     }
 
-    public String aSv() {
-        return this.ask.getText().toString();
+    public String aSt() {
+        return this.arS.getText().toString();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.dNm || view == this.asj) {
+        if (view == this.dMv || view == this.arR) {
             dismiss();
-        } else if (this.ehC != null) {
-            if (view == this.ask) {
-                this.ehC.onConfirm();
-            } else if (view == this.asl) {
-                this.ehC.onCancel();
+        } else if (this.egL != null) {
+            if (view == this.arS) {
+                this.egL.onConfirm();
+            } else if (view == this.arT) {
+                this.egL.onCancel();
             }
         }
     }
 
     private void init() {
-        wC();
+        wD();
         initView();
         pv();
     }
 
-    private void wC() {
+    private void wD() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
         Window window = getWindow();
         if (window != null) {
             window.setBackgroundDrawableResource(17170445);
             window.getDecorView().setPadding(0, 0, 0, 0);
-            aSw();
+            aSu();
         }
     }
 
-    public void aSw() {
+    public void aSu() {
         WindowManager windowManager = (WindowManager) getContext().getSystemService("window");
         if (windowManager != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -100,53 +100,53 @@ public class d extends Dialog implements View.OnClickListener {
 
     private void initView() {
         setContentView(a.h.ala_guide_follow_pop);
-        this.dNm = findViewById(a.g.layout_root);
-        this.Xy = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.dMv = findViewById(a.g.layout_root);
+        this.Xg = (HeadImageView) findViewById(a.g.iv_avatar);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.Xy.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def_hk);
-            this.Xy.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def_hk);
+            this.Xg.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def_hk);
+            this.Xg.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def_hk);
         } else {
-            this.Xy.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
-            this.Xy.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.Xg.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.Xg.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
         }
-        this.Xy.setIsRound(true);
-        this.Xy.setAutoChangeStyle(false);
-        this.Xy.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.ask = (TextView) findViewById(a.g.tv_confirm);
-        this.asl = (TextView) findViewById(a.g.tv_cancel);
-        this.asj = (ImageView) findViewById(a.g.iv_close);
-        this.dNm.setOnClickListener(this);
-        this.ask.setOnClickListener(this);
-        this.asl.setOnClickListener(this);
-        this.asj.setOnClickListener(this);
+        this.Xg.setIsRound(true);
+        this.Xg.setAutoChangeStyle(false);
+        this.Xg.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.arS = (TextView) findViewById(a.g.tv_confirm);
+        this.arT = (TextView) findViewById(a.g.tv_cancel);
+        this.arR = (ImageView) findViewById(a.g.iv_close);
+        this.dMv.setOnClickListener(this);
+        this.arS.setOnClickListener(this);
+        this.arT.setOnClickListener(this);
+        this.arR.setOnClickListener(this);
     }
 
     private void pv() {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.k.d.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (d.this.asm != null) {
-                    d.this.asm.cancel();
+                if (d.this.arU != null) {
+                    d.this.arU.cancel();
                 }
             }
         });
     }
 
-    private void tw() {
-        if (this.asm == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.dNm, "ScaleX", 0.5f, 1.2f, 1.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.dNm, "ScaleY", 0.5f, 1.2f, 1.0f);
-            this.asm = new AnimatorSet();
-            this.asm.playTogether(ofFloat, ofFloat2);
-            this.asm.setDuration(300L);
-            this.asm.setInterpolator(new LinearInterpolator());
+    private void tx() {
+        if (this.arU == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.dMv, "ScaleX", 0.5f, 1.2f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.dMv, "ScaleY", 0.5f, 1.2f, 1.0f);
+            this.arU = new AnimatorSet();
+            this.arU.playTogether(ofFloat, ofFloat2);
+            this.arU.setDuration(300L);
+            this.arU.setInterpolator(new LinearInterpolator());
         }
-        this.asm.start();
+        this.arU.start();
     }
 
-    private void aSx() {
-        if (this.Xy != null) {
-            this.Xy.stopLoad();
+    private void aSv() {
+        if (this.Xg != null) {
+            this.Xg.stopLoad();
         }
     }
 }

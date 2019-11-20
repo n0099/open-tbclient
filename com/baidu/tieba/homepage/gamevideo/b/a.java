@@ -17,24 +17,24 @@ import com.baidu.tieba.homepage.gamevideo.view.GameVideoGridView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private TbPageContext cfl;
-    private GameVideoGridView giG;
-    private com.baidu.tieba.homepage.gamevideo.a.b giH;
-    private InterfaceC0425a giI;
+    private TbPageContext ceu;
+    private GameVideoGridView ghO;
+    private com.baidu.tieba.homepage.gamevideo.a.b ghP;
+    private InterfaceC0425a ghQ;
     private BdUniqueId mBdUniqueId;
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.a.1
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (a.this.giH != null && i < a.this.giH.getCount() && a.this.giH.getItem(i) != null && (a.this.giH.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
-                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.giH.getItem(i);
+            if (a.this.ghP != null && i < a.this.ghP.getCount() && a.this.ghP.getItem(i) != null && (a.this.ghP.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
+                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.ghP.getItem(i);
                 if (aVar.enable == 1) {
-                    a.this.giH.sZ(aVar.sub_class_id);
-                    if (a.this.giI != null) {
-                        a.this.giI.a(aVar);
+                    a.this.ghP.sY(aVar.sub_class_id);
+                    if (a.this.ghQ != null) {
+                        a.this.ghQ.a(aVar);
                     }
-                    a.this.bua();
-                    com.baidu.tbadk.core.sharedPref.b.alR().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
-                    com.baidu.tbadk.core.sharedPref.b.alR().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
+                    a.this.btY();
+                    com.baidu.tbadk.core.sharedPref.b.alP().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
+                    com.baidu.tbadk.core.sharedPref.b.alP().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
                     TiebaStatic.log(new an("c13485").O("obj_type", aVar.sub_class_id));
                 }
             }
@@ -50,26 +50,26 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.cfl = tbPageContext;
+        this.ceu = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
         init();
     }
 
     private void init() {
-        this.mRootView = LayoutInflater.from(this.cfl.getPageActivity()).inflate(R.layout.game_video_choose_fullscreen_layout, (ViewGroup) null);
-        this.giG = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
-        this.giH = new com.baidu.tieba.homepage.gamevideo.a.b(this.cfl, 101, this.mBdUniqueId);
-        this.giG.setNumColumns(4);
-        this.giG.setAdapter((ListAdapter) this.giH);
-        this.giG.setOnItemClickListener(this.mOnItemClickListener);
+        this.mRootView = LayoutInflater.from(this.ceu.getPageActivity()).inflate(R.layout.game_video_choose_fullscreen_layout, (ViewGroup) null);
+        this.ghO = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
+        this.ghP = new com.baidu.tieba.homepage.gamevideo.a.b(this.ceu, 101, this.mBdUniqueId);
+        this.ghO.setNumColumns(4);
+        this.ghO.setAdapter((ListAdapter) this.ghP);
+        this.ghO.setOnItemClickListener(this.mOnItemClickListener);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_game_video_choose_full_title);
         onChangeSkinType();
     }
 
     public void setData(List<com.baidu.tieba.homepage.gamevideo.c.a> list) {
         if (!v.isEmpty(list)) {
-            this.giH.setData(list);
-            this.giH.notifyDataSetChanged();
+            this.ghP.setData(list);
+            this.ghP.notifyDataSetChanged();
         }
     }
 
@@ -92,19 +92,19 @@ public class a {
         }
     }
 
-    public void bua() {
+    public void btY() {
         if (this.mRootView != null && this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
     }
 
     public void a(InterfaceC0425a interfaceC0425a) {
-        this.giI = interfaceC0425a;
+        this.ghQ = interfaceC0425a;
     }
 
     public void onDestroy() {
-        if (this.giG != null) {
-            this.giG.onDestroy();
+        if (this.ghO != null) {
+            this.ghO.onDestroy();
         }
     }
 }

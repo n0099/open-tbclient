@@ -7,22 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class k {
-    private int aeH;
-    private boolean agF;
-    private List<AlaLiveMarkData> agd;
+    private int aep;
+    private List<AlaLiveMarkData> afL;
+    private boolean agn;
 
-    public static k sM() {
-        return a.agG;
+    public static k sN() {
+        return a.ago;
     }
 
-    public ao[] sN() {
+    public ao[] sO() {
         ao[] aoVarArr;
         boolean z = false;
-        af afVar = com.baidu.live.l.a.uA().akM;
-        if (afVar == null || afVar.Uh == null || !afVar.Uh.Vk || afVar.Ue == null) {
+        af afVar = com.baidu.live.l.a.uB().aku;
+        if (afVar == null || afVar.TO == null || !afVar.TO.UR || afVar.TK == null) {
             aoVarArr = null;
         } else {
-            aoVarArr = afVar.Ue.UJ;
+            aoVarArr = afVar.TK.Uo;
             if (aoVarArr != null && aoVarArr.length > 0) {
                 z = true;
             }
@@ -33,57 +33,57 @@ public class k {
         return null;
     }
 
-    public boolean sO() {
-        return this.agF;
+    public boolean sP() {
+        return this.agn;
     }
 
     public void ax(boolean z) {
-        if (z && !this.agF) {
+        if (z && !this.agn) {
             setSelect(0);
         }
         if (!z) {
             setSelect(-1);
         }
-        this.agF = z;
+        this.agn = z;
     }
 
     public int getSelect() {
-        return this.aeH;
+        return this.aep;
     }
 
     public void setSelect(int i) {
-        this.aeH = i;
+        this.aep = i;
     }
 
-    public List<AlaLiveMarkData> sP() {
-        return this.agd;
+    public List<AlaLiveMarkData> sQ() {
+        return this.afL;
     }
 
-    public void E(List<AlaLiveMarkData> list) {
-        if (this.agd == null) {
-            this.agd = new ArrayList();
+    public void F(List<AlaLiveMarkData> list) {
+        if (this.afL == null) {
+            this.afL = new ArrayList();
         }
-        this.agd.clear();
+        this.afL.clear();
         if (list != null && !list.isEmpty()) {
-            this.agd.addAll(list);
+            this.afL.addAll(list);
         }
     }
 
     public void release() {
-        this.agF = false;
-        this.aeH = -1;
-        if (this.agd != null) {
-            this.agd.clear();
+        this.agn = false;
+        this.aep = -1;
+        if (this.afL != null) {
+            this.afL.clear();
         }
     }
 
     private k() {
-        this.agF = false;
-        this.aeH = -1;
+        this.agn = false;
+        this.aep = -1;
     }
 
     /* loaded from: classes6.dex */
     private static class a {
-        private static final k agG = new k();
+        private static final k ago = new k();
     }
 }

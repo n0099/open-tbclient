@@ -26,11 +26,11 @@ import com.baidu.tieba.channel.view.c;
 /* loaded from: classes6.dex */
 public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
     public static boolean isChanged = false;
-    private c eRE;
-    private ChannelEditModel eRF;
-    private ChannelInfo eRG;
+    private c eQN;
+    private ChannelEditModel eQO;
+    private ChannelInfo eQP;
     private final WriteImagesInfo writeImagesInfo = new WriteImagesInfo(1);
-    private HttpMessageListener eRH = new HttpMessageListener(1003315) { // from class: com.baidu.tieba.channel.activity.ChannelEditActivity.1
+    private HttpMessageListener eQQ = new HttpMessageListener(1003315) { // from class: com.baidu.tieba.channel.activity.ChannelEditActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -44,7 +44,7 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
                     ChannelEditActivity.this.getPageContext().showToast(string);
                     return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CHANNEL_HOME_INFO_UPDATE, ChannelEditActivity.this.eRG));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CHANNEL_HOME_INFO_UPDATE, ChannelEditActivity.this.eQP));
                 ChannelEditActivity.isChanged = false;
                 ChannelEditActivity.this.getPageContext().showToast(ChannelEditActivity.this.getPageContext().getString(R.string.success));
                 ChannelEditActivity.this.finish();
@@ -56,44 +56,44 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eRG = (ChannelInfo) getIntent().getSerializableExtra(ChannelEditActivityConfig.CHANNEL_INFO);
+        this.eQP = (ChannelInfo) getIntent().getSerializableExtra(ChannelEditActivityConfig.CHANNEL_INFO);
         isChanged = false;
-        this.eRE = new c(this);
-        this.eRF = new ChannelEditModel(this);
-        bbb();
-        this.eRE.c(this.eRG);
+        this.eQN = new c(this);
+        this.eQO = new ChannelEditModel(this);
+        baZ();
+        this.eQN.c(this.eQP);
     }
 
-    private void bbb() {
-        registerListener(this.eRH);
+    private void baZ() {
+        registerListener(this.eQQ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.eRE.onResume();
+        this.eQN.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.eRE.onPause();
+        this.eQN.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.eRE.onDestroy();
+        this.eQN.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eRE.onChangeSkinType(i);
+        this.eQN.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -128,15 +128,15 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
                 case RequestResponseCode.REQUEST_CHANNEL_COVER_ALBUM_VIEW /* 25009 */:
                     isChanged = true;
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra("pic_info");
-                    this.eRG.setChannelCover(photoUrlData.getBigurl());
-                    this.eRG.setChannelSmallCover(photoUrlData.getBigurl());
-                    this.eRE.c(this.eRG);
+                    this.eQP.setChannelCover(photoUrlData.getBigurl());
+                    this.eQP.setChannelSmallCover(photoUrlData.getBigurl());
+                    this.eQN.c(this.eQP);
                     return;
                 case RequestResponseCode.REQUEST_CHANNEL_AVATAR_CAMERA_VIEW /* 25010 */:
                 case RequestResponseCode.REQUEST_CHANNEL_AVATAR_ALBUM_VIEW /* 25011 */:
                     isChanged = true;
-                    this.eRG.setChannelAvatar(((PhotoUrlData) intent.getSerializableExtra("pic_info")).getBigurl());
-                    this.eRE.c(this.eRG);
+                    this.eQP.setChannelAvatar(((PhotoUrlData) intent.getSerializableExtra("pic_info")).getBigurl());
+                    this.eQN.c(this.eQP);
                     return;
                 default:
                     return;
@@ -160,16 +160,16 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
         }
     }
 
-    public void bbc() {
+    public void bba() {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
             return;
         }
-        this.eRG.setDescription(this.eRE.getDescription());
-        this.eRF.b(this.eRG);
+        this.eQP.setDescription(this.eQN.getDescription());
+        this.eQO.b(this.eQP);
     }
 
-    public ChannelInfo bbd() {
-        return this.eRG;
+    public ChannelInfo bbb() {
+        return this.eQP;
     }
 }

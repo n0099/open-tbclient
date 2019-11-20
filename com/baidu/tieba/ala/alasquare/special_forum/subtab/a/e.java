@@ -16,23 +16,23 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.special_forum.data.c> {
-    public AlaBannerAutoScrollView<com.baidu.tieba.ala.alasquare.special_forum.data.b> dDl;
-    private com.baidu.tieba.ala.alasquare.widget.banner.c dDm;
+    public AlaBannerAutoScrollView<com.baidu.tieba.ala.alasquare.special_forum.data.b> dCu;
+    private com.baidu.tieba.ala.alasquare.widget.banner.c dCv;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.dDm = new com.baidu.tieba.ala.alasquare.widget.banner.c() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.e.2
+        this.dCv = new com.baidu.tieba.ala.alasquare.widget.banner.c() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.e.2
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.c
             public com.baidu.tieba.ala.alasquare.widget.banner.b j(ViewGroup viewGroup2, int i) {
                 return new com.baidu.tieba.ala.alasquare.widget.banner.b<com.baidu.tieba.ala.alasquare.special_forum.data.b>(LayoutInflater.from(e.this.mTbPageContext.getPageActivity()).inflate(R.layout.special_bar_recommend_activity, viewGroup2, false)) { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.e.2.1
-                    public TbImageView dDo;
+                    public TbImageView dCx;
 
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
                     protected void W(View view) {
-                        this.dDo = (TbImageView) view.findViewById(R.id.cover);
-                        this.dDo.setDefaultErrorResource(0);
-                        this.dDo.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+                        this.dCx = (TbImageView) view.findViewById(R.id.cover);
+                        this.dCx.setDefaultErrorResource(0);
+                        this.dCx.setDefaultBgResource(R.drawable.pic_bg_video_frs);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -40,8 +40,8 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
                     /* renamed from: a */
                     public void h(int i2, com.baidu.tieba.ala.alasquare.special_forum.data.b bVar) {
-                        if (bVar != null && this.dDo != null && !StringUtils.isNull(bVar.pic)) {
-                            this.dDo.startLoad(bVar.pic, 10, false);
+                        if (bVar != null && this.dCx != null && !StringUtils.isNull(bVar.pic)) {
+                            this.dCx.startLoad(bVar.pic, 10, false);
                         }
                     }
 
@@ -53,15 +53,15 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
             }
         };
         this.mTbPageContext = tbPageContext;
-        this.dDl = (AlaBannerAutoScrollView) getView().findViewById(R.id.banner_container);
-        this.dDl.setViewHolderAdapter(this.dDm);
-        this.dDl.setOnBannerClickListener(new com.baidu.tieba.ala.alasquare.widget.banner.d() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.e.1
+        this.dCu = (AlaBannerAutoScrollView) getView().findViewById(R.id.banner_container);
+        this.dCu.setViewHolderAdapter(this.dCv);
+        this.dCu.setOnBannerClickListener(new com.baidu.tieba.ala.alasquare.widget.banner.d() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.e.1
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.d
             public void ah(Object obj) {
                 if (obj != null && (obj instanceof com.baidu.tieba.ala.alasquare.special_forum.data.b)) {
                     com.baidu.tieba.ala.alasquare.special_forum.data.b bVar = (com.baidu.tieba.ala.alasquare.special_forum.data.b) obj;
                     if (!StringUtils.isNull(bVar.url)) {
-                        ba.amQ().a((TbPageContext) i.ab(e.this.mTbPageContext.getPageActivity()), new String[]{bVar.url}, true);
+                        ba.amO().a((TbPageContext) i.ab(e.this.mTbPageContext.getPageActivity()), new String[]{bVar.url}, true);
                     }
                     TiebaStatic.log("c12902");
                 }
@@ -72,7 +72,7 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.dDl.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.dCu.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
@@ -89,8 +89,8 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
     @Override // com.baidu.tieba.card.a
     /* renamed from: b */
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.c cVar) {
-        if (cVar != null && !v.isEmpty(cVar.dBX)) {
-            this.dDl.a(cVar.dBX, this.dDm);
+        if (cVar != null && !v.isEmpty(cVar.dBg)) {
+            this.dCu.a(cVar.dBg, this.dCv);
             TiebaStatic.log("c12901");
         }
     }
@@ -101,13 +101,13 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
 
     /* loaded from: classes6.dex */
     public static class a extends v.a {
-        public View bGb;
-        public e dDq;
+        public View bFk;
+        public e dCz;
 
         public a(e eVar) {
             super(eVar.getView());
-            this.dDq = eVar;
-            this.bGb = eVar.getView();
+            this.dCz = eVar;
+            this.bFk = eVar.getView();
         }
     }
 }

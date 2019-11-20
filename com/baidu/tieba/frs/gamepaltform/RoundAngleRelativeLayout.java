@@ -11,12 +11,12 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes4.dex */
 public class RoundAngleRelativeLayout extends RelativeLayout {
-    private Paint ast;
-    private float fIA;
-    private float fIB;
-    private Paint fIC;
-    private float fIy;
-    private float fIz;
+    private Paint asb;
+    private float fHH;
+    private float fHI;
+    private float fHJ;
+    private float fHK;
+    private Paint fHL;
 
     public RoundAngleRelativeLayout(Context context) {
         this(context, null);
@@ -28,18 +28,18 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
 
     public RoundAngleRelativeLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ast = new Paint();
-        this.ast.setColor(-1);
-        this.ast.setAntiAlias(true);
-        this.ast.setStyle(Paint.Style.FILL);
-        this.ast.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.fIC = new Paint();
-        this.fIC.setXfermode(null);
+        this.asb = new Paint();
+        this.asb.setColor(-1);
+        this.asb.setAntiAlias(true);
+        this.asb.setStyle(Paint.Style.FILL);
+        this.asb.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.fHL = new Paint();
+        this.fHL.setXfermode(null);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        canvas.saveLayer(new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight()), this.fIC, 31);
+        canvas.saveLayer(new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight()), this.fHL, 31);
         super.dispatchDraw(canvas);
         J(canvas);
         K(canvas);
@@ -49,78 +49,78 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     }
 
     private void J(Canvas canvas) {
-        if (this.fIy > 0.0f) {
+        if (this.fHH > 0.0f) {
             Path path = new Path();
-            path.moveTo(0.0f, this.fIy);
+            path.moveTo(0.0f, this.fHH);
             path.lineTo(0.0f, 0.0f);
-            path.lineTo(this.fIy, 0.0f);
-            path.arcTo(new RectF(0.0f, 0.0f, this.fIy * 2.0f, this.fIy * 2.0f), -90.0f, -90.0f);
+            path.lineTo(this.fHH, 0.0f);
+            path.arcTo(new RectF(0.0f, 0.0f, this.fHH * 2.0f, this.fHH * 2.0f), -90.0f, -90.0f);
             path.close();
-            canvas.drawPath(path, this.ast);
+            canvas.drawPath(path, this.asb);
         }
     }
 
     private void K(Canvas canvas) {
-        if (this.fIz > 0.0f) {
+        if (this.fHI > 0.0f) {
             int width = getWidth();
             Path path = new Path();
-            path.moveTo(width - this.fIz, 0.0f);
+            path.moveTo(width - this.fHI, 0.0f);
             path.lineTo(width, 0.0f);
-            path.lineTo(width, this.fIz);
-            path.arcTo(new RectF(width - (this.fIz * 2.0f), 0.0f, width, this.fIz * 2.0f), 0.0f, -90.0f);
+            path.lineTo(width, this.fHI);
+            path.arcTo(new RectF(width - (this.fHI * 2.0f), 0.0f, width, this.fHI * 2.0f), 0.0f, -90.0f);
             path.close();
-            canvas.drawPath(path, this.ast);
+            canvas.drawPath(path, this.asb);
         }
     }
 
     private void L(Canvas canvas) {
-        if (this.fIA > 0.0f) {
+        if (this.fHJ > 0.0f) {
             int height = getHeight();
             Path path = new Path();
-            path.moveTo(0.0f, height - this.fIA);
+            path.moveTo(0.0f, height - this.fHJ);
             path.lineTo(0.0f, height);
-            path.lineTo(this.fIA, height);
-            path.arcTo(new RectF(0.0f, height - (this.fIA * 2.0f), this.fIA * 2.0f, height), 90.0f, 90.0f);
+            path.lineTo(this.fHJ, height);
+            path.arcTo(new RectF(0.0f, height - (this.fHJ * 2.0f), this.fHJ * 2.0f, height), 90.0f, 90.0f);
             path.close();
-            canvas.drawPath(path, this.ast);
+            canvas.drawPath(path, this.asb);
         }
     }
 
     private void M(Canvas canvas) {
-        if (this.fIB > 0.0f) {
+        if (this.fHK > 0.0f) {
             int height = getHeight();
             int width = getWidth();
             Path path = new Path();
-            path.moveTo(width - this.fIB, height);
+            path.moveTo(width - this.fHK, height);
             path.lineTo(width, height);
-            path.lineTo(width, height - this.fIB);
-            path.arcTo(new RectF(width - (this.fIB * 2.0f), height - (this.fIB * 2.0f), width, height), 0.0f, 90.0f);
+            path.lineTo(width, height - this.fHK);
+            path.arcTo(new RectF(width - (this.fHK * 2.0f), height - (this.fHK * 2.0f), width, height), 0.0f, 90.0f);
             path.close();
-            canvas.drawPath(path, this.ast);
+            canvas.drawPath(path, this.asb);
         }
     }
 
     public void setTopLeftRadius(float f) {
-        this.fIy = f;
+        this.fHH = f;
     }
 
     public void setTopRightRadius(float f) {
-        this.fIz = f;
+        this.fHI = f;
     }
 
     public void setBottomLeftRadius(float f) {
-        this.fIA = f;
+        this.fHJ = f;
     }
 
     public void setBottomRightRadius(float f) {
-        this.fIB = f;
+        this.fHK = f;
     }
 
     public void setRadius(float f) {
-        this.fIy = f;
-        this.fIA = f;
-        this.fIz = f;
-        this.fIB = f;
+        this.fHH = f;
+        this.fHJ = f;
+        this.fHI = f;
+        this.fHK = f;
         invalidate();
     }
 }

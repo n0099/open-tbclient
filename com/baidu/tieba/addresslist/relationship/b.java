@@ -11,6 +11,6 @@ public class b implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_QUERY_LOCAL_ADDRESSLIST, f.aEx().aEy());
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_QUERY_LOCAL_ADDRESSLIST, f.aEv().aEw());
     }
 }

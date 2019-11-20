@@ -8,16 +8,16 @@ import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g implements b {
-    private final com.airbnb.lottie.model.a.b hq;
-    private final com.airbnb.lottie.model.a.b hr;
-    private final l hs;
+    private final com.airbnb.lottie.model.a.b gQ;
+    private final com.airbnb.lottie.model.a.b gR;
+    private final l gS;
     private final String name;
 
     g(String str, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, l lVar) {
         this.name = str;
-        this.hq = bVar;
-        this.hr = bVar2;
-        this.hs = lVar;
+        this.gQ = bVar;
+        this.gR = bVar2;
+        this.gS = lVar;
     }
 
     public String getName() {
@@ -25,15 +25,15 @@ public class g implements b {
     }
 
     public com.airbnb.lottie.model.a.b cQ() {
-        return this.hq;
+        return this.gQ;
     }
 
     public com.airbnb.lottie.model.a.b cR() {
-        return this.hr;
+        return this.gR;
     }
 
     public l cS() {
-        return this.hs;
+        return this.gS;
     }
 
     @Override // com.airbnb.lottie.model.content.b

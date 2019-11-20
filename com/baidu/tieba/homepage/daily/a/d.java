@@ -36,8 +36,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         View inflate = LayoutInflater.from(context).inflate(R.layout.daily_title_view, (ViewGroup) null);
         inflate.setLayoutParams(generateLayoutParamsByParent(viewGroup));
         a aVar = new a(inflate);
-        aVar.deR = inflate.findViewById(R.id.divider_line);
-        aVar.gfN = (TextView) inflate.findViewById(R.id.daily_title);
+        aVar.ddZ = inflate.findViewById(R.id.divider_line);
+        aVar.geW = (TextView) inflate.findViewById(R.id.daily_title);
         return aVar;
     }
 
@@ -46,25 +46,25 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.d dVar, a aVar) {
         if (aVar != null && dVar != null) {
-            String btm = !StringUtils.isNull(dVar.btm()) ? dVar.btm() : this.mContext.getString(R.string.daily_default_title);
-            String btl = !StringUtils.isNull(dVar.btl()) ? dVar.btl() : "";
-            int length = btm.length();
-            int length2 = btl.length();
+            String btk = !StringUtils.isNull(dVar.btk()) ? dVar.btk() : this.mContext.getString(R.string.daily_default_title);
+            String btj = !StringUtils.isNull(dVar.btj()) ? dVar.btj() : "";
+            int length = btk.length();
+            int length2 = btj.length();
             int color = am.getColor(R.color.cp_cont_b);
             int color2 = am.getColor(R.color.cp_cont_d);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(btm + btl);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(btk + btj);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(this.tbds42), 0, length, 33);
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, length, 33);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(this.tbds34), length, length + length2, 33);
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color2), length, length + length2, 33);
-            aVar.gfN.setText(spannableStringBuilder);
-            am.setViewTextColor(aVar.gfN, (int) R.color.cp_cont_b);
-            am.setBackgroundColor(aVar.gfN, R.color.cp_bg_line_d);
-            if (dVar.btn()) {
-                aVar.deR.setVisibility(0);
-                am.setBackgroundColor(aVar.deR, R.color.cp_bg_line_e);
+            aVar.geW.setText(spannableStringBuilder);
+            am.setViewTextColor(aVar.geW, (int) R.color.cp_cont_b);
+            am.setBackgroundColor(aVar.geW, R.color.cp_bg_line_d);
+            if (dVar.btl()) {
+                aVar.ddZ.setVisibility(0);
+                am.setBackgroundColor(aVar.ddZ, R.color.cp_bg_line_e);
             } else {
-                aVar.deR.setVisibility(8);
+                aVar.ddZ.setVisibility(8);
             }
             return aVar.getView();
         }
@@ -74,8 +74,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        public View deR;
-        public TextView gfN;
+        public View ddZ;
+        public TextView geW;
 
         public a(View view) {
             super(view);

@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class h {
-    private static String Kd = null;
+    private static String JD = null;
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -50,16 +50,16 @@ public final class h {
 
     public static String g(Context context) {
         if (com.baidu.crabsdk.a.K) {
-            if (Kd != null) {
-                return Kd;
+            if (JD != null) {
+                return JD;
             }
             try {
-                Kd = a(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
+                JD = a(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.v("getCUID fail," + e);
-                Kd = "N/A";
+                JD = "N/A";
             }
-            return Kd;
+            return JD;
         }
         return "N/A";
     }

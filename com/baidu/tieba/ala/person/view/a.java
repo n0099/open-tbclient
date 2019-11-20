@@ -17,43 +17,43 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private static final int evW = "   ".length();
-    private s ejO;
-    private PersonCardActivity evX;
-    private TextView evY;
-    private TextView evZ;
-    private List<AlaLiveMarkData> ewa;
-    private List<AlaLiveMarkData> ewb;
+    private static final int evf = "   ".length();
+    private s eiX;
+    private PersonCardActivity evg;
+    private TextView evh;
+    private TextView evi;
+    private List<AlaLiveMarkData> evj;
+    private List<AlaLiveMarkData> evk;
     private View mContentView;
 
     public a(PersonCardActivity personCardActivity, View view) {
-        this.evX = personCardActivity;
+        this.evg = personCardActivity;
         this.mContentView = view;
         initView();
     }
 
     private void initView() {
         if (this.mContentView != null) {
-            this.evY = (TextView) this.mContentView.findViewById(a.g.user_mark_line_1);
-            this.evZ = (TextView) this.mContentView.findViewById(a.g.user_mark_line_2);
-            this.evZ.setVisibility(8);
+            this.evh = (TextView) this.mContentView.findViewById(a.g.user_mark_line_1);
+            this.evi = (TextView) this.mContentView.findViewById(a.g.user_mark_line_2);
+            this.evi.setVisibility(8);
         }
     }
 
     public void setData(s sVar) {
         if (sVar != null) {
-            this.ejO = sVar;
-            if (this.ewa == null) {
-                this.ewa = new ArrayList();
+            this.eiX = sVar;
+            if (this.evj == null) {
+                this.evj = new ArrayList();
             }
-            this.ewa.clear();
-            if (this.ewb == null) {
-                this.ewb = new ArrayList();
+            this.evj.clear();
+            if (this.evk == null) {
+                this.evk = new ArrayList();
             }
-            this.ewb.clear();
+            this.evk.clear();
             bH(sVar.live_mark_info_new);
-            if (!ListUtils.isEmpty(this.ewa)) {
-                a(this.evY, this.ewa);
+            if (!ListUtils.isEmpty(this.evj)) {
+                a(this.evh, this.evj);
             }
         }
     }
@@ -72,10 +72,10 @@ public class a {
             if (i3 < list.size()) {
                 AlaLiveMarkData alaLiveMarkData = list.get(i3);
                 if (alaLiveMarkData != null) {
-                    final int i4 = i3 * evW;
+                    final int i4 = i3 * evf;
                     final int i5 = i4 + 1;
                     if (1 == alaLiveMarkData.type) {
-                        new com.baidu.live.view.b(this.evX, alaLiveMarkData, this.ejO.level_id, true, new c.a() { // from class: com.baidu.tieba.ala.person.view.a.1
+                        new com.baidu.live.view.b(this.evg, alaLiveMarkData, this.eiX.level_id, true, new c.a() { // from class: com.baidu.tieba.ala.person.view.a.1
                             @Override // com.baidu.live.view.c.a
                             public void e(Bitmap bitmap) {
                             }
@@ -87,7 +87,7 @@ public class a {
                             }
                         });
                     } else {
-                        new com.baidu.live.view.c(this.evX, alaLiveMarkData, true, new c.a() { // from class: com.baidu.tieba.ala.person.view.a.2
+                        new com.baidu.live.view.c(this.evg, alaLiveMarkData, true, new c.a() { // from class: com.baidu.tieba.ala.person.view.a.2
                             @Override // com.baidu.live.view.c.a
                             public void e(Bitmap bitmap) {
                             }
@@ -114,16 +114,16 @@ public class a {
                 if (alaLiveMarkData != null && !TextUtils.isEmpty(alaLiveMarkData.mark_pic) && 3 != alaLiveMarkData.type && 4 != alaLiveMarkData.type) {
                     if (StringUtils.isNull(alaLiveMarkData.anchor_user_id) || "0".equals(alaLiveMarkData.anchor_user_id)) {
                         linkedList.add(alaLiveMarkData);
-                    } else if (alaLiveMarkData.anchor_user_id.equals(this.evX.aXi())) {
+                    } else if (alaLiveMarkData.anchor_user_id.equals(this.evg.aXg())) {
                         linkedList.add(alaLiveMarkData);
                     }
                 }
             }
             if (!ListUtils.isEmpty(linkedList)) {
                 if (linkedList.size() >= 6) {
-                    this.ewa = linkedList.subList(0, 6);
+                    this.evj = linkedList.subList(0, 6);
                 } else {
-                    this.ewa.addAll(linkedList);
+                    this.evj.addAll(linkedList);
                 }
             }
         }

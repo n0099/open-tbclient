@@ -15,18 +15,18 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.SmartBubbleAnimatedView;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.widget.ListView.c {
-    private c cpS;
-    private b cpT;
-    private d cpU;
-    private a cpV;
-    protected ContinuousAnimationView cpW;
-    private boolean cpX;
-    private SmartBubbleAnimatedView cpY;
-    private f cpZ;
-    private e cqa;
-    private boolean cqb;
-    private boolean cqc;
-    private View.OnClickListener cqd;
+    private c cpa;
+    private b cpb;
+    private d cpc;
+    private a cpd;
+    protected ContinuousAnimationView cpe;
+    private boolean cpf;
+    private SmartBubbleAnimatedView cpg;
+    private f cph;
+    private e cpi;
+    private boolean cpj;
+    private boolean cpk;
+    private View.OnClickListener cpl;
     private boolean isManualTrigger;
     protected AnimationDrawable mAnimImage;
     private View.OnClickListener mClickListener;
@@ -37,7 +37,7 @@ public class h extends com.baidu.adp.widget.ListView.c {
 
     /* loaded from: classes.dex */
     public interface a {
-        void anW();
+        void anU();
     }
 
     /* loaded from: classes.dex */
@@ -57,7 +57,7 @@ public class h extends com.baidu.adp.widget.ListView.c {
 
     /* loaded from: classes.dex */
     public interface f {
-        void iQ(int i);
+        void iP(int i);
 
         void onAnimationEnd();
     }
@@ -67,21 +67,21 @@ public class h extends com.baidu.adp.widget.ListView.c {
         this.mHeaderView = null;
         this.mPullRoot = null;
         this.mPullImage = null;
-        this.cpS = null;
-        this.cpT = null;
-        this.cpU = null;
-        this.cpV = null;
+        this.cpa = null;
+        this.cpb = null;
+        this.cpc = null;
+        this.cpd = null;
         this.mSkinType = Integer.MIN_VALUE;
         this.isManualTrigger = false;
-        this.cpX = false;
-        this.cqb = true;
-        this.cqc = true;
-        this.cqd = null;
+        this.cpf = false;
+        this.cpj = true;
+        this.cpk = true;
+        this.cpl = null;
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.h.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (h.this.cqd != null) {
-                    h.this.cqd.onClick(view);
+                if (h.this.cpl != null) {
+                    h.this.cpl.onClick(view);
                 }
             }
         };
@@ -91,16 +91,16 @@ public class h extends com.baidu.adp.widget.ListView.c {
     public View createView() {
         this.mHeaderView = LayoutInflater.from(getContext()).inflate(R.layout.tb_pull_view, (ViewGroup) null);
         this.mPullRoot = (LinearLayout) this.mHeaderView.findViewById(R.id.pull_root);
-        this.cpW = (ContinuousAnimationView) this.mHeaderView.findViewById(R.id.continuous_loading_view);
-        this.cpW.setOnClickListener(this.mClickListener);
+        this.cpe = (ContinuousAnimationView) this.mHeaderView.findViewById(R.id.continuous_loading_view);
+        this.cpe.setOnClickListener(this.mClickListener);
         this.mPullImage = (ImageView) this.mHeaderView.findViewById(R.id.pull_image);
         this.mPullImage.setOnClickListener(this.mClickListener);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType != Integer.MIN_VALUE) {
             skinType = this.mSkinType;
         }
-        if (!amA()) {
-            this.mAnimImage = af.amz().getDefaultAnimationDrawable(skinType);
+        if (!amy()) {
+            this.mAnimImage = af.amx().getDefaultAnimationDrawable(skinType);
         }
         this.mPullImage.setBackgroundDrawable(this.mAnimImage);
         initPullView();
@@ -109,7 +109,7 @@ public class h extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public void releaseToRefresh() {
-        if (!amA() && this.mAnimImage != null && this.mPullImage != null) {
+        if (!amy() && this.mAnimImage != null && this.mPullImage != null) {
             this.mAnimImage.stop();
             this.mPullImage.setBackgroundDrawable(this.mAnimImage.getFrame(0));
         }
@@ -117,12 +117,12 @@ public class h extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public void pullToRefresh(boolean z) {
-        if (this.cpU != null) {
-            this.cpU.onListPullToRefresh(z);
+        if (this.cpc != null) {
+            this.cpc.onListPullToRefresh(z);
         }
         initPullView();
         this.isManualTrigger = true;
-        if (!amA() && this.mAnimImage != null && this.mPullImage != null) {
+        if (!amy() && this.mAnimImage != null && this.mPullImage != null) {
             this.mAnimImage.stop();
             this.mPullImage.setBackgroundDrawable(this.mAnimImage.getFrame(0));
         }
@@ -131,17 +131,17 @@ public class h extends com.baidu.adp.widget.ListView.c {
     @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onPullPercentChange(float f2, float f3) {
         super.onPullPercentChange(f2, f3);
-        if (amA()) {
-            this.cpW.setAlpha(f2);
+        if (amy()) {
+            this.cpe.setAlpha(f2);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void refreshing() {
         initPullView();
-        if (amA()) {
+        if (amy()) {
             if (!jG()) {
-                this.cpW.playAnimation();
+                this.cpe.playAnimation();
             }
         } else if (this.mAnimImage != null && this.mPullImage != null) {
             this.mAnimImage.stop();
@@ -160,104 +160,104 @@ public class h extends com.baidu.adp.widget.ListView.c {
     @Override // com.baidu.adp.widget.ListView.c
     public void done(boolean z) {
         this.isManualTrigger = false;
-        this.cqc = true;
-        if (amA()) {
-            this.cpW.pauseAnimation();
+        this.cpk = true;
+        if (amy()) {
+            this.cpe.pauseAnimation();
         } else if (this.mAnimImage != null) {
             this.mAnimImage.stop();
         }
-        anR();
-        if (this.cpT != null) {
-            this.cpT.onListPullRefreshFinished(this.mHeaderView, z);
+        anP();
+        if (this.cpb != null) {
+            this.cpb.onListPullRefreshFinished(this.mHeaderView, z);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void onRefresh(boolean z) {
         if (!jG()) {
-            if (this.cpS != null && this.cqc) {
-                this.cpS.onListPullRefresh(z);
+            if (this.cpa != null && this.cpk) {
+                this.cpa.onListPullRefresh(z);
             }
-            this.cqc = true;
+            this.cpk = true;
         }
     }
 
-    public void anQ() {
-        this.cqc = false;
+    public void anO() {
+        this.cpk = false;
     }
 
     public void a(e eVar) {
-        this.cqa = eVar;
+        this.cpi = eVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void onCompletePullRefresh() {
         if (!jG()) {
-            if (this.cpV != null) {
-                this.cpV.anW();
+            if (this.cpd != null) {
+                this.cpd.anU();
             }
-            anT();
+            anR();
         }
     }
 
     public void setListPullRefreshListener(c cVar) {
-        this.cpS = cVar;
+        this.cpa = cVar;
     }
 
     public void a(b bVar) {
-        this.cpT = bVar;
+        this.cpb = bVar;
     }
 
     public void a(d dVar) {
-        this.cpU = dVar;
+        this.cpc = dVar;
     }
 
     public void a(a aVar) {
-        this.cpV = aVar;
+        this.cpd = aVar;
     }
 
     public void changeSkin(int i) {
-        if (amA()) {
+        if (amy()) {
             am.setBackgroundColor(this.mHeaderView, R.color.cp_bg_line_d, i);
         }
-        if (this.cpY != null) {
-            this.cpY.onChangeSkinType(i);
+        if (this.cpg != null) {
+            this.cpg.onChangeSkinType(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean amA() {
-        return af.amz().amA();
+    public boolean amy() {
+        return af.amx().amy();
     }
 
     private void initPullView() {
-        if (this.cpY != null && this.cpY.getParent() != null) {
-            this.mPullRoot.removeView(this.cpY);
+        if (this.cpg != null && this.cpg.getParent() != null) {
+            this.mPullRoot.removeView(this.cpg);
         }
-        if (amA()) {
-            if (this.mPullImage != null && this.cpW != null) {
+        if (amy()) {
+            if (this.mPullImage != null && this.cpe != null) {
                 if (this.mPullImage.getVisibility() != 8) {
                     this.mPullImage.setVisibility(8);
                 }
-                if (this.cpW.getVisibility() != 0) {
-                    this.cpW.setVisibility(0);
+                if (this.cpe.getVisibility() != 0) {
+                    this.cpe.setVisibility(0);
                 }
-                if (this.cpW.isAnimating()) {
-                    this.cpW.cancelAnimation();
+                if (this.cpe.isAnimating()) {
+                    this.cpe.cancelAnimation();
                 }
             }
-        } else if (this.mPullImage != null && this.cpW != null) {
+        } else if (this.mPullImage != null && this.cpe != null) {
             if (this.mPullImage.getVisibility() != 0) {
                 this.mPullImage.setVisibility(0);
             }
-            if (this.cpW.getVisibility() != 8) {
-                this.cpW.setVisibility(8);
+            if (this.cpe.getVisibility() != 8) {
+                this.cpe.setVisibility(8);
             }
         }
     }
 
-    private void anR() {
-        if (amA() && this.mAnimImage != null) {
+    private void anP() {
+        if (amy() && this.mAnimImage != null) {
             this.mAnimImage.stop();
             this.mAnimImage = null;
         }
@@ -268,77 +268,77 @@ public class h extends com.baidu.adp.widget.ListView.c {
         return 0L;
     }
 
-    public boolean anS() {
-        return this.cpX;
+    public boolean anQ() {
+        return this.cpf;
     }
 
     public void a(f fVar) {
-        this.cpZ = fVar;
+        this.cph = fVar;
     }
 
     public void setExecuteMsgAnimation(boolean z) {
-        this.cqb = z;
+        this.cpj = z;
     }
 
-    public void anT() {
-        if (anS() && this.cqb && this.cqa != null && this.mPullRoot != null) {
+    public void anR() {
+        if (anQ() && this.cpj && this.cpi != null && this.mPullRoot != null) {
             this.mPullImage.setVisibility(8);
-            this.cpW.setVisibility(8);
-            if (this.cpY == null) {
-                this.cpY = new SmartBubbleAnimatedView(getContext());
-                this.cpY.setExtrusionRemind(true);
+            this.cpe.setVisibility(8);
+            if (this.cpg == null) {
+                this.cpg = new SmartBubbleAnimatedView(getContext());
+                this.cpg.setExtrusionRemind(true);
             }
-            this.cpY.cqf = this.cqa.getTipText();
-            this.cpY.fzC = this.cqa.anX();
-            if (this.cpY.getParent() != null) {
-                this.mPullRoot.removeView(this.cpY);
+            this.cpg.cpn = this.cpi.getTipText();
+            this.cpg.fyL = this.cpi.anV();
+            if (this.cpg.getParent() != null) {
+                this.mPullRoot.removeView(this.cpg);
             }
-            this.mPullRoot.addView(this.cpY);
-            this.cpY.setOnBubbleAnimateListener(new SmartBubbleAnimatedView.a() { // from class: com.baidu.tbadk.core.view.h.3
+            this.mPullRoot.addView(this.cpg);
+            this.cpg.setOnBubbleAnimateListener(new SmartBubbleAnimatedView.a() { // from class: com.baidu.tbadk.core.view.h.3
                 @Override // com.baidu.tieba.frs.SmartBubbleAnimatedView.a
-                public void anV() {
-                    if (h.this.cpZ != null) {
-                        h.this.cpZ.onAnimationEnd();
+                public void anT() {
+                    if (h.this.cph != null) {
+                        h.this.cph.onAnimationEnd();
                     }
                 }
             });
-            if (this.cpZ != null) {
-                this.cpZ.iQ(this.cpY.getTipViewHeight());
+            if (this.cph != null) {
+                this.cph.iP(this.cpg.getTipViewHeight());
             }
-            this.cpY.blQ();
+            this.cpg.blO();
         }
     }
 
-    public void anU() {
-        if (this.mPullRoot != null && this.cpY != null && this.cpY.getParent() != null) {
-            this.mPullRoot.removeView(this.cpY);
+    public void anS() {
+        if (this.mPullRoot != null && this.cpg != null && this.cpg.getParent() != null) {
+            this.mPullRoot.removeView(this.cpg);
         }
     }
 
-    public void iP(int i) {
-        this.cpW.setAnimation(i);
+    public void iO(int i) {
+        this.cpe.setAnimation(i);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.cqd = onClickListener;
+        this.cpl = onClickListener;
     }
 
     /* loaded from: classes.dex */
     public static class e {
-        private String cqf;
-        private int cqg;
+        private String cpn;
+        private int cpo;
 
         public e(String str, int i) {
-            this.cqf = str;
-            this.cqg = i;
+            this.cpn = str;
+            this.cpo = i;
         }
 
         public String getTipText() {
-            return this.cqf;
+            return this.cpn;
         }
 
-        public int anX() {
-            return this.cqg;
+        public int anV() {
+            return this.cpo;
         }
     }
 }

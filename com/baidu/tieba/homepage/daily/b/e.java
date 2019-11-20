@@ -8,8 +8,8 @@ import java.util.List;
 import tbclient.DailyTopic;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gfY = BdUniqueId.gen();
-    public List<a> gfZ;
+    public static final BdUniqueId gfh = BdUniqueId.gen();
+    public List<a> gfi;
 
     public static e cO(List<DailyTopic> list) {
         if (v.isEmpty(list)) {
@@ -17,7 +17,7 @@ public class e extends com.baidu.tieba.card.data.b {
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.gfZ = arrayList;
+        eVar.gfi = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -43,43 +43,43 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gfY;
+        return gfh;
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private String gga;
-        private String ggb;
-        private String ggc;
-        private String ggd;
-        private String gge;
+        private String gfj;
+        private String gfk;
+        private String gfl;
+        private String gfm;
+        private String gfn;
 
         public void a(DailyTopic dailyTopic) {
-            this.gga = dailyTopic.topic_pic;
-            this.ggb = dailyTopic.topic_title;
-            this.ggc = dailyTopic.topic_abstract;
-            this.ggd = dailyTopic.topic_url;
-            this.gge = dailyTopic.topic_rank_url;
+            this.gfj = dailyTopic.topic_pic;
+            this.gfk = dailyTopic.topic_title;
+            this.gfl = dailyTopic.topic_abstract;
+            this.gfm = dailyTopic.topic_url;
+            this.gfn = dailyTopic.topic_rank_url;
+        }
+
+        public String btm() {
+            return this.gfj;
+        }
+
+        public String ahN() {
+            return this.gfk;
+        }
+
+        public String btn() {
+            return this.gfl;
+        }
+
+        public String akl() {
+            return this.gfm;
         }
 
         public String bto() {
-            return this.gga;
-        }
-
-        public String ahP() {
-            return this.ggb;
-        }
-
-        public String btp() {
-            return this.ggc;
-        }
-
-        public String akn() {
-            return this.ggd;
-        }
-
-        public String btq() {
-            return this.gge;
+            return this.gfn;
         }
     }
 }

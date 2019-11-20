@@ -4,19 +4,19 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class j {
-    public int bKR;
-    private int bKS = 0;
-    public e bKT;
+    public int bKa;
+    private int bKb = 0;
+    public e bKc;
     public boolean mEnable;
     public int mIconResId;
     public int mId;
 
     public j(int i, int i2, int i3, boolean z) {
-        this.bKR = -1;
+        this.bKa = -1;
         this.mIconResId = -1;
         this.mEnable = true;
         this.mId = i;
-        this.bKR = i2;
+        this.bKa = i2;
         this.mIconResId = i3;
         this.mEnable = z;
     }
@@ -27,7 +27,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setTitle(int i) {
-        this.bKR = i;
+        this.bKa = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,7 +37,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(e eVar) {
-        this.bKT = eVar;
+        this.bKc = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,16 +46,16 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e aaD() {
-        return this.bKT;
+    public e aaB() {
+        return this.bKc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String cb(Context context) {
-        if (this.bKR <= 0) {
+        if (this.bKa <= 0) {
             return null;
         }
-        return context.getResources().getString(this.bKR);
+        return context.getResources().getString(this.bKa);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -67,8 +67,8 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int aaE() {
-        return this.bKS;
+    public int aaC() {
+        return this.bKb;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -76,6 +76,6 @@ public class j {
         if (jVar == null) {
             return null;
         }
-        return new j(jVar.mId, jVar.bKR, jVar.mIconResId, jVar.mEnable);
+        return new j(jVar.mId, jVar.bKa, jVar.mIconResId, jVar.mEnable);
     }
 }

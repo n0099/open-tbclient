@@ -7,21 +7,21 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes6.dex */
 public class e {
-    private HttpMessageListener dTB = new HttpMessageListener(CmdConfigHttp.CMD_GET_RN_SYNC) { // from class: com.baidu.tieba.easterEgg.e.1
+    private HttpMessageListener dSK = new HttpMessageListener(CmdConfigHttp.CMD_GET_RN_SYNC) { // from class: com.baidu.tieba.easterEgg.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof RnSyncResponseMessage) {
                 RnSyncResponseMessage rnSyncResponseMessage = (RnSyncResponseMessage) httpResponsedMessage;
-                e.this.eYo = rnSyncResponseMessage.getData();
-                if (e.this.eYp != null) {
-                    e.this.eYp.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
+                e.this.eXx = rnSyncResponseMessage.getData();
+                if (e.this.eXy != null) {
+                    e.this.eXy.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
                 }
             }
         }
     };
-    private com.baidu.tieba.easterEgg.a.a eYo;
-    private a eYp;
+    private com.baidu.tieba.easterEgg.a.a eXx;
+    private a eXy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
@@ -30,7 +30,7 @@ public class e {
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.dTB);
+        MessageManager.getInstance().registerListener(this.dSK);
     }
 
     public void startLoad() {
@@ -38,10 +38,10 @@ public class e {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dTB);
+        MessageManager.getInstance().unRegisterListener(this.dSK);
     }
 
     public void a(a aVar) {
-        this.eYp = aVar;
+        this.eXy = aVar;
     }
 }

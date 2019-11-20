@@ -3,18 +3,18 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class v {
-    public int SO;
-    public int SQ;
-    public int SR;
-    public long SS;
-    public long ST;
-    public long SU;
-    public long SV;
-    public long SW;
-    public long SX;
-    public int SY;
-    public int SZ;
-    public String Ta;
+    public long SA;
+    public int SB;
+    public int SC;
+    public String SD;
+    public int Ss;
+    public int St;
+    public int Su;
+    public long Sv;
+    public long Sw;
+    public long Sx;
+    public long Sy;
+    public long Sz;
     public long challengeId;
     public int challengeResult;
     public long endTime;
@@ -23,21 +23,21 @@ public class v {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.challengeId = jSONObject.optLong("challenge_id");
-            this.SO = jSONObject.optInt("challenge_status");
+            this.Ss = jSONObject.optInt("challenge_status");
             this.challengeResult = jSONObject.optInt("challenge_ret");
-            this.SQ = jSONObject.optInt("challenge_ret_type");
-            this.SR = jSONObject.optInt("allin");
-            this.SS = jSONObject.optLong("allin_start_user");
+            this.St = jSONObject.optInt("challenge_ret_type");
+            this.Su = jSONObject.optInt("allin");
+            this.Sv = jSONObject.optLong("allin_start_user");
             this.startTime = jSONObject.optLong("start_time");
             this.endTime = jSONObject.optLong("end_time");
-            this.ST = jSONObject.optLong("stage_start_time");
-            this.SU = jSONObject.optLong("stage_end_time");
-            this.SV = jSONObject.optLong("now_time");
-            this.SW = jSONObject.optLong("anchor_score");
-            this.SX = jSONObject.optLong("rival_score");
-            this.SY = jSONObject.optInt("winning_num");
-            this.SZ = jSONObject.optInt("anchor_rank");
-            this.Ta = jSONObject.optString("rank_url");
+            this.Sw = jSONObject.optLong("stage_start_time");
+            this.Sx = jSONObject.optLong("stage_end_time");
+            this.Sy = jSONObject.optLong("now_time");
+            this.Sz = jSONObject.optLong("anchor_score");
+            this.SA = jSONObject.optLong("rival_score");
+            this.SB = jSONObject.optInt("winning_num");
+            this.SC = jSONObject.optInt("anchor_rank");
+            this.SD = jSONObject.optString("rank_url");
         }
     }
 }

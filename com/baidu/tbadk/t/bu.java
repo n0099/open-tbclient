@@ -17,7 +17,7 @@ public class bu extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int fj() {
-        return com.baidu.tbadk.core.sharedPref.b.alR().getInt("key_video_player_reuse_switch", 0);
+        return com.baidu.tbadk.core.sharedPref.b.alP().getInt("key_video_player_reuse_switch", 0);
     }
 
     @Override // com.baidu.adp.lib.b.a

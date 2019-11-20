@@ -4,12 +4,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 /* loaded from: classes6.dex */
 public class a implements b<String> {
-    private int dZN;
-    private int dZO;
+    private int dYW;
+    private int dYX;
 
     public a(int i, int i2) {
-        this.dZN = i;
-        this.dZO = i2;
+        this.dYW = i;
+        this.dYX = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class a implements b<String> {
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
         BitmapFactory.Options options2 = new BitmapFactory.Options();
-        options2.inSampleSize = a(this.dZN, this.dZO, options);
+        options2.inSampleSize = a(this.dYW, this.dYX, options);
         options2.inPreferredConfig = Bitmap.Config.RGB_565;
         return BitmapFactory.decodeFile(str, options2);
     }

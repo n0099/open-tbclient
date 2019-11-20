@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.xiaomi.push.eu;
+import com.xiaomi.push.ev;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(14)
@@ -19,9 +21,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
     }
 
     public static void a(Context context) {
-        if (context instanceof Application) {
-            a((Application) context);
-        }
+        a((Application) context.getApplicationContext());
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -49,9 +49,9 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         this.a.add(stringExtra);
         if (intExtra == 3000) {
-            com.xiaomi.push.service.clientReport.d.a(activity.getApplicationContext()).a(com.xiaomi.push.service.clientReport.c.a(intExtra), stringExtra, 3008, "App calls by business message is visiable");
+            ev.a(activity.getApplicationContext()).a(activity.getPackageName(), eu.m243a(intExtra), stringExtra, 3008, "App calls by business message is visiable");
         } else if (intExtra == 1000) {
-            com.xiaomi.push.service.clientReport.d.a(activity.getApplicationContext()).a(com.xiaomi.push.service.clientReport.c.a(intExtra), stringExtra, 1008, "app calls by notification message is visiable");
+            ev.a(activity.getApplicationContext()).a(activity.getPackageName(), eu.m243a(intExtra), stringExtra, 1008, "app calls by notification message is visiable");
         }
     }
 

@@ -6,8 +6,6 @@ import org.json.JSONObject;
 public interface b {
     boolean A(String str, int i);
 
-    String JQ();
-
     String JR();
 
     String JS();
@@ -24,7 +22,9 @@ public interface b {
 
     String JY();
 
-    CookieManager JZ();
+    String JZ();
+
+    CookieManager Ka();
 
     void a(String str, String str2, String str3, int i, JSONObject jSONObject);
 

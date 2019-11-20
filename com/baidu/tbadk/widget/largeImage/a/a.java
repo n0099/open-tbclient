@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private final C0304a cTp;
+    private final C0304a cSy;
     private Bitmap mBitmap;
     private int mBlockSize;
     private Canvas mCanvas;
@@ -17,7 +17,7 @@ public class a {
     private final Rect mSrc;
 
     public a(int i) {
-        this.cTp = new C0304a();
+        this.cSy = new C0304a();
         this.mSrc = new Rect();
         this.mDst = new Rect();
         this.mPositionInOriginBitmap = new Rect();
@@ -27,7 +27,7 @@ public class a {
     }
 
     public a(Bitmap bitmap) {
-        this.cTp = new C0304a();
+        this.cSy = new C0304a();
         this.mSrc = new Rect();
         this.mDst = new Rect();
         this.mPositionInOriginBitmap = new Rect();
@@ -74,19 +74,19 @@ public class a {
     }
 
     public void setPosition(int i, int i2, int i3) {
-        this.cTp.row = i;
-        this.cTp.column = i2;
-        this.cTp.sampleScale = i3;
+        this.cSy.row = i;
+        this.cSy.column = i2;
+        this.cSy.sampleScale = i3;
     }
 
-    public C0304a ayI() {
-        return this.cTp;
+    public C0304a ayG() {
+        return this.cSy;
     }
 
     public Rect getPositionInOriginBitmap() {
-        int i = this.mBlockSize * this.cTp.column * this.cTp.sampleScale;
-        int i2 = this.mBlockSize * this.cTp.row * this.cTp.sampleScale;
-        this.mPositionInOriginBitmap.set(i, i2, (this.mBlockSize * this.cTp.sampleScale) + i, (this.mBlockSize * this.cTp.sampleScale) + i2);
+        int i = this.mBlockSize * this.cSy.column * this.cSy.sampleScale;
+        int i2 = this.mBlockSize * this.cSy.row * this.cSy.sampleScale;
+        this.mPositionInOriginBitmap.set(i, i2, (this.mBlockSize * this.cSy.sampleScale) + i, (this.mBlockSize * this.cSy.sampleScale) + i2);
         return this.mPositionInOriginBitmap;
     }
 

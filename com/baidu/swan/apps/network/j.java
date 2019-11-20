@@ -15,89 +15,89 @@ import okhttp3.Request;
 /* loaded from: classes2.dex */
 public class j extends com.baidu.swan.apps.ae.c {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private OkHttpClient aYM;
-    private NetworkBroadcastReceiver aYN;
-    private TelephonyManager aYO;
-    private a aYP;
+    private OkHttpClient aYu;
+    private NetworkBroadcastReceiver aYv;
+    private TelephonyManager aYw;
+    private a aYx;
 
     public j(com.baidu.swan.apps.ae.b bVar) {
         super(bVar);
     }
 
     public void a(Request request, Callback callback) {
-        ML().newCall(request).enqueue(callback);
+        MM().newCall(request).enqueue(callback);
     }
 
     public void a(Request request, Interceptor interceptor, Callback callback) {
-        ML().newBuilder().addInterceptor(interceptor).build().newCall(request).enqueue(callback);
+        MM().newBuilder().addInterceptor(interceptor).build().newCall(request).enqueue(callback);
     }
 
-    public OkHttpClient ML() {
-        com.baidu.swan.apps.ae.a.c Ra = Rq().Ra();
-        if (this.aYM == null) {
+    public OkHttpClient MM() {
+        com.baidu.swan.apps.ae.a.c Rc = Rs().Rc();
+        if (this.aYu == null) {
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            if (Ra != null && Ra.bkF != null) {
-                builder.connectTimeout(Ra.bkF.bkw, TimeUnit.MILLISECONDS);
-                builder.readTimeout(Ra.bkF.bkv, TimeUnit.MILLISECONDS);
-                builder.writeTimeout(Ra.bkF.bkv, TimeUnit.MILLISECONDS);
+            if (Rc != null && Rc.bkn != null) {
+                builder.connectTimeout(Rc.bkn.bke, TimeUnit.MILLISECONDS);
+                builder.readTimeout(Rc.bkn.bkd, TimeUnit.MILLISECONDS);
+                builder.writeTimeout(Rc.bkn.bkd, TimeUnit.MILLISECONDS);
                 builder.addNetworkInterceptor(new com.baidu.swan.apps.network.a.c());
             }
-            this.aYM = builder.build();
+            this.aYu = builder.build();
         }
-        this.aYM.dispatcher().setMaxRequests(10);
-        return this.aYM;
+        this.aYu.dispatcher().setMaxRequests(10);
+        return this.aYu;
     }
 
     public void c(CallbackHandler callbackHandler, String str) {
-        if (this.aYN == null) {
-            this.aYN = new NetworkBroadcastReceiver(callbackHandler, str);
+        if (this.aYv == null) {
+            this.aYv = new NetworkBroadcastReceiver(callbackHandler, str);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            registerReceiver(this.aYN, intentFilter);
-        } else if (this.aYN != null) {
-            this.aYN.updateCallback(callbackHandler, str);
+            registerReceiver(this.aYv, intentFilter);
+        } else if (this.aYv != null) {
+            this.aYv.updateCallback(callbackHandler, str);
         }
         d(callbackHandler, str);
     }
 
     public void d(CallbackHandler callbackHandler, String str) {
-        if (this.aYO == null) {
-            this.aYO = (TelephonyManager) getSystemService("phone");
-            this.aYP = new a(callbackHandler, str);
-            this.aYO.listen(this.aYP, 64);
-        } else if (this.aYP != null) {
-            this.aYP.updateCallback(callbackHandler, str);
-        }
-    }
-
-    public void MM() {
-        if (this.aYO != null && this.aYP != null) {
-            this.aYO.listen(this.aYP, 0);
+        if (this.aYw == null) {
+            this.aYw = (TelephonyManager) getSystemService("phone");
+            this.aYx = new a(callbackHandler, str);
+            this.aYw.listen(this.aYx, 64);
+        } else if (this.aYx != null) {
+            this.aYx.updateCallback(callbackHandler, str);
         }
     }
 
     public void MN() {
-        if (this.aYN != null) {
-            unregisterReceiver(this.aYN);
+        if (this.aYw != null && this.aYx != null) {
+            this.aYw.listen(this.aYx, 0);
         }
-        MM();
+    }
+
+    public void MO() {
+        if (this.aYv != null) {
+            unregisterReceiver(this.aYv);
+        }
+        MN();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a extends PhoneStateListener {
-        private WeakReference<CallbackHandler> aYQ;
-        private String aYR;
-        private String aYS = "";
+        private String aYA = "";
+        private WeakReference<CallbackHandler> aYy;
+        private String aYz;
 
         public a(CallbackHandler callbackHandler, String str) {
-            this.aYQ = new WeakReference<>(callbackHandler);
-            this.aYR = str;
+            this.aYy = new WeakReference<>(callbackHandler);
+            this.aYz = str;
         }
 
         public void updateCallback(CallbackHandler callbackHandler, String str) {
-            this.aYQ = new WeakReference<>(callbackHandler);
-            this.aYR = str;
+            this.aYy = new WeakReference<>(callbackHandler);
+            this.aYz = str;
         }
 
         @Override // android.telephony.PhoneStateListener
@@ -107,9 +107,9 @@ public class j extends com.baidu.swan.apps.ae.c {
             }
             if (2 == i) {
                 String s = SwanAppNetworkUtils.s(i2, null);
-                if (!TextUtils.isEmpty(s) && !s.equals(this.aYS)) {
-                    this.aYS = s;
-                    SwanAppNetworkUtils.a(j.this, this.aYQ.get(), this.aYR);
+                if (!TextUtils.isEmpty(s) && !s.equals(this.aYA)) {
+                    this.aYA = s;
+                    SwanAppNetworkUtils.a(j.this, this.aYy.get(), this.aYz);
                 }
             }
         }
@@ -118,6 +118,6 @@ public class j extends com.baidu.swan.apps.ae.c {
     @Override // com.baidu.swan.apps.ae.c
     public void onDestroy() {
         super.onDestroy();
-        MN();
+        MO();
     }
 }

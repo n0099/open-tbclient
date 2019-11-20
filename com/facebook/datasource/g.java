@@ -4,7 +4,7 @@ public class g<T> extends AbstractDataSource<T> {
     private g() {
     }
 
-    public static <T> g<T> cDw() {
+    public static <T> g<T> cDu() {
         return new g<>();
     }
 
@@ -22,8 +22,8 @@ public class g<T> extends AbstractDataSource<T> {
     }
 
     @Override // com.facebook.datasource.AbstractDataSource
-    public boolean s(Throwable th) {
-        return super.s((Throwable) com.facebook.common.internal.g.checkNotNull(th));
+    public boolean t(Throwable th) {
+        return super.t((Throwable) com.facebook.common.internal.g.checkNotNull(th));
     }
 
     @Override // com.facebook.datasource.AbstractDataSource

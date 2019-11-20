@@ -15,79 +15,79 @@ import com.baidu.live.view.web.e;
 import com.baidu.tieba.ala.liveroom.f.b;
 /* loaded from: classes6.dex */
 public class a implements e, b.a {
-    private CustomMessageListener adC;
-    private b eeY;
-    private d eeZ;
+    private CustomMessageListener adk;
+    private b eeh;
+    private d eei;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        rt();
+        ru();
     }
 
     public void tB(String str) {
-        this.eeY = new b(this.mPageContext.getPageActivity());
-        this.eeY.a(this);
-        this.eeY.b(this);
-        this.eeY.aNE().setBackgroundColor(tC(str));
-        this.eeY.tD(str);
+        this.eeh = new b(this.mPageContext.getPageActivity());
+        this.eeh.a(this);
+        this.eeh.b(this);
+        this.eeh.aNC().setBackgroundColor(tC(str));
+        this.eeh.tD(str);
     }
 
     public void resume() {
-        if (this.eeY != null && this.eeY.isShowing() && this.eeY.aNE() != null) {
-            this.eeY.aNE().onResume();
-            this.eeY.aNE().reload();
+        if (this.eeh != null && this.eeh.isShowing() && this.eeh.aNC() != null) {
+            this.eeh.aNC().onResume();
+            this.eeh.aNC().reload();
         }
     }
 
     public void pause() {
-        if (this.eeY != null && this.eeY.isShowing() && this.eeY.aNE() != null) {
-            this.eeY.aNE().onPause();
+        if (this.eeh != null && this.eeh.isShowing() && this.eeh.aNC() != null) {
+            this.eeh.aNC().onPause();
         }
     }
 
     public void release() {
-        aRu();
-        MessageManager.getInstance().unRegisterListener(this.adC);
+        aRs();
+        MessageManager.getInstance().unRegisterListener(this.adk);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.f.b.a
     public boolean a(String str, final JsResult jsResult) {
-        this.eeZ = new d(this.mPageContext.getPageActivity());
-        this.eeZ.setCancelable(false);
-        this.eeZ.setCanceledOnTouchOutside(false);
-        this.eeZ.aU(false);
-        this.eeZ.k(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
-        this.eeZ.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
+        this.eei = new d(this.mPageContext.getPageActivity());
+        this.eei.setCancelable(false);
+        this.eei.setCanceledOnTouchOutside(false);
+        this.eei.aU(false);
+        this.eei.k(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
+        this.eei.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
             @Override // com.baidu.live.view.d.a
-            public void qx() {
+            public void qy() {
                 if (jsResult != null) {
                     jsResult.confirm();
                 }
             }
 
             @Override // com.baidu.live.view.d.a
-            public void qy() {
+            public void qz() {
                 if (jsResult != null) {
                     jsResult.cancel();
                 }
             }
         });
-        this.eeZ.show();
+        this.eei.show();
         return true;
     }
 
-    private void rt() {
-        this.adC = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.liveroom.f.a.2
+    private void ru() {
+        this.adk = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.liveroom.f.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.this.aRu();
+                    a.this.aRs();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.adC);
+        MessageManager.getInstance().registerListener(this.adk);
     }
 
     private int tC(String str) {
@@ -108,17 +108,17 @@ public class a implements e, b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aRu() {
-        if (this.eeY != null) {
-            this.eeY.dismiss();
+    public void aRs() {
+        if (this.eeh != null) {
+            this.eeh.dismiss();
         }
-        if (this.eeZ != null) {
-            this.eeZ.release();
+        if (this.eei != null) {
+            this.eei.release();
         }
     }
 
     @Override // com.baidu.live.view.web.e
     public void cs(int i) {
-        aRu();
+        aRs();
     }
 }

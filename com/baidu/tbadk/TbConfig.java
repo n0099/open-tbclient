@@ -505,7 +505,7 @@ public class TbConfig {
     public static final String URL_UPLOAD_VIDEO = "c/c/video/uploadVideoData";
     public static final String URL_USER_REPORT = "c/c/user/complaint";
     public static final String URL_VIDEO_HOLY_CARD = "c/s/dashengVideo";
-    public static final String URL_VIDEO_MONITOR_REPORT = "ala/sys/vlog";
+    public static final String URL_VIDEO_MONITOR_REPORT = "c/c/video/vlog";
     public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
     public static final String USER_MUTE_CHECK = "c/u/user/userMuteCheck";
     public static final String USER_MUTE_DEL = "c/c/user/userMuteDel";
@@ -731,7 +731,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.avu().setPhotoMaxNum(i);
+            c.avs().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

@@ -5,5 +5,5 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public interface a {
-    public static final List<CameraPreview> aFr = new ArrayList();
+    public static final List<CameraPreview> aEZ = new ArrayList();
 }

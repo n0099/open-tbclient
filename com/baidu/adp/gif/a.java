@@ -3,54 +3,54 @@ package com.baidu.adp.gif;
 public interface a {
     com.baidu.adp.widget.ImageView.a R(String str);
 
-    com.baidu.adp.widget.ImageView.a e(byte[] bArr, int i, int i2);
+    com.baidu.adp.widget.ImageView.a d(byte[] bArr, int i, int i2);
 
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0013a implements a {
-        private static a mD;
-        private int mE;
-        private final d mF = new d();
+        private static a lZ;
+        private int ma;
+        private final d mb = new d();
 
         public C0013a() {
-            this.mE = 0;
-            if (NSGif.mH) {
-                this.mE = 0;
+            this.ma = 0;
+            if (NSGif.md) {
+                this.ma = 0;
             } else {
-                this.mE = 1;
+                this.ma = 1;
             }
         }
 
         public static synchronized a eM() {
             a aVar;
             synchronized (C0013a.class) {
-                if (mD == null) {
-                    mD = new C0013a();
+                if (lZ == null) {
+                    lZ = new C0013a();
                 }
-                aVar = mD;
+                aVar = lZ;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a R(String str) {
-            if (this.mE != 0) {
+            if (this.ma != 0) {
                 return null;
             }
             try {
-                return this.mF.R(str);
+                return this.mb.R(str);
             } catch (Exception e) {
                 return null;
             }
         }
 
         @Override // com.baidu.adp.gif.a
-        public com.baidu.adp.widget.ImageView.a e(byte[] bArr, int i, int i2) {
-            if (this.mE != 0) {
+        public com.baidu.adp.widget.ImageView.a d(byte[] bArr, int i, int i2) {
+            if (this.ma != 0) {
                 return null;
             }
             try {
-                return this.mF.e(bArr, i, i2);
+                return this.mb.d(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

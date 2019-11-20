@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.share.single.ShareSingleManager;
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannel;
 /* loaded from: classes6.dex */
 public class AlaLandscapeShareView extends LinearLayout implements View.OnClickListener {
-    private ShareEntity eog;
-    private a eoh;
+    private ShareEntity eno;
+    private a enp;
     private TbPageContext mContext;
     private IShareChannel mShareChannel;
 
@@ -25,8 +25,8 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
     public AlaLandscapeShareView(TbPageContext tbPageContext, ShareEntity shareEntity, a aVar) {
         super(tbPageContext.getPageActivity());
         this.mContext = tbPageContext;
-        this.eog = shareEntity;
-        this.eoh = aVar;
+        this.eno = shareEntity;
+        this.enp = aVar;
         this.mShareChannel = ShareSingleManager.getInstance().buildShareChannel();
         initView();
     }
@@ -51,20 +51,20 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
         }
         int id = view.getId();
         if (id == a.g.ala_sdk_weixin_container) {
-            this.eog.shareType = 2;
-            this.mShareChannel.shareToWeixin(this.eog, null);
+            this.eno.shareType = 2;
+            this.mShareChannel.shareToWeixin(this.eno, null);
         } else if (id == a.g.ala_sdk_timeline_container) {
-            this.eog.shareType = 3;
-            this.mShareChannel.shareToWeixinCircle(this.eog, null);
+            this.eno.shareType = 3;
+            this.mShareChannel.shareToWeixinCircle(this.eno, null);
         } else if (id == a.g.ala_sdk_qq_container) {
-            this.eog.shareType = 4;
-            this.mShareChannel.shareToQQ(this.eog, null);
+            this.eno.shareType = 4;
+            this.mShareChannel.shareToQQ(this.eno, null);
         } else if (id == a.g.ala_sdk_sina_container) {
-            this.eog.shareType = 1;
-            this.mShareChannel.shareToSinaWeibo(this.eog, null);
+            this.eno.shareType = 1;
+            this.mShareChannel.shareToSinaWeibo(this.eno, null);
         }
-        if (this.eoh != null) {
-            this.eoh.onClick(view);
+        if (this.enp != null) {
+            this.enp.onClick(view);
         }
     }
 }

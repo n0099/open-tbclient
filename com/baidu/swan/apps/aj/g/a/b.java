@@ -33,7 +33,7 @@ public class b extends z {
             }
             return false;
         } else {
-            com.baidu.swan.apps.aj.g.a.Tw().Tx();
+            com.baidu.swan.apps.aj.g.a.Tu().Tv();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

@@ -27,7 +27,7 @@ public class f extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "parse json model is null");
             return false;
         }
-        final CameraPreview dT = com.baidu.swan.apps.camera.a.CD().dT(cVar.aXH);
+        final CameraPreview dT = com.baidu.swan.apps.camera.a.CE().dT(cVar.aXp);
         if (dT == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera view is null");
@@ -39,7 +39,7 @@ public class f extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera take photo cache path is empty");
             return false;
         }
-        bVar.Rd().a((Activity) context, "mapp_camera", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.camera.a.f.1
+        bVar.Rf().a((Activity) context, "mapp_camera", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.camera.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
@@ -58,12 +58,12 @@ public class f extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.ae.b bVar, final com.baidu.swan.apps.camera.d.c cVar, final CameraPreview cameraPreview, final String str) {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "handleAuthorized start");
-        if (com.baidu.swan.apps.camera.a.CD().aO(context)) {
+        if (com.baidu.swan.apps.camera.a.CE().aO(context)) {
             a(unitedSchemeEntity, callbackHandler, bVar, cameraPreview, cVar, str);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "has authorize");
             return;
         }
-        com.baidu.swan.apps.w.e.LD().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.camera.a.f.2
+        com.baidu.swan.apps.w.e.LE().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.camera.a.f.2
             @Override // com.baidu.swan.apps.ab.a.InterfaceC0152a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
@@ -97,7 +97,7 @@ public class f extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.ae.b bVar, CameraPreview cameraPreview, final com.baidu.swan.apps.camera.d.c cVar, String str) {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "take photo start");
-        cameraPreview.setQuality(cVar.aFv);
+        cameraPreview.setQuality(cVar.aFd);
         final String dY = cameraPreview.dY(str);
         try {
             cameraPreview.a(dY, new com.baidu.swan.apps.camera.b.a() { // from class: com.baidu.swan.apps.camera.a.f.3
@@ -108,7 +108,7 @@ public class f extends a {
                         jSONObject.put("tempImagePath", com.baidu.swan.apps.storage.b.aN(dY, bVar.id));
                     } catch (JSONException e) {
                         com.baidu.swan.apps.console.c.e("SwanAppCamera", "take picture onSuccess but json object occur exception");
-                        com.baidu.swan.apps.camera.a.CD().f(cVar.aXH, cVar.aFu, false);
+                        com.baidu.swan.apps.camera.a.CE().f(cVar.aXp, cVar.aFc, false);
                         if (f.DEBUG) {
                             e.printStackTrace();
                         }
@@ -124,7 +124,7 @@ public class f extends a {
             });
         } catch (Exception e) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "take picture api occur exception");
-            com.baidu.swan.apps.camera.a.CD().f(cVar.aXH, cVar.aFu, false);
+            com.baidu.swan.apps.camera.a.CE().f(cVar.aXp, cVar.aFc, false);
             if (DEBUG) {
                 e.printStackTrace();
             }

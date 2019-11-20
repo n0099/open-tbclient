@@ -3,56 +3,56 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class f {
-    public static final int[] jhM = {3, 8, 13};
-    public static final int[] jhN = {2, 12};
-    public static final int[] jhO = {20};
-    public static final int[] jhP = {3, 13, 23};
-    private SparseIntArray jhQ = new SparseIntArray();
-    private String jhR;
-    private final int[] jhS;
+    public static final int[] jgV = {3, 8, 13};
+    public static final int[] jgW = {2, 12};
+    public static final int[] jgX = {20};
+    public static final int[] jgY = {3, 13, 23};
+    private SparseIntArray jgZ = new SparseIntArray();
+    private String jha;
+    private final int[] jhb;
 
     public f(String str, int[] iArr) {
-        this.jhS = iArr;
-        this.jhR = str;
+        this.jhb = iArr;
+        this.jha = str;
     }
 
-    public void zN(int i) {
+    public void zM(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
         }
-        if (this.jhQ != null) {
-            this.jhQ.clear();
-            if (this.jhS != null) {
-                for (int i2 : this.jhS) {
+        if (this.jgZ != null) {
+            this.jgZ.clear();
+            if (this.jhb != null) {
+                for (int i2 : this.jhb) {
                     if (i2 >= 0) {
-                        this.jhQ.append(i2 + i, i2);
+                        this.jgZ.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void cnR() {
-        zN(0);
+    public void cnP() {
+        zM(0);
     }
 
-    public void cr(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.jhQ != null) {
-            this.jhQ.append(i2, i);
+    public void cp(int i, int i2) {
+        if (i >= 0 && i2 >= 0 && this.jgZ != null) {
+            this.jgZ.append(i2, i);
         }
     }
 
-    public int zO(int i) {
-        if (i >= 0 && this.jhQ != null) {
-            return this.jhQ.get(i, -1);
+    public int zN(int i) {
+        if (i >= 0 && this.jgZ != null) {
+            return this.jgZ.get(i, -1);
         }
         return -1;
     }
 
-    public void zP(int i) {
-        if (this.jhQ != null) {
-            this.jhQ.delete(i);
+    public void zO(int i) {
+        if (this.jgZ != null) {
+            this.jgZ.delete(i);
         }
     }
 }

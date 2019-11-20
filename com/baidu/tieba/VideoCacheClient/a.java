@@ -15,10 +15,10 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a dgg;
+    private static a dfp;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean dgh = false;
+    private boolean dfq = false;
     private byte[] mBuffer = new byte[1024];
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
@@ -107,7 +107,7 @@ public class a {
             int i3;
             long j2;
             String readLine;
-            while (!a.this.dgh) {
+            while (!a.this.dfq) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -115,14 +115,14 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.dgh) {
-                    String aCP = a.this.aCP();
-                    if (aCP != null && !aCP.isEmpty()) {
-                        File file = new File(c.dfV + b.qV(aCP) + "/header_downloaded");
+                if (!a.this.dfq) {
+                    String aCN = a.this.aCN();
+                    if (aCN != null && !aCN.isEmpty()) {
+                        File file = new File(c.dfe + b.qV(aCN) + "/header_downloaded");
                         if (file.exists()) {
-                            d.au(a.TAG, "header exists " + aCP);
+                            d.au(a.TAG, "header exists " + aCN);
                         } else {
-                            d.au(a.TAG, "client preload start: " + aCP);
+                            d.au(a.TAG, "client preload start: " + aCN);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -141,8 +141,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aCP);
-                                    int port = b.aCQ().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aCN);
+                                    int port = b.aCO().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -199,7 +199,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.au(a.TAG, "client preload check1: " + aCP);
+                                            d.au(a.TAG, "client preload check1: " + aCN);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -251,7 +251,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.au(a.TAG, "client preload end: " + aCP);
+                            d.au(a.TAG, "client preload end: " + aCN);
                         }
                     }
                 } else {
@@ -294,19 +294,19 @@ public class a {
         this.mThread.start();
     }
 
-    public static a aCO() {
-        if (dgg == null) {
+    public static a aCM() {
+        if (dfp == null) {
             synchronized (a.class) {
-                if (dgg == null) {
-                    dgg = new a();
+                if (dfp == null) {
+                    dfp = new a();
                 }
             }
         }
-        return dgg;
+        return dfp;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String aCP() {
+    public synchronized String aCN() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 

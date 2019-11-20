@@ -7,80 +7,80 @@ import java.util.Iterator;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class c {
-    private static final ReentrantLock bEO = new ReentrantLock();
-    private static ArrayList<a> bEY = new ArrayList<>();
+    private static final ReentrantLock bDX = new ReentrantLock();
+    private static ArrayList<a> bEh = new ArrayList<>();
 
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        com.baidu.swan.games.view.b LF = e.LD().LF();
-        return LF != null && LF.a(view, bVar);
+        com.baidu.swan.games.view.b LG = e.LE().LG();
+        return LG != null && LG.a(view, bVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        com.baidu.swan.games.view.b LF = e.LD().LF();
-        return LF != null && LF.b(view, bVar);
+        com.baidu.swan.games.view.b LG = e.LE().LG();
+        return LG != null && LG.b(view, bVar);
     }
 
     public static boolean at(View view) {
-        com.baidu.swan.games.view.b LF = e.LD().LF();
-        return LF != null && LF.at(view);
+        com.baidu.swan.games.view.b LG = e.LE().LG();
+        return LG != null && LG.at(view);
     }
 
     public static boolean az(View view) {
-        com.baidu.swan.games.view.b LF = e.LD().LF();
-        return LF != null && LF.ay(view);
+        com.baidu.swan.games.view.b LG = e.LE().LG();
+        return LG != null && LG.ay(view);
     }
 
     public static boolean isLandScape() {
-        com.baidu.swan.games.view.b LF = e.LD().LF();
-        return LF != null && LF.isLandScape();
+        com.baidu.swan.games.view.b LG = e.LE().LG();
+        return LG != null && LG.isLandScape();
     }
 
-    public static int Yw() {
-        return ((Integer) e.LD().Ls().first).intValue();
+    public static int Yu() {
+        return ((Integer) e.LE().Lt().first).intValue();
     }
 
-    public static int Yx() {
-        return ((Integer) e.LD().Ls().second).intValue();
+    public static int Yv() {
+        return ((Integer) e.LE().Lt().second).intValue();
     }
 
     public static void a(a aVar) {
-        bEO.lock();
+        bDX.lock();
         if (aVar != null) {
             try {
-                if (!bEY.contains(aVar)) {
-                    bEY.add(aVar);
+                if (!bEh.contains(aVar)) {
+                    bEh.add(aVar);
                 }
             } finally {
-                bEO.unlock();
+                bDX.unlock();
             }
         }
     }
 
     public static void b(a aVar) {
-        bEO.lock();
+        bDX.lock();
         if (aVar != null) {
             try {
-                bEY.remove(aVar);
+                bEh.remove(aVar);
             } finally {
-                bEO.unlock();
+                bDX.unlock();
             }
         }
     }
 
-    public static void Yy() {
-        if (!bEY.isEmpty()) {
-            Iterator<a> it = bEY.iterator();
+    public static void Yw() {
+        if (!bEh.isEmpty()) {
+            Iterator<a> it = bEh.iterator();
             while (it.hasNext()) {
-                it.next().VG();
+                it.next().VE();
             }
         }
     }
 
-    public static void Yz() {
-        if (!bEY.isEmpty()) {
-            Iterator<a> it = bEY.iterator();
+    public static void Yx() {
+        if (!bEh.isEmpty()) {
+            Iterator<a> it = bEh.iterator();
             while (it.hasNext()) {
-                it.next().VH();
+                it.next().VF();
             }
         }
     }

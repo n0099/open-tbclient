@@ -5,7 +5,7 @@ import com.baidu.swan.pms.b.a.c.f;
 public abstract class b {
     public abstract boolean a(f fVar);
 
-    public abstract f abp();
+    public abstract f abn();
 
     public abstract void dC(boolean z);
 }

@@ -12,9 +12,9 @@ import java.util.List;
 public abstract class b<T> {
     public abstract ContentValues S(T t);
 
-    public abstract <T> List<T> i(Cursor cursor) throws SQLException;
+    public abstract <T> List<T> f(Cursor cursor) throws SQLException;
 
-    public abstract <T> T k(Cursor cursor) throws SQLException;
+    public abstract <T> T h(Cursor cursor) throws SQLException;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean a(Cursor cursor, com.baidu.swan.pms.model.e eVar) {
@@ -37,7 +37,7 @@ public abstract class b<T> {
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            eVar.bMa = string;
+            eVar.bLj = string;
             eVar.category = cursor.getInt(columnIndex2);
             eVar.versionName = cursor.getString(columnIndex3);
             eVar.versionCode = cursor.getInt(columnIndex4);
@@ -49,7 +49,7 @@ public abstract class b<T> {
             eVar.currentSize = cursor.getLong(columnIndex11);
             eVar.createTime = cursor.getLong(columnIndex12);
             eVar.updateTime = cursor.getLong(columnIndex13);
-            eVar.Lc = cursor.getLong(columnIndex9);
+            eVar.KC = cursor.getLong(columnIndex9);
             eVar.state = cursor.getInt(columnIndex14);
             return true;
         }
@@ -58,7 +58,7 @@ public abstract class b<T> {
 
     public ContentValues g(com.baidu.swan.pms.model.e eVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", eVar.bMa);
+        contentValues.put("bundle_id", eVar.bLj);
         contentValues.put("category", Integer.valueOf(eVar.category));
         contentValues.put(SharedPrefConfig.VERSION_NAME, eVar.versionName);
         contentValues.put("version_code", Integer.valueOf(eVar.versionCode));

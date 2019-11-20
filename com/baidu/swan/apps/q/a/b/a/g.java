@@ -18,12 +18,12 @@ public class g implements com.baidu.swan.apps.b.b.d {
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public com.baidu.swan.apps.b.b.b By() {
+    public com.baidu.swan.apps.b.b.b Bz() {
         return new a();
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public OkHttpClient BA() {
+    public OkHttpClient BB() {
         return new OkHttpClient.Builder().build();
     }
 
@@ -106,7 +106,7 @@ public class g implements com.baidu.swan.apps.b.b.d {
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public com.baidu.swan.apps.b.b.a Bz() {
+    public com.baidu.swan.apps.b.b.a BA() {
         return new m();
     }
 }

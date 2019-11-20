@@ -9,7 +9,7 @@ public class f implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
     public void excute(Map<String, String> map, SchemeCallback schemeCallback) {
         try {
-            com.baidu.tieba.sdk.a.chx().t(TbadkCoreApplication.getInst(), map.get("value"), "");
+            com.baidu.tieba.sdk.a.chv().t(TbadkCoreApplication.getInst(), map.get("value"), "");
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }

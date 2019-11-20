@@ -9,11 +9,11 @@ public class a implements com.baidu.tieba.p.a {
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private static class C0312a {
-        private static a diV = new a();
+        private static a did = new a();
     }
 
-    public static a aDW() {
-        return C0312a.diV;
+    public static a aDU() {
+        return C0312a.did;
     }
 
     @Override // com.baidu.tieba.p.a

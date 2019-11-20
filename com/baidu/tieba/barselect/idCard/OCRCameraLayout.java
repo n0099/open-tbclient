@@ -14,16 +14,16 @@ import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class OCRCameraLayout extends FrameLayout {
     public static int ORIENTATION_PORTRAIT = 0;
-    public static int eIK = 1;
+    public static int eHT = 1;
     private View contentView;
-    private View eIL;
-    private View eIM;
-    private View eIN;
-    private int eIO;
-    private int eIP;
-    private int eIQ;
-    private int eIR;
-    private Rect eIS;
+    private View eHU;
+    private View eHV;
+    private View eHW;
+    private int eHX;
+    private int eHY;
+    private int eHZ;
+    private int eIa;
+    private Rect eIb;
     private int orientation;
     private Paint paint;
 
@@ -38,7 +38,7 @@ public class OCRCameraLayout extends FrameLayout {
         super(context);
         this.orientation = ORIENTATION_PORTRAIT;
         setWillNotDraw(false);
-        this.eIS = new Rect();
+        this.eIb = new Rect();
         this.paint = new Paint();
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(Color.argb(83, 0, 0, 0));
@@ -48,7 +48,7 @@ public class OCRCameraLayout extends FrameLayout {
         super(context, attributeSet);
         this.orientation = ORIENTATION_PORTRAIT;
         setWillNotDraw(false);
-        this.eIS = new Rect();
+        this.eIb = new Rect();
         this.paint = new Paint();
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(Color.argb(83, 0, 0, 0));
@@ -59,7 +59,7 @@ public class OCRCameraLayout extends FrameLayout {
         super(context, attributeSet, i);
         this.orientation = ORIENTATION_PORTRAIT;
         setWillNotDraw(false);
-        this.eIS = new Rect();
+        this.eIb = new Rect();
         this.paint = new Paint();
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(Color.argb(83, 0, 0, 0));
@@ -69,10 +69,10 @@ public class OCRCameraLayout extends FrameLayout {
     private void f(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, R.styleable.OCRCameraLayout, 0, 0);
         try {
-            this.eIO = obtainStyledAttributes.getResourceId(0, -1);
-            this.eIP = obtainStyledAttributes.getResourceId(1, -1);
-            this.eIQ = obtainStyledAttributes.getResourceId(2, -1);
-            this.eIR = obtainStyledAttributes.getResourceId(3, -1);
+            this.eHX = obtainStyledAttributes.getResourceId(0, -1);
+            this.eHY = obtainStyledAttributes.getResourceId(1, -1);
+            this.eHZ = obtainStyledAttributes.getResourceId(2, -1);
+            this.eIa = obtainStyledAttributes.getResourceId(3, -1);
         } finally {
             obtainStyledAttributes.recycle();
         }
@@ -81,64 +81,64 @@ public class OCRCameraLayout extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.contentView = findViewById(this.eIO);
-        if (this.eIP != -1) {
-            this.eIL = findViewById(this.eIP);
+        this.contentView = findViewById(this.eHX);
+        if (this.eHY != -1) {
+            this.eHU = findViewById(this.eHY);
         }
-        this.eIM = findViewById(this.eIQ);
-        this.eIN = findViewById(this.eIR);
+        this.eHV = findViewById(this.eHZ);
+        this.eHW = findViewById(this.eIa);
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int width = getWidth();
         int height = getHeight();
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.eIM.getLayoutParams();
-        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.eIN.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.eHV.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.eHW.getLayoutParams();
         if (i3 < i4) {
             int i5 = (width * 4) / 3;
             int i6 = height - i5;
             this.contentView.layout(i, i2, i3, i5);
-            this.eIS.left = 0;
-            this.eIS.top = i5;
-            this.eIS.right = width;
-            this.eIS.bottom = height;
-            if (this.eIL != null) {
-                int measuredWidth = (width - this.eIL.getMeasuredWidth()) / 2;
-                int measuredHeight = ((i6 - this.eIL.getMeasuredHeight()) / 2) + i5;
-                this.eIL.layout(measuredWidth, measuredHeight, this.eIL.getMeasuredWidth() + measuredWidth, this.eIL.getMeasuredHeight() + measuredHeight);
+            this.eIb.left = 0;
+            this.eIb.top = i5;
+            this.eIb.right = width;
+            this.eIb.bottom = height;
+            if (this.eHU != null) {
+                int measuredWidth = (width - this.eHU.getMeasuredWidth()) / 2;
+                int measuredHeight = ((i6 - this.eHU.getMeasuredHeight()) / 2) + i5;
+                this.eHU.layout(measuredWidth, measuredHeight, this.eHU.getMeasuredWidth() + measuredWidth, this.eHU.getMeasuredHeight() + measuredHeight);
             }
             int i7 = marginLayoutParams.leftMargin;
-            int measuredHeight2 = ((i6 - this.eIM.getMeasuredHeight()) / 2) + i5;
-            this.eIM.layout(i7, measuredHeight2, this.eIM.getMeasuredWidth() + i7, this.eIM.getMeasuredHeight() + measuredHeight2);
-            int measuredWidth2 = (width - this.eIN.getMeasuredWidth()) - marginLayoutParams2.rightMargin;
-            int measuredHeight3 = ((i6 - this.eIN.getMeasuredHeight()) / 2) + i5;
-            this.eIN.layout(measuredWidth2, measuredHeight3, this.eIN.getMeasuredWidth() + measuredWidth2, this.eIN.getMeasuredHeight() + measuredHeight3);
+            int measuredHeight2 = ((i6 - this.eHV.getMeasuredHeight()) / 2) + i5;
+            this.eHV.layout(i7, measuredHeight2, this.eHV.getMeasuredWidth() + i7, this.eHV.getMeasuredHeight() + measuredHeight2);
+            int measuredWidth2 = (width - this.eHW.getMeasuredWidth()) - marginLayoutParams2.rightMargin;
+            int measuredHeight3 = ((i6 - this.eHW.getMeasuredHeight()) / 2) + i5;
+            this.eHW.layout(measuredWidth2, measuredHeight3, this.eHW.getMeasuredWidth() + measuredWidth2, this.eHW.getMeasuredHeight() + measuredHeight3);
             return;
         }
         int i8 = (height * 4) / 3;
         int i9 = width - i8;
         this.contentView.layout(i, i2, i8, height);
-        this.eIS.left = i8;
-        this.eIS.top = 0;
-        this.eIS.right = width;
-        this.eIS.bottom = height;
-        if (this.eIL != null) {
-            int measuredWidth3 = ((i9 - this.eIL.getMeasuredWidth()) / 2) + i8;
-            int measuredHeight4 = (height - this.eIL.getMeasuredHeight()) / 2;
-            this.eIL.layout(measuredWidth3, measuredHeight4, this.eIL.getMeasuredWidth() + measuredWidth3, this.eIL.getMeasuredHeight() + measuredHeight4);
+        this.eIb.left = i8;
+        this.eIb.top = 0;
+        this.eIb.right = width;
+        this.eIb.bottom = height;
+        if (this.eHU != null) {
+            int measuredWidth3 = ((i9 - this.eHU.getMeasuredWidth()) / 2) + i8;
+            int measuredHeight4 = (height - this.eHU.getMeasuredHeight()) / 2;
+            this.eHU.layout(measuredWidth3, measuredHeight4, this.eHU.getMeasuredWidth() + measuredWidth3, this.eHU.getMeasuredHeight() + measuredHeight4);
         }
-        int measuredWidth4 = ((i9 - this.eIM.getMeasuredWidth()) / 2) + i8;
-        int measuredHeight5 = (height - this.eIM.getMeasuredHeight()) - marginLayoutParams.bottomMargin;
-        this.eIM.layout(measuredWidth4, measuredHeight5, this.eIM.getMeasuredWidth() + measuredWidth4, this.eIM.getMeasuredHeight() + measuredHeight5);
-        int measuredWidth5 = ((i9 - this.eIN.getMeasuredWidth()) / 2) + i8;
+        int measuredWidth4 = ((i9 - this.eHV.getMeasuredWidth()) / 2) + i8;
+        int measuredHeight5 = (height - this.eHV.getMeasuredHeight()) - marginLayoutParams.bottomMargin;
+        this.eHV.layout(measuredWidth4, measuredHeight5, this.eHV.getMeasuredWidth() + measuredWidth4, this.eHV.getMeasuredHeight() + measuredHeight5);
+        int measuredWidth5 = ((i9 - this.eHW.getMeasuredWidth()) / 2) + i8;
         int i10 = marginLayoutParams2.topMargin;
-        this.eIN.layout(measuredWidth5, i10, this.eIN.getMeasuredWidth() + measuredWidth5, this.eIN.getMeasuredHeight() + i10);
+        this.eHW.layout(measuredWidth5, i10, this.eHW.getMeasuredWidth() + measuredWidth5, this.eHW.getMeasuredHeight() + i10);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawRect(this.eIS, this.paint);
+        canvas.drawRect(this.eIb, this.paint);
     }
 }

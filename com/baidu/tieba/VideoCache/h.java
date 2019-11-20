@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes4.dex */
 public class h {
-    private String bTS;
-    private String dfL;
-    private boolean dfM;
-    private long dfN = -1;
-    private long dfO = -1;
-    private long dfP = 0;
-    private long dfQ = 0;
+    private String bTb;
+    private String deU;
+    private boolean deV;
+    private long deW = -1;
+    private long deX = -1;
+    private long deY = 0;
+    private long deZ = 0;
 
-    public String aCE() {
-        return this.dfL;
+    public String aCC() {
+        return this.deU;
     }
 
     public void qQ(String str) {
-        this.dfL = str;
+        this.deU = str;
     }
 
-    public String aCF() {
-        return this.bTS;
+    public String aCD() {
+        return this.bTb;
     }
 
     public void qR(String str) {
-        this.bTS = str;
+        this.bTb = str;
     }
 
-    public boolean aCG() {
-        return this.dfM;
+    public boolean aCE() {
+        return this.deV;
     }
 
     public void gb(boolean z) {
-        this.dfM = z;
+        this.deV = z;
     }
 
-    public long aCH() {
-        return this.dfN;
+    public long aCF() {
+        return this.deW;
+    }
+
+    public void bC(long j) {
+        this.deW = j;
+    }
+
+    public long aCG() {
+        return this.deX;
     }
 
     public void bD(long j) {
-        this.dfN = j;
-    }
-
-    public long aCI() {
-        return this.dfO;
-    }
-
-    public void bE(long j) {
-        this.dfO = j;
+        this.deX = j;
     }
 
     public long getTotalLength() {
-        return this.dfP;
+        return this.deY;
     }
 
     public void setTotalLength(long j) {
-        this.dfP = j;
+        this.deY = j;
     }
 
-    public void bF(long j) {
-        this.dfQ = j;
+    public void bE(long j) {
+        this.deZ = j;
     }
 
-    public long aCJ() {
-        return this.dfQ;
+    public long aCH() {
+        return this.deZ;
     }
 }

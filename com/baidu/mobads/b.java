@@ -30,7 +30,7 @@ import org.json.JSONObject;
 public class b {
     private static Class<?> d;
     private Activity a;
-    private Method[] aAs = null;
+    private Method[] aAa = null;
     private Object c;
     private static boolean b = false;
     private static AtomicBoolean f = new AtomicBoolean(false);
@@ -39,16 +39,16 @@ public class b {
         this.a = activity;
     }
 
-    public static boolean zr() {
+    public static boolean zs() {
         return f.get();
     }
 
     private Method dz(String str) {
         Method[] methodArr;
-        if (this.aAs == null) {
+        if (this.aAa == null) {
             return null;
         }
-        for (Method method : this.aAs) {
+        for (Method method : this.aAa) {
             if (method.getName().equals(str)) {
                 method.setAccessible(true);
                 return method;
@@ -189,7 +189,7 @@ public class b {
         try {
             f.set(true);
             Intent intent = this.a.getIntent();
-            if (AppActivity.zp() && intent.getParcelableExtra("EXTRA_DATA") == null) {
+            if (AppActivity.zq() && intent.getParcelableExtra("EXTRA_DATA") == null) {
                 XAdLandingPageExtraInfo xAdLandingPageExtraInfo = new XAdLandingPageExtraInfo((String) null, new XAdInstanceInfo(new JSONObject()));
                 b(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.a.getIntent().getStringExtra("EXTRA_DATA_STRING"));
                 b(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.a.getIntent().getStringExtra("EXTRA_DATA_STRING_COM"));
@@ -202,7 +202,7 @@ public class b {
             } else {
                 d = dA("com.baidu.mobads.container.landingpage.App2Activity");
             }
-            this.aAs = d.getDeclaredMethods();
+            this.aAa = d.getDeclaredMethods();
             this.c = d.getConstructor(Activity.class).newInstance(this.a);
             f("canLpShowWhenLocked", Boolean.valueOf(b));
             com.baidu.mobads.utils.m.a().d("com.baidu.mobads.container.landingpage.App2Activity", d, this.c);

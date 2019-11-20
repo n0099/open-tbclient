@@ -1,73 +1,74 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.xiaomi.push.Cif;
+import com.xiaomi.push.hg;
+import com.xiaomi.push.hk;
+import com.xiaomi.push.ht;
+import com.xiaomi.push.ic;
+import com.xiaomi.push.iq;
+import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class j {
-    public static void a(Context context, String str) {
-        ArrayList<com.xiaomi.xmpush.thrift.m> b = g.a(context).b(str);
-        if (b == null || b.size() < 1) {
+class j extends XMPushService.i {
+    final /* synthetic */ i a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ String f914a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ List f915a;
+    final /* synthetic */ String b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j(i iVar, int i, String str, List list, String str2) {
+        super(i);
+        this.a = iVar;
+        this.f914a = str;
+        this.f915a = list;
+        this.b = str2;
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "Send tiny data.";
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        String a;
+        XMPushService xMPushService;
+        a = this.a.a(this.f914a);
+        ArrayList<Cif> a2 = be.a(this.f915a, this.f914a, a, 32768);
+        com.xiaomi.channel.commonutils.logger.b.m30a("TinyData LongConnUploader.upload pack notifications " + a2.toString() + "  ts:" + System.currentTimeMillis());
+        if (a2 == null) {
+            com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
             return;
         }
-        if (g.a(context).e(str) == 0) {
-            com.xiaomi.channel.commonutils.logger.b.a("appIsUninstalled. failed to delete geofencing with package name. name:" + str);
-        }
-        Iterator<com.xiaomi.xmpush.thrift.m> it = b.iterator();
+        Iterator<Cif> it = a2.iterator();
         while (it.hasNext()) {
-            com.xiaomi.xmpush.thrift.m next = it.next();
-            if (next == null) {
-                com.xiaomi.channel.commonutils.logger.b.a("appIsUninstalled. failed to find geofence with package name. name:" + str);
-                return;
+            Cif next = it.next();
+            next.a("uploadWay", "longXMPushService");
+            ic a3 = w.a(this.f914a, a, next, hg.Notification);
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f914a, this.b)) {
+                if (a3.m384a() == null) {
+                    ht htVar = new ht();
+                    htVar.a(LivenessStat.TYPE_STRING_DEFAULT);
+                    a3.a(htVar);
+                }
+                a3.m384a().b("ext_traffic_source_pkg", this.b);
             }
-            a(next.a(), context);
-            if (i.a(context).b(next.a()) == 0) {
-                com.xiaomi.channel.commonutils.logger.b.a("appIsUninstalled. failed to delete geoMessage with package name. name:" + str + ", geoId:" + next.a());
-            }
+            byte[] a4 = iq.a(a3);
+            xMPushService = this.a.a;
+            xMPushService.a(this.f914a, a4, true);
         }
-    }
-
-    public static void a(Context context, boolean z) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
-        edit.putBoolean("geo_switch", z);
-        com.xiaomi.channel.commonutils.android.l.a(edit);
-    }
-
-    public static void a(String str, Context context) {
-        new com.xiaomi.metoknlp.geofencing.a(context).a(context, "com.xiaomi.xmsf", str);
-    }
-
-    public static boolean a(Context context) {
-        return a(context, "com.xiaomi.metoknlp", 6);
-    }
-
-    public static boolean a(Context context, String str, int i) {
-        PackageInfo packageInfo;
-        try {
-            packageInfo = context.getPackageManager().getPackageInfo(str, 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            packageInfo = null;
+        Iterator it2 = this.f915a.iterator();
+        while (it2.hasNext()) {
+            com.xiaomi.channel.commonutils.logger.b.m30a("TinyData LongConnUploader.upload uploaded by com.xiaomi.push.service.TinyDataUploader.  item" + ((hk) it2.next()).d() + "  ts:" + System.currentTimeMillis());
         }
-        return packageInfo != null && packageInfo.versionCode >= i;
-    }
-
-    public static boolean b(Context context) {
-        return a(context, "com.xiaomi.xmsf", 106) && (a(context, "com.xiaomi.metok", 20) || a(context, "com.xiaomi.metoknlp", 6));
-    }
-
-    public static boolean c(Context context) {
-        return TextUtils.equals(context.getPackageName(), "com.xiaomi.xmsf");
-    }
-
-    public static boolean d(Context context) {
-        return a(context);
-    }
-
-    public static boolean e(Context context) {
-        return context.getSharedPreferences("mipush_extra", 4).getBoolean("geo_switch", false);
     }
 }

@@ -5,20 +5,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends a {
-    public String bwf;
-    public boolean bwg;
+    public String bvo;
+    public boolean bvp;
 
     public b() {
         super("coverImage");
-        this.bwg = false;
+        this.bvp = false;
     }
 
     @Override // com.baidu.swan.apps.view.coverview.b.a, com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         if (jSONObject != null) {
-            this.bwf = jSONObject.optString("src");
-            this.bwg = jSONObject.optBoolean("loadState", false);
+            this.bvo = jSONObject.optString("src");
+            this.bvp = jSONObject.optBoolean("loadState", false);
         }
     }
 
@@ -27,11 +27,11 @@ public class b extends a {
         super.a(aVar, aVar2);
         if (aVar instanceof b) {
             b bVar = (b) aVar;
-            if (!TextUtils.equals(this.bwf, bVar.bwf)) {
-                aVar2.fH(2);
+            if (!TextUtils.equals(this.bvo, bVar.bvo)) {
+                aVar2.fG(2);
             }
-            if (this.bwg != bVar.bwg) {
-                aVar2.fH(2);
+            if (this.bvp != bVar.bvp) {
+                aVar2.fG(2);
             }
         }
     }

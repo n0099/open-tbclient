@@ -32,7 +32,7 @@ public class c {
                     }
                     BdToast b = BdToast.b(tbPageContext.getPageActivity(), forbid_info, R.drawable.icon_pure_toast_mistake_n_svg, true);
                     b.setExtraTextLineSpacing(1.25f);
-                    b.akT();
+                    b.akR();
                     return false;
                 }
             }
@@ -49,7 +49,7 @@ public class c {
         if (i != 1 && i != 2) {
             BdToast b = BdToast.b(tbPageContext.getPageActivity(), string, R.drawable.icon_pure_toast_mistake_n_svg, true);
             b.setExtraTextLineSpacing(1.25f);
-            b.akT();
+            b.akR();
             return false;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
@@ -66,14 +66,14 @@ public class c {
             aVar.a(aq.getFixedText(blockPopInfoData.ahead_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.c.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    ba.amQ().b(TbPageContext.this, new String[]{blockPopInfoData.ahead_url});
+                    ba.amO().b(TbPageContext.this, new String[]{blockPopInfoData.ahead_url});
                     if (aVar2 != null) {
                         aVar2.dismiss();
                     }
                 }
             });
         }
-        aVar.b(tbPageContext).akO();
+        aVar.b(tbPageContext).akM();
         return true;
     }
 }

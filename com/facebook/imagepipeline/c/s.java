@@ -17,16 +17,16 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class s implements r {
     private static final String TAG = s.class.getSimpleName();
-    private static final String[] aVJ = {"cache_choice", "cache_key", "width", "height"};
-    private final Executor kgL;
-    private final Executor kgM;
+    private static final String[] aVr = {"cache_choice", "cache_key", "width", "height"};
+    private final Executor kfU;
+    private final Executor kfV;
     @GuardedBy("MediaVariationsIndexDatabase.class")
-    private final b khq;
+    private final b kgz;
 
     public s(Context context, Executor executor, Executor executor2) {
-        this.khq = new b(context);
-        this.kgL = executor;
-        this.kgM = executor2;
+        this.kgz = new b(context);
+        this.kfU = executor;
+        this.kfV = executor2;
     }
 
     @Override // com.facebook.imagepipeline.c.r
@@ -35,20 +35,20 @@ public class s implements r {
             return bolts.g.a(new Callable<com.facebook.imagepipeline.request.a>() { // from class: com.facebook.imagepipeline.c.s.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: cFK */
+                /* renamed from: cFI */
                 public com.facebook.imagepipeline.request.a call() throws Exception {
                     return s.this.b(str, c0567a);
                 }
-            }, this.kgL);
+            }, this.kfU);
         } catch (Exception e) {
             com.facebook.common.c.a.a(TAG, e, "Failed to schedule query task for %s", str);
-            return bolts.g.f(e);
+            return bolts.g.e(e);
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [130=4] */
     protected com.facebook.imagepipeline.request.a b(String str, a.C0567a c0567a) {
-        com.facebook.imagepipeline.request.a cJL;
+        com.facebook.imagepipeline.request.a cJJ;
         Cursor cursor = null;
         synchronized (s.class) {
             try {
@@ -56,10 +56,10 @@ public class s implements r {
                 th = th;
             }
             try {
-                Cursor query = this.khq.getWritableDatabase().query("media_variations_index", aVJ, "media_id = ?", new String[]{str}, null, null, null);
+                Cursor query = this.kgz.getWritableDatabase().query("media_variations_index", aVr, "media_id = ?", new String[]{str}, null, null, null);
                 try {
                     if (query.getCount() == 0) {
-                        cJL = c0567a.cJL();
+                        cJJ = c0567a.cJJ();
                         if (query != null) {
                             query.close();
                         }
@@ -72,7 +72,7 @@ public class s implements r {
                             String string = query.getString(columnIndexOrThrow4);
                             c0567a.a(Uri.parse(query.getString(columnIndexOrThrow)), query.getInt(columnIndexOrThrow2), query.getInt(columnIndexOrThrow3), TextUtils.isEmpty(string) ? null : ImageRequest.CacheChoice.valueOf(string));
                         }
-                        cJL = c0567a.cJL();
+                        cJJ = c0567a.cJJ();
                         if (query != null) {
                             query.close();
                         }
@@ -92,12 +92,12 @@ public class s implements r {
                 throw th;
             }
         }
-        return cJL;
+        return cJJ;
     }
 
     @Override // com.facebook.imagepipeline.c.r
     public void a(final String str, final ImageRequest.CacheChoice cacheChoice, final com.facebook.cache.common.b bVar, final com.facebook.imagepipeline.f.d dVar) {
-        this.kgM.execute(new Runnable() { // from class: com.facebook.imagepipeline.c.s.2
+        this.kfV.execute(new Runnable() { // from class: com.facebook.imagepipeline.c.s.2
             @Override // java.lang.Runnable
             public void run() {
                 s.this.b(str, cacheChoice, bVar, dVar);
@@ -107,7 +107,7 @@ public class s implements r {
 
     protected void b(String str, ImageRequest.CacheChoice cacheChoice, com.facebook.cache.common.b bVar, com.facebook.imagepipeline.f.d dVar) {
         synchronized (s.class) {
-            SQLiteDatabase writableDatabase = this.khq.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.kgz.getWritableDatabase();
             try {
                 writableDatabase.beginTransaction();
                 ContentValues contentValues = new ContentValues();
@@ -115,7 +115,7 @@ public class s implements r {
                 contentValues.put("width", Integer.valueOf(dVar.getWidth()));
                 contentValues.put("height", Integer.valueOf(dVar.getHeight()));
                 contentValues.put("cache_choice", cacheChoice.name());
-                contentValues.put("cache_key", bVar.cBY());
+                contentValues.put("cache_key", bVar.cBW());
                 contentValues.put("resource_id", com.facebook.cache.common.c.b(bVar));
                 writableDatabase.replaceOrThrow("media_variations_index", null, contentValues);
                 writableDatabase.setTransactionSuccessful();
@@ -131,7 +131,7 @@ public class s implements r {
     /* loaded from: classes2.dex */
     public static class b {
         @Nullable
-        private a khv;
+        private a kgE;
         private final Context mContext;
 
         private b(Context context) {
@@ -139,10 +139,10 @@ public class s implements r {
         }
 
         public synchronized SQLiteDatabase getWritableDatabase() {
-            if (this.khv == null) {
-                this.khv = new a(this.mContext);
+            if (this.kgE == null) {
+                this.kgE = new a(this.mContext);
             }
-            return this.khv.getWritableDatabase();
+            return this.kgE.getWritableDatabase();
         }
     }
 

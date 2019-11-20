@@ -27,12 +27,12 @@ import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public final class a {
     private static final String SECONDARY_FOLDER_NAME = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> hyh = new HashSet();
-    private static final boolean hyi = Ad(System.getProperty("java.vm.version"));
+    private static final Set<String> hxq = new HashSet();
+    private static final boolean hxr = Ad(System.getProperty("java.vm.version"));
 
     public static void dJ(Context context) {
         Log.i("MultiDex", Config.INPUT_INSTALLED_PKG);
-        if (hyi) {
+        if (hxr) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4" + DefaultConfig.TOKEN_SEPARATOR);
@@ -40,11 +40,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = hyh;
-                    synchronized (hyh) {
+                    Set<String> set = hxq;
+                    synchronized (hxq) {
                         String str = applicationInfo.sourceDir;
-                        if (!hyh.contains(str)) {
-                            hyh.add(str);
+                        if (!hxq.contains(str)) {
+                            hxq.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }

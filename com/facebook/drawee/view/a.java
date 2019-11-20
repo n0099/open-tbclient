@@ -15,15 +15,15 @@ public class a {
 
     public static void a(C0564a c0564a, float f, @Nullable ViewGroup.LayoutParams layoutParams, int i, int i2) {
         if (f > 0.0f && layoutParams != null) {
-            if (Cp(layoutParams.height)) {
+            if (Co(layoutParams.height)) {
                 c0564a.height = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(c0564a.width) - i) / f) + i2), c0564a.height), 1073741824);
-            } else if (Cp(layoutParams.width)) {
+            } else if (Co(layoutParams.width)) {
                 c0564a.width = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(c0564a.height) - i2) * f) + i), c0564a.width), 1073741824);
             }
         }
     }
 
-    private static boolean Cp(int i) {
+    private static boolean Co(int i) {
         return i == 0 || i == -2;
     }
 }

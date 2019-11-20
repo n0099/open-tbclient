@@ -10,7 +10,7 @@ public final class q {
             long blockCount = statFs.getBlockCount() * statFs.getBlockSize();
             StatFs statFs2 = new StatFs(Environment.getDataDirectory().getPath());
             long availableBlocks = statFs2.getAvailableBlocks() * statFs2.getBlockSize();
-            return "Total: " + com.baidu.crabsdk.c.c.q(blockCount) + " Used: " + com.baidu.crabsdk.c.c.q(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.q(availableBlocks);
+            return "Total: " + com.baidu.crabsdk.c.c.p(blockCount) + " Used: " + com.baidu.crabsdk.c.c.p(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.p(availableBlocks);
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("getInternalStorageInfo error!", e);
             return "N/A";

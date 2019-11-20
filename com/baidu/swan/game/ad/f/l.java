@@ -6,29 +6,29 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class l {
     private static final boolean c = com.baidu.swan.apps.b.DEBUG;
-    public JsFunction bxU;
-    public JsFunction bxV;
+    public JsFunction bxd;
+    public JsFunction bxe;
 
     public static l d(com.baidu.swan.games.binding.model.c cVar) {
         if (cVar == null) {
             return null;
         }
         l lVar = new l();
-        lVar.bxU = cVar.jD("success");
-        lVar.bxV = cVar.jD(LivenessStat.TYPE_FACE_MATCH_FAIL);
+        lVar.bxd = cVar.jD("success");
+        lVar.bxe = cVar.jD(LivenessStat.TYPE_FACE_MATCH_FAIL);
         return lVar;
     }
 
     public void a() {
-        if (this.bxU != null) {
-            this.bxU.call();
+        if (this.bxd != null) {
+            this.bxd.call();
         }
     }
 
     public void a(String str) {
         JSONObject jq = jq(str);
-        if (this.bxV != null) {
-            this.bxV.call(jq);
+        if (this.bxe != null) {
+            this.bxe.call(jq);
         }
     }
 

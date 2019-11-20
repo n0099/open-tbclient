@@ -34,7 +34,7 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        aCj();
+        aCh();
         registerTask();
     }
 
@@ -59,11 +59,11 @@ public class SignStatic {
                     x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
                     xVar.addPostData("kw", name);
                     xVar.addPostData("fid", id);
-                    xVar.amr().amR().mIsNeedTbs = true;
+                    xVar.amp().amP().mIsNeedTbs = true;
                     xVar.ek(true);
                     String postNetData = xVar.postNetData();
                     if (xVar.isNetSuccess()) {
-                        if (xVar.amr().amS().isRequestSuccess()) {
+                        if (xVar.amp().amQ().isRequestSuccess()) {
                             signData = new SignData();
                             signData.parserJson(postNetData);
                             signData.forumId = id;
@@ -71,7 +71,7 @@ public class SignStatic {
                         } else {
                             if (!aq.isEmpty(postNetData)) {
                                 JSONObject jSONObject = new JSONObject(postNetData);
-                                if (AntiHelper.zY(xVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
+                                if (AntiHelper.zX(xVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
                                     signData = new SignData();
                                     signData.parserJson(postNetData);
                                     signData.is_signed = 1;
@@ -98,8 +98,8 @@ public class SignStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aCj() {
-        ba.amQ().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
+    private static void aCh() {
+        ba.amO().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

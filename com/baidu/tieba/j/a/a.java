@@ -30,11 +30,11 @@ public abstract class a<T extends com.baidu.tieba.play.c.b> implements c<T> {
         return this.list.size();
     }
 
-    public String bMZ() {
+    public String bMX() {
         if (StringUtils.isNull(this.uuid) || !m.checkSD() || StringUtils.isNull(getKey())) {
             return null;
         }
-        String str = c.a.hwY + bNa();
+        String str = c.a.hwh + bMY();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -48,13 +48,13 @@ public abstract class a<T extends com.baidu.tieba.play.c.b> implements c<T> {
         }
     }
 
-    protected String bNa() {
+    protected String bMY() {
         return PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.uuid + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + getKey();
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public e bNb() {
-        return new e(getKey(), bMZ());
+    public e bMZ() {
+        return new e(getKey(), bMX());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -66,9 +66,9 @@ public abstract class a<T extends com.baidu.tieba.play.c.b> implements c<T> {
             /* renamed from: b */
             public Void doInBackground(List<T>[] listArr) {
                 if (listArr != null && listArr.length == 1) {
-                    String bMZ = a.this.bMZ();
-                    if (!StringUtils.isNull(bMZ)) {
-                        a.this.l(bMZ, listArr[0]);
+                    String bMX = a.this.bMX();
+                    if (!StringUtils.isNull(bMX)) {
+                        a.this.l(bMX, listArr[0]);
                     }
                 }
                 return null;
@@ -81,7 +81,7 @@ public abstract class a<T extends com.baidu.tieba.play.c.b> implements c<T> {
         int size = list.size();
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(list.get(i).cdp());
+            jSONArray.put(list.get(i).cdn());
         }
         com.baidu.tieba.j.d.c(new File(str), jSONArray.toString() + "\n");
     }

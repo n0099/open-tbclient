@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private String sv;
-    private int ti;
-    private int tj;
-    private boolean tk;
-    private boolean tl;
-    private int tm;
-    private int tp;
-    private boolean tq;
-    private boolean tr;
+    private String rR;
+    private int sI;
+    private int sJ;
+    private boolean sK;
+    private boolean sL;
+    private int sM;
+    private int sN;
+    private boolean sO;
+    private boolean sP;
 
     public l() {
-        this.sv = null;
-        this.ti = 32768;
-        this.tj = 131072;
-        this.tk = false;
-        this.tl = true;
-        this.tm = 30000;
-        this.tp = 30000;
-        this.tq = true;
-        this.tr = true;
-        this.sv = null;
+        this.rR = null;
+        this.sI = 32768;
+        this.sJ = 131072;
+        this.sK = false;
+        this.sL = true;
+        this.sM = 30000;
+        this.sN = 30000;
+        this.sO = true;
+        this.sP = true;
+        this.rR = null;
     }
 
     public l(l lVar) {
-        this.sv = null;
-        this.ti = lVar.ti;
-        this.tj = lVar.tj;
-        this.tk = lVar.tk;
-        this.tl = lVar.tl;
-        this.tm = lVar.tm;
-        this.tp = lVar.tp;
-        this.tq = lVar.tq;
-        this.tr = lVar.tr;
-        this.sv = lVar.sv;
+        this.rR = null;
+        this.sI = lVar.sI;
+        this.sJ = lVar.sJ;
+        this.sK = lVar.sK;
+        this.sL = lVar.sL;
+        this.sM = lVar.sM;
+        this.sN = lVar.sN;
+        this.sO = lVar.sO;
+        this.sP = lVar.sP;
+        this.rR = lVar.rR;
     }
 
     public boolean hF() {
-        return this.tk;
+        return this.sK;
     }
 
     public int hG() {
-        return this.ti;
+        return this.sI;
     }
 
     public int hH() {
-        return this.tj;
+        return this.sJ;
     }
 
     public boolean hI() {
-        return this.tl;
+        return this.sL;
     }
 
     public int hJ() {
-        return this.tm;
+        return this.sM;
     }
 
     public int hK() {
-        return this.tp;
+        return this.sN;
     }
 
     public boolean hL() {
-        return this.tq;
+        return this.sO;
     }
 
     public boolean hM() {
-        return this.tr;
+        return this.sP;
     }
 
     public String hN() {
-        return this.sv;
+        return this.rR;
     }
 
     public void ay(String str) {
-        this.sv = str;
+        this.rR = str;
     }
 }

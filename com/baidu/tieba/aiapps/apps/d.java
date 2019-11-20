@@ -45,7 +45,7 @@ public final class d {
         tbImageView.setDefaultResource(R.drawable.toastpic);
         tbImageView.setAutoChangeStyle(false);
         final PopupWindow popupWindow = new PopupWindow(currentActivity);
-        switch (gVar.aeu()) {
+        switch (gVar.aes()) {
             case 3:
                 tbImageView.setImageResource(R.drawable.toastpic_scheme);
                 onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.d.1
@@ -57,9 +57,9 @@ public final class d {
                                 if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
                                     TiebaStatic.log(new an("c13391").bS("obj_type", parse.getQueryParameter("obj_type")).bS("obj_source", parse.getQueryParameter("obj_source")));
                                 }
-                                if (g.this.getUrl().startsWith(f.bSh)) {
+                                if (g.this.getUrl().startsWith(f.bRq)) {
                                     Uri.Builder buildUpon = Uri.parse(g.this.getUrl()).buildUpon();
-                                    buildUpon.appendQueryParameter(f.bSr, f.bSv);
+                                    buildUpon.appendQueryParameter(f.bRA, f.bRE);
                                     parse = buildUpon.build();
                                 }
                                 UtilHelper.dealOneScheme(com.baidu.adp.base.a.em().currentActivity(), parse.toString());
@@ -85,7 +85,7 @@ public final class d {
                     public void onClick(View view) {
                         if (view.getId() == R.id.go_to_aiapps_go) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921361, url));
-                            TiebaStatic.log(new an("c13274").bS("uid", TbadkCoreApplication.getCurrentAccount()).bS("obj_id", gVar.bSB).bS("obj_source", "tb_password").bS("obj_name", gVar.appName).O("obj_param1", gVar.bSC.intValue()));
+                            TiebaStatic.log(new an("c13274").bS("uid", TbadkCoreApplication.getCurrentAccount()).bS("obj_id", gVar.bRK).bS("obj_source", "tb_password").bS("obj_name", gVar.appName).O("obj_param1", gVar.bRL.intValue()));
                             try {
                                 popupWindow.dismiss();
                             } catch (Throwable th) {
@@ -100,8 +100,8 @@ public final class d {
                         }
                     }
                 };
-                if (!StringUtils.isNull(gVar.aer())) {
-                    tbImageView.startLoad(gVar.aer(), 10, false);
+                if (!StringUtils.isNull(gVar.aep())) {
+                    tbImageView.startLoad(gVar.aep(), 10, false);
                     onClickListener = onClickListener2;
                     break;
                 } else {
@@ -112,8 +112,8 @@ public final class d {
         }
         textView.setOnClickListener(onClickListener);
         textView2.setOnClickListener(onClickListener);
-        textView.setText(gVar.aes());
-        textView2.setText(gVar.aet());
+        textView.setText(gVar.aeq());
+        textView2.setText(gVar.aer());
         textView3.setText(gVar.getTitle());
         textView4.setText(gVar.getTips());
         ColorDrawable colorDrawable = new ColorDrawable();

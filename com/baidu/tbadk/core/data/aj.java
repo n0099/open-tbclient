@@ -4,9 +4,9 @@ import android.util.SparseArray;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class aj {
-    private long bZT;
-    public int bZV;
-    public JSONArray bZW;
+    private long bZc;
+    public int bZe;
+    public JSONArray bZf;
     public String extra;
     private String fid;
     public String source;
@@ -15,7 +15,7 @@ public class aj {
     private String type;
     public String weight;
     public SparseArray<String> feedBackReasonMap = null;
-    public SparseArray<String> bZU = null;
+    public SparseArray<String> bZd = null;
 
     public String getTid() {
         return this.tid;
@@ -53,27 +53,27 @@ public class aj {
         this.feedBackReasonMap = sparseArray;
     }
 
-    public void hw(int i) {
-        this.bZV = i;
+    public void hv(int i) {
+        this.bZe = i;
     }
 
-    public int ahr() {
-        return this.bZV;
+    public int ahp() {
+        return this.bZe;
     }
 
     public void F(JSONArray jSONArray) {
-        this.bZW = jSONArray;
+        this.bZf = jSONArray;
     }
 
-    public JSONArray ahs() {
-        return this.bZW;
+    public JSONArray ahq() {
+        return this.bZf;
     }
 
-    public long aht() {
-        return this.bZT;
+    public long ahr() {
+        return this.bZc;
     }
 
-    public void aI(long j) {
-        this.bZT = j;
+    public void aH(long j) {
+        this.bZc = j;
     }
 }

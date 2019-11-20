@@ -14,7 +14,7 @@ import tbclient.AlaLiveInfo;
 import tbclient.BannerFollowLive;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId cDN = BdUniqueId.gen();
+    public static final BdUniqueId cCW = BdUniqueId.gen();
     private List<com.baidu.adp.widget.ListView.m> mList;
 
     public List<com.baidu.adp.widget.ListView.m> getList() {
@@ -30,7 +30,7 @@ public class b implements com.baidu.adp.widget.ListView.m {
             }
             List<AlaLiveInfo> list = bannerFollowLive.ala_live_list;
             if (!v.isEmpty(list)) {
-                ats();
+                atq();
                 for (AlaLiveInfo alaLiveInfo : list) {
                     if (alaLiveInfo != null) {
                         a aVar = new a();
@@ -42,23 +42,23 @@ public class b implements com.baidu.adp.widget.ListView.m {
         }
     }
 
-    private void ats() {
+    private void atq() {
         String string;
         a aVar = new a();
-        aVar.cDK = -100;
+        aVar.cCT = -100;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_ALA_START_SYNC, String.class);
         if (runTask != null && !StringUtils.isNull((String) runTask.getData())) {
             string = (String) runTask.getData();
         } else {
             string = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_follow_live_enter_live_square_txt);
         }
-        aVar.cDL = string;
-        aVar.cDM = R.drawable.icon_follow_live_recommend;
+        aVar.cCU = string;
+        aVar.cCV = R.drawable.icon_follow_live_recommend;
         this.mList.add(aVar);
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cDN;
+        return cCW;
     }
 }

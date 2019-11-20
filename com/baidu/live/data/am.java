@@ -3,21 +3,21 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class am {
-    public int UF;
-    public int UG;
-    public int UH;
-    public String UO;
-    public String UQ;
-    public String UR;
-    public String US;
+    public int Ul;
+    public int Um;
+    public int Un;
+    public String Ut;
+    public String Uu;
+    public String Uv;
+    public String Uw;
 
     public am(JSONObject jSONObject) {
-        this.UF = jSONObject.optInt("show_times_daily");
-        this.UG = jSONObject.optInt("continue_show_times");
-        this.UH = jSONObject.optInt("condition");
-        this.UO = jSONObject.optString("toast_text");
-        this.UQ = jSONObject.optString("first_recharge_bg");
-        this.UR = jSONObject.optString("first_recharge_button");
-        this.US = jSONObject.optString("first_recharge_h5");
+        this.Ul = jSONObject.optInt("show_times_daily");
+        this.Um = jSONObject.optInt("continue_show_times");
+        this.Un = jSONObject.optInt("condition");
+        this.Ut = jSONObject.optString("toast_text");
+        this.Uu = jSONObject.optString("first_recharge_bg");
+        this.Uv = jSONObject.optString("first_recharge_button");
+        this.Uw = jSONObject.optString("first_recharge_h5");
     }
 }

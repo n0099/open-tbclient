@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class SearchView extends LinearLayout {
-    private ImageView dKQ;
-    private View eJB;
-    private TextView eJC;
+    private ImageView dJZ;
+    private View eIK;
+    private TextView eIL;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -39,22 +39,22 @@ public class SearchView extends LinearLayout {
     }
 
     private void md() {
-        this.eJB = findViewById(R.id.search_container);
-        this.dKQ = (ImageView) findViewById(R.id.search_bar_icon);
-        this.eJC = (TextView) findViewById(R.id.search_text);
+        this.eIK = findViewById(R.id.search_container);
+        this.dJZ = (ImageView) findViewById(R.id.search_bar_icon);
+        this.eIL = (TextView) findViewById(R.id.search_text);
     }
 
-    public void mE(int i) {
-        am.c(this.eJB, l.getDimens(getContext(), R.dimen.tbds100), (int) R.color.cp_bg_line_c, (int) R.color.cp_bg_line_c, i);
-        SvgManager.amN().a(this.dKQ, R.drawable.icon_pure_search_import_n_svg, R.color.cp_cont_d, null);
-        am.setViewTextColor(this.eJC, R.color.cp_cont_d, 1, i);
+    public void mD(int i) {
+        am.c(this.eIK, l.getDimens(getContext(), R.dimen.tbds100), (int) R.color.cp_bg_line_c, (int) R.color.cp_bg_line_c, i);
+        SvgManager.amL().a(this.dJZ, R.drawable.icon_pure_search_import_n_svg, R.color.cp_cont_d, null);
+        am.setViewTextColor(this.eIL, R.color.cp_cont_d, 1, i);
         am.setBackgroundResource(this, R.drawable.bar_select_bg_top_round, i);
     }
 
     public void s(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.eJB.setOnClickListener(this.mOnClickListener);
+            this.eIK.setOnClickListener(this.mOnClickListener);
         }
     }
 }

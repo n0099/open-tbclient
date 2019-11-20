@@ -15,45 +15,45 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private BdTypeListView dvB;
-    public j iCP;
-    private b iCQ;
-    public i iqx;
-    private List<com.baidu.adp.widget.ListView.a> agQ = new ArrayList();
-    private ArrayList<m> hOo = new ArrayList<>();
+    private BdTypeListView duK;
+    public j iBY;
+    private b iBZ;
+    public i ipG;
+    private List<com.baidu.adp.widget.ListView.a> agy = new ArrayList();
+    private ArrayList<m> hNx = new ArrayList<>();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.dvB = bdTypeListView;
+        this.duK = bdTypeListView;
         r(tbPageContext);
     }
 
     private void r(TbPageContext<?> tbPageContext) {
-        this.iqx = new i(tbPageContext);
-        this.iCP = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.isH);
-        this.iCQ = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.iCP.a(this.iCQ);
-        this.agQ.add(this.iqx);
-        this.agQ.add(this.iCP);
-        this.dvB.addAdapters(this.agQ);
+        this.ipG = new i(tbPageContext);
+        this.iBY = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.irQ);
+        this.iBZ = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.iBY.a(this.iBZ);
+        this.agy.add(this.ipG);
+        this.agy.add(this.iBY);
+        this.duK.addAdapters(this.agy);
     }
 
     public void K(ArrayList<m> arrayList) {
-        if (arrayList != null && this.dvB != null) {
-            this.hOo.clear();
-            this.hOo.addAll(arrayList);
-            this.dvB.setData(this.hOo);
+        if (arrayList != null && this.duK != null) {
+            this.hNx.clear();
+            this.hNx.addAll(arrayList);
+            this.duK.setData(this.hNx);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.dvB.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.dvB.getAdapter().notifyDataSetChanged();
+        if (this.duK.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.duK.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void startPullRefresh() {
-        if (this.dvB != null) {
-            this.dvB.startPullRefresh();
+        if (this.duK != null) {
+            this.duK.startPullRefresh();
         }
     }
 
@@ -62,10 +62,10 @@ public class a {
         if (aq.isEmpty(str)) {
             return false;
         }
-        if (this.dvB == null || this.hOo == null) {
+        if (this.duK == null || this.hNx == null) {
             return false;
         }
-        Iterator<m> it = this.hOo.iterator();
+        Iterator<m> it = this.hNx.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -79,8 +79,8 @@ public class a {
             }
         }
         if (z) {
-            this.hOo = PersonPostModel.mergeDynamicThreadByTime(this.hOo);
-            this.dvB.setData(this.hOo);
+            this.hNx = PersonPostModel.mergeDynamicThreadByTime(this.hNx);
+            this.duK.setData(this.hNx);
             notifyDataSetChanged();
             return z;
         }

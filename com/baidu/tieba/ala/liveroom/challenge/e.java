@@ -6,9 +6,9 @@ import com.baidu.live.data.w;
 public interface e {
     void a(v vVar, w wVar, w wVar2);
 
-    void aPZ();
+    void aPX();
 
-    void aQa();
+    void aPY();
 
     void nH();
 }

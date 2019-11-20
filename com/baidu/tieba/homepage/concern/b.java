@@ -8,7 +8,7 @@ import com.baidu.tieba.card.data.l;
 /* loaded from: classes4.dex */
 public class b {
     public static void a(View view, com.baidu.tieba.card.data.c cVar, boolean z) {
-        if (view != null && cVar != null && cVar.agI() != null && !StringUtils.isNull(cVar.agI().getTid())) {
+        if (view != null && cVar != null && cVar.agG() != null && !StringUtils.isNull(cVar.agG().getTid())) {
             an anVar = new an("c12352");
             if (z) {
                 anVar.O("obj_locate", 1);
@@ -18,12 +18,12 @@ public class b {
             if (cVar instanceof l) {
                 anVar.O("obj_type", 2);
             } else {
-                anVar.bS("obj_type", cVar.baI());
+                anVar.bS("obj_type", cVar.baG());
             }
-            anVar.bS("tid", cVar.cbq.getTid());
-            anVar.p("fid", cVar.cbq.getFid());
+            anVar.bS("tid", cVar.caz.getTid());
+            anVar.p("fid", cVar.caz.getFid());
             anVar.bS("obj_source", "1");
-            anVar.O("obj_param1", cVar.baL() ? 2 : 1);
+            anVar.O("obj_param1", cVar.baJ() ? 2 : 1);
             TiebaStatic.log(anVar);
         }
     }

@@ -12,12 +12,12 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String aXv;
+    protected String aXd;
 
     public abstract boolean a(com.baidu.swan.apps.media.d.a aVar, com.baidu.swan.apps.media.d.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar);
 
     public g(@NonNull String str) {
-        this.aXv = str;
+        this.aXd = str;
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
@@ -36,7 +36,7 @@ public abstract class g {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.media.d.c a = com.baidu.swan.apps.media.d.c.a(optParamsAsJo, c.Ml());
+        com.baidu.swan.apps.media.d.c a = com.baidu.swan.apps.media.d.c.a(optParamsAsJo, c.Mm());
         if (!a.isValid()) {
             com.baidu.swan.apps.console.c.e("video", "param is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -50,12 +50,12 @@ public abstract class g {
             return null;
         }
         com.baidu.swan.apps.media.a t = com.baidu.swan.apps.media.b.t(str, str2, str3);
-        if (t == null && "/swan/video/open".equals(this.aXv)) {
+        if (t == null && "/swan/video/open".equals(this.aXd)) {
             return new com.baidu.swan.apps.media.d.a(context, str3);
         }
-        if (t == null || !(t.LM() instanceof com.baidu.swan.apps.media.d.a)) {
+        if (t == null || !(t.LN() instanceof com.baidu.swan.apps.media.d.a)) {
             return null;
         }
-        return (com.baidu.swan.apps.media.d.a) t.LM();
+        return (com.baidu.swan.apps.media.d.a) t.LN();
     }
 }

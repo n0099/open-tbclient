@@ -12,7 +12,7 @@ public interface c {
 
     /* loaded from: classes4.dex */
     public interface b extends c {
-        void bN(long j);
+        void bM(long j);
     }
 
     /* renamed from: com.baidu.tieba.aiapps.apps.invoice.c$c  reason: collision with other inner class name */
@@ -23,7 +23,7 @@ public interface c {
 
     /* loaded from: classes4.dex */
     public interface d extends c {
-        void bO(long j);
+        void bN(long j);
     }
 
     /* loaded from: classes4.dex */

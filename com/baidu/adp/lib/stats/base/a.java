@@ -7,36 +7,36 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 /* loaded from: classes.dex */
 public class a {
-    private String qF;
-    protected String qP;
-    protected String qR;
-    protected i qS;
-    private StringBuffer qG = new StringBuffer();
-    private StringBuffer qH = new StringBuffer();
-    private int qI = 0;
-    private int qJ = 0;
-    private long qA = 0;
-    private long qK = 0;
-    protected long qL = 0;
-    private long qM = 0;
-    private long qN = 0;
-    protected int qO = 50;
-    protected final String qQ = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
+    private String qf;
+    protected String qq;
+    protected String qs;
+    protected i qt;
+    private StringBuffer qg = new StringBuffer();
+    private StringBuffer qh = new StringBuffer();
+    private int qi = 0;
+    private int qj = 0;
+    private long qa = 0;
+    private long ql = 0;
+    protected long qm = 0;
+    private long qn = 0;
+    private long qo = 0;
+    protected int qp = 50;
+    protected final String qr = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     protected boolean mUseSdCard = false;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
 
     public a(i iVar) {
-        this.qS = iVar;
+        this.qt = iVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.qG.append(aVar.toString());
-                    this.qG.append("\r\n");
-                    this.qI++;
+                    this.qg.append(aVar.toString());
+                    this.qg.append("\r\n");
+                    this.qi++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -44,19 +44,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.qS != null) {
-            this.qS.g(this);
+        if (this.qt != null) {
+            this.qt.g(this);
         }
-        this.qA = System.currentTimeMillis();
+        this.qa = System.currentTimeMillis();
     }
 
     public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.qH.append(aVar.toString());
-                    this.qH.append("\r\n");
-                    this.qJ++;
+                    this.qh.append(aVar.toString());
+                    this.qh.append("\r\n");
+                    this.qj++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -64,51 +64,51 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.qS != null) {
-            this.qS.g(this);
+        if (this.qt != null) {
+            this.qt.g(this);
         }
-        this.qK = System.currentTimeMillis();
+        this.ql = System.currentTimeMillis();
     }
 
     public int gm() {
-        return this.qI;
+        return this.qi;
     }
 
     public int gn() {
-        return this.qJ;
+        return this.qj;
     }
 
     public long go() {
-        return this.qL;
+        return this.qm;
     }
 
-    public void k(long j) {
-        this.qL = j;
+    public void j(long j) {
+        this.qm = j;
     }
 
     public long gp() {
-        return this.qA;
+        return this.qa;
     }
 
     public long gq() {
-        return this.qK;
+        return this.ql;
     }
 
     public String gr() {
-        if (TextUtils.isEmpty(this.qR)) {
+        if (TextUtils.isEmpty(this.qs)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.qP);
+            sb.append(this.qq);
             sb.append(BdStatisticsManager.getInstance().getProcessName());
             sb.append("Writing");
             sb.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
-            this.qR = sb.toString();
+            this.qs = sb.toString();
         }
-        return this.qR;
+        return this.qs;
     }
 
     public String gs() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.qP);
+        sb.append(this.qq);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -117,41 +117,41 @@ public class a {
     }
 
     public long gt() {
-        return this.qM;
+        return this.qn;
     }
 
     public long gu() {
-        return this.qN;
+        return this.qo;
+    }
+
+    public void k(long j) {
+        this.qn = j;
     }
 
     public void l(long j) {
-        this.qM = j;
-    }
-
-    public void m(long j) {
-        this.qN = j;
+        this.qo = j;
     }
 
     public synchronized void gv() {
-        this.qG = new StringBuffer();
-        this.qI = 0;
-        this.qM = 0L;
+        this.qg = new StringBuffer();
+        this.qi = 0;
+        this.qn = 0L;
     }
 
     public synchronized void gw() {
-        this.qH = new StringBuffer();
-        this.qJ = 0;
-        this.qN = 0L;
+        this.qh = new StringBuffer();
+        this.qj = 0;
+        this.qo = 0L;
     }
 
     public void ap(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.qF = str;
+            this.qf = str;
         }
     }
 
     public String gx() {
-        return this.qF;
+        return this.qf;
     }
 
     public boolean gy() {
@@ -167,11 +167,11 @@ public class a {
     }
 
     public StringBuffer gA() {
-        return this.qG;
+        return this.qg;
     }
 
     public StringBuffer gB() {
-        return this.qH;
+        return this.qh;
     }
 
     public boolean gC() {
@@ -183,7 +183,7 @@ public class a {
     }
 
     public String gE() {
-        return this.qP;
+        return this.qq;
     }
 
     public static String aq(String str) {

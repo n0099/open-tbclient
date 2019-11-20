@@ -4,10 +4,10 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a jjM;
-    private final int jjN = 10;
-    private final int jjO = 3000;
-    public String jjP = null;
+    private com.baidu.adp.lib.stats.a jiV;
+    private final int jiW = 10;
+    private final int jiX = 3000;
+    public String jiY = null;
     public boolean mIsJson = false;
 
     public b(String str) {
@@ -15,49 +15,49 @@ public class b {
     }
 
     public void aw(String str, boolean z) {
-        this.jjP = str;
+        this.jiY = str;
         this.mIsJson = z;
-        this.jjM = new com.baidu.adp.lib.stats.a("dbg");
+        this.jiV = new com.baidu.adp.lib.stats.a("dbg");
         c.A(str, getNetType(), z);
     }
 
     public void start() {
-        this.jjM.startTimer();
+        this.jiV.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e coJ;
-        if (this.jjM != null && (coJ = coJ()) != null) {
+        e coH;
+        if (this.jiV != null && (coH = coH()) != null) {
             if (z) {
-                if (coJ.jjU != null) {
-                    coJ.jjU.num++;
+                if (coH.jjd != null) {
+                    coH.jjd.num++;
                     if (z2) {
-                        coJ.jjU.jjR += j2;
-                        coJ.jjU.size += j;
+                        coH.jjd.jja += j2;
+                        coH.jjd.size += j;
                     } else {
-                        coJ.jjU.jjS++;
+                        coH.jjd.jjb++;
                     }
                 } else {
                     return;
                 }
-            } else if (coJ.jjV != null) {
-                coJ.jjV.num++;
+            } else if (coH.jje != null) {
+                coH.jje.num++;
                 if (z2) {
-                    coJ.jjV.jjR += j3;
-                    coJ.jjV.size += j;
+                    coH.jje.jja += j3;
+                    coH.jje.size += j;
                     j2 = j3;
                 } else {
-                    coJ.jjV.jjS++;
+                    coH.jje.jjb++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.jjM = null;
+            this.jiV = null;
             if (z2) {
-                c.a(coJ, 10);
+                c.a(coH, 10);
             }
-            if (this.jjP == "frsStat") {
+            if (this.jiY == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.append("act", "frs");
@@ -74,20 +74,20 @@ public class b {
     }
 
     public void destory() {
-        e coJ;
-        if (this.jjM != null && (coJ = coJ()) != null && coJ.jjW != null) {
-            long timeCost = this.jjM.getTimeCost();
+        e coH;
+        if (this.jiV != null && (coH = coH()) != null && coH.jjf != null) {
+            long timeCost = this.jiV.getTimeCost();
             if (timeCost > 3000) {
-                d dVar = coJ.jjW;
-                dVar.jjR = timeCost + dVar.jjR;
-                coJ.jjW.num++;
-                c.a(coJ, 10);
+                d dVar = coH.jjf;
+                dVar.jja = timeCost + dVar.jja;
+                coH.jjf.num++;
+                c.a(coH, 10);
             }
         }
     }
 
-    private e coJ() {
-        return c.B(this.jjP, getNetType(), this.mIsJson);
+    private e coH() {
+        return c.B(this.jiY, getNetType(), this.mIsJson);
     }
 
     private String getNetType() {

@@ -15,15 +15,15 @@ public class a {
     }
 
     public static void sq(String str) {
-        if (!c.aFi()) {
+        if (!c.aFg()) {
             Log.w("SwanAppLaunchHelper", "entrance not open");
-            d.a(AppRuntime.getAppContext(), "not support for this android version").QN();
+            d.a(AppRuntime.getAppContext(), "not support for this android version").QO();
         } else if (TextUtils.isEmpty(str)) {
-            d.a(AppRuntime.getAppContext(), "url is empty").QN();
+            d.a(AppRuntime.getAppContext(), "url is empty").QO();
         } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
             sp(str);
         } else {
-            d.a(AppRuntime.getAppContext(), "not support this uri").QN();
+            d.a(AppRuntime.getAppContext(), "not support this uri").QO();
         }
     }
 }

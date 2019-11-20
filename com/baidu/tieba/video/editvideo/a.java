@@ -11,15 +11,15 @@ public interface a {
 
     void F(Bitmap bitmap);
 
-    void bYx();
+    void bYv();
+
+    void cta();
 
     void ctc();
-
-    void cte();
 
     void eB(List<PendantData> list);
 
     void finishPage();
 
-    void tT();
+    void tU();
 }

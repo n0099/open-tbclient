@@ -31,22 +31,22 @@ import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private static a arJ;
+    private static a arr;
     private HashMap<String, LinkedList<com.baidu.live.data.b>> mUserAttentionRequestMap = new HashMap<>();
     private HashMap<String, C0079a> mAttentionTaskMap = new HashMap<>();
 
     private a() {
     }
 
-    public static a wx() {
-        if (arJ == null) {
+    public static a wy() {
+        if (arr == null) {
             synchronized (a.class) {
-                if (arJ == null) {
-                    arJ = new a();
+                if (arr == null) {
+                    arr = new a();
                 }
             }
         }
-        return arJ;
+        return arr;
     }
 
     public void a(String str, com.baidu.live.data.b bVar) {
@@ -104,7 +104,7 @@ public class a {
     /* renamed from: com.baidu.live.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public class C0079a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId arO;
+        private BdUniqueId arw;
         private String forumId;
         private String from;
         private String inLive;
@@ -129,7 +129,7 @@ public class a {
             this.isAttention = bVar.isAttention();
             this.toUid = bVar.getUserId();
             this.inLive = bVar.getInLive();
-            this.arO = bVar.oe();
+            this.arw = bVar.oe();
             this.from = bVar.getFrom();
             this.forumId = bVar.getForumId();
             this.isGod = bVar.isGod();
@@ -184,7 +184,7 @@ public class a {
                 updateAttentionData.parserJson(str, this.showToastAfterAttentionSuc);
                 updateAttentionData.response = this.mNetwork.getHttpResponse();
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.arO));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.arw));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
             }
             a.this.mAttentionTaskMap.remove(this.toUid);

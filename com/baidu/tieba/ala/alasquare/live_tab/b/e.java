@@ -4,25 +4,25 @@ import com.baidu.tbadk.core.data.bh;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class e {
-    private boolean dxg = false;
-    public bh dxj;
+    private boolean dwp = false;
+    public bh dws;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.dxg = jSONObject.optInt("need_show") == 1;
+            this.dwp = jSONObject.optInt("need_show") == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("live_info");
             if (optJSONObject != null) {
-                this.dxj = new bh();
-                this.dxj.parserJson(optJSONObject);
+                this.dws = new bh();
+                this.dws.parserJson(optJSONObject);
             }
         }
     }
 
     public boolean isValid() {
-        return (this.dxj == null || this.dxj.aiZ() == null || this.dxj.aiZ().live_id <= 0) ? false : true;
+        return (this.dws == null || this.dws.aiX() == null || this.dws.aiX().live_id <= 0) ? false : true;
     }
 
-    public boolean aJr() {
-        return this.dxg && this.dxj != null;
+    public boolean aJp() {
+        return this.dwp && this.dws != null;
     }
 }

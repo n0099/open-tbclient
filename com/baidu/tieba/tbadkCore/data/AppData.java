@@ -183,7 +183,7 @@ public class AppData extends OrmObject {
         }
     }
 
-    public int agR() {
+    public int agP() {
         if (this.goods == null) {
             return 25;
         }
@@ -200,19 +200,19 @@ public class AppData extends OrmObject {
             if (this.legoCard == null || !this.goods.c(this.legoCard)) {
                 return 32;
             }
-            if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.i.agq().isShowImages() && !this.legoCard.isNoPicAd()) {
+            if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.i.ago().isShowImages() && !this.legoCard.isNoPicAd()) {
                 return 34;
             }
             if (this.legoCard.getCardType() == 12) {
                 return 12;
             }
-            if (!bh.cbV.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
+            if (!bh.cbe.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
                 return 31;
             }
             if (this.url_type == 3) {
-                return !agS() ? 26 : 0;
+                return !agQ() ? 26 : 0;
             } else if (this.url_type == 1) {
-                return !agT() ? 27 : 0;
+                return !agR() ? 27 : 0;
             } else {
                 return 21;
             }
@@ -220,11 +220,11 @@ public class AppData extends OrmObject {
         return 0;
     }
 
-    public boolean agS() {
+    public boolean agQ() {
         return (this.goods == null || this.goods.goods_style != 1001) && this.url_type == 3 && !StringUtils.isNull(this.apk_name) && !StringUtils.isNull(this.apk_url);
     }
 
-    public boolean agT() {
+    public boolean agR() {
         if (this.goods == null || this.goods.goods_style != 1001) {
             if (this.goods == null || this.goods.goods_style != -1001) {
                 if (this.url_type == 1) {

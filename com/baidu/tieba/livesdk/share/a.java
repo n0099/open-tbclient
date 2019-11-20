@@ -45,7 +45,7 @@ public class a implements IShareChannel, f {
 
     private void a(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
         if (shareEntity != null) {
-            if (!vv(i)) {
+            if (!vu(i)) {
                 if (iShareCallback != null) {
                     iShareCallback.onShare(0, 0, "");
                     return;
@@ -59,7 +59,7 @@ public class a implements IShareChannel, f {
         }
     }
 
-    private boolean vv(int i) {
+    private boolean vu(int i) {
         boolean z = false;
         switch (i) {
             case 2:

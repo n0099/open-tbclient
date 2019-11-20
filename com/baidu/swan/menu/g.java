@@ -12,17 +12,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class g implements View.OnKeyListener, e {
-    private o bKC;
-    private List<j> bKD;
-    private e bKE;
-    private View.OnKeyListener bKF;
-    private e bKG;
-    private m bKH;
-    private String bKI;
-    private String bKJ;
-    private a bKK;
-    private SwanAppMenuMode bKL;
-    private c bKM;
+    private o bJL;
+    private List<j> bJM;
+    private e bJN;
+    private View.OnKeyListener bJO;
+    private e bJP;
+    private m bJQ;
+    private String bJR;
+    private String bJS;
+    private a bJT;
+    private SwanAppMenuMode bJU;
+    private c bJV;
     private Context mContext;
     private int mStyle;
 
@@ -36,25 +36,25 @@ public class g implements View.OnKeyListener, e {
     }
 
     public g(Context context, View view, int i, String str, @Nullable b bVar) {
-        this.bKD = new ArrayList();
-        this.bKJ = "searchbox";
-        this.bKL = null;
+        this.bJM = new ArrayList();
+        this.bJS = "searchbox";
+        this.bJU = null;
         if (i >= 0) {
             this.mContext = context;
             this.mStyle = i;
-            this.bKJ = str;
-            this.bKD = n.gw(this.mStyle);
-            if (h.bKO != null) {
-                this.bKG = h.bKO.aaF();
-                this.bKH = h.bKO.aaG();
+            this.bJS = str;
+            this.bJM = n.gv(this.mStyle);
+            if (h.bJX != null) {
+                this.bJP = h.bJX.aaD();
+                this.bJQ = h.bJX.aaE();
             }
-            this.bKC = new o(this.mContext, view, this.mStyle, bVar);
-            this.bKC.c(this);
-            this.bKC.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.g.1
+            this.bJL = new o(this.mContext, view, this.mStyle, bVar);
+            this.bJL.c(this);
+            this.bJL.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.g.1
                 @Override // com.baidu.swan.menu.PopupWindow.a
                 public void onDismiss() {
-                    if (g.this.bKK != null) {
-                        g.this.bKK.a(g.this, false);
+                    if (g.this.bJT != null) {
+                        g.this.bJT.a(g.this, false);
                     }
                 }
             });
@@ -62,21 +62,21 @@ public class g implements View.OnKeyListener, e {
     }
 
     public void setStatisticSource(String str) {
-        this.bKI = str;
-        this.bKC.setStatisticSource(this.bKI);
+        this.bJR = str;
+        this.bJL.setStatisticSource(this.bJR);
     }
 
     public void setMenuSource(String str) {
-        this.bKJ = str;
-        this.bKC.setMenuSource(str);
+        this.bJS = str;
+        this.bJL.setMenuSource(str);
     }
 
     public void a(c cVar) {
-        this.bKM = cVar;
+        this.bJV = cVar;
     }
 
     public void a(e eVar) {
-        this.bKE = eVar;
+        this.bJN = eVar;
     }
 
     @Override // com.baidu.swan.menu.e
@@ -86,11 +86,11 @@ public class g implements View.OnKeyListener, e {
                 dz(true);
             }
             boolean z = false;
-            if (this.bKE != null) {
-                z = this.bKE.a(view, jVar);
+            if (this.bJN != null) {
+                z = this.bJN.a(view, jVar);
             }
-            if (!z && this.bKG != null) {
-                return this.bKG.a(view, jVar);
+            if (!z && this.bJP != null) {
+                return this.bJP.a(view, jVar);
             }
             return z;
         }
@@ -99,8 +99,8 @@ public class g implements View.OnKeyListener, e {
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (this.bKF != null) {
-            return this.bKF.onKey(view, i, keyEvent);
+        if (this.bJO != null) {
+            return this.bJO.onKey(view, i, keyEvent);
         }
         return false;
     }
@@ -114,61 +114,61 @@ public class g implements View.OnKeyListener, e {
             dz(true);
             return;
         }
-        if (this.bKM != null) {
-            this.bKM.e(this.mStyle, this.bKD);
+        if (this.bJV != null) {
+            this.bJV.e(this.mStyle, this.bJM);
         }
-        aaC();
+        aaA();
         c(z, i, z2);
-        this.bKC.af(this.bKD);
-        this.bKC.showView();
-        if (this.bKK != null) {
-            this.bKK.a(this, true);
+        this.bJL.af(this.bJM);
+        this.bJL.showView();
+        if (this.bJT != null) {
+            this.bJT.a(this, true);
         }
     }
 
     public void dz(boolean z) {
-        this.bKC.dB(z);
-        if (this.bKK != null) {
-            this.bKK.a(this, false);
+        this.bJL.dB(z);
+        if (this.bJT != null) {
+            this.bJT.a(this, false);
         }
     }
 
     public boolean isShowing() {
-        return this.bKC != null && this.bKC.isShowing();
+        return this.bJL != null && this.bJL.isShowing();
     }
 
-    public void S(int i, int i2) {
-        j gx;
+    public void Q(int i, int i2) {
+        j gw;
         int i3 = 0;
         boolean z = false;
-        for (j jVar : this.bKD) {
+        for (j jVar : this.bJM) {
             z = jVar.getItemId() == i ? true : z;
         }
-        if (!z && (gx = n.gx(i)) != null) {
-            int size = this.bKD.size();
+        if (!z && (gw = n.gw(i)) != null) {
+            int size = this.bJM.size();
             if (i2 > 0) {
                 i3 = i2 >= size ? size : i2;
             }
-            this.bKD.add(i3, gx);
+            this.bJM.add(i3, gw);
         }
     }
 
-    public void gt(int i) {
-        if (this.bKD != null) {
+    public void gs(int i) {
+        if (this.bJM != null) {
             int i2 = -1;
-            for (int i3 = 0; i3 < this.bKD.size(); i3++) {
-                if (this.bKD.get(i3).getItemId() == i) {
+            for (int i3 = 0; i3 < this.bJM.size(); i3++) {
+                if (this.bJM.get(i3).getItemId() == i) {
                     i2 = i3;
                 }
             }
             if (i2 > -1) {
-                this.bKD.remove(i2);
+                this.bJM.remove(i2);
             }
         }
     }
 
-    public void gu(int i) {
-        this.bKC.gu(i);
+    public void gt(int i) {
+        this.bJL.gt(i);
     }
 
     private boolean c(j jVar) {
@@ -176,9 +176,9 @@ public class g implements View.OnKeyListener, e {
     }
 
     private void b(boolean z, int i, boolean z2) {
-        this.bKL = SwanAppMenuMode.NORMAL;
-        this.bKC.setMode(this.bKL);
-        Iterator<j> it = this.bKD.iterator();
+        this.bJU = SwanAppMenuMode.NORMAL;
+        this.bJL.setMode(this.bJU);
+        Iterator<j> it = this.bJM.iterator();
         while (it.hasNext()) {
             j next = it.next();
             int itemId = next.getItemId();
@@ -211,18 +211,18 @@ public class g implements View.OnKeyListener, e {
     }
 
     private void c(boolean z, int i, boolean z2) {
-        if (this.bKD != null) {
+        if (this.bJM != null) {
             b(z, i, z2);
         }
     }
 
-    private void aaC() {
+    private void aaA() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("from", this.bKI);
-        hashMap.put("source", this.bKJ);
+        hashMap.put("from", this.bJR);
+        hashMap.put("source", this.bJS);
         hashMap.put("type", "menu_clk");
-        if (this.bKH != null) {
-            this.bKH.d("260", hashMap);
+        if (this.bJQ != null) {
+            this.bJQ.d("260", hashMap);
         }
     }
 }

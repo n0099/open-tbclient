@@ -10,15 +10,15 @@ public class a {
     /* renamed from: com.baidu.tieba.imMessageCenter.im.stranger.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public static class C0448a {
-        public String cyE;
-        public String fKU;
-        public int gUR;
-        public String gUS;
-        public String gUT;
-        public int gUU;
-        public String gUV;
-        public String gUW;
-        public String gUv;
+        public String cxN;
+        public String fKd;
+        public String gTE;
+        public int gUa;
+        public String gUb;
+        public String gUc;
+        public int gUd;
+        public String gUe;
+        public String gUf;
         public String postId;
         public String threadId;
         public int threadType;
@@ -35,10 +35,10 @@ public class a {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0448a.gUS = optJSONObject.optString("title");
-                c0448a.gUv = optJSONObject.optString("content");
-                c0448a.gUV = optJSONObject.optString("quote_content");
-                c0448a.cyE = optJSONObject.optString("fname");
+                c0448a.gUb = optJSONObject.optString("title");
+                c0448a.gTE = optJSONObject.optString("content");
+                c0448a.gUe = optJSONObject.optString("quote_content");
+                c0448a.cxN = optJSONObject.optString("fname");
                 c0448a.threadId = optJSONObject.optString("thread_id");
                 c0448a.postId = optJSONObject.optString("post_id");
                 c0448a.type = optJSONObject.optInt("type");
@@ -46,14 +46,14 @@ public class a {
                 c0448a.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    c0448a.gUT = optJSONObject2.optString("id");
-                    c0448a.gUW = optJSONObject2.optString("portrait");
-                    c0448a.gUU = optJSONObject2.optInt("gender");
+                    c0448a.gUc = optJSONObject2.optString("id");
+                    c0448a.gUf = optJSONObject2.optString("portrait");
+                    c0448a.gUd = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    c0448a.fKU = optJSONObject3.optString("id");
-                    c0448a.gUR = optJSONObject3.optInt("gender");
+                    c0448a.fKd = optJSONObject3.optString("id");
+                    c0448a.gUa = optJSONObject3.optInt("gender");
                 }
             }
             return c0448a;

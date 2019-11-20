@@ -9,15 +9,15 @@ import com.baidu.tieba.play.v;
 import com.baidu.tieba.play.z;
 /* loaded from: classes.dex */
 public interface a extends View.OnClickListener, QuickVideoView.b, g.a, g.b, g.e, g.f {
-    void aLW();
+    void aLU();
 
     void c(z zVar);
 
-    View cbX();
+    View cbV();
 
-    void ccX();
+    void ccV();
 
-    v ccy();
+    v ccw();
 
     int getCurrentPosition();
 

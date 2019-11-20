@@ -8,27 +8,27 @@ import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<T> {
     public static final a Companion = new a(null);
-    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> kvs = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
+    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> kuB = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
     private volatile Object _value;
 
     /* renamed from: final  reason: not valid java name */
-    private final Object f6final;
+    private final Object f951final;
     private volatile kotlin.jvm.a.a<? extends T> initializer;
 
     public SafePublicationLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
         p.i(aVar, "initializer");
         this.initializer = aVar;
-        this._value = d.kvt;
-        this.f6final = d.kvt;
+        this._value = d.kuC;
+        this.f951final = d.kuC;
     }
 
     public T getValue() {
         T t = (T) this._value;
-        if (t == d.kvt) {
+        if (t == d.kuC) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (Companion.cMA().compareAndSet(this, d.kvt, invoke)) {
+                if (Companion.cMy().compareAndSet(this, d.kuC, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -39,7 +39,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
     }
 
     public boolean isInitialized() {
-        return this._value != d.kvt;
+        return this._value != d.kuC;
     }
 
     public String toString() {
@@ -60,8 +60,8 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> cMA() {
-            return SafePublicationLazyImpl.kvs;
+        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> cMy() {
+            return SafePublicationLazyImpl.kuB;
         }
     }
 }

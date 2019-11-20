@@ -12,27 +12,27 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class m {
-    private com.baidu.live.data.i aaB;
+    private com.baidu.live.data.i aaj;
 
     public void f(com.baidu.live.data.i iVar) {
-        sT();
+        sU();
         b(iVar);
     }
 
     public void b(com.baidu.live.data.i iVar) {
-        this.aaB = iVar;
+        this.aaj = iVar;
     }
 
-    public void rs() {
-        this.aaB = null;
-        sU();
+    public void rt() {
+        this.aaj = null;
+        sV();
     }
 
     public void release() {
-        rs();
+        rt();
     }
 
-    private void sT() {
+    private void sU() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913100, new CustomMessageTask.CustomRunnable<ImSendMsgData>() { // from class: com.baidu.live.im.m.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ImSendMsgData> customMessage) {
@@ -47,13 +47,13 @@ public class m {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private void sU() {
+    private void sV() {
         MessageManager.getInstance().unRegisterTask(2913100);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ImSendMsgData imSendMsgData) {
-        if (rA()) {
+        if (rB()) {
             switch (imSendMsgData.msgType) {
                 case 126:
                     b(imSendMsgData);
@@ -68,12 +68,12 @@ public class m {
     private void b(ImSendMsgData imSendMsgData) {
         Map<String, Integer> pK = com.baidu.live.gift.o.pI().pK();
         if (pK != null && pK.containsKey(imSendMsgData.barrageId) && pK.get(imSendMsgData.barrageId).intValue() > 0) {
-            imSendMsgData.barrageCardInfo = new com.baidu.live.im.data.b(true, String.valueOf(this.aaB.Ps.userId), String.valueOf(this.aaB.mLiveInfo.live_id));
+            imSendMsgData.barrageCardInfo = new com.baidu.live.im.data.b(true, String.valueOf(this.aaj.OR.userId), String.valueOf(this.aaj.mLiveInfo.live_id));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2913101, imSendMsgData));
     }
 
-    private boolean rA() {
+    private boolean rB() {
         if (!TbadkCoreApplication.isLogin()) {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst(), a.i.sdk_not_login);
             return false;

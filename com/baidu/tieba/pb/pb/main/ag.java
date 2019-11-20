@@ -9,17 +9,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.af;
 /* loaded from: classes4.dex */
 public class ag extends k<ad, af> {
-    private com.baidu.tieba.pb.data.d hOn;
-    private af.a hTN;
+    private com.baidu.tieba.pb.data.d hNw;
+    private af.a hSW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ag(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.hTN = new af.a() { // from class: com.baidu.tieba.pb.pb.main.ag.1
+        this.hSW = new af.a() { // from class: com.baidu.tieba.pb.pb.main.ag.1
             @Override // com.baidu.tieba.pb.pb.main.af.a
             public void b(ad adVar) {
                 if (adVar != null) {
-                    com.baidu.tieba.pb.c.a.a(ag.this.hOn, adVar, adVar.locate, 5);
+                    com.baidu.tieba.pb.c.a.a(ag.this.hNw, adVar, adVar.locate, 5);
                 }
             }
         };
@@ -30,7 +30,7 @@ public class ag extends k<ad, af> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bI */
     public af b(ViewGroup viewGroup) {
-        return new af(this.hNY.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.hTN);
+        return new af(this.hNh.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.hSW);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class ag extends k<ad, af> {
         super.a(i, view, viewGroup, (ViewGroup) adVar, (ad) afVar);
         if (adVar != null) {
             adVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.hNY.getUniqueId(), this.hOn, adVar, adVar.locate, 5);
+            com.baidu.tieba.pb.c.a.a(this.hNh.getUniqueId(), this.hNw, adVar, adVar.locate, 5);
             afVar.a(adVar);
             afVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -48,6 +48,6 @@ public class ag extends k<ad, af> {
     }
 
     public void setData(com.baidu.tieba.pb.data.d dVar) {
-        this.hOn = dVar;
+        this.hNw = dVar;
     }
 }

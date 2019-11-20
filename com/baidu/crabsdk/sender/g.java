@@ -200,7 +200,7 @@ public final class g {
             long blockCount = statFs.getBlockCount() * statFs.getBlockSize();
             StatFs statFs2 = new StatFs(Environment.getExternalStorageDirectory().getPath());
             long availableBlocks = statFs2.getAvailableBlocks() * statFs2.getBlockSize();
-            str = "Total: " + com.baidu.crabsdk.c.c.q(blockCount) + " Used: " + com.baidu.crabsdk.c.c.q(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.q(availableBlocks);
+            str = "Total: " + com.baidu.crabsdk.c.c.p(blockCount) + " Used: " + com.baidu.crabsdk.c.c.p(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.p(availableBlocks);
         } catch (Exception e) {
             str = "N/A";
             e.printStackTrace();

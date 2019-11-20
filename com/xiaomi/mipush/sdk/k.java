@@ -1,20 +1,51 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes3.dex */
-/* synthetic */ class k {
-    static final /* synthetic */ int[] a = new int[f.values().length];
 
-    static {
-        try {
-            a[f.ASSEMBLE_PUSH_HUAWEI.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+import android.content.Context;
+import android.text.TextUtils;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes3.dex */
+public final class k implements Runnable {
+    final /* synthetic */ Context a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ f f72a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ String f73a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(String str, Context context, f fVar) {
+        this.f73a = str;
+        this.a = context;
+        this.f72a = fVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        if (TextUtils.isEmpty(this.f73a)) {
+            return;
         }
-        try {
-            a[f.ASSEMBLE_PUSH_FCM.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+        String str = "";
+        String[] split = this.f73a.split(Constants.WAVE_SEPARATOR);
+        int length = split.length;
+        int i = 0;
+        while (true) {
+            if (i >= length) {
+                break;
+            }
+            String str2 = split[i];
+            if (!TextUtils.isEmpty(str2) && str2.startsWith("token:")) {
+                str = str2.substring(str2.indexOf(":") + 1);
+                break;
+            }
+            i++;
         }
-        try {
-            a[f.ASSEMBLE_PUSH_COS.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+        if (TextUtils.isEmpty(str)) {
+            com.xiaomi.channel.commonutils.logger.b.m30a("ASSEMBLE_PUSH : receive incorrect token");
+            return;
         }
+        com.xiaomi.channel.commonutils.logger.b.m30a("ASSEMBLE_PUSH : receive correct token");
+        j.d(this.a, this.f72a, str);
+        j.m86a(this.a);
     }
 }

@@ -16,28 +16,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d extends v.a {
-    public TextView bUW;
-    public int csX;
-    public View ikL;
-    public HTypeListView ikM;
-    public e ikN;
+    public TextView bUf;
+    public int csg;
+    public View ijU;
+    public HTypeListView ijV;
+    public e ijW;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.csX = 3;
+        this.csg = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.ikL = view.findViewById(R.id.divider_view_under_photo_album);
-        this.bUW = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.ikM = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.ikN = new e(this.mPageContext, this.ikM);
+        this.ijU = view.findViewById(R.id.divider_view_under_photo_album);
+        this.bUf = (TextView) view.findViewById(R.id.text_view_photo_album);
+        this.ijV = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.ijW = new e(this.mPageContext, this.ijV);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.ikN.setDatas(ea(fVar.getPhotoAlbum()));
+            this.ijW.setDatas(ea(fVar.getPhotoAlbum()));
         }
     }
 
@@ -52,13 +52,13 @@ public class d extends v.a {
         return list;
     }
 
-    public void avs() {
-        if (this.csX != TbadkCoreApplication.getInst().getSkinType()) {
-            this.csX = TbadkCoreApplication.getInst().getSkinType();
+    public void avq() {
+        if (this.csg != TbadkCoreApplication.getInst().getSkinType()) {
+            this.csg = TbadkCoreApplication.getInst().getSkinType();
             am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-            am.setBackgroundColor(this.ikL, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.bUW, R.color.cp_cont_d, 1);
-            this.ikN.notifyDataSetChanged();
+            am.setBackgroundColor(this.ijU, R.color.cp_bg_line_c);
+            am.setViewTextColor(this.bUf, R.color.cp_cont_d, 1);
+            this.ijW.notifyDataSetChanged();
         }
     }
 }

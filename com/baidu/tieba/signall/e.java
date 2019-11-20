@@ -7,21 +7,21 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes6.dex */
 public class e {
-    private static final String jai = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
-    private x bVP = null;
+    private static final String iZr = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
+    private x bUY = null;
     private String mAuthSid;
 
     public void setAuthSid(String str) {
         this.mAuthSid = str;
     }
 
-    public String clY() {
-        this.bVP = new x(jai);
-        this.bVP.addPostData("authsid", this.mAuthSid);
-        this.bVP.amr().amR().mNeedBackgroundLogin = true;
-        this.bVP.amr().amR().mIsNeedTbs = true;
-        this.bVP.ek(true);
-        return this.bVP.postNetData();
+    public String clW() {
+        this.bUY = new x(iZr);
+        this.bUY.addPostData("authsid", this.mAuthSid);
+        this.bUY.amp().amP().mNeedBackgroundLogin = true;
+        this.bUY.amp().amP().mIsNeedTbs = true;
+        this.bUY.ek(true);
+        return this.bUY.postNetData();
     }
 
     public String Dw(String str) {
@@ -30,32 +30,32 @@ public class e {
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.bVP = new x(jai);
-        this.bVP.addPostData("user_id", str2);
-        this.bVP.addPostData("forum_ids", str);
-        this.bVP.addPostData("authsid", this.mAuthSid);
-        this.bVP.amr().amR().mNeedBackgroundLogin = true;
-        this.bVP.amr().amR().mIsNeedTbs = true;
-        this.bVP.ek(true);
-        return this.bVP.postNetData();
+        this.bUY = new x(iZr);
+        this.bUY.addPostData("user_id", str2);
+        this.bUY.addPostData("forum_ids", str);
+        this.bUY.addPostData("authsid", this.mAuthSid);
+        this.bUY.amp().amP().mNeedBackgroundLogin = true;
+        this.bUY.amp().amP().mIsNeedTbs = true;
+        this.bUY.ek(true);
+        return this.bUY.postNetData();
     }
 
     public void cancel() {
-        if (this.bVP != null) {
-            this.bVP.cancelNetConnect();
+        if (this.bUY != null) {
+            this.bUY.cancelNetConnect();
         }
     }
 
     public boolean isRequestSuccess() {
-        if (this.bVP != null) {
-            return this.bVP.amr().amS().isRequestSuccess();
+        if (this.bUY != null) {
+            return this.bUY.amp().amQ().isRequestSuccess();
         }
         return false;
     }
 
-    public String ago() {
-        if (this.bVP != null) {
-            return this.bVP.getErrorString();
+    public String agm() {
+        if (this.bUY != null) {
+            return this.bUY.getErrorString();
         }
         return null;
     }

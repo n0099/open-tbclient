@@ -6,12 +6,12 @@ import com.baidu.swan.apps.install.subpackage.SubPackageAPSInfo;
 /* loaded from: classes2.dex */
 public class b extends e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private SubPackageAPSInfo aKb;
+    private SubPackageAPSInfo aJJ;
     private Context mContext;
 
     public b(Context context, SubPackageAPSInfo subPackageAPSInfo) {
         super(subPackageAPSInfo.mKey);
         this.mContext = context;
-        this.aKb = subPackageAPSInfo;
+        this.aJJ = subPackageAPSInfo;
     }
 }

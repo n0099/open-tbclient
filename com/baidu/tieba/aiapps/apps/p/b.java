@@ -9,7 +9,7 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.aIs().putBoolean(str, z);
+            a.aIq().putBoolean(str, z);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, e.f(1, str, String.valueOf(z)));
         }
@@ -17,7 +17,7 @@ public class b {
 
     public static boolean getBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            return a.aIs().getBoolean(str, z);
+            return a.aIq().getBoolean(str, z);
         }
         return DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, e.f(1, str, String.valueOf(z))).mResult.getBoolean("result_value");
     }
@@ -33,25 +33,25 @@ public class b {
         /* renamed from: com.baidu.tieba.aiapps.apps.p.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
         public static final class C0331a {
-            private static final a dsX = new a();
+            private static final a dsf = new a();
         }
 
-        public static a aIs() {
-            return C0331a.dsX;
+        public static a aIq() {
+            return C0331a.dsf;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class e {
-        final int bqb;
-        final String bqc;
-        final String bqd;
+        final int bpJ;
+        final String bpK;
+        final String bpL;
 
         e(int i, String str, String str2) {
-            this.bqb = i;
-            this.bqc = str;
-            this.bqd = str2;
+            this.bpJ = i;
+            this.bpK = str;
+            this.bpL = str2;
         }
 
         static e J(Bundle bundle) {
@@ -70,7 +70,7 @@ public class b {
         }
 
         public String toString() {
-            return "SpMethodInfo{mDataType=" + this.bqb + ", mPrefName='" + this.bqc + "', mDataValue='" + this.bqd + "'}";
+            return "SpMethodInfo{mDataType=" + this.bpJ + ", mPrefName='" + this.bpK + "', mDataValue='" + this.bpL + "'}";
         }
     }
 
@@ -100,9 +100,9 @@ public class b {
 
         @Override // com.baidu.tieba.aiapps.apps.p.b.AbstractC0332b
         protected Bundle a(e eVar) {
-            switch (eVar.bqb) {
+            switch (eVar.bpJ) {
                 case 1:
-                    a.aIs().putBoolean(eVar.bqc, Boolean.parseBoolean(eVar.bqd));
+                    a.aIq().putBoolean(eVar.bpK, Boolean.parseBoolean(eVar.bpL));
                     break;
             }
             return Bundle.EMPTY;
@@ -119,9 +119,9 @@ public class b {
         @Override // com.baidu.tieba.aiapps.apps.p.b.AbstractC0332b
         protected Bundle a(e eVar) {
             Bundle bundle = new Bundle();
-            switch (eVar.bqb) {
+            switch (eVar.bpJ) {
                 case 1:
-                    bundle.putBoolean("result_value", a.aIs().getBoolean(eVar.bqc, Boolean.parseBoolean(eVar.bqd)));
+                    bundle.putBoolean("result_value", a.aIq().getBoolean(eVar.bpK, Boolean.parseBoolean(eVar.bpL)));
                     break;
             }
             return bundle;

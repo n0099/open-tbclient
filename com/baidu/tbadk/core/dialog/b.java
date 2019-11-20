@@ -21,7 +21,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final HashMap<Integer, Integer[]> sBtnStyleMap = new HashMap<>(2);
-    private a cfe;
+    private a cen;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.e<?> mContext;
@@ -62,7 +62,7 @@ public class b {
         return this;
     }
 
-    public b hY(int i) {
+    public b hX(int i) {
         return no(this.mActivity.getResources().getString(i));
     }
 
@@ -77,18 +77,18 @@ public class b {
         if (list != null && list.size() > 0) {
             this.mItems = list;
             if (aVar != null) {
-                this.cfe = aVar;
+                this.cen = aVar;
             }
         }
         return this;
     }
 
-    public b hZ(int i) {
+    public b hY(int i) {
         this.mAnimationStyleId = i;
         return this;
     }
 
-    public b ia(int i) {
+    public b hZ(int i) {
         this.mDialogGravity = i;
         return this;
     }
@@ -116,7 +116,7 @@ public class b {
         return this;
     }
 
-    public b akP() {
+    public b akN() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -189,11 +189,11 @@ public class b {
         } else {
             am.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
         }
-        if (this.cfe != null) {
+        if (this.cen != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.cfe.a(b.this, i, textView);
+                    b.this.cen.a(b.this, i, textView);
                 }
             });
         }

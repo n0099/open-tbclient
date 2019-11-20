@@ -5,7 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    public static com.baidu.live.entereffect.a.a s(JSONObject jSONObject) {
+    public static com.baidu.live.entereffect.a.a t(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -26,10 +26,10 @@ public class a {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        aVar.VG = new com.baidu.live.gift.c();
+        aVar.Vn = new com.baidu.live.gift.c();
         com.baidu.live.gift.b bVar = new com.baidu.live.gift.b();
         bVar.parseJson(jSONObject);
-        aVar.VG.Wm = bVar;
+        aVar.Vn.VT = bVar;
         return aVar;
     }
 
@@ -45,20 +45,20 @@ public class a {
             if (!TextUtils.isEmpty(optString) && optString.charAt(0) != '#') {
                 optString = '#' + optString;
             }
-            bVar.VI = optString;
+            bVar.Vp = optString;
             String optString2 = jSONObject.optString("bg_color_end");
             if (!TextUtils.isEmpty(optString2) && optString2.charAt(0) != '#') {
                 optString2 = '#' + optString2;
             }
-            bVar.VJ = optString2;
-            bVar.VK = jSONObject.optString("transparency_begin");
-            bVar.VL = jSONObject.optString("transparency_end");
-            bVar.TU = jSONObject.optString("text_color");
-            bVar.VM = jSONObject.optString("nickname_preix");
-            bVar.VN = jSONObject.optString("nickname_suffix");
+            bVar.Vq = optString2;
+            bVar.Vr = jSONObject.optString("transparency_begin");
+            bVar.Vs = jSONObject.optString("transparency_end");
+            bVar.Tz = jSONObject.optString("text_color");
+            bVar.Vt = jSONObject.optString("nickname_preix");
+            bVar.Vu = jSONObject.optString("nickname_suffix");
             bVar.iconUrl = jSONObject.optString("icon_url");
-            bVar.VO = jSONObject.optInt("icon_width");
-            bVar.VP = jSONObject.optInt("icon_height");
+            bVar.Vv = jSONObject.optInt("icon_width");
+            bVar.Vw = jSONObject.optInt("icon_height");
             return bVar;
         } catch (JSONException e) {
             e.printStackTrace();

@@ -5,7 +5,7 @@ import android.util.Log;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class MergePaths implements b {
-    private final MergePathsMode hj;
+    private final MergePathsMode gJ;
     private final String name;
 
     /* loaded from: classes2.dex */
@@ -37,7 +37,7 @@ public class MergePaths implements b {
 
     private MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.hj = mergePathsMode;
+        this.gJ = mergePathsMode;
     }
 
     public String getName() {
@@ -45,7 +45,7 @@ public class MergePaths implements b {
     }
 
     public MergePathsMode cI() {
-        return this.hj;
+        return this.gJ;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -59,7 +59,7 @@ public class MergePaths implements b {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.hj + '}';
+        return "MergePaths{mode=" + this.gJ + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

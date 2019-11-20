@@ -4,7 +4,7 @@ import android.util.LruCache;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class c {
-    private final LruCache<String, a> Fd = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
+    private final LruCache<String, a> EC = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
     private final String a;
     private boolean c;
 
@@ -62,7 +62,7 @@ class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.Fd.evictAll();
+        this.EC.evictAll();
         f.a("Clear %s cache", this.a);
     }
 
@@ -73,7 +73,7 @@ class c {
         if ((b == null || b.isEmpty()) && (c == null || c.isEmpty())) {
             return;
         }
-        this.Fd.put(str, aVar);
+        this.EC.put(str, aVar);
         Object[] objArr = new Object[5];
         objArr[0] = this.a;
         objArr[1] = str;
@@ -91,7 +91,7 @@ class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ArrayList<String> b() {
         ArrayList<String> arrayList = new ArrayList<>();
-        for (String str : this.Fd.snapshot().keySet()) {
+        for (String str : this.EC.snapshot().keySet()) {
             arrayList.add(str);
         }
         return arrayList;
@@ -103,15 +103,15 @@ class c {
         if (bs == null || !bs.a()) {
             return;
         }
-        this.Fd.remove(str);
+        this.EC.remove(str);
         f.a("Remove expired entry from %s cache, host(%s)", this.a, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a bs(String str) {
-        a aVar = this.Fd.get(str);
+        a aVar = this.EC.get(str);
         if (aVar != null && aVar.a() && this.c) {
-            this.Fd.remove(str);
+            this.EC.remove(str);
             f.a("Remove expired entry from %s cache while reading, host(%s)", this.a, str);
             return null;
         }

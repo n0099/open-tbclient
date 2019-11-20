@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 final class b {
-    private static volatile b Fc;
+    private static volatile b EB;
 
     private b() {
     }
@@ -55,14 +55,14 @@ final class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b lC() {
-        if (Fc == null) {
+        if (EB == null) {
             synchronized (b.class) {
-                if (Fc == null) {
-                    Fc = new b();
+                if (EB == null) {
+                    EB = new b();
                 }
             }
         }
-        return Fc;
+        return EB;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

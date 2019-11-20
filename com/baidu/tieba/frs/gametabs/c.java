@@ -10,9 +10,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tbadk.mainTab.b {
     public c(int i, String str) {
-        this.cKa.type = i;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) this.cKa.frag;
-        specialFrsWebFragment.rr(i);
+        this.cJj.type = i;
+        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) this.cJj.frag;
+        specialFrsWebFragment.rq(i);
         if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
             if (str.contains("&ufanS=1")) {
                 str = str + "&_client_version=" + TbConfig.getVersion();
@@ -29,7 +29,7 @@ public class c extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c avy() {
+    public com.baidu.tbadk.mainTab.c avw() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.frag = new SpecialFrsWebFragment();
         cVar.type = 101;
@@ -39,8 +39,8 @@ public class c extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator cB(Context context) {
-        this.cKb = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.cKb.setTextSize(2.0f);
-        return this.cKb;
+        this.cJk = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.cJk.setTextSize(2.0f);
+        return this.cJk;
     }
 }

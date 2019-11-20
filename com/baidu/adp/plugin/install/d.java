@@ -53,13 +53,13 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 /* loaded from: classes.dex */
 public class d {
-    private static boolean vg = false;
-    private static Map<String, Boolean> vh = new HashMap();
-    private static boolean vi = false;
-    private static boolean vj = false;
-    private static boolean vk = false;
-    private static boolean vl = false;
-    private static Signature[] vm = null;
+    private static boolean uG = false;
+    private static Map<String, Boolean> uH = new HashMap();
+    private static boolean uI = false;
+    private static boolean uJ = false;
+    private static boolean uK = false;
+    private static boolean uL = false;
+    private static Signature[] uM = null;
 
     public static void onHandleIntent(Intent intent) {
         PluginSetting pluginSetting = null;
@@ -72,7 +72,7 @@ public class d {
             com.baidu.adp.plugin.b.a.iv().g("plugin_install", "intent_action_null", null);
             return;
         }
-        vg = intent.getBooleanExtra("is_debug_plugin", false);
+        uG = intent.getBooleanExtra("is_debug_plugin", false);
         if (action.equals(PluginInstallerService.ACTION_INSTALL)) {
             String stringExtra = intent.getStringExtra("install_src_file");
             String stringExtra2 = intent.getStringExtra(Constants.PACKAGE_NAME);
@@ -81,7 +81,7 @@ public class d {
             } catch (Throwable th) {
             }
             String str = stringExtra2 + stringExtra;
-            if (vh.containsKey(str) && vh.get(str).booleanValue()) {
+            if (uH.containsKey(str) && uH.get(str).booleanValue()) {
                 com.baidu.adp.plugin.b.a.iv().f("plugin_install", "plugin_has_installed", stringExtra2, "pkgName_" + stringExtra2 + "-srcFile_" + stringExtra);
                 return;
             } else {
@@ -116,7 +116,7 @@ public class d {
         InputStream inputStream = null;
         try {
             inputStream = BdBaseApplication.getInst().getAssets().open(substring);
-            if (!Util.o(inputStream.available())) {
+            if (!Util.n(inputStream.available())) {
                 e(str, str2, "rom_size", String.valueOf(Util.jA()));
             } else {
                 a(inputStream, str, str2, pluginSetting);
@@ -144,7 +144,7 @@ public class d {
         String substring = str.substring(SkiaImageDecoder.FILE_PREFIX.length());
         File file = new File(substring);
         String str3 = str2 + str;
-        if (vh.containsKey(str3) && !file.exists() && vh.get(str3).booleanValue()) {
+        if (uH.containsKey(str3) && !file.exists() && uH.get(str3).booleanValue()) {
             com.baidu.adp.plugin.b.a.iv().f("plugin_install", "plugin_has_installed", str2, "pkgName_" + str2 + "-srcFile_" + str);
             Intent intent = new Intent("com.baidu.adp.plugin.installrepeat");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -200,7 +200,7 @@ public class d {
                 e = e2;
             }
             try {
-                if (Util.o(fileInputStream.available())) {
+                if (Util.n(fileInputStream.available())) {
                     i = 3;
                     a(fileInputStream, str, str2, pluginSetting);
                     com.baidu.adp.lib.g.a.close((InputStream) fileInputStream);
@@ -422,7 +422,7 @@ public class d {
             str5 = packageArchiveInfo.versionName;
             i = packageArchiveInfo.versionCode;
         }
-        if (!BdBaseApplication.getInst().isDebugMode() && !vg && (d = d(str6, file.getAbsolutePath(), pluginSetting)) != null) {
+        if (!BdBaseApplication.getInst().isDebugMode() && !uG && (d = d(str6, file.getAbsolutePath(), pluginSetting)) != null) {
             try {
                 file.delete();
             } catch (Exception e10) {
@@ -603,7 +603,7 @@ public class d {
             long currentTimeMillis3 = System.currentTimeMillis();
             a(file3.getAbsolutePath(), str6, file4);
             com.baidu.adp.plugin.b.a.iv().b("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis3, str6);
-            vh.put(str2 + str, true);
+            uH.put(str2 + str, true);
             Intent intent3 = new Intent("com.baidu.adp.plugin.installed");
             intent3.setPackage(BdBaseApplication.getInst().getPackageName());
             intent3.putExtra(Constants.PACKAGE_NAME, str6);
@@ -1011,10 +1011,10 @@ public class d {
 
     public static boolean it() {
         String str;
-        if (vj) {
-            return vi;
+        if (uJ) {
+            return uI;
         }
-        vj = true;
+        uJ = true;
         String lowerCase = Build.CPU_ABI.toLowerCase();
         if (Build.VERSION.SDK_INT <= 7) {
             str = IXAdSystemUtils.NT_NONE;
@@ -1029,11 +1029,11 @@ public class d {
             }
         }
         if (lowerCase.contains(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || str.contains(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || iu()) {
-            vi = true;
+            uI = true;
         } else if (lowerCase.contains(PassBiometricUtil.CPU_TYPE_ARMEABI) || str.contains(PassBiometricUtil.CPU_TYPE_ARMEABI)) {
-            vi = true;
+            uI = true;
         }
-        return vi;
+        return uI;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1121=4] */
@@ -1043,10 +1043,10 @@ public class d {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         InputStreamReader inputStreamReader2 = null;
-        if (vl) {
-            return vk;
+        if (uL) {
+            return uK;
         }
-        vl = true;
+        uL = true;
         try {
             fileInputStream = new FileInputStream("/proc/cpuinfo");
             try {
@@ -1089,7 +1089,7 @@ public class d {
                                 }
                             }
                         }
-                        vk = ((Integer) objArr[1]).intValue() == 7;
+                        uK = ((Integer) objArr[1]).intValue() == 7;
                         n.close((Reader) bufferedReader);
                         n.close((Reader) inputStreamReader);
                         n.close((InputStream) fileInputStream);
@@ -1102,7 +1102,7 @@ public class d {
                             n.close((Reader) bufferedReader);
                             n.close((Reader) inputStreamReader2);
                             n.close((InputStream) fileInputStream2);
-                            return vk;
+                            return uK;
                         } catch (Throwable th) {
                             th = th;
                             fileInputStream = fileInputStream2;
@@ -1147,7 +1147,7 @@ public class d {
             inputStreamReader = null;
             fileInputStream = null;
         }
-        return vk;
+        return uK;
     }
 
     private static void a(String str, String str2, File file) {
@@ -1185,9 +1185,9 @@ public class d {
         Signature[] signatureArr;
         Signature[] bj;
         File file;
-        if (vm == null) {
+        if (uM == null) {
             try {
-                vm = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
+                uM = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
             } catch (Throwable th) {
                 com.baidu.adp.plugin.b.a.iv().f("plugin_install", "getmainsign_frompm_fail", str, th.getMessage());
             }
@@ -1214,11 +1214,11 @@ public class d {
         if (bj == null) {
             return "get_newsignatures_null_" + str2;
         }
-        Signature[] signatureArr2 = vm;
+        Signature[] signatureArr2 = uM;
         if (signatureArr2 == null && (file = new File(BdBaseApplication.getInst().getPackageCodePath())) != null && file.exists()) {
             try {
                 signatureArr2 = e.bj(file.getAbsolutePath());
-                vm = signatureArr2;
+                uM = signatureArr2;
             } catch (IOException e3) {
                 return e3.getMessage();
             } catch (CertificateEncodingException e4) {

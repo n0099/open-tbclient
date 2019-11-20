@@ -12,18 +12,18 @@ import org.json.JSONObject;
 public class f {
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.aUO = gVar.aUO;
-        dVar.aUX = gVar.autoplay;
-        dVar.aUY = gVar.loop;
+        dVar.aUw = gVar.aUw;
+        dVar.aUF = gVar.autoplay;
+        dVar.aUG = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.byj = gVar.startTime;
-        dVar.aUZ = gVar.obeyMuteSwitch;
-        dVar.aVa = gVar.volume;
-        dVar.aUU = VQ().toString();
+        dVar.bxs = gVar.startTime;
+        dVar.aUH = gVar.obeyMuteSwitch;
+        dVar.aUI = gVar.volume;
+        dVar.aUC = VO().toString();
         return dVar;
     }
 
-    public static JSONObject VQ() {
+    public static JSONObject VO() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("onCanplay", "canplay");
@@ -50,18 +50,18 @@ public class f {
     }
 
     public static String jt(String str) throws MalformedURLException {
-        return "/" + com.baidu.swan.apps.ae.b.Rk() + "/" + String.valueOf(str.hashCode());
+        return "/" + com.baidu.swan.apps.ae.b.Rm() + "/" + String.valueOf(str.hashCode());
     }
 
-    public static String VR() {
-        String VS = VS();
-        if (!VT() || TextUtils.isEmpty(VS)) {
+    public static String VP() {
+        String VQ = VQ();
+        if (!VR() || TextUtils.isEmpty(VQ)) {
             return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        return VS;
+        return VQ;
     }
 
-    private static String VS() {
+    private static String VQ() {
         String str = com.baidu.swan.games.f.g.getBasePath() + "/usr";
         File file = new File(str);
         if (!file.exists() && !file.mkdirs()) {
@@ -71,7 +71,7 @@ public class f {
         return str;
     }
 
-    private static boolean VT() {
+    private static boolean VR() {
         return "mounted".equals(Environment.getExternalStorageState());
     }
 }

@@ -4,17 +4,17 @@ import android.view.View;
 import android.widget.RelativeLayout;
 /* loaded from: classes3.dex */
 public class c {
-    private RelativeLayout.LayoutParams Fr;
-    private int Fs;
-    private View Ft;
-    protected x Fu;
+    private RelativeLayout.LayoutParams ER;
+    private int ES;
+    private View ET;
+    protected x EU;
 
     public RelativeLayout.LayoutParams lI() {
-        return this.Fr;
+        return this.ER;
     }
 
     public void a(RelativeLayout.LayoutParams layoutParams) {
-        this.Fr = layoutParams;
+        this.ER = layoutParams;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -22,7 +22,7 @@ public class c {
     }
 
     public void b(x xVar) {
-        this.Fu = xVar;
+        this.EU = xVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -30,18 +30,18 @@ public class c {
     }
 
     public int lK() {
-        return this.Fs;
+        return this.ES;
     }
 
     public void aE(int i) {
-        this.Fs = i;
+        this.ES = i;
     }
 
     public View lL() {
-        return this.Ft;
+        return this.ET;
     }
 
     public void F(View view) {
-        this.Ft = view;
+        this.ET = view;
     }
 }

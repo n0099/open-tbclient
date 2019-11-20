@@ -8,13 +8,13 @@ import org.apache.http.HttpHost;
 /* loaded from: classes2.dex */
 public class a implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> aMp = new HashSet();
+    private static final Set<String> aLX = new HashSet();
 
     static {
-        aMp.add("https");
-        aMp.add(HttpHost.DEFAULT_SCHEME_NAME);
-        aMp.add("sms");
-        aMp.add("tel");
+        aLX.add("https");
+        aLX.add(HttpHost.DEFAULT_SCHEME_NAME);
+        aLX.add("sms");
+        aLX.add("tel");
     }
 
     @Override // com.baidu.swan.apps.core.f.c
@@ -31,7 +31,7 @@ public class a implements c {
         if (str == null || (parse = Uri.parse(str)) == null) {
             return true;
         }
-        boolean contains = aMp.contains(parse.getScheme());
+        boolean contains = aLX.contains(parse.getScheme());
         if (DEBUG) {
             Log.d("WebViewWidgetListener", (contains ? "legal schemes : " : "illegal schemes : ") + parse.getScheme());
         }

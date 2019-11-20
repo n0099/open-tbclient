@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes3.dex */
 public interface ae {
-    void aJp();
+    void aJn();
 
-    void aJq();
+    void aJo();
 
-    void anO();
+    void anM();
 
     void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.w wVar);
 
@@ -13,5 +13,5 @@ public interface ae {
 
     void showFloatingView();
 
-    void vU();
+    void vV();
 }

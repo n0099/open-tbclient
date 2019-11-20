@@ -17,10 +17,10 @@ import org.apache.http.protocol.HTTP;
 class i extends SSLSocketFactory {
     private final String TAG = i.class.getSimpleName();
     HostnameVerifier hostnameVerifier = HttpsURLConnection.getDefaultHostnameVerifier();
-    private HttpsURLConnection pB;
+    private HttpsURLConnection oV;
 
     public i(HttpsURLConnection httpsURLConnection) {
-        this.pB = httpsURLConnection;
+        this.oV = httpsURLConnection;
     }
 
     @Override // javax.net.SocketFactory
@@ -50,7 +50,7 @@ class i extends SSLSocketFactory {
 
     @Override // javax.net.ssl.SSLSocketFactory
     public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        String requestProperty = this.pB.getRequestProperty(HTTP.TARGET_HOST);
+        String requestProperty = this.oV.getRequestProperty(HTTP.TARGET_HOST);
         if (requestProperty != null) {
             str = requestProperty;
         }

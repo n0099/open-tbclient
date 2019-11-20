@@ -39,11 +39,11 @@ public class aq extends com.baidu.adp.lib.util.k {
     private static String TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
     private static final SimpleDateFormat FORMATE_DATE_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final SimpleDateFormat FORMATE_DATE_SECOND_CHINESE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
-    private static final SimpleDateFormat ckj = new SimpleDateFormat("dd日HH:mm");
-    private static final SimpleDateFormat ckk = new SimpleDateFormat("HH:mm");
-    private static final SimpleDateFormat ckl = new SimpleDateFormat("yyyy-MM-dd");
-    private static final SimpleDateFormat ckm = new SimpleDateFormat("MM-dd HH:mm");
-    private static final SimpleDateFormat ckn = new SimpleDateFormat("MM-dd");
+    private static final SimpleDateFormat cjs = new SimpleDateFormat("dd日HH:mm");
+    private static final SimpleDateFormat cjt = new SimpleDateFormat("HH:mm");
+    private static final SimpleDateFormat cju = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat cjv = new SimpleDateFormat("MM-dd HH:mm");
+    private static final SimpleDateFormat cjw = new SimpleDateFormat("MM-dd");
     private static Date date = new Date();
 
     static {
@@ -62,20 +62,20 @@ public class aq extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static String aP(long j) {
+    public static String aO(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (ckm) {
-            format = ckm.format(date2);
+        synchronized (cjv) {
+            format = cjv.format(date2);
         }
         return format;
     }
 
-    public static String aQ(long j) {
+    public static String aP(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (ckn) {
-            format = ckn.format(date2);
+        synchronized (cjw) {
+            format = cjw.format(date2);
         }
         return format;
     }
@@ -108,7 +108,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         return (i + 1) + TIME_HOUR;
     }
 
-    public static String aR(long j) {
+    public static String aQ(long j) {
         return (((j / BdKVCache.MILLS_1Hour) / 24) + 1) + TIME_DAY;
     }
 
@@ -309,7 +309,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         return formatTime;
     }
 
-    public static String aS(long j) {
+    public static String aR(long j) {
         String a;
         synchronized (date) {
             date.setTime(j);
@@ -375,7 +375,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         if (str.length() != 10) {
             return false;
         }
-        return ckl.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
+        return cju.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
     }
 
     public static String getDateStringDayNoYear(Date date2) {
@@ -479,7 +479,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         return f2 + "KW";
     }
 
-    public static String aT(long j) {
+    public static String aS(long j) {
         if (j <= 0) {
             return "0";
         }
@@ -547,7 +547,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         return "" + j;
     }
 
-    public static String aU(long j) {
+    public static String aT(long j) {
         if (j > 99990000) {
             return "9999W+";
         }

@@ -19,18 +19,18 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class PersonWrapperFragment extends BaseFragment implements ViewPager.OnPageChangeListener {
-    private int BQ;
-    private boolean etI;
-    private PersonViewPagerAdapter etQ;
-    private ViewPager etR;
-    protected Object etS;
-    protected Object etT;
-    private PersonPageIndicator etU;
-    private int etV;
-    private ViewPager.OnPageChangeListener etW;
-    private int etX = 0;
-    private List<Fragment> etY = new LinkedList();
-    private PersonListFragment etZ;
+    private int Bq;
+    private boolean esQ;
+    private PersonViewPagerAdapter esY;
+    private ViewPager esZ;
+    protected Object eta;
+    protected Object etb;
+    private PersonPageIndicator etd;
+    private int ete;
+    private ViewPager.OnPageChangeListener etf;
+    private int etg = 0;
+    private List<Fragment> eth = new LinkedList();
+    private PersonListFragment eti;
     private String metaKey;
     private int type;
     private String userId;
@@ -42,9 +42,9 @@ public class PersonWrapperFragment extends BaseFragment implements ViewPager.OnP
         this.userId = getArguments().getString("user_id");
         this.metaKey = getArguments().getString("meta_key");
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            this.etV = getResources().getDimensionPixelSize(a.e.sdk_ds640) - (getResources().getDimensionPixelSize(a.e.sdk_ds34) * 2);
+            this.ete = getResources().getDimensionPixelSize(a.e.sdk_ds640) - (getResources().getDimensionPixelSize(a.e.sdk_ds34) * 2);
         } else if (UtilHelper.getRealScreenOrientation(getActivity()) == 1) {
-            this.etV = BdUtilHelper.getScreenDimensions(getActivity())[0] - (getResources().getDimensionPixelSize(a.e.sdk_ds34) * 2);
+            this.ete = BdUtilHelper.getScreenDimensions(getActivity())[0] - (getResources().getDimensionPixelSize(a.e.sdk_ds34) * 2);
         }
     }
 
@@ -53,89 +53,89 @@ public class PersonWrapperFragment extends BaseFragment implements ViewPager.OnP
         View inflate = layoutInflater.inflate(a.h.ala_fragment_person_wrapper, (ViewGroup) null);
         W(inflate);
         initListener();
-        aXr();
-        oe(this.type);
+        aXp();
+        od(this.type);
         return inflate;
     }
 
-    private void aXr() {
-        this.etU.setIndicatorMargin(getResources().getDimensionPixelSize(a.e.sdk_ds34));
+    private void aXp() {
+        this.etd.setIndicatorMargin(getResources().getDimensionPixelSize(a.e.sdk_ds34));
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
-            this.etU.setViewPager(this.etR, this.etV / 3);
+            this.etd.setViewPager(this.esZ, this.ete / 3);
         } else {
-            this.etU.setViewPager(this.etR, this.etV / 2);
+            this.etd.setViewPager(this.esZ, this.ete / 2);
         }
-        this.etU.setOnPageChangeListener(this);
+        this.etd.setOnPageChangeListener(this);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
-            this.etY.add(PersonPlayBacksListFragment.l(this.userId, null));
-            this.etU.uk(getString(a.i.ala_person_playbacks));
+            this.eth.add(PersonPlayBacksListFragment.l(this.userId, null));
+            this.etd.uk(getString(a.i.ala_person_playbacks));
         }
-        this.etY.add(PersonListFragment.a(0, this.userId, this.metaKey, this.etS));
-        this.etU.uk(getString(a.i.ala_person_fans));
-        this.etZ = PersonListFragment.a(1, this.userId, this.metaKey, this.etT);
-        this.etY.add(this.etZ);
-        this.etU.uk(getString(a.i.ala_person_attentions));
-        this.etQ = new PersonViewPagerAdapter(getChildFragmentManager());
-        this.etQ.setData(this.etY);
-        this.etR.setAdapter(this.etQ);
+        this.eth.add(PersonListFragment.a(0, this.userId, this.metaKey, this.eta));
+        this.etd.uk(getString(a.i.ala_person_fans));
+        this.eti = PersonListFragment.a(1, this.userId, this.metaKey, this.etb);
+        this.eth.add(this.eti);
+        this.etd.uk(getString(a.i.ala_person_attentions));
+        this.esY = new PersonViewPagerAdapter(getChildFragmentManager());
+        this.esY.setData(this.eth);
+        this.esZ.setAdapter(this.esY);
     }
 
     private void initListener() {
-        this.etR.setOnPageChangeListener(this);
+        this.esZ.setOnPageChangeListener(this);
     }
 
-    public void oe(int i) {
+    public void od(int i) {
         this.type = i;
-        this.etI = false;
-        aXs();
-        if (this.etR != null) {
-            this.etR.setCurrentItem(this.BQ);
+        this.esQ = false;
+        aXq();
+        if (this.esZ != null) {
+            this.esZ.setCurrentItem(this.Bq);
         }
     }
 
-    private void aXs() {
+    private void aXq() {
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
             if (this.type == 2) {
-                this.BQ = 0;
+                this.Bq = 0;
             } else if (this.type == 0) {
-                this.BQ = 1;
+                this.Bq = 1;
             } else if (this.type == 1) {
-                this.BQ = 2;
+                this.Bq = 2;
             }
         } else if (this.type == 2) {
-            this.BQ = 2;
+            this.Bq = 2;
         } else if (this.type == 0) {
-            this.BQ = 0;
+            this.Bq = 0;
         } else if (this.type == 1) {
-            this.BQ = 1;
+            this.Bq = 1;
         }
     }
 
     private void W(View view) {
-        this.etR = (ViewPager) view.findViewById(a.g.viewpager);
-        this.etR.setLayoutParams(new LinearLayout.LayoutParams(-2, this.etX));
-        this.etU = (PersonPageIndicator) view.findViewById(a.g.page_indicator);
+        this.esZ = (ViewPager) view.findViewById(a.g.viewpager);
+        this.esZ.setLayoutParams(new LinearLayout.LayoutParams(-2, this.etg));
+        this.etd = (PersonPageIndicator) view.findViewById(a.g.page_indicator);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        if (this.etW != null) {
-            this.etW.onPageScrolled(i, f, i2);
+        if (this.etf != null) {
+            this.etf.onPageScrolled(i, f, i2);
         }
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        if (this.etW != null) {
-            this.etW.onPageSelected(i);
+        if (this.etf != null) {
+            this.etf.onPageSelected(i);
         }
-        this.BQ = i;
+        this.Bq = i;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
-        if (this.etW != null) {
-            this.etW.onPageScrollStateChanged(i);
+        if (this.etf != null) {
+            this.etf.onPageScrollStateChanged(i);
         }
     }
 }

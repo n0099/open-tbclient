@@ -10,14 +10,14 @@ public class b {
     public int buy_staus;
     private String description;
     private String end_time;
-    private String ezA;
-    private String ezs;
-    private int ezu;
-    private int ezv;
-    private int ezw;
-    private int ezx;
-    private String ezy;
-    private String ezz;
+    private String eyB;
+    private int eyD;
+    private int eyE;
+    private int eyF;
+    private int eyG;
+    private String eyH;
+    private String eyI;
+    private String eyJ;
     private int height;
     private String mark_name;
     private String mark_pic;
@@ -30,22 +30,22 @@ public class b {
     private int weight;
     private int width;
     public int propId = -1;
-    private List<d> ezB = new ArrayList();
+    private List<d> eyK = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         this.type = jSONObject.optInt("type");
-        this.ezv = jSONObject.optInt("mark_id");
+        this.eyE = jSONObject.optInt("mark_id");
         this.mark_name = jSONObject.optString("mark_name");
         this.description = jSONObject.optString("description");
-        this.ezx = jSONObject.optInt("wear_status");
+        this.eyG = jSONObject.optInt("wear_status");
         this.mark_pic = jSONObject.optString("mark_pic");
-        this.ezw = jSONObject.optInt("mark_rank");
+        this.eyF = jSONObject.optInt("mark_rank");
         this.width = jSONObject.optInt("width");
         this.height = jSONObject.optInt("height");
         this.weight = jSONObject.optInt(TableDefine.SessionColumns.COLUMN_WEIGHT);
-        this.ezz = jSONObject.optString("next_level_diff");
-        this.ezy = jSONObject.optString("mark_dir_level");
-        this.ezA = jSONObject.optString("expire_text");
+        this.eyI = jSONObject.optString("next_level_diff");
+        this.eyH = jSONObject.optString("mark_dir_level");
+        this.eyJ = jSONObject.optString("expire_text");
         this.start_time = jSONObject.optString("begin_time");
         this.end_time = jSONObject.optString("end_time");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
@@ -53,7 +53,7 @@ public class b {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 d dVar = new d();
                 dVar.parseJson(optJSONArray.optJSONObject(i));
-                this.ezB.add(dVar);
+                this.eyK.add(dVar);
             }
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
@@ -70,70 +70,70 @@ public class b {
         }
     }
 
-    public List<d> aXM() {
-        if (this.ezB == null) {
-            this.ezB = new ArrayList();
+    public List<d> aXK() {
+        if (this.eyK == null) {
+            this.eyK = new ArrayList();
         }
-        return this.ezB;
+        return this.eyK;
     }
 
-    public boolean aXN() {
-        return this.ezu == 1;
+    public boolean aXL() {
+        return this.eyD == 1;
     }
 
-    public void ok(int i) {
-        this.ezu = i;
+    public void oj(int i) {
+        this.eyD = i;
     }
 
-    public String aXL() {
-        return this.ezs;
+    public String aXJ() {
+        return this.eyB;
     }
 
     public void ul(String str) {
-        this.ezs = str;
+        this.eyB = str;
     }
 
-    public int aXO() {
-        return this.ezv;
+    public int aXM() {
+        return this.eyE;
     }
 
-    public String aXP() {
+    public String aXN() {
         return this.mark_name;
     }
 
-    public String aXQ() {
+    public String aXO() {
         return this.mark_pic;
     }
 
-    public int aXR() {
-        return this.ezx;
+    public int aXP() {
+        return this.eyG;
     }
 
-    public void ol(int i) {
-        this.ezx = i;
+    public void ok(int i) {
+        this.eyG = i;
     }
 
     public String getDescription() {
         return this.description;
     }
 
+    public String aXQ() {
+        return this.eyI;
+    }
+
+    public int aXR() {
+        return this.eyF;
+    }
+
     public String aXS() {
-        return this.ezz;
+        return this.eyJ;
     }
 
-    public int aXT() {
-        return this.ezw;
-    }
-
-    public String aXU() {
-        return this.ezA;
-    }
-
-    public boolean aXV() {
+    public boolean aXT() {
         return this.type == 10;
     }
 
-    public boolean aXW() {
+    public boolean aXU() {
         return this.type == 9;
     }
 }

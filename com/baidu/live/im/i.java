@@ -8,13 +8,13 @@ public interface i {
     public interface a {
         void cH(String str);
 
-        boolean sF();
-
-        void sG();
+        boolean sG();
 
         void sH();
 
         void sI();
+
+        void sJ();
     }
 
     void a(a aVar);
@@ -25,13 +25,13 @@ public interface i {
 
     void onDestroy();
 
-    h sD();
+    h sE();
 
-    com.baidu.live.view.input.a sE();
+    com.baidu.live.view.input.a sF();
 
     void setFromMaster(boolean z);
 
     void setLogData(String str, String str2);
 
-    void sj();
+    void sk();
 }

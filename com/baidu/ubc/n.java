@@ -8,38 +8,38 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class n {
-    private String aRX;
-    private int bPQ;
-    private JSONObject bPR;
-    private List<h> bPS = new ArrayList();
+    private String aRF;
+    private int bOZ;
+    private JSONObject bPa;
+    private List<h> bPb = new ArrayList();
     private int mThreshold;
 
     public n(String str, JSONObject jSONObject) {
-        this.aRX = str;
-        this.bPR = jSONObject;
+        this.aRF = str;
+        this.bPa = jSONObject;
     }
 
     public String getSign() {
-        return this.aRX;
+        return this.aRF;
     }
 
-    public int acZ() {
+    public int acX() {
         return this.mThreshold;
     }
 
-    public int ada() {
-        return this.bPQ;
+    public int acY() {
+        return this.bOZ;
     }
 
-    public List<h> adb() {
-        return this.bPS;
+    public List<h> acZ() {
+        return this.bPb;
     }
 
-    public boolean adc() {
+    public boolean ada() {
         try {
-            JSONObject jSONObject = this.bPR;
+            JSONObject jSONObject = this.bPa;
             this.mThreshold = jSONObject.getInt("threshold");
-            this.bPQ = jSONObject.getInt("timeup");
+            this.bOZ = jSONObject.getInt("timeup");
             JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -53,21 +53,21 @@ public class n {
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
                     h hVar = new h(string, string2, string3, i2, string5, string4);
                     if (jSONObject2.has("rate")) {
-                        hVar.gU(jSONObject2.getInt("rate"));
+                        hVar.gT(jSONObject2.getInt("rate"));
                     }
                     if (jSONObject2.has("c")) {
                         hVar.setCategory(jSONObject2.getString("c"));
                     }
                     if (jSONObject2.has("limitUnit")) {
-                        hVar.gV(jSONObject2.getInt("limitUnit"));
+                        hVar.gU(jSONObject2.getInt("limitUnit"));
                     }
                     if (jSONObject2.has("limitCnt")) {
-                        hVar.gW(jSONObject2.getInt("limitCnt"));
+                        hVar.gV(jSONObject2.getInt("limitCnt"));
                     }
                     if (jSONObject2.has("idtype")) {
                         hVar.ly(jSONObject2.getString("idtype"));
                     }
-                    this.bPS.add(hVar);
+                    this.bPb.add(hVar);
                 }
             }
             return true;

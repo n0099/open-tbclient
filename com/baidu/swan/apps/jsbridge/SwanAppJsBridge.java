@@ -32,7 +32,7 @@ public class SwanAppJsBridge extends a {
         } else {
             d dVar = new d(str, str2);
             e.au("postMessage", "PostMsg setData start");
-            com.baidu.swan.apps.w.e.LD().a(dVar, false);
+            com.baidu.swan.apps.w.e.LE().a(dVar, false);
             e.au("postMessage", "PostMsg setData end");
         }
         return UnitedSchemeUtility.wrapCallbackParams(i).toString();

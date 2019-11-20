@@ -10,12 +10,12 @@ public class p {
     private p() {
     }
 
-    public static void cMY() {
-        throw ((KotlinNullPointerException) D(new KotlinNullPointerException()));
+    public static void cMW() {
+        throw ((KotlinNullPointerException) E(new KotlinNullPointerException()));
     }
 
     public static void GY(String str) {
-        throw ((UninitializedPropertyAccessException) D(new UninitializedPropertyAccessException(str)));
+        throw ((UninitializedPropertyAccessException) E(new UninitializedPropertyAccessException(str)));
     }
 
     public static void GZ(String str) {
@@ -24,7 +24,7 @@ public class p {
 
     public static void h(Object obj, String str) {
         if (obj == null) {
-            throw ((IllegalStateException) D(new IllegalStateException(str + " must not be null")));
+            throw ((IllegalStateException) E(new IllegalStateException(str + " must not be null")));
         }
     }
 
@@ -37,14 +37,14 @@ public class p {
     private static void Ha(String str) {
         StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
         String className = stackTraceElement.getClassName();
-        throw ((IllegalArgumentException) D(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + DefaultConfig.TOKEN_SEPARATOR + stackTraceElement.getMethodName() + ", parameter " + str)));
+        throw ((IllegalArgumentException) E(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + DefaultConfig.TOKEN_SEPARATOR + stackTraceElement.getMethodName() + ", parameter " + str)));
     }
 
     public static boolean f(Object obj, Object obj2) {
         return obj == null ? obj2 == null : obj.equals(obj2);
     }
 
-    public static void cMZ() {
+    public static void cMX() {
         Hb("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
     }
 
@@ -52,11 +52,11 @@ public class p {
         throw new UnsupportedOperationException(str);
     }
 
-    public static void aP(int i, String str) {
-        cMZ();
+    public static void aO(int i, String str) {
+        cMX();
     }
 
-    private static <T extends Throwable> T D(T t) {
+    private static <T extends Throwable> T E(T t) {
         return (T) d(t, p.class.getName());
     }
 

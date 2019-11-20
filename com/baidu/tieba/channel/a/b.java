@@ -14,11 +14,11 @@ import com.baidu.tieba.channel.data.i;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b extends BaseAdapter {
-    private ChannelFansActivity eSm;
+    private ChannelFansActivity eRv;
     private List<i> mData;
 
     public b(ChannelFansActivity channelFansActivity) {
-        this.eSm = channelFansActivity;
+        this.eRv = channelFansActivity;
     }
 
     public void setData(List<i> list) {
@@ -35,7 +35,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oT */
+    /* renamed from: oS */
     public i getItem(int i) {
         if (this.mData != null) {
             return this.mData.get(i);
@@ -54,42 +54,42 @@ public class b extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.eSm.getPageContext().getPageActivity()).inflate(R.layout.channel_fans_list_item_layout, viewGroup, false);
+            view = LayoutInflater.from(this.eRv.getPageContext().getPageActivity()).inflate(R.layout.channel_fans_list_item_layout, viewGroup, false);
             a aVar2 = new a();
-            aVar2.eSn = (HeadImageView) view.findViewById(R.id.avatar);
-            aVar2.eSn.setAutoChangeStyle(true);
-            aVar2.eSn.setIsRound(true);
-            aVar2.eSn.setClickable(false);
-            aVar2.eSo = (TextView) view.findViewById(R.id.fans_name);
-            aVar2.eSp = (TextView) view.findViewById(R.id.fans_intro);
+            aVar2.eRw = (HeadImageView) view.findViewById(R.id.avatar);
+            aVar2.eRw.setAutoChangeStyle(true);
+            aVar2.eRw.setIsRound(true);
+            aVar2.eRw.setClickable(false);
+            aVar2.eRx = (TextView) view.findViewById(R.id.fans_name);
+            aVar2.eRy = (TextView) view.findViewById(R.id.fans_intro);
             view.setTag(aVar2);
             aVar = aVar2;
         }
         i item = getItem(i);
         if (item != null) {
             if (!TextUtils.isEmpty(item.getPortrait())) {
-                aVar.eSn.setTag(null);
-                aVar.eSn.setDefaultResource(R.drawable.img_default_100);
-                aVar.eSn.startLoad(item.getPortrait(), 12, false);
-                aVar.eSn.invalidate();
+                aVar.eRw.setTag(null);
+                aVar.eRw.setDefaultResource(R.drawable.img_default_100);
+                aVar.eRw.startLoad(item.getPortrait(), 12, false);
+                aVar.eRw.invalidate();
             }
             if (!TextUtils.isEmpty(item.getUser_name())) {
-                aVar.eSo.setText(item.getUser_name());
+                aVar.eRx.setText(item.getUser_name());
             }
             if (!TextUtils.isEmpty(item.getIntro())) {
-                aVar.eSp.setText(item.getIntro());
+                aVar.eRy.setText(item.getIntro());
             }
         }
-        this.eSm.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.eSm.getLayoutMode().onModeChanged(view);
+        this.eRv.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.eRv.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* loaded from: classes6.dex */
     private class a {
-        HeadImageView eSn;
-        TextView eSo;
-        TextView eSp;
+        HeadImageView eRw;
+        TextView eRx;
+        TextView eRy;
 
         private a() {
         }

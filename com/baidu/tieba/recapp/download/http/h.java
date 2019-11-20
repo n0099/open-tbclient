@@ -13,9 +13,9 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class h {
     private String url = "";
-    protected Map<String, String> pq = new HashMap();
-    protected LinkedList<BasicNameValuePair> pr = new LinkedList<>();
-    protected HashMap<String, byte[]> pu = new HashMap<>();
+    protected Map<String, String> oM = new HashMap();
+    protected LinkedList<BasicNameValuePair> oN = new LinkedList<>();
+    protected HashMap<String, byte[]> oO = new HashMap<>();
 
     public String getUrl() {
         return this.url;
@@ -30,13 +30,13 @@ public class h {
     }
 
     public boolean fN() {
-        return this.pu != null && this.pu.size() > 0;
+        return this.oO != null && this.oO.size() > 0;
     }
 
     public String c(e eVar) {
-        if (this.pr.size() == 0) {
+        if (this.oN.size() == 0) {
             if (eVar != null) {
-                eVar.oT = this.url.length();
+                eVar.ou = this.url.length();
             }
             return this.url;
         }
@@ -50,26 +50,26 @@ public class h {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.pr.size()) {
+            if (i2 >= this.oN.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append("&");
             }
-            sb.append(this.pr.get(i2).getName());
+            sb.append(this.oN.get(i2).getName());
             sb.append("=");
-            sb.append(k.getUrlEncode(this.pr.get(i2).getValue()));
+            sb.append(k.getUrlEncode(this.oN.get(i2).getValue()));
             i = i2 + 1;
         }
         if (eVar != null) {
-            eVar.oT = sb.length();
+            eVar.ou = sb.length();
         }
         return sb.toString();
     }
 
     public void d(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.pq != null) {
-            for (Map.Entry<String, String> entry : this.pq.entrySet()) {
+        if (httpURLConnection != null && this.oM != null) {
+            for (Map.Entry<String, String> entry : this.oM.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -82,8 +82,8 @@ public class h {
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.pr != null) {
-                    Iterator<BasicNameValuePair> it = this.pr.iterator();
+                if (this.oN != null) {
+                    Iterator<BasicNameValuePair> it = this.oN.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -100,8 +100,8 @@ public class h {
                         }
                     }
                 }
-                if (this.pu != null) {
-                    for (Map.Entry<String, byte[]> entry : this.pu.entrySet()) {
+                if (this.oO != null) {
+                    for (Map.Entry<String, byte[]> entry : this.oO.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -121,7 +121,7 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.oT = i;
+            eVar.ou = i;
         }
     }
 
@@ -141,14 +141,14 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.oT = i;
+            eVar.ou = i;
         }
     }
 
     private StringBuilder fO() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.pr != null) {
-            Iterator<BasicNameValuePair> it = this.pr.iterator();
+        if (this.oN != null) {
+            Iterator<BasicNameValuePair> it = this.oN.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -171,19 +171,19 @@ public class h {
     }
 
     public String ah(String str) {
-        if (this.pq != null) {
-            return this.pq.get(str);
+        if (this.oM != null) {
+            return this.oM.get(str);
         }
         return null;
     }
 
     public void addPostData(BasicNameValuePair basicNameValuePair) {
-        this.pr.add(basicNameValuePair);
+        this.oN.add(basicNameValuePair);
     }
 
     public void l(String str, String str2) {
-        if (this.pq != null) {
-            this.pq.put(str, str2);
+        if (this.oM != null) {
+            this.oM.put(str, str2);
         }
     }
 }

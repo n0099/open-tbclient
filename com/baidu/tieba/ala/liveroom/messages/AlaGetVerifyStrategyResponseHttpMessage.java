@@ -5,18 +5,18 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class AlaGetVerifyStrategyResponseHttpMessage extends JsonHttpResponsedMessage {
-    public int elj;
-    public String elk;
-    public int ell;
-    public String elm;
-    public int eln;
+    public int eks;
+    public String ekt;
+    public int eku;
+    public String ekv;
+    public int ekw;
     public int verifyType;
 
     public AlaGetVerifyStrategyResponseHttpMessage() {
         super(1003303);
-        this.elj = 1;
-        this.ell = 1;
-        this.eln = 0;
+        this.eks = 1;
+        this.eku = 1;
+        this.ekw = 0;
         this.verifyType = 0;
     }
 
@@ -29,14 +29,14 @@ public class AlaGetVerifyStrategyResponseHttpMessage extends JsonHttpResponsedMe
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("strategy")) != null) {
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject(LogConfig.VALUE_LIVE_HK_RECORD_START);
                 if (optJSONObject3 != null) {
-                    this.elj = optJSONObject3.optInt("switch");
-                    this.elk = optJSONObject3.optString("text");
+                    this.eks = optJSONObject3.optInt("switch");
+                    this.ekt = optJSONObject3.optString("text");
                 }
                 JSONObject optJSONObject4 = optJSONObject.optJSONObject("user_verify");
                 if (optJSONObject4 != null) {
-                    this.ell = optJSONObject4.optInt("switch");
-                    this.eln = optJSONObject4.optInt("in_testlist");
-                    this.elm = optJSONObject4.optString("text");
+                    this.eku = optJSONObject4.optInt("switch");
+                    this.ekw = optJSONObject4.optInt("in_testlist");
+                    this.ekv = optJSONObject4.optString("text");
                     this.verifyType = optJSONObject4.optInt("type");
                 }
             }

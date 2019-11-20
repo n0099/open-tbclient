@@ -1,346 +1,452 @@
 package com.xiaomi.push.service;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.os.SystemClock;
+import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
+import java.util.concurrent.RejectedExecutionException;
 /* loaded from: classes3.dex */
 public class g {
-    private static volatile g b;
-    private static String c = "GeoFenceDao.";
-    private Context a;
+    private static long a;
+    private static long b;
+    private static long c;
 
-    private g(Context context) {
-        this.a = context;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    private final a f904a;
 
-    private synchronized Cursor a(SQLiteDatabase sQLiteDatabase) {
-        Cursor cursor;
-        com.xiaomi.channel.commonutils.misc.n.a(false);
-        try {
-            cursor = sQLiteDatabase.query("geofence", null, null, null, null, null, null);
-        } catch (Exception e) {
-            cursor = null;
+    /* renamed from: a  reason: collision with other field name */
+    private final c f905a;
+
+    /* loaded from: classes3.dex */
+    private static final class a {
+        private final c a;
+
+        a(c cVar) {
+            this.a = cVar;
         }
-        return cursor;
-    }
 
-    public static g a(Context context) {
-        if (b == null) {
-            synchronized (g.class) {
-                if (b == null) {
-                    b = new g(context);
+        protected void finalize() {
+            try {
+                synchronized (this.a) {
+                    this.a.c = true;
+                    this.a.notify();
                 }
+            } finally {
+                super.finalize();
             }
         }
-        return b;
     }
 
-    private synchronized com.xiaomi.xmpush.thrift.n a(Cursor cursor) {
-        com.xiaomi.xmpush.thrift.n nVar;
-        try {
-            com.xiaomi.xmpush.thrift.n[] values = com.xiaomi.xmpush.thrift.n.values();
-            int length = values.length;
-            int i = 0;
+    /* loaded from: classes3.dex */
+    public static abstract class b implements Runnable {
+        protected int a;
+
+        public b(int i) {
+            this.a = i;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes3.dex */
+    public static final class c extends Thread {
+
+        /* renamed from: b  reason: collision with other field name */
+        private boolean f908b;
+        private boolean c;
+        private volatile long a = 0;
+
+        /* renamed from: a  reason: collision with other field name */
+        private volatile boolean f907a = false;
+        private long b = 50;
+
+        /* renamed from: a  reason: collision with other field name */
+        private a f906a = new a();
+
+        /* JADX INFO: Access modifiers changed from: private */
+        /* loaded from: classes3.dex */
+        public static final class a {
+            private int a;
+
+            /* renamed from: a  reason: collision with other field name */
+            private d[] f909a;
+            private int b;
+            private int c;
+
+            private a() {
+                this.a = 256;
+                this.f909a = new d[this.a];
+                this.b = 0;
+                this.c = 0;
+            }
+
+            /* JADX INFO: Access modifiers changed from: private */
+            public int a(d dVar) {
+                for (int i = 0; i < this.f909a.length; i++) {
+                    if (this.f909a[i] == dVar) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+
+            private void c() {
+                int i = this.b - 1;
+                for (int i2 = (i - 1) / 2; this.f909a[i].f910a < this.f909a[i2].f910a; i2 = (i2 - 1) / 2) {
+                    d dVar = this.f909a[i];
+                    this.f909a[i] = this.f909a[i2];
+                    this.f909a[i2] = dVar;
+                    i = i2;
+                }
+            }
+
+            private void c(int i) {
+                int i2 = (i * 2) + 1;
+                while (i2 < this.b && this.b > 0) {
+                    int i3 = (i2 + 1 >= this.b || this.f909a[i2 + 1].f910a >= this.f909a[i2].f910a) ? i2 : i2 + 1;
+                    if (this.f909a[i].f910a < this.f909a[i3].f910a) {
+                        return;
+                    }
+                    d dVar = this.f909a[i];
+                    this.f909a[i] = this.f909a[i3];
+                    this.f909a[i3] = dVar;
+                    i2 = (i3 * 2) + 1;
+                    i = i3;
+                }
+            }
+
+            public d a() {
+                return this.f909a[0];
+            }
+
+            /* renamed from: a  reason: collision with other method in class */
+            public void m523a() {
+                this.f909a = new d[this.a];
+                this.b = 0;
+            }
+
+            public void a(int i) {
+                for (int i2 = 0; i2 < this.b; i2++) {
+                    if (this.f909a[i2].a == i) {
+                        this.f909a[i2].a();
+                    }
+                }
+                b();
+            }
+
+            public void a(int i, b bVar) {
+                for (int i2 = 0; i2 < this.b; i2++) {
+                    if (this.f909a[i2].f911a == bVar) {
+                        this.f909a[i2].a();
+                    }
+                }
+                b();
+            }
+
+            /* renamed from: a  reason: collision with other method in class */
+            public void m524a(d dVar) {
+                if (this.f909a.length == this.b) {
+                    d[] dVarArr = new d[this.b * 2];
+                    System.arraycopy(this.f909a, 0, dVarArr, 0, this.b);
+                    this.f909a = dVarArr;
+                }
+                d[] dVarArr2 = this.f909a;
+                int i = this.b;
+                this.b = i + 1;
+                dVarArr2[i] = dVar;
+                c();
+            }
+
+            /* renamed from: a  reason: collision with other method in class */
+            public boolean m525a() {
+                return this.b == 0;
+            }
+
+            /* renamed from: a  reason: collision with other method in class */
+            public boolean m526a(int i) {
+                for (int i2 = 0; i2 < this.b; i2++) {
+                    if (this.f909a[i2].a == i) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            public void b() {
+                int i = 0;
+                while (i < this.b) {
+                    if (this.f909a[i].f913a) {
+                        this.c++;
+                        b(i);
+                        i--;
+                    }
+                    i++;
+                }
+            }
+
+            public void b(int i) {
+                if (i < 0 || i >= this.b) {
+                    return;
+                }
+                d[] dVarArr = this.f909a;
+                d[] dVarArr2 = this.f909a;
+                int i2 = this.b - 1;
+                this.b = i2;
+                dVarArr[i] = dVarArr2[i2];
+                this.f909a[this.b] = null;
+                c(i);
+            }
+        }
+
+        c(String str, boolean z) {
+            setName(str);
+            setDaemon(z);
+            start();
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void a(d dVar) {
+            this.f906a.m524a(dVar);
+            notify();
+        }
+
+        public synchronized void a() {
+            this.f908b = true;
+            this.f906a.m523a();
+            notify();
+        }
+
+        /* renamed from: a  reason: collision with other method in class */
+        public boolean m522a() {
+            return this.f907a && SystemClock.uptimeMillis() - this.a > KeepJobService.JOB_CHECK_PERIODIC;
+        }
+
+        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+        /* JADX WARN: Code restructure failed: missing block: B:58:0x00a4, code lost:
+            r8.a = android.os.SystemClock.uptimeMillis();
+            r8.f907a = true;
+            r2.f911a.run();
+            r8.f907a = false;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:60:0x00b7, code lost:
+            r0 = move-exception;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:61:0x00b8, code lost:
+            monitor-enter(r8);
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:63:0x00ba, code lost:
+            r8.f908b = true;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:65:0x00bd, code lost:
+            throw r0;
+         */
+        @Override // java.lang.Thread, java.lang.Runnable
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void run() {
             while (true) {
-                if (i >= length) {
-                    nVar = null;
-                    break;
-                }
-                nVar = values[i];
-                if (TextUtils.equals(cursor.getString(cursor.getColumnIndex("type")), nVar.name())) {
-                    break;
-                }
-                i++;
-            }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-            nVar = null;
-        }
-        return nVar;
-    }
-
-    private synchronized String a(List<com.xiaomi.xmpush.thrift.o> list) {
-        String str;
-        if (list != null) {
-            if (list.size() >= 3) {
-                JSONArray jSONArray = new JSONArray();
-                try {
-                    for (com.xiaomi.xmpush.thrift.o oVar : list) {
-                        if (oVar != null) {
-                            JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("point_lantitude", oVar.c());
-                            jSONObject.put("point_longtitude", oVar.a());
-                            jSONArray.put(jSONObject);
+                synchronized (this) {
+                    if (this.f908b) {
+                        return;
+                    }
+                    if (!this.f906a.m525a()) {
+                        long a2 = g.a();
+                        d a3 = this.f906a.a();
+                        synchronized (a3.f912a) {
+                            if (a3.f913a) {
+                                this.f906a.b(0);
+                            } else {
+                                long j = a3.f910a - a2;
+                                if (j > 0) {
+                                    if (j > this.b) {
+                                        j = this.b;
+                                    }
+                                    this.b += 50;
+                                    if (this.b > 500) {
+                                        this.b = 500L;
+                                    }
+                                    try {
+                                        wait(j);
+                                    } catch (InterruptedException e) {
+                                    }
+                                } else {
+                                    this.b = 50L;
+                                    synchronized (a3.f912a) {
+                                        int a4 = this.f906a.a().f910a != a3.f910a ? this.f906a.a(a3) : 0;
+                                        if (a3.f913a) {
+                                            this.f906a.b(this.f906a.a(a3));
+                                        } else {
+                                            a3.a(a3.f910a);
+                                            this.f906a.b(a4);
+                                            a3.f910a = 0L;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } else if (this.c) {
+                        return;
+                    } else {
+                        try {
+                            wait();
+                        } catch (InterruptedException e2) {
                         }
                     }
-                    str = jSONArray.toString();
-                } catch (JSONException e) {
-                    com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-                    str = null;
                 }
             }
         }
-        com.xiaomi.channel.commonutils.logger.b.a(c + " points unvalidated");
-        str = null;
-        return str;
     }
 
-    private synchronized com.xiaomi.xmpush.thrift.o b(Cursor cursor) {
-        com.xiaomi.xmpush.thrift.o oVar;
-        oVar = new com.xiaomi.xmpush.thrift.o();
-        try {
-            oVar.b(Double.parseDouble(cursor.getString(cursor.getColumnIndex("center_lantitude"))));
-            oVar.a(Double.parseDouble(cursor.getString(cursor.getColumnIndex("center_longtitude"))));
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-            oVar = null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes3.dex */
+    public static class d {
+        int a;
+
+        /* renamed from: a  reason: collision with other field name */
+        long f910a;
+
+        /* renamed from: a  reason: collision with other field name */
+        b f911a;
+
+        /* renamed from: a  reason: collision with other field name */
+        final Object f912a = new Object();
+
+        /* renamed from: a  reason: collision with other field name */
+        boolean f913a;
+        private long b;
+
+        d() {
         }
-        return oVar;
-    }
 
-    private synchronized ArrayList<com.xiaomi.xmpush.thrift.o> c(Cursor cursor) {
-        ArrayList<com.xiaomi.xmpush.thrift.o> arrayList;
-        ArrayList<com.xiaomi.xmpush.thrift.o> arrayList2 = new ArrayList<>();
-        try {
-            JSONArray jSONArray = new JSONArray(cursor.getString(cursor.getColumnIndex("polygon_points")));
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= jSONArray.length()) {
-                    break;
-                }
-                com.xiaomi.xmpush.thrift.o oVar = new com.xiaomi.xmpush.thrift.o();
-                JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
-                oVar.b(jSONObject.getDouble("point_lantitude"));
-                oVar.a(jSONObject.getDouble("point_longtitude"));
-                arrayList2.add(oVar);
-                i = i2 + 1;
-            }
-            arrayList = arrayList2;
-        } catch (JSONException e) {
-            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-            arrayList = null;
-        }
-        return arrayList;
-    }
-
-    private synchronized com.xiaomi.xmpush.thrift.j d(Cursor cursor) {
-        com.xiaomi.xmpush.thrift.j jVar;
-        try {
-            jVar = com.xiaomi.xmpush.thrift.j.valueOf(cursor.getString(cursor.getColumnIndex("coordinate_provider")));
-        } catch (IllegalArgumentException e) {
-            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-            jVar = null;
-        }
-        return jVar;
-    }
-
-    public synchronized int a(String str, String str2) {
-        int i = 0;
-        synchronized (this) {
-            com.xiaomi.channel.commonutils.misc.n.a(false);
-            try {
-                if ("Enter".equals(str2) || "Leave".equals(str2) || "Unknown".equals(str2)) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("current_status", str2);
-                    int update = h.a(this.a).a().update("geofence", contentValues, "id=?", new String[]{str});
-                    h.a(this.a).b();
-                    i = update;
-                }
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+        void a(long j) {
+            synchronized (this.f912a) {
+                this.b = j;
             }
         }
-        return i;
+
+        public boolean a() {
+            boolean z = true;
+            synchronized (this.f912a) {
+                z = (this.f913a || this.f910a <= 0) ? false : false;
+                this.f913a = true;
+            }
+            return z;
+        }
     }
 
-    public synchronized long a(com.xiaomi.xmpush.thrift.m mVar) {
+    static {
+        a = SystemClock.elapsedRealtime() > 0 ? SystemClock.elapsedRealtime() : 0L;
+        b = a;
+    }
+
+    public g() {
+        this(false);
+    }
+
+    public g(String str) {
+        this(str, false);
+    }
+
+    public g(String str, boolean z) {
+        if (str == null) {
+            throw new NullPointerException("name == null");
+        }
+        this.f905a = new c(str, z);
+        this.f904a = new a(this.f905a);
+    }
+
+    public g(boolean z) {
+        this("Timer-" + b(), z);
+    }
+
+    static synchronized long a() {
         long j;
-        com.xiaomi.channel.commonutils.misc.n.a(false);
-        try {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("id", mVar.a());
-            contentValues.put("appId", Long.valueOf(mVar.e()));
-            contentValues.put("name", mVar.c());
-            contentValues.put(Constants.PACKAGE_NAME, mVar.g());
-            contentValues.put("create_time", Long.valueOf(mVar.i()));
-            contentValues.put("type", mVar.k().name());
-            contentValues.put("center_longtitude", String.valueOf(mVar.m().a()));
-            contentValues.put("center_lantitude", String.valueOf(mVar.m().c()));
-            contentValues.put("circle_radius", Double.valueOf(mVar.o()));
-            contentValues.put("polygon_point", a(mVar.q()));
-            contentValues.put("coordinate_provider", mVar.s().name());
-            contentValues.put("current_status", "Unknown");
-            j = h.a(this.a).a().insert("geofence", null, contentValues);
-            h.a(this.a).b();
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-            j = -1;
+        synchronized (g.class) {
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            if (elapsedRealtime > b) {
+                a += elapsedRealtime - b;
+            }
+            b = elapsedRealtime;
+            j = a;
         }
         return j;
     }
 
-    public synchronized com.xiaomi.xmpush.thrift.m a(String str) {
-        com.xiaomi.xmpush.thrift.m mVar;
-        com.xiaomi.channel.commonutils.misc.n.a(false);
-        try {
-            Iterator<com.xiaomi.xmpush.thrift.m> it = a().iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    mVar = null;
-                    break;
-                }
-                mVar = it.next();
-                if (TextUtils.equals(mVar.a(), str)) {
-                    break;
-                }
-            }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-            mVar = null;
+    private static synchronized long b() {
+        long j;
+        synchronized (g.class) {
+            j = c;
+            c = 1 + j;
         }
-        return mVar;
+        return j;
     }
 
-    public synchronized ArrayList<com.xiaomi.xmpush.thrift.m> a() {
-        ArrayList<com.xiaomi.xmpush.thrift.m> arrayList;
-        com.xiaomi.channel.commonutils.misc.n.a(false);
-        try {
-            Cursor a = a(h.a(this.a).a());
-            arrayList = new ArrayList<>();
-            if (a != null) {
-                while (a.moveToNext()) {
-                    try {
-                        com.xiaomi.xmpush.thrift.m mVar = new com.xiaomi.xmpush.thrift.m();
-                        mVar.a(a.getString(a.getColumnIndex("id")));
-                        mVar.b(a.getString(a.getColumnIndex("name")));
-                        mVar.a(a.getInt(a.getColumnIndex("appId")));
-                        mVar.c(a.getString(a.getColumnIndex(Constants.PACKAGE_NAME)));
-                        mVar.b(a.getInt(a.getColumnIndex("create_time")));
-                        com.xiaomi.xmpush.thrift.n a2 = a(a);
-                        if (a2 == null) {
-                            com.xiaomi.channel.commonutils.logger.b.c(c + "findAllGeoFencing: geo type null");
-                        } else {
-                            mVar.a(a2);
-                            if (TextUtils.equals("Circle", a2.name())) {
-                                mVar.a(b(a));
-                                mVar.a(a.getDouble(a.getColumnIndex("circle_radius")));
-                            } else if (TextUtils.equals("Polygon", a2.name())) {
-                                ArrayList<com.xiaomi.xmpush.thrift.o> c2 = c(a);
-                                if (c2 == null || c2.size() < 3) {
-                                    com.xiaomi.channel.commonutils.logger.b.c(c + "findAllGeoFencing: geo points null or size<3");
-                                } else {
-                                    mVar.a(c2);
-                                }
-                            }
-                            com.xiaomi.xmpush.thrift.j d = d(a);
-                            if (d == null) {
-                                com.xiaomi.channel.commonutils.logger.b.c(c + "findAllGeoFencing: geo Coordinate Provider null ");
-                            } else {
-                                mVar.a(d);
-                                arrayList.add(mVar);
-                            }
-                        }
-                    } catch (Exception e) {
-                        com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-                    }
-                }
-                a.close();
+    private void b(b bVar, long j) {
+        synchronized (this.f905a) {
+            if (this.f905a.f908b) {
+                throw new IllegalStateException("Timer was canceled");
             }
-            h.a(this.a).b();
-        } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.d(e2.toString());
-            arrayList = null;
+            long a2 = a() + j;
+            if (a2 < 0) {
+                throw new IllegalArgumentException("Illegal delay to start the TimerTask: " + a2);
+            }
+            d dVar = new d();
+            dVar.a = bVar.a;
+            dVar.f911a = bVar;
+            dVar.f910a = a2;
+            this.f905a.a(dVar);
         }
-        return arrayList;
     }
 
-    public synchronized ArrayList<com.xiaomi.xmpush.thrift.m> b(String str) {
-        ArrayList<com.xiaomi.xmpush.thrift.m> arrayList;
-        com.xiaomi.channel.commonutils.misc.n.a(false);
-        try {
-            ArrayList<com.xiaomi.xmpush.thrift.m> a = a();
-            ArrayList<com.xiaomi.xmpush.thrift.m> arrayList2 = new ArrayList<>();
-            Iterator<com.xiaomi.xmpush.thrift.m> it = a.iterator();
-            while (it.hasNext()) {
-                com.xiaomi.xmpush.thrift.m next = it.next();
-                if (TextUtils.equals(next.g(), str)) {
-                    arrayList2.add(next);
-                }
-            }
-            arrayList = arrayList2;
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-            arrayList = null;
-        }
-        return arrayList;
+    /* renamed from: a  reason: collision with other method in class */
+    public void m517a() {
+        this.f905a.a();
     }
 
-    public synchronized String c(String str) {
-        String str2;
-        com.xiaomi.channel.commonutils.misc.n.a(false);
-        try {
-            Cursor a = a(h.a(this.a).a());
-            if (a != null) {
-                while (a.moveToNext()) {
-                    if (TextUtils.equals(a.getString(a.getColumnIndex("id")), str)) {
-                        str2 = a.getString(a.getColumnIndex("current_status"));
-                        com.xiaomi.channel.commonutils.logger.b.c(c + "findGeoStatueByGeoId: geo current statue is " + str2 + " geoId:" + str);
-                        a.close();
-                        break;
-                    }
-                }
-                a.close();
-            }
-            h.a(this.a).b();
-            str2 = "Unknown";
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-            str2 = "Unknown";
+    public void a(int i) {
+        synchronized (this.f905a) {
+            this.f905a.f906a.a(i);
         }
-        return str2;
     }
 
-    public synchronized int d(String str) {
-        int i;
-        com.xiaomi.channel.commonutils.misc.n.a(false);
-        try {
-            if (a(str) != null) {
-                i = h.a(this.a).a().delete("geofence", "id = ?", new String[]{str});
-                h.a(this.a).b();
-            } else {
-                i = 0;
-            }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-            i = 0;
+    public void a(int i, b bVar) {
+        synchronized (this.f905a) {
+            this.f905a.f906a.a(i, bVar);
         }
-        return i;
     }
 
-    public synchronized int e(String str) {
-        int i;
-        com.xiaomi.channel.commonutils.misc.n.a(false);
-        try {
-            if (TextUtils.isEmpty(str)) {
-                i = 0;
-            } else {
-                i = h.a(this.a).a().delete("geofence", "package_name = ?", new String[]{str});
-                h.a(this.a).b();
-            }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-            i = 0;
+    public void a(b bVar) {
+        if (com.xiaomi.channel.commonutils.logger.b.a() >= 1 || Thread.currentThread() == this.f905a) {
+            bVar.run();
+        } else {
+            com.xiaomi.channel.commonutils.logger.b.d("run job outside job job thread");
+            throw new RejectedExecutionException("Run job outside job thread");
         }
-        return i;
+    }
+
+    public void a(b bVar, long j) {
+        if (j < 0) {
+            throw new IllegalArgumentException("delay < 0: " + j);
+        }
+        b(bVar, j);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m518a() {
+        return this.f905a.m522a();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m519a(int i) {
+        boolean m526a;
+        synchronized (this.f905a) {
+            m526a = this.f905a.f906a.m526a(i);
+        }
+        return m526a;
+    }
+
+    /* renamed from: b  reason: collision with other method in class */
+    public void m520b() {
+        synchronized (this.f905a) {
+            this.f905a.f906a.m523a();
+        }
     }
 }

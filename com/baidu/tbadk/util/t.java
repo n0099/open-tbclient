@@ -16,9 +16,9 @@ public final class t {
             return false;
         }
         try {
-            a axJ = a.axJ();
+            a axH = a.axH();
             for (String str : strArr) {
-                if (axJ.qq(str) != null) {
+                if (axH.qq(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class t {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a cPi;
-        private final Properties cPj = new Properties();
+        private static a cOr;
+        private final Properties cOs = new Properties();
 
         private a() throws IOException {
-            this.cPj.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.cOs.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a axJ() throws IOException {
-            if (cPi == null) {
+        public static a axH() throws IOException {
+            if (cOr == null) {
                 synchronized (a.class) {
-                    if (cPi == null) {
-                        cPi = new a();
+                    if (cOr == null) {
+                        cOr = new a();
                     }
                 }
             }
-            return cPi;
+            return cOr;
         }
 
         public String qq(String str) {
-            return this.cPj.getProperty(str);
+            return this.cOs.getProperty(str);
         }
     }
 }

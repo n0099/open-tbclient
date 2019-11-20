@@ -9,14 +9,14 @@ import android.widget.FrameLayout;
 import com.baidu.live.k.a;
 /* loaded from: classes6.dex */
 public class BubbleLayout extends FrameLayout {
-    public static float Os = -1.0f;
-    private float On;
-    private float Oo;
-    private float Op;
-    private float Oq;
-    private int Ov;
-    private ArrowDirection apr;
-    private a aps;
+    public static float NR = -1.0f;
+    private float NL;
+    private float NM;
+    private float NN;
+    private float NP;
+    private int NV;
+    private ArrowDirection aoY;
+    private a aoZ;
     private int mStrokeColor;
     private float mStrokeWidth;
 
@@ -31,14 +31,14 @@ public class BubbleLayout extends FrameLayout {
     public BubbleLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.k.sdk_BubbleLayout);
-        this.On = obtainStyledAttributes.getDimension(a.k.sdk_BubbleLayout_bl_arrowWidth, c(8.0f, context));
-        this.Op = obtainStyledAttributes.getDimension(a.k.sdk_BubbleLayout_bl_arrowHeight, c(8.0f, context));
-        this.Oo = obtainStyledAttributes.getDimension(a.k.sdk_BubbleLayout_bl_cornersRadius, 0.0f);
-        this.Oq = obtainStyledAttributes.getDimension(a.k.sdk_BubbleLayout_bl_arrowPosition, c(12.0f, context));
-        this.Ov = obtainStyledAttributes.getColor(a.k.sdk_BubbleLayout_bl_bubbleColor, -1);
-        this.mStrokeWidth = obtainStyledAttributes.getDimension(a.k.sdk_BubbleLayout_bl_strokeWidth, Os);
+        this.NL = obtainStyledAttributes.getDimension(a.k.sdk_BubbleLayout_bl_arrowWidth, c(8.0f, context));
+        this.NN = obtainStyledAttributes.getDimension(a.k.sdk_BubbleLayout_bl_arrowHeight, c(8.0f, context));
+        this.NM = obtainStyledAttributes.getDimension(a.k.sdk_BubbleLayout_bl_cornersRadius, 0.0f);
+        this.NP = obtainStyledAttributes.getDimension(a.k.sdk_BubbleLayout_bl_arrowPosition, c(12.0f, context));
+        this.NV = obtainStyledAttributes.getColor(a.k.sdk_BubbleLayout_bl_bubbleColor, -1);
+        this.mStrokeWidth = obtainStyledAttributes.getDimension(a.k.sdk_BubbleLayout_bl_strokeWidth, NR);
         this.mStrokeColor = obtainStyledAttributes.getColor(a.k.sdk_BubbleLayout_bl_strokeColor, -7829368);
-        this.apr = ArrowDirection.fromInt(obtainStyledAttributes.getInt(a.k.sdk_BubbleLayout_sdk_bl_arrowDirection, ArrowDirection.LEFT.getValue()));
+        this.aoY = ArrowDirection.fromInt(obtainStyledAttributes.getInt(a.k.sdk_BubbleLayout_sdk_bl_arrowDirection, ArrowDirection.LEFT.getValue()));
         obtainStyledAttributes.recycle();
         initPadding();
     }
@@ -51,15 +51,15 @@ public class BubbleLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.aps != null) {
-            this.aps.draw(canvas);
+        if (this.aoZ != null) {
+            this.aoZ.draw(canvas);
         }
         super.dispatchDraw(canvas);
     }
 
     private void e(int i, int i2, int i3, int i4) {
         if (i2 >= i && i4 >= i3) {
-            this.aps = new a(new RectF(i, i3, i2, i4), this.On, this.Oo, this.Op, this.Oq, this.mStrokeWidth, this.mStrokeColor, this.Ov, this.apr);
+            this.aoZ = new a(new RectF(i, i3, i2, i4), this.NL, this.NM, this.NN, this.NP, this.mStrokeWidth, this.mStrokeColor, this.NV, this.aoY);
         }
     }
 
@@ -68,18 +68,18 @@ public class BubbleLayout extends FrameLayout {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        switch (this.apr) {
+        switch (this.aoY) {
             case LEFT:
-                paddingLeft = (int) (paddingLeft + this.On);
+                paddingLeft = (int) (paddingLeft + this.NL);
                 break;
             case RIGHT:
-                paddingRight = (int) (paddingRight + this.On);
+                paddingRight = (int) (paddingRight + this.NL);
                 break;
             case TOP:
-                paddingTop = (int) (paddingTop + this.Op);
+                paddingTop = (int) (paddingTop + this.NN);
                 break;
             case BOTTOM:
-                paddingBottom = (int) (paddingBottom + this.Op);
+                paddingBottom = (int) (paddingBottom + this.NN);
                 break;
         }
         if (this.mStrokeWidth > 0.0f) {
@@ -96,18 +96,18 @@ public class BubbleLayout extends FrameLayout {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        switch (this.apr) {
+        switch (this.aoY) {
             case LEFT:
-                paddingLeft = (int) (paddingLeft - this.On);
+                paddingLeft = (int) (paddingLeft - this.NL);
                 break;
             case RIGHT:
-                paddingRight = (int) (paddingRight - this.On);
+                paddingRight = (int) (paddingRight - this.NL);
                 break;
             case TOP:
-                paddingTop = (int) (paddingTop - this.Op);
+                paddingTop = (int) (paddingTop - this.NN);
                 break;
             case BOTTOM:
-                paddingBottom = (int) (paddingBottom - this.Op);
+                paddingBottom = (int) (paddingBottom - this.NN);
                 break;
         }
         if (this.mStrokeWidth > 0.0f) {
@@ -125,33 +125,33 @@ public class BubbleLayout extends FrameLayout {
 
     public BubbleLayout K(float f) {
         ny();
-        this.Oq = f;
+        this.NP = f;
         initPadding();
         return this;
     }
 
     public ArrowDirection getArrowDirection() {
-        return this.apr;
+        return this.aoY;
     }
 
     public float getArrowWidth() {
-        return this.On;
+        return this.NL;
     }
 
     public float getCornersRadius() {
-        return this.Oo;
+        return this.NM;
     }
 
     public float getArrowHeight() {
-        return this.Op;
+        return this.NN;
     }
 
     public float getArrowPosition() {
-        return this.Oq;
+        return this.NP;
     }
 
     public int getBubbleColor() {
-        return this.Ov;
+        return this.NV;
     }
 
     public float getStrokeWidth() {

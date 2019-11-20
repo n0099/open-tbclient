@@ -3,6 +3,8 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import com.baidu.tbadk.TbConfig;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
+import com.xiaomi.push.dg;
+import com.xiaomi.push.dh;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class Logger {
@@ -66,20 +68,17 @@ public class Logger {
     }
 
     public static void setPushLog(Context context) {
-        boolean z = sUserLogger != null;
-        com.xiaomi.push.log.f fVar = new com.xiaomi.push.log.f(context);
-        if (!sDisablePushLog && hasWritePermission(context) && z) {
-            com.xiaomi.channel.commonutils.logger.b.a(new com.xiaomi.push.log.e(sUserLogger, fVar));
-        } else if (!sDisablePushLog && hasWritePermission(context)) {
-            com.xiaomi.channel.commonutils.logger.b.a(fVar);
-        } else if (z) {
-            com.xiaomi.channel.commonutils.logger.b.a(sUserLogger);
-        } else {
-            com.xiaomi.channel.commonutils.logger.b.a(new com.xiaomi.push.log.e(null, null));
+        boolean z = false;
+        boolean z2 = sUserLogger != null;
+        if (sDisablePushLog) {
+            z2 = false;
+        } else if (hasWritePermission(context)) {
+            z = true;
         }
+        com.xiaomi.channel.commonutils.logger.b.a(new dg(z2 ? sUserLogger : null, z ? new dh(context) : null));
     }
 
     public static void uploadLogFile(Context context, boolean z) {
-        com.xiaomi.channel.commonutils.misc.h.a(context).a(new y(context, z));
+        com.xiaomi.push.ai.a(context).a(new w(context, z));
     }
 }

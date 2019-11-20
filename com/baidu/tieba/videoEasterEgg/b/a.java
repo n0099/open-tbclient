@@ -1,15 +1,15 @@
 package com.baidu.tieba.videoEasterEgg.b;
 /* loaded from: classes4.dex */
 public interface a {
-    void aHz();
+    void aHx();
+
+    void cwa();
+
+    void cwb();
 
     void cwc();
 
     void cwd();
-
-    void cwe();
-
-    void cwf();
 
     void onClose();
 

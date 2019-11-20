@@ -32,8 +32,8 @@ public class c extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        e AH = com.baidu.swan.apps.w.e.LD().AH();
-        if (AH == null) {
+        e AI = com.baidu.swan.apps.w.e.LE().AI();
+        if (AI == null) {
             com.baidu.swan.apps.console.c.e("navigationTitle", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -41,8 +41,8 @@ public class c extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            com.baidu.swan.apps.core.d.b Fq = AH.Fq();
-            if (!(Fq != null ? Fq.eu(optString) : false)) {
+            com.baidu.swan.apps.core.d.b Fr = AI.Fr();
+            if (!(Fr != null ? Fr.eu(optString) : false)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 com.baidu.swan.apps.console.c.e("navigationTitle", "set title fail");
                 return false;

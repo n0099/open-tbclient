@@ -6,12 +6,12 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public final class b {
-    private static ArrayList<a> aUN = new ArrayList<>();
+    private static ArrayList<a> aUv = new ArrayList<>();
 
     public static void u(String str, boolean z) {
         if (!TextUtils.isEmpty(str)) {
-            for (int size = aUN.size() - 1; size >= 0; size--) {
-                a aVar = aUN.get(size);
+            for (int size = aUv.size() - 1; size >= 0; size--) {
+                a aVar = aUv.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.getSlaveId())) {
                     aVar.bO(z);
                 }
@@ -20,8 +20,8 @@ public final class b {
     }
 
     public static void bQ(boolean z) {
-        for (int size = aUN.size() - 1; size >= 0; size--) {
-            a aVar = aUN.get(size);
+        for (int size = aUv.size() - 1; size >= 0; size--) {
+            a aVar = aUv.get(size);
             if (aVar != null) {
                 aVar.bO(z);
             }
@@ -29,8 +29,8 @@ public final class b {
     }
 
     public static void bP(boolean z) {
-        for (int size = aUN.size() - 1; size >= 0; size--) {
-            a aVar = aUN.get(size);
+        for (int size = aUv.size() - 1; size >= 0; size--) {
+            a aVar = aUv.get(size);
             if (aVar != null) {
                 aVar.bP(z);
             }
@@ -41,9 +41,9 @@ public final class b {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (int size = aUN.size() - 1; size >= 0; size--) {
-            a aVar = aUN.get(size);
-            if (aVar != null && TextUtils.equals(str, aVar.LK())) {
+        for (int size = aUv.size() - 1; size >= 0; size--) {
+            a aVar = aUv.get(size);
+            if (aVar != null && TextUtils.equals(str, aVar.LL())) {
                 return aVar;
             }
         }
@@ -54,9 +54,9 @@ public final class b {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        for (int size = aUN.size() - 1; size >= 0; size--) {
-            a aVar = aUN.get(size);
-            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.LL())) || TextUtils.equals(str3, aVar.LK())))) {
+        for (int size = aUv.size() - 1; size >= 0; size--) {
+            a aVar = aUv.get(size);
+            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.LM())) || TextUtils.equals(str3, aVar.LL())))) {
                 return aVar;
             }
         }
@@ -64,27 +64,27 @@ public final class b {
     }
 
     public static void a(a aVar) {
-        if (aVar != null && !aUN.contains(aVar)) {
-            aUN.add(aVar);
+        if (aVar != null && !aUv.contains(aVar)) {
+            aUv.add(aVar);
         }
     }
 
     public static void b(a aVar) {
         if (aVar != null) {
-            aUN.remove(aVar);
+            aUv.remove(aVar);
         }
     }
 
-    public static void LN() {
-        aUN.clear();
+    public static void LO() {
+        aUv.clear();
     }
 
     public static boolean fQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int size = aUN.size() - 1; size >= 0; size--) {
-            a aVar = aUN.get(size);
+        for (int size = aUv.size() - 1; size >= 0; size--) {
+            a aVar = aUv.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.getSlaveId()) && aVar.onBackPressed()) {
                 return true;
             }
@@ -94,8 +94,8 @@ public final class b {
 
     public static void cI(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int size = aUN.size() - 1; size >= 0; size--) {
-                a aVar = aUN.get(size);
+            for (int size = aUv.size() - 1; size >= 0; size--) {
+                a aVar = aUv.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.getSlaveId())) {
                     aVar.onDestroy();
                 }
@@ -104,15 +104,15 @@ public final class b {
     }
 
     public static void destroy() {
-        for (int size = aUN.size() - 1; size >= 0; size--) {
-            a aVar = aUN.get(size);
+        for (int size = aUv.size() - 1; size >= 0; size--) {
+            a aVar = aUv.get(size);
             if (aVar != null) {
                 aVar.onDestroy();
             }
         }
     }
 
-    public static ArrayList<a> LO() {
-        return aUN;
+    public static ArrayList<a> LP() {
+        return aUv;
     }
 }

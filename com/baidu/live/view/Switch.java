@@ -27,7 +27,7 @@ import com.baidu.live.k.a;
 /* loaded from: classes6.dex */
 public class Switch extends CompoundButton {
     private static final int[] CHECKED_STATE_SET = {16842912};
-    private static final a<Switch> atb = new a<Switch>("thumbPos") { // from class: com.baidu.live.view.Switch.1
+    private static final a<Switch> asJ = new a<Switch>("thumbPos") { // from class: com.baidu.live.view.Switch.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         /* renamed from: b */
@@ -360,7 +360,7 @@ public class Switch extends CompoundButton {
                         } else {
                             f = f3 > 0.0f ? 1.0f : -1.0f;
                         }
-                        if (wG()) {
+                        if (wH()) {
                             f = -f;
                         }
                         if (this.mThumbPosition + f < 0.0f) {
@@ -403,7 +403,7 @@ public class Switch extends CompoundButton {
             this.mVelocityTracker.computeCurrentVelocity(1000);
             float xVelocity = this.mVelocityTracker.getXVelocity();
             if (Math.abs(xVelocity) > this.mMinFlingVelocity) {
-                if (wG()) {
+                if (wH()) {
                     if (xVelocity >= 0.0f) {
                         z = false;
                     }
@@ -421,7 +421,7 @@ public class Switch extends CompoundButton {
     }
 
     private void animateThumbToCheckedState(boolean z) {
-        this.mPositionAnimator = ObjectAnimator.ofFloat(this, atb, z ? 1.0f : 0.0f);
+        this.mPositionAnimator = ObjectAnimator.ofFloat(this, asJ, z ? 1.0f : 0.0f);
         this.mPositionAnimator.setDuration(250L);
         this.mPositionAnimator.start();
     }
@@ -484,7 +484,7 @@ public class Switch extends CompoundButton {
                 rect.setEmpty();
             }
         }
-        if (wG()) {
+        if (wH()) {
             i5 = getPaddingLeft() + 0;
             width = ((this.mSwitchWidth + i5) - 0) - 0;
         } else {
@@ -582,7 +582,7 @@ public class Switch extends CompoundButton {
 
     @Override // android.widget.CompoundButton, android.widget.TextView
     public int getCompoundPaddingLeft() {
-        if (!wG()) {
+        if (!wH()) {
             return super.getCompoundPaddingLeft();
         }
         int compoundPaddingLeft = super.getCompoundPaddingLeft() + this.mSwitchWidth;
@@ -594,7 +594,7 @@ public class Switch extends CompoundButton {
 
     @Override // android.widget.CompoundButton, android.widget.TextView
     public int getCompoundPaddingRight() {
-        if (wG()) {
+        if (wH()) {
             return super.getCompoundPaddingRight();
         }
         int compoundPaddingRight = super.getCompoundPaddingRight() + this.mSwitchWidth;
@@ -606,7 +606,7 @@ public class Switch extends CompoundButton {
 
     private int getThumbOffset() {
         float f;
-        if (wG()) {
+        if (wH()) {
             f = 1.0f - this.mThumbPosition;
         } else {
             f = this.mThumbPosition;
@@ -688,7 +688,7 @@ public class Switch extends CompoundButton {
         }
     }
 
-    private boolean wG() {
+    private boolean wH() {
         return false;
     }
 

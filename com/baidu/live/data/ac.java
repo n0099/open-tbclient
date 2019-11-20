@@ -7,8 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ac extends BaseData {
-    public int TQ;
-    public ArrayList<c> TR = new ArrayList<>();
+    public int Tv;
+    public ArrayList<c> Tw = new ArrayList<>();
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
@@ -17,10 +17,10 @@ public class ac extends BaseData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.TQ = optJSONObject.optInt("interval");
+                    this.Tv = optJSONObject.optInt("interval");
                 }
-                if (this.TQ <= 0) {
-                    this.TQ = 5;
+                if (this.Tv <= 0) {
+                    this.Tv = 5;
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("live_activity_new");
                 long optLong = jSONObject.optLong("time", 0L);
@@ -31,7 +31,7 @@ public class ac extends BaseData {
                             c cVar = new c();
                             cVar.parseJson(optJSONObject3);
                             cVar.serverTime = optLong;
-                            this.TR.add(cVar);
+                            this.Tw.add(cVar);
                         }
                     }
                 }

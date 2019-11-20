@@ -16,22 +16,22 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a bmG;
-    private FloatButton bmH;
-    private JSONObject bmI;
-    private String bmJ = "";
+    private static volatile a bmn;
+    private FloatButton bmo;
+    private JSONObject bmq;
+    private String bmr = "";
     private Activity mActivity;
     private String mText;
 
-    public static a RN() {
-        if (bmG == null) {
+    public static a RP() {
+        if (bmn == null) {
             synchronized (a.class) {
-                if (bmG == null) {
-                    bmG = new a();
+                if (bmn == null) {
+                    bmn = new a();
                 }
             }
         }
-        return bmG;
+        return bmn;
     }
 
     private a() {
@@ -43,25 +43,25 @@ public class a {
                 Log.i("FloatButtonGuideManager", jSONObject.toString());
             }
             this.mActivity = activity;
-            this.bmJ = jSONObject.optString("name");
-            this.mText = ac.isAppInstalled(activity, this.bmJ) ? activity.getString(a.h.swan_app_hover_button_open) : activity.getString(a.h.swan_app_hover_button_download);
-            this.bmI = jSONObject.optJSONObject("style");
+            this.bmr = jSONObject.optString("name");
+            this.mText = ac.isAppInstalled(activity, this.bmr) ? activity.getString(a.h.swan_app_hover_button_open) : activity.getString(a.h.swan_app_hover_button_download);
+            this.bmq = jSONObject.optJSONObject("style");
         }
     }
 
-    public FloatButton RO() {
+    public FloatButton RQ() {
         if (!(this.mActivity instanceof SwanAppActivity)) {
             return null;
         }
-        if (this.bmH == null) {
-            this.bmH = e(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
+        if (this.bmo == null) {
+            this.bmo = e(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
         }
-        this.bmH.setFloatButtonText(this.mText);
-        this.bmH.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
-        this.bmH.setFloatButtonDefaultPosition();
-        this.bmH.setFloatButtonStyle(this.bmI);
-        this.bmH.setVisibility(0);
-        return this.bmH;
+        this.bmo.setFloatButtonText(this.mText);
+        this.bmo.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
+        this.bmo.setFloatButtonDefaultPosition();
+        this.bmo.setFloatButtonStyle(this.bmq);
+        this.bmo.setVisibility(0);
+        return this.bmo;
     }
 
     private FloatButton e(Context context, ViewGroup viewGroup) {
@@ -81,37 +81,37 @@ public class a {
     }
 
     public void R(Intent intent) {
-        if (intent != null && this.bmH != null) {
+        if (intent != null && this.bmo != null) {
             String dataString = intent.getDataString();
             if (!TextUtils.isEmpty(dataString)) {
                 String substring = dataString.substring(8);
-                if (!TextUtils.isEmpty(substring) && substring.equals(this.bmJ)) {
+                if (!TextUtils.isEmpty(substring) && substring.equals(this.bmr)) {
                     if (TextUtils.equals("android.intent.action.PACKAGE_ADDED", intent.getAction())) {
                         this.mText = this.mActivity.getResources().getString(a.h.swan_app_hover_button_open);
                     } else if (TextUtils.equals("android.intent.action.PACKAGE_REMOVED", intent.getAction())) {
                         this.mText = this.mActivity.getResources().getString(a.h.swan_app_hover_button_download);
                     }
-                    this.bmH.setFloatButtonText(this.mText);
+                    this.bmo.setFloatButtonText(this.mText);
                 }
             }
         }
     }
 
-    public FloatButton RP() {
-        return this.bmH;
+    public FloatButton RR() {
+        return this.bmo;
     }
 
     public void a(FloatButton floatButton) {
-        this.bmH = floatButton;
+        this.bmo = floatButton;
     }
 
     public void hK(String str) {
-        this.bmJ = str;
+        this.bmr = str;
     }
 
     public static void release() {
-        if (bmG != null) {
-            bmG = null;
+        if (bmn != null) {
+            bmn = null;
         }
     }
 }

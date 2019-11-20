@@ -20,7 +20,7 @@ public class c extends z {
 
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (context == null || callbackHandler == null || bVar == null || bVar.Rc() == null) {
+        if (context == null || callbackHandler == null || bVar == null || bVar.Re() == null) {
             com.baidu.swan.apps.console.c.e("fileInfo", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -34,7 +34,7 @@ public class c extends z {
         String optString = optParamsAsJo.optString("filePath");
         String str = "";
         if (com.baidu.swan.apps.storage.b.im(optString) == PathType.BD_FILE) {
-            str = com.baidu.swan.apps.storage.b.aL(optString, com.baidu.swan.apps.ae.b.Rk());
+            str = com.baidu.swan.apps.storage.b.aL(optString, com.baidu.swan.apps.ae.b.Rm());
         } else if (com.baidu.swan.apps.storage.b.im(optString) == PathType.RELATIVE) {
             str = com.baidu.swan.apps.storage.b.a(optString, bVar, bVar.getVersion());
         }

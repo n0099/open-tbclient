@@ -8,48 +8,48 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c extends Lifecycle {
-    private final b ch;
-    private android.arch.a.a.a<Object, a> cf = new android.arch.a.a.a<>();
-    private int ci = 0;
-    private boolean cj = false;
-    private boolean ck = false;
-    private ArrayList<Lifecycle.State> cl = new ArrayList<>();
-    private Lifecycle.State cg = Lifecycle.State.INITIALIZED;
+    private final b bF;
+    private android.arch.a.a.a<Object, a> bD = new android.arch.a.a.a<>();
+    private int bG = 0;
+    private boolean bH = false;
+    private boolean bI = false;
+    private ArrayList<Lifecycle.State> bJ = new ArrayList<>();
+    private Lifecycle.State bE = Lifecycle.State.INITIALIZED;
 
     public c(@NonNull b bVar) {
-        this.ch = bVar;
+        this.bF = bVar;
     }
 
     public void a(Lifecycle.State state) {
-        this.cg = state;
+        this.bE = state;
     }
 
     public void a(Lifecycle.Event event) {
-        this.cg = b(event);
-        if (this.cj || this.ci != 0) {
-            this.ck = true;
+        this.bE = b(event);
+        if (this.bH || this.bG != 0) {
+            this.bI = true;
             return;
         }
-        this.cj = true;
+        this.bH = true;
         ax();
-        this.cj = false;
+        this.bH = false;
     }
 
     private boolean at() {
-        if (this.cf.size() == 0) {
+        if (this.bD.size() == 0) {
             return true;
         }
-        Lifecycle.State state = this.cf.aq().getValue().cg;
-        Lifecycle.State state2 = this.cf.ar().getValue().cg;
-        return state == state2 && this.cg == state2;
+        Lifecycle.State state = this.bD.aq().getValue().bE;
+        Lifecycle.State state2 = this.bD.ar().getValue().bE;
+        return state == state2 && this.bE == state2;
     }
 
     private void au() {
-        this.cl.remove(this.cl.size() - 1);
+        this.bJ.remove(this.bJ.size() - 1);
     }
 
     private void b(Lifecycle.State state) {
-        this.cl.add(state);
+        this.bJ.add(state);
     }
 
     static Lifecycle.State b(Lifecycle.Event event) {
@@ -103,27 +103,27 @@ public class c extends Lifecycle {
     }
 
     private void av() {
-        android.arch.a.a.b<Object, a>.d ap = this.cf.ap();
-        while (ap.hasNext() && !this.ck) {
+        android.arch.a.a.b<Object, a>.d ap = this.bD.ap();
+        while (ap.hasNext() && !this.bI) {
             Map.Entry next = ap.next();
             a aVar = (a) next.getValue();
-            while (aVar.cg.compareTo(this.cg) < 0 && !this.ck && this.cf.contains(next.getKey())) {
-                b(aVar.cg);
-                aVar.b(this.ch, d(aVar.cg));
+            while (aVar.bE.compareTo(this.bE) < 0 && !this.bI && this.bD.contains(next.getKey())) {
+                b(aVar.bE);
+                aVar.b(this.bF, d(aVar.bE));
                 au();
             }
         }
     }
 
     private void aw() {
-        Iterator<Map.Entry<Object, a>> descendingIterator = this.cf.descendingIterator();
-        while (descendingIterator.hasNext() && !this.ck) {
+        Iterator<Map.Entry<Object, a>> descendingIterator = this.bD.descendingIterator();
+        while (descendingIterator.hasNext() && !this.bI) {
             Map.Entry<Object, a> next = descendingIterator.next();
             a value = next.getValue();
-            while (value.cg.compareTo(this.cg) > 0 && !this.ck && this.cf.contains(next.getKey())) {
-                Lifecycle.Event c = c(value.cg);
+            while (value.bE.compareTo(this.bE) > 0 && !this.bI && this.bD.contains(next.getKey())) {
+                Lifecycle.Event c = c(value.bE);
                 b(b(c));
-                value.b(this.ch, c);
+                value.b(this.bF, c);
                 au();
             }
         }
@@ -131,16 +131,16 @@ public class c extends Lifecycle {
 
     private void ax() {
         while (!at()) {
-            this.ck = false;
-            if (this.cg.compareTo(this.cf.aq().getValue().cg) < 0) {
+            this.bI = false;
+            if (this.bE.compareTo(this.bD.aq().getValue().bE) < 0) {
                 aw();
             }
-            Map.Entry<Object, a> ar = this.cf.ar();
-            if (!this.ck && ar != null && this.cg.compareTo(ar.getValue().cg) > 0) {
+            Map.Entry<Object, a> ar = this.bD.ar();
+            if (!this.bI && ar != null && this.bE.compareTo(ar.getValue().bE) > 0) {
                 av();
             }
         }
-        this.ck = false;
+        this.bI = false;
     }
 
     static Lifecycle.State a(@NonNull Lifecycle.State state, @Nullable Lifecycle.State state2) {
@@ -150,14 +150,14 @@ public class c extends Lifecycle {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a {
-        Lifecycle.State cg;
-        android.arch.lifecycle.a co;
+        Lifecycle.State bE;
+        android.arch.lifecycle.a bM;
 
         void b(b bVar, Lifecycle.Event event) {
             Lifecycle.State b = c.b(event);
-            this.cg = c.a(this.cg, b);
-            this.co.a(bVar, event);
-            this.cg = b;
+            this.bE = c.a(this.bE, b);
+            this.bM.a(bVar, event);
+            this.bE = b;
         }
     }
 }

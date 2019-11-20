@@ -23,7 +23,7 @@ public class a implements c {
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public int mErrorNo = 0;
 
-    public StarTrendsResIdl D(byte[] bArr) {
+    public StarTrendsResIdl C(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -61,8 +61,8 @@ public class a implements c {
                         bhVar.setUserMap(this.userMap);
                         bhVar.a(threadInfo);
                         bhVar.setCurrentPage(3);
-                        bhVar.ajw();
-                        if (bhVar.getType() == bh.cbu || bhVar.getType() == bh.cbH || bhVar.getType() == bh.cbM || bhVar.getType() == bh.cbI || bhVar.getType() == bh.cbN || bhVar.getType() == bh.cbO) {
+                        bhVar.aju();
+                        if (bhVar.getType() == bh.caD || bhVar.getType() == bh.caQ || bhVar.getType() == bh.caV || bhVar.getType() == bh.caR || bhVar.getType() == bh.caW || bhVar.getType() == bh.caX) {
                             this.threadList.add(bhVar);
                         }
                     }

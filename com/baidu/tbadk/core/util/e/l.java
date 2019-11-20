@@ -28,12 +28,12 @@ public class l extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public boolean ani() {
+    public boolean ang() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public boolean anj() {
+    public boolean anh() {
         return false;
     }
 
@@ -41,7 +41,7 @@ public class l extends a {
     @Override // com.baidu.tbadk.core.util.e.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.avu().pY(str), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.avs().pY(str), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -60,7 +60,7 @@ public class l extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public int ank() {
+    public int ani() {
         return this.procType;
     }
 }

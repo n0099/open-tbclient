@@ -9,7 +9,7 @@ import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes2.dex */
 public class g {
-    private a bxI;
+    private a bwR;
     @V8JavascriptField
     public int height;
     @V8JavascriptField
@@ -86,12 +86,12 @@ public class g {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.bxI != null) {
-            this.bxI.jp(str);
+        if (this.bwR != null) {
+            this.bwR.jp(str);
         }
     }
 
     public void a(a aVar) {
-        this.bxI = aVar;
+        this.bwR = aVar;
     }
 }

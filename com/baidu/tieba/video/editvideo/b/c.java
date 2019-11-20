@@ -92,7 +92,7 @@ public class c {
         return a(bitmap.getWidth(), bitmap.getHeight(), bitmap);
     }
 
-    public static Bitmap j(byte[] bArr, int i, int i2) {
+    public static Bitmap h(byte[] bArr, int i, int i2) {
         Throwable th;
         Bitmap bitmap;
         ByteArrayOutputStream byteArrayOutputStream;

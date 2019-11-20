@@ -13,7 +13,7 @@ import com.baidu.swan.apps.an.z;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class CommonTagView extends TextView {
-    private boolean doN;
+    private boolean dnV;
     private int mBorderColor;
     private int mBorderWidth;
     private Context mContext;
@@ -33,7 +33,7 @@ public class CommonTagView extends TextView {
     public CommonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHasBorder = true;
-        this.doN = true;
+        this.dnV = true;
         init(context, attributeSet, i);
     }
 
@@ -60,7 +60,7 @@ public class CommonTagView extends TextView {
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setAntiAlias(true);
             this.mPaint.setStrokeWidth(this.mBorderWidth);
-            if (this.doN && this.mBorderColor != getCurrentTextColor()) {
+            if (this.dnV && this.mBorderColor != getCurrentTextColor()) {
                 this.mBorderColor = getCurrentTextColor();
             }
             this.mPaint.setColor(this.mBorderColor);

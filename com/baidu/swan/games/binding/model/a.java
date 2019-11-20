@@ -4,54 +4,54 @@ import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.v8engine.JsFunction;
 /* loaded from: classes2.dex */
 public final class a {
-    public JsFunction byU;
-    public JsFunction byV;
-    public JsFunction byW;
+    public JsFunction byd;
+    public JsFunction bye;
+    public JsFunction byf;
 
     public static a e(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.byU = cVar.jD("success");
-        aVar.byV = cVar.jD(LivenessStat.TYPE_FACE_MATCH_FAIL);
-        aVar.byW = cVar.jD(com.baidu.mobads.openad.c.b.COMPLETE);
+        aVar.byd = cVar.jD("success");
+        aVar.bye = cVar.jD(LivenessStat.TYPE_FACE_MATCH_FAIL);
+        aVar.byf = cVar.jD(com.baidu.mobads.openad.c.b.COMPLETE);
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.byU != null) {
-            this.byU.call(obj);
+        if (this.byd != null) {
+            this.byd.call(obj);
         }
     }
 
     public void J(Object obj) {
-        if (this.byV != null) {
-            this.byV.call(obj);
+        if (this.bye != null) {
+            this.bye.call(obj);
         }
     }
 
     public void onComplete(Object obj) {
-        if (this.byW != null) {
-            this.byW.call(obj);
+        if (this.byf != null) {
+            this.byf.call(obj);
         }
     }
 
     public void onSuccess() {
-        if (this.byU != null) {
-            this.byU.call();
+        if (this.byd != null) {
+            this.byd.call();
         }
     }
 
     public void onFail() {
-        if (this.byV != null) {
-            this.byV.call();
+        if (this.bye != null) {
+            this.bye.call();
         }
     }
 
     public void onComplete() {
-        if (this.byW != null) {
-            this.byW.call();
+        if (this.byf != null) {
+            this.byf.call();
         }
     }
 }

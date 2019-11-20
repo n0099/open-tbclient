@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class WrapLineLayout extends ViewGroup {
-    private List<List<View>> csy;
-    private List<Integer> csz;
+    private List<List<View>> crH;
+    private List<Integer> crI;
 
     public WrapLineLayout(Context context) {
         super(context);
-        this.csy = new ArrayList();
-        this.csz = new ArrayList();
+        this.crH = new ArrayList();
+        this.crI = new ArrayList();
     }
 
     public WrapLineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.csy = new ArrayList();
-        this.csz = new ArrayList();
+        this.crH = new ArrayList();
+        this.crI = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -91,8 +91,8 @@ public class WrapLineLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.csy.clear();
-        this.csz.clear();
+        this.crH.clear();
+        this.crI.clear();
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
@@ -105,8 +105,8 @@ public class WrapLineLayout extends ViewGroup {
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
             if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i6 > width) {
-                this.csz.add(Integer.valueOf(i5));
-                this.csy.add(arrayList);
+                this.crI.add(Integer.valueOf(i5));
+                this.crH.add(arrayList);
                 i6 = 0;
                 arrayList = new ArrayList();
             }
@@ -117,17 +117,17 @@ public class WrapLineLayout extends ViewGroup {
             i5 = max;
             i6 = i8;
         }
-        this.csz.add(Integer.valueOf(i5));
-        this.csy.add(arrayList);
+        this.crI.add(Integer.valueOf(i5));
+        this.crH.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.csy.size();
+        int size = this.crH.size();
         int i9 = 0;
         int i10 = paddingTop;
         int i11 = paddingLeft;
         while (i9 < size) {
-            List<View> list = this.csy.get(i9);
-            int intValue = this.csz.get(i9).intValue();
+            List<View> list = this.crH.get(i9);
+            int intValue = this.crI.get(i9).intValue();
             int i12 = 0;
             while (true) {
                 int i13 = i12;

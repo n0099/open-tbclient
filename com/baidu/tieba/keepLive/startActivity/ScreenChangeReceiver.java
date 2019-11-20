@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.ak;
 public class ScreenChangeReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (!ak.Uq() && intent != null && "android.intent.action.USER_PRESENT".equals(intent.getAction())) {
+        if (!ak.Uo() && intent != null && "android.intent.action.USER_PRESENT".equals(intent.getAction())) {
             ScreenManager.getInstance(context).finishActivity();
         }
     }

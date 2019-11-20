@@ -8,7 +8,7 @@ import com.baidu.mobstat.Config;
 /* loaded from: classes2.dex */
 public final class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static b bpK;
+    private static b bps;
 
     public static synchronized void c(a aVar) {
         synchronized (c.class) {
@@ -21,16 +21,16 @@ public final class c {
                     Log.d("SwanAppLaunchFunnelUBC", "record: " + aVar.toString());
                 }
                 if (TextUtils.equals("start", aVar.id)) {
-                    if (bpK != null) {
-                        bpK.clearAll();
-                        bpK = null;
+                    if (bps != null) {
+                        bps.clearAll();
+                        bps = null;
                     }
-                    bpK = new b();
+                    bps = new b();
                 }
-                if (bpK != null) {
-                    bpK.a(aVar);
+                if (bps != null) {
+                    bps.a(aVar);
                     if (TextUtils.equals("narun", aVar.id) || TextUtils.equals(BdStatsConstant.StatsType.ERROR, aVar.id) || TextUtils.equals("cancel", aVar.id)) {
-                        bpK.SC();
+                        bps.SE();
                     }
                 } else if (DEBUG) {
                     Log.w("SwanAppLaunchFunnelUBC", "sFlow is null");
@@ -44,24 +44,24 @@ public final class c {
             Log.d("SwanAppLaunchFunnelUBC", "launchinfo is null");
             return;
         }
-        Bundle KI = bVar.KI();
-        if (KI == null) {
+        Bundle KJ = bVar.KJ();
+        if (KJ == null) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchFunnelUBC", "launchinfo has no extra data");
                 return;
             }
             return;
         }
-        String string = KI.getString("ext_stats_funnel_start", "0");
-        String string2 = KI.getString("ext_stats_funnel_scheme", "0");
-        String string3 = KI.getString("ext_stats_funnel_aps", "0");
-        String string4 = KI.getString("ext_stats_funnel_pkgcheck", "0");
-        String string5 = KI.getString("ext_stats_funnel_install", "0");
-        KI.remove("ext_stats_funnel_start");
-        KI.remove("ext_stats_funnel_scheme");
-        KI.remove("ext_stats_funnel_aps");
-        KI.remove("ext_stats_funnel_pkgcheck");
-        KI.remove("ext_stats_funnel_install");
+        String string = KJ.getString("ext_stats_funnel_start", "0");
+        String string2 = KJ.getString("ext_stats_funnel_scheme", "0");
+        String string3 = KJ.getString("ext_stats_funnel_aps", "0");
+        String string4 = KJ.getString("ext_stats_funnel_pkgcheck", "0");
+        String string5 = KJ.getString("ext_stats_funnel_install", "0");
+        KJ.remove("ext_stats_funnel_start");
+        KJ.remove("ext_stats_funnel_scheme");
+        KJ.remove("ext_stats_funnel_aps");
+        KJ.remove("ext_stats_funnel_pkgcheck");
+        KJ.remove("ext_stats_funnel_install");
         c(new a("start", string, ""));
         c(new a("scheme", string2, ""));
         c(new a("aps", string3, ""));
@@ -71,27 +71,27 @@ public final class c {
     }
 
     public static void v(com.baidu.swan.apps.v.b.b bVar) {
-        if (bVar != null && bpK != null) {
-            bpK.bpD = bVar.KO();
-            bpK.mAppId = bVar.getAppId();
-            bpK.mSource = bVar.KE();
-            Bundle KI = bVar.KI();
-            if (KI != null) {
-                bpK.bpG = KI.getString("aiapp_extra_need_download", "");
-                bpK.bpH = KI.getString("aiapp_extra_pkg_download", "0");
+        if (bVar != null && bps != null) {
+            bps.bpl = bVar.KP();
+            bps.mAppId = bVar.getAppId();
+            bps.mSource = bVar.KF();
+            Bundle KJ = bVar.KJ();
+            if (KJ != null) {
+                bps.bpo = KJ.getString("aiapp_extra_need_download", "");
+                bps.bpp = KJ.getString("aiapp_extra_pkg_download", "0");
             }
         }
     }
 
     public static void e(com.baidu.swan.apps.v.b.c cVar) {
-        if (cVar != null && bpK != null) {
-            bpK.bpD = cVar.aTl;
-            bpK.mAppId = cVar.mAppId;
-            bpK.mSource = cVar.mFrom;
-            Bundle Ks = cVar.Ks();
-            if (Ks != null) {
-                bpK.bpG = Ks.getString("aiapp_extra_need_download", "");
-                bpK.bpH = Ks.getString("aiapp_extra_pkg_download", "0");
+        if (cVar != null && bps != null) {
+            bps.bpl = cVar.aST;
+            bps.mAppId = cVar.mAppId;
+            bps.mSource = cVar.mFrom;
+            Bundle Kt = cVar.Kt();
+            if (Kt != null) {
+                bps.bpo = Kt.getString("aiapp_extra_need_download", "");
+                bps.bpp = Kt.getString("aiapp_extra_pkg_download", "0");
             }
         }
     }

@@ -14,7 +14,7 @@ public class a {
 
         public abstract void setScrollX(int i);
 
-        public abstract boolean uR();
+        public abstract boolean uS();
 
         protected AbstractC0428a(View view) {
             this.view = view;
@@ -38,7 +38,7 @@ public class a {
         }
 
         @Override // com.baidu.tieba.horizonalList.a.a.AbstractC0428a
-        public boolean uR() {
+        public boolean uS() {
             return false;
         }
     }

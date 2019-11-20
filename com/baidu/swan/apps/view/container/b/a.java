@@ -14,36 +14,36 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bvG;
-    private List<C0234a> bvH;
-    private List<C0234a> bvI;
-    private int[] bvJ;
+    private String buP;
+    private List<C0234a> buQ;
+    private List<C0234a> buR;
+    private int[] buS;
     private long mTimeStamp;
 
     public a(MotionEvent motionEvent) {
-        this.bvG = BdStatsConstant.StatsType.ERROR;
+        this.buP = BdStatsConstant.StatsType.ERROR;
         this.mTimeStamp = 0L;
-        this.bvH = new ArrayList();
-        this.bvI = new ArrayList();
-        this.bvJ = new int[2];
+        this.buQ = new ArrayList();
+        this.buR = new ArrayList();
+        this.buS = new int[2];
         a(motionEvent, "");
     }
 
     public a(MotionEvent motionEvent, String str) {
-        this.bvG = BdStatsConstant.StatsType.ERROR;
+        this.buP = BdStatsConstant.StatsType.ERROR;
         this.mTimeStamp = 0L;
-        this.bvH = new ArrayList();
-        this.bvI = new ArrayList();
-        this.bvJ = new int[2];
+        this.buQ = new ArrayList();
+        this.buR = new ArrayList();
+        this.buS = new int[2];
         a(motionEvent, str);
     }
 
-    public String Vf() {
-        return this.bvG;
+    public String Vd() {
+        return this.buP;
     }
 
     public void f(int[] iArr) {
-        this.bvJ = iArr;
+        this.buS = iArr;
         if (DEBUG) {
             Log.d("SwanAppTouchHelper", "setWebViewPosition y = " + iArr[1] + ";x = " + iArr[0]);
         }
@@ -52,54 +52,54 @@ public class a {
     private void a(MotionEvent motionEvent, String str) {
         switch (motionEvent.getActionMasked()) {
             case 0:
-                this.bvG = "touchstart";
+                this.buP = "touchstart";
                 m(motionEvent);
                 break;
             case 1:
-                this.bvG = "touchend";
+                this.buP = "touchend";
                 m(motionEvent);
                 break;
             case 2:
-                this.bvG = "touchmove";
+                this.buP = "touchmove";
                 m(motionEvent);
                 break;
             case 3:
-                this.bvG = "touchcancel";
+                this.buP = "touchcancel";
                 m(motionEvent);
                 break;
             case 4:
             default:
-                this.bvG = BdStatsConstant.StatsType.ERROR;
+                this.buP = BdStatsConstant.StatsType.ERROR;
                 break;
             case 5:
-                this.bvG = "touchpointerdown";
+                this.buP = "touchpointerdown";
                 m(motionEvent);
                 break;
             case 6:
-                this.bvG = "touchpointerup";
+                this.buP = "touchpointerup";
                 m(motionEvent);
                 break;
         }
         this.mTimeStamp = motionEvent.getEventTime();
         if (!TextUtils.isEmpty(str)) {
-            this.bvG = str;
+            this.buP = str;
         }
         onTouch(motionEvent);
-        if (TextUtils.equals(this.bvG, "touchpointerdown")) {
-            this.bvG = "touchstart";
+        if (TextUtils.equals(this.buP, "touchpointerdown")) {
+            this.buP = "touchstart";
         }
-        if (TextUtils.equals(this.bvG, "touchpointerup")) {
-            this.bvG = "touchend";
+        if (TextUtils.equals(this.buP, "touchpointerup")) {
+            this.buP = "touchend";
         }
     }
 
     private void onTouch(MotionEvent motionEvent) {
-        if (!TextUtils.equals(this.bvG, "touchend") && !TextUtils.equals(this.bvG, "touchcancel")) {
+        if (!TextUtils.equals(this.buP, "touchend") && !TextUtils.equals(this.buP, "touchcancel")) {
             try {
                 int pointerCount = motionEvent.getPointerCount();
                 for (int i = 0; i < pointerCount; i++) {
                     if (motionEvent.getActionMasked() != 6 || motionEvent.getActionIndex() != i) {
-                        this.bvH.add(b(motionEvent, i));
+                        this.buQ.add(b(motionEvent, i));
                     }
                 }
             } catch (Exception e) {
@@ -113,12 +113,12 @@ public class a {
     private void m(MotionEvent motionEvent) {
         try {
             if (!(motionEvent.getActionMasked() == 2)) {
-                this.bvI.add(b(motionEvent, motionEvent.getActionIndex()));
+                this.buR.add(b(motionEvent, motionEvent.getActionIndex()));
                 return;
             }
             int pointerCount = motionEvent.getPointerCount();
             for (int i = 0; i < pointerCount; i++) {
-                this.bvI.add(b(motionEvent, i));
+                this.buR.add(b(motionEvent, i));
             }
         } catch (Exception e) {
             if (DEBUG) {
@@ -133,28 +133,28 @@ public class a {
         c0234a.identifier = pointerId;
         c0234a.x = motionEvent.getX(i);
         c0234a.y = motionEvent.getY(i);
-        c0234a.bvK = (motionEvent.getRawX() + c0234a.x) - motionEvent.getX();
-        c0234a.bvL = (motionEvent.getRawY() + c0234a.y) - motionEvent.getY();
-        c0234a.bvM = motionEvent.getPressure(i);
+        c0234a.buT = (motionEvent.getRawX() + c0234a.x) - motionEvent.getX();
+        c0234a.buU = (motionEvent.getRawY() + c0234a.y) - motionEvent.getY();
+        c0234a.buV = motionEvent.getPressure(i);
         return c0234a;
     }
 
-    public JSONObject Vg() {
+    public JSONObject Ve() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!this.bvH.isEmpty()) {
-                for (C0234a c0234a : this.bvH) {
+            if (!this.buQ.isEmpty()) {
+                for (C0234a c0234a : this.buQ) {
                     if (c0234a != null) {
-                        jSONArray.put(c0234a.Vh());
+                        jSONArray.put(c0234a.Vf());
                     }
                 }
             }
             JSONArray jSONArray2 = new JSONArray();
-            if (!this.bvI.isEmpty()) {
-                for (C0234a c0234a2 : this.bvI) {
+            if (!this.buR.isEmpty()) {
+                for (C0234a c0234a2 : this.buR) {
                     if (c0234a2 != null) {
-                        jSONArray2.put(c0234a2.Vh());
+                        jSONArray2.put(c0234a2.Vf());
                     }
                 }
             }
@@ -173,9 +173,9 @@ public class a {
     /* renamed from: com.baidu.swan.apps.view.container.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public class C0234a {
-        private float bvK;
-        private float bvL;
-        private float bvM;
+        private float buT;
+        private float buU;
+        private float buV;
         private int identifier;
         private float x;
         private float y;
@@ -183,15 +183,15 @@ public class a {
         private C0234a() {
         }
 
-        JSONObject Vh() {
+        JSONObject Vf() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(Config.EVENT_HEAT_X, z.V(this.x));
                 jSONObject.put("y", z.V(this.y));
-                jSONObject.put("clientX", z.V(this.bvK - a.this.bvJ[0]));
-                jSONObject.put("clientY", z.V(this.bvL - a.this.bvJ[1]));
+                jSONObject.put("clientX", z.V(this.buT - a.this.buS[0]));
+                jSONObject.put("clientY", z.V(this.buU - a.this.buS[1]));
                 jSONObject.put("identifier", this.identifier);
-                jSONObject.put("force", this.bvM);
+                jSONObject.put("force", this.buV);
             } catch (JSONException e) {
                 if (a.DEBUG) {
                     e.printStackTrace();

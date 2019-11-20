@@ -5,31 +5,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class f {
-    public boolean dxk = false;
-    public ArrayList<a> dxl;
-    public String dxm;
+    public boolean dwt = false;
+    public ArrayList<a> dwu;
+    public String dwv;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
             if (optJSONObject != null) {
-                this.dxk = optJSONObject.optInt("has_follow_live") == 1;
+                this.dwt = optJSONObject.optInt("has_follow_live") == 1;
                 JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.dxl = new ArrayList<>(optJSONArray.length());
+                    this.dwu = new ArrayList<>(optJSONArray.length());
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                         if (optJSONObject2 != null) {
                             a aVar = new a();
                             aVar.parserJson(optJSONObject2);
-                            this.dxl.add(aVar);
+                            this.dwu.add(aVar);
                         }
                     }
                 }
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
             if (optJSONObject3 != null) {
-                this.dxm = optJSONObject3.optString("url");
+                this.dwv = optJSONObject3.optString("url");
             }
         }
     }

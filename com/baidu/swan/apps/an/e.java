@@ -7,23 +7,23 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public final class e {
-    private static final Set<Integer> btm = new HashSet();
-    private static final Set<Integer> btn = new HashSet();
-    private static final Set<Integer> bto = new HashSet();
+    private static final Set<Integer> bsv = new HashSet();
+    private static final Set<Integer> bsw = new HashSet();
+    private static final Set<Integer> bsx = new HashSet();
 
     static {
-        btm.add(2);
-        btm.add(3);
-        btm.add(4);
-        btm.add(5);
-        btm.add(6);
-        btn.add(7);
-        btn.add(1);
-        bto.addAll(btm);
-        bto.addAll(btn);
+        bsv.add(2);
+        bsv.add(3);
+        bsv.add(4);
+        bsv.add(5);
+        bsv.add(6);
+        bsw.add(7);
+        bsw.add(1);
+        bsx.addAll(bsv);
+        bsx.addAll(bsw);
     }
 
-    public static Date Ue() {
+    public static Date Uc() {
         return new Date();
     }
 

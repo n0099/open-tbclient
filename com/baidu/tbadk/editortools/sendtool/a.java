@@ -10,24 +10,24 @@ import com.baidu.tbadk.editortools.k;
 public class a extends k {
     public a(Context context) {
         super(context, (String) null, 4);
-        this.cFX = false;
-        this.cFW = 2;
-        this.cFY = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
-        this.cFe = new SendView(context);
+        this.cFg = false;
+        this.cFf = 2;
+        this.cFh = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
+        this.cEn = new SendView(context);
         RawLayout.a aVar = new RawLayout.a(-2, -2);
         aVar.gravity = 80;
-        ((View) this.cFe).setLayoutParams(aVar);
+        ((View) this.cEn).setLayoutParams(aVar);
     }
 
     public void setText(int i) {
-        if (this.cFe != null && (this.cFe instanceof TextView)) {
-            ((TextView) this.cFe).setText(i);
+        if (this.cEn != null && (this.cEn instanceof TextView)) {
+            ((TextView) this.cEn).setText(i);
         }
     }
 
     public void setTextColor(@ColorRes int i) {
-        if (this.cFe != null) {
-            ((SendView) this.cFe).setTextColor(i);
+        if (this.cEn != null) {
+            ((SendView) this.cEn).setTextColor(i);
         }
     }
 }

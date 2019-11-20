@@ -12,12 +12,12 @@ import java.text.DecimalFormat;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class PbVideoWifiTipLayout extends LinearLayout {
-    private TextView iwO;
-    private TextView iwP;
-    private TextView iwQ;
-    private TextView iwR;
-    private TextView iwS;
-    private View.OnClickListener iwT;
+    private TextView ivX;
+    private TextView ivY;
+    private TextView ivZ;
+    private TextView iwa;
+    private TextView iwb;
+    private View.OnClickListener iwc;
 
     public PbVideoWifiTipLayout(Context context) {
         super(context);
@@ -36,32 +36,32 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     private void initView() {
         inflate(getContext(), R.layout.layout_video_wifi_tip, this);
-        this.iwO = (TextView) findViewById(R.id.tv_video_duration);
-        this.iwP = (TextView) findViewById(R.id.tv_video_data);
-        this.iwQ = (TextView) findViewById(R.id.tv_play);
-        this.iwR = (TextView) findViewById(R.id.tv_divider);
-        this.iwS = (TextView) findViewById(R.id.tv_open_free_data);
-        this.iwS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.play.PbVideoWifiTipLayout.1
+        this.ivX = (TextView) findViewById(R.id.tv_video_duration);
+        this.ivY = (TextView) findViewById(R.id.tv_video_data);
+        this.ivZ = (TextView) findViewById(R.id.tv_play);
+        this.iwa = (TextView) findViewById(R.id.tv_divider);
+        this.iwb = (TextView) findViewById(R.id.tv_open_free_data);
+        this.iwb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.play.PbVideoWifiTipLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tbadk.browser.a.startWebActivity(true, PbVideoWifiTipLayout.this.getContext(), PbVideoWifiTipLayout.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
-                if (PbVideoWifiTipLayout.this.iwT != null) {
-                    PbVideoWifiTipLayout.this.iwT.onClick(view);
+                if (PbVideoWifiTipLayout.this.iwc != null) {
+                    PbVideoWifiTipLayout.this.iwc.onClick(view);
                 }
             }
         });
     }
 
     public TextView getTvPlay() {
-        return this.iwQ;
+        return this.ivZ;
     }
 
     public TextView getTvOpenFreeData() {
-        return this.iwS;
+        return this.iwb;
     }
 
     public void setFreeClickListener(View.OnClickListener onClickListener) {
-        this.iwT = onClickListener;
+        this.iwc = onClickListener;
     }
 
     public void setData(VideoInfo videoInfo) {
@@ -72,21 +72,21 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     public void setData(int i, int i2) {
         if (i > 0) {
-            this.iwO.setText(String.format(getResources().getString(R.string.pb_video_duration), aq.stringForVideoTime(i * 1000)));
+            this.ivX.setText(String.format(getResources().getString(R.string.pb_video_duration), aq.stringForVideoTime(i * 1000)));
         } else {
-            this.iwO.setVisibility(8);
-            this.iwR.setVisibility(8);
+            this.ivX.setVisibility(8);
+            this.iwa.setVisibility(8);
         }
         if (i2 > 0) {
-            this.iwP.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
+            this.ivY.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
         } else {
-            this.iwP.setVisibility(8);
-            this.iwR.setVisibility(8);
+            this.ivY.setVisibility(8);
+            this.iwa.setVisibility(8);
         }
-        this.iwS.setVisibility(0);
+        this.iwb.setVisibility(0);
     }
 
     public void setOnPlayClickListener(View.OnClickListener onClickListener) {
-        this.iwQ.setOnClickListener(onClickListener);
+        this.ivZ.setOnClickListener(onClickListener);
     }
 }

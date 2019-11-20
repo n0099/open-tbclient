@@ -10,92 +10,92 @@ import com.baidu.tieba.play.l;
 import com.baidu.tieba.play.z;
 /* loaded from: classes.dex */
 public class a {
-    private z ixS;
-    private boolean iyb;
-    private long iyg;
+    private z ixb;
+    private boolean ixk;
+    private long ixp;
     private long videoSize;
-    private long fBK = 0;
+    private long fAT = 0;
     private long mStartTime = 0;
-    private String ixT = "1";
-    private k izi = new k();
+    private String ixc = "1";
+    private k iyr = new k();
 
-    public void ccV() {
-        this.izi.bMV();
+    public void ccT() {
+        this.iyr.bMT();
     }
 
-    public void dQ(long j) {
-        this.iyg = j;
-        this.izi.bMW();
+    public void dP(long j) {
+        this.ixp = j;
+        this.iyr.bMU();
     }
 
     public void onStart() {
         if (this.mStartTime != 0) {
-            this.fBK = (System.currentTimeMillis() - this.mStartTime) + this.fBK;
+            this.fAT = (System.currentTimeMillis() - this.mStartTime) + this.fAT;
         }
         this.mStartTime = System.currentTimeMillis();
-        this.iyb = true;
-        this.izi.bMX();
+        this.ixk = true;
+        this.iyr.bMV();
     }
 
     public void a(TbCyberVideoView tbCyberVideoView) {
-        this.izi.a(this.ixS == null ? "" : this.ixS.cmS, this.videoSize, this.iyg, tbCyberVideoView);
+        this.iyr.a(this.ixb == null ? "" : this.ixb.cma, this.videoSize, this.ixp, tbCyberVideoView);
     }
 
     public void onPause() {
         if (this.mStartTime > 0) {
-            this.fBK = (System.currentTimeMillis() - this.mStartTime) + this.fBK;
+            this.fAT = (System.currentTimeMillis() - this.mStartTime) + this.fAT;
             this.mStartTime = 0L;
         }
-        this.iyb = false;
+        this.ixk = false;
     }
 
     public void onStop() {
         if (this.mStartTime > 0) {
-            this.fBK = (System.currentTimeMillis() - this.mStartTime) + this.fBK;
+            this.fAT = (System.currentTimeMillis() - this.mStartTime) + this.fAT;
             this.mStartTime = 0L;
         }
-        ccw();
-        this.fBK = 0L;
+        ccu();
+        this.fAT = 0L;
         this.mStartTime = 0L;
-        this.iyb = false;
+        this.ixk = false;
     }
 
     public void onComplete() {
         if (this.mStartTime > 0) {
-            this.fBK = (System.currentTimeMillis() - this.mStartTime) + this.fBK;
+            this.fAT = (System.currentTimeMillis() - this.mStartTime) + this.fAT;
             this.mStartTime = 0L;
         }
     }
 
     public void setVideoStatsData(z zVar) {
-        this.ixS = zVar;
+        this.ixb = zVar;
     }
 
     public void setPageTypeForPerfStat(String str) {
-        this.izi.setPageTypeForPerfStat(str);
+        this.iyr.setPageTypeForPerfStat(str);
     }
 
     public void setVideoSize(long j) {
         this.videoSize = j;
     }
 
-    private void ccw() {
-        if (this.fBK >= 0 && this.fBK < 86400000) {
-            if (this.fBK > 0) {
+    private void ccu() {
+        if (this.fAT >= 0 && this.fAT < 86400000) {
+            if (this.fAT > 0) {
                 an anVar = new an(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
-                anVar.p("obj_duration", this.fBK);
-                anVar.bS("obj_type", this.ixT);
-                anVar.p("playduration", this.iyg);
+                anVar.p("obj_duration", this.fAT);
+                anVar.bS("obj_type", this.ixc);
+                anVar.p("playduration", this.ixp);
                 if (!aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     anVar.bS("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
-                if (this.ixS != null) {
-                    this.ixS.d(anVar);
+                if (this.ixb != null) {
+                    this.ixb.d(anVar);
                 }
                 TiebaStatic.log(anVar);
-                l.a(this.fBK, this.ixT, this.ixS, "", this.iyg);
-            } else if (this.iyb) {
-                l.a(this.fBK, this.ixT, this.ixS, "", this.iyg);
+                l.a(this.fAT, this.ixc, this.ixb, "", this.ixp);
+            } else if (this.ixk) {
+                l.a(this.fAT, this.ixc, this.ixb, "", this.ixp);
             }
         }
     }

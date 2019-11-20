@@ -6,90 +6,90 @@ import com.baidu.tbadk.widget.timepicker.a.f.b;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class a {
-    private com.baidu.tbadk.widget.timepicker.a.c.a cYm = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
+    private com.baidu.tbadk.widget.timepicker.a.c.a cXv = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
 
     public a(Context context, e eVar) {
-        this.cYm.context = context;
-        this.cYm.cYn = eVar;
+        this.cXv.context = context;
+        this.cXv.cXw = eVar;
     }
 
     public a b(boolean[] zArr) {
-        this.cYm.cYu = zArr;
+        this.cXv.cXD = zArr;
+        return this;
+    }
+
+    public a kT(int i) {
+        this.cXv.cYf = i;
         return this;
     }
 
     public a kU(int i) {
-        this.cYm.cYW = i;
-        return this;
-    }
-
-    public a kV(int i) {
-        this.cYm.cZa = i;
+        this.cXv.cYj = i;
         return this;
     }
 
     public a a(Calendar calendar) {
-        this.cYm.cYv = calendar;
+        this.cXv.cXE = calendar;
         return this;
     }
 
     public a a(int i, com.baidu.tbadk.widget.timepicker.a.d.a aVar) {
-        this.cYm.cYO = i;
-        this.cYm.cYp = aVar;
+        this.cXv.cXX = i;
+        this.cXv.cXy = aVar;
         return this;
     }
 
     public a ah(float f) {
-        this.cYm.cZe = f;
+        this.cXv.cYn = f;
+        return this;
+    }
+
+    public a kV(int i) {
+        this.cXv.cYm = i;
         return this;
     }
 
     public a kW(int i) {
-        this.cYm.cZd = i;
+        this.cXv.backgroundId = i;
         return this;
     }
 
     public a kX(int i) {
-        this.cYm.backgroundId = i;
+        this.cXv.cYl = i;
         return this;
     }
 
     public a kY(int i) {
-        this.cYm.cZc = i;
-        return this;
-    }
-
-    public a kZ(int i) {
-        this.cYm.cZb = i;
+        this.cXv.cYk = i;
         return this;
     }
 
     public a b(String str, String str2, String str3, String str4, String str5, String str6) {
-        this.cYm.cYC = str;
-        this.cYm.cYD = str2;
-        this.cYm.cYE = str3;
-        this.cYm.cYF = str4;
-        this.cYm.cYG = str5;
-        this.cYm.cYH = str6;
+        this.cXv.cXL = str;
+        this.cXv.cXM = str2;
+        this.cXv.cXN = str3;
+        this.cXv.cXO = str4;
+        this.cXv.cXP = str5;
+        this.cXv.cXQ = str6;
         return this;
     }
 
     public a f(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.cYm.cYI = i;
-        this.cYm.cYJ = i2;
-        this.cYm.cYK = i3;
-        this.cYm.cYL = i4;
-        this.cYm.cYM = i5;
-        this.cYm.cYN = i6;
+        this.cXv.cXR = i;
+        this.cXv.cXS = i2;
+        this.cXv.cXT = i3;
+        this.cXv.cXU = i4;
+        this.cXv.cXV = i5;
+        this.cXv.cXW = i6;
         return this;
     }
 
     public a fO(boolean z) {
-        this.cYm.cZh = z;
+        this.cXv.cYq = z;
         return this;
     }
 
-    public b aAg() {
-        return new b(this.cYm);
+    public b aAe() {
+        return new b(this.cXv);
     }
 }

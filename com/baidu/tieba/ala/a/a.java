@@ -19,62 +19,62 @@ import com.baidu.tieba.ala.view.AlaChallengeHistoryHeaderView;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class a {
-    private Activity cft;
-    private BdListView dQp;
-    private LinearLayout dQq;
-    private LinearLayout dQr;
-    private com.baidu.tieba.ala.adapter.a dQs;
-    private AlaChallengeHistoryHeaderView dQt;
-    private TextView dQu;
+    private Activity ceC;
+    private LinearLayout dPA;
+    private com.baidu.tieba.ala.adapter.a dPB;
+    private AlaChallengeHistoryHeaderView dPC;
+    private TextView dPD;
+    private BdListView dPy;
+    private LinearLayout dPz;
     private TbPageContext<BaseFragmentActivity> mTbPageContext;
     private View view;
 
     public a(TbPageContext<BaseFragmentActivity> tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.cft = this.mTbPageContext.getPageActivity();
+        this.ceC = this.mTbPageContext.getPageActivity();
         initView();
     }
 
     private void initView() {
-        this.view = LayoutInflater.from(this.cft).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
-        this.dQp = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
-        this.dQp.setVisibility(4);
-        this.dQq = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
-        this.dQr = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
-        this.dQu = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
-        this.dQs = new com.baidu.tieba.ala.adapter.a(this.cft);
-        this.dQp.setAdapter((ListAdapter) this.dQs);
-        this.dQt = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
-        this.dQp.setEmptyView(this.dQq);
+        this.view = LayoutInflater.from(this.ceC).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
+        this.dPy = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
+        this.dPy.setVisibility(4);
+        this.dPz = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
+        this.dPA = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
+        this.dPD = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
+        this.dPB = new com.baidu.tieba.ala.adapter.a(this.ceC);
+        this.dPy.setAdapter((ListAdapter) this.dPB);
+        this.dPC = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
+        this.dPy.setEmptyView(this.dPz);
     }
 
     public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, d dVar) {
-        this.dQp.setVisibility(0);
+        this.dPy.setVisibility(0);
         if (!ListUtils.isEmpty(arrayList) && dVar != null) {
-            if (this.dQt.getParent() == null) {
-                if (this.dQt.getParent() != null) {
-                    ((ViewGroup) this.dQt.getParent()).removeView(this.dQt);
+            if (this.dPC.getParent() == null) {
+                if (this.dPC.getParent() != null) {
+                    ((ViewGroup) this.dPC.getParent()).removeView(this.dPC);
                 }
-                this.dQp.addHeaderView(this.dQt);
-                this.dQt.setData(dVar);
+                this.dPy.addHeaderView(this.dPC);
+                this.dPC.setData(dVar);
             }
-        } else if (this.dQt.getParent() != null) {
-            ((ViewGroup) this.dQt.getParent()).removeView(this.dQt);
+        } else if (this.dPC.getParent() != null) {
+            ((ViewGroup) this.dPC.getParent()).removeView(this.dPC);
         }
-        if (this.dQs != null && arrayList != null) {
-            this.dQs.setData(arrayList);
+        if (this.dPB != null && arrayList != null) {
+            this.dPB.setData(arrayList);
         }
     }
 
     public void tq(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.dQs != null && this.dQs.getCount() <= 0) {
-                this.dQq.setVisibility(8);
-                this.dQr.setVisibility(0);
-                this.dQu.setText(str);
+            if (this.dPB != null && this.dPB.getCount() <= 0) {
+                this.dPz.setVisibility(8);
+                this.dPA.setVisibility(0);
+                this.dPD.setText(str);
                 return;
             }
-            BdUtilHelper.showToast(this.cft, str, 1);
+            BdUtilHelper.showToast(this.ceC, str, 1);
         }
     }
 

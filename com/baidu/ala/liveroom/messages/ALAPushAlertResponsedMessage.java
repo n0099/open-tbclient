@@ -64,7 +64,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             optString2 = "";
                         }
                         if (!StringUtils.isNull(optString3)) {
-                            a pY = c.avu().pY(optString4 + 10);
+                            a pY = c.avs().pY(optString4 + 10);
                             if (pY != null && pY.getRawBitmap() != null) {
                                 NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, pY.getRawBitmap(), false);
                                 return;

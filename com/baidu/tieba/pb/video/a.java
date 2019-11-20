@@ -11,7 +11,7 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.k;
 /* loaded from: classes4.dex */
 public class a extends k<b, c> {
-    public View.OnClickListener dkW;
+    public View.OnClickListener dkf;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -30,14 +30,14 @@ public class a extends k<b, c> {
     @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.a(i, view, viewGroup, (ViewGroup) bVar, (b) cVar);
-        if (cVar != null && cVar.eNr != null) {
-            if (this.dkW != null) {
-                cVar.eNr.setOnClickListener(this.dkW);
+        if (cVar != null && cVar.eMA != null) {
+            if (this.dkf != null) {
+                cVar.eMA.setOnClickListener(this.dkf);
             }
-            if (cVar.csX != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.csX = TbadkCoreApplication.getInst().getSkinType();
-                am.setViewTextColor(cVar.eNr, (int) R.color.cp_cont_f);
-                am.setBackgroundResource(cVar.eNr, R.drawable.more_all);
+            if (cVar.csg != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.csg = TbadkCoreApplication.getInst().getSkinType();
+                am.setViewTextColor(cVar.eMA, (int) R.color.cp_cont_f);
+                am.setBackgroundResource(cVar.eMA, R.drawable.more_all);
                 am.setBackgroundResource(cVar.dividerLine, R.color.cp_bg_line_c);
             }
         }
@@ -45,6 +45,6 @@ public class a extends k<b, c> {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.dkW = onClickListener;
+        this.dkf = onClickListener;
     }
 }

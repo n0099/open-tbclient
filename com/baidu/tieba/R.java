@@ -45665,7 +45665,7 @@ public final class R {
         /* JADX INFO: Added by JADX */
 
         /* renamed from: tv  reason: collision with root package name */
-        public static final int f13tv = 0x7f0f0607;
+        public static final int f958tv = 0x7f0f0607;
         /* JADX INFO: Added by JADX */
         public static final int gift_count = 0x7f0f0608;
         /* JADX INFO: Added by JADX */

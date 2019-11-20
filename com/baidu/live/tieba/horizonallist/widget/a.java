@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 class a {
-    private static ArrayList<a> amT = new ArrayList<>(5);
-    public int amX;
-    public int amY;
-    int amZ;
+    private static ArrayList<a> amB = new ArrayList<>(5);
+    public int amF;
+    public int amG;
+    int amH;
     public int type;
 
-    private void vf() {
-        this.amX = 0;
-        this.amY = 0;
-        this.amZ = 0;
+    private void vg() {
+        this.amF = 0;
+        this.amG = 0;
+        this.amH = 0;
         this.type = 0;
     }
 
@@ -21,8 +21,8 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long vi() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.amX, this.amY) : ExpandableListView.getPackedPositionForGroup(this.amX);
+    public long vj() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.amF, this.amG) : ExpandableListView.getPackedPositionForGroup(this.amF);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,20 +32,20 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a f(int i, int i2, int i3, int i4) {
-        a vj = vj();
-        vj.type = i;
-        vj.amX = i2;
-        vj.amY = i3;
-        vj.amZ = i4;
-        return vj;
+        a vk = vk();
+        vk.type = i;
+        vk.amF = i2;
+        vk.amG = i3;
+        vk.amH = i4;
+        return vk;
     }
 
-    private static a vj() {
+    private static a vk() {
         a aVar;
-        synchronized (amT) {
-            if (amT.size() > 0) {
-                aVar = amT.remove(0);
-                aVar.vf();
+        synchronized (amB) {
+            if (amB.size() > 0) {
+                aVar = amB.remove(0);
+                aVar.vg();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (amT) {
-            if (amT.size() < 5) {
-                amT.add(this);
+        synchronized (amB) {
+            if (amB.size() < 5) {
+                amB.add(this);
             }
         }
     }

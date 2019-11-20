@@ -22,20 +22,20 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.topictab.b.a> {
-    private RelativeLayout eKs;
-    private TbImageView fej;
-    private CellTopicLinearLayout goX;
-    private TextView gpA;
-    private RelativeLayout gpB;
-    private View gpC;
-    private TopicPkView gpD;
-    private ThreadGodReplyLayout gpE;
-    private View gpF;
-    private TextView gpG;
-    private View gpH;
-    private LinearLayout.LayoutParams gpI;
-    private com.baidu.tieba.homepage.topic.topictab.b.a gpJ;
-    private TextView gpz;
+    private RelativeLayout eJB;
+    private TbImageView fds;
+    private TextView goI;
+    private TextView goJ;
+    private RelativeLayout goK;
+    private View goL;
+    private TopicPkView goM;
+    private ThreadGodReplyLayout goN;
+    private View goO;
+    private TextView goP;
+    private View goQ;
+    private LinearLayout.LayoutParams goR;
+    private com.baidu.tieba.homepage.topic.topictab.b.a goS;
+    private CellTopicLinearLayout gog;
     private TextView mDescView;
     private int mSkinType;
     private TextView mTitleView;
@@ -44,44 +44,44 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.goX = (CellTopicLinearLayout) view.findViewById(R.id.cell_topic_root);
-        this.eKs = (RelativeLayout) view.findViewById(R.id.cell_topic_top_layout);
-        this.gpz = (TextView) view.findViewById(R.id.cell_topic_index);
+        this.gog = (CellTopicLinearLayout) view.findViewById(R.id.cell_topic_root);
+        this.eJB = (RelativeLayout) view.findViewById(R.id.cell_topic_top_layout);
+        this.goI = (TextView) view.findViewById(R.id.cell_topic_index);
         this.mTitleView = (TextView) view.findViewById(R.id.cell_topic_title);
-        this.gpA = (TextView) view.findViewById(R.id.cell_topic_partake);
+        this.goJ = (TextView) view.findViewById(R.id.cell_topic_partake);
         this.mDescView = (TextView) view.findViewById(R.id.cell_topic_des);
-        this.gpB = (RelativeLayout) view.findViewById(R.id.cell_topic_img_layout);
-        this.fej = (TbImageView) view.findViewById(R.id.cell_topic_img);
-        this.gpC = view.findViewById(R.id.cell_topic_img_placeholder);
-        this.gpD = (TopicPkView) view.findViewById(R.id.cell_topic_pk);
-        this.gpE = (ThreadGodReplyLayout) view.findViewById(R.id.cell_topic_god_reply);
-        this.gpF = view.findViewById(R.id.cell_topic_bottom_placeholder);
-        this.gpG = (TextView) view.findViewById(R.id.cell_topic_icon);
-        this.gpH = view.findViewById(R.id.cell_topic_img_mask);
-        ViewGroup.LayoutParams layoutParams = this.fej.getLayoutParams();
+        this.goK = (RelativeLayout) view.findViewById(R.id.cell_topic_img_layout);
+        this.fds = (TbImageView) view.findViewById(R.id.cell_topic_img);
+        this.goL = view.findViewById(R.id.cell_topic_img_placeholder);
+        this.goM = (TopicPkView) view.findViewById(R.id.cell_topic_pk);
+        this.goN = (ThreadGodReplyLayout) view.findViewById(R.id.cell_topic_god_reply);
+        this.goO = view.findViewById(R.id.cell_topic_bottom_placeholder);
+        this.goP = (TextView) view.findViewById(R.id.cell_topic_icon);
+        this.goQ = view.findViewById(R.id.cell_topic_img_mask);
+        ViewGroup.LayoutParams layoutParams = this.fds.getLayoutParams();
         layoutParams.height = ((l.getEquipmentWidth(getContext()) - l.getDimens(getContext(), R.dimen.tbds88)) * 9) / 16;
-        this.fej.setLayoutParams(layoutParams);
-        this.fej.setRadius(l.getDimens(this.mContext, R.dimen.tbds22));
-        this.fej.setConrers(15);
-        this.gpI = (LinearLayout.LayoutParams) this.eKs.getLayoutParams();
-        this.goX.setTopicOnClickListener(this);
+        this.fds.setLayoutParams(layoutParams);
+        this.fds.setRadius(l.getDimens(this.mContext, R.dimen.tbds22));
+        this.fds.setConrers(15);
+        this.goR = (LinearLayout.LayoutParams) this.eJB.getLayoutParams();
+        this.gog.setTopicOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gpD.onChangeSkinType();
-        this.gpE.onChangeSkinType();
+        this.goM.onChangeSkinType();
+        this.goN.onChangeSkinType();
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.setViewTextColor(this.gpz, (int) R.color.cp_cont_m);
+            am.setViewTextColor(this.goI, (int) R.color.cp_cont_m);
             am.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.gpA, (int) R.color.cp_cont_d);
-            if (this.gpJ != null && this.gpJ.from == 1) {
+            am.setViewTextColor(this.goJ, (int) R.color.cp_cont_d);
+            if (this.goS != null && this.goS.from == 1) {
                 am.setViewTextColor(this.mDescView, (int) R.color.cp_cont_b);
             } else {
                 am.setViewTextColor(this.mDescView, (int) R.color.cp_cont_f);
             }
-            this.fej.setIsNight(this.mSkinType == 1);
+            this.fds.setIsNight(this.mSkinType == 1);
         }
     }
 
@@ -94,88 +94,88 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.homepage.topic.topictab.b.a aVar) {
         if (aVar != null) {
-            this.gpJ = aVar;
+            this.goS = aVar;
             if (aVar.from == 0) {
-                this.gpG.setVisibility(8);
-                this.gpz.setVisibility(0);
-                this.gpA.setVisibility(0);
-                this.gpz.setText(String.valueOf(aVar.index));
+                this.goP.setVisibility(8);
+                this.goI.setVisibility(0);
+                this.goJ.setVisibility(0);
+                this.goI.setText(String.valueOf(aVar.index));
                 if (aVar.index == 1) {
-                    am.setBackgroundResource(this.gpz, R.drawable.topic_rank_one_bg);
+                    am.setBackgroundResource(this.goI, R.drawable.topic_rank_one_bg);
                 } else if (aVar.index == 2) {
-                    am.setBackgroundResource(this.gpz, R.drawable.topic_rank_two_bg);
+                    am.setBackgroundResource(this.goI, R.drawable.topic_rank_two_bg);
                 } else if (aVar.index == 3) {
-                    am.setBackgroundResource(this.gpz, R.drawable.topic_rank_three_bg);
+                    am.setBackgroundResource(this.goI, R.drawable.topic_rank_three_bg);
                 } else {
-                    am.setBackgroundResource(this.gpz, R.drawable.topic_rank_other_bg);
+                    am.setBackgroundResource(this.goI, R.drawable.topic_rank_other_bg);
                 }
                 ((RelativeLayout.LayoutParams) this.mTitleView.getLayoutParams()).addRule(1, R.id.cell_topic_index);
                 ((RelativeLayout.LayoutParams) this.mTitleView.getLayoutParams()).setMargins(l.getDimens(getContext(), R.dimen.tbds16), 0, l.getDimens(getContext(), R.dimen.tbds16), 0);
-                this.mDescView.setText(aVar.caP);
-                if (aVar.caO == 0) {
-                    this.gpA.setText("NEW");
+                this.mDescView.setText(aVar.bZY);
+                if (aVar.bZX == 0) {
+                    this.goJ.setText("NEW");
                 } else {
-                    this.gpA.setText(String.format(this.mTbPageContext.getString(R.string.topic_partake_default), aq.numberUniformFormat(aVar.caO)));
+                    this.goJ.setText(String.format(this.mTbPageContext.getString(R.string.topic_partake_default), aq.numberUniformFormat(aVar.bZX)));
                 }
-                if (aVar.gpk == null) {
-                    this.gpE.setVisibility(8);
+                if (aVar.got == null) {
+                    this.goN.setVisibility(8);
                 } else {
-                    this.gpE.setVisibility(0);
-                    this.gpE.setData(aVar.gpk);
+                    this.goN.setVisibility(0);
+                    this.goN.setData(aVar.got);
                 }
             } else {
-                this.gpG.setVisibility(0);
-                this.gpz.setVisibility(8);
-                this.gpA.setVisibility(8);
-                this.gpE.setVisibility(8);
-                this.gpI.setMargins(0, l.getDimens(getContext(), R.dimen.tbds44), 0, 0);
+                this.goP.setVisibility(0);
+                this.goI.setVisibility(8);
+                this.goJ.setVisibility(8);
+                this.goN.setVisibility(8);
+                this.goR.setMargins(0, l.getDimens(getContext(), R.dimen.tbds44), 0, 0);
                 ((RelativeLayout.LayoutParams) this.mTitleView.getLayoutParams()).addRule(1, R.id.cell_topic_icon);
                 ((RelativeLayout.LayoutParams) this.mTitleView.getLayoutParams()).setMargins(l.getDimens(getContext(), R.dimen.tbds30), 0, l.getDimens(getContext(), R.dimen.tbds16), 0);
                 this.mTitleView.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbds40));
-                if (StringUtils.isNull(aVar.caP)) {
+                if (StringUtils.isNull(aVar.bZY)) {
                     this.mDescView.setVisibility(8);
                 } else {
                     this.mDescView.setVisibility(0);
-                    this.mDescView.setText(aVar.caP);
+                    this.mDescView.setText(aVar.bZY);
                 }
                 am.setViewTextColor(this.mDescView, R.color.cp_cont_b, 1);
             }
-            String str = aVar.caN;
+            String str = aVar.bZW;
             if (str.length() > 14) {
                 str = str.substring(0, 13) + StringHelper.STRING_MORE;
             }
             this.mTitleView.setText(String.format(this.mTbPageContext.getString(R.string.daily_topic_name), str));
-            if (StringUtils.isNull(aVar.gnN)) {
-                this.gpB.setVisibility(8);
-                this.gpD.setUserColor(R.color.cp_cont_d);
+            if (StringUtils.isNull(aVar.gmW)) {
+                this.goK.setVisibility(8);
+                this.goM.setUserColor(R.color.cp_cont_d);
             } else {
-                this.gpB.setVisibility(0);
-                this.fej.startLoad(aVar.gnN, 10, false);
-                this.gpD.setUserColor(R.color.cp_cont_a);
+                this.goK.setVisibility(0);
+                this.fds.startLoad(aVar.gmW, 10, false);
+                this.goM.setUserColor(R.color.cp_cont_a);
             }
-            if (aVar.gpj == null) {
-                this.gpC.setVisibility(8);
-                this.gpD.setVisibility(8);
-                this.gpH.setVisibility(8);
+            if (aVar.gos == null) {
+                this.goL.setVisibility(8);
+                this.goM.setVisibility(8);
+                this.goQ.setVisibility(8);
                 return;
             }
-            this.gpC.setVisibility(0);
-            this.gpD.setVisibility(0);
-            this.gpD.setData(aVar.gpj);
-            this.gpH.setVisibility(0);
+            this.goL.setVisibility(0);
+            this.goM.setVisibility(0);
+            this.goM.setData(aVar.gos);
+            this.goQ.setVisibility(0);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TiebaStatic.log(new an("c13351").p("topic_id", this.gpJ.topicId).O("obj_locate", this.gpJ.index));
-        if (this.gpJ != null && this.gpJ.from == 1) {
+        TiebaStatic.log(new an("c13351").p("topic_id", this.goS.topicId).O("obj_locate", this.goS.index));
+        if (this.goS != null && this.goS.from == 1) {
             TiebaStatic.log(new an("c13449"));
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TopicDetailActivityConfig(getContext(), this.gpJ.topicId)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TopicDetailActivityConfig(getContext(), this.goS.topicId)));
     }
 
-    public CellTopicLinearLayout bvF() {
-        return this.goX;
+    public CellTopicLinearLayout bvD() {
+        return this.gog;
     }
 }

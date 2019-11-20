@@ -14,14 +14,14 @@ public class PluginStatus extends OrmObject {
     public static final int STATUS_SUCCESS = 0;
     int errorCode;
     String errorMsg;
+    String pkgName;
     int priority;
-    String ud;
-    PluginPackageManager.PluginStatus wU;
-    String wV;
-    boolean wW;
+    PluginPackageManager.PluginStatus wu;
+    String wv;
+    boolean ww;
 
     public String getPkgName() {
-        return this.ud;
+        return this.pkgName;
     }
 
     public int getPriority() {
@@ -37,6 +37,6 @@ public class PluginStatus extends OrmObject {
     }
 
     public String ju() {
-        return this.wV;
+        return this.wv;
     }
 }

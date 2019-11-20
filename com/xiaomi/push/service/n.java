@@ -1,64 +1,93 @@
 package com.xiaomi.push.service;
 
-import android.text.TextUtils;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import android.content.Context;
+import com.xiaomi.mipush.sdk.ErrorCode;
+import com.xiaomi.push.fx;
 import com.xiaomi.push.service.XMPushService;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.xiaomi.push.service.al;
+import java.io.IOException;
+import java.util.Collection;
+import org.json.JSONException;
 /* loaded from: classes3.dex */
-class n extends XMPushService.i {
-    final /* synthetic */ String b;
-    final /* synthetic */ List c;
-    final /* synthetic */ String d;
-    final /* synthetic */ m e;
+public class n extends XMPushService.i {
+    private XMPushService a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n(m mVar, int i, String str, List list, String str2) {
-        super(i);
-        this.e = mVar;
-        this.b = str;
-        this.c = list;
-        this.d = str2;
+    /* renamed from: a  reason: collision with other field name */
+    private String f920a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private byte[] f921a;
+    private String b;
+    private String c;
+
+    public n(XMPushService xMPushService, String str, String str2, String str3, byte[] bArr) {
+        super(9);
+        this.a = xMPushService;
+        this.f920a = str;
+        this.f921a = bArr;
+        this.b = str2;
+        this.c = str3;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "register app";
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0034  */
+    /* JADX WARN: Removed duplicated region for block: B:6:0x0016  */
+    @Override // com.xiaomi.push.service.XMPushService.i
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void a() {
-        String a;
-        XMPushService xMPushService;
-        a = this.e.a(this.b);
-        ArrayList<com.xiaomi.xmpush.thrift.ai> a2 = bj.a(this.c, this.b, a, 32768);
-        com.xiaomi.channel.commonutils.logger.b.a("TinyData LongConnUploader.upload pack notifications " + a2.toString() + "  ts:" + System.currentTimeMillis());
-        if (a2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
-            return;
-        }
-        Iterator<com.xiaomi.xmpush.thrift.ai> it = a2.iterator();
-        while (it.hasNext()) {
-            com.xiaomi.xmpush.thrift.ai next = it.next();
-            next.a("uploadWay", "longXMPushService");
-            com.xiaomi.xmpush.thrift.af a3 = af.a(this.b, a, next, com.xiaomi.xmpush.thrift.a.Notification);
-            if (!TextUtils.isEmpty(this.d) && !TextUtils.equals(this.b, this.d)) {
-                if (a3.m() == null) {
-                    com.xiaomi.xmpush.thrift.u uVar = new com.xiaomi.xmpush.thrift.u();
-                    uVar.a(LivenessStat.TYPE_STRING_DEFAULT);
-                    a3.a(uVar);
-                }
-                a3.m().b("ext_traffic_source_pkg", this.d);
+        k kVar;
+        al.b next;
+        k a = l.a((Context) this.a);
+        if (a == null) {
+            try {
+                kVar = l.a(this.a, this.f920a, this.b, this.c);
+            } catch (IOException e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                kVar = a;
+            } catch (JSONException e2) {
+                com.xiaomi.channel.commonutils.logger.b.a(e2);
             }
-            byte[] a4 = com.xiaomi.xmpush.thrift.at.a(a3);
-            xMPushService = this.e.a;
-            xMPushService.a(this.b, a4, true);
+            if (kVar != null) {
+                com.xiaomi.channel.commonutils.logger.b.d("no account for mipush");
+                o.a(this.a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
+                return;
+            }
+            Collection<al.b> m495a = al.a().m495a("5");
+            if (m495a.isEmpty()) {
+                next = kVar.a(this.a);
+                w.a(this.a, next);
+                al.a().a(next);
+            } else {
+                next = m495a.iterator().next();
+            }
+            if (!this.a.m489c()) {
+                this.a.a(true);
+                return;
+            }
+            try {
+                if (next.f858a == al.c.binded) {
+                    w.a(this.a, this.f920a, this.f921a);
+                } else if (next.f858a == al.c.unbind) {
+                    XMPushService xMPushService = this.a;
+                    XMPushService xMPushService2 = this.a;
+                    xMPushService2.getClass();
+                    xMPushService.a(new XMPushService.a(next));
+                }
+                return;
+            } catch (fx e3) {
+                com.xiaomi.channel.commonutils.logger.b.a(e3);
+                this.a.a(10, e3);
+                return;
+            }
         }
-        Iterator it2 = this.c.iterator();
-        while (it2.hasNext()) {
-            com.xiaomi.channel.commonutils.logger.b.a("TinyData LongConnUploader.upload uploaded by com.xiaomi.push.service.TinyDataUploader.  item" + ((com.xiaomi.xmpush.thrift.f) it2.next()).m() + "  ts:" + System.currentTimeMillis());
+        kVar = a;
+        if (kVar != null) {
         }
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String b() {
-        return "Send tiny data.";
     }
 }

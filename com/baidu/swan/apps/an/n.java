@@ -45,7 +45,7 @@ public class n {
         }
     }
 
-    public static String b(Intent intent, String str) {
+    public static String a(Intent intent, String str) {
         try {
             return intent.getStringExtra(str);
         } catch (Throwable th) {
@@ -56,7 +56,7 @@ public class n {
         }
     }
 
-    public static Bundle c(Intent intent, String str) {
+    public static Bundle b(Intent intent, String str) {
         try {
             return intent.getBundleExtra(str);
         } catch (Throwable th) {
@@ -67,7 +67,7 @@ public class n {
         }
     }
 
-    public static <T extends Parcelable> T d(Intent intent, String str) {
+    public static <T extends Parcelable> T c(Intent intent, String str) {
         try {
             return (T) intent.getParcelableExtra(str);
         } catch (Throwable th) {

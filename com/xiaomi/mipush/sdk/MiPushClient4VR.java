@@ -1,15 +1,19 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
+import com.xiaomi.push.Cif;
+import com.xiaomi.push.hg;
+import com.xiaomi.push.hq;
+import com.xiaomi.push.ht;
 /* loaded from: classes3.dex */
 public class MiPushClient4VR {
     public static void uploadData(Context context, String str) {
-        com.xiaomi.xmpush.thrift.ai aiVar = new com.xiaomi.xmpush.thrift.ai();
-        aiVar.c(com.xiaomi.xmpush.thrift.r.VRUpload.aa);
-        aiVar.b(d.a(context).c());
-        aiVar.d(context.getPackageName());
-        aiVar.a("data", str);
-        aiVar.a(com.xiaomi.push.service.aq.a());
-        az.a(context).a((az) aiVar, com.xiaomi.xmpush.thrift.a.Notification, (com.xiaomi.xmpush.thrift.u) null);
+        Cif cif = new Cif();
+        cif.c(hq.VRUpload.f489a);
+        cif.b(d.m68a(context).m69a());
+        cif.d(context.getPackageName());
+        cif.a("data", str);
+        cif.a(com.xiaomi.push.service.aj.a());
+        ay.a(context).a((ay) cif, hg.Notification, (ht) null);
     }
 }

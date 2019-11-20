@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private static b bUr = null;
-    private static a bUs = null;
-    private static boolean bUt = false;
-    private static String bUu = "";
-    private static transient List<String> bUv = new ArrayList(5);
+    private static b bTA = null;
+    private static a bTB = null;
+    private static boolean bTC = false;
+    private static String bTD = "";
+    private static transient List<String> bTE = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (bUs == null) {
+        if (bTB == null) {
             synchronized (a.class) {
-                if (bUs == null) {
-                    bUs = new a();
-                    bUr = b.c(baseFragmentActivity);
+                if (bTB == null) {
+                    bTB = new a();
+                    bTA = b.c(baseFragmentActivity);
                 }
             }
-        } else if (bUr != null) {
-            bUr.a(baseFragmentActivity.getPageContext());
+        } else if (bTA != null) {
+            bTA.a(baseFragmentActivity.getPageContext());
         }
-        if (bUt && bUr != null) {
-            bUr.afy();
-            bUr.afz();
-            bUt = false;
+        if (bTC && bTA != null) {
+            bTA.afw();
+            bTA.afx();
+            bTC = false;
         }
-        return bUs;
+        return bTB;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        afv();
+        aft();
         if (z) {
-            afq();
+            afo();
         }
         if (z2) {
-            afr();
+            afp();
         }
         dP(z3);
         a(aVar);
     }
 
-    public void afq() {
-        afv();
-        if (bUr != null) {
-            bUr.afy();
-            bUt = false;
+    public void afo() {
+        aft();
+        if (bTA != null) {
+            bTA.afw();
+            bTC = false;
         }
     }
 
-    public void afr() {
-        afv();
-        if (bUr != null) {
-            bUr.afz();
-            bUt = false;
+    public void afp() {
+        aft();
+        if (bTA != null) {
+            bTA.afx();
+            bTC = false;
         }
     }
 
     public void dP(boolean z) {
-        afv();
-        if (bUr != null) {
-            bUr.dP(z);
+        aft();
+        if (bTA != null) {
+            bTA.dP(z);
         }
     }
 
     public void a(b.a aVar) {
-        afv();
-        if (bUr != null) {
-            bUr.c(aVar);
+        aft();
+        if (bTA != null) {
+            bTA.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        afv();
-        if (bUr != null) {
-            if (bUr.afw()) {
-                bUr.c(aVar);
+        aft();
+        if (bTA != null) {
+            if (bTA.afu()) {
+                bTA.c(aVar);
             }
-            bUr.afx();
+            bTA.afv();
         }
     }
 
     public void a(int i, b.a aVar) {
-        afv();
-        if (bUr != null) {
-            if (bUr.afw()) {
-                bUr.c(aVar);
+        aft();
+        if (bTA != null) {
+            if (bTA.afu()) {
+                bTA.c(aVar);
             }
-            bUr.hm(i);
+            bTA.hl(i);
+        }
+    }
+
+    public void afq() {
+        aft();
+        if (bTA != null) {
+            bTA.afq();
+            bTC = true;
+        }
+    }
+
+    public void afr() {
+        aft();
+        if (bTA != null) {
+            bTA.afr();
         }
     }
 
     public void afs() {
-        afv();
-        if (bUr != null) {
-            bUr.afs();
-            bUt = true;
-        }
-    }
-
-    public void aft() {
-        afv();
-        if (bUr != null) {
-            bUr.aft();
-        }
-    }
-
-    public void afu() {
-        afv();
         aft();
-        afs();
+        afr();
+        afq();
     }
 
-    private void afv() {
-        if (bUr == null) {
+    private void aft() {
+        if (bTA == null) {
         }
     }
 
-    public static void Pf() {
+    public static void Pg() {
         try {
-            if (bUr != null) {
-                if (bUs != null) {
-                    bUs.afu();
+            if (bTA != null) {
+                if (bTB != null) {
+                    bTB.afs();
                 }
-                bUr.removeCallBack();
-                bUr.afA();
-                bUr = null;
+                bTA.removeCallBack();
+                bTA.afy();
+                bTA = null;
             }
-            if (bUs != null) {
-                bUs = null;
+            if (bTB != null) {
+                bTB = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

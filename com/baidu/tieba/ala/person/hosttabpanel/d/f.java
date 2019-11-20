@@ -31,11 +31,11 @@ public class f extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
 
     /* loaded from: classes6.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        public f evn;
+        public f euw;
 
         public a(f fVar) {
             super(fVar.getView());
-            this.evn = fVar;
+            this.euw = fVar;
         }
     }
 }

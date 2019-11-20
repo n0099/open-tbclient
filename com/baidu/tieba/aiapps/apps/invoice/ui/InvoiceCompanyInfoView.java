@@ -8,12 +8,12 @@ import com.baidu.tieba.aiapps.apps.invoice.model.InvoiceInfo;
 import com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceInfoItemView;
 /* loaded from: classes4.dex */
 public class InvoiceCompanyInfoView extends InvoiceBaseInfoView {
-    private InvoiceInfoItemView doP;
-    private InvoiceInfoItemView doQ;
-    private InvoiceInfoItemView doR;
-    private InvoiceInfoItemView doS;
-    private InvoiceInfoItemView doT;
-    private InvoiceInfoItemView doU;
+    private InvoiceInfoItemView dnX;
+    private InvoiceInfoItemView dnY;
+    private InvoiceInfoItemView dnZ;
+    private InvoiceInfoItemView doa;
+    private InvoiceInfoItemView dob;
+    private InvoiceInfoItemView dod;
 
     public InvoiceCompanyInfoView(Context context) {
         this(context, null);
@@ -30,31 +30,31 @@ public class InvoiceCompanyInfoView extends InvoiceBaseInfoView {
 
     private void init(Context context) {
         setOrientation(1);
-        this.doP = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().gm(true).gn(true).sk(context.getString(R.string.invoice_desc_name)).sl(context.getString(R.string.invoice_hint_name)).sm("\\S+$").sn(context.getString(R.string.invoice_err_msg_name)));
-        this.doQ = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().gm(true).sk(context.getString(R.string.invoice_desc_tax_number)).gn(true).lR(2).so(context.getString(R.string.alphabet_and_number)).sl(context.getString(R.string.invoice_hint_tax_number)).sm("\\S+$").sn(context.getString(R.string.invoice_err_msg_tax_number)));
-        this.doR = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().gn(true).sk(context.getString(R.string.invoice_desc_company_address)).sl(context.getString(R.string.invoice_hint_company_address)));
-        this.doS = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().sk(context.getString(R.string.invoice_desc_mobile)).gn(true).lR(2).sl(context.getString(R.string.invoice_hint_mobile)));
-        this.doT = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().gn(true).sk(context.getString(R.string.invoice_desc_bank)).sl(context.getString(R.string.invoice_hint_bank)));
-        this.doU = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().sk(context.getString(R.string.invoice_desc_bank_account)).gn(true).lR(2).sl(context.getString(R.string.invoice_hint_bank_account)));
-        this.doO = new InvoiceInfoItemView[]{this.doP, this.doQ, this.doR, this.doS, this.doT, this.doU};
-        for (int i = 0; i < this.doO.length; i++) {
-            addView(this.doO[i], i);
+        this.dnX = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().gm(true).gn(true).sk(context.getString(R.string.invoice_desc_name)).sl(context.getString(R.string.invoice_hint_name)).sm("\\S+$").sn(context.getString(R.string.invoice_err_msg_name)));
+        this.dnY = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().gm(true).sk(context.getString(R.string.invoice_desc_tax_number)).gn(true).lQ(2).so(context.getString(R.string.alphabet_and_number)).sl(context.getString(R.string.invoice_hint_tax_number)).sm("\\S+$").sn(context.getString(R.string.invoice_err_msg_tax_number)));
+        this.dnZ = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().gn(true).sk(context.getString(R.string.invoice_desc_company_address)).sl(context.getString(R.string.invoice_hint_company_address)));
+        this.doa = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().sk(context.getString(R.string.invoice_desc_mobile)).gn(true).lQ(2).sl(context.getString(R.string.invoice_hint_mobile)));
+        this.dob = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().gn(true).sk(context.getString(R.string.invoice_desc_bank)).sl(context.getString(R.string.invoice_hint_bank)));
+        this.dod = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().sk(context.getString(R.string.invoice_desc_bank_account)).gn(true).lQ(2).sl(context.getString(R.string.invoice_hint_bank_account)));
+        this.dnW = new InvoiceInfoItemView[]{this.dnX, this.dnY, this.dnZ, this.doa, this.dob, this.dod};
+        for (int i = 0; i < this.dnW.length; i++) {
+            addView(this.dnW[i], i);
         }
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.e
     public InvoiceInfo getInvoiceInfo() {
-        return new InvoiceInfo(0, this.doP.getContent(), this.doQ.getContent(), this.doR.getContent(), this.doS.getContent(), this.doT.getContent(), this.doU.getContent());
+        return new InvoiceInfo(0, this.dnX.getContent(), this.dnY.getContent(), this.dnZ.getContent(), this.doa.getContent(), this.dob.getContent(), this.dod.getContent());
     }
 
     public void d(InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
-            this.doP.setContent(invoiceInfo.mTitle);
-            this.doQ.setContent(invoiceInfo.doF);
-            this.doR.setContent(invoiceInfo.doG);
-            this.doS.setContent(invoiceInfo.doH);
-            this.doT.setContent(invoiceInfo.doI);
-            this.doU.setContent(invoiceInfo.doJ);
+            this.dnX.setContent(invoiceInfo.mTitle);
+            this.dnY.setContent(invoiceInfo.dnN);
+            this.dnZ.setContent(invoiceInfo.dnO);
+            this.doa.setContent(invoiceInfo.dnP);
+            this.dob.setContent(invoiceInfo.dnQ);
+            this.dod.setContent(invoiceInfo.dnR);
         }
     }
 }

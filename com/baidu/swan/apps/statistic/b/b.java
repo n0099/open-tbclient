@@ -16,16 +16,16 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String bpE;
-    public String bpH;
-    public String bpx;
+    public String bpf;
+    public String bpm;
+    public String bpp;
     public String mAppId;
     public String mAppVersion;
     public String mSource;
-    public int bpD = -1;
-    private HashMap<String, a> bpI = new HashMap<>();
-    public int bpF = 0;
-    public String bpG = "";
+    public int bpl = -1;
+    private HashMap<String, a> bpq = new HashMap<>();
+    public int bpn = 0;
+    public String bpo = "";
 
     public synchronized void a(a aVar) {
         if (b(aVar)) {
@@ -33,54 +33,54 @@ public class b {
                 Log.d("FunnelFlow", "event is invalid");
             }
         } else {
-            if (this.bpI.containsKey(aVar.id)) {
-                this.bpI.remove(aVar.id);
+            if (this.bpq.containsKey(aVar.id)) {
+                this.bpq.remove(aVar.id);
             }
-            this.bpI.put(aVar.id, aVar);
+            this.bpq.put(aVar.id, aVar);
             if (DEBUG) {
                 Log.d("FunnelFlow", "add event: " + aVar.toString());
             }
         }
     }
 
-    public void SC() {
+    public void SE() {
         if (DEBUG) {
             Log.d("FunnelFlow", "sendUBC: start new thread");
         }
-        j.Ui().execute(new Runnable() { // from class: com.baidu.swan.apps.statistic.b.b.1
+        j.Ug().execute(new Runnable() { // from class: com.baidu.swan.apps.statistic.b.b.1
             @Override // java.lang.Runnable
             public void run() {
-                b.this.SD();
+                b.this.SF();
             }
         });
     }
 
     public synchronized void clearAll() {
-        if (this.bpI != null) {
-            this.bpI.clear();
+        if (this.bpq != null) {
+            this.bpq.clear();
         }
-        this.bpI = null;
+        this.bpq = null;
         this.mAppId = null;
         this.mAppVersion = null;
-        this.bpx = null;
-        this.bpE = null;
+        this.bpf = null;
+        this.bpm = null;
         this.mSource = null;
-        this.bpF = 0;
-        this.bpG = "";
+        this.bpn = 0;
+        this.bpo = "";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void SD() {
+    public synchronized void SF() {
         if (DEBUG) {
             Log.d("FunnelFlow", "ubc: begin flow");
         }
         Flow lD = s.lD("820");
-        if (lD == null || this.bpI == null) {
+        if (lD == null || this.bpq == null) {
             if (DEBUG) {
                 Log.w("FunnelFlow", "UBC Flow create failed, or events is null");
             }
         } else {
-            for (a aVar : this.bpI.values()) {
+            for (a aVar : this.bpq.values()) {
                 if (aVar.timestamp > 0) {
                     lD.addEvent(aVar.id, aVar.value, aVar.timestamp);
                     if (DEBUG) {
@@ -88,21 +88,21 @@ public class b {
                     }
                 }
             }
-            SE();
+            SG();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("from", d.eJ(this.bpD));
-                jSONObject.put("type", String.valueOf(this.bpF));
+                jSONObject.put("from", d.eJ(this.bpl));
+                jSONObject.put("type", String.valueOf(this.bpn));
                 jSONObject.put("source", this.mSource);
                 jSONObject.put("value", "");
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("appid", this.mAppId);
-                jSONObject2.put("swan", this.bpE);
+                jSONObject2.put("swan", this.bpm);
                 jSONObject2.put("appversion", this.mAppVersion);
-                jSONObject2.put("thirdversion", this.bpx);
-                jSONObject2.put("net", SwanAppNetworkUtils.MP().type);
-                jSONObject2.put("needdown", this.bpG);
-                jSONObject2.put("pkgdown", this.bpH);
+                jSONObject2.put("thirdversion", this.bpf);
+                jSONObject2.put("net", SwanAppNetworkUtils.MQ().type);
+                jSONObject2.put("needdown", this.bpo);
+                jSONObject2.put("pkgdown", this.bpp);
                 jSONObject.put("ext", jSONObject2);
             } catch (JSONException e) {
                 if (DEBUG) {
@@ -121,33 +121,33 @@ public class b {
         return aVar != null && TextUtils.isEmpty(aVar.id);
     }
 
-    private void SE() {
+    private void SG() {
         boolean isMainProcess = ProcessUtils.isMainProcess();
         if (DEBUG) {
             Log.d("FunnelFlow", "genInfo: isMainProcess=" + isMainProcess);
         }
         if (isMainProcess) {
-            this.bpE = com.baidu.swan.apps.swancore.b.ap(com.baidu.swan.apps.swancore.b.eT(this.bpD).bqi);
+            this.bpm = com.baidu.swan.apps.swancore.b.ao(com.baidu.swan.apps.swancore.b.eT(this.bpl).bpQ);
             return;
         }
-        com.baidu.swan.apps.ae.b FD = e.LD().FD();
+        com.baidu.swan.apps.ae.b FE = e.LE().FE();
         com.baidu.swan.apps.v.b.b bVar = null;
-        if (FD != null) {
-            this.mAppVersion = FD.getVersion();
-            bVar = FD.AJ();
+        if (FE != null) {
+            this.mAppVersion = FE.getVersion();
+            bVar = FE.AK();
         }
         if (bVar != null) {
-            this.bpD = bVar.KO();
+            this.bpl = bVar.KP();
             this.mAppId = bVar.getAppId();
-            this.mSource = bVar.KE();
-            this.bpx = bVar.getVersion();
-            Bundle KI = bVar.KI();
-            if (KI != null) {
-                this.bpG = KI.getString("aiapp_extra_need_download", "");
-                this.bpH = KI.getString("aiapp_extra_pkg_download", "0");
+            this.mSource = bVar.KF();
+            this.bpf = bVar.getVersion();
+            Bundle KJ = bVar.KJ();
+            if (KJ != null) {
+                this.bpo = KJ.getString("aiapp_extra_need_download", "");
+                this.bpp = KJ.getString("aiapp_extra_pkg_download", "0");
             }
-            this.bpE = com.baidu.swan.apps.swancore.b.eR(bVar.KO());
+            this.bpm = com.baidu.swan.apps.swancore.b.eR(bVar.KP());
         }
-        this.bpF = d.Sx();
+        this.bpn = d.Sz();
     }
 }

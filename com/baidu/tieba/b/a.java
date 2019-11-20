@@ -26,7 +26,7 @@ public class a extends d<com.baidu.tbadk.data.b, com.baidu.tbadk.l.b> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.b bVar, com.baidu.tbadk.l.b bVar2) {
         if (bVar != null && bVar2 != null) {
-            bVar2.avs();
+            bVar2.avq();
             bVar2.a(bVar);
         }
         return view;

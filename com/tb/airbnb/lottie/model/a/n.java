@@ -11,15 +11,15 @@ import org.json.JSONObject;
 public class n<T> {
     private final com.tb.airbnb.lottie.e composition;
     @Nullable
-    private final JSONObject gO;
-    private final m.a<T> kui;
+    private final JSONObject gp;
+    private final m.a<T> ktr;
     private final float scale;
 
     private n(@Nullable JSONObject jSONObject, float f, com.tb.airbnb.lottie.e eVar, m.a<T> aVar) {
-        this.gO = jSONObject;
+        this.gp = jSONObject;
         this.scale = f;
         this.composition = eVar;
-        this.kui = aVar;
+        this.ktr = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,16 +28,16 @@ public class n<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a<T> cLE() {
+    public a<T> cLC() {
         List<com.tb.airbnb.lottie.a.a<T>> ct = ct();
         return new a<>(ct, h(ct));
     }
 
     private List<com.tb.airbnb.lottie.a.a<T>> ct() {
-        if (this.gO != null) {
-            Object opt = this.gO.opt("k");
+        if (this.gp != null) {
+            Object opt = this.gp.opt("k");
             if (j(opt)) {
-                return a.C0575a.a((JSONArray) opt, this.composition, this.scale, this.kui);
+                return a.C0575a.a((JSONArray) opt, this.composition, this.scale, this.ktr);
             }
             return Collections.emptyList();
         }
@@ -46,11 +46,11 @@ public class n<T> {
 
     @Nullable
     private T h(List<com.tb.airbnb.lottie.a.a<T>> list) {
-        if (this.gO != null) {
+        if (this.gp != null) {
             if (!list.isEmpty()) {
-                return list.get(0).ej;
+                return list.get(0).dK;
             }
-            return this.kui.b(this.gO.opt("k"), this.scale);
+            return this.ktr.b(this.gp.opt("k"), this.scale);
         }
         return null;
     }
@@ -66,13 +66,13 @@ public class n<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class a<T> {
+        final List<com.tb.airbnb.lottie.a.a<T>> eR;
         @Nullable
-        final T fI;
-        final List<com.tb.airbnb.lottie.a.a<T>> fu;
+        final T fg;
 
         a(List<com.tb.airbnb.lottie.a.a<T>> list, @Nullable T t) {
-            this.fu = list;
-            this.fI = t;
+            this.eR = list;
+            this.fg = t;
         }
     }
 }

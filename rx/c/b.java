@@ -2,7 +2,7 @@ package rx.c;
 /* loaded from: classes2.dex */
 public abstract class b {
     @Deprecated
-    public void B(Throwable th) {
+    public void C(Throwable th) {
     }
 
     public final String bz(Object obj) {
@@ -12,7 +12,7 @@ public abstract class b {
             Thread.currentThread().interrupt();
             return obj.getClass().getName() + ".errorRendering";
         } catch (Throwable th) {
-            rx.exceptions.a.J(th);
+            rx.exceptions.a.K(th);
             return obj.getClass().getName() + ".errorRendering";
         }
     }

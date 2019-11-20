@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.RelativeLayout;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.StringUtils;
@@ -16,18 +17,20 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import java.util.ArrayList;
+import java.util.Collections;
 /* loaded from: classes6.dex */
 public class a {
-    private j XJ;
-    private boolean XL;
-    private int XM;
-    private AlaDynamicGiftLayout XN;
-    private AlaDynamicGiftSmallGiftStyleView XO;
+    private j Xr;
+    private boolean Xt;
+    private int Xu;
+    private AlaDynamicGiftLayout Xv;
+    private AlaDynamicGiftSmallGiftStyleView Xw;
     private Context mContext;
-    private b XP = new b() { // from class: com.baidu.live.gift.biggift.a.1
+    private boolean WL = false;
+    private b Xx = new b() { // from class: com.baidu.live.gift.biggift.a.1
         @Override // com.baidu.live.gift.biggift.b
         public void onStart() {
-            a.this.XL = true;
+            a.this.Xt = true;
         }
 
         @Override // com.baidu.live.gift.biggift.b
@@ -36,115 +39,152 @@ public class a {
 
         @Override // com.baidu.live.gift.biggift.b
         public void onEnd() {
-            a.this.XL = false;
-            a.this.XJ.pz();
-            a.this.pV();
+            a.this.Xt = false;
+            a.this.Xr.pz();
+            a.this.pW();
         }
     };
-    private ArrayList<d> XK = new ArrayList<>();
+    private ArrayList<d> Xs = new ArrayList<>();
 
     public a(Context context, j jVar) {
-        this.XM = 0;
+        this.Xu = 0;
         this.mContext = context;
-        this.XJ = jVar;
-        this.XM = 0;
+        this.Xr = jVar;
+        this.Xu = 0;
     }
 
     public void f(d dVar) {
         if (dVar != null && !StringUtils.isNull(dVar.userId) && !StringUtils.isNull(dVar.giftId)) {
-            for (int i = 0; i < dVar.aaW; i++) {
+            for (int i = 0; i < dVar.aaE; i++) {
                 if (dVar.priority == 11) {
-                    this.XK.add(0, dVar);
+                    this.Xs.add(0, dVar);
                 } else {
-                    this.XK.add(dVar);
+                    this.Xs.add(dVar);
                 }
+            }
+            try {
+                pT();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public void pT() {
-        if (!pY()) {
-            pV();
+    private void pT() {
+        if (this.Xs != null) {
+            int i = com.baidu.live.l.a.uB().ajF != null ? com.baidu.live.l.a.uB().ajF.RY : 0;
+            if (i > 0 && this.Xs.size() >= i) {
+                Collections.sort(this.Xs, new d.a());
+                int max = Math.max((int) (i * 0.7f), 1);
+                ArrayList arrayList = new ArrayList(this.Xs.subList(0, max));
+                while (true) {
+                    int i2 = max;
+                    if (i2 < this.Xs.size()) {
+                        if (this.Xs.get(i2) == null || !this.Xs.get(i2).aaJ) {
+                            max = i2 + 1;
+                        } else {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2913109, 1));
+                            break;
+                        }
+                    } else {
+                        break;
+                    }
+                }
+                this.Xs.clear();
+                this.Xs.addAll(arrayList);
+            }
         }
     }
 
     public void pU() {
-        if (this.XL) {
-            if (this.XN != null) {
-                this.XN.stopAnim();
+        if (!pZ()) {
+            pW();
+        }
+    }
+
+    public void pV() {
+        if (this.Xt) {
+            if (this.Xv != null) {
+                this.Xv.stopAnim();
             }
-            if (this.XO != null) {
-                this.XO.stopAnim();
+            if (this.Xw != null) {
+                this.Xw.stopAnim();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pV() {
-        if (this.XK.isEmpty()) {
-            this.XJ.px();
-            pX();
+    public void pW() {
+        if (this.Xs.isEmpty()) {
+            this.Xr.px();
+            pY();
             return;
         }
-        d pW = pW();
-        if (pW == null) {
-            pV();
+        d pX = pX();
+        if (pX == null) {
+            pW();
         } else {
-            g(pW);
+            g(pX);
         }
     }
 
-    private d pW() {
-        if (this.XK.isEmpty()) {
+    private d pX() {
+        if (this.Xs.isEmpty()) {
             return null;
         }
-        return this.XK.remove(0);
+        return this.Xs.remove(0);
     }
 
-    private void pX() {
-        this.XJ.pz();
+    private void pY() {
+        this.Xr.pz();
     }
 
     private void g(d dVar) {
         if (dVar != null) {
-            if (dVar.abb) {
+            if (dVar.aaJ) {
                 h(dVar);
                 return;
             }
+            boolean z = UtilHelper.getRealScreenOrientation(this.mContext) == 2;
+            if (this.WL && z && !dVar.aay) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913138, dVar));
+                pW();
+                return;
+            }
             try {
-                if (dVar.aaR != null && com.baidu.live.gift.b.b.rc().ck(dVar.aaR.pc())) {
-                    com.baidu.live.gift.c cC = com.baidu.live.gift.b.b.rc().cC(dVar.giftId);
+                if (dVar.aaz != null && com.baidu.live.gift.b.b.rd().ck(dVar.aaz.pc())) {
+                    com.baidu.live.gift.c cC = com.baidu.live.gift.b.b.rd().cC(dVar.giftId);
                     if (cC != null && !ListUtils.isEmpty(cC.getDynamicGiftPicPathList())) {
-                        if (this.XN == null) {
-                            this.XN = new AlaDynamicGiftLayout(this.mContext);
+                        if (this.Xv == null) {
+                            this.Xv = new AlaDynamicGiftLayout(this.mContext);
                         }
-                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.XN.getLayoutParams();
+                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.Xv.getLayoutParams();
                         if (layoutParams == null) {
                             layoutParams = new RelativeLayout.LayoutParams(-1, -1);
                         }
-                        this.XJ.a(this.XN, layoutParams);
-                        this.XN.setData(cC, dVar);
-                        this.XN.setBigGiftCallBack(this.XP);
-                        this.XN.startAnim();
+                        this.Xr.a(this.Xv, layoutParams);
+                        this.Xv.setData(cC, dVar);
+                        this.Xv.setBigGiftCallBack(this.Xx);
+                        this.Xv.startAnim();
                     } else {
-                        if (this.XO == null) {
-                            this.XO = new AlaDynamicGiftSmallGiftStyleView(this.mContext);
+                        if (this.Xw == null) {
+                            this.Xw = new AlaDynamicGiftSmallGiftStyleView(this.mContext);
                         }
-                        this.XJ.J(this.XO);
-                        this.XO.setData(dVar);
-                        this.XO.setBigGiftCallBack(this.XP);
-                        this.XO.startAnim();
+                        this.Xr.J(this.Xw);
+                        this.Xw.setData(dVar);
+                        this.Xw.setBigGiftCallBack(this.Xx);
+                        this.Xw.startAnim();
                     }
                 }
             } catch (OutOfMemoryError e) {
                 log(BdStatsConstant.StatsType.ERROR, "showbiggift", TiebaInitialize.LogFields.REASON, "oom");
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 System.gc();
-                if (this.XM < 1) {
-                    this.XM++;
+                if (this.Xu < 1) {
+                    this.Xu++;
                     g(dVar);
                 } else {
-                    pV();
+                    pW();
                 }
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2913019));
@@ -154,40 +194,41 @@ public class a {
     private void h(d dVar) {
         com.baidu.live.entereffect.a.a bY = com.baidu.live.entereffect.a.oF().bY(dVar.giftId);
         if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-            pV();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2913109, 1));
+            pW();
         } else if (bY == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2913109, 1));
-            pV();
+            pW();
         } else {
-            com.baidu.live.gift.c cVar = bY.VG;
+            com.baidu.live.gift.c cVar = bY.Vn;
             if (cVar == null || ListUtils.isEmpty(cVar.unZipFilesPathList)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2913109, 1));
-                pV();
+                pW();
                 return;
             }
             try {
-                if (this.XN == null) {
-                    this.XN = new AlaDynamicGiftLayout(this.mContext);
+                if (this.Xv == null) {
+                    this.Xv = new AlaDynamicGiftLayout(this.mContext);
                 }
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.XN.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.Xv.getLayoutParams();
                 if (layoutParams == null) {
                     layoutParams = new RelativeLayout.LayoutParams(-1, -1);
                 }
-                this.XJ.a(this.XN, layoutParams);
-                this.XN.setData(cVar, dVar);
-                this.XN.setBigGiftCallBack(this.XP);
-                this.XN.startAnim();
+                this.Xr.a(this.Xv, layoutParams);
+                this.Xv.setData(cVar, dVar);
+                this.Xv.setBigGiftCallBack(this.Xx);
+                this.Xv.startAnim();
                 MessageManager.getInstance().sendMessage(new CustomMessage(2913109, 0));
             } catch (OutOfMemoryError e) {
                 log(BdStatsConstant.StatsType.ERROR, "showbiggift", TiebaInitialize.LogFields.REASON, "oom");
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 System.gc();
-                if (this.XM < 1) {
-                    this.XM++;
+                if (this.Xu < 1) {
+                    this.Xu++;
                     g(dVar);
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2913109, 1));
-                    pV();
+                    pW();
                     return;
                 }
             }
@@ -195,32 +236,32 @@ public class a {
         }
     }
 
-    public boolean pY() {
-        return this.XL;
+    public boolean pZ() {
+        return this.Xt;
     }
 
-    public void pZ() {
+    public void qa() {
         boolean z = false;
         if (2 == UtilHelper.getRealScreenOrientation(this.mContext)) {
             z = true;
         }
-        if (this.XN != null) {
-            this.XN.at(z);
+        if (this.Xv != null) {
+            this.Xv.at(z);
         }
-        if (this.XO != null) {
-            this.XO.at(z);
+        if (this.Xw != null) {
+            this.Xw.at(z);
         }
     }
 
     public void onDestroy() {
-        this.XM = 0;
-        this.XK.clear();
-        this.XL = false;
-        if (this.XN != null) {
-            this.XN.onDestroy();
+        this.Xu = 0;
+        this.Xs.clear();
+        this.Xt = false;
+        if (this.Xv != null) {
+            this.Xv.onDestroy();
         }
-        if (this.XO != null) {
-            this.XO.onDestroy();
+        if (this.Xw != null) {
+            this.Xw.onDestroy();
         }
         this.mContext = null;
     }
@@ -229,5 +270,9 @@ public class a {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             BdStatisticsManager.getInstance().newDebug("alaGift", 0L, null, objArr);
         }
+    }
+
+    public void aj(boolean z) {
+        this.WL = z;
     }
 }

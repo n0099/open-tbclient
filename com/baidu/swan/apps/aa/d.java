@@ -13,24 +13,24 @@ import org.json.JSONObject;
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = d.class.getSimpleName();
-    public static volatile d aZF;
-    public String aZC;
-    public String aZD;
-    public String aZE;
-    public com.baidu.swan.apps.aa.a.d aZG;
+    public static volatile d aZn;
+    public String aZk;
+    public String aZl;
+    public String aZm;
+    public com.baidu.swan.apps.aa.a.d aZo;
 
     private d() {
     }
 
-    public static d Nj() {
-        if (aZF == null) {
+    public static d Nk() {
+        if (aZn == null) {
             synchronized (d.class) {
-                if (aZF == null) {
-                    aZF = new d();
+                if (aZn == null) {
+                    aZn = new d();
                 }
             }
         }
-        return aZF;
+        return aZn;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
@@ -39,8 +39,8 @@ public class d {
             com.baidu.swan.apps.console.c.i(TAG, "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!com.baidu.swan.apps.u.a.Jy().bh(context)) {
-            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).QN();
+        } else if (!com.baidu.swan.apps.u.a.Jz().bh(context)) {
+            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).QO();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;
         } else if (!g.b("wxPay", com.baidu.swan.apps.model.b.ay(b, b))) {

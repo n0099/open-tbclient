@@ -8,17 +8,17 @@ public class b<T> {
     private int _maxIdle;
     private int _minIdle;
     private LinkedList<T> _pool;
-    private c<T> pL;
+    private c<T> ph;
 
     public b(c<T> cVar, int i, int i2) {
         this._maxIdle = 10;
         this._minIdle = 0;
         this._pool = null;
-        this.pL = null;
+        this.ph = null;
         if (cVar == null || i <= 0 || i2 > i) {
             throw new InvalidParameterException("invalid params");
         }
-        this.pL = cVar;
+        this.ph = cVar;
         this._maxIdle = i;
         this._minIdle = i2;
         this._pool = new LinkedList<>();
@@ -29,7 +29,7 @@ public class b<T> {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    this.pL.destroyObject(this._pool.poll());
+                    this.ph.destroyObject(this._pool.poll());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -42,7 +42,7 @@ public class b<T> {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    t = this.pL.activateObject(this.pL.makeObject());
+                    t = this.ph.activateObject(this.ph.makeObject());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t = null;
@@ -80,9 +80,9 @@ public class b<T> {
         synchronized (this) {
             try {
                 if (this._pool.size() > 0) {
-                    t = this.pL.activateObject(this._pool.poll());
+                    t = this.ph.activateObject(this._pool.poll());
                 } else {
-                    t = this.pL.activateObject(this.pL.makeObject());
+                    t = this.ph.activateObject(this.ph.makeObject());
                 }
                 addItems(this._minIdle - this._pool.size());
             } catch (Exception e) {
@@ -97,7 +97,7 @@ public class b<T> {
         synchronized (this) {
             if (this._pool.size() < this._maxIdle) {
                 try {
-                    t2 = this.pL.passivateObject(t);
+                    t2 = this.ph.passivateObject(t);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t2 = null;
@@ -106,7 +106,7 @@ public class b<T> {
                     this._pool.offer(t2);
                 }
             } else {
-                this.pL.destroyObject(t);
+                this.ph.destroyObject(t);
             }
         }
     }

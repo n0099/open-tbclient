@@ -7,7 +7,7 @@ public class a {
     public static final String ALBUM_ID_ALL = String.valueOf(Integer.MAX_VALUE);
     public static final String ALBUM_ID_VIDEO = String.valueOf(2147483646);
     private String albumId;
-    private MediaFileInfo bTY;
+    private MediaFileInfo bTh;
     private int count;
     private List<MediaFileInfo> fileList;
     private String name;
@@ -40,19 +40,19 @@ public class a {
         this.count++;
     }
 
-    public ImageFileInfo afe() {
-        if (this.bTY instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.bTY;
+    public ImageFileInfo afc() {
+        if (this.bTh instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.bTh;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.bTY = mediaFileInfo;
+        this.bTh = mediaFileInfo;
     }
 
-    public MediaFileInfo aff() {
-        return this.bTY;
+    public MediaFileInfo afd() {
+        return this.bTh;
     }
 
     public List<MediaFileInfo> getFileList() {

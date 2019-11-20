@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class w extends a {
-    private boolean HY;
+    private boolean Hx;
     private int procType;
 
     public w(boolean z, int i) {
-        this.HY = true;
+        this.Hx = true;
         this.procType = 0;
-        this.HY = z;
+        this.Hx = z;
         this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public int ank() {
+    public int ani() {
         return this.procType;
     }
 
@@ -35,16 +35,16 @@ public class w extends a {
 
     @Override // com.baidu.tbadk.core.util.e.a
     public boolean isFromCDN() {
-        return this.HY;
+        return this.Hx;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public boolean ani() {
+    public boolean ang() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public boolean anj() {
+    public boolean anh() {
         return false;
     }
 
@@ -68,7 +68,7 @@ public class w extends a {
         if (aVar != null) {
             e eVar = new e();
             eVar.f(oi);
-            aVar.pM = eVar;
+            aVar.pi = eVar;
         }
         boolean isWifiNet = com.baidu.adp.lib.util.j.isWifiNet();
         if (!com.baidu.adp.lib.Disk.d.eP().c(oi)) {
@@ -112,7 +112,7 @@ public class w extends a {
             if (aVar != null) {
                 e eVar = new e();
                 eVar.f(cVar);
-                aVar.pM = eVar;
+                aVar.pi = eVar;
             }
         }
         return aVar2;

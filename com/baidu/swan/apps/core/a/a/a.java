@@ -1,44 +1,44 @@
 package com.baidu.swan.apps.core.a.a;
 /* loaded from: classes2.dex */
 public class a {
-    private int aJK;
-    private boolean aJL = false;
-    private boolean aJM = false;
-    private String aJN = "0";
-    private com.baidu.swan.apps.core.a.c.a aJO;
+    private int aJs;
+    private boolean aJt = false;
+    private boolean aJu = false;
+    private String aJv = "0";
+    private com.baidu.swan.apps.core.a.c.a aJw;
 
-    public int Ed() {
-        return this.aJK;
+    public int Ee() {
+        return this.aJs;
     }
 
-    public boolean Ee() {
-        return this.aJL;
+    public boolean Ef() {
+        return this.aJt;
     }
 
-    public com.baidu.swan.apps.core.a.c.a Ef() {
-        return this.aJO;
+    public com.baidu.swan.apps.core.a.c.a Eg() {
+        return this.aJw;
     }
 
-    public String Eg() {
-        return this.aJN;
+    public String Eh() {
+        return this.aJv;
     }
 
     /* renamed from: com.baidu.swan.apps.core.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0172a {
-        private a aJP = new a();
+        private a aJx = new a();
 
-        public a Eh() {
-            return this.aJP;
+        public a Ei() {
+            return this.aJx;
         }
 
         public C0172a cV(int i) {
-            this.aJP.aJK = i;
+            this.aJx.aJs = i;
             return this;
         }
 
         public C0172a br(boolean z) {
-            this.aJP.aJL = z;
+            this.aJx.aJt = z;
             return this;
         }
     }

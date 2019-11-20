@@ -18,13 +18,13 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class CardFrsGameSpecialTopicItemView extends LinearLayout {
-    private RelativeLayout eLX;
-    private TbImageView eLY;
-    private TextView eLZ;
-    private View eLx;
-    private View eLy;
-    private TextView eMa;
-    private TextView eMb;
+    private View eKG;
+    private View eKH;
+    private RelativeLayout eLg;
+    private TbImageView eLh;
+    private TextView eLi;
+    private TextView eLj;
+    private TextView eLk;
     private String mForumId;
     public int mSkinType;
 
@@ -48,18 +48,18 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-        this.eLX = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
-        this.eLY = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
-        this.eLZ = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
-        this.eMa = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
-        this.eMb = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
-        this.eLx = findViewById(R.id.divider_line_1);
-        this.eLy = findViewById(R.id.divider_line_2);
+        this.eLg = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
+        this.eLh = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
+        this.eLi = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
+        this.eLj = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
+        this.eLk = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
+        this.eKG = findViewById(R.id.divider_line_1);
+        this.eKH = findViewById(R.id.divider_line_2);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eLX.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eLg.getLayoutParams();
         layoutParams.width = (dimensionPixelSize * 21) / 9;
         layoutParams.height = dimensionPixelSize;
-        this.eLX.setLayoutParams(layoutParams);
+        this.eLg.setLayoutParams(layoutParams);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -69,7 +69,7 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
                     TiebaStatic.log(new an("c13047").O("obj_locate", 5).bS("fid", CardFrsGameSpecialTopicItemView.this.mForumId));
-                    ba.amQ().a((TbPageContext) com.baidu.adp.base.i.ab(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
+                    ba.amO().a((TbPageContext) com.baidu.adp.base.i.ab(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
                 }
             }
         });
@@ -80,29 +80,29 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     }
 
     public TbImageView getSpecialTopicPicView() {
-        return this.eLY;
+        return this.eLh;
     }
 
     public TextView getSpecialTopicNameView() {
-        return this.eLZ;
+        return this.eLi;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
-        return this.eMb;
+        return this.eLk;
     }
 
     public TextView getSpecialTopicDscView() {
-        return this.eMa;
+        return this.eLj;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.setBackgroundResource(this.eLx, R.color.cp_bg_line_e);
-            am.setBackgroundResource(this.eLy, R.color.cp_bg_line_e);
-            am.setViewTextColor(this.eLZ, R.color.cp_cont_a, 1);
-            am.setViewTextColor(this.eMa, R.color.cp_cont_a, 1);
-            am.setViewTextColor(this.eMb, R.color.cp_cont_a, 1);
+            am.setBackgroundResource(this.eKG, R.color.cp_bg_line_e);
+            am.setBackgroundResource(this.eKH, R.color.cp_bg_line_e);
+            am.setViewTextColor(this.eLi, R.color.cp_cont_a, 1);
+            am.setViewTextColor(this.eLj, R.color.cp_cont_a, 1);
+            am.setViewTextColor(this.eLk, R.color.cp_cont_a, 1);
         }
     }
 }

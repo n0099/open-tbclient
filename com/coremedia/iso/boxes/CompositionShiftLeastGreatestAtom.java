@@ -8,16 +8,16 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     public static final String TYPE = "cslg";
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_9 = null;
     int compositionOffsetToDisplayOffsetShift;
     int displayEndTime;
     int displayStartTime;
@@ -77,7 +77,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setCompositionOffsetToDisplayOffsetShift(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Dl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Dk(i)));
         this.compositionOffsetToDisplayOffsetShift = i;
     }
 
@@ -87,7 +87,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setLeastDisplayOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dk(i)));
         this.leastDisplayOffset = i;
     }
 
@@ -97,7 +97,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setGreatestDisplayOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Dl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Dk(i)));
         this.greatestDisplayOffset = i;
     }
 
@@ -107,7 +107,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setDisplayStartTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Dl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Dk(i)));
         this.displayStartTime = i;
     }
 
@@ -117,7 +117,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setDisplayEndTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.Dl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.Dk(i)));
         this.displayEndTime = i;
     }
 }

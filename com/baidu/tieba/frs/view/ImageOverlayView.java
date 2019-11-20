@@ -11,32 +11,32 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ImageOverlayView extends ViewGroup {
-    private int eGL;
-    private int fXP;
-    private int fXQ;
-    private int fXR;
-    private int fXS;
-    private a fXT;
-    private List<String> fXU;
-    private boolean fXV;
-    public final View.OnClickListener fXW;
+    private int eFU;
+    private int fWY;
+    private int fWZ;
+    private int fXa;
+    private int fXb;
+    private a fXc;
+    private List<String> fXd;
+    private boolean fXe;
+    public final View.OnClickListener fXf;
     private int mImageHeight;
     private int mImageWidth;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void brI();
+        void brG();
     }
 
     public ImageOverlayView(Context context) {
         super(context);
-        this.eGL = 10;
-        this.fXV = false;
-        this.fXW = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ImageOverlayView.1
+        this.eFU = 10;
+        this.fXe = false;
+        this.fXf = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ImageOverlayView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ImageOverlayView.this.fXT != null) {
-                    ImageOverlayView.this.fXT.brI();
+                if (ImageOverlayView.this.fXc != null) {
+                    ImageOverlayView.this.fXc.brG();
                 }
             }
         };
@@ -44,13 +44,13 @@ public class ImageOverlayView extends ViewGroup {
 
     public ImageOverlayView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eGL = 10;
-        this.fXV = false;
-        this.fXW = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ImageOverlayView.1
+        this.eFU = 10;
+        this.fXe = false;
+        this.fXf = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ImageOverlayView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ImageOverlayView.this.fXT != null) {
-                    ImageOverlayView.this.fXT.brI();
+                if (ImageOverlayView.this.fXc != null) {
+                    ImageOverlayView.this.fXc.brG();
                 }
             }
         };
@@ -58,39 +58,39 @@ public class ImageOverlayView extends ViewGroup {
 
     public ImageOverlayView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eGL = 10;
-        this.fXV = false;
-        this.fXW = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ImageOverlayView.1
+        this.eFU = 10;
+        this.fXe = false;
+        this.fXf = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ImageOverlayView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ImageOverlayView.this.fXT != null) {
-                    ImageOverlayView.this.fXT.brI();
+                if (ImageOverlayView.this.fXc != null) {
+                    ImageOverlayView.this.fXc.brG();
                 }
             }
         };
     }
 
     public void j(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.fXP = i;
+        this.fWY = i;
         this.mImageWidth = i2;
         this.mImageHeight = i3;
-        this.fXQ = i4;
-        this.fXR = i5;
-        this.fXS = i6;
-        brH();
+        this.fWZ = i4;
+        this.fXa = i5;
+        this.fXb = i6;
+        brF();
     }
 
-    private void brH() {
-        for (int i = 0; i < this.fXP; i++) {
+    private void brF() {
+        for (int i = 0; i < this.fWY; i++) {
             HeadImageView headImageView = new HeadImageView(getContext());
             headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.mImageWidth, this.mImageHeight));
             headImageView.setIsRound(true);
             headImageView.setBorderSurroundContent(true);
             headImageView.setDrawBorder(true);
             headImageView.setAutoChangeStyle(true);
-            headImageView.setBorderWidth(this.fXQ);
+            headImageView.setBorderWidth(this.fWZ);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            headImageView.setBorderColor(am.getColor(this.fXR));
+            headImageView.setBorderColor(am.getColor(this.fXa));
             headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             addView(headImageView);
         }
@@ -98,7 +98,7 @@ public class ImageOverlayView extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        setMeasuredDimension(resolveSize(((getPaddingLeft() + getPaddingRight()) + (this.fXP * this.mImageWidth)) - ((this.fXP - 1) * this.fXS), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight, i2));
+        setMeasuredDimension(resolveSize(((getPaddingLeft() + getPaddingRight()) + (this.fWY * this.mImageWidth)) - ((this.fWY - 1) * this.fXb), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight, i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -106,21 +106,21 @@ public class ImageOverlayView extends ViewGroup {
         int paddingLeft;
         int paddingTop;
         View childAt;
-        if (this.fXV) {
+        if (this.fXe) {
             paddingLeft = getPaddingLeft();
             paddingTop = getPaddingTop();
         } else {
-            paddingLeft = ((this.fXP - 1) * (this.mImageWidth - this.fXS)) + getPaddingLeft();
+            paddingLeft = ((this.fWY - 1) * (this.mImageWidth - this.fXb)) + getPaddingLeft();
             paddingTop = getPaddingTop();
         }
         int i5 = paddingLeft;
-        for (int i6 = 0; i6 < this.fXP && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
-            if (this.fXV) {
+        for (int i6 = 0; i6 < this.fWY && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
+            if (this.fXe) {
                 childAt.layout(i5, paddingTop, this.mImageWidth + i5, this.mImageHeight + paddingTop);
-                i5 += this.mImageWidth - this.fXS;
+                i5 += this.mImageWidth - this.fXb;
             } else {
                 childAt.layout(i5, paddingTop, this.mImageWidth + i5, this.mImageHeight + paddingTop);
-                i5 -= this.mImageWidth - this.fXS;
+                i5 -= this.mImageWidth - this.fXb;
             }
         }
     }
@@ -128,15 +128,15 @@ public class ImageOverlayView extends ViewGroup {
     public void setData(List<String> list) {
         HeadImageView headImageView;
         if (!v.isEmpty(list)) {
-            this.fXU = list;
-            for (int i = 0; i < this.fXP && (headImageView = (HeadImageView) getChildAt(i)) != null; i++) {
+            this.fXd = list;
+            for (int i = 0; i < this.fWY && (headImageView = (HeadImageView) getChildAt(i)) != null; i++) {
                 if (i >= list.size()) {
                     headImageView.setVisibility(8);
                 } else {
                     headImageView.setVisibility(0);
                     String str = (String) v.getItem(list, (list.size() - i) - 1);
                     if (str != null) {
-                        if (this.eGL == 12) {
+                        if (this.eFU == 12) {
                             headImageView.a(str, 12, this.mImageWidth, this.mImageHeight, false);
                         } else {
                             headImageView.a(str, 10, this.mImageWidth, this.mImageHeight, false);
@@ -156,7 +156,7 @@ public class ImageOverlayView extends ViewGroup {
             if (i2 < getChildCount()) {
                 View childAt = getChildAt(i2);
                 if (childAt instanceof HeadImageView) {
-                    ((HeadImageView) childAt).setBorderColor(am.getColor(this.fXR));
+                    ((HeadImageView) childAt).setBorderColor(am.getColor(this.fXa));
                 }
                 i = i2 + 1;
             } else {
@@ -166,14 +166,14 @@ public class ImageOverlayView extends ViewGroup {
     }
 
     public void setImageClickListener(a aVar) {
-        this.fXT = aVar;
+        this.fXc = aVar;
     }
 
     public void setLoadImageType(int i) {
-        this.eGL = i;
+        this.eFU = i;
     }
 
     public void setOrientation(boolean z) {
-        this.fXV = z;
+        this.fXe = z;
     }
 }

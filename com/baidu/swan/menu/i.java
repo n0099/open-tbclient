@@ -7,11 +7,11 @@ import com.baidu.swan.menu.viewpager.SlideableGridView;
 import java.util.List;
 /* loaded from: classes2.dex */
 class i extends SlideableGridView.a {
-    private int bJS;
-    private List<j> bKP;
+    private List<j> bJY;
+    private int bJb;
     private Context mContext;
-    private boolean bJT = true;
-    private int bKQ = 10;
+    private boolean bJc = true;
+    private int bJZ = 10;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(Context context) {
@@ -20,52 +20,52 @@ class i extends SlideableGridView.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setData(List<j> list) {
-        this.bKP = list;
+        this.bJY = list;
     }
 
     public void dA(boolean z) {
-        this.bJT = z;
+        this.bJc = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setMenuStyle(int i) {
-        this.bJS = i;
+        this.bJb = i;
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView.a
     public int getPageCount() {
-        if (this.bKP == null) {
+        if (this.bJY == null) {
             return 0;
         }
-        if (this.bKP.size() % this.bKQ == 0) {
-            return this.bKP.size() / this.bKQ;
+        if (this.bJY.size() % this.bJZ == 0) {
+            return this.bJY.size() / this.bJZ;
         }
-        return (this.bKP.size() / this.bKQ) + 1;
+        return (this.bJY.size() / this.bJZ) + 1;
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView.a
-    public int gv(int i) {
-        if (this.bKP == null) {
+    public int gu(int i) {
+        if (this.bJY == null) {
             return 0;
         }
-        return i < this.bKP.size() / this.bKQ ? this.bKQ : this.bKP.size() % this.bKQ;
+        return i < this.bJY.size() / this.bJZ ? this.bJZ : this.bJY.size() % this.bJZ;
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView.a
     public View a(int i, int i2, View view, ViewGroup viewGroup) {
         View kVar = view == null ? new k(this.mContext) : view;
-        ((k) kVar).setMenuStyle(this.bJS);
-        ((k) kVar).e(this.bKP.get((this.bKQ * i) + i2));
+        ((k) kVar).setMenuStyle(this.bJb);
+        ((k) kVar).e(this.bJY.get((this.bJZ * i) + i2));
         return kVar;
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView.a
     public void a(int i, int i2, View view) {
-        if (this.bKP != null) {
-            j jVar = this.bKP.get((this.bKQ * i) + i2);
-            e aaD = jVar.aaD();
-            if (aaD != null) {
-                aaD.a(view, jVar);
+        if (this.bJY != null) {
+            j jVar = this.bJY.get((this.bJZ * i) + i2);
+            e aaB = jVar.aaB();
+            if (aaB != null) {
+                aaB.a(view, jVar);
             }
         }
     }

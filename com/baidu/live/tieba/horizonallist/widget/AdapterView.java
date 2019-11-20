@@ -18,10 +18,10 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Adapter;
 /* loaded from: classes6.dex */
 public abstract class AdapterView<T extends Adapter> extends ViewGroup {
-    e amD;
-    c amE;
-    d amF;
-    private AdapterView<T>.f amG;
+    e aml;
+    c amm;
+    d amn;
+    private AdapterView<T>.f amo;
     AccessibilityManager mAccessibilityManager;
     protected boolean mBlockLayoutRequests;
     public boolean mDataChanged;
@@ -125,20 +125,20 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     public void setOnItemClickListener(c cVar) {
-        this.amE = cVar;
+        this.amm = cVar;
     }
 
     public final c getOnItemClickListener() {
-        return this.amE;
+        return this.amm;
     }
 
     public boolean performItemClick(View view, int i, long j) {
-        if (this.amE != null) {
+        if (this.amm != null) {
             playSoundEffect(0);
             if (view != null) {
                 view.sendAccessibilityEvent(1);
             }
-            this.amE.a(this, view, i, j);
+            this.amm.a(this, view, i, j);
             return true;
         }
         return false;
@@ -148,29 +148,29 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         if (!isLongClickable()) {
             setLongClickable(true);
         }
-        this.amF = dVar;
+        this.amn = dVar;
     }
 
     public final d getOnItemLongClickListener() {
-        return this.amF;
+        return this.amn;
     }
 
     public void setOnItemSelectedListener(e eVar) {
-        this.amD = eVar;
+        this.aml = eVar;
     }
 
     public final e getOnItemSelectedListener() {
-        return this.amD;
+        return this.aml;
     }
 
     /* loaded from: classes6.dex */
     public static class a implements ContextMenu.ContextMenuInfo {
-        public View amH;
+        public View amp;
         public long id;
         public int position;
 
         public a(View view, int i, long j) {
-            this.amH = view;
+            this.amp = view;
             this.position = i;
             this.id = j;
         }
@@ -379,7 +379,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes6.dex */
     class b extends DataSetObserver {
-        private Parcelable amI = null;
+        private Parcelable amq = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -390,9 +390,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             AdapterView.this.mDataChanged = true;
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = AdapterView.this.getAdapter().getCount();
-            if (AdapterView.this.getAdapter().hasStableIds() && this.amI != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
-                AdapterView.this.onRestoreInstanceState(this.amI);
-                this.amI = null;
+            if (AdapterView.this.getAdapter().hasStableIds() && this.amq != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
+                AdapterView.this.onRestoreInstanceState(this.amq);
+                this.amq = null;
             } else {
                 AdapterView.this.rememberSyncState();
             }
@@ -404,7 +404,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             AdapterView.this.mDataChanged = true;
             if (AdapterView.this.getAdapter().hasStableIds()) {
-                this.amI = AdapterView.this.onSaveInstanceState();
+                this.amq = AdapterView.this.onSaveInstanceState();
             }
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = 0;
@@ -422,7 +422,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.amG);
+        removeCallbacks(this.amo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -443,12 +443,12 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     void selectionChanged() {
-        if (this.amD != null || this.mAccessibilityManager.isEnabled()) {
+        if (this.aml != null || this.mAccessibilityManager.isEnabled()) {
             if (this.mInLayout || this.mBlockLayoutRequests) {
-                if (this.amG == null) {
-                    this.amG = new f();
+                if (this.amo == null) {
+                    this.amo = new f();
                 }
-                post(this.amG);
+                post(this.amo);
                 return;
             }
             fireOnSelected();
@@ -458,13 +458,13 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fireOnSelected() {
-        if (this.amD != null) {
+        if (this.aml != null) {
             int selectedItemPosition = getSelectedItemPosition();
             if (selectedItemPosition >= 0) {
-                this.amD.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
+                this.aml.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
                 return;
             }
-            this.amD.d(this);
+            this.aml.d(this);
         }
     }
 

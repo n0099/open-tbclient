@@ -1,47 +1,47 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 public class t {
-    private static t cjd;
-    private long ciY = 0;
-    private long ciZ = 0;
-    private String cja = "";
-    private String cjb = "";
-    private final long cjc = 120000;
+    private static t cim;
+    private long cih = 0;
+    private long cii = 0;
+    private String cij = "";
+    private String cik = "";
+    private final long cil = 120000;
 
-    public static t amm() {
-        if (cjd == null) {
+    public static t amk() {
+        if (cim == null) {
             synchronized (t.class) {
-                if (cjd == null) {
-                    cjd = new t();
+                if (cim == null) {
+                    cim = new t();
                 }
             }
         }
-        return cjd;
+        return cim;
     }
 
-    public String amn() {
+    public String aml() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.ciY > 120000) {
+        if (currentTimeMillis - this.cih > 120000) {
             if (com.baidu.adp.lib.util.l.isMainThread()) {
                 return "";
             }
-            this.ciY = currentTimeMillis;
-            this.cja = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
+            this.cih = currentTimeMillis;
+            this.cij = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
         }
-        return this.cja;
+        return this.cij;
     }
 
     public String nM(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.ciZ > 120000) {
+        if (currentTimeMillis - this.cii > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");
             if (indexOf <= 0 || com.baidu.adp.lib.util.l.isMainThread()) {
                 return "";
             }
-            this.ciZ = currentTimeMillis;
-            this.cjb = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
-            return this.cjb;
+            this.cii = currentTimeMillis;
+            this.cik = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
+            return this.cik;
         }
-        return this.cjb;
+        return this.cik;
     }
 }

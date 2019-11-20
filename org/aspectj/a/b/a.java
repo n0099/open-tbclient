@@ -1,29 +1,29 @@
 package org.aspectj.a.b;
 /* loaded from: classes5.dex */
 abstract class a extends d implements org.aspectj.lang.reflect.a {
-    Class[] kwG;
-    String[] kwH;
-    Class[] kwI;
+    Class[] kvP;
+    String[] kvQ;
+    Class[] kvR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
         super(i, str, cls);
-        this.kwG = clsArr;
-        this.kwH = strArr;
-        this.kwI = clsArr2;
+        this.kvP = clsArr;
+        this.kvQ = strArr;
+        this.kvR = clsArr2;
     }
 
-    public Class[] cNl() {
-        if (this.kwG == null) {
-            this.kwG = Dp(3);
+    public Class[] cNj() {
+        if (this.kvP == null) {
+            this.kvP = Do(3);
         }
-        return this.kwG;
+        return this.kvP;
     }
 
-    public Class[] cNm() {
-        if (this.kwI == null) {
-            this.kwI = Dp(5);
+    public Class[] cNk() {
+        if (this.kvR == null) {
+            this.kvR = Do(5);
         }
-        return this.kwI;
+        return this.kvR;
     }
 }

@@ -44,7 +44,7 @@ public class a extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                bVar.Rd().a((Activity) context, "mapp_choose_invoice", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.s.a.1
+                bVar.Rf().a((Activity) context, "mapp_choose_invoice", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.s.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: b */
@@ -66,9 +66,9 @@ public class a extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final CallbackHandler callbackHandler, final UnitedSchemeEntity unitedSchemeEntity, com.baidu.swan.apps.ae.b bVar, final String str) {
-        com.baidu.swan.apps.u.a.Jp().a(context, bVar.id, bVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.s.a.2
+        com.baidu.swan.apps.u.a.Jq().a(context, bVar.id, bVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.s.a.2
             @Override // com.baidu.swan.apps.s.b
-            public void P(JSONObject jSONObject) {
+            public void Q(JSONObject jSONObject) {
                 c.i("chooseInvoiceTitle", "选择成功");
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), str);
             }

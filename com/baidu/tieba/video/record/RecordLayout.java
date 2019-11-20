@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class RecordLayout extends RelativeLayout {
-    private a jEI;
+    private a jDR;
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -18,9 +18,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void cvn();
+        void cvl();
 
-        void cvo();
+        void cvm();
     }
 
     public RecordLayout(Context context) {
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.jEI != null) {
+                if (this.jDR != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.jEI.cvo();
+                            this.jDR.cvm();
                         } else {
-                            this.jEI.cvn();
+                            this.jDR.cvl();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) {
                         if (rawX > 0) {
-                            this.jEI.cvo();
+                            this.jDR.cvm();
                         } else {
-                            this.jEI.cvo();
+                            this.jDR.cvm();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.jEI = aVar;
+        this.jDR = aVar;
     }
 }

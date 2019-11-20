@@ -51,14 +51,14 @@ public class e {
     }
 
     public static int k(float f, float f2) {
-        return f((int) f, (int) f2);
+        return d((int) f, (int) f2);
     }
 
-    public static int f(int i, int i2) {
-        return i - (g(i, i2) * i2);
+    public static int d(int i, int i2) {
+        return i - (e(i, i2) * i2);
     }
 
-    private static int g(int i, int i2) {
+    private static int e(int i, int i2) {
         int i3 = i / i2;
         if ((i ^ i2) < 0 && i3 * i2 != i) {
             return i3 - 1;

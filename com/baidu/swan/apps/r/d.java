@@ -6,14 +6,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.swan.apps.model.a.a.a {
-    public boolean aRG;
-    public int aRH;
-    public int aRI;
-    public int aRJ;
-    public int aRK;
-    public String aRL;
-    public boolean aRM;
-    public boolean aRN;
+    public boolean aRo;
+    public int aRp;
+    public int aRq;
+    public int aRr;
+    public int aRs;
+    public String aRt;
+    public boolean aRu;
+    public boolean aRv;
     public String color;
     public int fontSize;
     public String fontWeight;
@@ -29,28 +29,28 @@ public class d extends com.baidu.swan.apps.model.a.a.a {
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        if (this.aXJ == null) {
-            this.aXJ = new com.baidu.swan.apps.model.a.a.b();
+        if (this.aXr == null) {
+            this.aXr = new com.baidu.swan.apps.model.a.a.b();
         }
         this.value = jSONObject.optString("value");
         this.type = jSONObject.optString("type");
         this.maxLength = jSONObject.optInt("maxLength");
-        this.aRH = jSONObject.optInt("cursorSpacing");
-        this.aRI = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
-        this.aRJ = jSONObject.optInt("selectionStart");
-        this.aRK = jSONObject.optInt("selectionEnd");
-        this.aRL = jSONObject.optString("confirmType");
+        this.aRp = jSONObject.optInt("cursorSpacing");
+        this.aRq = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
+        this.aRr = jSONObject.optInt("selectionStart");
+        this.aRs = jSONObject.optInt("selectionEnd");
+        this.aRt = jSONObject.optString("confirmType");
         JSONObject optJSONObject = jSONObject.optJSONObject("style");
         this.fontSize = optJSONObject.optInt("fontSize");
         this.fontWeight = optJSONObject.optString("fontWeight");
         this.color = optJSONObject.optString("color");
         this.textAlign = optJSONObject.optString("textAlign");
-        this.aRG = jSONObject.optInt("password") == 1;
-        this.aRM = jSONObject.optInt("confirmHold") == 1;
-        this.aRN = jSONObject.optInt("adjustPosition", 1) == 1;
+        this.aRo = jSONObject.optInt("password") == 1;
+        this.aRu = jSONObject.optInt("confirmHold") == 1;
+        this.aRv = jSONObject.optInt("adjustPosition", 1) == 1;
     }
 
-    public void ab(JSONObject jSONObject) {
+    public void ac(JSONObject jSONObject) {
         try {
             super.parseFromJson(jSONObject);
         } catch (JSONException e) {

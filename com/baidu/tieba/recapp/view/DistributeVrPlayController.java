@@ -6,32 +6,32 @@ import com.baidu.tieba.ad.play.a;
 import com.baidu.tieba.recapp.a;
 /* loaded from: classes3.dex */
 public class DistributeVrPlayController extends a {
-    private boolean iPy;
+    private boolean iOH;
 
     public DistributeVrPlayController(IVrPlayView iVrPlayView) {
         super(iVrPlayView);
-        this.iPy = true;
+        this.iOH = true;
     }
 
     @Override // com.baidu.tieba.recapp.a
     public void initListener() {
-        this.diA = new a.InterfaceC0311a() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.1
+        this.dhI = new a.InterfaceC0311a() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.1
             @Override // com.baidu.tieba.ad.play.a.InterfaceC0311a
             public void onLoading() {
-                DistributeVrPlayController.this.iHn.loading();
+                DistributeVrPlayController.this.iGw.loading();
             }
 
             @Override // com.baidu.tieba.ad.play.a.InterfaceC0311a
             public void onPlay() {
-                if (DistributeVrPlayController.this.iPy) {
-                    DistributeVrPlayController.this.iPy = false;
-                    DistributeVrPlayController.this.iHn.showPanoramaPrompt();
+                if (DistributeVrPlayController.this.iOH) {
+                    DistributeVrPlayController.this.iOH = false;
+                    DistributeVrPlayController.this.iGw.showPanoramaPrompt();
                 }
-                DistributeVrPlayController.this.iHn.play();
+                DistributeVrPlayController.this.iGw.play();
                 DistributeVrPlayController.this.mStatus = 1;
             }
         };
-        this.byw = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.2
+        this.bxF = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.2
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
                 if (mediaPlayer != null) {
@@ -39,26 +39,26 @@ public class DistributeVrPlayController extends a {
                 }
             }
         };
-        this.iHq = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.3
+        this.iGz = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.3
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
                 DistributeVrPlayController.this.stopPlay();
-                DistributeVrPlayController.this.iHn.complete();
+                DistributeVrPlayController.this.iGw.complete();
             }
         };
-        this.iHr = new a.b() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.4
+        this.iGA = new a.b() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                DistributeVrPlayController.this.iHn.loading();
+                DistributeVrPlayController.this.iGw.loading();
                 DistributeVrPlayController.this.playVideo();
                 aVar.dismiss();
             }
         };
-        this.def = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.5
+        this.ddn = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.5
             @Override // android.media.MediaPlayer.OnErrorListener
             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
                 DistributeVrPlayController.this.stopPlay();
-                DistributeVrPlayController.this.iHn.error();
+                DistributeVrPlayController.this.iGw.error();
                 return true;
             }
         };

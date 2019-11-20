@@ -23,16 +23,16 @@ public class a<T> {
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
     private final e composition;
     @Nullable
-    public final T ej;
+    public final T dK;
     @Nullable
-    public final T ek;
+    public final T dL;
     @Nullable
-    public final Interpolator el;
-    public final float em;
+    public final Interpolator dM;
+    public final float dN;
     @Nullable
-    public Float en;
-    private float eo = Float.MIN_VALUE;
-    private float ep = Float.MIN_VALUE;
+    public Float dO;
+    private float dP = Float.MIN_VALUE;
+    private float dQ = Float.MIN_VALUE;
 
     public static void f(List<? extends a<?>> list) {
         int size = list.size();
@@ -42,44 +42,44 @@ public class a<T> {
             if (i2 >= size - 1) {
                 break;
             }
-            list.get(i2).en = Float.valueOf(list.get(i2 + 1).em);
+            list.get(i2).dO = Float.valueOf(list.get(i2 + 1).dN);
             i = i2 + 1;
         }
         a<?> aVar = list.get(size - 1);
-        if (aVar.ej == null) {
+        if (aVar.dK == null) {
             list.remove(aVar);
         }
     }
 
     public a(e eVar, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
         this.composition = eVar;
-        this.ej = t;
-        this.ek = t2;
-        this.el = interpolator;
-        this.em = f;
-        this.en = f2;
+        this.dK = t;
+        this.dL = t2;
+        this.dM = interpolator;
+        this.dN = f;
+        this.dO = f2;
     }
 
     public float bo() {
-        if (this.eo == Float.MIN_VALUE) {
-            this.eo = (this.em - ((float) this.composition.aU())) / this.composition.ba();
+        if (this.dP == Float.MIN_VALUE) {
+            this.dP = (this.dN - ((float) this.composition.aU())) / this.composition.ba();
         }
-        return this.eo;
+        return this.dP;
     }
 
     public float bp() {
-        if (this.ep == Float.MIN_VALUE) {
-            if (this.en == null) {
-                this.ep = 1.0f;
+        if (this.dQ == Float.MIN_VALUE) {
+            if (this.dO == null) {
+                this.dQ = 1.0f;
             } else {
-                this.ep = bo() + ((this.en.floatValue() - this.em) / this.composition.ba());
+                this.dQ = bo() + ((this.dO.floatValue() - this.dN) / this.composition.ba());
             }
         }
-        return this.ep;
+        return this.dQ;
     }
 
     public boolean bq() {
-        return this.el == null;
+        return this.dM == null;
     }
 
     public boolean g(@FloatRange(from = 0.0d, to = 1.0d) float f) {
@@ -87,19 +87,19 @@ public class a<T> {
     }
 
     public String toString() {
-        return "Keyframe{startValue=" + this.ej + ", endValue=" + this.ek + ", startFrame=" + this.em + ", endFrame=" + this.en + ", interpolator=" + this.el + '}';
+        return "Keyframe{startValue=" + this.dK + ", endValue=" + this.dL + ", startFrame=" + this.dN + ", endFrame=" + this.dO + ", interpolator=" + this.dM + '}';
     }
 
     /* renamed from: com.tb.airbnb.lottie.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0575a {
-        private static SparseArrayCompat<WeakReference<Interpolator>> eq;
+        private static SparseArrayCompat<WeakReference<Interpolator>> dR;
 
         private static SparseArrayCompat<WeakReference<Interpolator>> bs() {
-            if (eq == null) {
-                eq = new SparseArrayCompat<>();
+            if (dR == null) {
+                dR = new SparseArrayCompat<>();
             }
-            return eq;
+            return dR;
         }
 
         @Nullable
@@ -113,7 +113,7 @@ public class a<T> {
 
         private static void a(int i, WeakReference<Interpolator> weakReference) {
             synchronized (C0575a.class) {
-                eq.put(i, weakReference);
+                dR.put(i, weakReference);
             }
         }
 

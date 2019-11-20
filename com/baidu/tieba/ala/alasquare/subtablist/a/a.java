@@ -10,16 +10,16 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.ala.alasquare.subtablist.c.h;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.subtablist.b.a, com.baidu.tieba.ala.alasquare.subtablist.c.b> {
-    private h dBR;
-    private boolean dDE;
-    private com.baidu.tieba.ala.alasquare.subtablist.c.a dDF;
+    private h dBa;
+    private boolean dCN;
+    private com.baidu.tieba.ala.alasquare.subtablist.c.a dCO;
     private int from;
     private int isSmallFollow;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.a.dDH);
-        this.dDE = false;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.a.dCQ);
+        this.dCN = false;
         this.mPageContext = tbPageContext;
     }
 
@@ -28,8 +28,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: K */
     public com.baidu.tieba.ala.alasquare.subtablist.c.b b(ViewGroup viewGroup) {
-        this.dDF = new com.baidu.tieba.ala.alasquare.subtablist.c.a(this.mPageContext, this.dDE);
-        return new com.baidu.tieba.ala.alasquare.subtablist.c.b(this.dDF);
+        this.dCO = new com.baidu.tieba.ala.alasquare.subtablist.c.a(this.mPageContext, this.dCN);
+        return new com.baidu.tieba.ala.alasquare.subtablist.c.b(this.dCO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,43 +37,43 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.subtablist.b.a aVar, com.baidu.tieba.ala.alasquare.subtablist.c.b bVar) {
         a(aVar);
-        bVar.dDF.a(aVar);
-        bVar.dDF.d(this.dBR);
+        bVar.dCO.a(aVar);
+        bVar.dCO.d(this.dBa);
         return bVar.getView();
     }
 
     private void a(com.baidu.tieba.ala.alasquare.subtablist.b.a aVar) {
         if (aVar != null) {
             if (this.from == 1) {
-                if (aVar.dxr != null) {
-                    com.baidu.tieba.ala.alasquare.c.a.aJO().c(com.baidu.tieba.ala.alasquare.c.a.aJO().a(this.isSmallFollow, "c12117", aVar.dxr.tabId, aVar.dxr.entryName, aVar.dxr.agI()));
+                if (aVar.dwA != null) {
+                    com.baidu.tieba.ala.alasquare.c.a.aJM().c(com.baidu.tieba.ala.alasquare.c.a.aJM().a(this.isSmallFollow, "c12117", aVar.dwA.tabId, aVar.dwA.entryName, aVar.dwA.agG()));
                 }
-                if (aVar.dxs != null) {
-                    com.baidu.tieba.ala.alasquare.c.a.aJO().c(com.baidu.tieba.ala.alasquare.c.a.aJO().a(this.isSmallFollow, "c12117", aVar.dxs.tabId, aVar.dxs.entryName, aVar.dxs.agI()));
+                if (aVar.dwB != null) {
+                    com.baidu.tieba.ala.alasquare.c.a.aJM().c(com.baidu.tieba.ala.alasquare.c.a.aJM().a(this.isSmallFollow, "c12117", aVar.dwB.tabId, aVar.dwB.entryName, aVar.dwB.agG()));
                 }
             } else if (this.from == 2) {
-                if (aVar.dxr != null && aVar.dxr.agI() != null && aVar.dxr.agI().aiZ() != null) {
-                    bh agI = aVar.dxr.agI();
-                    TiebaStatic.log(new an("c12115").p("obj_id", agI.aiZ().live_id).bS(TiebaInitialize.Params.OBJ_PARAM3, agI.aiZ().appId).bS("locate_type", aVar.dxr.entryName));
+                if (aVar.dwA != null && aVar.dwA.agG() != null && aVar.dwA.agG().aiX() != null) {
+                    bh agG = aVar.dwA.agG();
+                    TiebaStatic.log(new an("c12115").p("obj_id", agG.aiX().live_id).bS(TiebaInitialize.Params.OBJ_PARAM3, agG.aiX().appId).bS("locate_type", aVar.dwA.entryName));
                 }
-                if (aVar.dxs != null && aVar.dxs.agI() != null && aVar.dxs.agI().aiZ() != null) {
-                    bh agI2 = aVar.dxs.agI();
-                    TiebaStatic.log(new an("c12115").p("obj_id", agI2.aiZ().live_id).bS(TiebaInitialize.Params.OBJ_PARAM3, agI2.aiZ().appId).bS("locate_type", aVar.dxs.entryName));
+                if (aVar.dwB != null && aVar.dwB.agG() != null && aVar.dwB.agG().aiX() != null) {
+                    bh agG2 = aVar.dwB.agG();
+                    TiebaStatic.log(new an("c12115").p("obj_id", agG2.aiX().live_id).bS(TiebaInitialize.Params.OBJ_PARAM3, agG2.aiX().appId).bS("locate_type", aVar.dwB.entryName));
                 }
             }
         }
     }
 
     public void b(h hVar) {
-        this.dBR = hVar;
+        this.dBa = hVar;
     }
 
-    public void mc(int i) {
+    public void mb(int i) {
         this.isSmallFollow = i;
     }
 
     public void gJ(boolean z) {
-        this.dDE = z;
+        this.dCN = z;
     }
 
     public void setFrom(int i) {

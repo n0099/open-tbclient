@@ -66,7 +66,7 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "the context is not an activity");
             return false;
         } else {
-            bVar.Rd().a((Activity) context, "mapp_i_delete_history", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
+            bVar.Rf().a((Activity) context, "mapp_i_delete_history", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
@@ -97,16 +97,16 @@ public class b extends z {
             public Boolean call(String str3) {
                 return Boolean.valueOf(com.baidu.swan.apps.database.a.b.a(AppRuntime.getAppContext().getContentResolver(), str3, false));
             }
-        }).a(rx.a.b.a.cOs()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.2
+        }).a(rx.a.b.a.cOq()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: c */
             public void call(Boolean bool) {
-                com.baidu.swan.apps.ae.b QZ;
-                com.baidu.swan.apps.process.messaging.client.a Iy;
+                com.baidu.swan.apps.ae.b Ra;
+                com.baidu.swan.apps.process.messaging.client.a Iz;
                 if (bool.booleanValue()) {
-                    if (!TextUtils.isEmpty(str) && (QZ = com.baidu.swan.apps.ae.b.QZ()) != null && (Iy = QZ.Iy()) != null) {
-                        Iy.a(8, new SwanAppDeleteInfo(str));
+                    if (!TextUtils.isEmpty(str) && (Ra = com.baidu.swan.apps.ae.b.Ra()) != null && (Iz = Ra.Iz()) != null) {
+                        Iz.a(8, new SwanAppDeleteInfo(str));
                     }
                     c.i("history", "remove success");
                     if (b.DEBUG) {

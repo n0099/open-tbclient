@@ -40,7 +40,7 @@ public class e {
         this.tipView = LayoutInflater.from(this.mContext).inflate(R.layout.image_toast_view, (ViewGroup) null);
         this.tipText = (TextView) this.tipView.findViewById(R.id.tip_text);
         this.tipImage = (ImageView) this.tipView.findViewById(R.id.tip_iamge);
-        this.tipView.setBackgroundDrawable(am.ab(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), am.getColor(R.color.cp_hud_a)));
+        this.tipView.setBackgroundDrawable(am.Z(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), am.getColor(R.color.cp_hud_a)));
         am.setViewTextColor(this.tipText, (int) R.color.cp_cont_a);
         this.mToastHandler = new Handler();
     }

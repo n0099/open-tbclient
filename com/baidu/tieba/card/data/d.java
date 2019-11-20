@@ -5,35 +5,35 @@ import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public class d extends b implements p {
-    public String ePT = "";
+    public String ePc = "";
     public int mPn = 0;
     public String mPageType = "";
-    public AdvertAppInfo ePS = null;
+    public AdvertAppInfo ePb = null;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        if (this.ePS != null && this.ePS.getType() == AdvertAppInfo.bWT) {
-            return AdvertAppInfo.bWZ;
+        if (this.ePb != null && this.ePb.getType() == AdvertAppInfo.bWc) {
+            return AdvertAppInfo.bWi;
         }
-        if (this.ePS != null && this.ePS.legoCard != null) {
-            BdUniqueId bdUniqueId = AdvertAppInfo.bXc;
-            switch (this.ePS.legoCard.getGoodsStyle()) {
+        if (this.ePb != null && this.ePb.legoCard != null) {
+            BdUniqueId bdUniqueId = AdvertAppInfo.bWl;
+            switch (this.ePb.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return AdvertAppInfo.bXd;
+                    return AdvertAppInfo.bWm;
                 case 3:
                 case 4:
                 case 5:
                 default:
                     return bdUniqueId;
                 case 6:
-                    return AdvertAppInfo.bXe;
+                    return AdvertAppInfo.bWn;
                 case 7:
-                    return AdvertAppInfo.bXf;
+                    return AdvertAppInfo.bWo;
                 case 9:
-                    return AdvertAppInfo.bXh;
+                    return AdvertAppInfo.bWq;
                 case 10:
-                    return AdvertAppInfo.bXg;
+                    return AdvertAppInfo.bWp;
             }
         }
         return null;
@@ -41,11 +41,11 @@ public class d extends b implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.g.b.toInt(this.ePS != null ? this.ePS.adPosition : LivenessStat.TYPE_STRING_DEFAULT, -1);
+        return com.baidu.adp.lib.g.b.toInt(this.ePb != null ? this.ePb.adPosition : LivenessStat.TYPE_STRING_DEFAULT, -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean baM() {
+    public boolean baK() {
         return false;
     }
 
@@ -57,7 +57,7 @@ public class d extends b implements p {
     public void iO(boolean z) {
     }
 
-    public AdvertAppInfo baN() {
-        return this.ePS;
+    public AdvertAppInfo baL() {
+        return this.ePb;
     }
 }

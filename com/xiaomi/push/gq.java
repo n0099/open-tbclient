@@ -1,0 +1,17 @@
+package com.xiaomi.push;
+
+import com.xiaomi.push.al;
+/* loaded from: classes3.dex */
+final class gq extends al.b {
+    final /* synthetic */ Runnable a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public gq(Runnable runnable) {
+        this.a = runnable;
+    }
+
+    @Override // com.xiaomi.push.al.b
+    public void b() {
+        this.a.run();
+    }
+}

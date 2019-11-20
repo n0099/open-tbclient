@@ -9,7 +9,7 @@ import java.io.File;
 public abstract class d implements a {
     private SQLiteDatabase database = null;
     private final String dbFileFullPath;
-    private a.InterfaceC0012a lf;
+    private a.InterfaceC0012a kG;
     private int mVersion;
 
     public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
@@ -18,7 +18,7 @@ public abstract class d implements a {
 
     @Override // com.baidu.adp.base.a.a
     public void a(a.InterfaceC0012a interfaceC0012a) {
-        this.lf = interfaceC0012a;
+        this.kG = interfaceC0012a;
     }
 
     public d(String str, int i) {
@@ -64,8 +64,8 @@ public abstract class d implements a {
     }
 
     private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        if (this.lf != null) {
-            this.lf.onDatabaseCreated(sQLiteDatabase);
+        if (this.kG != null) {
+            this.kG.onDatabaseCreated(sQLiteDatabase);
         }
     }
 

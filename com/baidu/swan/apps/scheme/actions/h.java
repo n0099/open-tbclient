@@ -27,50 +27,50 @@ public class h extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.v.b.b AJ = bVar.AJ();
-        if (AJ == null || !AJ.isValid()) {
+        com.baidu.swan.apps.v.b.b AK = bVar.AK();
+        if (AK == null || !AK.isValid()) {
             com.baidu.swan.apps.console.c.e("appInfo", "launch info is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("appid", AJ.getAppId());
-            jSONObject.put("appname", AJ.Ht());
-            if (!TextUtils.isEmpty(AJ.getIconUrl())) {
-                jSONObject.put("iconUrl", AJ.getIconUrl());
+            jSONObject.put("appid", AK.getAppId());
+            jSONObject.put("appname", AK.Hu());
+            if (!TextUtils.isEmpty(AK.getIconUrl())) {
+                jSONObject.put("iconUrl", AK.getIconUrl());
             }
-            if (!TextUtils.isEmpty(AJ.KF())) {
-                jSONObject.put("appLaunchScheme", AJ.KF());
+            if (!TextUtils.isEmpty(AK.KG())) {
+                jSONObject.put("appLaunchScheme", AK.KG());
             }
-            if (AJ.KU() != null) {
-                String str = AJ.KU().description;
+            if (AK.KV() != null) {
+                String str = AK.KV().description;
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject.put("appDesc", str);
                 }
             }
-            String bf = com.baidu.swan.apps.u.a.Jn().bf(context);
+            String bf = com.baidu.swan.apps.u.a.Jo().bf(context);
             jSONObject.put("cuid", bf);
             jSONObject.put("mtjCuid", bf);
-            jSONObject.put("clkid", AJ.KJ());
-            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, AJ.KE());
-            jSONObject.put("appId", AJ.getAppId());
-            Bundle KI = AJ.KI();
-            if (KI != null) {
-                String string = KI.getString("extraData");
+            jSONObject.put("clkid", AK.KK());
+            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, AK.KF());
+            jSONObject.put("appId", AK.getAppId());
+            Bundle KJ = AK.KJ();
+            if (KJ != null) {
+                String string = KJ.getString("extraData");
                 if (!TextUtils.isEmpty(string)) {
                     jSONObject.put("extraData", new JSONObject(string));
                 }
-                if (!TextUtils.isEmpty(KI.getString("srcAppId"))) {
-                    jSONObject.put("srcAppId", KI.getString("srcAppId"));
+                if (!TextUtils.isEmpty(KJ.getString("srcAppId"))) {
+                    jSONObject.put("srcAppId", KJ.getString("srcAppId"));
                 }
-                if (!TextUtils.isEmpty(KI.getString("srcAppPage"))) {
-                    jSONObject.put("srcAppPage", KI.getString("srcAppPage"));
+                if (!TextUtils.isEmpty(KJ.getString("srcAppPage"))) {
+                    jSONObject.put("srcAppPage", KJ.getString("srcAppPage"));
                 }
                 String str2 = "sys";
-                SwanAppActivity Lp = com.baidu.swan.apps.w.e.LD().Lp();
-                if (Lp != null) {
-                    str2 = Lp.AG();
+                SwanAppActivity Lq = com.baidu.swan.apps.w.e.LE().Lq();
+                if (Lq != null) {
+                    str2 = Lq.AH();
                 }
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "sys";

@@ -13,9 +13,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class HistoryItemView extends LinearLayout {
-    TbRichTextView gAV;
-    TextView gAW;
-    ChatImageWithTailView gAX;
+    TbRichTextView gAe;
+    TextView gAf;
+    ChatImageWithTailView gAg;
     LinearLayout mContainer;
     Context mContext;
 
@@ -37,25 +37,25 @@ public class HistoryItemView extends LinearLayout {
         setClickable(false);
         setFocusable(false);
         this.mContainer = (LinearLayout) findViewById(R.id.history_container);
-        this.gAW = (TextView) findViewById(R.id.history_send_time);
-        this.gAV = (TbRichTextView) findViewById(R.id.history_txt);
-        this.gAX = (ChatImageWithTailView) findViewById(R.id.history_pic);
+        this.gAf = (TextView) findViewById(R.id.history_send_time);
+        this.gAe = (TbRichTextView) findViewById(R.id.history_txt);
+        this.gAg = (ChatImageWithTailView) findViewById(R.id.history_pic);
         am.setBackgroundResource(this.mContainer, R.drawable.selector_history_multi_single_bg);
-        am.setViewTextColor(this.gAW, R.color.common_color_10067, 1);
-        this.gAV.setTextColor(am.getColor(R.color.cp_cont_c));
-        this.gAX.setIsSupportNight(true);
+        am.setViewTextColor(this.gAf, R.color.common_color_10067, 1);
+        this.gAe.setTextColor(am.getColor(R.color.cp_cont_c));
+        this.gAg.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.gAW.setText(str);
+        this.gAf.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.gAV;
+        return this.gAe;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.gAX;
+        return this.gAg;
     }
 
     public void cc(View view) {

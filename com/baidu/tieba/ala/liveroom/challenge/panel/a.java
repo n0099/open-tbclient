@@ -10,37 +10,37 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes6.dex */
 public class a extends e {
-    private com.baidu.live.challenge.a dZQ;
-    private AlaChallengeWaveView eas;
-    private AlaChallengeWaveView eat;
-    private HeadImageView eau;
-    private HeadImageView eav;
+    private com.baidu.live.challenge.a dYZ;
+    private AlaChallengeWaveView dZB;
+    private AlaChallengeWaveView dZC;
+    private HeadImageView dZD;
+    private HeadImageView dZE;
 
     public a(Context context, k kVar) {
         super(context, kVar);
-        this.eas = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_left);
-        this.eat = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_right);
-        this.eas.setWaveArray(new float[]{AlaChallengeWaveView.ebC, AlaChallengeWaveView.ebB, AlaChallengeWaveView.ebA});
-        this.eat.setWaveArray(new float[]{AlaChallengeWaveView.ebA, AlaChallengeWaveView.ebB, AlaChallengeWaveView.ebC});
-        this.eau = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_left_header);
-        this.eau.setIsRound(true);
-        this.eau.setAutoChangeStyle(false);
-        this.eau.setDrawBorder(false);
-        this.eau.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eau.setDefaultBgResource(a.f.icon_challenge_default_avatar);
-        this.eau.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
-        this.eav = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_right_header);
-        this.eav.setIsRound(true);
-        this.eav.setAutoChangeStyle(false);
-        this.eav.setDrawBorder(false);
-        this.eav.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eav.setDefaultBgResource(a.f.icon_challenge_default_avatar);
+        this.dZB = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_left);
+        this.dZC = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_right);
+        this.dZB.setWaveArray(new float[]{AlaChallengeWaveView.eaL, AlaChallengeWaveView.eaK, AlaChallengeWaveView.eaJ});
+        this.dZC.setWaveArray(new float[]{AlaChallengeWaveView.eaJ, AlaChallengeWaveView.eaK, AlaChallengeWaveView.eaL});
+        this.dZD = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_left_header);
+        this.dZD.setIsRound(true);
+        this.dZD.setAutoChangeStyle(false);
+        this.dZD.setDrawBorder(false);
+        this.dZD.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.dZD.setDefaultBgResource(a.f.icon_challenge_default_avatar);
+        this.dZD.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
+        this.dZE = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_right_header);
+        this.dZE.setIsRound(true);
+        this.dZE.setAutoChangeStyle(false);
+        this.dZE.setDrawBorder(false);
+        this.dZE.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.dZE.setDefaultBgResource(a.f.icon_challenge_default_avatar);
     }
 
     public void d(com.baidu.live.challenge.a aVar) {
         if (aVar != null) {
-            this.dZQ = aVar;
-            this.eav.startLoad(aVar.OA, 25, false);
+            this.dYZ = aVar;
+            this.dZE.startLoad(aVar.Oa, 25, false);
         }
     }
 
@@ -50,18 +50,18 @@ public class a extends e {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
-    protected int aQB() {
+    protected int aQz() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds510);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
     protected void hide() {
         super.hide();
-        if (this.eas != null) {
-            this.eas.endAnimation();
+        if (this.dZB != null) {
+            this.dZB.endAnimation();
         }
-        if (this.eat != null) {
-            this.eat.endAnimation();
+        if (this.dZC != null) {
+            this.dZC.endAnimation();
         }
     }
 }

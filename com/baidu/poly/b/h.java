@@ -7,27 +7,27 @@ import android.widget.ImageView;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class h implements Runnable {
-    private ImageView aBm;
-    private Handler aBp;
-    private int aBq;
-    private int aBr;
+    private ImageView aAU;
+    private Handler aAX;
+    private int aAY;
+    private int aAZ;
     private Context context;
     private String url;
 
     public h(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
         this.context = context.getApplicationContext();
-        this.aBp = handler;
+        this.aAX = handler;
         this.url = str;
-        this.aBm = imageView;
-        this.aBq = i;
-        this.aBr = i2;
+        this.aAU = imageView;
+        this.aAY = i;
+        this.aAZ = i2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap i = i(this.url, this.aBq, this.aBr);
-        if (this.aBp != null) {
-            this.aBp.obtainMessage(1, new f(this.aBm, this.url, i)).sendToTarget();
+        Bitmap i = i(this.url, this.aAY, this.aAZ);
+        if (this.aAX != null) {
+            this.aAX.obtainMessage(1, new f(this.aAU, this.url, i)).sendToTarget();
         }
     }
 
@@ -55,7 +55,7 @@ public class h implements Runnable {
             e = e2;
         }
         if (j != null) {
-            a.zG().c(str, j);
+            a.zH().c(str, j);
             return j;
         }
         a.aF(this.context).dC(str);

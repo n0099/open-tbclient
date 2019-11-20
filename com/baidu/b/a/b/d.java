@@ -5,45 +5,45 @@ import android.text.TextUtils;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class d implements c {
-    private static volatile d Lt = null;
-    private c Lu;
+    private static volatile d KT = null;
+    private c KU;
 
     public static d mH() {
-        if (Lt == null) {
+        if (KT == null) {
             synchronized (d.class) {
-                if (Lt == null) {
-                    Lt = new d();
+                if (KT == null) {
+                    KT = new d();
                 }
             }
         }
-        return Lt;
+        return KT;
     }
 
     public void b(c cVar) {
-        this.Lu = cVar;
+        this.KU = cVar;
     }
 
     @Override // com.baidu.b.a.b.c
     public View J(Context context, String str) {
-        if (this.Lu == null || context == null || TextUtils.isEmpty(str)) {
+        if (this.KU == null || context == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.Lu.J(context, str);
+        return this.KU.J(context, str);
     }
 
     @Override // com.baidu.b.a.b.c
     public boolean a(String str, View view, com.baidu.b.a.a.a aVar) {
-        if (this.Lu == null || view == null || aVar == null) {
+        if (this.KU == null || view == null || aVar == null) {
             return false;
         }
-        return this.Lu.a(str, view, aVar);
+        return this.KU.a(str, view, aVar);
     }
 
     @Override // com.baidu.b.a.b.c
     public boolean a(String str, View view, String str2, String str3) {
-        if (this.Lu == null || view == null || TextUtils.isEmpty(str2)) {
+        if (this.KU == null || view == null || TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.Lu.a(str, view, str2, str3);
+        return this.KU.a(str, view, str2, str3);
     }
 }

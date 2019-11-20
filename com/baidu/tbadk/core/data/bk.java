@@ -14,7 +14,7 @@ public class bk {
         return this.title;
     }
 
-    public String akE() {
+    public String akC() {
         return this.title_link;
     }
 

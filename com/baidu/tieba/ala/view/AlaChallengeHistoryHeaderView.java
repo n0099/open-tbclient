@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.baidu.live.k.a;
 /* loaded from: classes6.dex */
 public class AlaChallengeHistoryHeaderView extends LinearLayout {
-    private TextView eDE;
-    private TextView eDF;
+    private TextView eCN;
+    private TextView eCO;
 
     public AlaChallengeHistoryHeaderView(Context context) {
         super(context);
@@ -30,14 +30,14 @@ public class AlaChallengeHistoryHeaderView extends LinearLayout {
 
     private void init() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.h.ala_challenge_list_header_layout, this);
-        this.eDE = (TextView) inflate.findViewById(a.g.challenge_success_rate);
-        this.eDF = (TextView) inflate.findViewById(a.g.challenge_success_num);
+        this.eCN = (TextView) inflate.findViewById(a.g.challenge_success_rate);
+        this.eCO = (TextView) inflate.findViewById(a.g.challenge_success_num);
     }
 
     public void setData(com.baidu.tieba.ala.data.d dVar) {
         if (dVar != null) {
-            this.eDE.setText(String.format("%s%s", dVar.dHi, "%"));
-            this.eDF.setText(dVar.dHh);
+            this.eCN.setText(String.format("%s%s", dVar.dGr, "%"));
+            this.eCO.setText(dVar.dGq);
         }
     }
 }

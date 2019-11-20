@@ -24,7 +24,7 @@ public class a extends z {
         String optString = optParamsAsJo.optString("inputId");
         String optString2 = optParamsAsJo.optString("slaveId");
         String optString3 = optParamsAsJo.optString("parentId");
-        com.baidu.swan.apps.textarea.c.b iG = com.baidu.swan.apps.textarea.c.a.TI().iG(optString2);
+        com.baidu.swan.apps.textarea.c.b iG = com.baidu.swan.apps.textarea.c.a.TG().iG(optString2);
         if (iG == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;

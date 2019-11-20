@@ -77,24 +77,24 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public final class a implements k {
-        private final Future<?> kDE;
+        private final Future<?> kCN;
 
         a(Future<?> future) {
-            this.kDE = future;
+            this.kCN = future;
         }
 
         @Override // rx.k
         public void unsubscribe() {
             if (ScheduledAction.this.get() != Thread.currentThread()) {
-                this.kDE.cancel(true);
+                this.kCN.cancel(true);
             } else {
-                this.kDE.cancel(false);
+                this.kCN.cancel(false);
             }
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.kDE.isCancelled();
+            return this.kCN.isCancelled();
         }
     }
 

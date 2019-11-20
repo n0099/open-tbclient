@@ -23,17 +23,17 @@ public class y extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public boolean ani() {
+    public boolean ang() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public boolean anj() {
+    public boolean anh() {
         return true;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public int ank() {
+    public int ani() {
         return this.procType;
     }
 }

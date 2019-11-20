@@ -3,8 +3,8 @@ package com.baidu.tbadk.t;
 public class ai extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void fn() {
-        com.baidu.adp.lib.b.b bVar = new com.baidu.adp.lib.b.b(this.mName, this.of, this.oi);
-        bVar.a(this.oh, this.oe, this.og);
+        com.baidu.adp.lib.b.b bVar = new com.baidu.adp.lib.b.b(this.mName, this.nG, this.nJ);
+        bVar.a(this.nI, this.nF, this.nH);
         bVar.g(fm());
         bVar.z(true);
         com.baidu.adp.lib.b.d.ft().a(bVar);

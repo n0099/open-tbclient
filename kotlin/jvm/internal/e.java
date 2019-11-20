@@ -5,22 +5,22 @@ import kotlin.collections.w;
 /* loaded from: classes2.dex */
 final class e extends w {
     private int index;
-    private final float[] kvU;
+    private final float[] kvd;
 
     public e(float[] fArr) {
         p.i(fArr, "array");
-        this.kvU = fArr;
+        this.kvd = fArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.kvU.length;
+        return this.index < this.kvd.length;
     }
 
     @Override // kotlin.collections.w
-    public float cMN() {
+    public float cML() {
         try {
-            float[] fArr = this.kvU;
+            float[] fArr = this.kvd;
             int i = this.index;
             this.index = i + 1;
             return fArr[i];

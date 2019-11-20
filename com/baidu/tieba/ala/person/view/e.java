@@ -4,47 +4,47 @@ import android.view.View;
 import com.baidu.live.k.a;
 /* loaded from: classes6.dex */
 public class e extends c {
-    private PlayBackItemView exf;
-    private PlayBackItemView exg;
+    private PlayBackItemView ewo;
+    private PlayBackItemView ewp;
 
     public e(View view, int i) {
         super(view, i);
-        this.exf = (PlayBackItemView) view.findViewById(a.g.playback_item_left);
-        this.exg = (PlayBackItemView) view.findViewById(a.g.playback_item_right);
+        this.ewo = (PlayBackItemView) view.findViewById(a.g.playback_item_left);
+        this.ewp = (PlayBackItemView) view.findViewById(a.g.playback_item_right);
     }
 
     @Override // com.baidu.tieba.ala.person.view.c
     public void z(Object obj) {
         if (obj instanceof com.baidu.tieba.ala.person.a.a) {
             final com.baidu.tieba.ala.person.a.a aVar = (com.baidu.tieba.ala.person.a.a) obj;
-            if (aVar.eue != null) {
-                this.exf.setVisibility(0);
-                this.exf.setData(aVar.eue.getMedia_pic(), aVar.eue.join_count, aVar.eue.start_time, aVar.eue.getLiveTitle());
+            if (aVar.etn != null) {
+                this.ewo.setVisibility(0);
+                this.ewo.setData(aVar.etn.getMedia_pic(), aVar.etn.join_count, aVar.etn.start_time, aVar.etn.getLiveTitle());
             } else {
-                this.exf.setVisibility(4);
+                this.ewo.setVisibility(4);
             }
-            if (aVar.euf != null) {
-                this.exg.setVisibility(0);
-                this.exg.setData(aVar.euf.getMedia_pic(), aVar.euf.join_count, aVar.euf.start_time, aVar.euf.getLiveTitle());
+            if (aVar.eto != null) {
+                this.ewp.setVisibility(0);
+                this.ewp.setData(aVar.eto.getMedia_pic(), aVar.eto.join_count, aVar.eto.start_time, aVar.eto.getLiveTitle());
             } else {
-                this.exg.setVisibility(4);
+                this.ewp.setVisibility(4);
             }
-            if (this.exf != null) {
-                this.exf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.e.1
+            if (this.ewo != null) {
+                this.ewo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.e.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (e.this.euc != null) {
-                            e.this.euc.a(aVar.eue, view);
+                        if (e.this.etl != null) {
+                            e.this.etl.a(aVar.etn, view);
                         }
                     }
                 });
             }
-            if (this.exg != null) {
-                this.exg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.e.2
+            if (this.ewp != null) {
+                this.ewp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.e.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (e.this.euc != null) {
-                            e.this.euc.a(aVar.euf, view);
+                        if (e.this.etl != null) {
+                            e.this.etl.a(aVar.eto, view);
                         }
                     }
                 });

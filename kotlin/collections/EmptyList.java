@@ -173,12 +173,12 @@ public final class EmptyList implements Serializable, List, RandomAccess {
 
     @Override // java.util.List, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return v.kvF;
+        return v.kuO;
     }
 
     @Override // java.util.List
     public ListIterator listIterator() {
-        return v.kvF;
+        return v.kuO;
     }
 
     @Override // java.util.List
@@ -186,7 +186,7 @@ public final class EmptyList implements Serializable, List, RandomAccess {
         if (i != 0) {
             throw new IndexOutOfBoundsException("Index: " + i);
         }
-        return v.kvF;
+        return v.kuO;
     }
 
     @Override // java.util.List

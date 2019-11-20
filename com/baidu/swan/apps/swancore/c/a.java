@@ -12,32 +12,32 @@ import org.json.JSONObject;
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static File HY() {
-        return new File(x.Ut().get(0).mPath, "baidu/aiapps_debug_swan_core/");
+    public static File HZ() {
+        return new File(x.Ur().get(0).mPath, "baidu/aiapps_debug_swan_core/");
     }
 
-    public static void HZ() {
-        File HY = HY();
-        if (HY.exists()) {
-            com.baidu.swan.c.a.deleteFile(HY);
+    public static void Ia() {
+        File HZ = HZ();
+        if (HZ.exists()) {
+            com.baidu.swan.c.a.deleteFile(HZ);
         }
     }
 
-    public static File Ia() {
-        File HY = HY();
-        if (!HY.exists()) {
-            HY.mkdirs();
+    public static File Ib() {
+        File HZ = HZ();
+        if (!HZ.exists()) {
+            HZ.mkdirs();
         }
-        return new File(HY, "debugSwanCore.zip");
+        return new File(HZ, "debugSwanCore.zip");
     }
 
-    public static long SY() {
-        return f.SR().getLong("aiapps_cur_debug_ver_key", 0L);
+    public static long Ta() {
+        return f.ST().getLong("aiapps_cur_debug_ver_key", 0L);
     }
 
-    public static void SZ() {
+    public static void Tb() {
         JSONObject jSONObject;
-        File file = new File(HY().getPath(), "pkginfo.json");
+        File file = new File(HZ().getPath(), "pkginfo.json");
         if (file.exists()) {
             try {
                 jSONObject = new JSONObject(com.baidu.swan.c.a.l(file));
@@ -50,7 +50,7 @@ public final class a {
             if (jSONObject != null) {
                 String optString = jSONObject.optString(SharedPrefConfig.VERSION_NAME);
                 if (!TextUtils.isEmpty(optString)) {
-                    f.SR().putLong("aiapps_cur_debug_ver_key", com.baidu.swan.apps.swancore.b.iu(optString));
+                    f.ST().putLong("aiapps_cur_debug_ver_key", com.baidu.swan.apps.swancore.b.iu(optString));
                 }
             }
         }

@@ -5,18 +5,18 @@ public class e {
     /* loaded from: classes3.dex */
     public static class a {
         public int cur_score;
-        public String jgc;
+        public String jfl;
         public int level;
         public int levelup_score;
     }
 
     /* loaded from: classes3.dex */
     public static class b {
-        public boolean fgr = false;
+        public boolean ffA = false;
         public boolean isSuccess = false;
         public int errorCode = 0;
         public String errorMsg = "";
-        public long jgd = 0;
+        public long jfm = 0;
         public boolean isWifi = false;
     }
 }

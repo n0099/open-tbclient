@@ -1,49 +1,36 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
+import com.xiaomi.push.fx;
+import com.xiaomi.push.ic;
+import com.xiaomi.push.service.XMPushService;
 /* loaded from: classes3.dex */
-public class r {
-    private static volatile r a;
-    private SharedPreferences b;
+final class r extends XMPushService.i {
+    final /* synthetic */ ic a;
 
-    private r(Context context) {
-        this.b = context.getSharedPreferences("mipush", 0);
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ XMPushService f924a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(int i, XMPushService xMPushService, ic icVar) {
+        super(i);
+        this.f924a = xMPushService;
+        this.a = icVar;
     }
 
-    public static r a(Context context) {
-        if (a == null) {
-            synchronized (r.class) {
-                if (a == null) {
-                    a = new r(context);
-                }
-            }
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "send ack message for message.";
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        try {
+            w.a(this.f924a, p.a((Context) this.f924a, this.a));
+        } catch (fx e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            this.f924a.a(10, e);
         }
-        return a;
-    }
-
-    public synchronized void a() {
-        SharedPreferences.Editor edit = this.b.edit();
-        edit.remove(Constants.EXTRA_KEY_MIID);
-        edit.commit();
-    }
-
-    public synchronized void a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            str = "0";
-        }
-        SharedPreferences.Editor edit = this.b.edit();
-        edit.putString(Constants.EXTRA_KEY_MIID, str);
-        edit.commit();
-    }
-
-    public synchronized String b() {
-        return this.b.getString(Constants.EXTRA_KEY_MIID, "0");
-    }
-
-    public synchronized boolean c() {
-        return !TextUtils.equals("0", b());
     }
 }

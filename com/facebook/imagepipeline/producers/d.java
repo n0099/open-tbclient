@@ -8,36 +8,36 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class d implements aj {
-    private final Object kde;
-    private final ImageRequest kla;
-    private final al klb;
-    private final ImageRequest.RequestLevel klc;
+    private final Object kcn;
+    private final ImageRequest kkj;
+    private final al kkk;
+    private final ImageRequest.RequestLevel kkl;
     @GuardedBy("this")
-    private boolean kld;
+    private boolean kkm;
     @GuardedBy("this")
-    private Priority kle;
+    private Priority kkn;
     @GuardedBy("this")
-    private boolean klf;
+    private boolean kko;
     private final String mId;
     @GuardedBy("this")
-    private boolean ctR = false;
+    private boolean cta = false;
     @GuardedBy("this")
     private final List<ak> mCallbacks = new ArrayList();
 
     public d(ImageRequest imageRequest, String str, al alVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
-        this.kla = imageRequest;
+        this.kkj = imageRequest;
         this.mId = str;
-        this.klb = alVar;
-        this.kde = obj;
-        this.klc = requestLevel;
-        this.kld = z;
-        this.kle = priority;
-        this.klf = z2;
+        this.kkk = alVar;
+        this.kcn = obj;
+        this.kkl = requestLevel;
+        this.kkm = z;
+        this.kkn = priority;
+        this.kko = z2;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public ImageRequest cIH() {
-        return this.kla;
+    public ImageRequest cIF() {
+        return this.kkj;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -46,33 +46,33 @@ public class d implements aj {
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public al cII() {
-        return this.klb;
+    public al cIG() {
+        return this.kkk;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public Object cEb() {
-        return this.kde;
+    public Object cDZ() {
+        return this.kcn;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public ImageRequest.RequestLevel cIJ() {
-        return this.klc;
+    public ImageRequest.RequestLevel cIH() {
+        return this.kkl;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.aj
+    public synchronized boolean cII() {
+        return this.kkm;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.aj
+    public synchronized Priority cIJ() {
+        return this.kkn;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public synchronized boolean cIK() {
-        return this.kld;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized Priority cIL() {
-        return this.kle;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized boolean cIM() {
-        return this.klf;
+        return this.kko;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -80,26 +80,26 @@ public class d implements aj {
         boolean z = false;
         synchronized (this) {
             this.mCallbacks.add(akVar);
-            if (this.ctR) {
+            if (this.cta) {
                 z = true;
             }
         }
         if (z) {
-            akVar.cIO();
+            akVar.cIM();
         }
     }
 
     public void cancel() {
-        eT(cIN());
+        eT(cIL());
     }
 
     @Nullable
     public synchronized List<ak> sj(boolean z) {
         ArrayList arrayList;
-        if (z == this.kld) {
+        if (z == this.kkm) {
             arrayList = null;
         } else {
-            this.kld = z;
+            this.kkm = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -108,10 +108,10 @@ public class d implements aj {
     @Nullable
     public synchronized List<ak> a(Priority priority) {
         ArrayList arrayList;
-        if (priority == this.kle) {
+        if (priority == this.kkn) {
             arrayList = null;
         } else {
-            this.kle = priority;
+            this.kkn = priority;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -120,22 +120,22 @@ public class d implements aj {
     @Nullable
     public synchronized List<ak> sk(boolean z) {
         ArrayList arrayList;
-        if (z == this.klf) {
+        if (z == this.kko) {
             arrayList = null;
         } else {
-            this.klf = z;
+            this.kko = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
     }
 
     @Nullable
-    public synchronized List<ak> cIN() {
+    public synchronized List<ak> cIL() {
         ArrayList arrayList;
-        if (this.ctR) {
+        if (this.cta) {
             arrayList = null;
         } else {
-            this.ctR = true;
+            this.cta = true;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -144,7 +144,7 @@ public class d implements aj {
     public static void eT(@Nullable List<ak> list) {
         if (list != null) {
             for (ak akVar : list) {
-                akVar.cIO();
+                akVar.cIM();
             }
         }
     }
@@ -152,7 +152,7 @@ public class d implements aj {
     public static void eU(@Nullable List<ak> list) {
         if (list != null) {
             for (ak akVar : list) {
-                akVar.cIP();
+                akVar.cIN();
             }
         }
     }
@@ -160,7 +160,7 @@ public class d implements aj {
     public static void eV(@Nullable List<ak> list) {
         if (list != null) {
             for (ak akVar : list) {
-                akVar.cIQ();
+                akVar.cIO();
             }
         }
     }
@@ -168,7 +168,7 @@ public class d implements aj {
     public static void eW(@Nullable List<ak> list) {
         if (list != null) {
             for (ak akVar : list) {
-                akVar.cIR();
+                akVar.cIP();
             }
         }
     }

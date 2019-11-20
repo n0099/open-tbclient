@@ -27,27 +27,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private View bKV;
-    private TbPageContext<BaseFragmentActivity> cfl;
-    private TextView dRP;
-    private HeadImageView dyW;
-    private BdListView ezI;
-    private b ezJ;
-    private TextView ezK;
-    private TbImageView ezL;
-    private RelativeLayout ezM;
-    private ImageView ezN;
-    private LinearLayout ezO;
-    private AlaNetRefreshView ezP;
-    private RelativeLayout ezQ;
-    private TextView ezR;
-    private InterfaceC0384a ezS;
-    private List<AlaLiveMarkData> ezT = new ArrayList();
-    private b.a ezU = new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a.2
+    private View bKe;
+    private TbPageContext<BaseFragmentActivity> ceu;
+    private TextView dQY;
+    private HeadImageView dyf;
+    private BdListView eyR;
+    private b eyS;
+    private TextView eyT;
+    private TbImageView eyU;
+    private RelativeLayout eyV;
+    private ImageView eyW;
+    private LinearLayout eyX;
+    private AlaNetRefreshView eyY;
+    private RelativeLayout eyZ;
+    private TextView eza;
+    private InterfaceC0384a ezb;
+    private List<AlaLiveMarkData> ezc = new ArrayList();
+    private b.a ezd = new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a.2
         @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.a
         public void a(com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b bVar) {
-            if (a.this.ezS != null) {
-                a.this.ezS.a(bVar);
+            if (a.this.ezb != null) {
+                a.this.ezb.a(bVar);
             }
         }
     };
@@ -61,55 +61,55 @@ public class a {
     }
 
     public a(TbPageContext<BaseFragmentActivity> tbPageContext, InterfaceC0384a interfaceC0384a) {
-        this.cfl = tbPageContext;
-        this.ezS = interfaceC0384a;
+        this.ceu = tbPageContext;
+        this.ezb = interfaceC0384a;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.cfl.getPageActivity()).inflate(R.layout.ala_achievement_mark_fragment_layout, (ViewGroup) null);
-        this.mRootView.setPadding(0, (int) this.cfl.getResources().getDimension(R.dimen.ds80), 0, 0);
-        this.dyW = (HeadImageView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_iv);
+        this.mRootView = LayoutInflater.from(this.ceu.getPageActivity()).inflate(R.layout.ala_achievement_mark_fragment_layout, (ViewGroup) null);
+        this.mRootView.setPadding(0, (int) this.ceu.getResources().getDimension(R.dimen.ds80), 0, 0);
+        this.dyf = (HeadImageView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_iv);
         this.mName = (TextView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_name_tv);
-        this.ezK = (TextView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_desc_tv);
-        this.ezL = (TbImageView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_container_bg);
-        this.ezQ = (RelativeLayout) this.mRootView.findViewById(R.id.ala_person_center_privilege_mark_list_container);
-        this.ezO = (LinearLayout) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_has_wears);
-        this.ezR = (TextView) this.mRootView.findViewById(R.id.ala_person_center_privilege_jump_rule_text);
-        this.ezN = (ImageView) this.mRootView.findViewById(R.id.empty_image);
-        this.dRP = (TextView) this.mRootView.findViewById(R.id.empty_text);
-        this.bKV = this.mRootView.findViewById(R.id.ala_person_center_privilege_mask);
-        this.ezI = (BdListView) this.mRootView.findViewById(R.id.ala_person_center_privilege_mark_list);
-        this.ezJ = new b(this.cfl, this.ezU);
-        this.ezI.setAdapter((ListAdapter) this.ezJ);
-        this.ezM = (RelativeLayout) this.mRootView.findViewById(R.id.emptyview);
-        this.ezI.setEmptyView(this.ezM);
-        this.dyW.setIsRound(true);
-        this.dyW.setDefaultBgResource(R.color.transparent);
-        this.dyW.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.ezL.setDefaultBgResource(R.color.transparent);
-        this.ezL.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eyT = (TextView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_desc_tv);
+        this.eyU = (TbImageView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_container_bg);
+        this.eyZ = (RelativeLayout) this.mRootView.findViewById(R.id.ala_person_center_privilege_mark_list_container);
+        this.eyX = (LinearLayout) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_has_wears);
+        this.eza = (TextView) this.mRootView.findViewById(R.id.ala_person_center_privilege_jump_rule_text);
+        this.eyW = (ImageView) this.mRootView.findViewById(R.id.empty_image);
+        this.dQY = (TextView) this.mRootView.findViewById(R.id.empty_text);
+        this.bKe = this.mRootView.findViewById(R.id.ala_person_center_privilege_mask);
+        this.eyR = (BdListView) this.mRootView.findViewById(R.id.ala_person_center_privilege_mark_list);
+        this.eyS = new b(this.ceu, this.ezd);
+        this.eyR.setAdapter((ListAdapter) this.eyS);
+        this.eyV = (RelativeLayout) this.mRootView.findViewById(R.id.emptyview);
+        this.eyR.setEmptyView(this.eyV);
+        this.dyf.setIsRound(true);
+        this.dyf.setDefaultBgResource(R.color.transparent);
+        this.dyf.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eyU.setDefaultBgResource(R.color.transparent);
+        this.eyU.setScaleType(ImageView.ScaleType.CENTER_CROP);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
         am.setViewTextColor(this.mName, (int) R.color.common_color_10310);
-        am.setViewTextColor(this.ezK, (int) R.color.white_alpha70);
-        am.setViewTextColor(this.ezR, (int) R.color.cp_cont_d);
-        am.setViewTextColor(this.dRP, (int) R.color.cp_cont_f);
+        am.setViewTextColor(this.eyT, (int) R.color.white_alpha70);
+        am.setViewTextColor(this.eza, (int) R.color.cp_cont_d);
+        am.setViewTextColor(this.dQY, (int) R.color.cp_cont_f);
         if (TbadkApplication.getInst().getSkinType() == 1) {
-            this.ezN.setAlpha(0.4f);
-            this.bKV.setBackgroundColor(this.cfl.getResources().getColor(R.color.black_alpha60));
+            this.eyW.setAlpha(0.4f);
+            this.bKe.setBackgroundColor(this.ceu.getResources().getColor(R.color.black_alpha60));
             return;
         }
-        this.ezN.setAlpha(1.0f);
-        this.bKV.setBackgroundColor(this.cfl.getResources().getColor(R.color.black_alpha30));
+        this.eyW.setAlpha(1.0f);
+        this.bKe.setBackgroundColor(this.ceu.getResources().getColor(R.color.black_alpha30));
     }
 
     public void a(AlaUserInfoData alaUserInfoData, List<c> list) {
-        if (this.ezJ != null && list != null) {
-            this.ezJ.setData(list);
+        if (this.eyS != null && list != null) {
+            this.eyS.setData(list);
         }
         a(alaUserInfoData);
     }
@@ -124,27 +124,27 @@ public class a {
             }
             String currentPortrait = alaUserInfoData.portrait == null ? TbadkApplication.getCurrentPortrait() : alaUserInfoData.portrait;
             if (alaUserInfoData.mark_count == null) {
-                format = String.format(this.cfl.getString(R.string.ala_achievement_mark_get_text), 0);
+                format = String.format(this.ceu.getString(R.string.ala_achievement_mark_get_text), 0);
             } else {
-                format = String.format(this.cfl.getString(R.string.ala_achievement_mark_get_text), Long.valueOf(alaUserInfoData.mark_count.user_mark_count));
+                format = String.format(this.ceu.getString(R.string.ala_achievement_mark_get_text), Long.valueOf(alaUserInfoData.mark_count.user_mark_count));
             }
             S(currentPortrait, str, format);
-            int dimension = (int) this.cfl.getResources().getDimension(R.dimen.ds32);
-            if (this.ezT != null && this.ezT.size() > 0) {
-                this.ezT.clear();
+            int dimension = (int) this.ceu.getResources().getDimension(R.dimen.ds32);
+            if (this.ezc != null && this.ezc.size() > 0) {
+                this.ezc.clear();
             }
-            if (this.ezO != null) {
-                this.ezO.removeAllViews();
-                this.ezT = alaUserInfoData.live_mark_info_new;
-                if (this.ezT != null) {
-                    for (int i = 0; i < this.ezT.size(); i++) {
-                        TbImageView tbImageView = new TbImageView(this.cfl.getPageActivity());
+            if (this.eyX != null) {
+                this.eyX.removeAllViews();
+                this.ezc = alaUserInfoData.live_mark_info_new;
+                if (this.ezc != null) {
+                    for (int i = 0; i < this.ezc.size(); i++) {
+                        TbImageView tbImageView = new TbImageView(this.ceu.getPageActivity());
                         tbImageView.setDefaultBgResource(R.color.transparent);
-                        tbImageView.startLoad(this.ezT.get(i).mark_pic, 21, false);
+                        tbImageView.startLoad(this.ezc.get(i).mark_pic, 21, false);
                         tbImageView.setLayoutParams(new LinearLayout.LayoutParams(dimension, dimension));
                         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                        ((LinearLayout.LayoutParams) tbImageView.getLayoutParams()).rightMargin = (int) this.cfl.getResources().getDimension(R.dimen.ds12);
-                        this.ezO.addView(tbImageView);
+                        ((LinearLayout.LayoutParams) tbImageView.getLayoutParams()).rightMargin = (int) this.ceu.getResources().getDimension(R.dimen.ds12);
+                        this.eyX.addView(tbImageView);
                     }
                     return;
                 }
@@ -152,18 +152,18 @@ public class a {
             }
             return;
         }
-        S(TbadkApplication.getCurrentPortrait(), TbadkApplication.getCurrentAccountNameShow(), String.format(this.cfl.getString(R.string.ala_achievement_mark_get_text), 0));
-        if (this.ezT != null && this.ezT.size() > 0) {
-            this.ezT.clear();
+        S(TbadkApplication.getCurrentPortrait(), TbadkApplication.getCurrentAccountNameShow(), String.format(this.ceu.getString(R.string.ala_achievement_mark_get_text), 0));
+        if (this.ezc != null && this.ezc.size() > 0) {
+            this.ezc.clear();
         }
-        if (this.ezO != null) {
-            this.ezO.removeAllViews();
+        if (this.eyX != null) {
+            this.eyX.removeAllViews();
         }
     }
 
     private void S(String str, String str2, String str3) {
         if (!StringUtils.isNull(str)) {
-            this.dyW.startLoad(str, 25, false);
+            this.dyf.startLoad(str, 25, false);
             com.baidu.adp.lib.f.c.fT().a(str, 25, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -171,14 +171,14 @@ public class a {
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str4, int i) {
                     super.onLoaded((AnonymousClass1) aVar, str4, i);
                     if (aVar != null && aVar.getRawBitmap() != null) {
-                        a.this.ezL.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                        a.this.ezL.setImageBitmap(BitmapHelper.fastblur(aVar.getRawBitmap(), 15, 0.75f));
+                        a.this.eyU.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        a.this.eyU.setImageBitmap(BitmapHelper.fastblur(aVar.getRawBitmap(), 15, 0.75f));
                     }
                 }
             }, null);
         } else {
-            this.dyW.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
-            this.ezL.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
+            this.dyf.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
+            this.eyU.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
         }
         if (!StringUtils.isNull(str2)) {
             this.mName.setText(str2);
@@ -186,9 +186,9 @@ public class a {
             this.mName.setText("");
         }
         if (!StringUtils.isNull(str3)) {
-            this.ezK.setText(str3);
+            this.eyT.setText(str3);
         } else {
-            this.ezK.setText("");
+            this.eyT.setText("");
         }
     }
 
@@ -197,24 +197,24 @@ public class a {
     }
 
     public void a(int i, int i2, boolean z, View.OnClickListener onClickListener) {
-        if (this.cfl != null) {
-            if (this.ezP == null) {
-                this.ezP = new AlaNetRefreshView(this.cfl.getPageActivity());
+        if (this.ceu != null) {
+            if (this.eyY == null) {
+                this.eyY = new AlaNetRefreshView(this.ceu.getPageActivity());
             }
-            this.ezP.setImageResource(i);
-            this.ezP.setNetFailTipText(this.cfl.getString(i2));
-            this.ezP.onChangeSkinType();
-            this.ezP.setIsShowRefreshButton(z);
+            this.eyY.setImageResource(i);
+            this.eyY.setNetFailTipText(this.ceu.getString(i2));
+            this.eyY.onChangeSkinType();
+            this.eyY.setIsShowRefreshButton(z);
             if (z) {
-                this.ezP.setOnRefreshClickListener(onClickListener);
+                this.eyY.setOnRefreshClickListener(onClickListener);
             }
-            this.ezP.attachView(this.ezQ);
+            this.eyY.attachView(this.eyZ);
         }
     }
 
-    public void aJo() {
-        if (this.ezP != null) {
-            this.ezP.dettachView(this.ezQ);
+    public void aJm() {
+        if (this.eyY != null) {
+            this.eyY.dettachView(this.eyZ);
         }
     }
 }

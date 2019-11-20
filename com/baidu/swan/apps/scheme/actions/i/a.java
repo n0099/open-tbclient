@@ -84,24 +84,24 @@ public final class a {
 
     public static void a(com.baidu.swan.apps.b.c.c cVar, com.baidu.swan.apps.model.b bVar) {
         com.baidu.swan.apps.performance.e.au("route", "createAndLoadPage start.");
-        String B = ac.B(bVar.mBaseUrl, bVar.aTe, bVar.mParams);
-        com.baidu.swan.apps.ae.a.d fM = com.baidu.swan.apps.w.e.LD().fM(bVar.aTe);
+        String B = ac.B(bVar.mBaseUrl, bVar.aSM, bVar.mParams);
+        com.baidu.swan.apps.ae.a.d fM = com.baidu.swan.apps.w.e.LE().fM(bVar.aSM);
         com.baidu.swan.apps.core.j.b bVar2 = new com.baidu.swan.apps.core.j.b();
-        bVar2.aNR = bVar.mBaseUrl;
-        bVar2.aNY = com.baidu.swan.apps.model.b.f(bVar);
-        bVar2.aNZ = fM.blb;
-        bVar2.aNV = String.valueOf(com.baidu.swan.apps.console.a.Dc());
-        if (com.baidu.swan.apps.ae.b.QZ() != null) {
-            String hr = com.baidu.swan.apps.ae.b.QZ().hr(bVar.aTe);
+        bVar2.aNz = bVar.mBaseUrl;
+        bVar2.aNG = com.baidu.swan.apps.model.b.f(bVar);
+        bVar2.aNH = fM.bkJ;
+        bVar2.aND = String.valueOf(com.baidu.swan.apps.console.a.Dd());
+        if (com.baidu.swan.apps.ae.b.Ra() != null) {
+            String hr = com.baidu.swan.apps.ae.b.Ra().hr(bVar.aSM);
             if (!TextUtils.isEmpty(hr)) {
                 if (DEBUG) {
                     Log.d("ActionUtils", "add initData: " + hr);
                 }
-                bVar2.aOa = hr;
+                bVar2.aNI = hr;
             }
         }
-        bVar2.aNX = DEBUG || com.baidu.swan.apps.w.e.LD().Lk();
-        com.baidu.swan.apps.w.e.LD().a(cVar.Ct(), com.baidu.swan.apps.core.j.b.b(bVar2));
+        bVar2.aNF = DEBUG || com.baidu.swan.apps.w.e.LE().Ll();
+        com.baidu.swan.apps.w.e.LE().a(cVar.Cu(), com.baidu.swan.apps.core.j.b.b(bVar2));
         com.baidu.swan.apps.core.i.b.a(B, cVar);
         com.baidu.swan.apps.performance.e.au("route", "createAndLoadPage end.");
     }
@@ -112,6 +112,6 @@ public final class a {
             hashMap.put("from", str2);
         }
         hashMap.put("url", str3);
-        com.baidu.swan.apps.w.e.LD().a(new com.baidu.swan.apps.m.a.b(str, hashMap));
+        com.baidu.swan.apps.w.e.LE().a(new com.baidu.swan.apps.m.a.b(str, hashMap));
     }
 }

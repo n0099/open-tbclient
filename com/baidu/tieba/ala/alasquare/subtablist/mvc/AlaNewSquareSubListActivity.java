@@ -9,18 +9,18 @@ import com.baidu.tbadk.BaseActivity;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
-    private String dCK;
-    private a dDK;
-    private AlaSquareTabInfo dDL;
-    private String dDM;
-    private List<String> dDN;
-    private String dyG;
+    private String dBT;
+    private a dCT;
+    private AlaSquareTabInfo dCU;
+    private String dCV;
+    private List<String> dCW;
+    private String dxP;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dDK = new a(getPageContext(), true);
+        this.dCT = new a(getPageContext(), true);
         if (getIntent() != null) {
             ai(getIntent());
         } else {
@@ -29,27 +29,27 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
     }
 
     private void ai(Intent intent) {
-        this.dDL = (AlaSquareTabInfo) intent.getParcelableExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA);
-        this.dyG = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_NAME);
-        this.dCK = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_LABEL_NAME);
-        this.dDM = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_BITMAP_RATIO);
-        this.dDN = intent.getStringArrayListExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_SUB_TYPE_LIST);
-        if (this.dDL != null) {
-            if (this.dDL.iconType == 1) {
-                this.dyG = this.dDL.name;
-            } else if (this.dDL.iconType == 2) {
-                this.dyG = "游戏";
-                this.dCK = this.dDL.name;
+        this.dCU = (AlaSquareTabInfo) intent.getParcelableExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA);
+        this.dxP = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_NAME);
+        this.dBT = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_LABEL_NAME);
+        this.dCV = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_BITMAP_RATIO);
+        this.dCW = intent.getStringArrayListExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_SUB_TYPE_LIST);
+        if (this.dCU != null) {
+            if (this.dCU.iconType == 1) {
+                this.dxP = this.dCU.name;
+            } else if (this.dCU.iconType == 2) {
+                this.dxP = "游戏";
+                this.dBT = this.dCU.name;
             }
-            this.dDM = this.dDL.bitmapWHRatio;
-            this.dDK.a(this.dDM, this.dyG, this.dCK, this.dDL.sortTypeList);
-        } else if (!StringUtils.isNull(this.dyG)) {
-            this.dDK.a(this.dDM, this.dyG, this.dCK, this.dDN);
+            this.dCV = this.dCU.bitmapWHRatio;
+            this.dCT.a(this.dCV, this.dxP, this.dBT, this.dCU.sortTypeList);
+        } else if (!StringUtils.isNull(this.dxP)) {
+            this.dCT.a(this.dCV, this.dxP, this.dBT, this.dCW);
         } else {
             finish();
         }
-        if (this.dDK.getRootView() != null) {
-            setContentView(this.dDK.getRootView());
+        if (this.dCT.getRootView() != null) {
+            setContentView(this.dCT.getRootView());
         }
     }
 
@@ -57,15 +57,15 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.dDK.refreshData();
+        this.dCT.refreshData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dDK != null) {
-            this.dDK.onChangeSkinType(getPageContext(), i);
+        if (this.dCT != null) {
+            this.dCT.onChangeSkinType(getPageContext(), i);
         }
     }
 
@@ -73,8 +73,8 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.dDK != null) {
-            this.dDK.onDestroy();
+        if (this.dCT != null) {
+            this.dCT.onDestroy();
         }
     }
 }

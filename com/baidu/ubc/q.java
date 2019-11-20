@@ -23,9 +23,9 @@ public class q {
     }
 
     public void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.zZ()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.Aa()) {
             if (UBC.getUBCContext() != null || !TextUtils.isEmpty(str)) {
-                d.cAU().f(str, str2, i);
+                d.cAS().f(str, str2, i);
                 return;
             }
             return;
@@ -38,9 +38,9 @@ public class q {
     }
 
     public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.zZ()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.Aa()) {
             if (UBC.getUBCContext() != null || !TextUtils.isEmpty(str)) {
-                d.cAU().a(str, jSONObject, i);
+                d.cAS().a(str, jSONObject, i);
                 return;
             }
             return;
@@ -64,21 +64,21 @@ public class q {
     }
 
     public Flow beginFlow(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.zZ()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.Aa()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return d.cAU().beginFlow(str, str2, i);
+            return d.cAS().beginFlow(str, str2, i);
         }
         return s(str, str2, i);
     }
 
     public Flow beginFlow(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.zZ()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.Aa()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return d.cAU().beginFlow(str, jSONObject, i);
+            return d.cAS().beginFlow(str, jSONObject, i);
         }
         return s(str, jSONObject.toString(), i);
     }

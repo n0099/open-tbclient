@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live_tab.b.d> {
-    private TabLiveStageLiveView dzM;
+    private TabLiveStageLiveView dyV;
     private int mLastScreenWidth;
     private View mRootView;
 
@@ -25,8 +25,8 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
         int[] dj = com.baidu.tieba.ala.alasquare.live_tab.b.dj(getContext());
         int i = dj[0];
         int i2 = dj[1];
-        this.dzM = (TabLiveStageLiveView) this.mRootView.findViewById(R.id.stage_live_view);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.dzM.getLayoutParams();
+        this.dyV = (TabLiveStageLiveView) this.mRootView.findViewById(R.id.stage_live_view);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.dyV.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = (FrameLayout.LayoutParams) new ViewGroup.LayoutParams(i, i2);
         } else {
@@ -34,14 +34,14 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
             layoutParams.height = i2;
         }
         layoutParams.gravity = 1;
-        this.dzM.setLayoutParams(layoutParams);
+        this.dyV.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundColor(getView(), R.color.cp_bg_line_d);
-        if (this.dzM != null) {
-            this.dzM.onChangeSkinType();
+        if (this.dyV != null) {
+            this.dyV.onChangeSkinType();
         }
     }
 
@@ -53,19 +53,19 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.d dVar) {
-        if (dVar != null && dVar.dxi != null) {
+        if (dVar != null && dVar.dwr != null) {
             int equipmentWidth = l.getEquipmentWidth(this.mContext);
             if (equipmentWidth != this.mLastScreenWidth) {
                 int[] dj = com.baidu.tieba.ala.alasquare.live_tab.b.dj(getContext());
                 int i = dj[0];
                 int i2 = dj[1];
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.dzM.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.dyV.getLayoutParams();
                 layoutParams.width = i;
                 layoutParams.height = i2;
-                this.dzM.setLayoutParams(layoutParams);
+                this.dyV.setLayoutParams(layoutParams);
                 this.mLastScreenWidth = equipmentWidth;
             }
-            this.dzM.setData(dVar.dxi.dxj, 101);
+            this.dyV.setData(dVar.dwr.dws, 101);
             TiebaStatic.log("c13551");
         }
     }

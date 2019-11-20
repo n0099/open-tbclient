@@ -31,27 +31,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
-    private FrameLayout gyl;
-    private String gys;
+    private String gxB;
+    private FrameLayout gxu;
     private int mCount;
     private com.baidu.tbadk.core.util.c.a mPermissionJudgement;
-    private ArrayList<String> gKs = null;
-    private HashMap<String, ImageUrlData> gKt = null;
+    private ArrayList<String> gJB = null;
+    private HashMap<String, ImageUrlData> gJC = null;
     private int mIndex = 0;
-    private a gKu = null;
+    private a gJD = null;
     private NavigationBar mNavigationBar = null;
-    private TextView gKv = null;
+    private TextView gJE = null;
     private View mBack = null;
     private TextView mTitle = null;
-    private MultiImageView gyn = null;
+    private MultiImageView gxw = null;
     private View.OnClickListener mOnClickListener = null;
-    private BaseViewPager.a gyo = null;
+    private BaseViewPager.a gxx = null;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = null;
-    private AlphaAnimation gyp = null;
-    private boolean gyq = true;
-    private boolean gyr = false;
-    private long gyv = 0;
-    private HashMap<String, Boolean> gyw = null;
+    private AlphaAnimation gxy = null;
+    private boolean gxz = true;
+    private boolean gxA = false;
+    private long gxE = 0;
+    private HashMap<String, Boolean> gxF = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -62,14 +62,14 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         setSwipeBackEnabled(false);
         initData(bundle);
         initUI();
-        int size = this.gKs.size();
+        int size = this.gJB.size();
         int i = 0;
         while (true) {
             if (i >= size) {
                 break;
             }
-            String str = this.gKs.get(i);
-            if (TextUtils.isEmpty(str) || !str.equals(this.gys)) {
+            String str = this.gJB.get(i);
+            if (TextUtils.isEmpty(str) || !str.equals(this.gxB)) {
                 i++;
             } else {
                 this.mIndex = i;
@@ -78,12 +78,12 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         }
         this.mCount = size;
         this.mTitle.setVisibility(0);
-        bol();
-        this.gyn.setIsFromCDN(true);
-        this.gyn.setAllowLocalUrl(true);
-        this.gyn.setAssistUrls(this.gKt);
-        this.gyn.setUrlData(this.gKs);
-        this.gyn.setCurrentItem(this.mIndex, false);
+        boj();
+        this.gxw.setIsFromCDN(true);
+        this.gxw.setAllowLocalUrl(true);
+        this.gxw.setAssistUrls(this.gJC);
+        this.gxw.setUrlData(this.gJB);
+        this.gxw.setCurrentItem(this.mIndex, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -92,44 +92,44 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1 || i == 4) {
-            this.gyn.setBackgroundColor(am.getBgColor(i));
+            this.gxw.setBackgroundColor(am.getBgColor(i));
         } else {
-            this.gyn.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
+            this.gxw.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         }
         am.setBackgroundColor(this.mNavigationBar, R.color.common_color_10222);
         this.mNavigationBar.onBackBtnOnChangeSkin(i, R.color.cp_cont_a);
         getLayoutMode().onModeChanged(this.mTitle);
-        getLayoutMode().onModeChanged(this.gyl);
+        getLayoutMode().onModeChanged(this.gxu);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.gyn.onPause();
+        this.gxw.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.gyn.onResume();
+        this.gxw.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        this.gyn.onDestroy();
+        this.gxw.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         TbadkApplication.getInst().delRemoteActivity(this);
-        bO(this.mIndex, this.mIndex);
-        this.gyn.onDestroy();
-        if (this.gKu != null) {
-            this.gKu.cancel();
-            this.gKu = null;
+        bM(this.mIndex, this.mIndex);
+        this.gxw.onDestroy();
+        if (this.gJD != null) {
+            this.gJD.cancel();
+            this.gJD = null;
         }
         hideProgressBar();
         super.onDestroy();
@@ -158,7 +158,7 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
                         GroupImageActivity.this.setResult(-1, intent);
                         GroupImageActivity.this.finish();
                     }
-                } else if (view == GroupImageActivity.this.gyl) {
+                } else if (view == GroupImageActivity.this.gxu) {
                     if (GroupImageActivity.this.mNavigationBar.getVisibility() != 8) {
                         Activity pageActivity = GroupImageActivity.this.getPageContext().getPageActivity();
                         if (GroupImageActivity.this.mPermissionJudgement == null) {
@@ -168,12 +168,12 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
                         GroupImageActivity.this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
                         if (!GroupImageActivity.this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                             try {
-                                byte[] currentImageData = GroupImageActivity.this.gyn.getCurrentImageData();
+                                byte[] currentImageData = GroupImageActivity.this.gxw.getCurrentImageData();
                                 if (currentImageData != null) {
-                                    String currentImageUrl = GroupImageActivity.this.gyn.getCurrentImageUrl();
-                                    GroupImageActivity.this.gKu = new a(currentImageUrl, currentImageData);
-                                    GroupImageActivity.this.gKu.execute(new String[0]);
-                                    GroupImageActivity.this.gKv.setVisibility(4);
+                                    String currentImageUrl = GroupImageActivity.this.gxw.getCurrentImageUrl();
+                                    GroupImageActivity.this.gJD = new a(currentImageUrl, currentImageData);
+                                    GroupImageActivity.this.gJD.execute(new String[0]);
+                                    GroupImageActivity.this.gJE.setVisibility(4);
                                     GroupImageActivity.this.showProgressBar();
                                 } else {
                                     GroupImageActivity.this.showToast(GroupImageActivity.this.getPageContext().getString(R.string.no_data));
@@ -182,24 +182,24 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
                             }
                         }
                     }
-                } else if (GroupImageActivity.this.gyq) {
+                } else if (GroupImageActivity.this.gxz) {
                     if (GroupImageActivity.this.mNavigationBar.getVisibility() != 0) {
                         GroupImageActivity.this.mNavigationBar.setVisibility(0);
-                        GroupImageActivity.this.gyn.asA();
-                        GroupImageActivity.this.gyp = new AlphaAnimation(0.0f, 1.0f);
+                        GroupImageActivity.this.gxw.asy();
+                        GroupImageActivity.this.gxy = new AlphaAnimation(0.0f, 1.0f);
                     } else {
-                        GroupImageActivity.this.gyp = new AlphaAnimation(1.0f, 0.0f);
-                        GroupImageActivity.this.gyr = true;
-                        GroupImageActivity.this.gyn.asC();
+                        GroupImageActivity.this.gxy = new AlphaAnimation(1.0f, 0.0f);
+                        GroupImageActivity.this.gxA = true;
+                        GroupImageActivity.this.gxw.asA();
                     }
-                    GroupImageActivity.this.gyp.setDuration(300L);
-                    GroupImageActivity.this.gyp.setFillAfter(false);
-                    GroupImageActivity.this.gyp.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.im.groupInfo.GroupImageActivity.1.1
+                    GroupImageActivity.this.gxy.setDuration(300L);
+                    GroupImageActivity.this.gxy.setFillAfter(false);
+                    GroupImageActivity.this.gxy.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.im.groupInfo.GroupImageActivity.1.1
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationEnd(Animation animation) {
-                            GroupImageActivity.this.gyq = true;
-                            if (GroupImageActivity.this.gyr) {
-                                GroupImageActivity.this.gyr = false;
+                            GroupImageActivity.this.gxz = true;
+                            if (GroupImageActivity.this.gxA) {
+                                GroupImageActivity.this.gxA = false;
                                 GroupImageActivity.this.mNavigationBar.setVisibility(8);
                             }
                         }
@@ -212,17 +212,17 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
                         public void onAnimationStart(Animation animation) {
                         }
                     });
-                    GroupImageActivity.this.gyq = false;
-                    GroupImageActivity.this.mNavigationBar.startAnimation(GroupImageActivity.this.gyp);
+                    GroupImageActivity.this.gxz = false;
+                    GroupImageActivity.this.mNavigationBar.startAnimation(GroupImageActivity.this.gxy);
                 }
             }
         };
         this.mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.im.groupInfo.GroupImageActivity.2
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                GroupImageActivity.this.bO(GroupImageActivity.this.mIndex, i);
+                GroupImageActivity.this.bM(GroupImageActivity.this.mIndex, i);
                 GroupImageActivity.this.mIndex = i;
-                GroupImageActivity.this.bol();
+                GroupImageActivity.this.boj();
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -231,12 +231,12 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
-                if (i == 1 && System.nanoTime() - GroupImageActivity.this.gyv > 300000000 && GroupImageActivity.this.gKs != null && GroupImageActivity.this.mIndex < GroupImageActivity.this.gKs.size()) {
-                    GroupImageActivity.this.gyw.put(GroupImageActivity.this.gKs.get(GroupImageActivity.this.mIndex), true);
+                if (i == 1 && System.nanoTime() - GroupImageActivity.this.gxE > 300000000 && GroupImageActivity.this.gJB != null && GroupImageActivity.this.mIndex < GroupImageActivity.this.gJB.size()) {
+                    GroupImageActivity.this.gxF.put(GroupImageActivity.this.gJB.get(GroupImageActivity.this.mIndex), true);
                 }
             }
         };
-        this.gyo = new BaseViewPager.a() { // from class: com.baidu.tieba.im.groupInfo.GroupImageActivity.3
+        this.gxx = new BaseViewPager.a() { // from class: com.baidu.tieba.im.groupInfo.GroupImageActivity.3
             @Override // com.baidu.tbadk.core.view.BaseViewPager.a
             public void onScrollOut(int i) {
                 if (i == 0) {
@@ -257,12 +257,12 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
                             GroupImageActivity.this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
                             if (!GroupImageActivity.this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                                 try {
-                                    byte[] currentImageData = GroupImageActivity.this.gyn.getCurrentImageData();
+                                    byte[] currentImageData = GroupImageActivity.this.gxw.getCurrentImageData();
                                     if (currentImageData != null) {
-                                        String currentImageUrl = GroupImageActivity.this.gyn.getCurrentImageUrl();
-                                        GroupImageActivity.this.gKu = new a(currentImageUrl, currentImageData);
-                                        GroupImageActivity.this.gKu.execute(new String[0]);
-                                        GroupImageActivity.this.gKv.setVisibility(4);
+                                        String currentImageUrl = GroupImageActivity.this.gxw.getCurrentImageUrl();
+                                        GroupImageActivity.this.gJD = new a(currentImageUrl, currentImageData);
+                                        GroupImageActivity.this.gJD.execute(new String[0]);
+                                        GroupImageActivity.this.gJE.setVisibility(4);
                                         GroupImageActivity.this.showProgressBar();
                                     } else {
                                         GroupImageActivity.this.showToast(GroupImageActivity.this.getPageContext().getString(R.string.no_data));
@@ -288,49 +288,49 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
             }
         };
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.gyl = (FrameLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.mOnClickListener);
+        this.gxu = (FrameLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.mOnClickListener);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mTitle = this.mNavigationBar.setTitleText("");
-        this.gKv = (TextView) findViewById(R.id.save);
-        this.gKv.setClickable(false);
-        this.gyl.setOnClickListener(this.mOnClickListener);
+        this.gJE = (TextView) findViewById(R.id.save);
+        this.gJE.setClickable(false);
+        this.gxu.setOnClickListener(this.mOnClickListener);
         if (this.mBack != null) {
             this.mBack.setOnClickListener(this.mOnClickListener);
         }
-        this.gyn = (MultiImageView) findViewById(R.id.viewpager);
-        this.gyn.setPageMargin(l.dip2px(getPageContext().getPageActivity(), 8.0f));
-        this.gyn.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-        this.gyn.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.gyn.setItemOnclickListener(this.mOnClickListener);
-        this.gyn.setItemOnLongClickListener(onLongClickListener);
-        this.gyn.setCurrentItem(bxA(), false);
-        this.gyn.setOnScrollOutListener(this.gyo);
-        this.gyn.setHasNext(false);
-        this.gyn.setNextTitle("mNextTitle");
-        bO(this.mIndex, this.mIndex);
+        this.gxw = (MultiImageView) findViewById(R.id.viewpager);
+        this.gxw.setPageMargin(l.dip2px(getPageContext().getPageActivity(), 8.0f));
+        this.gxw.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+        this.gxw.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.gxw.setItemOnclickListener(this.mOnClickListener);
+        this.gxw.setItemOnLongClickListener(onLongClickListener);
+        this.gxw.setCurrentItem(bxy(), false);
+        this.gxw.setOnScrollOutListener(this.gxx);
+        this.gxw.setHasNext(false);
+        this.gxw.setNextTitle("mNextTitle");
+        bM(this.mIndex, this.mIndex);
         this.mTitle.setVisibility(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bol() {
-        if (this.gKs != null) {
+    public void boj() {
+        if (this.gJB != null) {
             String valueOf = String.valueOf(this.mIndex + 1);
             if (this.mCount > 0) {
                 valueOf = (valueOf + "/") + this.mCount;
             }
-            if (this.gyn.getHasNext() && this.mIndex == this.gyn.getItemNum() - 1) {
+            if (this.gxw.getHasNext() && this.mIndex == this.gxw.getItemNum() - 1) {
                 this.mTitle.setText(getPageContext().getString(R.string.image_recommend));
-                this.gKv.setVisibility(4);
+                this.gJE.setVisibility(4);
                 return;
             }
             this.mTitle.setText(valueOf);
-            this.gKv.setVisibility(0);
+            this.gJE.setVisibility(0);
         }
     }
 
-    private int bxA() {
-        if (this.gKs != null && this.gKs.size() > 0) {
-            int size = this.gKs.size();
+    private int bxy() {
+        if (this.gJB != null && this.gJB.size() > 0) {
+            int size = this.gJB.size();
             if (this.mIndex >= size) {
                 this.mIndex = size - 1;
             }
@@ -345,34 +345,34 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.gKs = bundle.getStringArrayList("url");
+            this.gJB = bundle.getStringArrayList("url");
             this.mIndex = bundle.getInt("index", -1);
-            this.gys = bundle.getString("curImgUrl");
-            this.gKt = (HashMap) bundle.getSerializable("assistUrls");
+            this.gxB = bundle.getString("curImgUrl");
+            this.gJC = (HashMap) bundle.getSerializable("assistUrls");
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.gKs = intent.getStringArrayListExtra("url");
-                this.gys = intent.getStringExtra("curImgUrl");
-                this.gKt = (HashMap) intent.getSerializableExtra("assistUrls");
+                this.gJB = intent.getStringArrayListExtra("url");
+                this.gxB = intent.getStringExtra("curImgUrl");
+                this.gJC = (HashMap) intent.getSerializableExtra("assistUrls");
                 this.mIndex = 0;
             }
         }
-        this.gyw = new HashMap<>();
+        this.gxF = new HashMap<>();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putStringArrayList("url", this.gKs);
+        bundle.putStringArrayList("url", this.gJB);
         bundle.putInt("index", this.mIndex);
-        bundle.putString("curImgUrl", this.gys);
+        bundle.putString("curImgUrl", this.gxB);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.gyn.setCurrentItem(this.mIndex, true);
+        this.gxw.setCurrentItem(this.mIndex, true);
     }
 
     /* loaded from: classes5.dex */
@@ -408,8 +408,8 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
             GroupImageActivity.this.showToast(str);
-            GroupImageActivity.this.gKu = null;
-            GroupImageActivity.this.gKv.setVisibility(0);
+            GroupImageActivity.this.gJD = null;
+            GroupImageActivity.this.gJE.setVisibility(0);
             GroupImageActivity.this.hideProgressBar();
         }
 
@@ -421,20 +421,20 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            GroupImageActivity.this.gKu = null;
-            GroupImageActivity.this.gKv.setVisibility(0);
+            GroupImageActivity.this.gJD = null;
+            GroupImageActivity.this.gJE.setVisibility(0);
             GroupImageActivity.this.hideProgressBar();
             super.cancel(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bO(int i, int i2) {
-        synchronized (this.gyw) {
-            if (System.nanoTime() - this.gyv > 300000000 && this.gKs != null && i < this.gKs.size()) {
-                this.gyw.put(this.gKs.get(i), true);
+    public void bM(int i, int i2) {
+        synchronized (this.gxF) {
+            if (System.nanoTime() - this.gxE > 300000000 && this.gJB != null && i < this.gJB.size()) {
+                this.gxF.put(this.gJB.get(i), true);
             }
-            this.gyv = System.nanoTime();
+            this.gxE = System.nanoTime();
         }
     }
 }

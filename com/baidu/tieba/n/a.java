@@ -18,26 +18,26 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static a iGK;
-    private e iGL;
+    private static a iFT;
+    private e iFU;
     private int mScore = 0;
 
-    public static a cfp() {
-        if (iGK == null) {
+    public static a cfn() {
+        if (iFT == null) {
             synchronized (a.class) {
-                if (iGK == null) {
-                    iGK = new a();
+                if (iFT == null) {
+                    iFT = new a();
                 }
             }
         }
-        return iGK;
+        return iFT;
     }
 
     public void init() {
         String version = TbConfig.getVersion();
-        if (!version.equals(b.alR().getString("key_rate_version", ""))) {
-            b.alR().putString("key_rate_version", version);
-            b.alR().putLong("key_rate_version_time", new Date().getTime());
+        if (!version.equals(b.alP().getString("key_rate_version", ""))) {
+            b.alP().putString("key_rate_version", version);
+            b.alP().putLong("key_rate_version_time", new Date().getTime());
         }
     }
 
@@ -50,22 +50,22 @@ public class a {
     public void z(TbPageContext tbPageContext) {
         if (tbPageContext != null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            int i = b.alR().getInt("key_rate_like_count" + currentAccount, 0) + 1;
+            int i = b.alP().getInt("key_rate_like_count" + currentAccount, 0) + 1;
             if (i < 3) {
                 if (i == 1) {
-                    b.alR().putLong("key_rate_first_like_time" + currentAccount, Long.valueOf(new Date().getTime()).longValue());
-                    b.alR().putInt("key_rate_like_count" + currentAccount, i);
+                    b.alP().putLong("key_rate_first_like_time" + currentAccount, Long.valueOf(new Date().getTime()).longValue());
+                    b.alP().putInt("key_rate_like_count" + currentAccount, i);
                     return;
                 }
-                b.alR().putInt("key_rate_like_count" + currentAccount, i);
+                b.alP().putInt("key_rate_like_count" + currentAccount, i);
                 return;
             }
-            if (Long.valueOf(new Date().getTime()).longValue() - b.alR().getLong("key_rate_first_like_time" + currentAccount, 0L) < 86400000) {
-                b.alR().putInt("key_rate_like_count" + currentAccount, 0);
+            if (Long.valueOf(new Date().getTime()).longValue() - b.alP().getLong("key_rate_first_like_time" + currentAccount, 0L) < 86400000) {
+                b.alP().putInt("key_rate_like_count" + currentAccount, 0);
                 C(tbPageContext);
                 return;
             }
-            b.alR().putInt("key_rate_like_count" + currentAccount, 0);
+            b.alP().putInt("key_rate_like_count" + currentAccount, 0);
         }
     }
 
@@ -73,8 +73,8 @@ public class a {
         if (tbPageContext != null) {
             j jVar = new j(tbPageContext.getContext());
             jVar.setTitleText(tbPageContext.getContext().getString(R.string.is_tieba_pleased));
-            jVar.Bn(8);
-            jVar.Bm(0);
+            jVar.Bm(8);
+            jVar.Bl(0);
             int dimens = l.getDimens(tbPageContext.getContext(), R.dimen.ds86);
             int dimens2 = l.getDimens(tbPageContext.getContext(), R.dimen.ds138);
             int dimens3 = l.getDimens(tbPageContext.getContext(), R.dimen.ds27);
@@ -84,19 +84,19 @@ public class a {
             jVar.rH(true);
             jVar.a(new j.e() { // from class: com.baidu.tieba.n.a.1
                 @Override // com.baidu.tieba.view.j.e
-                public void yg(int i) {
-                    if (a.this.iGL != null) {
-                        a.this.iGL.dismiss();
-                        a.this.iGL = null;
+                public void yf(int i) {
+                    if (a.this.iFU != null) {
+                        a.this.iFU.dismiss();
+                        a.this.iFU = null;
                         a.this.mScore = i;
                         TiebaStatic.log(new an("c13072").O("obj_type", a.this.mScore));
                         a.this.B(tbPageContext);
                     }
                 }
             });
-            this.iGL = new e(tbPageContext.getContext(), jVar.ale());
-            this.iGL.ab(0.7f);
-            g.a(this.iGL, tbPageContext);
+            this.iFU = new e(tbPageContext.getContext(), jVar.alc());
+            this.iFU.ab(0.7f);
+            g.a(this.iFU, tbPageContext);
             TiebaStatic.log(new an("c13071"));
         }
     }
@@ -114,9 +114,9 @@ public class a {
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(aVar);
-            jVar.Bl(this.mScore);
+            jVar.Bk(this.mScore);
+            jVar.Bl(0);
             jVar.Bm(0);
-            jVar.Bn(0);
             jVar.rH(false);
             l.getDimens(tbPageContext.getContext(), R.dimen.ds42);
             int dimens = l.getDimens(tbPageContext.getContext(), R.dimen.ds32);
@@ -126,9 +126,9 @@ public class a {
             aVar.a(new j.c() { // from class: com.baidu.tieba.n.a.2
                 @Override // com.baidu.tieba.view.j.c
                 public void onClick() {
-                    if (a.this.iGL != null) {
-                        a.this.iGL.dismiss();
-                        a.this.iGL = null;
+                    if (a.this.iFU != null) {
+                        a.this.iFU.dismiss();
+                        a.this.iFU = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             a.this.D(tbPageContext);
                             TiebaStatic.log(new an("c13077"));
@@ -142,9 +142,9 @@ public class a {
             jVar.a(new j.b() { // from class: com.baidu.tieba.n.a.3
                 @Override // com.baidu.tieba.view.j.b
                 public void onClick() {
-                    if (a.this.iGL != null) {
-                        a.this.iGL.dismiss();
-                        a.this.iGL = null;
+                    if (a.this.iFU != null) {
+                        a.this.iFU.dismiss();
+                        a.this.iFU = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             TiebaStatic.log(new an("c13078"));
                         } else {
@@ -154,9 +154,9 @@ public class a {
                 }
             });
             jVar.at(arrayList);
-            this.iGL = new e(tbPageContext.getContext(), jVar.ale());
-            this.iGL.ab(0.7f);
-            g.a(this.iGL, tbPageContext);
+            this.iFU = new e(tbPageContext.getContext(), jVar.alc());
+            this.iFU.ab(0.7f);
+            g.a(this.iFU, tbPageContext);
             if (this.mScore == 1 || this.mScore == 2) {
                 TiebaStatic.log(new an("c13076"));
             } else {
@@ -167,11 +167,11 @@ public class a {
 
     private void C(TbPageContext tbPageContext) {
         if (tbPageContext != null && TbConfig.getVersionType() != 2) {
-            if (Long.valueOf(new Date().getTime()).longValue() - b.alR().getLong("key_rate_version_time", 0L) >= 86400000) {
+            if (Long.valueOf(new Date().getTime()).longValue() - b.alP().getLong("key_rate_version_time", 0L) >= 86400000) {
                 String version = TbConfig.getVersion();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (!b.alR().getBoolean("key_rate_same_version_is_score" + version + currentAccount, false)) {
-                    b.alR().putBoolean("key_rate_same_version_is_score" + version + currentAccount, true);
+                if (!b.alP().getBoolean("key_rate_same_version_is_score" + version + currentAccount, false)) {
+                    b.alP().putBoolean("key_rate_same_version_is_score" + version + currentAccount, true);
                     A(tbPageContext);
                 }
             }
@@ -181,7 +181,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void D(TbPageContext tbPageContext) {
         if (tbPageContext != null) {
-            ba.amQ().a((TbPageContext<?>) tbPageContext, new String[]{TbConfig.URL_FEED_BACK}, true);
+            ba.amO().a((TbPageContext<?>) tbPageContext, new String[]{TbConfig.URL_FEED_BACK}, true);
         }
     }
 

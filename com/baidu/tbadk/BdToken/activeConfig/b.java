@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tbadk.h.a<a> bRS;
+    private com.baidu.tbadk.h.a<a> bRb;
     protected BdUniqueId mBdUniqueId;
     private boolean isLoading = false;
-    private com.baidu.adp.framework.listener.a bSf = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637) { // from class: com.baidu.tbadk.BdToken.activeConfig.b.1
+    private com.baidu.adp.framework.listener.a bRo = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637) { // from class: com.baidu.tbadk.BdToken.activeConfig.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             b.this.isLoading = false;
             if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && b.this.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    if (b.this.bRS != null) {
-                        b.this.bRS.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (b.this.bRb != null) {
+                        b.this.bRb.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -30,10 +30,10 @@ public class b {
                 } else if (responsedMessage instanceof ActiveConfigHTTPResMsg) {
                     aVar = ((ActiveConfigHTTPResMsg) responsedMessage).getData();
                 }
-                n.aey().b(aVar);
-                com.baidu.tbadk.core.g.a.alO().c(aVar);
-                if (b.this.bRS != null) {
-                    b.this.bRS.onSuccess(aVar);
+                n.aew().b(aVar);
+                com.baidu.tbadk.core.g.a.alM().c(aVar);
+                if (b.this.bRb != null) {
+                    b.this.bRb.onSuccess(aVar);
                 }
             }
         }
@@ -41,9 +41,9 @@ public class b {
 
     public b(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        aeQ();
-        this.bSf.setTag(getUniqueId());
-        MessageManager.getInstance().registerListener(this.bSf);
+        aeO();
+        this.bRo.setTag(getUniqueId());
+        MessageManager.getInstance().registerListener(this.bRo);
     }
 
     public BdUniqueId getUniqueId() {
@@ -51,10 +51,10 @@ public class b {
     }
 
     public void a(com.baidu.tbadk.h.a<a> aVar) {
-        this.bRS = aVar;
+        this.bRb = aVar;
     }
 
-    public void aeP() {
+    public void aeN() {
         if (!this.isLoading) {
             this.isLoading = true;
             ActiveConfigReqMsg activeConfigReqMsg = new ActiveConfigReqMsg();
@@ -63,7 +63,7 @@ public class b {
         }
     }
 
-    private void aeQ() {
+    private void aeO() {
         com.baidu.tieba.tbadkCore.a.a.a(309637, ActiveConfigSocketResMsg.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, com.baidu.tieba.tbadkCore.a.a.bl(TbConfig.URL_ACTIVE_CONFIG, 309637));
         tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);

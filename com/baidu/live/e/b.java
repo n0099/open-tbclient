@@ -15,25 +15,25 @@ import com.baidu.live.message.AlaGiftRefreshScoresHttpResponseMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes6.dex */
 public class b extends BdBaseModel {
-    private d akq;
+    private d ajY;
     private Handler handler = new Handler();
-    private HttpMessageListener akr = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES) { // from class: com.baidu.live.e.b.1
+    private HttpMessageListener ajZ = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES) { // from class: com.baidu.live.e.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGiftRefreshScoresHttpResponseMessage)) {
                 AlaGiftRefreshScoresHttpResponseMessage alaGiftRefreshScoresHttpResponseMessage = (AlaGiftRefreshScoresHttpResponseMessage) httpResponsedMessage;
                 if (alaGiftRefreshScoresHttpResponseMessage.getError() == 0) {
-                    t ul = alaGiftRefreshScoresHttpResponseMessage.ul();
-                    TbadkCoreApplication.getInst().currentAccountTdouNum = ul.mTDouScores;
-                    TbadkCoreApplication.getInst().currentAccountFlowerNum = ul.mPetalTotal;
+                    t um = alaGiftRefreshScoresHttpResponseMessage.um();
+                    TbadkCoreApplication.getInst().currentAccountTdouNum = um.mTDouScores;
+                    TbadkCoreApplication.getInst().currentAccountFlowerNum = um.mPetalTotal;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA));
                 }
-                if (b.this.akq != null) {
+                if (b.this.ajY != null) {
                     b.this.handler.post(new Runnable() { // from class: com.baidu.live.e.b.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.akq.nq();
+                            b.this.ajY.nq();
                         }
                     });
                 }
@@ -42,11 +42,11 @@ public class b extends BdBaseModel {
     };
 
     public void initListener() {
-        registerListener(this.akr);
+        registerListener(this.ajZ);
     }
 
     public void a(d dVar) {
-        this.akq = dVar;
+        this.ajY = dVar;
     }
 
     public boolean refreshCurUserScores() {
@@ -70,7 +70,7 @@ public class b extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.akr);
+        MessageManager.getInstance().unRegisterListener(this.ajZ);
         this.handler.removeCallbacksAndMessages(null);
     }
 }

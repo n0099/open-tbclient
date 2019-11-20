@@ -18,7 +18,7 @@ public class a {
 
     private static void b(DataRes dataRes, List<m> list) {
         c cVar;
-        bh agI;
+        bh agG;
         ThreadPersonalized threadPersonalized;
         if (dataRes != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -30,15 +30,15 @@ public class a {
             int count = v.getCount(list);
             for (int i = 0; i < count; i++) {
                 m mVar = (m) v.getItem(list, i);
-                if ((mVar instanceof c) && (agI = (cVar = (c) mVar).agI()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.toLong(agI.getTid(), 0L))) != null) {
+                if ((mVar instanceof c) && (agG = (cVar = (c) mVar).agG()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.toLong(agG.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
                     cVar.uB(threadPersonalized.abtest_tag);
-                    agI.mRecomAbTag = threadPersonalized.abtest_tag;
-                    agI.mRecomSource = threadPersonalized.source;
-                    agI.mRecomWeight = threadPersonalized.weight;
-                    if (agI.aiX() != null) {
-                        cVar.d(agI.aiX().is_vertical);
+                    agG.mRecomAbTag = threadPersonalized.abtest_tag;
+                    agG.mRecomSource = threadPersonalized.source;
+                    agG.mRecomWeight = threadPersonalized.weight;
+                    if (agG.aiV() != null) {
+                        cVar.d(agG.aiV().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {

@@ -21,7 +21,7 @@ public class d {
         return new String(bArr, charset);
     }
 
-    public static String L(byte[] bArr) {
+    public static String K(byte[] bArr) {
         return a(bArr, c.UTF_8);
     }
 }

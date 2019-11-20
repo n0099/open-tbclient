@@ -12,7 +12,7 @@ import android.support.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class c extends a {
     private final Rect dst;
-    private final float hY;
+    private final float hz;
     private final Paint paint;
     private final Rect src;
 
@@ -22,7 +22,7 @@ public class c extends a {
         this.paint = new Paint(3);
         this.src = new Rect();
         this.dst = new Rect();
-        this.hY = f;
+        this.hz = f;
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a
@@ -33,7 +33,7 @@ public class c extends a {
             canvas.save();
             canvas.concat(matrix);
             this.src.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.dst.set(0, 0, (int) (bitmap.getWidth() * this.hY), (int) (bitmap.getHeight() * this.hY));
+            this.dst.set(0, 0, (int) (bitmap.getWidth() * this.hz), (int) (bitmap.getHeight() * this.hz));
             canvas.drawBitmap(bitmap, this.src, this.dst, this.paint);
             canvas.restore();
         }
@@ -45,13 +45,13 @@ public class c extends a {
         Bitmap bitmap = getBitmap();
         if (bitmap != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, bitmap.getWidth()), Math.min(rectF.bottom, bitmap.getHeight()));
-            this.hK.mapRect(rectF);
+            this.hl.mapRect(rectF);
         }
     }
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.H(this.kuK.getRefId());
+        return this.lottieDrawable.H(this.ktT.getRefId());
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.a.a.d

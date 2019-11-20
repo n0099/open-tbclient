@@ -17,8 +17,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.poly.d.a {
-    int aBZ = 0;
-    int aCa = 1;
+    int aBH = 0;
+    int aBI = 1;
     private Activity activity;
 
     public a(Activity activity) {
@@ -30,9 +30,9 @@ public class a implements com.baidu.poly.d.a {
         try {
             String optString = new JSONObject(map).optString("extData");
             int optInt = TextUtils.isEmpty(optString) ? 0 : new JSONObject(optString).optInt("isNewCashier", 0);
-            if (optInt == this.aBZ) {
+            if (optInt == this.aBH) {
                 b(map, str, c0131a);
-            } else if (optInt == this.aCa) {
+            } else if (optInt == this.aBI) {
                 a(c.k(map), str, c0131a);
             }
         } catch (Throwable th) {
@@ -42,7 +42,7 @@ public class a implements com.baidu.poly.d.a {
 
     public void a(Bundle bundle, final String str, final a.C0131a c0131a) {
         bundle.putString("reqData", "{\"payChannel\": \"" + str + "\"}");
-        com.baidu.poly.a.a.a.zE().a(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.a.1
+        com.baidu.poly.a.a.a.zF().a(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             /* renamed from: l */
@@ -81,13 +81,13 @@ public class a implements com.baidu.poly.d.a {
 
     public d dJ(String str) {
         if (PayChannel.ALIPAY.equalsIgnoreCase(str)) {
-            return com.baidu.poly.d.a.a.zQ();
+            return com.baidu.poly.d.a.a.zR();
         }
         if (PayChannel.WECHAT.equalsIgnoreCase(str)) {
-            return e.zS();
+            return e.zT();
         }
         if (PayChannel.BAIFUBAO.equalsIgnoreCase(str)) {
-            return com.baidu.poly.d.a.b.zR();
+            return com.baidu.poly.d.a.b.zS();
         }
         return null;
     }

@@ -17,7 +17,7 @@ public class j extends z {
 
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (!com.baidu.swan.apps.u.a.Jl().Bb()) {
+        if (!com.baidu.swan.apps.u.a.Jm().Bc()) {
             com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "GetLocalImgData is refused");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE, com.baidu.swan.apps.scheme.f.getErrMessage(UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE));
             return false;

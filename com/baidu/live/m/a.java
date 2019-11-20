@@ -10,5 +10,5 @@ public interface a {
 
     void onDestroy();
 
-    void y(JSONObject jSONObject);
+    void z(JSONObject jSONObject);
 }

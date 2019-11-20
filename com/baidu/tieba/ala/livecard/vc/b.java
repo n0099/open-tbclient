@@ -5,106 +5,106 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b {
-    private int ctk;
-    private List<bh> ctr;
-    private List<bh> cts;
-    private boolean ctt;
-    private boolean ctu;
-    private int ctv = 2;
-    private int ctw = 1;
+    private List<bh> csA;
+    private List<bh> csB;
+    private boolean csC;
+    private boolean csD;
+    private int csE = 2;
+    private int csF = 1;
+    private int cst;
 
     public b(List<bh> list, boolean z, int i) {
-        this.ctk = 2;
-        this.ctu = z;
-        this.ctk = i;
+        this.cst = 2;
+        this.csD = z;
+        this.cst = i;
         aY(list);
     }
 
     public void aY(List<bh> list) {
         if (list != null) {
-            this.ctr = list;
-            if (list != null && list.size() >= this.ctv && list.size() <= this.ctk) {
-                this.ctt = true;
-            } else if (list.size() > this.ctk && this.ctu) {
-                this.ctt = true;
+            this.csA = list;
+            if (list != null && list.size() >= this.csE && list.size() <= this.cst) {
+                this.csC = true;
+            } else if (list.size() > this.cst && this.csD) {
+                this.csC = true;
             } else {
-                this.ctt = false;
+                this.csC = false;
             }
-            this.cts = aor();
+            this.csB = aop();
         }
     }
 
-    private List<bh> aor() {
+    private List<bh> aop() {
         ArrayList arrayList = new ArrayList();
-        if (this.ctr != null) {
-            if (this.ctt) {
-                if (this.ctr.size() > this.ctk && this.ctr.size() >= this.ctw) {
-                    arrayList.addAll(this.ctr.subList(0, this.ctk));
-                    arrayList.addAll(0, this.ctr.subList(this.ctk - this.ctw, this.ctk));
-                    arrayList.addAll(this.ctr.subList(0, this.ctw));
+        if (this.csA != null) {
+            if (this.csC) {
+                if (this.csA.size() > this.cst && this.csA.size() >= this.csF) {
+                    arrayList.addAll(this.csA.subList(0, this.cst));
+                    arrayList.addAll(0, this.csA.subList(this.cst - this.csF, this.cst));
+                    arrayList.addAll(this.csA.subList(0, this.csF));
                 } else {
-                    arrayList.addAll(this.ctr);
-                    arrayList.addAll(0, this.ctr.subList(this.ctr.size() - this.ctw, this.ctr.size()));
-                    arrayList.addAll(this.ctr.subList(0, this.ctw));
+                    arrayList.addAll(this.csA);
+                    arrayList.addAll(0, this.csA.subList(this.csA.size() - this.csF, this.csA.size()));
+                    arrayList.addAll(this.csA.subList(0, this.csF));
                 }
-            } else if (this.ctr != null && this.ctr.size() > 0 && this.ctr.size() >= this.ctw) {
-                arrayList.addAll(this.ctr.subList(0, this.ctw));
+            } else if (this.csA != null && this.csA.size() > 0 && this.csA.size() >= this.csF) {
+                arrayList.addAll(this.csA.subList(0, this.csF));
             }
         }
         return arrayList;
     }
 
-    public int iY(int i) {
-        if (this.ctt) {
-            int size = this.cts.size();
+    public int iX(int i) {
+        if (this.csC) {
+            int size = this.csB.size();
             if (i == 0) {
-                return (size - 1) - this.ctw;
+                return (size - 1) - this.csF;
             }
-            if (i == size - this.ctw) {
-                return this.ctw;
+            if (i == size - this.csF) {
+                return this.csF;
             }
             return i;
         }
         return i;
     }
 
-    public int iZ(int i) {
-        if (this.ctt) {
-            return i - this.ctw;
+    public int iY(int i) {
+        if (this.csC) {
+            return i - this.csF;
         }
         return i;
     }
 
-    public int aos() {
-        if (this.ctr == null) {
+    public int aoq() {
+        if (this.csA == null) {
             return 0;
         }
-        return this.ctr.size();
+        return this.csA.size();
     }
 
-    public int aot() {
-        if (this.ctt) {
-            return this.ctw;
+    public int aor() {
+        if (this.csC) {
+            return this.csF;
         }
         return 0;
     }
 
+    public void iZ(int i) {
+        this.cst = i;
+        aY(this.csA);
+    }
+
     public void ja(int i) {
-        this.ctk = i;
-        aY(this.ctr);
+        this.csE = i;
+        aY(this.csA);
+    }
+
+    public List<bh> aos() {
+        return this.csB;
     }
 
     public void jb(int i) {
-        this.ctv = i;
-        aY(this.ctr);
-    }
-
-    public List<bh> aou() {
-        return this.cts;
-    }
-
-    public void jc(int i) {
-        this.ctw = i;
-        aY(this.ctr);
+        this.csF = i;
+        aY(this.csA);
     }
 }

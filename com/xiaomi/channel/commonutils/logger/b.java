@@ -5,14 +5,33 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
 public abstract class b {
     private static int a = 2;
-    private static LoggerInterface b = new a();
-    private static final HashMap<Integer, Long> c = new HashMap<>();
-    private static final HashMap<Integer, String> d = new HashMap<>();
-    private static final Integer e = -1;
-    private static AtomicInteger f = new AtomicInteger(1);
+
+    /* renamed from: a  reason: collision with other field name */
+    private static LoggerInterface f4a = new a();
+
+    /* renamed from: a  reason: collision with other field name */
+    private static final HashMap<Integer, Long> f6a = new HashMap<>();
+    private static final HashMap<Integer, String> b = new HashMap<>();
+
+    /* renamed from: a  reason: collision with other field name */
+    private static final Integer f5a = -1;
+
+    /* renamed from: a  reason: collision with other field name */
+    private static AtomicInteger f7a = new AtomicInteger(1);
 
     public static int a() {
         return a;
+    }
+
+    public static Integer a(String str) {
+        if (a <= 1) {
+            Integer valueOf = Integer.valueOf(f7a.incrementAndGet());
+            f6a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
+            b.put(valueOf, str);
+            f4a.log(str + " starts");
+            return valueOf;
+        }
+        return f5a;
     }
 
     public static void a(int i) {
@@ -24,35 +43,36 @@ public abstract class b {
 
     public static void a(int i, String str) {
         if (i >= a) {
-            b.log(str);
+            f4a.log(str);
         }
     }
 
     public static void a(int i, String str, Throwable th) {
         if (i >= a) {
-            b.log(str, th);
+            f4a.log(str, th);
         }
     }
 
     public static void a(int i, Throwable th) {
         if (i >= a) {
-            b.log("", th);
+            f4a.log("", th);
         }
     }
 
     public static void a(LoggerInterface loggerInterface) {
-        b = loggerInterface;
+        f4a = loggerInterface;
     }
 
     public static void a(Integer num) {
-        if (a > 1 || !c.containsKey(num)) {
+        if (a > 1 || !f6a.containsKey(num)) {
             return;
         }
-        long currentTimeMillis = System.currentTimeMillis() - c.remove(num).longValue();
-        b.log(d.remove(num) + " ends in " + currentTimeMillis + " ms");
+        long currentTimeMillis = System.currentTimeMillis() - f6a.remove(num).longValue();
+        f4a.log(b.remove(num) + " ends in " + currentTimeMillis + " ms");
     }
 
-    public static void a(String str) {
+    /* renamed from: a  reason: collision with other method in class */
+    public static void m30a(String str) {
         a(2, "[Thread:" + Thread.currentThread().getId() + "] " + str);
     }
 
@@ -74,16 +94,5 @@ public abstract class b {
 
     public static void d(String str) {
         a(4, str);
-    }
-
-    public static Integer e(String str) {
-        if (a <= 1) {
-            Integer valueOf = Integer.valueOf(f.incrementAndGet());
-            c.put(valueOf, Long.valueOf(System.currentTimeMillis()));
-            d.put(valueOf, str);
-            b.log(str + " starts");
-            return valueOf;
-        }
-        return e;
     }
 }

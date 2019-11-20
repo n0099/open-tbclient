@@ -20,7 +20,7 @@ public interface a {
     public interface b {
         void a(g gVar);
 
-        a aHB();
+        a aHz();
     }
 
     void a(InterfaceC0330a interfaceC0330a);

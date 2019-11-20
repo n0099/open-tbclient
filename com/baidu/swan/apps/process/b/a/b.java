@@ -26,9 +26,9 @@ public class b {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        gR.baS = bundle;
-        gR.baT = i;
-        gR.baU = str2;
+        gR.baA = bundle;
+        gR.baB = i;
+        gR.baC = str2;
         gR.u(bundle);
     }
 

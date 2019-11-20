@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.live.k.a;
 /* loaded from: classes6.dex */
 public class TurnTableLuckyBubbleView extends LinearLayout {
-    private TextView ahP;
+    private TextView ahx;
 
     public TurnTableLuckyBubbleView(Context context) {
         super(context);
@@ -18,13 +18,13 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
     }
 
     public void setContent(String str) {
-        this.ahP.setText(str);
+        this.ahx.setText(str);
     }
 
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.turn_table_widget_lucky_bubble, (ViewGroup) this, true);
-        this.ahP = (TextView) findViewById(a.g.tv_content);
+        this.ahx = (TextView) findViewById(a.g.tv_content);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds40));
         gradientDrawable.setShape(0);
@@ -34,6 +34,6 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
         } else {
             gradientDrawable.setColor(-2199);
         }
-        this.ahP.setBackgroundDrawable(gradientDrawable);
+        this.ahx.setBackgroundDrawable(gradientDrawable);
     }
 }

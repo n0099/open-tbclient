@@ -31,72 +31,72 @@ import com.baidu.tieba.ala.alasquare.recent_history.b.b;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private FrameLayout aLx;
-    private CustomMessageListener cjZ;
-    private AlaRecentHistoryActivity dBc;
-    private com.baidu.tieba.ala.alasquare.recent_history.a.a dBd;
-    private b dBe;
-    private PbListView dwJ;
+    private FrameLayout aLf;
+    private CustomMessageListener cji;
+    private AlaRecentHistoryActivity dAl;
+    private com.baidu.tieba.ala.alasquare.recent_history.a.a dAm;
+    private b dAn;
+    private PbListView dvS;
     private NoNetworkView mNetworkView;
     private TbPageContext mPageContext;
     private i mPullView;
     private View mRootView;
     private int mType;
-    private BdListView yl;
+    private BdListView xL;
 
     public a(TbPageContext tbPageContext, int i) {
         this.mPageContext = tbPageContext;
-        this.dBc = (AlaRecentHistoryActivity) tbPageContext.getPageActivity();
+        this.dAl = (AlaRecentHistoryActivity) tbPageContext.getPageActivity();
         this.mType = i;
         initView();
     }
 
     public void initView() {
         ColorDrawable colorDrawable;
-        this.mRootView = LayoutInflater.from(this.dBc).inflate(R.layout.square_recent_history_view, (ViewGroup) null);
-        this.mRootView.setPadding(0, (int) this.dBc.getResources().getDimension(R.dimen.ds80), 0, 0);
-        this.aLx = (FrameLayout) this.mRootView.findViewById(R.id.square_recent_history_container);
-        this.yl = (BdListView) this.mRootView.findViewById(R.id.square_recent_history_listview);
+        this.mRootView = LayoutInflater.from(this.dAl).inflate(R.layout.square_recent_history_view, (ViewGroup) null);
+        this.mRootView.setPadding(0, (int) this.dAl.getResources().getDimension(R.dimen.ds80), 0, 0);
+        this.aLf = (FrameLayout) this.mRootView.findViewById(R.id.square_recent_history_container);
+        this.xL = (BdListView) this.mRootView.findViewById(R.id.square_recent_history_listview);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            colorDrawable = new ColorDrawable(this.dBc.getPageContext().getResources().getColor(R.color.cp_bg_line_c_1));
+            colorDrawable = new ColorDrawable(this.dAl.getPageContext().getResources().getColor(R.color.cp_bg_line_c_1));
         } else {
-            colorDrawable = new ColorDrawable(this.dBc.getPageContext().getResources().getColor(R.color.cp_bg_line_c));
+            colorDrawable = new ColorDrawable(this.dAl.getPageContext().getResources().getColor(R.color.cp_bg_line_c));
         }
-        this.yl.setDivider(colorDrawable);
-        this.yl.setDividerHeight(this.dBc.getActivity().getResources().getDimensionPixelSize(R.dimen.ds1));
+        this.xL.setDivider(colorDrawable);
+        this.xL.setDividerHeight(this.dAl.getActivity().getResources().getDimensionPixelSize(R.dimen.ds1));
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.square_recent_history_network);
         this.mPullView = new i(this.mPageContext);
-        this.mPullView.setTag(this.dBc.getUniqueId());
-        this.yl.setPullRefresh(this.mPullView);
-        this.dwJ = new PbListView(this.dBc);
-        this.dwJ.createView();
-        aJP();
+        this.mPullView.setTag(this.dAl.getUniqueId());
+        this.xL.setPullRefresh(this.mPullView);
+        this.dvS = new PbListView(this.dAl);
+        this.dvS.createView();
+        aJN();
     }
 
-    private void aJP() {
-        aJQ();
+    private void aJN() {
+        aJO();
     }
 
-    private void aJQ() {
+    private void aJO() {
         if (this.mType == 0) {
-            this.dBd = new com.baidu.tieba.ala.alasquare.recent_history.a.b(this.mPageContext);
+            this.dAm = new com.baidu.tieba.ala.alasquare.recent_history.a.b(this.mPageContext);
         } else if (1 == this.mType) {
-            this.dBd = new c(this.mPageContext);
+            this.dAm = new c(this.mPageContext);
             registerListener();
-            ((c) this.dBd).a(new c.a() { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.1
+            ((c) this.dAm).a(new c.a() { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.1
                 @Override // com.baidu.tieba.ala.alasquare.recent_history.a.c.a
                 public void a(b bVar) {
-                    a.this.dBe = bVar;
-                    a.this.a(bVar.cbq.aiG(), bVar.isFollow);
+                    a.this.dAn = bVar;
+                    a.this.a(bVar.caz.aiE(), bVar.isFollow);
                 }
             });
         }
-        this.yl.setAdapter((ListAdapter) this.dBd);
-        this.yl.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.2
+        this.xL.setAdapter((ListAdapter) this.dAm);
+        this.xL.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0) {
-                    com.baidu.tieba.ala.alasquare.c.a.aJO().aIL();
+                    com.baidu.tieba.ala.alasquare.c.a.aJM().aIJ();
                 }
             }
 
@@ -107,35 +107,35 @@ public class a {
     }
 
     private void registerListener() {
-        this.cjZ = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.3
+        this.cji = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 long j;
                 if (customResponsedMessage != null && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                     UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                    if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && a.this.dBe != null) {
-                        if (a.this.dBe.cbq != null && a.this.dBe.cbq.aiG() != null) {
-                            j = a.this.dBe.cbq.aiG().getUserIdLong();
+                    if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && a.this.dAn != null) {
+                        if (a.this.dAn.caz != null && a.this.dAn.caz.aiE() != null) {
+                            j = a.this.dAn.caz.aiE().getUserIdLong();
                         } else {
                             j = -100;
                         }
                         if (updateAttentionMessage.getData().toUid.equals(String.valueOf(j))) {
                             if (updateAttentionMessage.getData().isSucc) {
-                                a.this.dBe.isFollow = true;
-                                if (a.this.dBd instanceof c) {
-                                    a.this.dBd.notifyDataSetChanged();
+                                a.this.dAn.isFollow = true;
+                                if (a.this.dAm instanceof c) {
+                                    a.this.dAm.notifyDataSetChanged();
                                     return;
                                 }
                                 return;
                             }
-                            a.this.dBe.isFollow = false;
+                            a.this.dAn.isFollow = false;
                         }
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.cjZ);
+        MessageManager.getInstance().registerListener(this.cji);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -152,53 +152,53 @@ public class a {
         return this.mRootView;
     }
 
-    public ViewGroup aJR() {
-        return this.aLx;
+    public ViewGroup aJP() {
+        return this.aLf;
     }
 
     public void completePullRefresh() {
-        this.yl.completePullRefresh();
+        this.xL.completePullRefresh();
     }
 
     public void setData(List<b> list, boolean z) {
-        if (this.dBd instanceof com.baidu.tieba.ala.alasquare.recent_history.a.b) {
-            this.dBd.setData(list);
-        } else if (this.dBd instanceof c) {
-            this.dBd.setData(list);
+        if (this.dAm instanceof com.baidu.tieba.ala.alasquare.recent_history.a.b) {
+            this.dAm.setData(list);
+        } else if (this.dAm instanceof c) {
+            this.dAm.setData(list);
         }
         if (z) {
-            aJl();
+            aJj();
         } else {
-            aJk();
+            aJi();
         }
     }
 
-    private void aJk() {
-        if (this.dwJ != null) {
-            if (this.dwJ.getView().getParent() == null) {
-                this.yl.setNextPage(this.dwJ);
+    private void aJi() {
+        if (this.dvS != null) {
+            if (this.dvS.getView().getParent() == null) {
+                this.xL.setNextPage(this.dvS);
             }
-            this.dwJ.setText(this.dBc.getPageContext().getResources().getString(R.string.list_no_more));
-            this.dwJ.endLoadData();
+            this.dvS.setText(this.dAl.getPageContext().getResources().getString(R.string.list_no_more));
+            this.dvS.endLoadData();
         }
     }
 
-    private void aJl() {
-        if (this.dwJ != null) {
-            if (this.dwJ.getView().getParent() == null) {
-                this.yl.setNextPage(this.dwJ);
+    private void aJj() {
+        if (this.dvS != null) {
+            if (this.dvS.getView().getParent() == null) {
+                this.xL.setNextPage(this.dvS);
             }
-            this.dwJ.showLoadingViewWithoutEmptyView();
-            this.dwJ.startLoadData();
+            this.dvS.showLoadingViewWithoutEmptyView();
+            this.dvS.startLoadData();
         }
     }
 
-    public void aJS() {
-        this.yl.setNextPage(null);
+    public void aJQ() {
+        this.xL.setNextPage(null);
     }
 
     public void setOnSrollToBottomListener(BdListView.e eVar) {
-        this.yl.setOnSrollToBottomListener(eVar);
+        this.xL.setOnSrollToBottomListener(eVar);
     }
 
     public void setListPullRefreshListener(h.c cVar) {
@@ -212,8 +212,8 @@ public class a {
     }
 
     public void onDestroy() {
-        if (this.cjZ != null) {
-            MessageManager.getInstance().unRegisterListener(this.cjZ);
+        if (this.cji != null) {
+            MessageManager.getInstance().unRegisterListener(this.cji);
         }
     }
 }

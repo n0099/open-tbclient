@@ -4,17 +4,17 @@ import android.view.View;
 import com.baidu.tieba.ala.person.adapter.a;
 /* loaded from: classes6.dex */
 public abstract class c {
-    protected int dGm;
-    protected a.InterfaceC0377a eua;
-    protected a.c eub;
-    protected a.b euc;
+    protected int dFv;
+    protected a.InterfaceC0377a etj;
+    protected a.c etk;
+    protected a.b etl;
     protected View mRootView;
 
     protected abstract void z(Object obj);
 
     public c(View view, int i) {
         this.mRootView = view;
-        this.dGm = i;
+        this.dFv = i;
     }
 
     public void a(Object obj, int i) {
@@ -28,14 +28,14 @@ public abstract class c {
     }
 
     public void a(a.InterfaceC0377a interfaceC0377a) {
-        this.eua = interfaceC0377a;
+        this.etj = interfaceC0377a;
     }
 
     public void a(a.c cVar) {
-        this.eub = cVar;
+        this.etk = cVar;
     }
 
     public void a(a.b bVar) {
-        this.euc = bVar;
+        this.etl = bVar;
     }
 }

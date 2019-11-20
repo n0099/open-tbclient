@@ -24,30 +24,30 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a {
-    private final String hJ;
-    private List<a> hP;
-    final p ktr;
-    final Layer kuK;
+    private final String hk;
+    private List<a> hq;
+    final p ksA;
+    final Layer ktT;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.g kuL;
+    private com.tb.airbnb.lottie.a.b.g ktU;
     @Nullable
-    private a kuM;
+    private a ktV;
     @Nullable
-    private a kuN;
+    private a ktW;
     final com.tb.airbnb.lottie.f lottieDrawable;
     private final Path path = new Path();
     private final Matrix matrix = new Matrix();
-    private final Paint hB = new Paint(1);
-    private final Paint hC = new Paint(1);
-    private final Paint hD = new Paint(1);
-    private final Paint hE = new Paint(1);
-    private final Paint hF = new Paint();
+    private final Paint hb = new Paint(1);
+    private final Paint hc = new Paint(1);
+    private final Paint hd = new Paint(1);
+    private final Paint hf = new Paint(1);
+    private final Paint hg = new Paint();
     private final RectF rect = new RectF();
-    private final RectF hG = new RectF();
-    private final RectF hH = new RectF();
-    private final RectF hI = new RectF();
-    final Matrix hK = new Matrix();
-    private final List<com.tb.airbnb.lottie.a.b.a<?, ?>> hQ = new ArrayList();
+    private final RectF hh = new RectF();
+    private final RectF hi = new RectF();
+    private final RectF hj = new RectF();
+    final Matrix hl = new Matrix();
+    private final List<com.tb.airbnb.lottie.a.b.a<?, ?>> hr = new ArrayList();
     private boolean visible = true;
 
     abstract void b(Canvas canvas, Matrix matrix, int i);
@@ -55,7 +55,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public static a a(Layer layer, com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.e eVar) {
-        switch (layer.cMg()) {
+        switch (layer.cMe()) {
             case Shape:
                 return new e(fVar, layer);
             case PreComp:
@@ -69,7 +69,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
             case Text:
                 return new g(fVar, layer);
             default:
-                Log.w("LOTTIE", "Unknown layer type " + layer.cMg());
+                Log.w("LOTTIE", "Unknown layer type " + layer.cMe());
                 return null;
         }
     }
@@ -77,25 +77,25 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(com.tb.airbnb.lottie.f fVar, Layer layer) {
         this.lottieDrawable = fVar;
-        this.kuK = layer;
-        this.hJ = layer.getName() + "#draw";
-        this.hF.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        this.hC.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-        this.hD.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        if (layer.cMh() == Layer.MatteType.Invert) {
-            this.hE.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.ktT = layer;
+        this.hk = layer.getName() + "#draw";
+        this.hg.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.hc.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        this.hd.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        if (layer.cMf() == Layer.MatteType.Invert) {
+            this.hf.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         } else {
-            this.hE.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+            this.hf.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
-        this.ktr = layer.cMa().cLC();
-        this.ktr.a((a.InterfaceC0577a) this);
+        this.ksA = layer.cLY().cLA();
+        this.ksA.a((a.InterfaceC0577a) this);
         if (layer.bL() != null && !layer.bL().isEmpty()) {
-            this.kuL = new com.tb.airbnb.lottie.a.b.g(layer.bL());
-            for (com.tb.airbnb.lottie.a.b.a<h, Path> aVar : this.kuL.bM()) {
+            this.ktU = new com.tb.airbnb.lottie.a.b.g(layer.bL());
+            for (com.tb.airbnb.lottie.a.b.a<h, Path> aVar : this.ktU.bM()) {
                 a(aVar);
                 aVar.b(this);
             }
-            for (com.tb.airbnb.lottie.a.b.a<Integer, Integer> aVar2 : this.kuL.bN()) {
+            for (com.tb.airbnb.lottie.a.b.a<Integer, Integer> aVar2 : this.ktU.bN()) {
                 a(aVar2);
                 aVar2.b(this);
             }
@@ -109,28 +109,28 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Layer cMf() {
-        return this.kuK;
+    public Layer cMd() {
+        return this.ktT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(@Nullable a aVar) {
-        this.kuM = aVar;
+        this.ktV = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean da() {
-        return this.kuM != null;
+        return this.ktV != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(@Nullable a aVar) {
-        this.kuN = aVar;
+        this.ktW = aVar;
     }
 
     private void db() {
-        if (!this.kuK.df().isEmpty()) {
-            final com.tb.airbnb.lottie.a.b.c cVar = new com.tb.airbnb.lottie.a.b.c(this.kuK.df());
+        if (!this.ktT.df().isEmpty()) {
+            final com.tb.airbnb.lottie.a.b.c cVar = new com.tb.airbnb.lottie.a.b.c(this.ktT.df());
             cVar.bH();
             cVar.b(new a.InterfaceC0577a() { // from class: com.tb.airbnb.lottie.model.layer.a.1
                 @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0577a
@@ -151,52 +151,52 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
 
     public void a(com.tb.airbnb.lottie.a.b.a<?, ?> aVar) {
         if (!(aVar instanceof n)) {
-            this.hQ.add(aVar);
+            this.hr.add(aVar);
         }
     }
 
     @Override // com.tb.airbnb.lottie.a.a.d
     @CallSuper
     public void a(RectF rectF, Matrix matrix) {
-        this.hK.set(matrix);
-        this.hK.preConcat(this.ktr.getMatrix());
+        this.hl.set(matrix);
+        this.hl.preConcat(this.ksA.getMatrix());
     }
 
     @Override // com.tb.airbnb.lottie.a.a.d
     @SuppressLint({"WrongConstant"})
     public void a(Canvas canvas, Matrix matrix, int i) {
-        com.tb.airbnb.lottie.d.beginSection(this.hJ);
+        com.tb.airbnb.lottie.d.beginSection(this.hk);
         if (!this.visible) {
-            com.tb.airbnb.lottie.d.D(this.hJ);
+            com.tb.airbnb.lottie.d.D(this.hk);
             return;
         }
         dd();
         com.tb.airbnb.lottie.d.beginSection("Layer#parentMatrix");
         this.matrix.reset();
         this.matrix.set(matrix);
-        for (int size = this.hP.size() - 1; size >= 0; size--) {
-            this.matrix.preConcat(this.hP.get(size).ktr.getMatrix());
+        for (int size = this.hq.size() - 1; size >= 0; size--) {
+            this.matrix.preConcat(this.hq.get(size).ksA.getMatrix());
         }
         com.tb.airbnb.lottie.d.D("Layer#parentMatrix");
-        int intValue = (int) (((this.ktr.cLk().getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f);
+        int intValue = (int) (((this.ksA.cLi().getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f);
         if (!da() && !dc()) {
-            this.matrix.preConcat(this.ktr.getMatrix());
+            this.matrix.preConcat(this.ksA.getMatrix());
             com.tb.airbnb.lottie.d.beginSection("Layer#drawLayer");
             b(canvas, this.matrix, intValue);
             com.tb.airbnb.lottie.d.D("Layer#drawLayer");
-            i(com.tb.airbnb.lottie.d.D(this.hJ));
+            i(com.tb.airbnb.lottie.d.D(this.hk));
             return;
         }
         com.tb.airbnb.lottie.d.beginSection("Layer#computeBounds");
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
         a(this.rect, this.matrix);
         c(this.rect, this.matrix);
-        this.matrix.preConcat(this.ktr.getMatrix());
+        this.matrix.preConcat(this.ksA.getMatrix());
         b(this.rect, this.matrix);
         this.rect.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
         com.tb.airbnb.lottie.d.D("Layer#computeBounds");
         com.tb.airbnb.lottie.d.beginSection("Layer#saveLayer");
-        canvas.saveLayer(this.rect, this.hB, 31);
+        canvas.saveLayer(this.rect, this.hb, 31);
         com.tb.airbnb.lottie.d.D("Layer#saveLayer");
         d(canvas);
         com.tb.airbnb.lottie.d.beginSection("Layer#drawLayer");
@@ -208,10 +208,10 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
         if (da()) {
             com.tb.airbnb.lottie.d.beginSection("Layer#drawMatte");
             com.tb.airbnb.lottie.d.beginSection("Layer#saveLayer");
-            canvas.saveLayer(this.rect, this.hE, 19);
+            canvas.saveLayer(this.rect, this.hf, 19);
             com.tb.airbnb.lottie.d.D("Layer#saveLayer");
             d(canvas);
-            this.kuM.a(canvas, matrix, intValue);
+            this.ktV.a(canvas, matrix, intValue);
             com.tb.airbnb.lottie.d.beginSection("Layer#restoreLayer");
             canvas.restore();
             com.tb.airbnb.lottie.d.D("Layer#restoreLayer");
@@ -220,48 +220,48 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
         com.tb.airbnb.lottie.d.beginSection("Layer#restoreLayer");
         canvas.restore();
         com.tb.airbnb.lottie.d.D("Layer#restoreLayer");
-        i(com.tb.airbnb.lottie.d.D(this.hJ));
+        i(com.tb.airbnb.lottie.d.D(this.hk));
     }
 
     private void i(float f) {
-        this.lottieDrawable.cLc().getPerformanceTracker().b(this.kuK.getName(), f);
+        this.lottieDrawable.cLa().getPerformanceTracker().b(this.ktT.getName(), f);
     }
 
     private void d(Canvas canvas) {
         com.tb.airbnb.lottie.d.beginSection("Layer#clearLayer");
-        canvas.drawRect(this.rect.left - 1.0f, this.rect.top - 1.0f, this.rect.right + 1.0f, 1.0f + this.rect.bottom, this.hF);
+        canvas.drawRect(this.rect.left - 1.0f, this.rect.top - 1.0f, this.rect.right + 1.0f, 1.0f + this.rect.bottom, this.hg);
         com.tb.airbnb.lottie.d.D("Layer#clearLayer");
     }
 
     private void b(RectF rectF, Matrix matrix) {
-        this.hG.set(0.0f, 0.0f, 0.0f, 0.0f);
+        this.hh.set(0.0f, 0.0f, 0.0f, 0.0f);
         if (dc()) {
-            int size = this.kuL.bL().size();
+            int size = this.ktU.bL().size();
             for (int i = 0; i < size; i++) {
-                this.path.set(this.kuL.bM().get(i).getValue());
+                this.path.set(this.ktU.bM().get(i).getValue());
                 this.path.transform(matrix);
-                switch (this.kuL.bL().get(i).cLO()) {
+                switch (this.ktU.bL().get(i).cLM()) {
                     case MaskModeSubtract:
                     case MaskModeIntersect:
                     case MaskModeUnknown:
                         return;
                     default:
-                        this.path.computeBounds(this.hI, false);
+                        this.path.computeBounds(this.hj, false);
                         if (i == 0) {
-                            this.hG.set(this.hI);
+                            this.hh.set(this.hj);
                         } else {
-                            this.hG.set(Math.min(this.hG.left, this.hI.left), Math.min(this.hG.top, this.hI.top), Math.max(this.hG.right, this.hI.right), Math.max(this.hG.bottom, this.hI.bottom));
+                            this.hh.set(Math.min(this.hh.left, this.hj.left), Math.min(this.hh.top, this.hj.top), Math.max(this.hh.right, this.hj.right), Math.max(this.hh.bottom, this.hj.bottom));
                         }
                 }
             }
-            rectF.set(Math.max(rectF.left, this.hG.left), Math.max(rectF.top, this.hG.top), Math.min(rectF.right, this.hG.right), Math.min(rectF.bottom, this.hG.bottom));
+            rectF.set(Math.max(rectF.left, this.hh.left), Math.max(rectF.top, this.hh.top), Math.min(rectF.right, this.hh.right), Math.min(rectF.bottom, this.hh.bottom));
         }
     }
 
     private void c(RectF rectF, Matrix matrix) {
-        if (da() && this.kuK.cMh() != Layer.MatteType.Invert) {
-            this.kuM.a(this.hH, matrix);
-            rectF.set(Math.max(rectF.left, this.hH.left), Math.max(rectF.top, this.hH.top), Math.min(rectF.right, this.hH.right), Math.min(rectF.bottom, this.hH.bottom));
+        if (da() && this.ktT.cMf() != Layer.MatteType.Invert) {
+            this.ktV.a(this.hi, matrix);
+            rectF.set(Math.max(rectF.left, this.hi.left), Math.max(rectF.top, this.hi.top), Math.min(rectF.right, this.hi.right), Math.min(rectF.bottom, this.hi.bottom));
         }
     }
 
@@ -275,15 +275,15 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
         Paint paint;
         boolean z;
         if (maskMode == Mask.MaskMode.MaskModeSubtract) {
-            paint = this.hD;
+            paint = this.hd;
         } else {
-            paint = this.hC;
+            paint = this.hc;
         }
-        int size = this.kuL.bL().size();
+        int size = this.ktU.bL().size();
         int i = 0;
         while (true) {
             if (i < size) {
-                if (this.kuL.bL().get(i).cLO() != maskMode) {
+                if (this.ktU.bL().get(i).cLM() != maskMode) {
                     i++;
                 } else {
                     z = true;
@@ -301,13 +301,13 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
             com.tb.airbnb.lottie.d.D("Layer#saveLayer");
             d(canvas);
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.kuL.bL().get(i2).cLO() == maskMode) {
-                    this.path.set(this.kuL.bM().get(i2).getValue());
+                if (this.ktU.bL().get(i2).cLM() == maskMode) {
+                    this.path.set(this.ktU.bM().get(i2).getValue());
                     this.path.transform(matrix);
-                    int alpha = this.hB.getAlpha();
-                    this.hB.setAlpha((int) (this.kuL.bN().get(i2).getValue().intValue() * 2.55f));
-                    canvas.drawPath(this.path, this.hB);
-                    this.hB.setAlpha(alpha);
+                    int alpha = this.hb.getAlpha();
+                    this.hb.setAlpha((int) (this.ktU.bN().get(i2).getValue().intValue() * 2.55f));
+                    canvas.drawPath(this.path, this.hb);
+                    this.hb.setAlpha(alpha);
                 }
             }
             com.tb.airbnb.lottie.d.beginSection("Layer#restoreLayer");
@@ -319,7 +319,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean dc() {
-        return (this.kuL == null || this.kuL.bM().isEmpty()) ? false : true;
+        return (this.ktU == null || this.ktU.bM().isEmpty()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -332,18 +332,18 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        this.ktr.setProgress(f);
-        if (this.kuK.de() != 0.0f) {
-            f /= this.kuK.de();
+        this.ksA.setProgress(f);
+        if (this.ktT.de() != 0.0f) {
+            f /= this.ktT.de();
         }
-        if (this.kuM != null) {
-            this.kuM.setProgress(this.kuM.kuK.de() * f);
+        if (this.ktV != null) {
+            this.ktV.setProgress(this.ktV.ktT.de() * f);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.hQ.size()) {
-                this.hQ.get(i2).setProgress(f);
+            if (i2 < this.hr.size()) {
+                this.hr.get(i2).setProgress(f);
                 i = i2 + 1;
             } else {
                 return;
@@ -352,21 +352,21 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
     }
 
     private void dd() {
-        if (this.hP == null) {
-            if (this.kuN == null) {
-                this.hP = Collections.emptyList();
+        if (this.hq == null) {
+            if (this.ktW == null) {
+                this.hq = Collections.emptyList();
                 return;
             }
-            this.hP = new ArrayList();
-            for (a aVar = this.kuN; aVar != null; aVar = aVar.kuN) {
-                this.hP.add(aVar);
+            this.hq = new ArrayList();
+            for (a aVar = this.ktW; aVar != null; aVar = aVar.ktW) {
+                this.hq.add(aVar);
             }
         }
     }
 
     @Override // com.tb.airbnb.lottie.a.a.b
     public String getName() {
-        return this.kuK.getName();
+        return this.ktT.getName();
     }
 
     @Override // com.tb.airbnb.lottie.a.a.b

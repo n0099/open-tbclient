@@ -47,7 +47,7 @@ public class j {
         }
     }
 
-    public static void ama() {
+    public static void alY() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {

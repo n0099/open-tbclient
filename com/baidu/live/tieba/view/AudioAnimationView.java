@@ -15,17 +15,17 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import java.util.Random;
 /* loaded from: classes6.dex */
 public class AudioAnimationView extends View {
-    private int DA;
-    private int DC;
-    private boolean DD;
-    private boolean DE;
-    private int DF;
-    private int DG;
-    private int[] DI;
-    private int DJ;
-    private int DK;
-    private final Runnable DL;
-    private Rect[] aoQ;
+    private int Da;
+    private int Db;
+    private boolean Dc;
+    private boolean Dd;
+    private int De;
+    private int Df;
+    private int[] Dh;
+    private int Di;
+    private int Dj;
+    private final Runnable Dk;
+    private Rect[] aoy;
     private Paint mPaint;
     private int mSkinType;
     private Random random;
@@ -34,14 +34,14 @@ public class AudioAnimationView extends View {
         super(context);
         this.mSkinType = 3;
         this.random = new Random();
-        this.DA = 0;
-        this.DC = 8;
-        this.DD = false;
-        this.DE = true;
-        this.DI = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.DJ = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
-        this.DK = a.d.sdk_cp_link_tip_a;
-        this.DL = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
+        this.Da = 0;
+        this.Db = 8;
+        this.Dc = false;
+        this.Dd = true;
+        this.Dh = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.Di = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
+        this.Dj = a.d.sdk_cp_link_tip_a;
+        this.Dk = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
                 AudioAnimationView.this.li();
@@ -55,14 +55,14 @@ public class AudioAnimationView extends View {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.random = new Random();
-        this.DA = 0;
-        this.DC = 8;
-        this.DD = false;
-        this.DE = true;
-        this.DI = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.DJ = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
-        this.DK = a.d.sdk_cp_link_tip_a;
-        this.DL = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
+        this.Da = 0;
+        this.Db = 8;
+        this.Dc = false;
+        this.Dd = true;
+        this.Dh = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.Di = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
+        this.Dj = a.d.sdk_cp_link_tip_a;
+        this.Dk = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
                 AudioAnimationView.this.li();
@@ -74,40 +74,40 @@ public class AudioAnimationView extends View {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void li() {
-        if (this.DD) {
+        if (this.Dc) {
             invalidate();
         }
-        SafeHandler.getInst().removeCallbacks(this.DL);
-        if (!this.DE) {
-            SafeHandler.getInst().postDelayed(this.DL, 250L);
+        SafeHandler.getInst().removeCallbacks(this.Dk);
+        if (!this.Dd) {
+            SafeHandler.getInst().postDelayed(this.Dk, 250L);
         }
     }
 
     @Override // android.view.View
     @SuppressLint({"DrawAllocation"})
     protected void onMeasure(int i, int i2) {
-        if (this.DA > 0) {
+        if (this.Da > 0) {
             int mode = View.MeasureSpec.getMode(i);
-            this.DF = this.DJ * ((this.DA * 2) - 1);
-            this.DC = this.DA;
-            i = View.MeasureSpec.makeMeasureSpec(this.DF, mode);
+            this.De = this.Di * ((this.Da * 2) - 1);
+            this.Db = this.Da;
+            i = View.MeasureSpec.makeMeasureSpec(this.De, mode);
         }
         super.onMeasure(i, i2);
-        this.DG = getMeasuredHeight();
-        this.DF = getMeasuredWidth();
-        if (this.DA <= 0) {
-            this.DC = (this.DF / this.DJ) / 2;
+        this.Df = getMeasuredHeight();
+        this.De = getMeasuredWidth();
+        if (this.Da <= 0) {
+            this.Db = (this.De / this.Di) / 2;
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.DD) {
-            for (int i = 0; i < this.DC; i++) {
+        if (this.Dc) {
+            for (int i = 0; i < this.Db; i++) {
                 lk();
-                if (i < this.aoQ.length) {
-                    canvas.drawRect(this.aoQ[i], this.mPaint);
+                if (i < this.aoy.length) {
+                    canvas.drawRect(this.aoy[i], this.mPaint);
                 }
             }
         }
@@ -118,34 +118,34 @@ public class AudioAnimationView extends View {
         this.mPaint.setDither(true);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(SkinManager.getColor(this.DK));
+        this.mPaint.setColor(SkinManager.getColor(this.Dj));
     }
 
     private void lk() {
         int nextInt;
-        if (this.aoQ == null || this.aoQ.length != this.DC) {
-            this.aoQ = new Rect[this.DC];
+        if (this.aoy == null || this.aoy.length != this.Db) {
+            this.aoy = new Rect[this.Db];
         }
-        for (int i = 0; i < this.DC; i++) {
-            int i2 = this.DJ * i * 2;
-            if (this.DE) {
-                nextInt = (int) ((1.0d - (this.DI[i % 22] / 10.0d)) * this.DG);
+        for (int i = 0; i < this.Db; i++) {
+            int i2 = this.Di * i * 2;
+            if (this.Dd) {
+                nextInt = (int) ((1.0d - (this.Dh[i % 22] / 10.0d)) * this.Df);
             } else {
-                nextInt = this.DG > 0 ? this.random.nextInt(this.DG) : 0;
+                nextInt = this.Df > 0 ? this.random.nextInt(this.Df) : 0;
             }
-            int i3 = this.DJ + i2;
-            int i4 = this.DG;
-            if (this.aoQ[i] == null) {
-                this.aoQ[i] = new Rect(i2, nextInt, i3, i4);
+            int i3 = this.Di + i2;
+            int i4 = this.Df;
+            if (this.aoy[i] == null) {
+                this.aoy[i] = new Rect(i2, nextInt, i3, i4);
             } else {
-                this.aoQ[i].set(i2, nextInt, i3, i4);
+                this.aoy[i].set(i2, nextInt, i3, i4);
             }
         }
     }
 
     public void setColumnWidth(int i) {
         if (i > 0) {
-            this.DJ = i;
+            this.Di = i;
         }
     }
 
@@ -153,18 +153,18 @@ public class AudioAnimationView extends View {
         if (this.mPaint != null) {
             this.mPaint.setColor(SkinManager.getColor(i));
         }
-        this.DK = i;
+        this.Dj = i;
     }
 
     public void setCertainColumnCount(int i) {
         if (i != 0) {
-            this.DA = i;
+            this.Da = i;
         }
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        SafeHandler.getInst().removeCallbacks(this.DL);
+        SafeHandler.getInst().removeCallbacks(this.Dk);
     }
 }

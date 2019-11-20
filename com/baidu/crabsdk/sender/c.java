@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public final class c extends a {
-    private ActivityManager KD;
-    private int KE;
+    private ActivityManager Kd;
+    private int Ke;
 
     public c(Context context) {
         super(context);
-        this.KD = null;
-        this.KE = -100;
-        this.KD = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        this.Kd = null;
+        this.Ke = -100;
+        this.Kd = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
     }
 
     private static Map<String, Object> a(ActivityManager.ProcessErrorStateInfo processErrorStateInfo, String str) {
@@ -83,18 +83,18 @@ public final class c extends a {
                 if (com.baidu.crabsdk.a.N != null) {
                     com.baidu.crabsdk.a.N.onAnrStarted(a);
                 }
-                Map<String, Object> a2 = g.a(this.KA, (Throwable) null, false);
+                Map<String, Object> a2 = g.a(this.Ka, (Throwable) null, false);
                 if (a2 == null) {
                     com.baidu.crabsdk.c.a.bw("info map is null!");
                     return true;
                 }
                 a2.putAll(a);
                 g.b(a2);
-                i.a(this.KA, i.g(a2));
+                i.a(this.Ka, i.g(a2));
                 h.ab();
                 if (h.mz()) {
                     com.baidu.crabsdk.c.a.bu("begin to upload anr info...");
-                    k.a(false, this.KA);
+                    k.a(false, this.Ka);
                 }
             } else {
                 com.baidu.crabsdk.c.a.bu("Anr occur! But not the current pid!" + Process.myPid());
@@ -112,7 +112,7 @@ public final class c extends a {
 
     private ActivityManager.ProcessErrorStateInfo mw() {
         try {
-            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.KD.getProcessesInErrorState();
+            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.Kd.getProcessesInErrorState();
             if (processesInErrorState != null) {
                 for (ActivityManager.ProcessErrorStateInfo processErrorStateInfo : processesInErrorState) {
                     if (processErrorStateInfo.condition == 2) {
@@ -128,8 +128,8 @@ public final class c extends a {
 
     @Override // com.baidu.crabsdk.sender.a
     public final void d(String str) {
-        if (this.KE != Process.myPid()) {
-            this.KE = Process.myPid();
+        if (this.Ke != Process.myPid()) {
+            this.Ke = Process.myPid();
             try {
                 com.baidu.crabsdk.c.a.bu("anr trace logic thread.");
                 boolean g = g(str);

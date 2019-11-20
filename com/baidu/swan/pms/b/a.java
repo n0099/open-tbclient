@@ -10,17 +10,17 @@ import java.security.InvalidParameterException;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
-    private static HttpManager bMf = HttpManager.newHttpManager(AppRuntime.getAppContext());
-    private static CookieManager bMg = com.baidu.swan.pms.e.aaS().JZ();
+    private static HttpManager bLo = HttpManager.newHttpManager(AppRuntime.getAppContext());
+    private static CookieManager bLp = com.baidu.swan.pms.e.aaQ().Ka();
 
     public static void a(String str, Map<String, String> map, Map<String, String> map2, ResponseCallback<String> responseCallback) {
         if (TextUtils.isEmpty(str)) {
             throw new InvalidParameterException("PMS request URL is empty");
         }
-        GetRequest.GetRequestBuilder url = bMf.getRequest().url(e.f(str, map));
+        GetRequest.GetRequestBuilder url = bLo.getRequest().url(e.f(str, map));
         if (map2 != null) {
             url.addHeaders(map2);
         }
-        url.cookieManager(bMg).build().executeAsync(responseCallback);
+        url.cookieManager(bLp).build().executeAsync(responseCallback);
     }
 }

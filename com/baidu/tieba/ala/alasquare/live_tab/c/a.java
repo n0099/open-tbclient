@@ -17,17 +17,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private List<m> bZG;
-    private List<m> dzm;
+    private List<m> bYP;
+    private List<m> dyv;
     private com.baidu.tieba.ala.alasquare.live_tab.b.a hotLiveInfo;
     private c officialRecommendLiveInfo;
     private e stageLiveInfo;
     private f superEntranceInfo;
     private h tabAllLiveInfo;
     private boolean hasMore = false;
-    private List<String> dzn = new ArrayList();
-    private List<bh> dzo = new ArrayList();
-    private List<m> dzp = new ArrayList();
+    private List<String> dyw = new ArrayList();
+    private List<bh> dyx = new ArrayList();
+    private List<m> dyy = new ArrayList();
 
     public a(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         this.superEntranceInfo = alaTabLiveResponsedMessage.superEntranceInfo;
@@ -35,39 +35,39 @@ public class a {
         this.hotLiveInfo = alaTabLiveResponsedMessage.hotLiveInfo;
         this.officialRecommendLiveInfo = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
         this.tabAllLiveInfo = alaTabLiveResponsedMessage.tabAllLiveInfo;
-        aJD();
+        aJB();
     }
 
-    private void aJD() {
-        this.dzm = new ArrayList();
+    private void aJB() {
+        this.dyv = new ArrayList();
         if (this.superEntranceInfo != null) {
             g gVar = new g();
-            gVar.dxp = this.superEntranceInfo;
-            this.dzm.add(gVar);
+            gVar.dwy = this.superEntranceInfo;
+            this.dyv.add(gVar);
         }
-        if (this.stageLiveInfo != null && this.stageLiveInfo.aJr() && this.stageLiveInfo.isValid()) {
+        if (this.stageLiveInfo != null && this.stageLiveInfo.aJp() && this.stageLiveInfo.isValid()) {
             d dVar = new d();
-            dVar.dxi = this.stageLiveInfo;
-            this.dzm.add(dVar);
-            this.dzn.add(this.stageLiveInfo.dxj.getTid());
+            dVar.dwr = this.stageLiveInfo;
+            this.dyv.add(dVar);
+            this.dyw.add(this.stageLiveInfo.dws.getTid());
         }
         if (this.hotLiveInfo != null) {
-            ArrayList<m> aJE = aJE();
-            if (!v.isEmpty(aJE)) {
-                this.dzm.addAll(aJE);
+            ArrayList<m> aJC = aJC();
+            if (!v.isEmpty(aJC)) {
+                this.dyv.addAll(aJC);
             }
         }
-        if (this.officialRecommendLiveInfo != null && this.officialRecommendLiveInfo.dxg && !v.isEmpty(this.officialRecommendLiveInfo.dxd)) {
+        if (this.officialRecommendLiveInfo != null && this.officialRecommendLiveInfo.dwp && !v.isEmpty(this.officialRecommendLiveInfo.dwm)) {
             b bVar = new b();
-            bVar.dxf = this.officialRecommendLiveInfo;
-            this.dzm.add(bVar);
+            bVar.dwo = this.officialRecommendLiveInfo;
+            this.dyv.add(bVar);
         }
-        this.bZG = new ArrayList(this.dzm);
+        this.bYP = new ArrayList(this.dyv);
         a(this.tabAllLiveInfo);
     }
 
-    private ArrayList<m> aJE() {
-        ArrayList<bh> arrayList = this.hotLiveInfo.dxd;
+    private ArrayList<m> aJC() {
+        ArrayList<bh> arrayList = this.hotLiveInfo.dwm;
         if (arrayList == null || arrayList.size() < 2) {
             return null;
         }
@@ -75,9 +75,9 @@ public class a {
         for (bh bhVar : arrayList) {
             if (bhVar != null) {
                 String tid = bhVar.getTid();
-                if (!this.dzn.contains(tid)) {
+                if (!this.dyw.contains(tid)) {
                     arrayList2.add(bhVar);
-                    this.dzn.add(tid);
+                    this.dyw.add(tid);
                 }
             }
         }
@@ -100,7 +100,7 @@ public class a {
         if (hVar == null) {
             return false;
         }
-        ArrayList<bh> arrayList = hVar.dxd;
+        ArrayList<bh> arrayList = hVar.dwm;
         if (v.isEmpty(arrayList)) {
             return false;
         }
@@ -110,18 +110,18 @@ public class a {
             bh next = it.next();
             if (next != null) {
                 String tid = next.getTid();
-                if (!this.dzn.contains(tid)) {
+                if (!this.dyw.contains(tid)) {
                     arrayList2.add(next);
-                    this.dzn.add(tid);
+                    this.dyw.add(tid);
                 }
             }
         }
         if (v.isEmpty(arrayList2)) {
             return false;
         }
-        this.dzo.addAll(arrayList2);
-        this.dzp = bk(this.dzo);
-        return !v.isEmpty(this.dzp);
+        this.dyx.addAll(arrayList2);
+        this.dyy = bk(this.dyx);
+        return !v.isEmpty(this.dyy);
     }
 
     private ArrayList<m> bk(List<bh> list) {
@@ -130,17 +130,17 @@ public class a {
         for (int i = 0; i < size; i += 2) {
             i iVar = new i();
             com.baidu.tieba.ala.alasquare.a.b bVar = new com.baidu.tieba.ala.alasquare.a.b();
-            bVar.dvi = list.get(i);
+            bVar.dur = list.get(i);
             bVar.isLeft = true;
-            iVar.dxr = bVar;
+            iVar.dwA = bVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.b bVar2 = new com.baidu.tieba.ala.alasquare.a.b();
-                bVar2.dvi = list.get(i + 1);
-                iVar.dxs = bVar2;
+                bVar2.dur = list.get(i + 1);
+                iVar.dwB = bVar2;
                 bVar2.isRight = true;
             } else {
                 bVar.isLeft = false;
-                bVar.dvl = true;
+                bVar.duu = true;
             }
             arrayList.add(iVar);
         }
@@ -151,17 +151,17 @@ public class a {
         return this.hasMore;
     }
 
-    public boolean aJF() {
-        return !v.isEmpty(this.dzn);
+    public boolean aJD() {
+        return !v.isEmpty(this.dyw);
     }
 
     public List<m> getData() {
         ArrayList arrayList = new ArrayList();
-        if (!v.isEmpty(this.bZG)) {
-            arrayList.addAll(this.bZG);
+        if (!v.isEmpty(this.bYP)) {
+            arrayList.addAll(this.bYP);
         }
-        if (!v.isEmpty(this.dzp)) {
-            arrayList.addAll(this.dzp);
+        if (!v.isEmpty(this.dyy)) {
+            arrayList.addAll(this.dyy);
         }
         return arrayList;
     }
@@ -172,20 +172,20 @@ public class a {
         this.hotLiveInfo = null;
         this.officialRecommendLiveInfo = null;
         this.hasMore = false;
-        if (this.dzm != null) {
-            this.dzm.clear();
+        if (this.dyv != null) {
+            this.dyv.clear();
         }
-        if (this.bZG != null) {
-            this.bZG.clear();
+        if (this.bYP != null) {
+            this.bYP.clear();
         }
-        if (this.dzn != null) {
-            this.dzn.clear();
+        if (this.dyw != null) {
+            this.dyw.clear();
         }
-        if (this.dzo != null) {
-            this.dzo.clear();
+        if (this.dyx != null) {
+            this.dyx.clear();
         }
-        if (this.dzp != null) {
-            this.dzp.clear();
+        if (this.dyy != null) {
+            this.dyy.clear();
         }
     }
 }

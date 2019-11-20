@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class a implements Filterable, WrapperListAdapter {
-    static final ArrayList<PLA_ListView.a> anF = new ArrayList<>();
+    static final ArrayList<PLA_ListView.a> ann = new ArrayList<>();
     private final ListAdapter mAdapter;
     boolean mAreAllFixedViewsSelectable;
     ArrayList<PLA_ListView.a> mFooterViewInfos;
@@ -23,12 +23,12 @@ public class a implements Filterable, WrapperListAdapter {
         this.mAdapter = listAdapter;
         this.mIsFilterable = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.mHeaderViewInfos = anF;
+            this.mHeaderViewInfos = ann;
         } else {
             this.mHeaderViewInfos = arrayList;
         }
         if (arrayList2 == null) {
-            this.mFooterViewInfos = anF;
+            this.mFooterViewInfos = ann;
         } else {
             this.mFooterViewInfos = arrayList2;
         }

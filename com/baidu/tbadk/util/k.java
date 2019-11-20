@@ -1,11 +1,11 @@
 package com.baidu.tbadk.util;
 /* loaded from: classes.dex */
 public class k {
-    public static boolean axy() {
-        return axz();
+    public static boolean axw() {
+        return axx();
     }
 
-    public static boolean axz() {
+    public static boolean axx() {
         return com.baidu.tbadk.core.util.m.checkSD() && com.baidu.adp.gif.c.eO();
     }
 

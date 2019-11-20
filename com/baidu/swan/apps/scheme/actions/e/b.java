@@ -8,9 +8,9 @@ public class b {
     private static boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = b.class.getSimpleName();
     public final double altitude;
-    public final double bmZ;
-    public final double bna = 0.0d;
-    public final double bnb;
+    public final double bmH;
+    public final double bmI = 0.0d;
+    public final double bmJ;
     public final String city;
     public final String cityCode;
     public final String coorType;
@@ -29,9 +29,9 @@ public class b {
         this.longitude = d;
         this.latitude = d2;
         this.speed = f;
-        this.bmZ = d3;
+        this.bmH = d3;
         this.altitude = d4;
-        this.bnb = d3;
+        this.bmJ = d3;
         this.country = str2;
         this.countryCode = str3;
         this.city = str4;
@@ -49,10 +49,10 @@ public class b {
             jSONObject.put("longitude", this.longitude);
             jSONObject.put("latitude", this.latitude);
             jSONObject.put("speed", this.speed);
-            jSONObject.put("accuracy", this.bmZ);
+            jSONObject.put("accuracy", this.bmH);
             jSONObject.put("altitude", this.altitude);
-            jSONObject.put("verticalAccuracy", this.bna);
-            jSONObject.put("horizontalAccuracy", this.bnb);
+            jSONObject.put("verticalAccuracy", this.bmI);
+            jSONObject.put("horizontalAccuracy", this.bmJ);
             jSONObject.put("country", this.country);
             jSONObject.put("countryCode", this.countryCode);
             jSONObject.put("city", this.city);

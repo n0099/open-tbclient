@@ -13,13 +13,13 @@ import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 /* loaded from: classes6.dex */
 public class d {
-    private a ftG;
-    private com.baidu.adp.framework.listener.a ftK = new com.baidu.adp.framework.listener.a(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM) { // from class: com.baidu.tieba.forumsearch.controller.d.1
+    private a fsP;
+    private com.baidu.adp.framework.listener.a fsT = new com.baidu.adp.framework.listener.a(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM) { // from class: com.baidu.tieba.forumsearch.controller.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.mPageId) {
-                if (d.this.ftG != null) {
-                    d.this.ftG.a(false, null);
+                if (d.this.fsP != null) {
+                    d.this.fsP.a(false, null);
                     return;
                 }
                 return;
@@ -28,8 +28,8 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.ftG != null) {
-                d.this.ftG.a(searchData != null, searchData);
+            if (d.this.fsP != null) {
+                d.this.fsP.a(searchData != null, searchData);
             }
         }
     };
@@ -44,12 +44,12 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId;
-        this.ftK.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.ftK);
+        this.fsT.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.fsT);
     }
 
     public void a(a aVar) {
-        this.ftG = aVar;
+        this.fsP = aVar;
     }
 
     public void vI(String str) {

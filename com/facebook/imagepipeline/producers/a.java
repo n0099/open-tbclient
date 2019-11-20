@@ -1,15 +1,15 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes2.dex */
 public class a implements ai<com.facebook.imagepipeline.f.d> {
-    private final ai<com.facebook.imagepipeline.f.d> kkY;
+    private final ai<com.facebook.imagepipeline.f.d> kkh;
 
     public a(ai<com.facebook.imagepipeline.f.d> aiVar) {
-        this.kkY = aiVar;
+        this.kkh = aiVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        this.kkY.a(new C0565a(jVar), ajVar);
+        this.kkh.a(new C0565a(jVar), ajVar);
     }
 
     /* renamed from: com.facebook.imagepipeline.producers.a$a  reason: collision with other inner class name */
@@ -25,13 +25,13 @@ public class a implements ai<com.facebook.imagepipeline.f.d> {
         /* renamed from: a */
         public void e(com.facebook.imagepipeline.f.d dVar, boolean z) {
             if (dVar == null) {
-                cIU().f(null, z);
+                cIS().f(null, z);
                 return;
             }
             if (!com.facebook.imagepipeline.f.d.d(dVar)) {
-                dVar.cHR();
+                dVar.cHP();
             }
-            cIU().f(dVar, z);
+            cIS().f(dVar, z);
         }
     }
 }

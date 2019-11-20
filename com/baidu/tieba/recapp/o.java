@@ -16,17 +16,17 @@ public interface o {
 
     com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 
-    j cfF();
+    j cfD();
 
-    l cfG();
+    l cfE();
 
-    com.baidu.tieba.p.a cfH();
+    com.baidu.tieba.p.a cfF();
 
-    h cfI();
+    h cfG();
 
-    List<AppData> cfJ();
+    List<AppData> cfH();
 
-    void cfK();
+    void cfI();
 
     void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4);
 }

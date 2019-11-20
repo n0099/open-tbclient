@@ -26,34 +26,34 @@ import com.baidu.tieba.compatible.BlurDrawable;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
-    private com.baidu.tieba.ala.liveroom.m.b dUA;
-    private long dUB;
-    private AlaLiveRecorderPerfData dUw;
-    private c dUx;
-    private BlurDrawable dUz;
+    private AlaLiveRecorderPerfData dTF;
+    private c dTG;
+    private BlurDrawable dTI;
+    private com.baidu.tieba.ala.liveroom.m.b dTJ;
+    private long dTK;
     private AlaLiveInfoData mLiveInfo;
     private String mPortrait;
     private String nickName;
-    private int dGm = 0;
-    private String dUy = null;
-    private HttpMessageListener dUC = new HttpMessageListener(1021036) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.1
+    private int dFv = 0;
+    private String dTH = null;
+    private HttpMessageListener dTL = new HttpMessageListener(1021036) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            com.baidu.tieba.ala.liveroom.data.b aUD;
-            if ((httpResponsedMessage instanceof AlaCloseLiveHttpResonpnseMessage) && (aUD = ((AlaCloseLiveHttpResonpnseMessage) httpResponsedMessage).aUD()) != null && aUD.mLiveInfo != null) {
+            com.baidu.tieba.ala.liveroom.data.b aUB;
+            if ((httpResponsedMessage instanceof AlaCloseLiveHttpResonpnseMessage) && (aUB = ((AlaCloseLiveHttpResonpnseMessage) httpResponsedMessage).aUB()) != null && aUB.mLiveInfo != null) {
                 String str = "";
-                if (aUD.Ps != null) {
-                    str = aUD.Ps.nickName;
+                if (aUB.OR != null) {
+                    str = aUB.OR.nickName;
                 }
                 if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(AlaLiveEndActivity.this.nickName)) {
                     str = AlaLiveEndActivity.this.nickName;
                 }
-                AlaLiveEndActivity.this.dUx.a(aUD.mLiveInfo, str);
+                AlaLiveEndActivity.this.dTG.a(aUB.mLiveInfo, str);
             }
         }
     };
-    HttpMessageListener dUD = new HttpMessageListener(1021037) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.2
+    HttpMessageListener dTM = new HttpMessageListener(1021037) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -67,9 +67,9 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
             }
         }
     };
-    c.a dUE = new c.a() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.3
+    c.a dTN = new c.a() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.3
         @Override // com.baidu.tieba.ala.liveroom.views.c.a
-        public void aKJ() {
+        public void aKH() {
             AlaLiveEndActivity.this.closeActivity();
         }
 
@@ -134,9 +134,9 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
         super.onCreate(bundle);
         initData(bundle);
         initListener();
-        this.dUx = new c(getPageContext().getPageActivity(), this.mLiveInfo, this.dUE, this.dGm, this.dUy, this.mPortrait, this.nickName);
-        setContentView(this.dUx.getRootView());
-        MessageManager.getInstance().registerListener(this.dUC);
+        this.dTG = new c(getPageContext().getPageActivity(), this.mLiveInfo, this.dTN, this.dFv, this.dTH, this.mPortrait, this.nickName);
+        setContentView(this.dTG.getRootView());
+        MessageManager.getInstance().registerListener(this.dTL);
     }
 
     private void initData(Bundle bundle) {
@@ -144,20 +144,20 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
             AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
             alaLiveInfoData.parserJson(getIntent().getStringExtra("liveInfoData"));
             this.mLiveInfo = alaLiveInfoData;
-            this.dGm = getIntent().getIntExtra("fromType", 0);
-            if (this.dGm > 2 || this.dGm < 0) {
-                this.dGm = 0;
+            this.dFv = getIntent().getIntExtra("fromType", 0);
+            if (this.dFv > 2 || this.dFv < 0) {
+                this.dFv = 0;
             }
-            this.dUy = getIntent().getStringExtra("authen_msg");
+            this.dTH = getIntent().getStringExtra("authen_msg");
             this.mPortrait = getIntent().getStringExtra("host_portrait");
             this.nickName = getIntent().getStringExtra("user_nickname");
             AlaLiveRecorderPerfData alaLiveRecorderPerfData = new AlaLiveRecorderPerfData();
             alaLiveRecorderPerfData.parseJson(getIntent().getStringExtra("live_perf_data"));
-            this.dUw = alaLiveRecorderPerfData;
-            if (this.dUw != null) {
-                this.dUw.endViewShowTime = System.currentTimeMillis();
+            this.dTF = alaLiveRecorderPerfData;
+            if (this.dTF != null) {
+                this.dTF.endViewShowTime = System.currentTimeMillis();
                 if (this.mLiveInfo != null) {
-                    this.dUw.liveID = Long.toString(this.mLiveInfo.live_id);
+                    this.dTF.liveID = Long.toString(this.mLiveInfo.live_id);
                 }
             }
         }
@@ -167,11 +167,11 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     }
 
     private void initListener() {
-        aMR();
-        registerListener(this.dUD);
+        aMP();
+        registerListener(this.dTM);
     }
 
-    private void aMR() {
+    private void aMP() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021037, TbConfig.SERVER_ADDRESS + "ala/live/delRecord");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -183,25 +183,25 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.dUw != null) {
-            this.dUw.endViewShowTime = System.currentTimeMillis() - this.dUw.endViewShowTime;
+        if (this.dTF != null) {
+            this.dTF.endViewShowTime = System.currentTimeMillis() - this.dTF.endViewShowTime;
         }
-        this.dUA = new com.baidu.tieba.ala.liveroom.m.b();
-        this.dUA.a(this.dUw);
+        this.dTJ = new com.baidu.tieba.ala.liveroom.m.b();
+        this.dTJ.a(this.dTF);
         AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.STAYTIME_MASTER_CLOSE_LIVE_END);
         alaStaticItem.addParams("end_time", System.currentTimeMillis() + "");
         AlaStaticsManager.getInst().onStatic(alaStaticItem);
         super.onDestroy();
-        if (this.dUz != null) {
-            this.dUz.onDestroy();
+        if (this.dTI != null) {
+            this.dTI.onDestroy();
         }
-        if (this.dUx != null) {
-            this.dUx.onDestory();
+        if (this.dTG != null) {
+            this.dTG.onDestory();
         }
-        MessageManager.getInstance().unRegisterListener(this.dUD);
-        MessageManager.getInstance().unRegisterListener(this.dUC);
-        if (this.dUA != null) {
-            this.dUA.release();
+        MessageManager.getInstance().unRegisterListener(this.dTM);
+        MessageManager.getInstance().unRegisterListener(this.dTL);
+        if (this.dTJ != null) {
+            this.dTJ.release();
         }
     }
 
@@ -209,7 +209,7 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        long currentTimeMillis = System.currentTimeMillis() - this.dUB;
+        long currentTimeMillis = System.currentTimeMillis() - this.dTK;
         if (TbadkCoreApplication.getInst().isQuanmin()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(QMStaticKeys.QM_STATIC_LIVE_CLOSE_STAYTIME);
             if (this.mLiveInfo != null) {
@@ -225,7 +225,7 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.dUB = System.currentTimeMillis();
+        this.dTK = System.currentTimeMillis();
         if (TbadkCoreApplication.getInst().isQuanmin()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(QMStaticKeys.QM_STATIC_LIVE_CLOSE_ACCESS);
             if (this.mLiveInfo != null) {

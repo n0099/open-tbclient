@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class e {
-    private static final Map<Class<?>, Class<?>> kpr;
-    private static final Map<Class<?>, Class<?>> kps;
+    private static final Map<Class<?>, Class<?>> koA;
+    private static final Map<Class<?>, Class<?>> koB;
 
     static {
         HashMap hashMap = new HashMap(16);
@@ -21,8 +21,8 @@ public final class e {
         a(hashMap, hashMap2, Long.TYPE, Long.class);
         a(hashMap, hashMap2, Short.TYPE, Short.class);
         a(hashMap, hashMap2, Void.TYPE, Void.class);
-        kpr = Collections.unmodifiableMap(hashMap);
-        kps = Collections.unmodifiableMap(hashMap2);
+        koA = Collections.unmodifiableMap(hashMap);
+        koB = Collections.unmodifiableMap(hashMap2);
     }
 
     private static void a(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
@@ -31,6 +31,6 @@ public final class e {
     }
 
     public static boolean k(Type type) {
-        return kpr.containsKey(type);
+        return koA.containsKey(type);
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes3.dex */
 public class PraiseView extends BasePraiseView<bh> {
-    private View.OnClickListener cpN;
+    private View.OnClickListener coV;
 
     public PraiseView(Context context) {
         this(context, null);
@@ -23,26 +23,26 @@ public class PraiseView extends BasePraiseView<bh> {
         if (this.mData == 0) {
             return 0L;
         }
-        return ((bh) this.mData).ajY();
+        return ((bh) this.mData).ajW();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.baidu.tbadk.core.data.bh */
     /* JADX WARN: Multi-variable type inference failed */
     public void p(bh bhVar) {
         if (bhVar != 0) {
-            if (bhVar.aka() != 0) {
-                if (bhVar.akb() == 0 || bhVar.akb() == 1) {
-                    bhVar.hR(2);
+            if (bhVar.ajY() != 0) {
+                if (bhVar.ajZ() == 0 || bhVar.ajZ() == 1) {
+                    bhVar.hQ(2);
                 }
-                if (bhVar.akb() == 3 || bhVar.akb() == 4) {
-                    bhVar.hR(5);
+                if (bhVar.ajZ() == 3 || bhVar.ajZ() == 4) {
+                    bhVar.hQ(5);
                 }
             }
             this.mData = bhVar;
             this.mThreadId = bhVar.getTid();
             this.mForumId = String.valueOf(bhVar.getFid());
-            this.cdQ = ((bh) this.mData).ajY();
-            this.cdR = ((bh) this.mData).ajZ();
+            this.ccZ = ((bh) this.mData).ajW();
+            this.cda = ((bh) this.mData).ajX();
             updateUI();
         }
     }
@@ -55,36 +55,36 @@ public class PraiseView extends BasePraiseView<bh> {
         if (num > 0) {
             string = aq.numFormatOverWan(num);
         }
-        this.cnf.setText(string);
-        this.cnf.setContentDescription(context.getString(this.textResId) + num);
-        if (this.mData != 0 && ((bh) this.mData).aka() != 0 && anz()) {
-            this.cng.setImageDrawable(ad(this.cnc, this.drawableResId));
-            this.cnf.setTextColor(createColorStateList(this.cne, this.cnd));
+        this.cmo.setText(string);
+        this.cmo.setContentDescription(context.getString(this.textResId) + num);
+        if (this.mData != 0 && ((bh) this.mData).ajY() != 0 && anx()) {
+            this.cmp.setImageDrawable(ab(this.cml, this.drawableResId));
+            this.cmo.setTextColor(createColorStateList(this.cmn, this.cmm));
             return;
         }
-        this.cng.setImageDrawable(ad(this.drawableResId, this.cnc));
-        this.cnf.setTextColor(createColorStateList(this.cnd, this.cne));
+        this.cmp.setImageDrawable(ab(this.drawableResId, this.cml));
+        this.cmo.setTextColor(createColorStateList(this.cmm, this.cmn));
     }
 
-    public int any() {
+    public int anw() {
         int i;
         if (this.mData == 0) {
             return 0;
         }
-        if (((bh) this.mData).aka() != 0 && anz()) {
-            ((bh) this.mData).hR(2);
-            ((bh) this.mData).hP(0);
-            ((bh) this.mData).aL(((bh) this.mData).ajY() - 1);
-            ((bh) this.mData).aM(((bh) this.mData).ajZ());
+        if (((bh) this.mData).ajY() != 0 && anx()) {
+            ((bh) this.mData).hQ(2);
+            ((bh) this.mData).hO(0);
+            ((bh) this.mData).aK(((bh) this.mData).ajW() - 1);
+            ((bh) this.mData).aL(((bh) this.mData).ajX());
             i = 1;
         } else {
-            if (((bh) this.mData).aka() != 0 && ((bh) this.mData).akb() == 5) {
-                ((bh) this.mData).aM(((bh) this.mData).ajZ() - 1);
+            if (((bh) this.mData).ajY() != 0 && ((bh) this.mData).ajZ() == 5) {
+                ((bh) this.mData).aL(((bh) this.mData).ajX() - 1);
             }
-            ((bh) this.mData).hP(1);
-            ((bh) this.mData).aL(((bh) this.mData).ajY() + 1);
-            ((bh) this.mData).hR(2);
-            com.baidu.tieba.n.a.cfp().z(getTbPageContext());
+            ((bh) this.mData).hO(1);
+            ((bh) this.mData).aK(((bh) this.mData).ajW() + 1);
+            ((bh) this.mData).hQ(2);
+            com.baidu.tieba.n.a.cfn().z(getTbPageContext());
             i = 0;
         }
         return i;
@@ -94,22 +94,22 @@ public class PraiseView extends BasePraiseView<bh> {
         if (com.baidu.tbadk.util.i.isFastDoubleClick() || !bc.checkUpIsLogin(getContext()) || this.mData == 0) {
             return -1;
         }
-        int any = any();
+        int anw = anw();
         updateUI();
-        iz(any);
-        iy(any);
-        if (this.cmo != null) {
-            this.cmo.onClick(view);
+        iy(anw);
+        ix(anw);
+        if (this.clw != null) {
+            this.clw.onClick(view);
         }
-        a(any, (bh) this.mData);
-        if (this.cpN != null && ((bh) this.mData).aiK()) {
-            this.cpN.onClick(view);
+        a(anw, (bh) this.mData);
+        if (this.coV != null && ((bh) this.mData).aiI()) {
+            this.coV.onClick(view);
         }
-        return any;
+        return anw;
     }
 
-    public boolean anz() {
-        return this.mData != 0 && (((bh) this.mData).akb() == 2 || ((bh) this.mData).akb() == 1);
+    public boolean anx() {
+        return this.mData != 0 && (((bh) this.mData).ajZ() == 2 || ((bh) this.mData).ajZ() == 1);
     }
 
     public void setShowPraiseNum(boolean z) {
@@ -119,6 +119,6 @@ public class PraiseView extends BasePraiseView<bh> {
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.cpN = onClickListener;
+        this.coV = onClickListener;
     }
 }

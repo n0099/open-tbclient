@@ -24,11 +24,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private volatile boolean bFP;
-    private RelativeLayout hyl;
-    private TextView hym;
-    private Runnable hyn;
-    private Runnable hyo;
+    private volatile boolean bEY;
+    private RelativeLayout hxu;
+    private TextView hxv;
+    private Runnable hxw;
+    private Runnable hxx;
     private Context mContext;
     private Handler mHandler;
     private HandlerThread mHandlerThread;
@@ -42,8 +42,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void bNf() {
-        if (!this.bFP && isMainProcess() && bNg()) {
+    public void bNd() {
+        if (!this.bEY && isMainProcess() && bNe()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -51,73 +51,73 @@ public class c {
             if (this.mHandler == null) {
                 this.mHandler = new Handler(this.mHandlerThread.getLooper());
             }
-            if (this.hyn == null) {
-                this.hyn = new Runnable() { // from class: com.baidu.tieba.l.c.1
+            if (this.hxw == null) {
+                this.hxw = new Runnable() { // from class: com.baidu.tieba.l.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (c.this.hyl != null) {
-                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.hyl);
+                        if (c.this.hxu != null) {
+                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.hxu);
                             c.this.clean();
                         }
                     }
                 };
             }
-            if (this.hyo == null) {
-                this.hyo = new Runnable() { // from class: com.baidu.tieba.l.c.2
+            if (this.hxx == null) {
+                this.hxx = new Runnable() { // from class: com.baidu.tieba.l.c.2
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.Ae(c.this.mContext.getString(R.string.data_init));
                     }
                 };
             }
-            this.mHandler.removeCallbacks(this.hyo);
-            this.mHandler.postAtFrontOfQueue(this.hyo);
-            this.bFP = true;
-            this.mHandler.postDelayed(this.hyn, 20000L);
+            this.mHandler.removeCallbacks(this.hxx);
+            this.mHandler.postAtFrontOfQueue(this.hxx);
+            this.bEY = true;
+            this.mHandler.postDelayed(this.hxw, 20000L);
         }
     }
 
     public void hide() {
-        if (this.hyl != null && this.hym != null) {
-            this.mHandler.removeCallbacks(this.hyn);
-            this.mHandler.post(this.hyn);
+        if (this.hxu != null && this.hxv != null) {
+            this.mHandler.removeCallbacks(this.hxw);
+            this.mHandler.post(this.hxw);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clean() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.hyn);
-            this.mHandler.removeCallbacks(this.hyo);
-            this.hyo = null;
-            this.hyn = null;
+            this.mHandler.removeCallbacks(this.hxw);
+            this.mHandler.removeCallbacks(this.hxx);
+            this.hxx = null;
+            this.hxw = null;
             this.mHandler = null;
         }
         if (this.mHandlerThread != null) {
             this.mHandlerThread.quit();
         }
-        if (this.hym != null) {
-            this.hym = null;
+        if (this.hxv != null) {
+            this.hxv = null;
         }
-        if (this.hyl != null) {
-            this.hyl = null;
+        if (this.hxu != null) {
+            this.hxu = null;
         }
-        this.bFP = false;
+        this.bEY = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ae(String str) {
-        if (this.hym == null) {
-            this.hym = new b(this.mContext);
-            this.hym.setTextSize(1, 18.0f);
+        if (this.hxv == null) {
+            this.hxv = new b(this.mContext);
+            this.hxv.setTextSize(1, 18.0f);
         }
-        this.hym.setText(str);
-        this.hyl = new RelativeLayout(this.mContext);
-        this.hyl.setBackgroundResource(R.drawable.bg_splash_logo);
+        this.hxv.setText(str);
+        this.hxu = new RelativeLayout(this.mContext);
+        this.hxu.setBackgroundResource(R.drawable.bg_splash_logo);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
         layoutParams.addRule(15);
-        this.hyl.addView(this.hym, layoutParams);
+        this.hxu.addView(this.hxv, layoutParams);
         WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams();
         layoutParams2.type = 2005;
         layoutParams2.format = 1;
@@ -127,7 +127,7 @@ public class c {
         layoutParams2.width = -1;
         layoutParams2.height = -1;
         layoutParams2.flags = 1280;
-        ((WindowManager) this.mContext.getSystemService("window")).addView(this.hyl, layoutParams2);
+        ((WindowManager) this.mContext.getSystemService("window")).addView(this.hxu, layoutParams2);
     }
 
     private boolean isMainProcess() {
@@ -150,7 +150,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean bNg() {
+    private boolean bNe() {
         List<String> dL = dL(this.mContext);
         if (dL == null || dL.size() == 0) {
             return false;
@@ -187,9 +187,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends TextView {
-        private LinearGradient apn;
-        private Matrix hyq;
-        private int hyr;
+        private LinearGradient aoV;
+        private int hxA;
+        private Matrix hxz;
         private boolean mAnimating;
         private Paint mPaint;
         private int mViewWidth;
@@ -197,20 +197,20 @@ public class c {
         public b(Context context) {
             super(context);
             this.mViewWidth = 0;
-            this.hyr = 0;
+            this.hxA = 0;
             this.mAnimating = true;
         }
 
         @Override // android.widget.TextView, android.view.View
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            if (this.mAnimating && this.hyq != null) {
-                this.hyr += this.mViewWidth / 10;
-                if (this.hyr > this.mViewWidth * 2) {
-                    this.hyr = -this.mViewWidth;
+            if (this.mAnimating && this.hxz != null) {
+                this.hxA += this.mViewWidth / 10;
+                if (this.hxA > this.mViewWidth * 2) {
+                    this.hxA = -this.mViewWidth;
                 }
-                this.hyq.setTranslate(this.hyr, 0.0f);
-                this.apn.setLocalMatrix(this.hyq);
+                this.hxz.setTranslate(this.hxA, 0.0f);
+                this.aoV.setLocalMatrix(this.hxz);
                 postInvalidateDelayed(50L);
             }
         }
@@ -222,9 +222,9 @@ public class c {
                 this.mViewWidth = getMeasuredWidth();
                 if (this.mViewWidth > 0) {
                     this.mPaint = getPaint();
-                    this.apn = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, Integer.MAX_VALUE, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
-                    this.mPaint.setShader(this.apn);
-                    this.hyq = new Matrix();
+                    this.aoV = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, Integer.MAX_VALUE, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
+                    this.mPaint.setShader(this.aoV);
+                    this.hxz = new Matrix();
                 }
             }
         }

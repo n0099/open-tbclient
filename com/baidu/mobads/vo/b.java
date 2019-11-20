@@ -62,7 +62,7 @@ public class b implements IXAdProdInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public JSONObject getAttribute() {
-        return this.c != null ? this.c : AdSettings.zn();
+        return this.c != null ? this.c : AdSettings.zo();
     }
 
     public void a(JSONObject jSONObject) {

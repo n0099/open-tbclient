@@ -8,10 +8,10 @@ public class d {
     public int followStatus;
     public String groupId;
     public String groupName;
-    public int iRm;
-    public String iRn = "";
-    public long iRo;
-    public boolean irU;
+    public int iQv;
+    public String iQw = "";
+    public long iQx;
+    public boolean ird;
     public boolean isAcceptNotify;
     public long lastTime;
     public long msgId;
@@ -36,7 +36,7 @@ public class d {
     }
 
     private static void e(d dVar) {
-        dVar.iRm = 0;
+        dVar.iQv = 0;
         dVar.msgType = 4;
         dVar.customGroupType = 4;
         dVar.lastTime = System.currentTimeMillis();

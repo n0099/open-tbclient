@@ -15,7 +15,7 @@ public class a extends z {
 
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.core.d.d Fr;
+        com.baidu.swan.apps.core.d.d Fs;
         if (DEBUG) {
             Log.d("InsertWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
         }
@@ -24,7 +24,7 @@ public class a extends z {
             com.baidu.swan.apps.console.c.e("insertWebView", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
         } else {
-            com.baidu.swan.apps.b.c.c cVar = (com.baidu.swan.apps.b.c.c) com.baidu.swan.apps.w.e.LD().eH(m.aXH);
+            com.baidu.swan.apps.b.c.c cVar = (com.baidu.swan.apps.b.c.c) com.baidu.swan.apps.w.e.LE().eH(m.aXp);
             if (cVar == null) {
                 com.baidu.swan.apps.console.c.e("insertWebView", "viewManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -32,10 +32,10 @@ public class a extends z {
                 com.baidu.swan.apps.console.c.e("insertWebView", "insert webview widget fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             } else {
-                com.baidu.swan.apps.core.d.e AH = com.baidu.swan.apps.w.e.LD().AH();
-                if (AH != null && (Fr = AH.Fr()) != null) {
+                com.baidu.swan.apps.core.d.e AI = com.baidu.swan.apps.w.e.LE().AI();
+                if (AI != null && (Fs = AI.Fs()) != null) {
                     com.baidu.swan.apps.console.c.i("insertWebView", "disable navigationStyle custom");
-                    Fr.Fo();
+                    Fs.Fp();
                 }
                 com.baidu.swan.apps.console.c.i("insertWebView", "insert webview widget success");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

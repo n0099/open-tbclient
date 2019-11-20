@@ -14,96 +14,96 @@ import java.io.File;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class a {
-    private c iBg;
-    private int iBh = 0;
-    private int iBi = 0;
+    private c iAp;
+    private int iAq = 0;
+    private int iAr = 0;
     private Handler mHandler = new Handler();
 
     public a(c cVar) {
-        this.iBg = cVar;
+        this.iAp = cVar;
     }
 
     public boolean a(g gVar, int i, int i2, int i3, Uri uri) {
-        if (this.iBg == null) {
+        if (this.iAp == null) {
             return false;
         }
         if (i == -300) {
-            if (this.iBi == 0) {
-                this.iBi++;
-                this.mHandler.postDelayed(new b(this.iBg, gVar, i, i2, i3, 3, cdm()), 200L);
-            } else if (this.iBi == 1) {
-                this.iBi++;
-                this.mHandler.postDelayed(new b(this.iBg, gVar, i, i2, i3, 4, cdm()), 200L);
+            if (this.iAr == 0) {
+                this.iAr++;
+                this.mHandler.postDelayed(new b(this.iAp, gVar, i, i2, i3, 3, cdk()), 200L);
+            } else if (this.iAr == 1) {
+                this.iAr++;
+                this.mHandler.postDelayed(new b(this.iAp, gVar, i, i2, i3, 4, cdk()), 200L);
             } else {
                 return false;
             }
             return true;
         }
-        this.iBh++;
-        if (this.iBh <= 2) {
-            if (!a(gVar, i, i2, i3, uri, cdm())) {
+        this.iAq++;
+        if (this.iAq <= 2) {
+            if (!a(gVar, i, i2, i3, uri, cdk())) {
                 if (i == -200) {
-                    this.mHandler.postDelayed(new b(this.iBg, gVar, i, i2, i3, this.iBh % 2 == 1 ? 7 : 17, cdm()), 200L);
-                    this.iBh = 2;
+                    this.mHandler.postDelayed(new b(this.iAp, gVar, i, i2, i3, this.iAq % 2 == 1 ? 7 : 17, cdk()), 200L);
+                    this.iAq = 2;
                 } else {
-                    this.mHandler.postDelayed(new b(this.iBg, gVar, i, i2, i3, this.iBh % 2 == 1 ? 8 : 18, cdm()), 200L);
-                    this.iBh = 4;
+                    this.mHandler.postDelayed(new b(this.iAp, gVar, i, i2, i3, this.iAq % 2 == 1 ? 8 : 18, cdk()), 200L);
+                    this.iAq = 4;
                     return false;
                 }
             }
             return true;
-        } else if (this.iBh <= 4) {
+        } else if (this.iAq <= 4) {
             if (i == -200) {
-                this.mHandler.postDelayed(new b(this.iBg, gVar, i, i2, i3, this.iBh % 2 == 1 ? 1 : 11, cdm()), 200L);
+                this.mHandler.postDelayed(new b(this.iAp, gVar, i, i2, i3, this.iAq % 2 == 1 ? 1 : 11, cdk()), 200L);
                 return true;
             }
             return false;
-        } else if (this.iBh <= 6 && i == -200) {
-            this.mHandler.postDelayed(new b(this.iBg, gVar, i, i2, i3, this.iBh % 2 == 1 ? 2 : 12, cdm()), 200L);
+        } else if (this.iAq <= 6 && i == -200) {
+            this.mHandler.postDelayed(new b(this.iAp, gVar, i, i2, i3, this.iAq % 2 == 1 ? 2 : 12, cdk()), 200L);
             return true;
         } else {
             return false;
         }
     }
 
-    private int cdm() {
-        return (this.iBi * 100) + this.iBh;
+    private int cdk() {
+        return (this.iAr * 100) + this.iAq;
     }
 
     private boolean a(g gVar, int i, int i2, int i3, Uri uri, int i4) {
-        if (!cdn() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost()) || uri.toString().contains("127.0.0.1") || !uri.toString().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
+        if (!cdl() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost()) || uri.toString().contains("127.0.0.1") || !uri.toString().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
             return false;
         }
-        com.baidu.tieba.play.b.b.ccW().a(new C0496a(this.mHandler, this.iBg, i, uri, gVar, i2, i3, i4));
-        return com.baidu.tieba.play.b.b.ccW().BU(uri.getHost());
+        com.baidu.tieba.play.b.b.ccU().a(new C0496a(this.mHandler, this.iAp, i, uri, gVar, i2, i3, i4));
+        return com.baidu.tieba.play.b.b.ccU().BU(uri.getHost());
     }
 
-    private boolean cdn() {
-        return (com.baidu.adp.lib.b.d.ft().af("android_video_http_dns_open") == 0 || !j.isNetWorkAvailable() || s.axi() == 0) ? false : true;
+    private boolean cdl() {
+        return (com.baidu.adp.lib.b.d.ft().af("android_video_http_dns_open") == 0 || !j.isNetWorkAvailable() || s.axg() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.play.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0496a implements b.InterfaceC0495b {
-        private int dNW;
-        private c iBg;
-        private g iBj;
-        private int iBk;
-        private int iBl;
+        private int dNf;
+        private c iAp;
+        private g iAs;
+        private int iAt;
+        private int iAu;
         private Handler mHandler;
         private Uri mUri;
         private int what;
 
         public C0496a(Handler handler, c cVar, int i, Uri uri, g gVar, int i2, int i3, int i4) {
             this.mHandler = handler;
-            this.iBg = cVar;
+            this.iAp = cVar;
             this.mUri = uri;
-            this.iBj = gVar;
-            this.iBk = i;
+            this.iAs = gVar;
+            this.iAt = i;
             this.what = i2;
-            this.iBl = i3;
-            this.dNW = i4;
+            this.iAu = i3;
+            this.dNf = i4;
         }
 
         @Override // com.baidu.tieba.play.b.b.InterfaceC0495b
@@ -111,69 +111,70 @@ public class a {
             try {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || this.mUri == null || !str2.equals(this.mUri.getHost())) {
                     if (this.mHandler != null) {
-                        this.mHandler.postDelayed(new b(this.iBg, this.iBj, this.iBk, this.what, this.iBl, this.dNW % 2 == 1 ? 5 : 15, this.dNW), 200L);
+                        this.mHandler.postDelayed(new b(this.iAp, this.iAs, this.iAt, this.what, this.iAu, this.dNf % 2 == 1 ? 5 : 15, this.dNf), 200L);
                     }
                 } else if (this.mHandler != null) {
-                    this.mHandler.postDelayed(new b(this.iBg, this.iBj, this.iBk, this.what, this.iBl, str, this.dNW % 2 == 1 ? 0 : 10, this.dNW), 200L);
+                    this.mHandler.postDelayed(new b(this.iAp, this.iAs, this.iAt, this.what, this.iAu, str, this.dNf % 2 == 1 ? 0 : 10, this.dNf), 200L);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
                 if (this.mHandler != null) {
-                    this.mHandler.postDelayed(new b(this.iBg, this.iBj, this.iBk, this.what, this.iBl, this.dNW % 2 == 1 ? 6 : 16, this.dNW), 200L);
+                    this.mHandler.postDelayed(new b(this.iAp, this.iAs, this.iAt, this.what, this.iAu, this.dNf % 2 == 1 ? 6 : 16, this.dNf), 200L);
                 }
             }
         }
     }
 
-    public boolean cdo() {
-        boolean z = this.iBh > 0 || this.iBi > 0;
-        this.iBh = 0;
-        this.iBi = 0;
+    public boolean cdm() {
+        boolean z = this.iAq > 0 || this.iAr > 0;
+        this.iAq = 0;
+        this.iAr = 0;
         return z;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    private static class b implements Runnable {
-        private final int dNW;
-        private c iBg;
-        private final g iBj;
-        private final int iBk;
-        private final int iBl;
+    public static class b implements Runnable {
+        private final int dNf;
+        private c iAp;
+        private final g iAs;
+        private final int iAt;
+        private final int iAu;
         private final String ip;
         private final int type;
         private final int what;
 
         public b(c cVar, g gVar, int i, int i2, int i3, int i4, int i5) {
-            this.iBg = cVar;
-            this.iBj = gVar;
-            this.iBk = i;
+            this.iAp = cVar;
+            this.iAs = gVar;
+            this.iAt = i;
             this.what = i2;
-            this.iBl = i3;
+            this.iAu = i3;
             this.type = i4;
-            this.dNW = i5;
+            this.dNf = i5;
             this.ip = "";
         }
 
         public b(c cVar, g gVar, int i, int i2, int i3, String str, int i4, int i5) {
-            this.iBg = cVar;
-            this.iBj = gVar;
-            this.iBk = i;
+            this.iAp = cVar;
+            this.iAs = gVar;
+            this.iAt = i;
             this.what = i2;
-            this.iBl = i3;
+            this.iAu = i3;
             this.ip = str;
             this.type = i4;
-            this.dNW = i5;
+            this.dNf = i5;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.iBg != null) {
+            if (this.iAp != null) {
                 if (this.type == 1 || this.type == 5 || this.type == 3 || this.type == 6 || this.type == 7 || this.type == 11 || this.type == 15 || this.type == 16 || this.type == 17) {
-                    this.iBg.a(this.iBj, this.iBk, this.what, this.iBl, this.dNW, this.type);
+                    this.iAp.a(this.iAs, this.iAt, this.what, this.iAu, this.dNf, this.type);
                 } else if (this.type == 2 || this.type == 4 || this.type == 8 || this.type == 12 || this.type == 18) {
-                    this.iBg.b(this.iBj, this.iBk, this.what, this.iBl, this.dNW, this.type);
+                    this.iAp.b(this.iAs, this.iAt, this.what, this.iAu, this.dNf, this.type);
                 } else if (this.type == 0 || this.type == 10) {
-                    this.iBg.a(this.iBj, this.iBk, this.what, this.iBl, this.ip, this.dNW, this.type);
+                    this.iAp.a(this.iAs, this.iAt, this.what, this.iAu, this.ip, this.dNf, this.type);
                 }
             }
         }

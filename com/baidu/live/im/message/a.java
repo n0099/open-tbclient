@@ -32,7 +32,7 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short tl() {
+    public short tm() {
         return this.msgType;
     }
 
@@ -44,7 +44,7 @@ public class a extends HttpMessage {
         this.roomId = str;
     }
 
-    public String tm() {
+    public String tn() {
         return this.otherParams;
     }
 
@@ -52,15 +52,15 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long tn() {
+    public long tp() {
         return this.price;
     }
 
-    public void B(long j) {
+    public void A(long j) {
         this.price = j;
     }
 
-    public String ti() {
+    public String tj() {
         return this.barrageId;
     }
 
@@ -68,7 +68,7 @@ public class a extends HttpMessage {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.b tj() {
+    public com.baidu.live.im.data.b tk() {
         return this.barrageCardInfo;
     }
 
@@ -76,7 +76,7 @@ public class a extends HttpMessage {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] tk() {
+    public String[] tl() {
         return this.imEffect;
     }
 

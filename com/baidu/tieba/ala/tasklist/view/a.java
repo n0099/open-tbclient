@@ -16,38 +16,38 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class a extends BaseAdapter {
-    private AlaTaskListActivity eDd;
-    private int eDe = -1;
-    private ArrayList<p> bbZ = new ArrayList<>();
+    private AlaTaskListActivity eCm;
+    private int eCn = -1;
+    private ArrayList<p> bbH = new ArrayList<>();
 
     public a(AlaTaskListActivity alaTaskListActivity) {
-        this.eDd = alaTaskListActivity;
+        this.eCm = alaTaskListActivity;
     }
 
     public void setData(ArrayList<p> arrayList) {
         if (arrayList != null) {
-            this.bbZ.clear();
-            this.bbZ.addAll(arrayList);
+            this.bbH.clear();
+            this.bbH.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bbZ == null) {
+        if (this.bbH == null) {
             return 0;
         }
-        return this.bbZ.size();
+        return this.bbH.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oq */
+    /* renamed from: op */
     public p getItem(int i) {
-        if (this.bbZ == null) {
+        if (this.bbH == null) {
             return null;
         }
-        return this.bbZ.get(i);
+        return this.bbH.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,7 +59,7 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         C0390a c0390a;
         if (view == null) {
-            view = LayoutInflater.from(this.eDd.getPageContext().getPageActivity()).inflate(a.h.ala_task_list_item_layout, (ViewGroup) null);
+            view = LayoutInflater.from(this.eCm.getPageContext().getPageActivity()).inflate(a.h.ala_task_list_item_layout, (ViewGroup) null);
             c0390a = new C0390a(view);
             view.setTag(c0390a);
         } else {
@@ -71,27 +71,27 @@ public class a extends BaseAdapter {
 
     private void a(C0390a c0390a, final p pVar) {
         if (pVar != null) {
-            c0390a.eDh.setText(pVar.Sv);
-            c0390a.eDi.setText(pVar.SA);
-            c0390a.eDj.setText(this.eDd.getPageContext().getResources().getString(a.i.ala_task_title_reward_mode, Integer.valueOf(pVar.Sz)));
+            c0390a.eCq.setText(pVar.Sc);
+            c0390a.eCr.setText(pVar.Sh);
+            c0390a.eCs.setText(this.eCm.getPageContext().getResources().getString(a.i.ala_task_title_reward_mode, Integer.valueOf(pVar.Sg)));
             if (pVar.status == 3) {
-                c0390a.eDj.setVisibility(8);
+                c0390a.eCs.setVisibility(8);
             } else {
-                c0390a.eDj.setVisibility(0);
+                c0390a.eCs.setVisibility(0);
             }
-            c0390a.eDk.setTag(Integer.valueOf(pVar.Su));
+            c0390a.eCt.setTag(Integer.valueOf(pVar.Sb));
             if (pVar.status == 2) {
                 b(c0390a);
             } else if (pVar.status == 3) {
-                a(c0390a, this.eDd.getPageContext().getString(a.i.ala_task_status_success));
+                a(c0390a, this.eCm.getPageContext().getString(a.i.ala_task_status_success));
             } else {
                 b(c0390a, pVar);
             }
-            c0390a.eDk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.view.a.1
+            c0390a.eCt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (pVar.status == 2) {
-                        a.this.eDd.oo(pVar.Su);
+                        a.this.eCm.on(pVar.Sb);
                     }
                 }
             });
@@ -101,13 +101,13 @@ public class a extends BaseAdapter {
     private void b(C0390a c0390a, p pVar) {
         String string;
         if (pVar.op()) {
-            if (this.eDe < 0) {
-                if (pVar.Sy != null) {
-                    this.eDe = pVar.Sy.SD;
+            if (this.eCn < 0) {
+                if (pVar.Sf != null) {
+                    this.eCn = pVar.Sf.Sk;
                 }
                 a(c0390a);
                 return;
-            } else if (this.eDe == 0) {
+            } else if (this.eCn == 0) {
                 b(c0390a);
                 return;
             } else {
@@ -116,47 +116,47 @@ public class a extends BaseAdapter {
             }
         }
         if (pVar.oq()) {
-            string = this.eDd.getPageContext().getResources().getString(a.i.ala_task_level_up_to_level_num, Integer.valueOf(pVar.Sy.SF));
+            string = this.eCm.getPageContext().getResources().getString(a.i.ala_task_level_up_to_level_num, Integer.valueOf(pVar.Sf.Sl));
         } else {
-            string = this.eDd.getPageContext().getString(a.i.ala_task_status_not_over);
+            string = this.eCm.getPageContext().getString(a.i.ala_task_status_not_over);
         }
         a(c0390a, string);
     }
 
     private void a(C0390a c0390a) {
-        c0390a.eDk.setText(StringHelper.formatSecondsTime(this.eDe * 1000));
-        c0390a.eDk.setBackgroundResource(a.f.ala_bg_rectangle_stroke_blue);
-        c0390a.eDk.setTextColor(this.eDd.getPageContext().getResources().getColor(a.d.sdk_common_color_10260));
-        b(c0390a.eDk, true);
+        c0390a.eCt.setText(StringHelper.formatSecondsTime(this.eCn * 1000));
+        c0390a.eCt.setBackgroundResource(a.f.ala_bg_rectangle_stroke_blue);
+        c0390a.eCt.setTextColor(this.eCm.getPageContext().getResources().getColor(a.d.sdk_common_color_10260));
+        b(c0390a.eCt, true);
     }
 
     private void a(C0390a c0390a, String str) {
-        c0390a.eDk.setText(str);
-        c0390a.eDk.setBackgroundResource(a.f.sdk_transparent_bg);
-        c0390a.eDk.setTextColor(this.eDd.getPageContext().getResources().getColor(a.d.sdk_cp_cont_d));
-        b(c0390a.eDk, false);
+        c0390a.eCt.setText(str);
+        c0390a.eCt.setBackgroundResource(a.f.sdk_transparent_bg);
+        c0390a.eCt.setTextColor(this.eCm.getPageContext().getResources().getColor(a.d.sdk_cp_cont_d));
+        b(c0390a.eCt, false);
     }
 
     private void b(C0390a c0390a) {
-        c0390a.eDk.setText(this.eDd.getPageContext().getString(a.i.ala_task_status_can_get));
+        c0390a.eCt.setText(this.eCm.getPageContext().getString(a.i.ala_task_status_can_get));
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            c0390a.eDk.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_hk);
+            c0390a.eCt.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_hk);
         } else if (TbadkCoreApplication.getInst().isQuanmin()) {
-            c0390a.eDk.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_qm);
+            c0390a.eCt.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_qm);
         } else if (TbadkCoreApplication.getInst().isTieba()) {
-            c0390a.eDk.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_qm);
+            c0390a.eCt.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_qm);
         } else {
-            c0390a.eDk.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue);
+            c0390a.eCt.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue);
         }
-        c0390a.eDk.setTextColor(this.eDd.getPageContext().getResources().getColor(a.d.sdk_cp_cont_g));
-        b(c0390a.eDk, true);
+        c0390a.eCt.setTextColor(this.eCm.getPageContext().getResources().getColor(a.d.sdk_cp_cont_g));
+        b(c0390a.eCt, true);
     }
 
     public void b(TextView textView, boolean z) {
         if (z) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) textView.getLayoutParams();
-            layoutParams.width = (int) this.eDd.getResources().getDimension(a.e.sdk_ds110);
-            layoutParams.height = (int) this.eDd.getResources().getDimension(a.e.sdk_ds50);
+            layoutParams.width = (int) this.eCm.getResources().getDimension(a.e.sdk_ds110);
+            layoutParams.height = (int) this.eCm.getResources().getDimension(a.e.sdk_ds50);
             textView.setGravity(17);
             textView.setLayoutParams(layoutParams);
             return;
@@ -169,12 +169,12 @@ public class a extends BaseAdapter {
     }
 
     public void c(Integer num) {
-        this.eDe = num.intValue();
+        this.eCn = num.intValue();
         p ot = ot();
         if (ot != null) {
-            if (this.eDe == 0) {
+            if (this.eCn == 0) {
                 ot.status = 2;
-            } else if (this.eDe > 0) {
+            } else if (this.eCn > 0) {
                 ot.status = 1;
             } else {
                 ot.status = 3;
@@ -184,8 +184,8 @@ public class a extends BaseAdapter {
     }
 
     public p ot() {
-        if (!ListUtils.isEmpty(this.bbZ)) {
-            Iterator<p> it = this.bbZ.iterator();
+        if (!ListUtils.isEmpty(this.bbH)) {
+            Iterator<p> it = this.bbH.iterator();
             while (it.hasNext()) {
                 p next = it.next();
                 if (next.op()) {
@@ -199,20 +199,20 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.ala.tasklist.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0390a {
-        public View cfY;
-        public TextView eDh;
-        public TextView eDi;
-        public TextView eDj;
-        public TextView eDk;
+        public View cfh;
+        public TextView eCq;
+        public TextView eCr;
+        public TextView eCs;
+        public TextView eCt;
         public View rootView;
 
         public C0390a(View view) {
             this.rootView = view;
-            this.eDh = (TextView) view.findViewById(a.g.tvTaskTitle);
-            this.eDi = (TextView) view.findViewById(a.g.tvTaskSubTitle);
-            this.eDj = (TextView) view.findViewById(a.g.tvTaskRewardNum);
-            this.eDk = (TextView) view.findViewById(a.g.tvTaskStatus);
-            this.cfY = view.findViewById(a.g.divider);
+            this.eCq = (TextView) view.findViewById(a.g.tvTaskTitle);
+            this.eCr = (TextView) view.findViewById(a.g.tvTaskSubTitle);
+            this.eCs = (TextView) view.findViewById(a.g.tvTaskRewardNum);
+            this.eCt = (TextView) view.findViewById(a.g.tvTaskStatus);
+            this.cfh = view.findViewById(a.g.divider);
         }
     }
 }

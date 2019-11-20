@@ -943,7 +943,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         }
         this.p = false;
         if (Thread.currentThread() == Looper.getMainLooper().getThread() || !Utils.d(CyberPlayerManager.getApplicationContext()) || CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_PLAYER_THREAD, true)) {
-            this.n = com.baidu.media.duplayer.a.b.zh().zj();
+            this.n = com.baidu.media.duplayer.a.b.zi().zk();
             this.o = new f(this, this.n.getLooper());
             CyberLog.i("IjkMediaPlayer", "create player in main thread, use request handler. thread:" + Thread.currentThread().getName() + " request thread:" + this.n.getName() + " mRequestHandler:" + this.o);
             this.p = true;
@@ -981,7 +981,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     private synchronized void y() {
         if (this.p) {
-            com.baidu.media.duplayer.a.b.zh().a(this.n);
+            com.baidu.media.duplayer.a.b.zi().a(this.n);
             this.n = null;
         }
     }

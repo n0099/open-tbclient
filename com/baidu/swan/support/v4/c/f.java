@@ -5,7 +5,7 @@ import android.os.Build;
 import android.view.View;
 /* loaded from: classes2.dex */
 public class f {
-    static final k bOA;
+    static final k bNJ;
 
     /* loaded from: classes2.dex */
     interface k {
@@ -77,7 +77,7 @@ public class f {
 
     /* loaded from: classes2.dex */
     static class e extends d {
-        static boolean bOB = false;
+        static boolean bNK = false;
 
         e() {
         }
@@ -121,25 +121,25 @@ public class f {
 
     static {
         if (Build.VERSION.SDK_INT >= 21) {
-            bOA = new j();
+            bNJ = new j();
         } else {
-            bOA = new i();
+            bNJ = new i();
         }
     }
 
     public static void setLayerType(View view, int i2, Paint paint) {
-        bOA.setLayerType(view, i2, paint);
+        bNJ.setLayerType(view, i2, paint);
     }
 
     public static int getLayerType(View view) {
-        return bOA.getLayerType(view);
+        return bNJ.getLayerType(view);
     }
 
     public static void setSaveFromParentEnabled(View view, boolean z) {
-        bOA.setSaveFromParentEnabled(view, z);
+        bNJ.setSaveFromParentEnabled(view, z);
     }
 
     public static boolean hasOverlappingRendering(View view) {
-        return bOA.hasOverlappingRendering(view);
+        return bNJ.hasOverlappingRendering(view);
     }
 }

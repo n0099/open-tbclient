@@ -6,101 +6,101 @@ import android.os.SystemClock;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class f extends a {
-    long aye;
-    private final Drawable[] kdR;
-    int ked;
-    int kee;
-    int[] kef;
-    int[] keg;
-    boolean[] keh;
-    int kei;
+    long axM;
+    private final Drawable[] kda;
+    int kdm;
+    int kdn;
+    int[] kdo;
+    int[] kdp;
+    boolean[] kdq;
+    int kdr;
     int mAlpha;
 
     public f(Drawable[] drawableArr) {
         super(drawableArr);
         com.facebook.common.internal.g.d(drawableArr.length >= 1, "At least one layer required!");
-        this.kdR = drawableArr;
-        this.kef = new int[drawableArr.length];
-        this.keg = new int[drawableArr.length];
+        this.kda = drawableArr;
+        this.kdo = new int[drawableArr.length];
+        this.kdp = new int[drawableArr.length];
         this.mAlpha = 255;
-        this.keh = new boolean[drawableArr.length];
-        this.kei = 0;
+        this.kdq = new boolean[drawableArr.length];
+        this.kdr = 0;
         resetInternal();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.kei == 0) {
+        if (this.kdr == 0) {
             super.invalidateSelf();
         }
     }
 
-    public void cEr() {
-        this.kei++;
+    public void cEp() {
+        this.kdr++;
     }
 
-    public void cEs() {
-        this.kei--;
+    public void cEq() {
+        this.kdr--;
         invalidateSelf();
     }
 
-    public void Ch(int i) {
-        this.kee = i;
-        if (this.ked == 1) {
-            this.ked = 0;
+    public void Cg(int i) {
+        this.kdn = i;
+        if (this.kdm == 1) {
+            this.kdm = 0;
         }
     }
 
     private void resetInternal() {
-        this.ked = 2;
-        Arrays.fill(this.kef, 0);
-        this.kef[0] = 255;
-        Arrays.fill(this.keg, 0);
-        this.keg[0] = 255;
-        Arrays.fill(this.keh, false);
-        this.keh[0] = true;
+        this.kdm = 2;
+        Arrays.fill(this.kdo, 0);
+        this.kdo[0] = 255;
+        Arrays.fill(this.kdp, 0);
+        this.kdp[0] = 255;
+        Arrays.fill(this.kdq, false);
+        this.kdq[0] = true;
+    }
+
+    public void Ch(int i) {
+        this.kdm = 0;
+        this.kdq[i] = true;
+        invalidateSelf();
     }
 
     public void Ci(int i) {
-        this.ked = 0;
-        this.keh[i] = true;
+        this.kdm = 0;
+        this.kdq[i] = false;
         invalidateSelf();
     }
 
-    public void Cj(int i) {
-        this.ked = 0;
-        this.keh[i] = false;
+    public void cEr() {
+        this.kdm = 0;
+        Arrays.fill(this.kdq, true);
         invalidateSelf();
     }
 
-    public void cEt() {
-        this.ked = 0;
-        Arrays.fill(this.keh, true);
-        invalidateSelf();
-    }
-
-    public void cEu() {
-        this.ked = 2;
-        for (int i = 0; i < this.kdR.length; i++) {
-            this.keg[i] = this.keh[i] ? 255 : 0;
+    public void cEs() {
+        this.kdm = 2;
+        for (int i = 0; i < this.kda.length; i++) {
+            this.kdp[i] = this.kdq[i] ? 255 : 0;
         }
         invalidateSelf();
     }
 
     private boolean aD(float f) {
         boolean z = true;
-        for (int i = 0; i < this.kdR.length; i++) {
-            this.keg[i] = (int) (((this.keh[i] ? 1 : -1) * 255 * f) + this.kef[i]);
-            if (this.keg[i] < 0) {
-                this.keg[i] = 0;
+        for (int i = 0; i < this.kda.length; i++) {
+            this.kdp[i] = (int) (((this.kdq[i] ? 1 : -1) * 255 * f) + this.kdo[i]);
+            if (this.kdp[i] < 0) {
+                this.kdp[i] = 0;
             }
-            if (this.keg[i] > 255) {
-                this.keg[i] = 255;
+            if (this.kdp[i] > 255) {
+                this.kdp[i] = 255;
             }
-            if (this.keh[i] && this.keg[i] < 255) {
+            if (this.kdq[i] && this.kdp[i] < 255) {
                 z = false;
             }
-            if (!this.keh[i] && this.keg[i] > 0) {
+            if (!this.kdq[i] && this.kdp[i] > 0) {
                 z = false;
             }
         }
@@ -110,23 +110,23 @@ public class f extends a {
     @Override // com.facebook.drawee.drawable.a, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z = true;
-        switch (this.ked) {
+        switch (this.kdm) {
             case 0:
-                System.arraycopy(this.keg, 0, this.kef, 0, this.kdR.length);
-                this.aye = cEv();
-                boolean aD = aD(this.kee == 0 ? 1.0f : 0.0f);
-                this.ked = aD ? 2 : 1;
+                System.arraycopy(this.kdp, 0, this.kdo, 0, this.kda.length);
+                this.axM = cEt();
+                boolean aD = aD(this.kdn == 0 ? 1.0f : 0.0f);
+                this.kdm = aD ? 2 : 1;
                 z = aD;
                 break;
             case 1:
-                com.facebook.common.internal.g.checkState(this.kee > 0);
-                boolean aD2 = aD(((float) (cEv() - this.aye)) / this.kee);
-                this.ked = aD2 ? 2 : 1;
+                com.facebook.common.internal.g.checkState(this.kdn > 0);
+                boolean aD2 = aD(((float) (cEt() - this.axM)) / this.kdn);
+                this.kdm = aD2 ? 2 : 1;
                 z = aD2;
                 break;
         }
-        for (int i = 0; i < this.kdR.length; i++) {
-            a(canvas, this.kdR[i], (this.keg[i] * this.mAlpha) / 255);
+        for (int i = 0; i < this.kda.length; i++) {
+            a(canvas, this.kda[i], (this.kdp[i] * this.mAlpha) / 255);
         }
         if (!z) {
             invalidateSelf();
@@ -135,9 +135,9 @@ public class f extends a {
 
     private void a(Canvas canvas, Drawable drawable, int i) {
         if (drawable != null && i > 0) {
-            this.kei++;
+            this.kdr++;
             drawable.mutate().setAlpha(i);
-            this.kei--;
+            this.kdr--;
             drawable.draw(canvas);
         }
     }
@@ -155,7 +155,7 @@ public class f extends a {
         return this.mAlpha;
     }
 
-    protected long cEv() {
+    protected long cEt() {
         return SystemClock.uptimeMillis();
     }
 }

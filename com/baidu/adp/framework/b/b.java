@@ -9,22 +9,22 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.a.d, HttpResponsedMessage> {
-    private HttpClient mo;
+    private HttpClient lO;
 
     public b(MessageManager messageManager) {
         super(messageManager);
-        this.mo = null;
-        this.mo = new HttpClient(messageManager);
-        this.mp = com.baidu.adp.framework.c.b.eH();
+        this.lO = null;
+        this.lO = new HttpClient(messageManager);
+        this.lP = com.baidu.adp.framework.c.b.eH();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
     public void a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessageTask.getConnectTimeOut() == null) {
-            httpMessageTask.setConnectTimeOut(((com.baidu.adp.framework.c.b) this.mp).eI());
+            httpMessageTask.setConnectTimeOut(((com.baidu.adp.framework.c.b) this.lP).eI());
         }
-        this.mo.a(httpMessage, httpMessageTask);
+        this.lO.a(httpMessage, httpMessageTask);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,20 +35,20 @@ public class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.a
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
-        this.mo.removeMessage(bdUniqueId);
+        this.lO.removeMessage(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
-        this.mo.removeMessage(i, bdUniqueId);
+        this.lO.removeMessage(i, bdUniqueId);
     }
 
     public LinkedList<HttpMessage> a(BdUniqueId bdUniqueId) {
-        return this.mo.a(bdUniqueId);
+        return this.lO.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public LinkedList<HttpMessage> findMessage(int i, BdUniqueId bdUniqueId) {
-        return this.mo.findMessage(i, bdUniqueId);
+        return this.lO.findMessage(i, bdUniqueId);
     }
 }

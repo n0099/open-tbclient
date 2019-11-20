@@ -11,9 +11,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private ArrayList<a> Zf;
-    private ArrayList<b> Zg;
-    private ArrayList<h> aci;
+    private ArrayList<a> YN;
+    private ArrayList<b> YO;
+    private ArrayList<h> abQ;
     private String scene_from;
 
     public GiftPackageListHttpResponsedMessage() {
@@ -24,11 +24,11 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1021150) {
-            v(jSONObject);
+            w(jSONObject);
         }
     }
 
-    public void v(JSONObject jSONObject) {
+    public void w(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
             this.scene_from = optJSONObject.optString("scene_from");
@@ -39,8 +39,8 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
 
     private void j(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aci = new ArrayList<>();
-            this.Zf = new ArrayList<>();
+            this.abQ = new ArrayList<>();
+            this.YN = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("category_id");
@@ -57,7 +57,7 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     aVar.setCategoryName(optString);
                     aVar.g(arrayList);
                     aVar.ah(z);
-                    this.Zf.add(aVar);
+                    this.YN.add(aVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -68,8 +68,8 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                             g gVar = new g();
                             gVar.parseJson(optJSONObject2);
                             gVar.setSceneFrom(this.scene_from);
-                            gVar.t(optJSONObject2);
-                            if (gVar.WH != null && gVar.WH.WL > 0) {
+                            gVar.u(optJSONObject2);
+                            if (gVar.Wo != null && gVar.Wo.Ws > 0) {
                                 arrayList2.add(gVar);
                             }
                         }
@@ -79,7 +79,7 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     hVar.setCategoryName(optString);
                     hVar.s(arrayList2);
                     hVar.ah(z);
-                    this.aci.add(hVar);
+                    this.abQ.add(hVar);
                 }
             }
         }
@@ -87,27 +87,27 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.Zg = new ArrayList<>();
+            this.YO = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     b bVar = new b();
                     bVar.parser(optJSONObject);
-                    this.Zg.add(bVar);
+                    this.YO.add(bVar);
                 }
             }
         }
     }
 
-    public ArrayList<h> qX() {
-        return this.aci;
+    public ArrayList<h> qY() {
+        return this.abQ;
     }
 
     public ArrayList<a> getCategoryList() {
-        return this.Zf;
+        return this.YN;
     }
 
-    public ArrayList<b> qY() {
-        return this.Zg;
+    public ArrayList<b> qZ() {
+        return this.YO;
     }
 }

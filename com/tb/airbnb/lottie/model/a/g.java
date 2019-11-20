@@ -16,8 +16,8 @@ public class g extends o<com.tb.airbnb.lottie.model.k, com.tb.airbnb.lottie.mode
     }
 
     @Override // com.tb.airbnb.lottie.model.a.m
-    public com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.k, com.tb.airbnb.lottie.model.k> cLn() {
-        return !hasAnimation() ? new com.tb.airbnb.lottie.a.b.n(this.fI) : new com.tb.airbnb.lottie.a.b.k(this.fu);
+    public com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.k, com.tb.airbnb.lottie.model.k> cLl() {
+        return !hasAnimation() ? new com.tb.airbnb.lottie.a.b.n(this.fg) : new com.tb.airbnb.lottie.a.b.k(this.eR);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,12 +25,12 @@ public class g extends o<com.tb.airbnb.lottie.model.k, com.tb.airbnb.lottie.mode
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static g j(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {
-            n.a cLE = n.a(jSONObject, 1.0f, eVar, k.a.ktQ).cLE();
-            return new g(cLE.fu, (com.tb.airbnb.lottie.model.k) cLE.fI);
+            n.a cLC = n.a(jSONObject, 1.0f, eVar, k.a.ksZ).cLC();
+            return new g(cLC.eR, (com.tb.airbnb.lottie.model.k) cLC.fg);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static g cLs() {
+        public static g cLq() {
             return new g();
         }
     }

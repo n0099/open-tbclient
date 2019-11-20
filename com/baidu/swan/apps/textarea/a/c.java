@@ -25,11 +25,11 @@ public class c extends z {
             return false;
         }
         com.baidu.swan.apps.console.c.d("UpdateTextAreaAction", "UpdateTextAreaAction paramsJson: " + optParamsAsJo);
-        com.baidu.swan.apps.textarea.c.b iG = com.baidu.swan.apps.textarea.c.a.TI().iG(optParamsAsJo.optString("slaveId"));
+        com.baidu.swan.apps.textarea.c.b iG = com.baidu.swan.apps.textarea.c.a.TG().iG(optParamsAsJo.optString("slaveId"));
         if (iG == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!iG.aK(optParamsAsJo)) {
+        } else if (!iG.aL(optParamsAsJo)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {

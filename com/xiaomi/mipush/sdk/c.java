@@ -2,6 +2,7 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.xiaomi.push.hl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class c implements Runnable {
@@ -14,16 +15,16 @@ public final class c implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        boolean d;
+        boolean m67b;
         String b;
-        d = b.d(this.a);
-        if (d) {
-            b = b.b(com.xiaomi.push.service.an.a(this.a).a(com.xiaomi.xmpush.thrift.g.AggregationSdkMonitorDepth.a(), 4));
+        m67b = b.m67b(this.a);
+        if (m67b) {
+            b = b.b(com.xiaomi.push.service.ag.a(this.a).a(hl.AggregationSdkMonitorDepth.a(), 4));
             if (TextUtils.isEmpty(b)) {
                 return;
             }
             MiTinyDataClient.upload(this.a, "monitor_upload", "call_stack", 1L, b);
-            b.e(this.a);
+            b.c(this.a);
         }
     }
 }

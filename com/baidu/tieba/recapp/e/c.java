@@ -11,11 +11,11 @@ import com.baidu.tieba.recapp.s;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes3.dex */
 public class c extends e {
-    private TextView csn;
-    private HeadImageView gaO;
-    private TextView iNZ;
-    private CountDownTextView iOf;
-    private boolean iOg;
+    private TextView crw;
+    private HeadImageView fZX;
+    private TextView iNi;
+    private CountDownTextView iNo;
+    private boolean iNp;
 
     public c(View view, String str) {
         super(view, str);
@@ -23,64 +23,64 @@ public class c extends e {
     }
 
     private void init() {
-        this.gaO = (HeadImageView) yw(R.id.user_portrait);
-        this.gaO.setDefaultResource(R.drawable.icon_default_avatar100);
-        this.gaO.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.gaO.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.gaO.setIsRound(true);
-        this.csn = (TextView) yw(R.id.user_name);
-        this.iOf = (CountDownTextView) yw(R.id.count_down_text);
-        this.iNZ = (TextView) yw(R.id.action);
+        this.fZX = (HeadImageView) yv(R.id.user_portrait);
+        this.fZX.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.fZX.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.fZX.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.fZX.setIsRound(true);
+        this.crw = (TextView) yv(R.id.user_name);
+        this.iNo = (CountDownTextView) yv(R.id.count_down_text);
+        this.iNi = (TextView) yv(R.id.action);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void a(final AdCard.f fVar) {
         super.a(fVar);
-        this.gaO.startLoad(fVar.iJu, 10, false);
-        this.csn.setText(fVar.userName);
-        this.iNZ.setText(fVar.buttonText);
+        this.fZX.startLoad(fVar.iID, 10, false);
+        this.crw.setText(fVar.userName);
+        this.iNi.setText(fVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 s.aL(c.this.mRootView.getContext(), fVar.scheme);
-                if (c.this.iOj != null) {
-                    c.this.iOj.yp(302);
-                    com.baidu.tieba.recapp.report.c.cgI().a(c.this.iOj);
+                if (c.this.iNs != null) {
+                    c.this.iNs.yo(302);
+                    com.baidu.tieba.recapp.report.c.cgG().a(c.this.iNs);
                 }
-                if (c.this.iOl != null) {
-                    com.baidu.tieba.lego.card.b.c.a(c.this.iOl);
+                if (c.this.iNu != null) {
+                    com.baidu.tieba.lego.card.b.c.a(c.this.iNu);
                 }
                 c.this.qg(false);
             }
         });
-        this.iOf.yF(fVar.count);
+        this.iNo.yE(fVar.count);
         onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void cgP() {
-        super.cgP();
-        this.iOf.startCountDown();
+    public void cgN() {
+        super.cgN();
+        this.iNo.startCountDown();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void setTimeoutListener(CountDownTextView.b bVar) {
         super.setTimeoutListener(bVar);
-        this.iOf.setTimeoutListener(bVar);
+        this.iNo.setTimeoutListener(bVar);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void onChangeSkinType() {
-        am.setViewTextColor(this.csn, R.color.cp_cont_a, 1);
-        am.setViewTextColor(this.iNZ, R.color.cp_cont_a, 1);
-        am.setBackgroundResource(this.iNZ, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
+        am.setViewTextColor(this.crw, R.color.cp_cont_a, 1);
+        am.setViewTextColor(this.iNi, R.color.cp_cont_a, 1);
+        am.setBackgroundResource(this.iNi, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void qg(boolean z) {
-        this.iOg = z;
-        if (this.iOf != null) {
-            this.iOf.setEnableTimeoutListener(this.iOg);
+        this.iNp = z;
+        if (this.iNo != null) {
+            this.iNo.setEnableTimeoutListener(this.iNp);
         }
     }
 }

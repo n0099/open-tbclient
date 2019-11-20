@@ -15,10 +15,10 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class CommonEmptyView extends RelativeLayout {
-    public FrameLayout bcA;
-    public TextView bcx;
-    public TextView bcy;
-    public TextView bcz;
+    public TextView bcf;
+    public TextView bcg;
+    public TextView bch;
+    public FrameLayout bci;
     public ImageView mIcon;
     public TextView mTitle;
 
@@ -40,10 +40,10 @@ public class CommonEmptyView extends RelativeLayout {
         setBackground(context.getResources().getDrawable(a.c.aiapps_empty_layout_backgroud));
         this.mIcon = (ImageView) findViewById(a.f.emptyview_image);
         this.mTitle = (TextView) findViewById(a.f.emptyview_title);
-        this.bcx = (TextView) findViewById(a.f.emptyview_subtitle);
-        this.bcy = (TextView) findViewById(a.f.emptyview_link);
-        this.bcz = (TextView) findViewById(a.f.emptyview_btn);
-        this.bcA = (FrameLayout) findViewById(a.f.emptyview_bottom_layout);
+        this.bcf = (TextView) findViewById(a.f.emptyview_subtitle);
+        this.bcg = (TextView) findViewById(a.f.emptyview_link);
+        this.bch = (TextView) findViewById(a.f.emptyview_btn);
+        this.bci = (FrameLayout) findViewById(a.f.emptyview_bottom_layout);
         setPageResources();
     }
 
@@ -60,15 +60,15 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setSubTitle(String str) {
-        this.bcx.setVisibility(0);
-        this.bcx.setText(str);
-        this.bcx.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
+        this.bcf.setVisibility(0);
+        this.bcf.setText(str);
+        this.bcf.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
     }
 
     public void setSubTitle(int i) {
-        this.bcx.setVisibility(0);
-        this.bcx.setText(i);
-        this.bcx.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
+        this.bcf.setVisibility(0);
+        this.bcf.setText(i);
+        this.bcf.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
     }
 
     public void setIcon(Drawable drawable) {
@@ -80,48 +80,48 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setButtonText(String str) {
-        this.bcz.setText(str);
+        this.bch.setText(str);
     }
 
     public void setButtonText(int i) {
-        this.bcz.setText(i);
+        this.bch.setText(i);
     }
 
     public void setTextButtonClickListener(View.OnClickListener onClickListener) {
-        this.bcz.setVisibility(0);
-        this.bcz.setOnClickListener(onClickListener);
+        this.bch.setVisibility(0);
+        this.bch.setOnClickListener(onClickListener);
     }
 
     public void setLinkClickListener(View.OnClickListener onClickListener) {
-        this.bcy.setVisibility(0);
-        this.bcy.setOnClickListener(onClickListener);
+        this.bcg.setVisibility(0);
+        this.bcg.setOnClickListener(onClickListener);
     }
 
     @Override // android.view.View
     protected void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.bcA != null && this.bcA.getLayoutParams() != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bcA.getLayoutParams();
+        if (this.bci != null && this.bci.getLayoutParams() != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bci.getLayoutParams();
             if (configuration.orientation == 1) {
                 layoutParams.bottomMargin = getResources().getDimensionPixelOffset(a.d.aiapps_empty_view_bottom_margin_portrait);
             } else if (configuration.orientation == 2) {
                 layoutParams.bottomMargin = getResources().getDimensionPixelOffset(a.d.aiapps_empty_view_bottom_margin_landscape);
             }
-            this.bcA.setLayoutParams(layoutParams);
+            this.bci.setLayoutParams(layoutParams);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.u.a.JD().a(this, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.ui.CommonEmptyView.1
+        com.baidu.swan.apps.u.a.JE().a(this, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.ui.CommonEmptyView.1
         });
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.u.a.JD().F(this);
+        com.baidu.swan.apps.u.a.JE().F(this);
     }
 
     public void setPageResources() {
@@ -129,19 +129,19 @@ public class CommonEmptyView extends RelativeLayout {
         if (this.mTitle != null) {
             this.mTitle.setTextColor(getResources().getColor(a.c.aiapps_emptyview_title_text_color));
         }
-        if (this.bcy != null) {
-            this.bcy.setTextColor(getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
+        if (this.bcg != null) {
+            this.bcg.setTextColor(getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
         }
-        if (this.bcz != null) {
-            this.bcz.setBackground(getResources().getDrawable(a.e.aiapps_emptyview_btn_bg));
-            this.bcz.setTextColor(getResources().getColorStateList(a.c.aiapps_emptyview_btn_text_color));
+        if (this.bch != null) {
+            this.bch.setBackground(getResources().getDrawable(a.e.aiapps_emptyview_btn_bg));
+            this.bch.setTextColor(getResources().getColorStateList(a.c.aiapps_emptyview_btn_text_color));
         }
-        if (this.bcx != null) {
-            this.bcx.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
+        if (this.bcf != null) {
+            this.bcf.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
         }
     }
 
     public void setButtonTextColor(ColorStateList colorStateList) {
-        this.bcz.setTextColor(colorStateList);
+        this.bch.setTextColor(colorStateList);
     }
 }

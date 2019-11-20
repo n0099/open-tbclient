@@ -14,28 +14,28 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.ueg.UEGCancelModel;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean jwj = false;
-    private UEGCancelModel.a jwh;
-    public int jwi = at.a.cks;
-    private UEGCancelModel jwg = new UEGCancelModel();
+    public static boolean jvs = false;
+    private UEGCancelModel.a jvq;
+    public int jvr = at.a.cjB;
+    private UEGCancelModel jvp = new UEGCancelModel();
 
     public b() {
-        if (this.jwh == null) {
-            this.jwh = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
+        if (this.jvq == null) {
+            this.jvq = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
                 @Override // com.baidu.tieba.ueg.UEGCancelModel.a
                 public void d(BlockPopInfoData blockPopInfoData) {
-                    if (blockPopInfoData != null && !b.jwj) {
+                    if (blockPopInfoData != null && !b.jvs) {
                         b.this.a(blockPopInfoData);
                     }
                 }
             };
         }
-        this.jwg.a(this.jwh);
+        this.jvp.a(this.jvq);
     }
 
-    public void AG(int i) {
-        this.jwi = i;
-        this.jwg.cancelRequest();
+    public void AF(int i) {
+        this.jvr = i;
+        this.jvp.cancelRequest();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -50,14 +50,14 @@ public class b {
             String str4 = blockPopInfoData.ahead_info;
             String str5 = blockPopInfoData.block_info;
             if ((i == 1 || i == 2 || i == 3 || i == 4) && !aq.isEmpty(currentAccount) && !aq.isEmpty(str)) {
-                boolean z2 = com.baidu.tbadk.core.sharedPref.b.alR().getBoolean(str + i + currentAccount, false);
+                boolean z2 = com.baidu.tbadk.core.sharedPref.b.alP().getBoolean(str + i + currentAccount, false);
                 if ((!aq.isEmpty(str2) || i == 4) && !aq.isEmpty(str3) && ((!aq.isEmpty(str4) || i == 4) && !aq.isEmpty(str5))) {
                     z = true;
                 }
                 if (!z2 && z) {
-                    com.baidu.tbadk.core.sharedPref.b.alR().putBoolean(str + i + currentAccount, true);
+                    com.baidu.tbadk.core.sharedPref.b.alP().putBoolean(str + i + currentAccount, true);
                     b(blockPopInfoData);
-                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).O("obj_locate", this.jwi).O("obj_type", i));
+                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).O("obj_locate", this.jvr).O("obj_type", i));
                 }
             }
         }
@@ -72,23 +72,23 @@ public class b {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).O("obj_locate", b.this.jwi).O("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).O("obj_locate", b.this.jvr).O("obj_type", blockPopInfoData.win_type));
                 }
             });
             aVar.a(blockPopInfoData.ahead_info, new a.b() { // from class: com.baidu.tieba.ueg.b.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     b.this.c(blockPopInfoData);
-                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).O("obj_locate", b.this.jwi).O("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).O("obj_locate", b.this.jvr).O("obj_type", blockPopInfoData.win_type));
                 }
             });
             aVar.b(((f) currentActivity).getPageContext());
-            aVar.akO();
+            aVar.akM();
         }
     }
 
     public void rn(boolean z) {
-        jwj = z;
+        jvs = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -100,8 +100,8 @@ public class b {
     }
 
     public void onDestroy() {
-        if (this.jwg != null) {
-            this.jwg.onDestroy();
+        if (this.jvp != null) {
+            this.jvp.onDestroy();
         }
     }
 }

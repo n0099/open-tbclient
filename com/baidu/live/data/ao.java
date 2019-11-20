@@ -4,18 +4,18 @@ import android.graphics.Color;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ao {
-    private String UX;
-    private String UY;
-    private String UZ;
-    private String Va;
-    private String Vb;
-    private String Vc;
-    private String Vd;
-    private String Ve;
-    private int[] Vf;
-    private int[] Vg;
-    private int[] Vh;
-    private int[] Vi;
+    private String UC;
+    private String UD;
+    private String UE;
+    private String UF;
+    private String UG;
+    private String UH;
+    private String UJ;
+    private String UK;
+    private int[] UL;
+    private int[] UM;
+    private int[] UN;
+    private int[] UO;
     public String id;
     public int price;
 
@@ -25,53 +25,53 @@ public class ao {
     public ao(JSONObject jSONObject) {
         this.id = jSONObject.optString("id");
         this.price = jSONObject.optInt("price");
-        this.UX = jSONObject.optString("barrage_start_color");
-        this.UY = jSONObject.optString("barrage_end_color");
-        this.UZ = jSONObject.optString("portrait_start_color");
-        this.Va = jSONObject.optString("portrait_end_color");
-        this.Vb = jSONObject.optString("portrait_frame_start_color");
-        this.Vc = jSONObject.optString("portrait_frame_end_color");
-        this.Vd = jSONObject.optString("btn_start_color");
-        this.Ve = jSONObject.optString("btn_end_color");
+        this.UC = jSONObject.optString("barrage_start_color");
+        this.UD = jSONObject.optString("barrage_end_color");
+        this.UE = jSONObject.optString("portrait_start_color");
+        this.UF = jSONObject.optString("portrait_end_color");
+        this.UG = jSONObject.optString("portrait_frame_start_color");
+        this.UH = jSONObject.optString("portrait_frame_end_color");
+        this.UJ = jSONObject.optString("btn_start_color");
+        this.UK = jSONObject.optString("btn_end_color");
     }
 
     public ao oA() {
         this.price = 100;
-        this.UX = "#FF613EFB";
-        this.UY = "#FF44E3FF";
-        this.UZ = "#FF623DFE";
-        this.Va = "#FF03E2F5";
-        this.Vb = "#FF61A0FF";
-        this.Vc = "#FF73FFEF";
+        this.UC = "#FF613EFB";
+        this.UD = "#FF44E3FF";
+        this.UE = "#FF623DFE";
+        this.UF = "#FF03E2F5";
+        this.UG = "#FF61A0FF";
+        this.UH = "#FF73FFEF";
         return this;
     }
 
     public int[] oB() {
-        if (this.Vf == null || this.Vf.length != 2) {
-            this.Vf = i(this.Vd, this.Ve, "#FF623DFE", "#FF03E2F5");
+        if (this.UL == null || this.UL.length != 2) {
+            this.UL = i(this.UJ, this.UK, "#FF623DFE", "#FF03E2F5");
         }
-        return this.Vf;
+        return this.UL;
     }
 
     public int[] oC() {
-        if (this.Vg == null || this.Vg.length != 2) {
-            this.Vg = i(this.UZ, this.Va, "#FF623DFE", "#FF03E2F5");
+        if (this.UM == null || this.UM.length != 2) {
+            this.UM = i(this.UE, this.UF, "#FF623DFE", "#FF03E2F5");
         }
-        return this.Vg;
+        return this.UM;
     }
 
     public int[] oD() {
-        if (this.Vh == null || this.Vh.length != 2) {
-            this.Vh = i(this.UX, this.UY, "#FF613EFB", "#FF44E3FF");
+        if (this.UN == null || this.UN.length != 2) {
+            this.UN = i(this.UC, this.UD, "#FF613EFB", "#FF44E3FF");
         }
-        return this.Vh;
+        return this.UN;
     }
 
     public int[] oE() {
-        if (this.Vi == null || this.Vi.length != 2) {
-            this.Vi = i(this.Vb, this.Vc, "#FF61A0FF", "#FF73FFEF");
+        if (this.UO == null || this.UO.length != 2) {
+            this.UO = i(this.UG, this.UH, "#FF61A0FF", "#FF73FFEF");
         }
-        return this.Vi;
+        return this.UO;
     }
 
     private int[] i(String str, String str2, String str3, String str4) {

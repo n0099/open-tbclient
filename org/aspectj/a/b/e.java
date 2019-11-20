@@ -13,9 +13,9 @@ public class e extends a implements org.aspectj.lang.reflect.c {
         this.returnType = cls2;
     }
 
-    public Class cNp() {
+    public Class cNn() {
         if (this.returnType == null) {
-            this.returnType = Do(6);
+            this.returnType = Dn(6);
         }
         return this.returnType;
     }
@@ -23,18 +23,18 @@ public class e extends a implements org.aspectj.lang.reflect.c {
     @Override // org.aspectj.a.b.f
     protected String b(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(hVar.Dq(cNq()));
-        if (hVar.kxb) {
-            stringBuffer.append(hVar.E(cNp()));
+        stringBuffer.append(hVar.Dp(cNo()));
+        if (hVar.kwk) {
+            stringBuffer.append(hVar.E(cNn()));
         }
-        if (hVar.kxb) {
+        if (hVar.kwk) {
             stringBuffer.append(HanziToPinyin.Token.SEPARATOR);
         }
-        stringBuffer.append(hVar.h(cNr(), cNs()));
+        stringBuffer.append(hVar.h(cNp(), cNq()));
         stringBuffer.append(DefaultConfig.TOKEN_SEPARATOR);
         stringBuffer.append(getName());
-        hVar.b(stringBuffer, cNl());
-        hVar.c(stringBuffer, cNm());
+        hVar.b(stringBuffer, cNj());
+        hVar.c(stringBuffer, cNk());
         return stringBuffer.toString();
     }
 }

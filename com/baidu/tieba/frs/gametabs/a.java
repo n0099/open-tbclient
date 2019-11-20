@@ -17,22 +17,22 @@ import com.baidu.tieba.R;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends n {
-    private l chw;
-    private String ePT;
+    private l cgF;
+    private String ePc;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.chw = lVar;
-        this.ePT = str;
+        this.cgF = lVar;
+        this.ePc = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String afV() {
+    public String afT() {
         return "TBHY_COMMON_DOWNLOAD_GAME";
     }
 
-    @o(alD = false, value = "downloadGame")
+    @o(alB = false, value = "downloadGame")
     private void downloadGame(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("packageName");
@@ -46,9 +46,9 @@ public class a extends n {
                 if (StringUtils.isNull(optString2)) {
                     we(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.e.cfS().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.CB(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.e.cfQ().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.CB(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new an("c12775").bS("fid", StringUtils.isNull(this.ePT) ? "" : this.ePT));
+                TiebaStatic.log(new an("c12775").bS("fid", StringUtils.isNull(this.ePc) ? "" : this.ePc));
             }
         }
     }
@@ -56,10 +56,10 @@ public class a extends n {
     private void we(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
-            if (!(this.chw.getContext() instanceof Activity)) {
+            if (!(this.cgF.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            this.chw.getContext().startActivity(intent);
+            this.cgF.getContext().startActivity(intent);
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

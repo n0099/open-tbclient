@@ -18,70 +18,70 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private com.baidu.live.gift.c.a ady;
-    private CustomMessageListener ahD;
-    private String aiq;
-    private CustomMessageListener dYl;
-    private InterfaceC0367a enL;
-    private b enM;
-    private String[] enN;
-    private List<String> enO;
+    private com.baidu.live.gift.c.a adg;
+    private String ahX;
+    private CustomMessageListener ahl;
+    private CustomMessageListener dXu;
+    private InterfaceC0367a emS;
+    private b emT;
+    private String[] emU;
+    private List<String> emV;
     private String mOtherParams;
     private TbPageContext mPageContext;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public interface InterfaceC0367a {
-        void aPA();
+        void aPx();
 
-        void aPz();
+        void aPy();
 
-        boolean sF();
+        boolean sG();
     }
 
     public void a(InterfaceC0367a interfaceC0367a) {
-        this.enL = interfaceC0367a;
+        this.emS = interfaceC0367a;
     }
 
     public void a(i iVar, String str) {
-        this.aiq = "";
+        this.ahX = "";
         if (iVar != null && iVar.mLiveInfo != null && iVar.mLiveInfo.feed_id != null) {
-            this.aiq = iVar.mLiveInfo.feed_id;
+            this.ahX = iVar.mLiveInfo.feed_id;
         }
         if (str == null) {
             str = "";
         }
         this.mOtherParams = str;
-        aVK();
-        aSm();
+        aVI();
+        aSk();
     }
 
     public void d(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.enM = new b(this.mPageContext.getPageActivity());
-        this.enM.a(new b.a() { // from class: com.baidu.tieba.ala.liveroom.o.a.1
+        this.emT = new b(this.mPageContext.getPageActivity());
+        this.emT.a(new b.a() { // from class: com.baidu.tieba.ala.liveroom.o.a.1
             @Override // com.baidu.tieba.ala.liveroom.o.b.a
-            public boolean sF() {
-                return a.this.enL != null && a.this.enL.sF();
+            public boolean sG() {
+                return a.this.emS != null && a.this.emS.sG();
             }
 
             @Override // com.baidu.tieba.ala.liveroom.o.b.a
-            public void aax() {
-                if (a.this.enL != null) {
-                    a.this.enL.aPz();
+            public void aav() {
+                if (a.this.emS != null) {
+                    a.this.emS.aPx();
                 }
             }
 
             @Override // com.baidu.tieba.ala.liveroom.o.b.a
             public void onDismiss() {
-                if (a.this.enL != null) {
-                    a.this.enL.aPA();
+                if (a.this.emS != null) {
+                    a.this.emS.aPy();
                 }
             }
 
             @Override // com.baidu.tieba.ala.liveroom.o.b.a
             public void a(int i, String str, ao aoVar) {
-                if (a.this.enL != null && a.this.enL.sF()) {
+                if (a.this.emS != null && a.this.emS.sG()) {
                     ImSendMsgData imSendMsgData = new ImSendMsgData(str);
                     if (aoVar != null) {
                         imSendMsgData.msgType = (short) 126;
@@ -91,50 +91,50 @@ public class a {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2913100, imSendMsgData));
                 }
                 a.this.cs(str);
-                a.this.enM.dismiss();
-                LogManager.getCommonLogger().doClickQuickImListLog(a.this.aiq, String.valueOf(i), str, a.this.mOtherParams);
+                a.this.emT.dismiss();
+                LogManager.getCommonLogger().doClickQuickImListLog(a.this.ahX, String.valueOf(i), str, a.this.mOtherParams);
             }
         });
         if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing()) {
-            this.enM.u(aVH());
-            if (this.ady == null) {
-                this.ady = new com.baidu.live.gift.c.a();
+            this.emT.u(aVF());
+            if (this.adg == null) {
+                this.adg = new com.baidu.live.gift.c.a();
             }
-            this.ady.ro();
+            this.adg.rp();
         }
     }
 
     public void bw(int i) {
-        if (this.enM != null && this.enM.isShowing()) {
-            this.enM.bw(i);
+        if (this.emT != null && this.emT.isShowing()) {
+            this.emT.bw(i);
         }
     }
 
-    public List<String> aVG() {
+    public List<String> aVE() {
         QuickImInputData quickImInputData;
         List<String> list;
-        if (this.enO == null) {
-            this.enO = new ArrayList();
+        if (this.emV == null) {
+            this.emV = new ArrayList();
         }
-        this.enO.clear();
-        o oVar = com.baidu.live.l.a.uA().ajX;
-        if (oVar != null && (quickImInputData = oVar.Sm) != null && (list = quickImInputData.sortedTexts) != null && !list.isEmpty()) {
-            this.enO.addAll(list);
+        this.emV.clear();
+        o oVar = com.baidu.live.l.a.uB().ajF;
+        if (oVar != null && (quickImInputData = oVar.RJ) != null && (list = quickImInputData.sortedTexts) != null && !list.isEmpty()) {
+            this.emV.addAll(list);
         }
-        if (this.enO.isEmpty()) {
-            Collections.addAll(this.enO, aVH());
+        if (this.emV.isEmpty()) {
+            Collections.addAll(this.emV, aVF());
         }
-        return this.enO;
+        return this.emV;
     }
 
     public void cs(String str) {
-        if (!TextUtils.isEmpty(str) && this.enO != null && !this.enO.isEmpty() && this.enO.indexOf(str) > 1) {
-            if (this.enO.remove(str)) {
-                this.enO.add(1, str);
+        if (!TextUtils.isEmpty(str) && this.emV != null && !this.emV.isEmpty() && this.emV.indexOf(str) > 1) {
+            if (this.emV.remove(str)) {
+                this.emV.add(1, str);
             }
-            o oVar = com.baidu.live.l.a.uA().ajX;
+            o oVar = com.baidu.live.l.a.uB().ajF;
             if (oVar != null) {
-                QuickImInputData quickImInputData = oVar.Sm;
+                QuickImInputData quickImInputData = oVar.RJ;
                 if (quickImInputData == null) {
                     quickImInputData = new QuickImInputData();
                 }
@@ -142,70 +142,70 @@ public class a {
                     quickImInputData.sortedTexts = new ArrayList();
                 }
                 quickImInputData.sortedTexts.clear();
-                quickImInputData.sortedTexts.addAll(this.enO);
+                quickImInputData.sortedTexts.addAll(this.emV);
             }
         }
     }
 
-    public void aRX() {
-        if (this.enM != null) {
+    public void aRV() {
+        if (this.emT != null) {
             if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing()) {
-                this.enM.dismiss();
+                this.emT.dismiss();
             }
-            this.enM = null;
-            aVL();
-            aSn();
+            this.emT = null;
+            aVJ();
+            aSl();
         }
     }
 
     public void release() {
-        aRX();
+        aRV();
     }
 
-    private String[] aVH() {
-        if (this.enN == null || this.enN.length == 0) {
-            List<String> aVI = aVI();
-            if (aVI != null && !aVI.isEmpty()) {
-                this.enN = (String[]) aVI.toArray(new String[aVI.size()]);
+    private String[] aVF() {
+        if (this.emU == null || this.emU.length == 0) {
+            List<String> aVG = aVG();
+            if (aVG != null && !aVG.isEmpty()) {
+                this.emU = (String[]) aVG.toArray(new String[aVG.size()]);
             } else {
-                this.enN = aVJ();
+                this.emU = aVH();
             }
         }
-        return this.enN;
+        return this.emU;
     }
 
-    private List<String> aVI() {
+    private List<String> aVG() {
         QuickImInputData quickImInputData;
         List<String> list;
-        o oVar = com.baidu.live.l.a.uA().ajX;
-        if (oVar == null || (quickImInputData = oVar.Sm) == null || (list = quickImInputData.originTexts) == null || list.isEmpty()) {
+        o oVar = com.baidu.live.l.a.uB().ajF;
+        if (oVar == null || (quickImInputData = oVar.RJ) == null || (list = quickImInputData.originTexts) == null || list.isEmpty()) {
             return null;
         }
         return list;
     }
 
-    private String[] aVJ() {
+    private String[] aVH() {
         return new String[]{"66666", "牛批牛批", "赤道以北，主播最美", "全民女神", "哈哈哈哈哈哈", "扎心了", "老铁，走一个", "请开始你的表演"};
     }
 
-    private void aVK() {
-        if (this.dYl == null) {
-            this.dYl = new CustomMessageListener(2913122) { // from class: com.baidu.tieba.ala.liveroom.o.a.2
+    private void aVI() {
+        if (this.dXu == null) {
+            this.dXu = new CustomMessageListener(2913122) { // from class: com.baidu.tieba.ala.liveroom.o.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (a.this.enM != null && a.this.enM.isShowing()) {
-                        a.this.enM.aVM();
+                    if (a.this.emT != null && a.this.emT.isShowing()) {
+                        a.this.emT.aVK();
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.dYl);
+            MessageManager.getInstance().registerListener(this.dXu);
         }
     }
 
-    private void aSm() {
-        if (this.ahD == null) {
-            this.ahD = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.o.a.3
+    private void aSk() {
+        if (this.ahl == null) {
+            this.ahl = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.o.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -218,20 +218,20 @@ public class a {
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.ahD);
+            MessageManager.getInstance().registerListener(this.ahl);
         }
     }
 
-    private void aVL() {
-        if (this.dYl != null) {
-            MessageManager.getInstance().unRegisterListener(this.dYl);
-            this.dYl = null;
+    private void aVJ() {
+        if (this.dXu != null) {
+            MessageManager.getInstance().unRegisterListener(this.dXu);
+            this.dXu = null;
         }
     }
 
-    private void aSn() {
-        if (this.ahD != null) {
-            MessageManager.getInstance().unRegisterListener(this.ahD);
+    private void aSl() {
+        if (this.ahl != null) {
+            MessageManager.getInstance().unRegisterListener(this.ahl);
         }
     }
 }

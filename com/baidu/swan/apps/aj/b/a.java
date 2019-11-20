@@ -11,7 +11,7 @@ public class a {
     /* renamed from: com.baidu.swan.apps.aj.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0156a {
-        public boolean bqM;
+        public boolean bqu;
         public int level;
     }
 
@@ -23,7 +23,7 @@ public class a {
         }
         C0156a c0156a = new C0156a();
         c0156a.level = registerReceiver.getIntExtra("level", -1);
-        c0156a.bqM = registerReceiver.getIntExtra("plugged", 0) != 0;
+        c0156a.bqu = registerReceiver.getIntExtra("plugged", 0) != 0;
         return c0156a;
     }
 }

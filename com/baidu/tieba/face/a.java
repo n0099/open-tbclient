@@ -9,8 +9,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    public static final Pattern fhv = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
-    public static final Pattern fhw = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern fgE = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern fgF = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
     public static String uY(String str) {
         String replaceAll = str.replaceAll(d.SHARP_TEXT_PREFIX_SHORT, "meme,");
@@ -47,7 +47,7 @@ public class a {
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = fhv.matcher(str);
+        Matcher matcher = fgE.matcher(str);
         while (true) {
             i = i2;
             if (!matcher.find()) {

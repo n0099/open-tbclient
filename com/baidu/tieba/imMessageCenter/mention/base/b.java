@@ -8,16 +8,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a.a<c>> {
-    private ab GD;
-    private TbPageContext<?> cfl;
+    private ab Gd;
+    private TbPageContext<?> ceu;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getContext(), bdUniqueId);
-        this.cfl = tbPageContext;
+        this.ceu = tbPageContext;
     }
 
     public void a(ab abVar) {
-        this.GD = abVar;
+        this.Gd = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,9 +25,9 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: as */
     public com.baidu.tieba.card.a.a<c> b(ViewGroup viewGroup) {
-        c cVar = new c(this.cfl, viewGroup);
-        if (this.GD != null) {
-            cVar.d(this.GD);
+        c cVar = new c(this.ceu, viewGroup);
+        if (this.Gd != null) {
+            cVar.d(this.Gd);
         }
         return new com.baidu.tieba.card.a.a<>(cVar);
     }
@@ -36,10 +36,10 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, a aVar, com.baidu.tieba.card.a.a<c> aVar2) {
-        if (aVar == null || aVar2 == null || aVar2.baZ() == null) {
+        if (aVar == null || aVar2 == null || aVar2.baX() == null) {
             return null;
         }
-        aVar2.baZ().a(aVar);
+        aVar2.baX().a(aVar);
         return aVar2.getView();
     }
 

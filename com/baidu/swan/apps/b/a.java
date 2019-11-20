@@ -7,17 +7,17 @@ import com.baidu.swan.apps.q.a.b.a.g;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private d aEx;
+    private d aEf;
 
     @NonNull
-    public d AX() {
-        if (this.aEx == null) {
-            this.aEx = AY();
+    public d AY() {
+        if (this.aEf == null) {
+            this.aEf = AZ();
         }
-        return this.aEx;
+        return this.aEf;
     }
 
-    public d AY() {
+    public d AZ() {
         return new g();
     }
 
@@ -26,8 +26,8 @@ public class a {
     public static class C0162a implements com.baidu.swan.apps.an.d.b<a> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.an.d.b
-        /* renamed from: AZ */
-        public a Ba() {
+        /* renamed from: Ba */
+        public a Bb() {
             return new a();
         }
     }

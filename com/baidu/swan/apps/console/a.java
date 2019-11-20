@@ -8,11 +8,11 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes2.dex */
 public class a {
-    private static boolean aHq;
+    private static boolean aGY;
 
     public static void h(Context context, boolean z) {
-        final com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
-        if (QZ != null) {
+        final com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
+        if (Ra != null) {
             b.bn(z);
             new g.a(context).d(context.getString(a.h.aiapps_debug_switch_title)).hi(context.getString(z ? a.h.aiapps_open_debug : a.h.aiapps_close_debug)).a(new com.baidu.swan.apps.view.b.a()).cv(false).b(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.a.1
                 @Override // android.content.DialogInterface.OnClickListener
@@ -23,19 +23,19 @@ public class a {
                     }
                     System.exit(0);
                 }
-            }).Qu();
+            }).Qv();
         }
     }
 
     public static void aQ(Context context) {
-        h(context, !Dc());
+        h(context, !Dd());
     }
 
-    public static boolean Dc() {
-        return aHq;
+    public static boolean Dd() {
+        return aGY;
     }
 
     public static void bm(boolean z) {
-        aHq = z;
+        aGY = z;
     }
 }

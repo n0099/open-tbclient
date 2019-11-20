@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class g extends BaseData {
-    public List<f> Py;
+    public List<f> OY;
     public int pn;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -16,13 +16,13 @@ public class g extends BaseData {
         JSONObject optJSONObject;
         if (jSONObject != null) {
             this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
-            this.Py = new ArrayList();
+            this.OY = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("live");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length() && (optJSONObject = optJSONArray.optJSONObject(i)) != null; i++) {
                     f fVar = new f();
                     fVar.parserJson(optJSONObject);
-                    this.Py.add(fVar);
+                    this.OY.add(fVar);
                 }
             }
         }

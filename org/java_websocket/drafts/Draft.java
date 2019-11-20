@@ -24,10 +24,10 @@ import org.java_websocket.exceptions.LimitExedeedException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
 public abstract class Draft {
-    public static int kxJ = 1000;
-    public static int kxK = 64;
-    protected WebSocket.Role kxx = null;
-    protected Framedata.Opcode kxL = null;
+    public static int kwS = 1000;
+    public static int kwT = 64;
+    protected WebSocket.Role kwG = null;
+    protected Framedata.Opcode kwU = null;
 
     /* loaded from: classes2.dex */
     public enum CloseHandshakeType {
@@ -58,9 +58,9 @@ public abstract class Draft {
 
     public abstract b b(b bVar) throws InvalidHandshakeException;
 
-    public abstract CloseHandshakeType cNB();
+    public abstract Draft cNA();
 
-    public abstract Draft cNC();
+    public abstract CloseHandshakeType cNz();
 
     public abstract List<Framedata> n(ByteBuffer byteBuffer) throws InvalidDataException;
 
@@ -88,7 +88,7 @@ public abstract class Draft {
         if (l == null) {
             return null;
         }
-        return org.java_websocket.e.c.n(l.array(), 0, l.limit());
+        return org.java_websocket.e.c.l(l.array(), 0, l.limit());
     }
 
     public static c a(ByteBuffer byteBuffer, WebSocket.Role role) throws InvalidHandshakeException, IncompleteHandshakeException {
@@ -110,7 +110,7 @@ public abstract class Draft {
             }
             i eVar = new e();
             i iVar2 = eVar;
-            iVar2.i(Short.parseShort(split[1]));
+            iVar2.h(Short.parseShort(split[1]));
             iVar2.Hj(split[2]);
             iVar = eVar;
         } else if (!"GET".equalsIgnoreCase(split[0])) {
@@ -152,10 +152,10 @@ public abstract class Draft {
         if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
             throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
         }
-        if (this.kxL != null) {
+        if (this.kwU != null) {
             iVar = new org.java_websocket.framing.c();
         } else {
-            this.kxL = opcode;
+            this.kwU = opcode;
             if (opcode == Framedata.Opcode.BINARY) {
                 iVar = new org.java_websocket.framing.a();
             } else {
@@ -165,11 +165,11 @@ public abstract class Draft {
         iVar.q(byteBuffer);
         iVar.sB(z);
         try {
-            iVar.cNM();
+            iVar.cNK();
             if (z) {
-                this.kxL = null;
+                this.kwU = null;
             } else {
-                this.kxL = opcode;
+                this.kwU = opcode;
             }
             return Collections.singletonList(iVar);
         } catch (InvalidDataException e) {
@@ -188,14 +188,14 @@ public abstract class Draft {
             sb.append(((org.java_websocket.c.a) fVar).getResourceDescriptor());
             sb.append(" HTTP/1.1");
         } else if (fVar instanceof h) {
-            sb.append("HTTP/1.1 101 ").append(((h) fVar).cNU());
+            sb.append("HTTP/1.1 101 ").append(((h) fVar).cNS());
         } else {
             throw new IllegalArgumentException("unknown role");
         }
         sb.append("\r\n");
-        Iterator<String> cNV = fVar.cNV();
-        while (cNV.hasNext()) {
-            String next = cNV.next();
+        Iterator<String> cNT = fVar.cNT();
+        while (cNT.hasNext()) {
+            String next = cNT.next();
             String Hk = fVar.Hk(next);
             sb.append(next);
             sb.append(": ");
@@ -215,10 +215,10 @@ public abstract class Draft {
     }
 
     public f o(ByteBuffer byteBuffer) throws InvalidHandshakeException {
-        return a(byteBuffer, this.kxx);
+        return a(byteBuffer, this.kwG);
     }
 
-    public int Ds(int i) throws LimitExedeedException, InvalidDataException {
+    public int Dr(int i) throws LimitExedeedException, InvalidDataException {
         if (i < 0) {
             throw new InvalidDataException(1002, "Negative count");
         }
@@ -239,7 +239,7 @@ public abstract class Draft {
     }
 
     public void a(WebSocket.Role role) {
-        this.kxx = role;
+        this.kwG = role;
     }
 
     public String toString() {

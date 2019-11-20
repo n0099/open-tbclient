@@ -19,13 +19,13 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NEGFeedBackView extends ImageView {
-    private int cIa;
-    private int cIb;
-    private long dcM;
-    c dcN;
-    private RotateAnimation dcO;
-    private RotateAnimation dcP;
-    private View.OnClickListener dcQ;
+    private int cHj;
+    private int cHk;
+    private long dbU;
+    c dbV;
+    private RotateAnimation dbW;
+    private RotateAnimation dbX;
+    private View.OnClickListener dbY;
     private Context mContext;
     private int mPaddingTop;
 
@@ -41,16 +41,16 @@ public class NEGFeedBackView extends ImageView {
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.dcM = 0L;
-        this.dcQ = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.dbU = 0L;
+        this.dbY = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.aBO();
+                NEGFeedBackView.this.aBM();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.dcM > 500) {
+                if (currentTimeMillis - NEGFeedBackView.this.dbU > 500) {
                     NEGFeedBackView.this.O(view);
                 }
-                NEGFeedBackView.this.dcM = currentTimeMillis;
+                NEGFeedBackView.this.dbU = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -58,15 +58,15 @@ public class NEGFeedBackView extends ImageView {
     }
 
     private void g(TbPageContext tbPageContext) {
-        this.dcN = new c(tbPageContext, this);
-        setOnClickListener(this.dcQ);
+        this.dbV = new c(tbPageContext, this);
+        setOnClickListener(this.dbY);
         am.setImageResource(this, R.drawable.icon_home_card_delete);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        aBP();
+        aBN();
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.dcN.setUniqueId(bdUniqueId);
+        this.dbV.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -74,75 +74,75 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void setLeftPadding(int i) {
-        this.cIa = i;
-        setPadding(i, this.mPaddingTop, this.cIb, 0);
+        this.cHj = i;
+        setPadding(i, this.mPaddingTop, this.cHk, 0);
     }
 
     public void setTopPadding(int i) {
         this.mPaddingTop = i;
-        setPadding(this.cIa, i, this.cIb, 0);
+        setPadding(this.cHj, i, this.cHk, 0);
     }
 
     public void setRightPadding(int i) {
-        this.cIb = i;
-        setPadding(this.cIa, this.mPaddingTop, i, 0);
+        this.cHk = i;
+        setPadding(this.cHj, this.mPaddingTop, i, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void O(View view) {
-        this.dcN.O(view);
+        this.dbV.O(view);
     }
 
-    public void aBO() {
-        this.dcN.aBO();
+    public void aBM() {
+        this.dbV.aBM();
     }
 
-    private void aBP() {
-        this.dcO = new RotateAnimation(0.0f, 135.0f, 1, 0.5f, 1, 0.5f);
+    private void aBN() {
+        this.dbW = new RotateAnimation(0.0f, 135.0f, 1, 0.5f, 1, 0.5f);
         OvershootInterpolator overshootInterpolator = new OvershootInterpolator();
-        this.dcO.setInterpolator(overshootInterpolator);
-        this.dcO.setDuration(250L);
-        this.dcO.setFillAfter(true);
-        this.dcP = new RotateAnimation(135.0f, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.dcP.setInterpolator(overshootInterpolator);
-        this.dcP.setDuration(250L);
-        this.dcP.setFillAfter(true);
+        this.dbW.setInterpolator(overshootInterpolator);
+        this.dbW.setDuration(250L);
+        this.dbW.setFillAfter(true);
+        this.dbX = new RotateAnimation(135.0f, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.dbX.setInterpolator(overshootInterpolator);
+        this.dbX.setDuration(250L);
+        this.dbX.setFillAfter(true);
     }
 
     public void setCWRotateAnimation() {
         clearAnimation();
-        startAnimation(this.dcO);
+        startAnimation(this.dbW);
     }
 
     public void setACRotateAnimation() {
         clearAnimation();
-        startAnimation(this.dcP);
+        startAnimation(this.dbX);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.dcN.onDetachedFromWindow();
+        this.dbV.onDetachedFromWindow();
     }
 
     public void setData(aj ajVar) {
-        this.dcN.setData(ajVar);
+        this.dbV.setData(ajVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.dcN.setFirstRowSingleColumn(z);
+        this.dbV.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
-        SvgManager.amN().a(this, R.drawable.icon_pure_close16_n_svg, R.color.cp_cont_d, null);
+        SvgManager.amL().a(this, R.drawable.icon_pure_close16_n_svg, R.color.cp_cont_d, null);
     }
 
     public void setEventCallback(a aVar) {
-        this.dcN.setEventCallback(aVar);
+        this.dbV.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.dcN.setDefaultReasonArray(strArr);
+        this.dbV.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

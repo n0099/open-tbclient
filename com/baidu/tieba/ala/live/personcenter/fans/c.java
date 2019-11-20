@@ -17,9 +17,9 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class c extends b {
-    private View.OnClickListener dGj;
-    private Drawable dRJ;
-    private boolean dRK;
+    private View.OnClickListener dFs;
+    private Drawable dQS;
+    private boolean dQT;
     private Context mContext;
     private TbPageContext mPageContext;
     private int mSex;
@@ -27,28 +27,28 @@ public class c extends b {
     public c(TbPageContext tbPageContext, boolean z, int i) {
         this.mPageContext = tbPageContext;
         this.mContext = this.mPageContext.getPageActivity();
-        this.dRK = z;
+        this.dQT = z;
         this.mSex = i;
-        this.dRJ = this.mContext.getResources().getDrawable(a.f.sdk_prc_btn_focus_cross_bg);
+        this.dQS = this.mContext.getResources().getDrawable(a.f.sdk_prc_btn_focus_cross_bg);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dRI) {
+        if (this.dQR) {
             return 1;
         }
-        if (this.bbZ == null) {
+        if (this.bbH == null) {
             return 0;
         }
-        return this.bbZ.size();
+        return this.bbH.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.bbZ == null) {
+        if (this.bbH == null) {
             return null;
         }
-        return this.bbZ.get(i);
+        return this.bbH.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -58,8 +58,8 @@ public class c extends b {
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.bbZ = fVar.ahD();
-            aMz();
+            this.bbH = fVar.ahB();
+            aMx();
             notifyDataSetChanged();
         }
     }
@@ -70,45 +70,45 @@ public class c extends b {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_list_item, (ViewGroup) null);
-            aVar.dRL = (LinearLayout) view.findViewById(a.g.info);
-            aVar.dGD = (HeadImageView) view.findViewById(a.g.photo);
-            aVar.dGD.setIsRound(true);
-            aVar.dGD.setAutoChangeStyle(false);
-            aVar.dGD.setClickable(false);
+            aVar.dQU = (LinearLayout) view.findViewById(a.g.info);
+            aVar.dFM = (HeadImageView) view.findViewById(a.g.photo);
+            aVar.dFM.setIsRound(true);
+            aVar.dFM.setAutoChangeStyle(false);
+            aVar.dFM.setClickable(false);
             aVar.mName = (TextView) view.findViewById(a.g.name);
-            aVar.dGE = (TextView) view.findViewById(a.g.intro);
-            aVar.afM = (TextView) view.findViewById(a.g.attention_btn);
-            aVar.dRM = (TextView) view.findViewById(a.g.at_list_nodata);
+            aVar.dFN = (TextView) view.findViewById(a.g.intro);
+            aVar.afu = (TextView) view.findViewById(a.g.attention_btn);
+            aVar.dQV = (TextView) view.findViewById(a.g.at_list_nodata);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        if (this.dRI) {
-            aVar.dRL.setVisibility(8);
-            aVar.dRM.setVisibility(0);
-            if (this.dRK) {
-                aVar.dRM.setText(a.i.sdk_prc_not_have_fans);
+        if (this.dQR) {
+            aVar.dQU.setVisibility(8);
+            aVar.dQV.setVisibility(0);
+            if (this.dQT) {
+                aVar.dQV.setText(a.i.sdk_prc_not_have_fans);
             } else if (this.mSex == 2) {
-                aVar.dRM.setText(a.i.sdk_prc_her_no_fan_other);
+                aVar.dQV.setText(a.i.sdk_prc_her_no_fan_other);
             } else if (this.mSex == 1) {
-                aVar.dRM.setText(a.i.sdk_prc_him_no_fan_other);
+                aVar.dQV.setText(a.i.sdk_prc_him_no_fan_other);
             } else {
-                aVar.dRM.setText(a.i.sdk_prc_no_fan_other);
+                aVar.dQV.setText(a.i.sdk_prc_no_fan_other);
             }
         } else {
-            aVar.dRM.setVisibility(8);
-            aVar.dRL.setVisibility(0);
-            com.baidu.tieba.ala.live.personcenter.fans.a aVar2 = (com.baidu.tieba.ala.live.personcenter.fans.a) ListUtils.getItem(this.bbZ, i);
+            aVar.dQV.setVisibility(8);
+            aVar.dQU.setVisibility(0);
+            com.baidu.tieba.ala.live.personcenter.fans.a aVar2 = (com.baidu.tieba.ala.live.personcenter.fans.a) ListUtils.getItem(this.bbH, i);
             if (aVar2 != null) {
-                aVar.dGD.startLoad(aVar2.portrait, 12, false);
+                aVar.dFM.startLoad(aVar2.portrait, 12, false);
                 aVar.mName.setText(aVar2.getNameShow());
                 if (StringHelper.isEmpty(aVar2.intro)) {
-                    aVar.dGE.setVisibility(8);
+                    aVar.dFN.setVisibility(8);
                 } else {
-                    aVar.dGE.setVisibility(0);
-                    aVar.dGE.setText(aVar2.intro);
+                    aVar.dFN.setVisibility(0);
+                    aVar.dFN.setText(aVar2.intro);
                 }
-                b(aVar.afM, aVar2.aMy(), i);
+                b(aVar.afu, aVar2.aMw(), i);
             }
         }
         return view;
@@ -130,21 +130,21 @@ public class c extends b {
             textView.setTextSize(0, BdUtilHelper.getDimens(this.mContext, a.e.sdk_ds26));
             textView.setText(a.i.sdk_prc_attention);
             textView.setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds10), 0);
-            textView.setCompoundDrawablesWithIntrinsicBounds(this.dRJ, (Drawable) null, (Drawable) null, (Drawable) null);
+            textView.setCompoundDrawablesWithIntrinsicBounds(this.dQS, (Drawable) null, (Drawable) null, (Drawable) null);
             textView.setTextColor(this.mContext.getResources().getColorStateList(a.d.sdk_prc_btn_forum_focus_color));
             textView.setBackgroundResource(a.f.sdk_prc_btn_transparent_focus_border_bg);
         }
         textView.setTag(Integer.valueOf(i));
-        textView.setOnClickListener(this.dGj);
+        textView.setOnClickListener(this.dFs);
     }
 
     public void r(View.OnClickListener onClickListener) {
-        this.dGj = onClickListener;
+        this.dFs = onClickListener;
     }
 
     public void T(String str, boolean z) {
-        if (this.bbZ != null && str != null) {
-            Iterator<com.baidu.tieba.ala.live.personcenter.fans.a> it = this.bbZ.iterator();
+        if (this.bbH != null && str != null) {
+            Iterator<com.baidu.tieba.ala.live.personcenter.fans.a> it = this.bbH.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -152,9 +152,9 @@ public class c extends b {
                 com.baidu.tieba.ala.live.personcenter.fans.a next = it.next();
                 if (next != null && str.equals(next.userId)) {
                     if (z) {
-                        next.dRG = 1;
+                        next.dQP = 1;
                     } else {
-                        next.dRG = 0;
+                        next.dQP = 0;
                     }
                 }
             }
@@ -164,11 +164,11 @@ public class c extends b {
 
     /* loaded from: classes6.dex */
     private static class a {
-        public TextView afM;
-        public HeadImageView dGD;
-        public TextView dGE;
-        public LinearLayout dRL;
-        public TextView dRM;
+        public TextView afu;
+        public HeadImageView dFM;
+        public TextView dFN;
+        public LinearLayout dQU;
+        public TextView dQV;
         public TextView mName;
 
         private a() {

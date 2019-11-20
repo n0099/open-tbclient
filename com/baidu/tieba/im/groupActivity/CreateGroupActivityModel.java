@@ -6,39 +6,39 @@ import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes5.dex */
 public class CreateGroupActivityModel extends BdBaseModel<BaseActivity> {
-    private GroupActivityData gIY;
-    RequestCreateGroupActivityMessage gIZ;
+    private GroupActivityData gIh;
+    RequestCreateGroupActivityMessage gIi;
     private BaseActivity mActivity;
 
     public CreateGroupActivityModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.gIY = new GroupActivityData();
+        this.gIh = new GroupActivityData();
         this.mActivity = baseActivity;
     }
 
-    public GroupActivityData bBE() {
-        return this.gIY;
+    public GroupActivityData bBC() {
+        return this.gIh;
     }
 
     public void me(boolean z) {
-        if (this.gIY != null) {
-            this.gIZ = new RequestCreateGroupActivityMessage();
-            this.gIZ.setCommitType(z ? 1 : 0);
+        if (this.gIh != null) {
+            this.gIi = new RequestCreateGroupActivityMessage();
+            this.gIi.setCommitType(z ? 1 : 0);
             if (z) {
-                this.gIZ.setActivityId(this.gIY.getActivityId());
+                this.gIi.setActivityId(this.gIh.getActivityId());
             }
-            this.gIZ.setgActivityArea(this.gIY.getgActivityArea());
-            this.gIZ.setgActivityContent(this.gIY.getgActivityContent());
-            this.gIZ.setgActivityTime(this.gIY.getgActivityTime());
-            this.gIZ.setgActivityTitle(this.gIY.getgActivityTitle());
-            this.gIZ.setGroupId(this.gIY.getGroupId());
-            this.mActivity.sendMessage(this.gIZ);
+            this.gIi.setgActivityArea(this.gIh.getgActivityArea());
+            this.gIi.setgActivityContent(this.gIh.getgActivityContent());
+            this.gIi.setgActivityTime(this.gIh.getgActivityTime());
+            this.gIi.setgActivityTitle(this.gIh.getgActivityTitle());
+            this.gIi.setGroupId(this.gIh.getGroupId());
+            this.mActivity.sendMessage(this.gIi);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.gIZ != null) {
+        if (this.gIi != null) {
         }
     }
 

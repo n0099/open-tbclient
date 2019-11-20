@@ -10,33 +10,33 @@ public class h {
 
     /* loaded from: classes6.dex */
     public static class a {
-        public String PG;
-        public String PH;
-        public String PI;
-        public String PJ;
-        public String PK;
-        public String PM;
+        public String Pd;
+        public String Pe;
+        public String Pf;
+        public String Pg;
+        public String Ph;
+        public String Pi;
 
         public void parseJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.PG = jSONObject.optString("chat_mcast_id");
-                this.PH = jSONObject.optString("ensure_mcast_id");
-                this.PI = jSONObject.optString("chat_msg_hls_url");
-                this.PJ = jSONObject.optString("host_msg_hls_url");
-                this.PK = jSONObject.optString("reliable_msg_hls_url");
-                this.PM = jSONObject.optString("msg_hls_pull_internal_in_second");
+                this.Pd = jSONObject.optString("chat_mcast_id");
+                this.Pe = jSONObject.optString("ensure_mcast_id");
+                this.Pf = jSONObject.optString("chat_msg_hls_url");
+                this.Pg = jSONObject.optString("host_msg_hls_url");
+                this.Ph = jSONObject.optString("reliable_msg_hls_url");
+                this.Pi = jSONObject.optString("msg_hls_pull_internal_in_second");
             }
         }
 
         public JSONObject toJsonObject() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("chat_mcast_id", this.PG);
-                jSONObject.put("ensure_mcast_id", this.PH);
-                jSONObject.put("chat_msg_hls_url", this.PI);
-                jSONObject.put("host_msg_hls_url", this.PJ);
-                jSONObject.put("reliable_msg_hls_url", this.PK);
-                jSONObject.put("msg_hls_pull_internal_in_second", this.PM);
+                jSONObject.put("chat_mcast_id", this.Pd);
+                jSONObject.put("ensure_mcast_id", this.Pe);
+                jSONObject.put("chat_msg_hls_url", this.Pf);
+                jSONObject.put("host_msg_hls_url", this.Pg);
+                jSONObject.put("reliable_msg_hls_url", this.Ph);
+                jSONObject.put("msg_hls_pull_internal_in_second", this.Pi);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

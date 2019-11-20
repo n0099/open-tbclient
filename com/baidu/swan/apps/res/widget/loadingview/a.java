@@ -13,7 +13,7 @@ import java.util.WeakHashMap;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG & true;
-    private static final WeakHashMap<ViewGroup, b> biX = new WeakHashMap<>();
+    private static final WeakHashMap<ViewGroup, b> biF = new WeakHashMap<>();
 
     public static boolean d(Context context, ViewGroup viewGroup) {
         return a(context, viewGroup, "");
@@ -53,11 +53,11 @@ public final class a {
             layoutParams3.gravity = 17;
             viewGroup.addView(loadingView2, layoutParams3);
         }
-        biX.put(viewGroup, loadingView);
+        biF.put(viewGroup, loadingView);
         loadingView2.setVisibility(0);
         if (DEBUG) {
-            Log.d("LoadingViewHelper", "The count of cached loading views is : " + biX.size());
-            Log.d("LoadingViewHelper", "The content of cached views is : " + biX.toString());
+            Log.d("LoadingViewHelper", "The count of cached loading views is : " + biF.size());
+            Log.d("LoadingViewHelper", "The content of cached views is : " + biF.toString());
         }
         return true;
     }
@@ -68,7 +68,7 @@ public final class a {
         if (viewGroup == null) {
             return false;
         }
-        b bVar2 = biX.get(viewGroup);
+        b bVar2 = biF.get(viewGroup);
         if (bVar2 != null && bVar2.getLoadingView() != null) {
             bVar2.getLoadingView().setVisibility(0);
             return true;
@@ -76,10 +76,10 @@ public final class a {
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             if ((viewGroup.getChildAt(i) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(0);
-                biX.put(viewGroup, bVar);
+                biF.put(viewGroup, bVar);
                 if (DEBUG) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + biX.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + biX.toString());
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + biF.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + biF.toString());
                 }
                 return true;
             }
@@ -93,7 +93,7 @@ public final class a {
         if (viewGroup == null) {
             return false;
         }
-        b bVar2 = biX.get(viewGroup);
+        b bVar2 = biF.get(viewGroup);
         if (bVar2 != null && bVar2.getLoadingView() != null) {
             bVar2.getLoadingView().setVisibility(8);
             return true;
@@ -101,10 +101,10 @@ public final class a {
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             if ((viewGroup.getChildAt(i) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(8);
-                biX.put(viewGroup, bVar);
+                biF.put(viewGroup, bVar);
                 if (DEBUG) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + biX.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + biX.toString());
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + biF.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + biF.toString());
                 }
                 return true;
             }
@@ -118,19 +118,19 @@ public final class a {
         if (viewGroup == null) {
             return false;
         }
-        b bVar2 = biX.get(viewGroup);
+        b bVar2 = biF.get(viewGroup);
         if (bVar2 != null) {
             View loadingView2 = bVar2.getLoadingView();
             if (loadingView2 != null) {
                 if (loadingView2 instanceof BdShimmerView) {
-                    ((BdShimmerView) loadingView2).Pb();
+                    ((BdShimmerView) loadingView2).Pc();
                 }
                 loadingView2.setVisibility(8);
                 viewGroup.removeView(loadingView2);
-                biX.remove(viewGroup);
+                biF.remove(viewGroup);
                 if (DEBUG) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + biX.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + biX.toString());
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + biF.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + biF.toString());
                 }
             }
             return true;
@@ -139,10 +139,10 @@ public final class a {
             if ((viewGroup.getChildAt(i) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(8);
                 viewGroup.removeView((View) bVar);
-                biX.remove(viewGroup);
+                biF.remove(viewGroup);
                 if (DEBUG) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + biX.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + biX.toString());
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + biF.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + biF.toString());
                 }
                 return true;
             }
@@ -150,13 +150,13 @@ public final class a {
         return false;
     }
 
-    public static void QB() {
-        for (ViewGroup viewGroup : biX.keySet()) {
-            b bVar = biX.get(viewGroup);
+    public static void QC() {
+        for (ViewGroup viewGroup : biF.keySet()) {
+            b bVar = biF.get(viewGroup);
             if (bVar != null && bVar.getLoadingView() != null) {
                 viewGroup.removeView(bVar.getLoadingView());
             }
         }
-        biX.clear();
+        biF.clear();
     }
 }

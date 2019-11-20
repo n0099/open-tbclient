@@ -6,39 +6,39 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private static h cmi;
-    private HashMap<String, f> cmj = new HashMap<>();
-    private LinkedList<String> cmk = new LinkedList<>();
+    private static h clq;
+    private HashMap<String, f> clr = new HashMap<>();
+    private LinkedList<String> cls = new LinkedList<>();
 
     private h() {
     }
 
-    public static h anr() {
-        if (cmi == null) {
+    public static h anp() {
+        if (clq == null) {
             synchronized (h.class) {
-                if (cmi == null) {
-                    cmi = new h();
+                if (clq == null) {
+                    clq = new h();
                 }
             }
         }
-        return cmi;
+        return clq;
     }
 
     public void aw(List<String> list) {
-        if (this.cmk != null) {
-            this.cmk.clear();
+        if (this.cls != null) {
+            this.cls.clear();
         }
         for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
-                if (this.cmj.get(str) == null) {
-                    if (this.cmj.size() < e.anp().anq()) {
+                if (this.clr.get(str) == null) {
+                    if (this.clr.size() < e.ann().ano()) {
                         g.log("put loadingQueue  url: " + str);
                         f os = os(str);
-                        this.cmj.put(str, os);
+                        this.clr.put(str, os);
                         os.load();
                     } else {
                         g.log("put waitingQueue  url: " + str);
-                        this.cmk.push(str);
+                        this.cls.push(str);
                     }
                 } else {
                     g.log("has loading  : " + str);
@@ -49,19 +49,19 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void or(String str) {
-        f remove = this.cmj.remove(str);
+        f remove = this.clr.remove(str);
         g.log("processCallback remove loadingQueue  url: " + str);
         if (remove != null) {
             remove.release();
         }
-        if (this.cmk != null && this.cmk.size() > 0) {
-            String pop = this.cmk.pop();
+        if (this.cls != null && this.cls.size() > 0) {
+            String pop = this.cls.pop();
             f os = os(pop);
-            this.cmj.put(pop, os);
+            this.clr.put(pop, os);
             g.log("processCallback put loadingQueue  url: " + pop);
             os.load();
         }
-        g.log("processCallback  mWaitingQueue.size() =  " + this.cmk.size() + " mLoadingQueue.size()  " + this.cmj.size());
+        g.log("processCallback  mWaitingQueue.size() =  " + this.cls.size() + " mLoadingQueue.size()  " + this.clr.size());
     }
 
     private f os(String str) {

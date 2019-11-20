@@ -9,12 +9,12 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static InterfaceC0228a bsc;
-    private static volatile a bsd;
-    private int brY = 0;
-    private int brZ = 200;
-    private int bsa;
-    private String bsb;
+    private static InterfaceC0228a brl;
+    private static volatile a brm;
+    private int brh = 0;
+    private int bri = 200;
+    private int brj;
+    private String brk;
     private ViewTreeObserver.OnGlobalLayoutListener mOnGlobalLayoutListener;
 
     /* renamed from: com.baidu.swan.apps.textarea.a$a  reason: collision with other inner class name */
@@ -27,15 +27,15 @@ public class a {
         void z(String str, int i);
     }
 
-    public static a TG() {
-        if (bsd == null) {
+    public static a TE() {
+        if (brm == null) {
             synchronized (a.class) {
-                if (bsd == null) {
-                    bsd = new a();
+                if (brm == null) {
+                    brm = new a();
                 }
             }
         }
-        return bsd;
+        return brm;
     }
 
     private void aq(final View view) {
@@ -43,31 +43,31 @@ public class a {
             this.mOnGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.textarea.a.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
-                    if (a.bsc != null) {
-                        a.bsc.fm(a.this.bsb);
+                    if (a.brl != null) {
+                        a.brl.fm(a.this.brk);
                     }
                     Rect rect = new Rect();
                     view.getWindowVisibleDisplayFrame(rect);
                     int height = rect.height();
-                    if (a.this.bsa == a.this.brY) {
-                        a.this.bsa = height;
-                    } else if (a.this.bsa != height) {
-                        if (a.this.bsa - height > a.this.brZ) {
-                            if (a.bsc != null) {
-                                a.bsc.y(a.this.bsb, a.this.bsa - height);
+                    if (a.this.brj == a.this.brh) {
+                        a.this.brj = height;
+                    } else if (a.this.brj != height) {
+                        if (a.this.brj - height > a.this.bri) {
+                            if (a.brl != null) {
+                                a.brl.y(a.this.brk, a.this.brj - height);
                                 if (a.DEBUG) {
-                                    Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + a.this.bsa + " visibleHeight " + height);
+                                    Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + a.this.brj + " visibleHeight " + height);
                                 }
                             }
-                            a.this.bsa = height;
-                        } else if (height - a.this.bsa > a.this.brZ) {
-                            if (a.bsc != null) {
-                                a.bsc.z(a.this.bsb, height - a.this.bsa);
+                            a.this.brj = height;
+                        } else if (height - a.this.brj > a.this.bri) {
+                            if (a.brl != null) {
+                                a.brl.z(a.this.brk, height - a.this.brj);
                             }
                             if (a.DEBUG) {
-                                Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + a.this.bsa + " visibleHeight " + height);
+                                Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + a.this.brj + " visibleHeight " + height);
                             }
-                            a.this.bsa = height;
+                            a.this.brj = height;
                         }
                     }
                 }
@@ -78,20 +78,20 @@ public class a {
 
     public void a(View view, String str, InterfaceC0228a interfaceC0228a) {
         aq(view);
-        this.bsb = str;
-        bsc = interfaceC0228a;
-        this.bsa = 0;
+        this.brk = str;
+        brl = interfaceC0228a;
+        this.brj = 0;
     }
 
     public void ar(@NonNull View view) {
         view.getViewTreeObserver().removeOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
-        this.bsb = "";
-        bsc = null;
-        this.bsa = 0;
+        this.brk = "";
+        brl = null;
+        this.brj = 0;
     }
 
     public static void release() {
-        bsc = null;
-        bsd = null;
+        brl = null;
+        brm = null;
     }
 }

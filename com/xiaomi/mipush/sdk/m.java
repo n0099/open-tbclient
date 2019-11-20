@@ -1,20 +1,58 @@
 package com.xiaomi.mipush.sdk;
+
+import com.xiaomi.push.hl;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
-/* synthetic */ class m {
-    static final /* synthetic */ int[] a = new int[f.values().length];
+public class m {
+    private static HashMap<f, a> a = new HashMap<>();
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes3.dex */
+    public static class a {
+        public String a;
+        public String b;
+
+        public a(String str, String str2) {
+            this.a = str;
+            this.b = str2;
+        }
+    }
 
     static {
-        try {
-            a[f.ASSEMBLE_PUSH_HUAWEI.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+        a(f.ASSEMBLE_PUSH_HUAWEI, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
+        a(f.ASSEMBLE_PUSH_FCM, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
+        a(f.ASSEMBLE_PUSH_COS, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
+        a(f.ASSEMBLE_PUSH_FTOS, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
+    }
+
+    public static bd a(f fVar) {
+        switch (fVar) {
+            case ASSEMBLE_PUSH_HUAWEI:
+                return bd.UPLOAD_HUAWEI_TOKEN;
+            case ASSEMBLE_PUSH_FCM:
+                return bd.UPLOAD_FCM_TOKEN;
+            case ASSEMBLE_PUSH_COS:
+                return bd.UPLOAD_COS_TOKEN;
+            case ASSEMBLE_PUSH_FTOS:
+                return bd.UPLOAD_FTOS_TOKEN;
+            default:
+                return null;
         }
-        try {
-            a[f.ASSEMBLE_PUSH_FCM.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            a[f.ASSEMBLE_PUSH_COS.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static a m90a(f fVar) {
+        return a.get(fVar);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static hl m91a(f fVar) {
+        return hl.AggregatePushSwitch;
+    }
+
+    private static void a(f fVar, a aVar) {
+        if (aVar != null) {
+            a.put(fVar, aVar);
         }
     }
 }

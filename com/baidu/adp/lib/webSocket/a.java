@@ -8,17 +8,17 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
     private ByteBuffer mBuffer;
-    private final int sf;
-    private final int sg;
+    private final int rE;
+    private final int rF;
 
     public a() {
         this(131072, 65536);
     }
 
     public a(int i, int i2) {
-        this.sf = i;
-        this.sg = i2;
-        this.mBuffer = ByteBuffer.allocateDirect(this.sf);
+        this.rE = i;
+        this.rF = i2;
+        this.mBuffer = ByteBuffer.allocateDirect(this.rE);
         this.mBuffer.clear();
     }
 
@@ -42,7 +42,7 @@ public class a extends OutputStream {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
-            this.mBuffer = ByteBuffer.allocateDirect(((i / this.sg) + 1) * this.sg);
+            this.mBuffer = ByteBuffer.allocateDirect(((i / this.rF) + 1) * this.rF);
             byteBuffer.clear();
             this.mBuffer.clear();
             this.mBuffer.put(byteBuffer);

@@ -12,7 +12,7 @@ public class d {
                 public void callback(boolean z2) {
                     super.callback(z2);
                     if (z2) {
-                        aVar.l(getFileInfo().length());
+                        aVar.k(getFileInfo().length());
                         if (z || aVar.gt() > 102400) {
                             d.c(aVar, false, false, false);
                         }
@@ -38,7 +38,7 @@ public class d {
                 public void callback(boolean z4) {
                     super.callback(z4);
                     if (z4) {
-                        aVar.l(0L);
+                        aVar.k(0L);
                         com.baidu.adp.lib.stats.upload.b.gM().a(aVar, z, z2, z3);
                     } else if (aVar.gt() >= BdStatsConstant.MAX_WRITTING_FILE_SIZE_AFTER_RENAME_FAILED && aVar.gx() != "stat") {
                         d.a(BdStatisticsManager.getInstance().getWriteDir(), aVar.gs(), aVar);
@@ -61,7 +61,7 @@ public class d {
                 public void callback(boolean z) {
                     super.callback(z);
                     if (z) {
-                        aVar.l(getFileInfo().length());
+                        aVar.k(getFileInfo().length());
                     }
                 }
             };

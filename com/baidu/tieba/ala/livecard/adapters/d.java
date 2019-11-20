@@ -9,7 +9,7 @@ import com.baidu.tieba.frs.h;
 import com.baidu.tieba.tbadkCore.g;
 /* loaded from: classes6.dex */
 public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements z {
-    private com.baidu.tieba.ala.livecard.b.d dTe;
+    private com.baidu.tieba.ala.livecard.b.d dSn;
     private String mForumName;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -22,7 +22,7 @@ public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements z {
     }
 
     @Override // com.baidu.tieba.card.z
-    public void mX(int i) {
+    public void mW(int i) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,9 +33,9 @@ public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements z {
         if (this.mPageContext == null) {
             return null;
         }
-        this.dTe = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
-        this.dTe.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.c(this.dTe);
+        this.dSn = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
+        this.dSn.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.c(this.dSn);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,12 +45,12 @@ public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements z {
         super.a(i, view, viewGroup, (ViewGroup) gVar, (g) cVar);
         if (gVar != null) {
             int i2 = 0;
-            if (this.fuR != null) {
-                i2 = this.fuR.getTopThreadSize();
+            if (this.fua != null) {
+                i2 = this.fua.getTopThreadSize();
             }
-            cVar.dTo.cez = (i + 1) - i2;
-            cVar.dTo.setForumName(this.mForumName);
-            cVar.dTo.a(gVar);
+            cVar.dSx.cdI = (i + 1) - i2;
+            cVar.dSx.setForumName(this.mForumName);
+            cVar.dSx.a(gVar);
         }
         return view;
     }

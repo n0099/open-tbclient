@@ -25,11 +25,11 @@ public class a {
     /* renamed from: com.baidu.swan.apps.swancore.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static class C0225a {
-        private static final a bqg = new a();
+        private static final a bpO = new a();
     }
 
-    public static a SS() {
-        return C0225a.bqg;
+    public static a SU() {
+        return C0225a.bpO;
     }
 
     public static String eM(int i) {
@@ -49,7 +49,7 @@ public class a {
                 break;
             }
             b next = it.next();
-            if (next != null && next.bqi == j) {
+            if (next != null && next.bpQ == j) {
                 z = true;
                 break;
             }
@@ -62,7 +62,7 @@ public class a {
                     hashSet.add(bVar.toJson());
                 }
             }
-            f.SR().b(eP(i), hashSet);
+            f.ST().b(eP(i), hashSet);
         }
     }
 
@@ -78,14 +78,14 @@ public class a {
                 if (bVar2 == null) {
                     return 1;
                 }
-                return String.valueOf(bVar.bqh).compareTo(String.valueOf(bVar2.bqh));
+                return String.valueOf(bVar.bpP).compareTo(String.valueOf(bVar2.bpP));
             }
         });
     }
 
     public String eN(int i) {
         StringBuilder sb = new StringBuilder();
-        String string = f.SR().getString(eM(i), "");
+        String string = f.ST().getString(eM(i), "");
         if (!TextUtils.isEmpty(string)) {
             sb.append("md5: ").append(string).append("\n").append("\n");
         }
@@ -108,11 +108,11 @@ public class a {
         if (!z) {
             sb.append(new b(System.currentTimeMillis(), com.baidu.swan.apps.swancore.d.a.eZ(i)).toString());
         } else {
-            SwanCoreVersion Li = e.LD().Li();
+            SwanCoreVersion Lj = e.LE().Lj();
             b bVar2 = eO.get(size - 1);
-            if (bVar2 != null && Li != null && Li.bqi > bVar2.bqi) {
+            if (bVar2 != null && Lj != null && Lj.bpQ > bVar2.bpQ) {
                 sb.append("\n");
-                sb.append(new b(System.currentTimeMillis(), Li.bqi).toString());
+                sb.append(new b(System.currentTimeMillis(), Lj.bpQ).toString());
             }
         }
         return sb.toString();
@@ -120,7 +120,7 @@ public class a {
 
     private List<b> eO(int i) {
         ArrayList arrayList = new ArrayList();
-        Set<String> stringSet = f.SR().getStringSet(eP(i), null);
+        Set<String> stringSet = f.ST().getStringSet(eP(i), null);
         if (stringSet == null || stringSet.size() == 0) {
             return arrayList;
         }
@@ -153,12 +153,12 @@ public class a {
 
     /* loaded from: classes2.dex */
     public class b {
-        long bqh;
-        long bqi;
+        long bpP;
+        long bpQ;
 
         b(long j, long j2) {
-            this.bqh = j;
-            this.bqi = j2;
+            this.bpP = j;
+            this.bpQ = j2;
         }
 
         public String toString() {
@@ -166,13 +166,13 @@ public class a {
             String str;
             String str2 = null;
             try {
-                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.bqh));
+                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.bpP));
             } catch (Exception e2) {
                 e = e2;
                 str = null;
             }
             try {
-                str2 = com.baidu.swan.apps.swancore.b.ap(this.bqi);
+                str2 = com.baidu.swan.apps.swancore.b.ao(this.bpQ);
             } catch (Exception e3) {
                 e = e3;
                 if (com.baidu.swan.apps.b.DEBUG) {
@@ -186,8 +186,8 @@ public class a {
         public String toJson() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("time", this.bqh);
-                jSONObject.put("version", this.bqi);
+                jSONObject.put("time", this.bpP);
+                jSONObject.put("version", this.bpQ);
                 return jSONObject.toString();
             } catch (JSONException e) {
                 if (!com.baidu.swan.apps.b.DEBUG) {

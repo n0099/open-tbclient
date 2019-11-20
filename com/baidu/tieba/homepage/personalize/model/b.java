@@ -30,7 +30,7 @@ public class b {
                 if ((mVar instanceof p) && (mVar2 instanceof p)) {
                     p pVar = (p) mVar;
                     p pVar2 = (p) mVar2;
-                    if (pVar.baM()) {
+                    if (pVar.baK()) {
                         pVar2.iN(false);
                         if (pVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
                             pVar.iO(false);
@@ -50,7 +50,7 @@ public class b {
 
     private static void b(DataRes.Builder builder, List<m> list) {
         com.baidu.tieba.card.data.c cVar;
-        bh agI;
+        bh agG;
         ThreadPersonalized threadPersonalized;
         if (builder != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -62,15 +62,15 @@ public class b {
             int count = v.getCount(list);
             for (int i = 0; i < count; i++) {
                 m mVar = (m) v.getItem(list, i);
-                if ((mVar instanceof com.baidu.tieba.card.data.c) && (agI = (cVar = (com.baidu.tieba.card.data.c) mVar).agI()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.toLong(agI.getTid(), 0L))) != null) {
+                if ((mVar instanceof com.baidu.tieba.card.data.c) && (agG = (cVar = (com.baidu.tieba.card.data.c) mVar).agG()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.toLong(agG.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
                     cVar.uB(threadPersonalized.abtest_tag);
-                    agI.mRecomAbTag = threadPersonalized.abtest_tag;
-                    agI.mRecomSource = threadPersonalized.source;
-                    agI.mRecomWeight = threadPersonalized.weight;
-                    if (agI.aiX() != null) {
-                        cVar.d(agI.aiX().is_vertical);
+                    agG.mRecomAbTag = threadPersonalized.abtest_tag;
+                    agG.mRecomSource = threadPersonalized.source;
+                    agG.mRecomWeight = threadPersonalized.weight;
+                    if (agG.aiV() != null) {
+                        cVar.d(agG.aiV().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {

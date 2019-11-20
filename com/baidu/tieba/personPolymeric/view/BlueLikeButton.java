@@ -17,25 +17,25 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean ifh;
+    private boolean ieq;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.ifh = false;
+        this.ieq = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ifh = false;
+        this.ieq = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ifh = false;
+        this.ieq = false;
     }
 
     public void ew(boolean z) {
-        this.ifh = z;
+        this.ieq = z;
         if (z) {
             setText(R.string.followed);
             setBackgroundDrawable(am.getDrawable(R.drawable.selector_like_button_gray_bg));
@@ -62,7 +62,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void iU(int i) {
+    public void iT(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -75,7 +75,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
             anVar.bS("obj_source", TbadkCoreApplication.getInst().getTaskId());
             TiebaStatic.log(anVar);
         }
-        if (!this.ifh) {
+        if (!this.ieq) {
             Context context = getContext();
             if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.o.a)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
@@ -93,7 +93,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     public void onChangeSkinType(int i) {
-        if (this.ifh) {
+        if (this.ieq) {
             setBackgroundDrawable(am.getDrawable(R.drawable.selector_like_button_gray_bg));
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             am.setViewTextColor(this, R.color.cp_cont_e, 1);

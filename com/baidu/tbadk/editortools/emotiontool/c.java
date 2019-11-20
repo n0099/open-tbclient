@@ -3,14 +3,14 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.ImageView.a cGd;
-    private com.baidu.adp.widget.ImageView.a cGe;
+    private com.baidu.adp.widget.ImageView.a cFm;
+    private com.baidu.adp.widget.ImageView.a cFn;
     private int cols;
     private int rows;
 
-    public abstract boolean aun();
+    public abstract boolean aul();
 
-    public abstract EmotionGroupType auo();
+    public abstract EmotionGroupType aum();
 
     public abstract int getEmotionsCount();
 
@@ -22,7 +22,7 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public abstract String jO(int i);
+    public abstract String jN(int i);
 
     public abstract boolean pC(String str);
 
@@ -30,43 +30,43 @@ public abstract class c {
 
     public abstract com.baidu.adp.widget.ImageView.a pE(String str);
 
-    public com.baidu.adp.widget.ImageView.a aup() {
-        return this.cGd;
+    public com.baidu.adp.widget.ImageView.a aun() {
+        return this.cFm;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.getRawBitmap();
         }
-        this.cGd = aVar;
+        this.cFm = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a auq() {
-        return this.cGe;
+    public com.baidu.adp.widget.ImageView.a auo() {
+        return this.cFn;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.getRawBitmap();
         }
-        this.cGe = aVar;
+        this.cFn = aVar;
     }
 
-    public int aur() {
+    public int aup() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jP(int i) {
+    public void jO(int i) {
         this.cols = i;
     }
 
-    public int aus() {
+    public int auq() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jQ(int i) {
+    public void jP(int i) {
         this.rows = i;
     }
 }

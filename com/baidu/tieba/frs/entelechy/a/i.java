@@ -14,34 +14,34 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class i extends com.baidu.tieba.frs.h<bg, com.baidu.tieba.card.a.a<com.baidu.tieba.card.w>> implements com.baidu.tieba.a.f, com.baidu.tieba.card.z, com.baidu.tieba.frs.d.d {
-    private ab Fq;
-    private String GC;
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> fAu;
-    private com.baidu.adp.lib.e.b<TbImageView> fAv;
-    private com.baidu.tieba.frs.d.b fDZ;
+    private ab EP;
+    private String Gc;
+    private com.baidu.tieba.frs.d.b fDi;
+    private com.baidu.adp.lib.e.b<ConstrainImageLayout> fzD;
+    private com.baidu.adp.lib.e.b<TbImageView> fzE;
     private String mForumName;
     private TbPageContext mPageContext;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.fDZ = new com.baidu.tieba.frs.d.b();
-        this.Fq = new ab() { // from class: com.baidu.tieba.frs.entelechy.a.i.1
+        this.fDi = new com.baidu.tieba.frs.d.b();
+        this.EP = new ab() { // from class: com.baidu.tieba.frs.entelechy.a.i.1
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.b bVar, Object obj) {
                 if (bVar instanceof bh) {
-                    if (i.this.fuX != null) {
-                        i.this.fuX.a(view, (View) bVar, (Object) bh.cbO);
+                    if (i.this.fug != null) {
+                        i.this.fug.a(view, (View) bVar, (Object) bh.caX);
                     }
                     bh bhVar = (bh) bVar;
-                    com.baidu.tieba.frs.d.c.bpJ().a(i.this.fDZ, bhVar, 1);
-                    com.baidu.tieba.frs.d.a.a(bhVar, 1, i.this.mPageId, i.this.fDZ);
+                    com.baidu.tieba.frs.d.c.bpH().a(i.this.fDi, bhVar, 1);
+                    com.baidu.tieba.frs.d.a.a(bhVar, 1, i.this.mPageId, i.this.fDi);
                 }
             }
         };
-        this.fAu = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.i.2
+        this.fzD = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: bmb */
+            /* renamed from: blZ */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(i.this.mPageContext.getPageActivity());
             }
@@ -67,10 +67,10 @@ public class i extends com.baidu.tieba.frs.h<bg, com.baidu.tieba.card.a.a<com.ba
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.fAv = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.i.3
+        this.fzE = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.i.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aoe */
+            /* renamed from: aoc */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(i.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -112,7 +112,7 @@ public class i extends com.baidu.tieba.frs.h<bg, com.baidu.tieba.card.a.a<com.ba
     }
 
     @Override // com.baidu.tieba.card.z
-    public void mX(int i) {
+    public void mW(int i) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -122,9 +122,9 @@ public class i extends com.baidu.tieba.frs.h<bg, com.baidu.tieba.card.a.a<com.ba
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.w> b(ViewGroup viewGroup) {
         com.baidu.tieba.card.w wVar = new com.baidu.tieba.card.w(this.mPageContext, viewGroup);
         com.baidu.tieba.card.a.a<com.baidu.tieba.card.w> aVar = new com.baidu.tieba.card.a.a<>(wVar);
-        wVar.setConstrainImagePool(this.fAv);
-        wVar.setConstrainLayoutPool(this.fAu);
-        wVar.d(this.Fq);
+        wVar.setConstrainImagePool(this.fzE);
+        wVar.setConstrainLayoutPool(this.fzD);
+        wVar.d(this.EP);
         return aVar;
     }
 
@@ -132,34 +132,34 @@ public class i extends com.baidu.tieba.frs.h<bg, com.baidu.tieba.card.a.a<com.ba
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bg bgVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.w> aVar) {
-        if (aVar == null || aVar.baZ() == null) {
+        if (aVar == null || aVar.baX() == null) {
             return null;
         }
-        if (aVar.baZ() instanceof com.baidu.tieba.a.e) {
-            aVar.baZ().setPage(this.GC);
+        if (aVar.baX() instanceof com.baidu.tieba.a.e) {
+            aVar.baX().setPage(this.Gc);
         }
         super.a(i, view, viewGroup, (ViewGroup) bgVar, (bg) aVar);
-        if (this.fDZ != null) {
+        if (this.fDi != null) {
             int i2 = 0;
-            if (this.fuR != null) {
-                i2 = this.fuR.getTopThreadSize();
+            if (this.fua != null) {
+                i2 = this.fua.getTopThreadSize();
             }
-            bgVar.cbq.cez = (bgVar.position + 1) - i2;
+            bgVar.caz.cdI = (bgVar.position + 1) - i2;
         }
-        com.baidu.tieba.frs.d.a.a(bgVar.cbq, this.mPageId, this.fDZ);
-        com.baidu.tieba.frs.d.c.bpJ().a(this.fDZ, bgVar.cbq);
-        aVar.baZ().d(this.Fq);
-        aVar.baZ().a(bgVar.cbq);
+        com.baidu.tieba.frs.d.a.a(bgVar.caz, this.mPageId, this.fDi);
+        com.baidu.tieba.frs.d.c.bpH().a(this.fDi, bgVar.caz);
+        aVar.baX().d(this.EP);
+        aVar.baX().a(bgVar.caz);
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
     public void rh(String str) {
-        this.GC = str;
+        this.Gc = str;
     }
 
     @Override // com.baidu.tieba.frs.d.d
-    public com.baidu.tieba.frs.d.b bmX() {
-        return this.fDZ;
+    public com.baidu.tieba.frs.d.b bmV() {
+        return this.fDi;
     }
 }

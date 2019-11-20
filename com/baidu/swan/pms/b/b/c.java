@@ -13,9 +13,9 @@ public class c extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.b.d
-    /* renamed from: be */
-    public com.baidu.swan.pms.b.c.c bb(JSONObject jSONObject) {
-        return com.baidu.swan.pms.e.d.bh(jSONObject);
+    /* renamed from: bf */
+    public com.baidu.swan.pms.b.c.c bc(JSONObject jSONObject) {
+        return com.baidu.swan.pms.e.d.bi(jSONObject);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,15 +23,15 @@ public class c extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.c> {
     @Override // com.baidu.swan.pms.b.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a T(com.baidu.swan.pms.b.c.c cVar) {
-        this.bMk.Gm();
+        this.bLt.Gn();
         com.baidu.swan.pms.e.e eVar = new com.baidu.swan.pms.e.e();
-        a(cVar.bMN, eVar);
-        if (eVar.abN() == 0) {
-            this.bMk.Gi();
+        a(cVar.bLW, eVar);
+        if (eVar.abL() == 0) {
+            this.bLt.Gj();
             return null;
         }
-        this.bMk.a(eVar);
-        com.baidu.swan.pms.b.a.a.a(cVar, this.bMk);
+        this.bLt.a(eVar);
+        com.baidu.swan.pms.b.a.a.a(cVar, this.bLt);
         return null;
     }
 
@@ -40,11 +40,11 @@ public class c extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.c> {
     @Override // com.baidu.swan.pms.b.d
     /* renamed from: b */
     public boolean U(com.baidu.swan.pms.b.c.c cVar) {
-        if (cVar == null || cVar.bMN == null) {
+        if (cVar == null || cVar.bLW == null) {
             return false;
         }
-        for (h hVar : cVar.bMN) {
-            if (!hVar.abh()) {
+        for (h hVar : cVar.bLW) {
+            if (!hVar.abf()) {
                 return false;
             }
         }
@@ -52,7 +52,7 @@ public class c extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.c> {
     }
 
     @Override // com.baidu.swan.pms.b.d
-    protected String abj() {
+    protected String abh() {
         return "getpkg";
     }
 }

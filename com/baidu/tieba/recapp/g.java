@@ -5,40 +5,40 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class g {
     public String forumName;
-    public int iHR;
-    public int iHS;
-    public int iHT;
+    public int iHa;
+    public int iHb;
+    public int iHc;
     public int refreshCount;
 
     public g() {
         this.refreshCount = 0;
-        this.iHR = 0;
-        this.iHS = 0;
-        this.iHT = 0;
+        this.iHa = 0;
+        this.iHb = 0;
+        this.iHc = 0;
     }
 
     public g(JSONObject jSONObject) {
         this.refreshCount = 0;
-        this.iHR = 0;
-        this.iHS = 0;
-        this.iHT = 0;
+        this.iHa = 0;
+        this.iHb = 0;
+        this.iHc = 0;
         if (jSONObject != null) {
             this.forumName = jSONObject.optString("forum_name");
             this.refreshCount = jSONObject.optInt("refresh_count");
-            this.iHR = jSONObject.optInt("loadmore_count");
-            this.iHS = jSONObject.optInt("loadmore_count_pb");
-            this.iHT = jSONObject.optInt("refresh_count_pb");
+            this.iHa = jSONObject.optInt("loadmore_count");
+            this.iHb = jSONObject.optInt("loadmore_count_pb");
+            this.iHc = jSONObject.optInt("refresh_count_pb");
         }
     }
 
-    public JSONObject cfE() {
+    public JSONObject cfC() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("refresh_count", this.refreshCount);
-            jSONObject.put("loadmore_count", this.iHR);
-            jSONObject.put("loadmore_count_pb", this.iHS);
-            jSONObject.put("refresh_count_pb", this.iHT);
+            jSONObject.put("loadmore_count", this.iHa);
+            jSONObject.put("loadmore_count_pb", this.iHb);
+            jSONObject.put("refresh_count_pb", this.iHc);
             return jSONObject;
         } catch (JSONException e) {
             return null;
@@ -46,20 +46,20 @@ public class g {
     }
 
     public int ai(boolean z, boolean z2) {
-        return z2 ? z ? this.iHT : this.iHS : z ? this.refreshCount : this.iHR;
+        return z2 ? z ? this.iHc : this.iHb : z ? this.refreshCount : this.iHa;
     }
 
     public void aj(boolean z, boolean z2) {
         if (z2) {
             if (z) {
-                this.iHT++;
+                this.iHc++;
             } else {
-                this.iHS++;
+                this.iHb++;
             }
         } else if (z) {
             this.refreshCount++;
         } else {
-            this.iHR++;
+            this.iHa++;
         }
     }
 }

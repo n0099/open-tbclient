@@ -4,20 +4,20 @@ import android.util.Log;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class g implements Runnable {
-    private b bMF;
-    private a bMG;
-    private AtomicBoolean bMq;
+    private b bLO;
+    private a bLP;
+    private AtomicBoolean bLz;
 
     public g(AtomicBoolean atomicBoolean, b bVar, a aVar) {
-        this.bMq = atomicBoolean;
-        this.bMF = bVar;
-        this.bMG = aVar;
+        this.bLz = atomicBoolean;
+        this.bLO = bVar;
+        this.bLP = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Runnable dE;
-        while (!this.bMq.get() && (dE = this.bMG.dE(true)) != null && (dE instanceof f)) {
+        while (!this.bLz.get() && (dE = this.bLP.dE(true)) != null && (dE instanceof f)) {
             try {
                 i((f) dE);
             } catch (Throwable th) {
@@ -29,7 +29,7 @@ public class g implements Runnable {
     }
 
     private <T> void i(f<T> fVar) {
-        this.bMF.d(fVar);
+        this.bLO.d(fVar);
         try {
             fVar.run();
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class g implements Runnable {
                 Log.e("PMSTaskExecutor", "run task error:" + e.toString());
             }
         } finally {
-            this.bMF.e(fVar);
+            this.bLO.e(fVar);
         }
     }
 }

@@ -11,15 +11,15 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class b {
-    private static volatile b jzB;
-    private HashMap<String, String> jzw;
-    private DownloadData jzx;
+    private static volatile b jyK;
+    private HashMap<String, String> jyF;
+    private DownloadData jyG;
 
     /* loaded from: classes5.dex */
     public interface a {
         void EH(String str);
 
-        void csM();
+        void csK();
 
         void ef(String str, String str2);
     }
@@ -27,15 +27,15 @@ public class b {
     private b() {
     }
 
-    public static b ctA() {
-        if (jzB == null) {
+    public static b cty() {
+        if (jyK == null) {
             synchronized (b.class) {
-                if (jzB == null) {
-                    jzB = new b();
+                if (jyK == null) {
+                    jyK = new b();
                 }
             }
         }
-        return jzB;
+        return jyK;
     }
 
     public String EQ(String str) {
@@ -43,29 +43,29 @@ public class b {
         if (nameMd5FromUrl == null) {
             return null;
         }
-        if (this.jzw == null) {
-            this.jzw = new HashMap<>();
-            ctB();
-            if (this.jzw.size() > 0) {
-                return this.jzw.get(nameMd5FromUrl);
+        if (this.jyF == null) {
+            this.jyF = new HashMap<>();
+            ctz();
+            if (this.jyF.size() > 0) {
+                return this.jyF.get(nameMd5FromUrl);
             }
             return null;
         }
-        return this.jzw.get(nameMd5FromUrl);
+        return this.jyF.get(nameMd5FromUrl);
     }
 
-    public void ctB() {
-        if (this.jzw == null) {
-            this.jzw = new HashMap<>();
+    public void ctz() {
+        if (this.jyF == null) {
+            this.jyF = new HashMap<>();
         } else {
-            this.jzw.clear();
+            this.jyF.clear();
         }
-        File file = new File(c.jwW);
+        File file = new File(c.jwf);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.jzw.put(file2.getName().substring(0, file2.getName().lastIndexOf(DefaultConfig.TOKEN_SEPARATOR)), file2.getAbsolutePath());
+                    this.jyF.put(file2.getName().substring(0, file2.getName().lastIndexOf(DefaultConfig.TOKEN_SEPARATOR)), file2.getAbsolutePath());
                 }
             }
         }
@@ -74,10 +74,10 @@ public class b {
     public void a(String str, final String str2, final a aVar) {
         String nameMd5FromUrl;
         if (!TextUtils.isEmpty(str2) && (nameMd5FromUrl = as.getNameMd5FromUrl(str2)) != null) {
-            if (this.jzx != null) {
-                d.atV().cancelDownLoadByUrl(this.jzx.getUrl(), true);
+            if (this.jyG != null) {
+                d.atT().cancelDownLoadByUrl(this.jyG.getUrl(), true);
             }
-            File file = new File(c.jwW);
+            File file = new File(c.jwf);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -85,7 +85,7 @@ public class b {
             downloadData.setType(18);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(c.jwW + nameMd5FromUrl + (DefaultConfig.TOKEN_SEPARATOR + str2.substring(str2.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR) + 1)));
+            downloadData.setPath(c.jwf + nameMd5FromUrl + (DefaultConfig.TOKEN_SEPARATOR + str2.substring(str2.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR) + 1)));
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.editvideo.model.b.1
                 @Override // com.baidu.tbadk.download.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -94,11 +94,11 @@ public class b {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (b.this.jzx != null && downloadData2.getUrl().equals(b.this.jzx.getUrl())) {
-                            b.this.jzx = null;
+                        if (b.this.jyG != null && downloadData2.getUrl().equals(b.this.jyG.getUrl())) {
+                            b.this.jyG = null;
                         }
                         if (aVar != null) {
-                            aVar.csM();
+                            aVar.csK();
                         }
                     }
                 }
@@ -116,11 +116,11 @@ public class b {
                 @Override // com.baidu.tbadk.download.c
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (b.this.jzx != null && downloadData2.getUrl().equals(b.this.jzx.getUrl())) {
-                            b.this.jzx = null;
+                        if (b.this.jyG != null && downloadData2.getUrl().equals(b.this.jyG.getUrl())) {
+                            b.this.jyG = null;
                         }
                         if (aVar != null) {
-                            b.this.jzw.put(downloadData2.getPath().substring(c.jwW.length(), downloadData2.getPath().lastIndexOf(DefaultConfig.TOKEN_SEPARATOR)), downloadData2.getPath());
+                            b.this.jyF.put(downloadData2.getPath().substring(c.jwf.length(), downloadData2.getPath().lastIndexOf(DefaultConfig.TOKEN_SEPARATOR)), downloadData2.getPath());
                             aVar.ef(str2, downloadData2.getPath());
                         }
                     }
@@ -132,16 +132,16 @@ public class b {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (b.this.jzx != null && downloadData2.getUrl().equals(b.this.jzx.getUrl())) {
-                        b.this.jzx = null;
+                    if (b.this.jyG != null && downloadData2.getUrl().equals(b.this.jyG.getUrl())) {
+                        b.this.jyG = null;
                     }
                     if (aVar != null) {
                         aVar.EH(str3);
                     }
                 }
             });
-            this.jzx = downloadData;
-            d.atV().f(downloadData);
+            this.jyG = downloadData;
+            d.atT().f(downloadData);
         }
     }
 }

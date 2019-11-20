@@ -4,55 +4,55 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public abstract class d {
-    private b bop;
-    private Exception tb;
+    private b bnX;
+    private Exception sB;
 
-    protected abstract boolean IO() throws Exception;
+    protected abstract boolean IP() throws Exception;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Exception Sl() {
-        return this.tb;
+    public Exception Sn() {
+        return this.sB;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.bop = bVar;
+        this.bnX = bVar;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isOk() {
-        return this.tb == null;
+        return this.sB == null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d Sm() {
+    public d So() {
         AsyncTask.execute(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (d.this.IO()) {
-                        d.this.Sn();
+                    if (d.this.IP()) {
+                        d.this.Sp();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    d.this.m(e);
+                    d.this.l(e);
                 }
             }
         });
         return this;
     }
 
-    public void Sn() {
-        m(null);
+    public void Sp() {
+        l(null);
     }
 
-    public void m(@Nullable Exception exc) {
-        this.tb = exc;
+    public void l(@Nullable Exception exc) {
+        this.sB = exc;
         c.e(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.bop.b(d.this);
+                d.this.bnX.b(d.this);
             }
         });
     }

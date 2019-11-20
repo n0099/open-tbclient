@@ -1,11 +1,11 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 public interface l {
-    String Nc();
+    String Nd();
 
-    boolean Nd();
+    boolean Ne();
 
-    m aIA();
+    m aIy();
 
     boolean gv(String str);
 }

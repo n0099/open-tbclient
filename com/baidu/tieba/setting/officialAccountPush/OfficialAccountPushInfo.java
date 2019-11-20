@@ -15,19 +15,19 @@ public class OfficialAccountPushInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: zb */
+        /* renamed from: za */
         public OfficialAccountPushInfo[] newArray(int i) {
             return new OfficialAccountPushInfo[i];
         }
     };
-    public int iWO;
+    public int iVX;
     public String name;
     public long uid;
 
     public OfficialAccountPushInfo(Parcel parcel) {
         this.uid = parcel.readLong();
         this.name = parcel.readString();
-        this.iWO = parcel.readInt();
+        this.iVX = parcel.readInt();
     }
 
     public OfficialAccountPushInfo() {
@@ -37,7 +37,7 @@ public class OfficialAccountPushInfo implements Parcelable {
         if (officialList != null) {
             this.uid = officialList.uid.longValue();
             this.name = officialList.name;
-            this.iWO = officialList.is_on.intValue();
+            this.iVX = officialList.is_on.intValue();
         }
     }
 
@@ -50,6 +50,6 @@ public class OfficialAccountPushInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeLong(this.uid);
         parcel.writeString(this.name);
-        parcel.writeInt(this.iWO);
+        parcel.writeInt(this.iVX);
     }
 }

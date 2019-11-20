@@ -32,14 +32,14 @@ public class a {
                     jSONObject.put("page", c0224a.page);
                 }
                 boolean isEmpty = TextUtils.isEmpty(c0224a.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(c0224a.bph);
+                boolean isEmpty2 = TextUtils.isEmpty(c0224a.boP);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
                         jSONObject2.put("appid", c0224a.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put(Config.LAUNCH_INFO, c0224a.bph);
+                        jSONObject2.put(Config.LAUNCH_INFO, c0224a.boP);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
@@ -61,12 +61,12 @@ public class a {
     /* loaded from: classes2.dex */
     public static class C0224a {
         private String appId;
-        private String bph;
+        private String boP;
         private String page;
         private String source;
         private String type;
         private String value;
-        private a bpg = new a();
+        private a boO = new a();
         private String from = "swan";
 
         public C0224a(int i) {
@@ -79,12 +79,12 @@ public class a {
         }
 
         public C0224a hV(String str) {
-            this.bph = str;
+            this.boP = str;
             return this;
         }
 
-        public void KZ() {
-            this.bpg.a(this);
+        public void La() {
+            this.boO.a(this);
         }
     }
 }

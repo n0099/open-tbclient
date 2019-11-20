@@ -6,19 +6,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class f {
-    public int car;
-    public String cas;
+    public int bZA;
+    public String bZB;
     public boolean hasMore;
     public int pageNum;
     public int type;
-    private ArrayList<a> cam = new ArrayList<>();
-    private ArrayList<a> can = new ArrayList<>();
-    private d dRV = new d();
-    private int cap = 0;
-    private int caq = 0;
+    private ArrayList<a> bZv = new ArrayList<>();
+    private ArrayList<a> bZw = new ArrayList<>();
+    private d dRe = new d();
+    private int bZy = 0;
+    private int bZz = 0;
 
-    public ArrayList<a> ahD() {
-        return this.cam;
+    public ArrayList<a> ahB() {
+        return this.bZv;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -31,7 +31,7 @@ public class f {
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             a aVar = new a();
                             aVar.parserJson(optJSONArray.getJSONObject(i));
-                            this.cam.add(aVar);
+                            this.bZv.add(aVar);
                         }
                     }
                     if (optJSONArray2 != null) {
@@ -39,20 +39,20 @@ public class f {
                             a aVar2 = new a();
                             aVar2.parserJson(optJSONArray2.getJSONObject(i2));
                             aVar2.mAttentionType = 1;
-                            this.can.add(aVar2);
+                            this.bZw.add(aVar2);
                         }
                     }
-                    this.dRV.parserJson(jSONObject.optJSONObject("page"));
-                    if (this.dRV != null) {
-                        this.pageNum = this.dRV.ahy();
-                        this.car = this.dRV.ahw();
-                        this.hasMore = this.dRV.ahA() == 1;
+                    this.dRe.parserJson(jSONObject.optJSONObject("page"));
+                    if (this.dRe != null) {
+                        this.pageNum = this.dRe.ahw();
+                        this.bZA = this.dRe.ahu();
+                        this.hasMore = this.dRe.ahy() == 1;
                     }
-                    this.cap = jSONObject.optInt("tafriendnum", 0);
-                    this.caq = jSONObject.optInt("commonfriendnum", 0);
+                    this.bZy = jSONObject.optInt("tafriendnum", 0);
+                    this.bZz = jSONObject.optInt("commonfriendnum", 0);
                 }
                 this.type = jSONObject.optInt("type", 0);
-                this.cas = jSONObject.optString("block_text");
+                this.bZB = jSONObject.optString("block_text");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

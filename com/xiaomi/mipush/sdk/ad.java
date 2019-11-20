@@ -1,18 +1,18 @@
 package com.xiaomi.mipush.sdk;
 
-import android.text.TextUtils;
+import android.content.Context;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-class ad {
-    int a = 0;
-    String b = "";
+public final class ad implements Runnable {
+    final /* synthetic */ Context a;
 
-    public boolean equals(Object obj) {
-        if (obj != null && (obj instanceof ad)) {
-            ad adVar = (ad) obj;
-            if (!TextUtils.isEmpty(adVar.b) && adVar.b.equals(this.b)) {
-                return true;
-            }
-        }
-        return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ad(Context context) {
+        this.a = context;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        MessageHandleService.c(this.a);
     }
 }

@@ -31,7 +31,7 @@ public class a {
             if (m != null && m2 != null) {
                 m.a(m2, aVar);
             } else {
-                aVar.fH(63);
+                aVar.fG(63);
             }
         }
         return aVar;
@@ -52,8 +52,8 @@ public class a {
     }
 
     private static void a(@NonNull View view, @NonNull com.baidu.swan.apps.button.b.a aVar) {
-        view.setPadding(z.S((float) aVar.Ml), z.S((float) aVar.Mm), z.S((float) aVar.Mn), z.S((float) aVar.Mo));
-        float f = aVar.aEV;
+        view.setPadding(z.S((float) aVar.LJ), z.S((float) aVar.LK), z.S((float) aVar.LM), z.S((float) aVar.LN));
+        float f = aVar.aED;
         if (f >= 0.0f && f <= 1.0f) {
             view.setAlpha(f);
         }
@@ -62,7 +62,7 @@ public class a {
     private static void b(@NonNull View view, @NonNull com.baidu.swan.apps.button.b.a aVar) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(aVar.backgroundColor);
-        gradientDrawable.setCornerRadius(aVar.aEU);
+        gradientDrawable.setCornerRadius(aVar.aEC);
         gradientDrawable.setStroke(aVar.borderWidth, aVar.borderColor);
         view.setBackground(gradientDrawable);
     }
@@ -76,7 +76,7 @@ public class a {
         boolean z2;
         textView.setText(aVar.text);
         try {
-            textView.setTextColor(Color.parseColor(aVar.TU));
+            textView.setTextColor(Color.parseColor(aVar.Tz));
         } catch (Exception e) {
             c.e("SwanAppNativeViewUtils", "text color occurs exception", e);
         }
@@ -84,7 +84,7 @@ public class a {
         if (i2 > 0) {
             textView.setTextSize(1, i2);
         }
-        if (z.S((float) aVar.gg) > 0) {
+        if (z.S((float) aVar.fH) > 0) {
             textView.setLineSpacing((S - textView.getLineHeight()) + textView.getLineSpacingExtra(), 1.0f);
         }
         String str = aVar.textAlign;
@@ -161,7 +161,7 @@ public class a {
                 }
                 break;
         }
-        String str3 = aVar.aEW;
+        String str3 = aVar.aEE;
         switch (str3.hashCode()) {
             case -1039745817:
                 if (str3.equals("normal")) {

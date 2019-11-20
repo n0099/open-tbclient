@@ -19,107 +19,107 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b {
-    private DragImageView.d cCs;
-    private TbImageView fkQ;
-    private RelativeLayout gYr;
-    private TextView gYs;
-    public LinearLayout gYt;
-    public TextView gYu;
-    public TextView gYv;
-    public TextView gYw;
-    public boolean gYx = false;
-    private UrlDragImageView gYy;
+    private DragImageView.d cBB;
+    private TbImageView fjZ;
+    private RelativeLayout gXA;
+    private TextView gXB;
+    public LinearLayout gXC;
+    public TextView gXD;
+    public TextView gXE;
+    public TextView gXF;
+    public boolean gXG = false;
+    private UrlDragImageView gXH;
     private Context mContext;
 
     public b(ViewGroup viewGroup) {
-        this.gYr = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.big_image_ad, (ViewGroup) null);
-        this.fkQ = (TbImageView) this.gYr.findViewById(R.id.big_image_ad_image);
-        this.gYs = (TextView) this.gYr.findViewById(R.id.big_image_ad_button);
-        this.gYt = (LinearLayout) this.gYr.findViewById(R.id.big_image_ad_source_container);
-        this.gYw = (TextView) this.gYr.findViewById(R.id.big_image_ad_source);
-        this.gYu = (TextView) this.gYr.findViewById(R.id.big_image_ad_title);
-        this.gYv = (TextView) this.gYr.findViewById(R.id.big_image_ad_brand);
+        this.gXA = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.big_image_ad, (ViewGroup) null);
+        this.fjZ = (TbImageView) this.gXA.findViewById(R.id.big_image_ad_image);
+        this.gXB = (TextView) this.gXA.findViewById(R.id.big_image_ad_button);
+        this.gXC = (LinearLayout) this.gXA.findViewById(R.id.big_image_ad_source_container);
+        this.gXF = (TextView) this.gXA.findViewById(R.id.big_image_ad_source);
+        this.gXD = (TextView) this.gXA.findViewById(R.id.big_image_ad_title);
+        this.gXE = (TextView) this.gXA.findViewById(R.id.big_image_ad_brand);
         this.mContext = viewGroup.getContext();
-        bGc();
+        bGa();
     }
 
     public View getView() {
-        return this.gYr;
+        return this.gXA;
     }
 
     public void setDragToExitListener(DragImageView.d dVar) {
-        this.cCs = dVar;
+        this.cBB = dVar;
     }
 
-    public void bGc() {
-        this.fkQ.setVisibility(4);
-        this.gYy = new UrlDragImageView(this.mContext);
-        this.gYy.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.gYy.setIsCanDrag(true);
-        this.gYy.setCanScale(false);
-        this.gYy.setDragToExitListener(new DragImageView.d() { // from class: com.baidu.tieba.image.b.1
+    public void bGa() {
+        this.fjZ.setVisibility(4);
+        this.gXH = new UrlDragImageView(this.mContext);
+        this.gXH.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.gXH.setIsCanDrag(true);
+        this.gXH.setCanScale(false);
+        this.gXH.setDragToExitListener(new DragImageView.d() { // from class: com.baidu.tieba.image.b.1
             @Override // com.baidu.tbadk.widget.DragImageView.d
             public void onDragStart() {
-                if (b.this.cCs != null) {
-                    b.this.cCs.onDragStart();
+                if (b.this.cBB != null) {
+                    b.this.cBB.onDragStart();
                 }
-                b.this.p(b.this.gYu, 8);
-                b.this.p(b.this.gYv, 8);
+                b.this.p(b.this.gXD, 8);
+                b.this.p(b.this.gXE, 8);
             }
 
             @Override // com.baidu.tbadk.widget.DragImageView.d
             public void onDragEnd() {
-                if (b.this.cCs != null) {
-                    b.this.cCs.onDragEnd();
+                if (b.this.cBB != null) {
+                    b.this.cBB.onDragEnd();
                 }
             }
 
             @Override // com.baidu.tbadk.widget.DragImageView.d
-            public void ayc() {
-                b.this.p(b.this.gYu, 0);
-                b.this.p(b.this.gYv, 0);
+            public void aya() {
+                b.this.p(b.this.gXD, 0);
+                b.this.p(b.this.gXE, 0);
             }
         });
-        this.gYr.addView(this.gYy, 0);
+        this.gXA.addView(this.gXH, 0);
     }
 
-    public UrlDragImageView bGd() {
-        return this.gYy;
+    public UrlDragImageView bGb() {
+        return this.gXH;
     }
 
-    public TbImageView bGe() {
-        return this.fkQ;
+    public TbImageView bGc() {
+        return this.fjZ;
     }
 
-    public TextView bGf() {
-        return this.gYs;
+    public TextView bGd() {
+        return this.gXB;
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void bGg() {
-        this.gYs.setText(R.string.pause_load);
-        this.gYs.setBackgroundResource(R.drawable.button_fenfa_xiazaizhong);
-        am.setViewTextColor(this.gYs, R.color.common_color_10049, 1, 0);
+    public void bGe() {
+        this.gXB.setText(R.string.pause_load);
+        this.gXB.setBackgroundResource(R.drawable.button_fenfa_xiazaizhong);
+        am.setViewTextColor(this.gXB, R.color.common_color_10049, 1, 0);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void yB(String str) {
-        this.gYs.setText(str);
-        this.gYs.setBackgroundResource(R.drawable.button_fenfa_download_selector);
-        am.setViewTextColor(this.gYs, R.drawable.button_fenfa_download_text_selector, 1, 0);
+        this.gXB.setText(str);
+        this.gXB.setBackgroundResource(R.drawable.button_fenfa_download_selector);
+        am.setViewTextColor(this.gXB, R.drawable.button_fenfa_download_text_selector, 1, 0);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void bGh() {
-        this.gYs.setText(R.string.setup_text);
-        this.gYs.setBackgroundResource(R.drawable.button_fenfa_download_selector);
-        am.setViewTextColor(this.gYs, R.drawable.button_fenfa_download_text_selector, 1, 0);
+    public void bGf() {
+        this.gXB.setText(R.string.setup_text);
+        this.gXB.setBackgroundResource(R.drawable.button_fenfa_download_selector);
+        am.setViewTextColor(this.gXB, R.drawable.button_fenfa_download_text_selector, 1, 0);
     }
 
-    public void bGi() {
+    public void bGg() {
         int width = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay().getWidth();
-        ViewGroup.LayoutParams layoutParams = this.fkQ.getLayoutParams();
-        double loadedHeight = this.fkQ.getLoadedHeight() / this.fkQ.getLoadedWidth();
+        ViewGroup.LayoutParams layoutParams = this.fjZ.getLayoutParams();
+        double loadedHeight = this.fjZ.getLoadedHeight() / this.fjZ.getLoadedWidth();
         if (loadedHeight > 1.0d) {
             layoutParams.height = width;
             layoutParams.width = (int) (width / loadedHeight);
@@ -127,33 +127,33 @@ public class b {
             layoutParams.height = (int) (loadedHeight * width);
             layoutParams.width = width;
         }
-        this.fkQ.setLayoutParams(layoutParams);
+        this.fjZ.setLayoutParams(layoutParams);
     }
 
     public void B(final View.OnClickListener onClickListener) {
-        this.gYs.setOnClickListener(onClickListener);
-        this.fkQ.setOnClickListener(onClickListener);
-        this.gYu.setOnClickListener(onClickListener);
-        this.gYv.setOnClickListener(onClickListener);
-        this.gYy.setOuterOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.image.b.2
-            private float gYA = 0.0f;
-            private float gYB = 0.0f;
-            private float gYC = 0.0f;
+        this.gXB.setOnClickListener(onClickListener);
+        this.fjZ.setOnClickListener(onClickListener);
+        this.gXD.setOnClickListener(onClickListener);
+        this.gXE.setOnClickListener(onClickListener);
+        this.gXH.setOuterOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.image.b.2
+            private float gXJ = 0.0f;
+            private float gXK = 0.0f;
+            private float gXL = 0.0f;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        b.this.gYx = false;
-                        this.gYA = motionEvent.getX();
-                        this.gYB = motionEvent.getY();
-                        this.gYC = 0.0f;
+                        b.this.gXG = false;
+                        this.gXJ = motionEvent.getX();
+                        this.gXK = motionEvent.getY();
+                        this.gXL = 0.0f;
                         break;
                     case 1:
-                        b.this.gYx = 10.0f < this.gYC;
-                        if (!b.this.gYx) {
-                            if (b.this.e(b.this.fkQ, (int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                                onClickListener.onClick(b.this.fkQ);
+                        b.this.gXG = 10.0f < this.gXL;
+                        if (!b.this.gXG) {
+                            if (b.this.e(b.this.fjZ, (int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                                onClickListener.onClick(b.this.fjZ);
                                 break;
                             } else if (b.this.mContext instanceof Activity) {
                                 ((Activity) b.this.mContext).finish();
@@ -162,11 +162,11 @@ public class b {
                         }
                         break;
                     case 2:
-                        float x = motionEvent.getX() - this.gYA;
-                        float y = motionEvent.getY() - this.gYB;
-                        this.gYC = (float) (Math.sqrt((x * x) + (y * y)) + this.gYC);
-                        this.gYA = motionEvent.getX();
-                        this.gYB = motionEvent.getY();
+                        float x = motionEvent.getX() - this.gXJ;
+                        float y = motionEvent.getY() - this.gXK;
+                        this.gXL = (float) (Math.sqrt((x * x) + (y * y)) + this.gXL);
+                        this.gXJ = motionEvent.getX();
+                        this.gXK = motionEvent.getY();
                         break;
                 }
                 return false;

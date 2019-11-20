@@ -12,7 +12,7 @@ import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 /* loaded from: classes2.dex */
 public class a extends z {
-    private static boolean aWf;
+    private static boolean aVN;
 
     public a(j jVar) {
         super(jVar, "/swan/live");
@@ -38,25 +38,25 @@ public class a extends z {
     }
 
     private boolean a(final Context context, String str, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final b bVar) {
-        b QZ = b.QZ();
-        if (QZ == null) {
+        b Ra = b.Ra();
+        if (Ra == null) {
             return false;
         }
-        if (DEBUG && com.baidu.swan.apps.ac.a.a.NY()) {
+        if (DEBUG && com.baidu.swan.apps.ac.a.a.NZ()) {
             if (a(context, unitedSchemeEntity)) {
-                com.baidu.swan.apps.u.a.Jw().f(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.Jx().f(context, unitedSchemeEntity, callbackHandler, bVar);
             }
         } else {
-            QZ.Rd().a((Activity) context, "mapp_i_live_player", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.media.b.a.a.1
+            Ra.Rf().a((Activity) context, "mapp_i_live_player", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.media.b.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
                 public void B(Boolean bool) {
-                    boolean unused = a.aWf = bool.booleanValue();
+                    boolean unused = a.aVN = bool.booleanValue();
                     if (bool.booleanValue()) {
                         c.i("live", "authorize success");
                         if (a.this.a(context, unitedSchemeEntity)) {
-                            com.baidu.swan.apps.u.a.Jw().f(context, unitedSchemeEntity, callbackHandler, bVar);
+                            com.baidu.swan.apps.u.a.Jx().f(context, unitedSchemeEntity, callbackHandler, bVar);
                             return;
                         }
                         return;
@@ -129,50 +129,50 @@ public class a extends z {
         }
         switch (c) {
             case 0:
-                com.baidu.swan.apps.u.a.Jw().c(context, unitedSchemeEntity, callbackHandler, bVar);
-                if (!Me()) {
+                com.baidu.swan.apps.u.a.Jx().c(context, unitedSchemeEntity, callbackHandler, bVar);
+                if (!Mf()) {
                     a(context, str, unitedSchemeEntity, callbackHandler, bVar);
                     return;
                 } else if (a(context, unitedSchemeEntity)) {
-                    com.baidu.swan.apps.u.a.Jw().f(context, unitedSchemeEntity, callbackHandler, bVar);
+                    com.baidu.swan.apps.u.a.Jx().f(context, unitedSchemeEntity, callbackHandler, bVar);
                     return;
                 } else {
                     return;
                 }
             case 1:
-                com.baidu.swan.apps.u.a.Jw().d(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.Jx().d(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case 2:
-                com.baidu.swan.apps.u.a.Jw().e(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.Jx().e(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case 3:
-                if (Me()) {
-                    com.baidu.swan.apps.u.a.Jw().f(context, unitedSchemeEntity, callbackHandler, bVar);
+                if (Mf()) {
+                    com.baidu.swan.apps.u.a.Jx().f(context, unitedSchemeEntity, callbackHandler, bVar);
                     return;
                 }
                 return;
             case 4:
-                com.baidu.swan.apps.u.a.Jw().g(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.Jx().g(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case 5:
-                com.baidu.swan.apps.u.a.Jw().h(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.Jx().h(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case 6:
-                com.baidu.swan.apps.u.a.Jw().i(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.Jx().i(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case 7:
-                com.baidu.swan.apps.u.a.Jw().j(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.Jx().j(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case '\b':
-                com.baidu.swan.apps.u.a.Jw().k(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.Jx().k(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             default:
                 return;
         }
     }
 
-    private boolean Me() {
-        return aWf;
+    private boolean Mf() {
+        return aVN;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

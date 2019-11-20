@@ -1,49 +1,49 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.content.Intent;
-import java.util.ArrayList;
+import android.text.TextUtils;
+import com.xiaomi.push.Cif;
+import com.xiaomi.push.hg;
+import com.xiaomi.push.ht;
+import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class ag implements Runnable {
-    final /* synthetic */ Context a;
-    final /* synthetic */ String b;
-    final /* synthetic */ String c;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(Context context, String str, String str2) {
-        this.a = context;
-        this.b = str;
-        this.c = str2;
-    }
-
     @Override // java.lang.Runnable
     public void run() {
-        boolean checkPermission;
-        checkPermission = MiPushClient.checkPermission(this.a);
-        if (checkPermission) {
-            MiPushClient.initialize(this.a, this.b, this.c, null);
+        Context context;
+        Context context2;
+        Context context3;
+        String f;
+        Context context4;
+        Context context5;
+        if (com.xiaomi.push.l.d()) {
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.d("Because of lack of necessary information, mi push can't be initialized");
-        ArrayList arrayList = new ArrayList();
-        if (!com.xiaomi.channel.commonutils.android.g.a(this.a, "android.permission.READ_PHONE_STATE")) {
-            arrayList.add("android.permission.READ_PHONE_STATE");
+        context = MiPushClient.sContext;
+        if (com.xiaomi.push.i.f(context) != null) {
+            Cif cif = new Cif();
+            context2 = MiPushClient.sContext;
+            cif.b(d.m68a(context2).m69a());
+            cif.c("client_info_update");
+            cif.a(com.xiaomi.push.service.aj.a());
+            cif.a(new HashMap());
+            context3 = MiPushClient.sContext;
+            String str = TextUtils.isEmpty(com.xiaomi.push.i.f(context3)) ? "" : "" + com.xiaomi.push.ay.a(f);
+            context4 = MiPushClient.sContext;
+            String h = com.xiaomi.push.i.h(context4);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(h)) {
+                str = str + Constants.ACCEPT_TIME_SEPARATOR_SP + h;
+            }
+            if (!TextUtils.isEmpty(str)) {
+                cif.m399a().put(Constants.EXTRA_KEY_IMEI_MD5, str);
+            }
+            int a = com.xiaomi.push.i.a();
+            if (a >= 0) {
+                cif.m399a().put("space_id", Integer.toString(a));
+            }
+            context5 = MiPushClient.sContext;
+            ay.a(context5).a((ay) cif, hg.Notification, false, (ht) null);
         }
-        if (!com.xiaomi.channel.commonutils.android.g.a(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-            arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
-        }
-        if (arrayList.isEmpty()) {
-            return;
-        }
-        String[] strArr = new String[arrayList.size()];
-        arrayList.toArray(strArr);
-        Intent intent = new Intent();
-        intent.setAction("com.xiaomi.mipush.ERROR");
-        intent.setPackage(this.a.getPackageName());
-        intent.putExtra(PushMessageHelper.MESSAGE_TYPE, 5);
-        intent.putExtra(PushMessageHelper.ERROR_TYPE, PushMessageHelper.ERROR_TYPE_NEED_PERMISSION);
-        intent.putExtra("error_message", strArr);
-        this.a.sendBroadcast(intent);
     }
 }

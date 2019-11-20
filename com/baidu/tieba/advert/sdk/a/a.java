@@ -3,11 +3,11 @@ package com.baidu.tieba.advert.sdk.a;
 public interface a {
     void a(com.baidu.tieba.advert.sdk.data.a aVar);
 
+    void aEA();
+
+    void aEB();
+
     void aEC();
-
-    void aED();
-
-    void aEE();
 
     void rT(String str);
 }

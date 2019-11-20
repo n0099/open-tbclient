@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class OvalActionButton extends ImageView {
-    private static final int cQd = am.getColor(R.color.cp_link_tip_e);
-    private boolean cPM;
-    private Paint cPN;
-    private float[] cPO;
-    private float[] cPP;
-    private boolean cPQ;
-    private LinearGradient cPR;
-    private PorterDuffXfermode cPT;
-    private PorterDuffXfermode cPU;
+    private static final int cPm = am.getColor(R.color.cp_link_tip_e);
+    private boolean cOV;
+    private Paint cOW;
+    private float[] cOX;
+    private float[] cOY;
+    private boolean cOZ;
+    private LinearGradient cPa;
+    private PorterDuffXfermode cPc;
+    private PorterDuffXfermode cPd;
     private int color;
     private int endColor;
     private Drawable mIcon;
@@ -44,32 +44,32 @@ public class OvalActionButton extends ImageView {
 
     public OvalActionButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cPM = true;
-        this.cPO = new float[4];
-        this.cPP = new float[4];
-        this.cPQ = true;
-        this.color = cQd;
-        this.cPT = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-        this.cPU = new PorterDuffXfermode(PorterDuff.Mode.SRC);
+        this.cOV = true;
+        this.cOX = new float[4];
+        this.cOY = new float[4];
+        this.cOZ = true;
+        this.color = cPm;
+        this.cPc = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.cPd = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.mSkinType = 3;
         init();
     }
 
     private void init() {
-        ayd();
+        ayb();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setColor(this.color);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.cPN = new Paint();
+        this.cOW = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.cPN.setColor(am.getColor(R.color.cp_cont_a));
-        this.cPN.setStrokeCap(Paint.Cap.ROUND);
-        this.cPN.setAntiAlias(true);
+        this.cOW.setColor(am.getColor(R.color.cp_cont_a));
+        this.cOW.setStrokeCap(Paint.Cap.ROUND);
+        this.cOW.setAntiAlias(true);
         setLayerType(1, null);
     }
 
-    private void ayd() {
+    private void ayb() {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType == 0) {
             this.startColor = com.baidu.tieba.lego.card.d.a.bR("#2bb8ff");
@@ -124,41 +124,41 @@ public class OvalActionButton extends ImageView {
             this.mPath.cubicTo(f - f3, height2, width, f2 + f4, width, f2);
             this.mPath.cubicTo(width, f2 - f4, f - f3, height, f, height);
             this.mPath.close();
-            if (this.cPM) {
-                this.cPR = new LinearGradient(width, 0.0f, width2, 0.0f, new int[]{this.startColor, this.endColor}, (float[]) null, Shader.TileMode.CLAMP);
-                this.cPM = false;
+            if (this.cOV) {
+                this.cPa = new LinearGradient(width, 0.0f, width2, 0.0f, new int[]{this.startColor, this.endColor}, (float[]) null, Shader.TileMode.CLAMP);
+                this.cOV = false;
             }
-            if (this.cPQ) {
+            if (this.cOZ) {
                 float width3 = 0.054f * canvas.getWidth();
                 float width4 = canvas.getWidth() * 0.0226f;
                 double radians = Math.toRadians(getRotation() - 45.0f);
-                this.mPaint.setShadowLayer(width3, (float) (width4 * Math.cos(radians)), (-1.0f) * ((float) (Math.sin(radians) * width4)), com.baidu.tieba.tbadkCore.c.k(this.cPR == null ? this.color : this.endColor, 0.83f));
+                this.mPaint.setShadowLayer(width3, (float) (width4 * Math.cos(radians)), (-1.0f) * ((float) (Math.sin(radians) * width4)), com.baidu.tieba.tbadkCore.c.k(this.cPa == null ? this.color : this.endColor, 0.83f));
             }
-            if (this.cPR != null) {
-                this.mPaint.setShader(this.cPR);
+            if (this.cPa != null) {
+                this.mPaint.setShader(this.cPa);
             } else {
                 this.mPaint.setColor(this.color);
             }
             canvas.drawPath(this.mPath, this.mPaint);
-            this.cPO[0] = ((3.0f * f) + width) / 4.0f;
-            this.cPO[1] = ((3.0f * f2) + height) / 4.0f;
-            this.cPO[2] = ((3.0f * f) + width2) / 4.0f;
-            this.cPO[3] = ((3.0f * f2) + height2) / 4.0f;
-            this.cPP[0] = (width2 + (3.0f * f)) / 4.0f;
-            this.cPP[1] = (height + (3.0f * f2)) / 4.0f;
-            this.cPP[2] = ((3.0f * f) + width) / 4.0f;
-            this.cPP[3] = ((3.0f * f2) + height2) / 4.0f;
+            this.cOX[0] = ((3.0f * f) + width) / 4.0f;
+            this.cOX[1] = ((3.0f * f2) + height) / 4.0f;
+            this.cOX[2] = ((3.0f * f) + width2) / 4.0f;
+            this.cOX[3] = ((3.0f * f2) + height2) / 4.0f;
+            this.cOY[0] = (width2 + (3.0f * f)) / 4.0f;
+            this.cOY[1] = (height + (3.0f * f2)) / 4.0f;
+            this.cOY[2] = ((3.0f * f) + width) / 4.0f;
+            this.cOY[3] = ((3.0f * f2) + height2) / 4.0f;
             C(canvas);
-            this.cPN.setStrokeWidth(canvas.getWidth() * 0.032f);
-            canvas.drawLines(this.cPO, this.cPN);
-            canvas.drawLines(this.cPP, this.cPN);
+            this.cOW.setStrokeWidth(canvas.getWidth() * 0.032f);
+            canvas.drawLines(this.cOX, this.cOW);
+            canvas.drawLines(this.cOY, this.cOW);
         }
         canvas.restoreToCount(saveCount2);
     }
 
     private void C(Canvas canvas) {
         if (this.mIcon == null) {
-            this.cPN.setAlpha(255);
+            this.cOW.setAlpha(255);
             return;
         }
         if (Build.VERSION.SDK_INT < 19 || this.mIcon.getAlpha() > 0) {
@@ -176,15 +176,15 @@ public class OvalActionButton extends ImageView {
             if (this.mIcon != null) {
                 this.mIcon.setAlpha(255);
             }
-            this.cPN.setAlpha(0);
+            this.cOW.setAlpha(0);
         } else {
             this.mIcon = null;
-            this.cPN.setAlpha(255);
+            this.cOW.setAlpha(255);
         }
         postInvalidate();
     }
 
-    public void avB() {
+    public void avz() {
         if (this.mIcon != null) {
             this.mIcon.setAlpha(255);
             postInvalidate();
@@ -197,9 +197,9 @@ public class OvalActionButton extends ImageView {
             int i = (int) (255.0f * f2 * 2.0f);
             if (f2 > 0.0f) {
                 this.mIcon.setAlpha(i);
-                this.cPN.setAlpha(0);
+                this.cOW.setAlpha(0);
             } else {
-                this.cPN.setAlpha(-i);
+                this.cOW.setAlpha(-i);
                 this.mIcon.setAlpha(0);
             }
             invalidate();
@@ -213,22 +213,22 @@ public class OvalActionButton extends ImageView {
     }
 
     private void D(Canvas canvas) {
-        this.mPaint.setXfermode(this.cPT);
+        this.mPaint.setXfermode(this.cPc);
         canvas.drawPaint(this.mPaint);
-        this.mPaint.setXfermode(this.cPU);
+        this.mPaint.setXfermode(this.cPd);
     }
 
     public void setStartAndEndColor(String str, String str2) {
         this.startColor = com.baidu.tieba.lego.card.d.a.bR(str);
         this.endColor = com.baidu.tieba.lego.card.d.a.bR(str2);
-        this.cPM = true;
+        this.cOV = true;
         invalidate();
     }
 
     public void setStartAndEndColor(int i, int i2) {
         this.startColor = i;
         this.endColor = i2;
-        this.cPM = true;
+        this.cOV = true;
         invalidate();
     }
 
@@ -240,7 +240,7 @@ public class OvalActionButton extends ImageView {
     }
 
     public void setNeedShadow(boolean z) {
-        this.cPQ = z;
+        this.cOZ = z;
     }
 
     public void setColor(int i) {
@@ -253,10 +253,10 @@ public class OvalActionButton extends ImageView {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            ayd();
+            ayb();
             this.color = am.getColor(this.mSkinType, R.color.cp_link_tip_e);
-            this.cPM = true;
-            this.cPN.setColor(am.getColor(R.color.cp_cont_a));
+            this.cOV = true;
+            this.cOW.setColor(am.getColor(R.color.cp_cont_a));
             invalidate();
         }
     }

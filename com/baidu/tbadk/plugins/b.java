@@ -26,12 +26,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    public static String cNU = "#";
-    public static String cNV = "＃";
-    private static final Pattern bRY = Pattern.compile("#([^#(]+)#", 2);
+    public static String cNd = "#";
+    public static String cNe = "＃";
+    private static final Pattern bRh = Pattern.compile("#([^#(]+)#", 2);
 
     public static boolean qe(String str) {
-        return cNU.equals(str);
+        return cNd.equals(str);
     }
 
     public static boolean fA(boolean z) {
@@ -47,7 +47,7 @@ public class b {
         return false;
     }
 
-    public static boolean axd() {
+    public static boolean axb() {
         return PluginPackageManager.iL().aS("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -67,7 +67,7 @@ public class b {
                 return true;
             }
             return true;
-        } else if (axd()) {
+        } else if (axb()) {
             String string4 = tbPageContext.getResources().getString(R.string.plugin_hottopic_not_active);
             String string5 = tbPageContext.getResources().getString(R.string.setup);
             if (z) {
@@ -111,7 +111,7 @@ public class b {
                     }
                 });
             }
-            aVar.b(tbPageContext).akO();
+            aVar.b(tbPageContext).akM();
         }
     }
 
@@ -119,7 +119,7 @@ public class b {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = bRY.matcher(str);
+        Matcher matcher = bRh.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             int start = matcher.start();
@@ -136,7 +136,7 @@ public class b {
         if (spannable != null) {
             String obj = spannable.toString();
             if (!StringUtils.isNull(obj)) {
-                Matcher matcher = bRY.matcher(obj);
+                Matcher matcher = bRh.matcher(obj);
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
@@ -154,7 +154,7 @@ public class b {
         }
         if (str.charAt(0) != '#' || str.charAt(str.length() - 1) != '#') {
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(cNU).append(str).append(cNU);
+            sb.append(cNd).append(str).append(cNd);
             return sb.toString();
         }
         return str;
@@ -162,7 +162,7 @@ public class b {
 
     public static boolean qh(String str) {
         String substring;
-        return str != null && str.startsWith(cNU) && str.endsWith(cNU) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
+        return str != null && str.startsWith(cNd) && str.endsWith(cNd) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
     }
 
     public static void a(k kVar) {

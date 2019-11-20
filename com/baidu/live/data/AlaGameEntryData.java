@@ -6,12 +6,12 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 /* loaded from: classes6.dex */
 public class AlaGameEntryData implements Parcelable, IAdapterData {
-    public int OU;
-    public String OV;
+    public int Or;
+    public String Os;
     public String icon;
     public int id;
     public String name;
-    public static final BdUniqueId OT = BdUniqueId.gen();
+    public static final BdUniqueId Oq = BdUniqueId.gen();
     public static final Parcelable.Creator<AlaGameEntryData> CREATOR = new Parcelable.Creator<AlaGameEntryData>() { // from class: com.baidu.live.data.AlaGameEntryData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -32,13 +32,13 @@ public class AlaGameEntryData implements Parcelable, IAdapterData {
         this.id = parcel.readInt();
         this.icon = parcel.readString();
         this.name = parcel.readString();
-        this.OU = parcel.readInt();
-        this.OV = parcel.readString();
+        this.Or = parcel.readInt();
+        this.Os = parcel.readString();
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return OT;
+        return Oq;
     }
 
     @Override // android.os.Parcelable
@@ -51,7 +51,7 @@ public class AlaGameEntryData implements Parcelable, IAdapterData {
         parcel.writeInt(this.id);
         parcel.writeString(this.icon);
         parcel.writeString(this.name);
-        parcel.writeInt(this.OU);
-        parcel.writeString(this.OV);
+        parcel.writeInt(this.Or);
+        parcel.writeString(this.Os);
     }
 }

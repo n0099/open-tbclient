@@ -20,7 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends z {
-    public static String dsI = "com.baidu.tieba://";
+    public static String drQ = "com.baidu.tieba://";
     private String mCallback;
 
     public b(j jVar) {
@@ -57,7 +57,7 @@ public class b extends z {
             }
         }
         final String jSONObject = optJSONObject.toString();
-        bVar.Rd().a((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.o.b.1
+        bVar.Rf().a((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.o.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
@@ -113,12 +113,12 @@ public class b extends z {
     }
 
     private void sy(String str) {
-        com.baidu.swan.apps.process.messaging.client.a Iy;
-        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
-        if (QZ != null && (Iy = QZ.Iy()) != null) {
+        com.baidu.swan.apps.process.messaging.client.a Iz;
+        com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
+        if (Ra != null && (Iz = Ra.Iz()) != null) {
             Bundle bundle = new Bundle();
             bundle.putString("key_param_url", str);
-            Iy.a(bundle, a.class);
+            Iz.a(bundle, a.class);
         }
     }
 
@@ -144,7 +144,7 @@ public class b extends z {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str6 + str4;
             }
-            String str7 = dsI;
+            String str7 = drQ;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;

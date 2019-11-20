@@ -31,10 +31,10 @@ public class l {
     private static float displayMetricsDensity;
     static int displayMetricsHeightPixels;
     static int displayMetricsWidthPixels;
-    private static String rJ;
+    private static String rj;
     public static boolean deviceDataInited = false;
     private static Toast mToast = null;
-    private static a rI = null;
+    private static a ri = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
@@ -100,7 +100,7 @@ public class l {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
             if (mToast == null || Build.VERSION.SDK_INT >= 28) {
-                if (rI == null || rI.getToastContentView() == null) {
+                if (ri == null || ri.getToastContentView() == null) {
                     if (i == 3500) {
                         mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 1);
                     } else {
@@ -114,16 +114,16 @@ public class l {
                     } else {
                         mToast.setDuration(0);
                     }
-                    rI.setToastString(str);
-                    mToast.setView(rI.getToastContentView());
+                    ri.setToastString(str);
+                    mToast.setView(ri.getToastContentView());
                 }
                 mToast.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (!str.equals(rJ)) {
-                    if (rI == null || rI.getToastContentView() == null) {
+                if (!str.equals(rj)) {
+                    if (ri == null || ri.getToastContentView() == null) {
                         mToast.setText(str);
                     } else {
-                        rI.setToastString(str);
+                        ri.setToastString(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -137,7 +137,7 @@ public class l {
                 }
                 mToast.setGravity(17, 0, dip2px);
             }
-            rJ = str;
+            rj = str;
             mHandler.postDelayed(mRunnable, i);
             mToast.show();
         }
@@ -492,10 +492,10 @@ public class l {
     }
 
     public static a hc() {
-        return rI;
+        return ri;
     }
 
     public static void a(a aVar) {
-        rI = aVar;
+        ri = aVar;
     }
 }

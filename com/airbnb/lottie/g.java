@@ -3,7 +3,7 @@ package com.airbnb.lottie;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g {
-    private final String ec;
+    private final String dD;
     private final String fileName;
     private final int height;
     private final String id;
@@ -14,7 +14,7 @@ public class g {
         this.height = i2;
         this.id = str;
         this.fileName = str2;
-        this.ec = str3;
+        this.dD = str3;
     }
 
     /* loaded from: classes2.dex */
@@ -34,6 +34,6 @@ public class g {
     }
 
     public String bn() {
-        return this.ec;
+        return this.dD;
     }
 }

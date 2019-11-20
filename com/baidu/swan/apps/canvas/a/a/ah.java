@@ -7,7 +7,7 @@ import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class ah extends a {
-    private Paint.Align aGJ;
+    private Paint.Align aGr;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -15,11 +15,11 @@ public class ah extends a {
             if (jSONArray.length() > 0) {
                 String optString = jSONArray.optString(0);
                 if (TextUtils.equals(optString, "left")) {
-                    this.aGJ = Paint.Align.LEFT;
+                    this.aGr = Paint.Align.LEFT;
                 } else if (TextUtils.equals(optString, "center")) {
-                    this.aGJ = Paint.Align.CENTER;
+                    this.aGr = Paint.Align.CENTER;
                 } else if (TextUtils.equals(optString, HorizontalTranslateLayout.RIGHT)) {
-                    this.aGJ = Paint.Align.RIGHT;
+                    this.aGr = Paint.Align.RIGHT;
                 }
             }
         } catch (Exception e) {
@@ -31,8 +31,8 @@ public class ah extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.aGJ != null) {
-            bVar.aFT.setTextAlign(this.aGJ);
+        if (this.aGr != null) {
+            bVar.aFB.setTextAlign(this.aGr);
         }
     }
 }

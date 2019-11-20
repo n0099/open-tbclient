@@ -20,7 +20,7 @@ public class e {
         AccountHelper.setOnSyncAccountCallback(new OnSyncAccountCallback() { // from class: com.baidu.live.e.1
             @Override // com.baidu.live.tbadk.account.OnSyncAccountCallback
             public void onSyncAccount(boolean z) {
-                l.sR().ay(z);
+                l.sS().ay(z);
             }
         });
     }

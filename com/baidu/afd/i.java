@@ -9,35 +9,35 @@ public interface i {
 
     /* loaded from: classes.dex */
     public static class a implements i {
-        private d AQ;
-        private boolean AR;
-        private final HttpMessageListener AT = new HttpMessageListener(1003397) { // from class: com.baidu.afd.i.a.1
+        private d Ap;
+        private boolean Aq;
+        private final HttpMessageListener Ar = new HttpMessageListener(1003397) { // from class: com.baidu.afd.i.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003397 && (httpResponsedMessage instanceof AfdSyncResponseMessage)) {
                     e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
-                    a.this.AQ.a(eVar);
-                    if (eVar.AN && eVar.AP != null) {
-                        com.baidu.tieba.recapp.report.c.cgI().a(com.baidu.tieba.recapp.report.f.a(a.this.AQ, eVar.AP));
+                    a.this.Ap.a(eVar);
+                    if (eVar.Am && eVar.Ao != null) {
+                        com.baidu.tieba.recapp.report.c.cgG().a(com.baidu.tieba.recapp.report.f.a(a.this.Ap, eVar.Ao));
                     }
                 }
             }
         };
 
         public a(d dVar) {
-            this.AQ = dVar;
-            this.AT.setSelfListener(true);
-            this.AT.setTag(dVar.getTag());
-            MessageManager.getInstance().registerListener(this.AT);
+            this.Ap = dVar;
+            this.Ar.setSelfListener(true);
+            this.Ar.setTag(dVar.getTag());
+            MessageManager.getInstance().registerListener(this.Ar);
         }
 
         @Override // com.baidu.afd.i
         public void kg() {
-            if (!this.AR) {
-                this.AR = true;
-                AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.AQ.AI);
-                afdSyncRequestMessage.setTag(this.AQ.getTag());
+            if (!this.Aq) {
+                this.Aq = true;
+                AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.Ap.Ai);
+                afdSyncRequestMessage.setTag(this.Ap.getTag());
                 MessageManager.getInstance().sendMessage(afdSyncRequestMessage);
             }
         }

@@ -4,16 +4,16 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
-    private int elA;
-    private String elB;
-    private int elx;
-    private String ely;
-    private int elz;
+    private int ekG;
+    private String ekH;
+    private int ekI;
+    private int ekJ;
+    private String ekK;
 
     public MasterIdentityResponseMessage() {
         super(1021131);
-        this.elz = 0;
-        this.elA = 0;
+        this.ekI = 0;
+        this.ekJ = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,24 +21,24 @@ public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getError() == 0) {
-                this.elx = jSONObject.optInt("anchor_identity");
-                this.ely = jSONObject.optString("anchor_proportion");
-                this.elz = jSONObject.optInt("anchor_identity_status");
-                this.elA = jSONObject.optInt("anchor_proportion_status");
-                this.elB = jSONObject.optString("anchor_text");
+                this.ekG = jSONObject.optInt("anchor_identity");
+                this.ekH = jSONObject.optString("anchor_proportion");
+                this.ekI = jSONObject.optInt("anchor_identity_status");
+                this.ekJ = jSONObject.optInt("anchor_proportion_status");
+                this.ekK = jSONObject.optString("anchor_text");
             }
         }
     }
 
-    public int aUI() {
-        return this.elz;
+    public int aUG() {
+        return this.ekI;
     }
 
-    public int aUJ() {
-        return this.elA;
+    public int aUH() {
+        return this.ekJ;
     }
 
-    public String aUK() {
-        return this.elB;
+    public String aUI() {
+        return this.ekK;
     }
 }

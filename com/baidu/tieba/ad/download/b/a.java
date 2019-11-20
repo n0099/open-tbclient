@@ -8,8 +8,8 @@ import com.baidu.tieba.ad.download.a.c;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes3.dex */
 public interface a {
-    public static final AtomicReference<a> diy = new AtomicReference<>();
-    public static final a diz = new a() { // from class: com.baidu.tieba.ad.download.b.a.1
+    public static final AtomicReference<a> dhG = new AtomicReference<>();
+    public static final a dhH = new a() { // from class: com.baidu.tieba.ad.download.b.a.1
         @Override // com.baidu.tieba.ad.download.b.a
         public void b(@NonNull DownloadCacheKey downloadCacheKey, @Nullable AdDownloadData adDownloadData) {
             throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
@@ -26,12 +26,12 @@ public interface a {
         }
 
         @Override // com.baidu.tieba.ad.download.b.a
-        public c aDR() {
+        public c aDP() {
             throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
         }
     };
 
-    c aDR();
+    c aDP();
 
     void b(@NonNull DownloadCacheKey downloadCacheKey, @Nullable AdDownloadData adDownloadData);
 

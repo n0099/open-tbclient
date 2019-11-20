@@ -4,7 +4,7 @@ public class d {
 
     /* loaded from: classes2.dex */
     public static final class a {
-        public static String gC(int i) {
+        public static String gB(int i) {
             switch (i) {
                 case 1001:
                     return "system error";

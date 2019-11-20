@@ -8,13 +8,13 @@ import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.g;
 import com.baidu.tieba.ala.alasquare.subtablist.c.h;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.subtablist.b.b, g> {
-    private f dBQ;
-    private h dBR;
+    private f dAZ;
+    private h dBa;
     private int mFrom;
     private TbPageContext<?> mPageContext;
 
     public e(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.dDI);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.dCR);
         this.mPageContext = tbPageContext;
     }
 
@@ -27,25 +27,25 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: I */
     public g b(ViewGroup viewGroup) {
-        this.dBQ = new f(this.mPageContext, viewGroup);
-        if (this.dBR != null) {
-            this.dBQ.d(this.dBR);
+        this.dAZ = new f(this.mPageContext, viewGroup);
+        if (this.dBa != null) {
+            this.dAZ.d(this.dBa);
         }
-        return new g(this.dBQ);
+        return new g(this.dAZ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, g gVar) {
-        gVar.dBQ.a(bVar, this.mFrom);
+        gVar.dAZ.a(bVar, this.mFrom);
         return gVar.getView();
     }
 
     public void b(h hVar) {
-        this.dBR = hVar;
-        if (this.dBQ != null) {
-            this.dBQ.d(this.dBR);
+        this.dBa = hVar;
+        if (this.dAZ != null) {
+            this.dAZ.d(this.dBa);
         }
     }
 }

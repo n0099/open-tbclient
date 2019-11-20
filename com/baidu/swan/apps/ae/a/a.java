@@ -9,19 +9,19 @@ import java.util.TreeMap;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, d> bku = null;
+    private Map<String, d> bkc = null;
 
     public d a(String str, String str2, @NonNull d dVar) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return dVar;
         }
-        if (this.bku == null) {
-            this.bku = new TreeMap();
+        if (this.bkc == null) {
+            this.bkc = new TreeMap();
         }
-        d dVar2 = this.bku.get(str2);
+        d dVar2 = this.bkc.get(str2);
         if (dVar2 == null) {
             d b = b(str, str2, dVar);
-            this.bku.put(str2, b);
+            this.bkc.put(str2, b);
             return b;
         }
         return dVar2;

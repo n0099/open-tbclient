@@ -10,15 +10,15 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.sdk.a.c;
 /* loaded from: classes6.dex */
 public class a {
-    private static a iSd;
-    private c iSe;
-    private String iSh;
+    private static a iRm;
+    private c iRn;
+    private String iRq;
     private String mFrom;
-    private boolean iSf = false;
-    private boolean iSg = false;
+    private boolean iRo = false;
+    private boolean iRp = false;
     private boolean mIsValid = false;
-    private final int iSi = 2;
-    private final HttpMessageListener iSj = new HttpMessageListener(1003403) { // from class: com.baidu.tieba.sdk.verify.a.1
+    private final int iRr = 2;
+    private final HttpMessageListener iRs = new HttpMessageListener(1003403) { // from class: com.baidu.tieba.sdk.verify.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -27,11 +27,11 @@ public class a {
                 int statusCode = verifyStatusResponseMessage.getStatusCode();
                 int error = verifyStatusResponseMessage.getError();
                 if ((statusCode != 200 || error == 0) && statusCode == 200) {
-                    a.this.iSg = true;
-                    a.this.mIsValid = verifyStatusResponseMessage.cia();
+                    a.this.iRp = true;
+                    a.this.mIsValid = verifyStatusResponseMessage.chY();
                     return;
                 }
-                a.this.iSg = false;
+                a.this.iRp = false;
             }
         }
     };
@@ -39,9 +39,9 @@ public class a {
     private a() {
     }
 
-    private void chX() {
-        this.iSf = true;
-        MessageManager.getInstance().registerListener(this.iSj);
+    private void chV() {
+        this.iRo = true;
+        MessageManager.getInstance().registerListener(this.iRs);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003403, TbConfig.SERVER_ADDRESS + "ala/sdk/verify");
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
@@ -50,27 +50,27 @@ public class a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static a chY() {
-        if (iSd == null) {
+    public static a chW() {
+        if (iRm == null) {
             synchronized (a.class) {
-                if (iSd == null) {
-                    iSd = new a();
+                if (iRm == null) {
+                    iRm = new a();
                 }
             }
         }
-        return iSd;
+        return iRm;
     }
 
-    private boolean chZ() {
-        if (!this.iSf) {
-            chX();
+    private boolean chX() {
+        if (!this.iRo) {
+            chV();
         }
-        if (StringUtils.isNull(this.mFrom) || StringUtils.isNull(this.iSh)) {
+        if (StringUtils.isNull(this.mFrom) || StringUtils.isNull(this.iRq)) {
             throw new RuntimeException("SDK未设置参数");
         }
         HttpMessage httpMessage = new HttpMessage(1003403);
         httpMessage.addParam("from", this.mFrom);
-        httpMessage.addParam("packet_name", this.iSh);
+        httpMessage.addParam("packet_name", this.iRq);
         httpMessage.addParam("client_type", 2);
         MessageManager.getInstance().sendMessage(httpMessage);
         return true;
@@ -81,13 +81,13 @@ public class a {
     }
 
     public void Dk(String str) {
-        this.iSh = str;
-        if (!StringUtils.isNull(this.mFrom) && !StringUtils.isNull(this.iSh)) {
-            chZ();
+        this.iRq = str;
+        if (!StringUtils.isNull(this.mFrom) && !StringUtils.isNull(this.iRq)) {
+            chX();
         }
     }
 
     public void a(c cVar) {
-        this.iSe = cVar;
+        this.iRn = cVar;
     }
 }

@@ -3,22 +3,22 @@ package com.baidu.swan.games.screenrecord.a;
 import java.util.Comparator;
 /* loaded from: classes2.dex */
 public class a {
-    public long bDM;
-    public long bDN;
+    public long bCV;
+    public long bCW;
 
     public static long[] a(a aVar) {
         if (aVar == null) {
             return null;
         }
-        return new long[]{aVar.bDM, aVar.bDN};
+        return new long[]{aVar.bCV, aVar.bCW};
     }
 
     public boolean b(a aVar) {
-        if (this.bDM > aVar.bDN || this.bDN < aVar.bDM) {
+        if (this.bCV > aVar.bCW || this.bCW < aVar.bCV) {
             return false;
         }
-        this.bDM = Math.min(this.bDM, aVar.bDM);
-        this.bDN = Math.max(this.bDN, aVar.bDN);
+        this.bCV = Math.min(this.bCV, aVar.bCV);
+        this.bCW = Math.max(this.bCW, aVar.bCW);
         return true;
     }
 
@@ -29,7 +29,7 @@ public class a {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(a aVar, a aVar2) {
-            return (int) (aVar.bDM - aVar2.bDM);
+            return (int) (aVar.bCV - aVar2.bCV);
         }
     }
 }

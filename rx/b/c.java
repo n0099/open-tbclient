@@ -32,7 +32,7 @@ public class c<T> extends j<T> {
                 }
             } catch (Throwable th) {
                 try {
-                    rx.exceptions.a.J(th);
+                    rx.exceptions.a.K(th);
                     rx.c.c.onError(th);
                     throw new OnCompletedFailedException(th.getMessage(), th);
                 } catch (Throwable th2) {
@@ -48,10 +48,10 @@ public class c<T> extends j<T> {
 
     @Override // rx.e
     public void onError(Throwable th) {
-        rx.exceptions.a.J(th);
+        rx.exceptions.a.K(th);
         if (!this.done) {
             this.done = true;
-            Q(th);
+            R(th);
         }
     }
 
@@ -67,8 +67,8 @@ public class c<T> extends j<T> {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    protected void Q(Throwable th) {
-        rx.c.f.cPB().cPC().B(th);
+    protected void R(Throwable th) {
+        rx.c.f.cPz().cPA().C(th);
         try {
             this.actual.onError(th);
             try {

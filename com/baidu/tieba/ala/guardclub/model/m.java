@@ -5,8 +5,8 @@ import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import com.baidu.mobstat.Config;
 /* loaded from: classes6.dex */
 public class m extends HttpMessage {
-    private long OF;
-    private int dOi;
+    private long Of;
+    private int dNr;
     private int pn;
     private int ps;
 
@@ -14,7 +14,7 @@ public class m extends HttpMessage {
         super(1021138);
         this.ps = 20;
         this.pn = 1;
-        this.dOi = 2;
+        this.dNr = 2;
     }
 
     public void setPs(int i) {
@@ -25,15 +25,15 @@ public class m extends HttpMessage {
         this.pn = i;
     }
 
-    public void ca(long j) {
-        this.OF = j;
+    public void bZ(long j) {
+        this.Of = j;
     }
 
     public void setParams() {
-        addParam("scene_from", com.baidu.live.utils.o.wt());
+        addParam("scene_from", com.baidu.live.utils.o.wu());
         addParam("ps", this.ps);
         addParam(Config.PACKAGE_NAME, this.pn);
-        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.OF + ""));
-        addParam("client_type", this.dOi);
+        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.Of + ""));
+        addParam("client_type", this.dNr);
     }
 }

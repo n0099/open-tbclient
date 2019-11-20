@@ -39,18 +39,18 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             com.baidu.swan.games.r.c.h(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
             return false;
-        } else if (!bVar.Re().isLogin(context)) {
+        } else if (!bVar.Rg().isLogin(context)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not login");
             com.baidu.swan.games.r.c.h(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(10004, "user not login").toString());
             return true;
         } else {
-            com.baidu.swan.apps.ae.e.Rr().bks.get().AX().By().c((Activity) context, appKey).g(new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
+            com.baidu.swan.apps.ae.e.Rt().bka.get().AY().Bz().c((Activity) context, appKey).g(new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: a */
                 public void B(com.baidu.swan.apps.setting.oauth.g<JSONObject> gVar) {
                     JSONObject wrapCallbackParams;
-                    if (gVar.isOk() && b.this.aB(gVar.mData)) {
+                    if (gVar.isOk() && b.this.aC(gVar.mData)) {
                         wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(gVar.mData.optJSONObject("data"), gVar.getErrorCode());
                     } else {
                         wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(gVar.getErrorCode());
@@ -58,14 +58,14 @@ public class b extends z {
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
                 }
-            }).Si();
+            }).Sk();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aB(JSONObject jSONObject) {
+    public boolean aC(JSONObject jSONObject) {
         return jSONObject != null && TextUtils.equals(jSONObject.optString("errno"), "0");
     }
 }

@@ -33,11 +33,11 @@ public final class c {
         }
         com.baidu.swan.apps.v.b.c cVar = null;
         if (bVar instanceof com.baidu.swan.apps.core.pms.c) {
-            cVar = ((com.baidu.swan.apps.core.pms.c) bVar).Gl();
+            cVar = ((com.baidu.swan.apps.core.pms.c) bVar).Gm();
         } else if (bVar instanceof com.baidu.swan.apps.core.pms.e) {
-            cVar = ((com.baidu.swan.apps.core.pms.e) bVar).Gl();
+            cVar = ((com.baidu.swan.apps.core.pms.e) bVar).Gm();
         }
-        a(new com.baidu.swan.apps.statistic.a.d().ia(e.eL(i)).a(new com.baidu.swan.apps.ak.a().as(11L).at(2331L).iL("Retry=" + z + ", Scene=" + bVar.getClass().getName())).c(cVar));
+        a(new com.baidu.swan.apps.statistic.a.d().ia(e.eL(i)).a(new com.baidu.swan.apps.ak.a().ar(11L).as(2331L).iL("Retry=" + z + ", Scene=" + bVar.getClass().getName())).c(cVar));
         if (DEBUG) {
             Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + bVar.getClass().getSimpleName());
         }

@@ -1,30 +1,117 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.xiaomi.channel.commonutils.misc.h;
+import android.content.SharedPreferences;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class ao extends h.a {
-    private Context a;
+public class ao {
+    private static volatile ao a = null;
 
-    public ao(Context context) {
-        this.a = context;
+    /* renamed from: a  reason: collision with other field name */
+    private Context f36a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private List<ab> f37a = new ArrayList();
+
+    private ao(Context context) {
+        this.f36a = context.getApplicationContext();
+        if (this.f36a == null) {
+            this.f36a = context;
+        }
     }
 
-    @Override // com.xiaomi.channel.commonutils.misc.h.a
-    public int a() {
-        return 2;
+    public static ao a(Context context) {
+        if (a == null) {
+            synchronized (ao.class) {
+                if (a == null) {
+                    a = new ao(context);
+                }
+            }
+        }
+        return a;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.xiaomi.push.service.an a = com.xiaomi.push.service.an.a(this.a);
-        com.xiaomi.xmpush.thrift.ab abVar = new com.xiaomi.xmpush.thrift.ab();
-        abVar.a(com.xiaomi.push.service.ao.a(a, com.xiaomi.xmpush.thrift.h.MISC_CONFIG));
-        abVar.b(com.xiaomi.push.service.ao.a(a, com.xiaomi.xmpush.thrift.h.PLUGIN_CONFIG));
-        com.xiaomi.xmpush.thrift.ai aiVar = new com.xiaomi.xmpush.thrift.ai(LivenessStat.TYPE_STRING_DEFAULT, false);
-        aiVar.c(com.xiaomi.xmpush.thrift.r.DailyCheckClientConfig.aa);
-        aiVar.a(com.xiaomi.xmpush.thrift.at.a(abVar));
-        az.a(this.a).a((az) aiVar, com.xiaomi.xmpush.thrift.a.Notification, (com.xiaomi.xmpush.thrift.u) null);
+    public int a(String str) {
+        int i;
+        synchronized (this.f37a) {
+            ab abVar = new ab();
+            abVar.f32a = str;
+            if (this.f37a.contains(abVar)) {
+                for (ab abVar2 : this.f37a) {
+                    if (abVar2.equals(abVar)) {
+                        i = abVar2.a;
+                        break;
+                    }
+                }
+            }
+            i = 0;
+        }
+        return i;
+    }
+
+    public synchronized String a(bd bdVar) {
+        return this.f36a.getSharedPreferences("mipush_extra", 0).getString(bdVar.name(), "");
+    }
+
+    public synchronized void a(bd bdVar, String str) {
+        SharedPreferences sharedPreferences = this.f36a.getSharedPreferences("mipush_extra", 0);
+        sharedPreferences.edit().putString(bdVar.name(), str).commit();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public void m45a(String str) {
+        synchronized (this.f37a) {
+            ab abVar = new ab();
+            abVar.a = 0;
+            abVar.f32a = str;
+            if (this.f37a.contains(abVar)) {
+                this.f37a.remove(abVar);
+            }
+            this.f37a.add(abVar);
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m46a(String str) {
+        boolean z;
+        synchronized (this.f37a) {
+            ab abVar = new ab();
+            abVar.f32a = str;
+            z = this.f37a.contains(abVar);
+        }
+        return z;
+    }
+
+    public void b(String str) {
+        ab abVar;
+        synchronized (this.f37a) {
+            ab abVar2 = new ab();
+            abVar2.f32a = str;
+            if (this.f37a.contains(abVar2)) {
+                Iterator<ab> it = this.f37a.iterator();
+                while (it.hasNext()) {
+                    abVar = it.next();
+                    if (abVar2.equals(abVar)) {
+                        break;
+                    }
+                }
+            }
+            abVar = abVar2;
+            abVar.a++;
+            this.f37a.remove(abVar);
+            this.f37a.add(abVar);
+        }
+    }
+
+    public void c(String str) {
+        synchronized (this.f37a) {
+            ab abVar = new ab();
+            abVar.f32a = str;
+            if (this.f37a.contains(abVar)) {
+                this.f37a.remove(abVar);
+            }
+        }
     }
 }

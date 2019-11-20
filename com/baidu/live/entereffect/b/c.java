@@ -17,10 +17,10 @@ import org.json.JSONException;
 /* loaded from: classes6.dex */
 public class c {
     private static final String DIR_PATH = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/enter_effect/";
-    private List<com.baidu.live.entereffect.a.a> VY;
+    private List<com.baidu.live.entereffect.a.a> VF;
 
     public static c oK() {
-        return a.Wb;
+        return a.VI;
     }
 
     public void q(final List<com.baidu.live.entereffect.a.a> list) {
@@ -72,10 +72,10 @@ public class c {
     }
 
     public com.baidu.live.entereffect.a.a bY(String str) {
-        if (this.VY == null || this.VY.isEmpty()) {
+        if (this.VF == null || this.VF.isEmpty()) {
             return null;
         }
-        for (com.baidu.live.entereffect.a.a aVar : this.VY) {
+        for (com.baidu.live.entereffect.a.a aVar : this.VF) {
             if (aVar.id.equals(str)) {
                 return aVar;
             }
@@ -84,8 +84,8 @@ public class c {
     }
 
     public void release() {
-        if (this.VY != null) {
-            this.VY.clear();
+        if (this.VF != null) {
+            this.VF.clear();
         }
         com.baidu.live.d.b.aY(20);
     }
@@ -97,8 +97,8 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void oL() {
-        if (this.VY != null) {
-            this.VY.clear();
+        if (this.VF != null) {
+            this.VF.clear();
         }
         com.baidu.live.c.np().putString("enter_effect_dynamic_available_list", "");
         com.baidu.live.d.a.cleanDir(new File(DIR_PATH));
@@ -133,8 +133,8 @@ public class c {
                 if (next.frameCount <= 0) {
                     z = true;
                 } else {
-                    next.VG.upZipDirPath = cd(next.id);
-                    ArrayList<String> dynamicGiftPicPathList = next.VG.getDynamicGiftPicPathList();
+                    next.Vn.upZipDirPath = cd(next.id);
+                    ArrayList<String> dynamicGiftPicPathList = next.Vn.getDynamicGiftPicPathList();
                     if (dynamicGiftPicPathList == null || dynamicGiftPicPathList.size() != next.frameCount) {
                         z = true;
                     } else {
@@ -176,12 +176,12 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.live.entereffect.a.a... aVarArr) {
         if (aVarArr != null && aVarArr.length != 0) {
-            if (this.VY == null) {
-                this.VY = new ArrayList();
+            if (this.VF == null) {
+                this.VF = new ArrayList();
             }
-            Collections.addAll(this.VY, aVarArr);
+            Collections.addAll(this.VF, aVarArr);
             JSONArray jSONArray = new JSONArray();
-            for (com.baidu.live.entereffect.a.a aVar : this.VY) {
+            for (com.baidu.live.entereffect.a.a aVar : this.VF) {
                 if (aVar.oI() != null) {
                     jSONArray.put(aVar.oI());
                 }
@@ -215,6 +215,6 @@ public class c {
 
     /* loaded from: classes6.dex */
     private static class a {
-        private static c Wb = new c();
+        private static c VI = new c();
     }
 }

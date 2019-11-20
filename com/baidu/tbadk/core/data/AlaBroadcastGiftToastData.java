@@ -17,7 +17,7 @@ public class AlaBroadcastGiftToastData extends k implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ht */
+        /* renamed from: hs */
         public AlaBroadcastGiftToastData[] newArray(int i) {
             return new AlaBroadcastGiftToastData[i];
         }

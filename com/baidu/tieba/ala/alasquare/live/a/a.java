@@ -18,7 +18,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live.b.b, com.baidu.tieba.ala.alasquare.b.a> {
-    private IAlaSquareTabController dvu;
+    private IAlaSquareTabController duD;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -55,10 +55,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.dvu != null) {
-                    int tabIndex = a.this.dvu.getTabIndex(bVar.tabId);
+                if (a.this.duD != null) {
+                    int tabIndex = a.this.duD.getTabIndex(bVar.tabId);
                     if (tabIndex >= 0) {
-                        a.this.dvu.goToTab(tabIndex);
+                        a.this.duD.goToTab(tabIndex);
                         return;
                     } else {
                         a.this.a(bVar);
@@ -73,10 +73,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.alasquare.live.b.b bVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(this.mContext, bVar.OV, bVar.entryName, bVar.labelName, (bVar.dvH == null || !(bVar.dvH instanceof ArrayList)) ? null : (ArrayList) bVar.dvH)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(this.mContext, bVar.Os, bVar.entryName, bVar.labelName, (bVar.duQ == null || !(bVar.duQ instanceof ArrayList)) ? null : (ArrayList) bVar.duQ)));
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.dvu = iAlaSquareTabController;
+        this.duD = iAlaSquareTabController;
     }
 }

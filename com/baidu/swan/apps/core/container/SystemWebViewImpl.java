@@ -11,8 +11,8 @@ import com.baidu.swan.apps.b.c.d;
 /* loaded from: classes2.dex */
 public class SystemWebViewImpl extends WebView implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b aKh;
-    private c aKi;
+    private b aJP;
+    private c aJQ;
     private boolean mDestroyed;
 
     public SystemWebViewImpl(Context context) {
@@ -39,7 +39,7 @@ public class SystemWebViewImpl extends WebView implements d {
     }
 
     @Override // com.baidu.swan.apps.b.c.d
-    public View Cq() {
+    public View Cr() {
         return this;
     }
 
@@ -54,20 +54,20 @@ public class SystemWebViewImpl extends WebView implements d {
     }
 
     @Override // com.baidu.swan.apps.b.c.d
-    public void G(int i, int i2) {
+    public void E(int i, int i2) {
         scrollTo(i, i2);
     }
 
     public void setOnCommonEventHandler(b bVar) {
-        this.aKh = bVar;
+        this.aJP = bVar;
     }
 
     public void setOnWebViewHookHandler(c cVar) {
-        this.aKi = cVar;
+        this.aJQ = cVar;
     }
 
     @Override // com.baidu.swan.apps.core.container.a
-    public boolean Ep() {
+    public boolean Eq() {
         return true;
     }
 
@@ -79,23 +79,23 @@ public class SystemWebViewImpl extends WebView implements d {
     @Override // android.webkit.WebView, com.baidu.swan.apps.b.c.d
     public boolean canGoBack() {
         boolean canGoBack = super.canGoBack();
-        if (this.aKi != null) {
-            return this.aKi.bq(canGoBack);
+        if (this.aJQ != null) {
+            return this.aJQ.bq(canGoBack);
         }
         return canGoBack;
     }
 
     @Override // android.webkit.WebView, com.baidu.swan.apps.b.c.d
     public void goBack() {
-        if (this.aKi != null) {
-            this.aKi.DR();
+        if (this.aJQ != null) {
+            this.aJQ.DS();
         }
         super.goBack();
     }
 
     @Override // android.webkit.WebView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.aKh == null || !this.aKh.onTouchEvent(motionEvent)) {
+        if (this.aJP == null || !this.aJP.onTouchEvent(motionEvent)) {
             return super.onTouchEvent(motionEvent);
         }
         return true;
@@ -111,7 +111,7 @@ public class SystemWebViewImpl extends WebView implements d {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.aKh == null || !this.aKh.dispatchTouchEvent(motionEvent)) {
+        if (this.aJP == null || !this.aJP.dispatchTouchEvent(motionEvent)) {
             return super.dispatchTouchEvent(motionEvent);
         }
         return true;
@@ -122,14 +122,14 @@ public class SystemWebViewImpl extends WebView implements d {
         if (super.onKeyDown(i, keyEvent)) {
             return true;
         }
-        return this.aKh != null && this.aKh.onKeyDown(i, keyEvent);
+        return this.aJP != null && this.aJP.onKeyDown(i, keyEvent);
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.aKh != null) {
-            this.aKh.onScrollChanged(i, i2, i3, i4);
+        if (this.aJP != null) {
+            this.aJP.onScrollChanged(i, i2, i3, i4);
         }
     }
 }

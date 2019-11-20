@@ -11,9 +11,9 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes2.dex */
 public abstract class j<E> extends h {
-    private p bND;
-    private com.baidu.swan.support.v4.b.f<String, o> bNM;
-    final l bNz;
+    final l bMI;
+    private p bMM;
+    private com.baidu.swan.support.v4.b.f<String, o> bMV;
     private final Activity mActivity;
     private boolean mCheckedForLoaderManager;
     final Context mContext;
@@ -27,7 +27,7 @@ public abstract class j<E> extends h {
     }
 
     j(Activity activity, Context context, Handler handler, int i) {
-        this.bNz = new l();
+        this.bMI = new l();
         this.mActivity = activity;
         this.mContext = context;
         this.mHandler = handler;
@@ -86,16 +86,16 @@ public abstract class j<E> extends h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l abZ() {
-        return this.bNz;
+    public l abX() {
+        return this.bMI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void inactivateFragment(String str) {
         p pVar;
-        if (this.bNM != null && (pVar = (p) this.bNM.get(str)) != null && !pVar.mRetaining) {
+        if (this.bMV != null && (pVar = (p) this.bMV.get(str)) != null && !pVar.mRetaining) {
             pVar.doDestroy();
-            this.bNM.remove(str);
+            this.bMV.remove(str);
         }
     }
 
@@ -107,12 +107,12 @@ public abstract class j<E> extends h {
     public void doLoaderStart() {
         if (!this.mLoadersStarted) {
             this.mLoadersStarted = true;
-            if (this.bND != null) {
-                this.bND.doStart();
+            if (this.bMM != null) {
+                this.bMM.doStart();
             } else if (!this.mCheckedForLoaderManager) {
-                this.bND = d("(root)", this.mLoadersStarted, false);
-                if (this.bND != null && !this.bND.mStarted) {
-                    this.bND.doStart();
+                this.bMM = d("(root)", this.mLoadersStarted, false);
+                if (this.bMM != null && !this.bMM.mStarted) {
+                    this.bMM.doStart();
                 }
             }
             this.mCheckedForLoaderManager = true;
@@ -121,30 +121,30 @@ public abstract class j<E> extends h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void doLoaderStop(boolean z) {
-        if (this.bND != null && this.mLoadersStarted) {
+        if (this.bMM != null && this.mLoadersStarted) {
             this.mLoadersStarted = false;
             if (z) {
-                this.bND.doRetain();
+                this.bMM.doRetain();
             } else {
-                this.bND.doStop();
+                this.bMM.doStop();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void doLoaderDestroy() {
-        if (this.bND != null) {
-            this.bND.doDestroy();
+        if (this.bMM != null) {
+            this.bMM.doDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reportLoaderStart() {
-        if (this.bNM != null) {
-            int size = this.bNM.size();
+        if (this.bMV != null) {
+            int size = this.bMV.size();
             p[] pVarArr = new p[size];
             for (int i = size - 1; i >= 0; i--) {
-                pVarArr[i] = (p) this.bNM.valueAt(i);
+                pVarArr[i] = (p) this.bMV.valueAt(i);
             }
             for (int i2 = 0; i2 < size; i2++) {
                 p pVar = pVarArr[i2];
@@ -156,14 +156,14 @@ public abstract class j<E> extends h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p d(String str, boolean z, boolean z2) {
-        if (this.bNM == null) {
-            this.bNM = new com.baidu.swan.support.v4.b.f<>();
+        if (this.bMV == null) {
+            this.bMV = new com.baidu.swan.support.v4.b.f<>();
         }
-        p pVar = (p) this.bNM.get(str);
+        p pVar = (p) this.bMV.get(str);
         if (pVar == null) {
             if (z2) {
                 p pVar2 = new p(str, this, z);
-                this.bNM.put(str, pVar2);
+                this.bMV.put(str, pVar2);
                 return pVar2;
             }
             return pVar;
@@ -173,13 +173,13 @@ public abstract class j<E> extends h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.baidu.swan.support.v4.b.f<String, o> abY() {
+    public com.baidu.swan.support.v4.b.f<String, o> abW() {
         boolean z;
-        if (this.bNM != null) {
-            int size = this.bNM.size();
+        if (this.bMV != null) {
+            int size = this.bMV.size();
             p[] pVarArr = new p[size];
             for (int i = size - 1; i >= 0; i--) {
-                pVarArr[i] = (p) this.bNM.valueAt(i);
+                pVarArr[i] = (p) this.bMV.valueAt(i);
             }
             z = false;
             for (int i2 = 0; i2 < size; i2++) {
@@ -188,21 +188,21 @@ public abstract class j<E> extends h {
                     z = true;
                 } else {
                     pVar.doDestroy();
-                    this.bNM.remove(pVar.mWho);
+                    this.bMV.remove(pVar.mWho);
                 }
             }
         } else {
             z = false;
         }
         if (z) {
-            return this.bNM;
+            return this.bMV;
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {
-        this.bNM = fVar;
+        this.bMV = fVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -210,12 +210,12 @@ public abstract class j<E> extends h {
         printWriter.print(str);
         printWriter.print("mLoadersStarted=");
         printWriter.println(this.mLoadersStarted);
-        if (this.bND != null) {
+        if (this.bMM != null) {
             printWriter.print(str);
             printWriter.print("Loader Manager ");
-            printWriter.print(Integer.toHexString(System.identityHashCode(this.bND)));
+            printWriter.print(Integer.toHexString(System.identityHashCode(this.bMM)));
             printWriter.println(":");
-            this.bND.dump(str + "  ", fileDescriptor, printWriter, strArr);
+            this.bMM.dump(str + "  ", fileDescriptor, printWriter, strArr);
         }
     }
 }

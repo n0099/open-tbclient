@@ -10,15 +10,15 @@ import com.baidu.swan.apps.view.container.SwanAppNAViewContainer;
 /* loaded from: classes2.dex */
 public class SwanAppNativeViewContainer<V extends a<? extends View, M>, M extends com.baidu.swan.apps.button.b.a> extends SwanAppNAViewContainer {
     private static final boolean DEBUG = b.DEBUG;
-    protected V aES;
+    protected V aEA;
 
     public SwanAppNativeViewContainer(@NonNull Context context) {
         super(context);
     }
 
     public boolean a(@NonNull V v) {
-        this.aES = v;
-        return super.a(this.aES.getView(), this.aES.getModel());
+        this.aEA = v;
+        return super.a(this.aEA.getView(), this.aEA.getModel());
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.baidu.swan.apps.button.container.SwanAppNativeViewContainer<V extends com.baidu.swan.apps.button.view.a<? extends android.view.View, M>, M extends com.baidu.swan.apps.button.b.a> */
@@ -43,7 +43,7 @@ public class SwanAppNativeViewContainer<V extends a<? extends View, M>, M extend
     }
 
     public boolean a(@NonNull M m) {
-        return this.aES.a(m) && super.a((com.baidu.swan.apps.model.a.a.a) m);
+        return this.aEA.a(m) && super.a((com.baidu.swan.apps.model.a.a.a) m);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.baidu.swan.apps.button.container.SwanAppNativeViewContainer<V extends com.baidu.swan.apps.button.view.a<? extends android.view.View, M>, M extends com.baidu.swan.apps.button.b.a> */

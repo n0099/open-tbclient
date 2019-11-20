@@ -67,18 +67,18 @@ public class ab extends z {
         }
         switch (c) {
             case 0:
-                com.baidu.swan.apps.core.g.a Hb = com.baidu.swan.apps.core.j.c.GO().Hb();
-                if (Hb instanceof com.baidu.swan.apps.core.g.e) {
-                    i = ((com.baidu.swan.apps.core.g.e) Hb).Gd();
+                com.baidu.swan.apps.core.g.a Hc = com.baidu.swan.apps.core.j.c.GP().Hc();
+                if (Hc instanceof com.baidu.swan.apps.core.g.e) {
+                    i = ((com.baidu.swan.apps.core.g.e) Hc).Ge();
                     if (DEBUG) {
                         Log.d("SwanAppAction", "ID_PERFORMANCED_FLOW CodeCache status: " + i);
                     }
                 } else {
                     i = 0;
                 }
-                com.baidu.swan.apps.performance.f.NJ().az("codecache", String.valueOf(i)).X(u(optParamsAsJo.optJSONArray("data"))).No();
+                com.baidu.swan.apps.performance.f.NK().az("codecache", String.valueOf(i)).X(u(optParamsAsJo.optJSONArray("data"))).Np();
                 com.baidu.swan.apps.statistic.e.cO(true);
-                com.baidu.swan.apps.statistic.e.SA();
+                com.baidu.swan.apps.statistic.e.SC();
                 break;
             case 1:
                 v(optParamsAsJo.optJSONArray("data"));
@@ -100,22 +100,22 @@ public class ab extends z {
     List<UbcFlowEvent> u(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
-            UbcFlowEvent ay = ay(jSONArray.optJSONObject(i));
-            if (ay != null) {
-                ay.gM("FE");
-                arrayList.add(ay);
+            UbcFlowEvent az = az(jSONArray.optJSONObject(i));
+            if (az != null) {
+                az.gM("FE");
+                arrayList.add(az);
             }
         }
         return arrayList;
     }
 
-    UbcFlowEvent ay(JSONObject jSONObject) {
+    UbcFlowEvent az(JSONObject jSONObject) {
         String optString = jSONObject.optString("actionId");
         long optLong = jSONObject.optLong("timestamp");
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
-        return new UbcFlowEvent(optString).af(optLong);
+        return new UbcFlowEvent(optString).ae(optLong);
     }
 
     private void v(JSONArray jSONArray) {
@@ -132,7 +132,7 @@ public class ab extends z {
                     SearchFlowEvent searchFlowEvent = new SearchFlowEvent(optString);
                     searchFlowEvent.timestamp = Long.valueOf(optString3).longValue();
                     searchFlowEvent.data = optString2;
-                    searchFlowEvent.bpQ = SearchFlowEvent.EventType.END;
+                    searchFlowEvent.bpy = SearchFlowEvent.EventType.END;
                     com.baidu.swan.apps.statistic.search.b.a(searchFlowEvent);
                 }
             } catch (NumberFormatException e) {
@@ -145,8 +145,8 @@ public class ab extends z {
 
     private void w(JSONArray jSONArray) {
         long longValue;
-        com.baidu.swan.apps.core.d.d Fr = com.baidu.swan.apps.w.e.LD().Fr();
-        if (Fr != null) {
+        com.baidu.swan.apps.core.d.d Fs = com.baidu.swan.apps.w.e.LE().Fs();
+        if (Fs != null) {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(0);
                 if (jSONObject != null) {
@@ -158,10 +158,10 @@ public class ab extends z {
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
-                        Fr.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                        Fs.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                     }
                     longValue = 0;
-                    Fr.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                    Fs.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -170,6 +170,6 @@ public class ab extends z {
     }
 
     private void x(@Nullable JSONArray jSONArray) {
-        com.baidu.swan.apps.y.f.Mw().o(jSONArray);
+        com.baidu.swan.apps.y.f.Mx().o(jSONArray);
     }
 }

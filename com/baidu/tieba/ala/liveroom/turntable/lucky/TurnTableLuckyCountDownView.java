@@ -10,13 +10,13 @@ import android.view.View;
 import com.baidu.live.k.a;
 /* loaded from: classes6.dex */
 public class TurnTableLuckyCountDownView extends View {
-    private Paint ajo;
-    private float epr;
-    private float eps;
-    private float ept;
-    private Paint epu;
-    private RectF epv;
-    private String epw;
+    private Paint aiW;
+    private float eoA;
+    private float eoB;
+    private float eoC;
+    private Paint eoD;
+    private RectF eoE;
+    private String eoF;
     private float mProgress;
 
     public TurnTableLuckyCountDownView(Context context, @Nullable AttributeSet attributeSet) {
@@ -25,7 +25,7 @@ public class TurnTableLuckyCountDownView extends View {
     }
 
     public void setTimer(String str, float f) {
-        this.epw = str;
+        this.eoF = str;
         this.mProgress = f;
         invalidate();
     }
@@ -33,40 +33,40 @@ public class TurnTableLuckyCountDownView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        Paint.FontMetricsInt fontMetricsInt = this.ajo.getFontMetricsInt();
-        this.epr = i * 0.5f;
-        this.eps = ((i2 - fontMetricsInt.top) - fontMetricsInt.bottom) * 0.5f;
-        this.epv.set(this.ept * 0.5f, this.ept * 0.5f, i - (this.ept * 0.5f), i2 - (this.ept * 0.5f));
+        Paint.FontMetricsInt fontMetricsInt = this.aiW.getFontMetricsInt();
+        this.eoA = i * 0.5f;
+        this.eoB = ((i2 - fontMetricsInt.top) - fontMetricsInt.bottom) * 0.5f;
+        this.eoE.set(this.eoC * 0.5f, this.eoC * 0.5f, i - (this.eoC * 0.5f), i2 - (this.eoC * 0.5f));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawArc(this.epv, -90.0f, this.mProgress * (-360.0f), false, this.epu);
-        canvas.drawText(this.epw, this.epr, this.eps, this.ajo);
+        canvas.drawArc(this.eoE, -90.0f, this.mProgress * (-360.0f), false, this.eoD);
+        canvas.drawText(this.eoF, this.eoA, this.eoB, this.aiW);
     }
 
     private void init() {
-        aWl();
+        aWj();
         initProgress();
     }
 
-    private void aWl() {
-        this.ajo = new Paint(1);
-        this.ajo.setDither(true);
-        this.ajo.setColor(-1);
-        this.ajo.setStyle(Paint.Style.FILL);
-        this.ajo.setTextAlign(Paint.Align.CENTER);
-        this.ajo.setTextSize(getResources().getDimensionPixelSize(a.e.sdk_fontsize24));
+    private void aWj() {
+        this.aiW = new Paint(1);
+        this.aiW.setDither(true);
+        this.aiW.setColor(-1);
+        this.aiW.setStyle(Paint.Style.FILL);
+        this.aiW.setTextAlign(Paint.Align.CENTER);
+        this.aiW.setTextSize(getResources().getDimensionPixelSize(a.e.sdk_fontsize24));
     }
 
     private void initProgress() {
-        this.ept = getResources().getDimensionPixelOffset(a.e.sdk_ds6);
-        this.epu = new Paint(1);
-        this.epu.setDither(true);
-        this.epu.setColor(-12753);
-        this.epu.setStrokeWidth(this.ept);
-        this.epu.setStyle(Paint.Style.STROKE);
-        this.epv = new RectF();
+        this.eoC = getResources().getDimensionPixelOffset(a.e.sdk_ds6);
+        this.eoD = new Paint(1);
+        this.eoD.setDither(true);
+        this.eoD.setColor(-12753);
+        this.eoD.setStrokeWidth(this.eoC);
+        this.eoD.setStyle(Paint.Style.STROKE);
+        this.eoE = new RectF();
     }
 }

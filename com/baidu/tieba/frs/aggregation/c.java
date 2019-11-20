@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.aggregation;
 /* loaded from: classes4.dex */
 public interface c {
-    void bml();
+    void bmj();
 
     void kg(boolean z);
 

@@ -31,7 +31,7 @@ public class g extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        String string = bVar.Rc().SL().getString(optString, "");
+        String string = bVar.Re().SN().getString(optString, "");
         try {
             JSONObject is = is(string);
             if (is == null) {

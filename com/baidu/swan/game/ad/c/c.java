@@ -25,9 +25,9 @@ public class c extends d {
         hashMap.put("prod", this.c);
         hashMap.put("at", this.d);
         hashMap.put(IXAdRequestInfo.FET, this.e);
-        if (this.bxm != null) {
-            hashMap.put("w", "" + this.bxm.a());
-            hashMap.put("h", "" + this.bxm.b());
+        if (this.bwv != null) {
+            hashMap.put("w", "" + this.bwv.a());
+            hashMap.put("h", "" + this.bwv.b());
         }
         return hashMap;
     }

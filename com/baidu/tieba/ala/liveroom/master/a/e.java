@@ -13,7 +13,7 @@ public class e extends a {
         super.a(s, obj);
         switch (s) {
             case 1:
-                this.dZB.efW.a((short) 2, null);
+                this.dYK.eff.a((short) 2, null);
                 return;
             default:
                 return;
@@ -21,35 +21,35 @@ public class e extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aUv() {
-        if (this.dZB != null && this.dZB.efV != null) {
-            if (this.elc != null) {
-                this.elc.nK(2);
+    public void aUt() {
+        if (this.dYK != null && this.dYK.efe != null) {
+            if (this.ekl != null) {
+                this.ekl.nJ(2);
             }
-            this.dZB.efV.startRecord();
+            this.dYK.efe.startRecord();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void ac(int i, String str) {
-        if (this.dZB != null && this.dZB.efV.getVideoRecorderType() == VideoRecorderType.SCREEN) {
+    public void ab(int i, String str) {
+        if (this.dYK != null && this.dYK.efe.getVideoRecorderType() == VideoRecorderType.SCREEN) {
             if (i == 0) {
-                if (this.dZB != null && this.dZB.efW != null && this.mCurrentState != 4) {
-                    this.dZB.efW.a((short) 4, this.ejR);
+                if (this.dYK != null && this.dYK.eff != null && this.mCurrentState != 4) {
+                    this.dYK.eff.a((short) 4, this.eja);
                 }
-            } else if (this.elb != null) {
-                this.elb.onError(i, str);
+            } else if (this.ekk != null) {
+                this.ekk.onError(i, str);
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aUw() {
-        super.aUw();
+    public void aUu() {
+        super.aUu();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aUx() {
-        super.aUx();
+    public void aUv() {
+        super.aUv();
     }
 }

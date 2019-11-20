@@ -1,100 +1,129 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.os.Build;
-import android.os.Looper;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
+import android.text.TextUtils;
+import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.xiaomi.mipush.sdk.Constants;
+import com.xiaomi.push.Cif;
+import com.xiaomi.push.hj;
+import com.xiaomi.push.hk;
+import com.xiaomi.push.hq;
+import com.xiaomi.push.iq;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes3.dex */
 public class be {
-    private static be a;
-    private static String e = null;
-    private Context b;
-    private boolean d;
-    private Messenger h;
-    private List<Message> f = new ArrayList();
-    private boolean g = false;
-    private Messenger c = new Messenger(new bf(this, Looper.getMainLooper()));
 
-    private be(Context context) {
-        this.d = false;
-        this.b = context.getApplicationContext();
-        if (a()) {
-            com.xiaomi.channel.commonutils.logger.b.c("use miui push service");
-            this.d = true;
-        }
-    }
+    /* renamed from: a  reason: collision with other field name */
+    private static AtomicLong f896a = new AtomicLong(0);
 
-    public static be a(Context context) {
-        if (a == null) {
-            a = new be(context);
-        }
-        return a;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    private static SimpleDateFormat f895a = new SimpleDateFormat("yyyy/MM/dd");
+    private static String a = f895a.format(Long.valueOf(System.currentTimeMillis()));
 
-    private boolean a() {
-        if (com.xiaomi.channel.commonutils.misc.a.f) {
-            return false;
-        }
-        try {
-            PackageInfo packageInfo = this.b.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
-            if (packageInfo != null) {
-                return packageInfo.versionCode >= 104;
+    public static synchronized String a() {
+        String str;
+        synchronized (be.class) {
+            String format = f895a.format(Long.valueOf(System.currentTimeMillis()));
+            if (!TextUtils.equals(a, format)) {
+                f896a.set(0L);
+                a = format;
             }
-            return false;
-        } catch (Exception e2) {
-            return false;
+            str = format + Constants.ACCEPT_TIME_SEPARATOR_SERVER + f896a.incrementAndGet();
         }
+        return str;
     }
 
-    private synchronized void b(Intent intent) {
-        if (this.g) {
-            Message c = c(intent);
-            if (this.f.size() >= 50) {
-                this.f.remove(0);
-            }
-            this.f.add(c);
-        } else if (this.h == null) {
-            Context context = this.b;
-            bg bgVar = new bg(this);
-            Context context2 = this.b;
-            context.bindService(intent, bgVar, 1);
-            this.g = true;
-            this.f.clear();
-            this.f.add(c(intent));
+    public static ArrayList<Cif> a(List<hk> list, String str, String str2, int i) {
+        if (list == null) {
+            com.xiaomi.channel.commonutils.logger.b.d("requests can not be null in TinyDataHelper.transToThriftObj().");
+            return null;
+        } else if (list.size() == 0) {
+            com.xiaomi.channel.commonutils.logger.b.d("requests.length is 0 in TinyDataHelper.transToThriftObj().");
+            return null;
         } else {
-            try {
-                this.h.send(c(intent));
-            } catch (RemoteException e2) {
-                this.h = null;
-                this.g = false;
+            ArrayList<Cif> arrayList = new ArrayList<>();
+            int i2 = 0;
+            hj hjVar = new hj();
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                hk hkVar = list.get(i3);
+                if (hkVar != null) {
+                    int length = iq.a(hkVar).length;
+                    if (length > i) {
+                        com.xiaomi.channel.commonutils.logger.b.d("TinyData is too big, ignore upload request item:" + hkVar.d());
+                    } else {
+                        if (i2 + length > i) {
+                            Cif cif = new Cif(LivenessStat.TYPE_STRING_DEFAULT, false);
+                            cif.d(str);
+                            cif.b(str2);
+                            cif.c(hq.UploadTinyData.f489a);
+                            cif.a(com.xiaomi.push.y.a(iq.a(hjVar)));
+                            arrayList.add(cif);
+                            hjVar = new hj();
+                            i2 = 0;
+                        }
+                        hjVar.a(hkVar);
+                        i2 += length;
+                    }
+                }
             }
+            if (hjVar.a() != 0) {
+                Cif cif2 = new Cif(LivenessStat.TYPE_STRING_DEFAULT, false);
+                cif2.d(str);
+                cif2.b(str2);
+                cif2.c(hq.UploadTinyData.f489a);
+                cif2.a(com.xiaomi.push.y.a(iq.a(hjVar)));
+                arrayList.add(cif2);
+            }
+            return arrayList;
         }
     }
 
-    private Message c(Intent intent) {
-        Message obtain = Message.obtain();
-        obtain.what = 17;
-        obtain.obj = intent;
-        return obtain;
+    public static void a(Context context, String str, String str2, long j, String str3) {
+        hk hkVar = new hk();
+        hkVar.d(str);
+        hkVar.c(str2);
+        hkVar.a(j);
+        hkVar.b(str3);
+        hkVar.a("push_sdk_channel");
+        hkVar.g(context.getPackageName());
+        hkVar.e(context.getPackageName());
+        hkVar.a(true);
+        hkVar.b(System.currentTimeMillis());
+        hkVar.f(a());
+        bf.a(context, hkVar);
     }
 
-    public boolean a(Intent intent) {
-        try {
-            if (com.xiaomi.channel.commonutils.android.f.a() || Build.VERSION.SDK_INT < 26) {
-                this.b.startService(intent);
-            } else {
-                b(intent);
-            }
+    public static boolean a(hk hkVar, boolean z) {
+        if (hkVar == null) {
+            com.xiaomi.channel.commonutils.logger.b.m30a("item is null, verfiy ClientUploadDataItem failed.");
             return true;
-        } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.a(e2);
+        } else if (!z && TextUtils.isEmpty(hkVar.f461a)) {
+            com.xiaomi.channel.commonutils.logger.b.m30a("item.channel is null or empty, verfiy ClientUploadDataItem failed.");
+            return true;
+        } else if (TextUtils.isEmpty(hkVar.f468d)) {
+            com.xiaomi.channel.commonutils.logger.b.m30a("item.category is null or empty, verfiy ClientUploadDataItem failed.");
+            return true;
+        } else if (TextUtils.isEmpty(hkVar.f467c)) {
+            com.xiaomi.channel.commonutils.logger.b.m30a("item.name is null or empty, verfiy ClientUploadDataItem failed.");
+            return true;
+        } else if (!com.xiaomi.push.ay.m123a(hkVar.f468d)) {
+            com.xiaomi.channel.commonutils.logger.b.m30a("item.category can only contain ascii char, verfiy ClientUploadDataItem failed.");
+            return true;
+        } else if (!com.xiaomi.push.ay.m123a(hkVar.f467c)) {
+            com.xiaomi.channel.commonutils.logger.b.m30a("item.name can only contain ascii char, verfiy ClientUploadDataItem failed.");
+            return true;
+        } else if (hkVar.f466b == null || hkVar.f466b.length() <= 10240) {
             return false;
+        } else {
+            com.xiaomi.channel.commonutils.logger.b.m30a("item.data is too large(" + hkVar.f466b.length() + "), max size for data is 10240 , verfiy ClientUploadDataItem failed.");
+            return true;
         }
+    }
+
+    public static boolean a(String str) {
+        return !com.xiaomi.push.t.m549b() || Constants.HYBRID_PACKAGE_NAME.equals(str);
     }
 }

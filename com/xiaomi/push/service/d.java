@@ -1,22 +1,28 @@
 package com.xiaomi.push.service;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Message;
 import android.os.RemoteException;
 import android.text.TextUtils;
-import com.xiaomi.push.service.as;
+import com.xiaomi.push.ff;
+import com.xiaomi.push.gb;
+import com.xiaomi.push.gc;
+import com.xiaomi.push.gd;
+import com.xiaomi.push.gf;
+import com.xiaomi.push.service.al;
 import java.util.Collection;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class d {
-    private x a = new x();
+    private p a = new p();
 
-    public static String a(as.b bVar) {
-        return !"9".equals(bVar.h) ? bVar.a + ".permission.MIPUSH_RECEIVE" : bVar.a + ".permission.MIMC_RECEIVE";
+    public static String a(al.b bVar) {
+        return !"9".equals(bVar.g) ? bVar.f860a + ".permission.MIPUSH_RECEIVE" : bVar.f860a + ".permission.MIMC_RECEIVE";
     }
 
-    private static void a(Context context, Intent intent, as.b bVar) {
+    private static void a(Context context, Intent intent, al.b bVar) {
         if ("com.xiaomi.xmsf".equals(context.getPackageName())) {
             context.sendBroadcast(intent);
         } else {
@@ -24,19 +30,19 @@ public class d {
         }
     }
 
-    as.b a(com.xiaomi.slim.b bVar) {
-        Collection<as.b> c = as.a().c(Integer.toString(bVar.c()));
-        if (c.isEmpty()) {
+    al.b a(ff ffVar) {
+        Collection<al.b> m495a = al.a().m495a(Integer.toString(ffVar.a()));
+        if (m495a.isEmpty()) {
             return null;
         }
-        Iterator<as.b> it = c.iterator();
-        if (c.size() == 1) {
+        Iterator<al.b> it = m495a.iterator();
+        if (m495a.size() == 1) {
             return it.next();
         }
-        String j = bVar.j();
+        String g = ffVar.g();
         while (it.hasNext()) {
-            as.b next = it.next();
-            if (TextUtils.equals(j, next.b)) {
+            al.b next = it.next();
+            if (TextUtils.equals(g, next.f863b)) {
                 return next;
             }
         }
@@ -47,20 +53,20 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    as.b a(com.xiaomi.smack.packet.d dVar) {
-        Collection<as.b> c = as.a().c(dVar.l());
-        if (c.isEmpty()) {
+    al.b a(gd gdVar) {
+        Collection<al.b> m495a = al.a().m495a(gdVar.k());
+        if (m495a.isEmpty()) {
             return null;
         }
-        Iterator<as.b> it = c.iterator();
-        if (c.size() == 1) {
+        Iterator<al.b> it = m495a.iterator();
+        if (m495a.size() == 1) {
             return it.next();
         }
-        String n = dVar.n();
-        String m = dVar.m();
+        String m = gdVar.m();
+        String l = gdVar.l();
         while (it.hasNext()) {
-            as.b next = it.next();
-            if (TextUtils.equals(n, next.b) || TextUtils.equals(m, next.b)) {
+            al.b next = it.next();
+            if (TextUtils.equals(m, next.f863b) || TextUtils.equals(l, next.f863b)) {
                 return next;
             }
             while (it.hasNext()) {
@@ -69,59 +75,63 @@ public class d {
         return null;
     }
 
+    @SuppressLint({"WrongConstant"})
     public void a(Context context) {
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.service_started");
+        if (com.xiaomi.push.l.c()) {
+            intent.addFlags(16777216);
+        }
         context.sendBroadcast(intent);
     }
 
-    public void a(Context context, as.b bVar, int i) {
-        if ("5".equalsIgnoreCase(bVar.h)) {
+    public void a(Context context, al.b bVar, int i) {
+        if ("5".equalsIgnoreCase(bVar.g)) {
             return;
         }
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.channel_closed");
-        intent.setPackage(bVar.a);
-        intent.putExtra(aw.r, bVar.h);
+        intent.setPackage(bVar.f860a);
+        intent.putExtra(ap.r, bVar.g);
         intent.putExtra("ext_reason", i);
-        intent.putExtra(aw.p, bVar.b);
-        intent.putExtra(aw.C, bVar.j);
-        if (bVar.o == null || !"9".equals(bVar.h)) {
+        intent.putExtra(ap.p, bVar.f863b);
+        intent.putExtra(ap.C, bVar.i);
+        if (bVar.f854a == null || !"9".equals(bVar.g)) {
             a(context, intent, bVar);
             return;
         }
         try {
-            bVar.o.send(Message.obtain(null, 17, intent));
+            bVar.f854a.send(Message.obtain(null, 17, intent));
         } catch (RemoteException e) {
-            bVar.o = null;
-            com.xiaomi.channel.commonutils.logger.b.a("peer may died: " + bVar.b.substring(bVar.b.lastIndexOf(64)));
+            bVar.f854a = null;
+            com.xiaomi.channel.commonutils.logger.b.m30a("peer may died: " + bVar.f863b.substring(bVar.f863b.lastIndexOf(64)));
         }
     }
 
-    public void a(Context context, as.b bVar, String str, String str2) {
-        if ("5".equalsIgnoreCase(bVar.h)) {
+    public void a(Context context, al.b bVar, String str, String str2) {
+        if ("5".equalsIgnoreCase(bVar.g)) {
             com.xiaomi.channel.commonutils.logger.b.d("mipush kicked by server");
             return;
         }
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.kicked");
-        intent.setPackage(bVar.a);
+        intent.setPackage(bVar.f860a);
         intent.putExtra("ext_kick_type", str);
         intent.putExtra("ext_kick_reason", str2);
-        intent.putExtra("ext_chid", bVar.h);
-        intent.putExtra(aw.p, bVar.b);
-        intent.putExtra(aw.C, bVar.j);
+        intent.putExtra("ext_chid", bVar.g);
+        intent.putExtra(ap.p, bVar.f863b);
+        intent.putExtra(ap.C, bVar.i);
         a(context, intent, bVar);
     }
 
-    public void a(Context context, as.b bVar, boolean z, int i, String str) {
-        if ("5".equalsIgnoreCase(bVar.h)) {
+    public void a(Context context, al.b bVar, boolean z, int i, String str) {
+        if ("5".equalsIgnoreCase(bVar.g)) {
             this.a.a(context, bVar, z, i, str);
             return;
         }
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.channel_opened");
-        intent.setPackage(bVar.a);
+        intent.setPackage(bVar.f860a);
         intent.putExtra("ext_succeeded", z);
         if (!z) {
             intent.putExtra("ext_reason", i);
@@ -129,34 +139,34 @@ public class d {
         if (!TextUtils.isEmpty(str)) {
             intent.putExtra("ext_reason_msg", str);
         }
-        intent.putExtra("ext_chid", bVar.h);
-        intent.putExtra(aw.p, bVar.b);
-        intent.putExtra(aw.C, bVar.j);
+        intent.putExtra("ext_chid", bVar.g);
+        intent.putExtra(ap.p, bVar.f863b);
+        intent.putExtra(ap.C, bVar.i);
         a(context, intent, bVar);
     }
 
-    public void a(XMPushService xMPushService, String str, com.xiaomi.slim.b bVar) {
-        as.b a = a(bVar);
+    public void a(XMPushService xMPushService, String str, ff ffVar) {
+        al.b a = a(ffVar);
         if (a == null) {
             com.xiaomi.channel.commonutils.logger.b.d("error while notify channel closed! channel " + str + " not registered");
         } else if ("5".equalsIgnoreCase(str)) {
-            this.a.a(xMPushService, bVar, a);
+            this.a.a(xMPushService, ffVar, a);
         } else {
-            String str2 = a.a;
+            String str2 = a.f860a;
             Intent intent = new Intent();
             intent.setAction("com.xiaomi.push.new_msg");
             intent.setPackage(str2);
             intent.putExtra("ext_chid", str);
-            intent.putExtra("ext_raw_packet", bVar.d(a.i));
-            intent.putExtra(aw.C, a.j);
-            intent.putExtra(aw.v, a.i);
-            if (a.o != null) {
+            intent.putExtra("ext_raw_packet", ffVar.m257a(a.h));
+            intent.putExtra(ap.C, a.i);
+            intent.putExtra(ap.v, a.h);
+            if (a.f854a != null) {
                 try {
-                    a.o.send(Message.obtain(null, 17, intent));
+                    a.f854a.send(Message.obtain(null, 17, intent));
                     return;
                 } catch (RemoteException e) {
-                    a.o = null;
-                    com.xiaomi.channel.commonutils.logger.b.a("peer may died: " + a.b.substring(a.b.lastIndexOf(64)));
+                    a.f854a = null;
+                    com.xiaomi.channel.commonutils.logger.b.m30a("peer may died: " + a.f863b.substring(a.f863b.lastIndexOf(64)));
                 }
             }
             if ("com.xiaomi.xmsf".equals(str2)) {
@@ -166,20 +176,20 @@ public class d {
         }
     }
 
-    public void a(XMPushService xMPushService, String str, com.xiaomi.smack.packet.d dVar) {
+    public void a(XMPushService xMPushService, String str, gd gdVar) {
         String str2;
-        as.b a = a(dVar);
+        al.b a = a(gdVar);
         if (a == null) {
             com.xiaomi.channel.commonutils.logger.b.d("error while notify channel closed! channel " + str + " not registered");
         } else if ("5".equalsIgnoreCase(str)) {
-            this.a.a(xMPushService, dVar, a);
+            this.a.a(xMPushService, gdVar, a);
         } else {
-            String str3 = a.a;
-            if (dVar instanceof com.xiaomi.smack.packet.c) {
+            String str3 = a.f860a;
+            if (gdVar instanceof gc) {
                 str2 = "com.xiaomi.push.new_msg";
-            } else if (dVar instanceof com.xiaomi.smack.packet.b) {
+            } else if (gdVar instanceof gb) {
                 str2 = "com.xiaomi.push.new_iq";
-            } else if (!(dVar instanceof com.xiaomi.smack.packet.f)) {
+            } else if (!(gdVar instanceof gf)) {
                 com.xiaomi.channel.commonutils.logger.b.d("unknown packet type, drop it");
                 return;
             } else {
@@ -189,9 +199,9 @@ public class d {
             intent.setAction(str2);
             intent.setPackage(str3);
             intent.putExtra("ext_chid", str);
-            intent.putExtra("ext_packet", dVar.b());
-            intent.putExtra(aw.C, a.j);
-            intent.putExtra(aw.v, a.i);
+            intent.putExtra("ext_packet", gdVar.a());
+            intent.putExtra(ap.C, a.i);
+            intent.putExtra(ap.v, a.h);
             a(xMPushService, intent, a);
         }
     }

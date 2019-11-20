@@ -11,20 +11,20 @@ import java.io.InputStreamReader;
 /* loaded from: classes2.dex */
 public class u {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String btC;
-    private static String btD;
+    private static String bsL;
+    private static String bsM;
 
     public static boolean bN(Context context) {
         if (context == null) {
             return false;
         }
-        if (Uq()) {
+        if (Uo()) {
             return bO(context);
         }
-        if (Ur()) {
+        if (Up()) {
             return bP(context);
         }
-        if (Us()) {
+        if (Uq()) {
             return bQ(context);
         }
         return false;
@@ -58,63 +58,63 @@ public class u {
         return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
     }
 
-    public static boolean Uq() {
+    public static boolean Uo() {
         return check("EMUI");
     }
 
-    public static boolean Ur() {
+    public static boolean Up() {
         return check("VIVO");
     }
 
-    public static boolean Us() {
+    public static boolean Uq() {
         return check("OPPO");
     }
 
     public static boolean check(String str) {
-        if (btC != null) {
-            return btC.equals(str);
+        if (bsL != null) {
+            return bsL.equals(str);
         }
         String hk = hk("ro.miui.ui.version.name");
-        btD = hk;
+        bsM = hk;
         if (!TextUtils.isEmpty(hk)) {
-            btC = "MIUI";
+            bsL = "MIUI";
         } else {
             String hk2 = hk("ro.build.version.emui");
-            btD = hk2;
+            bsM = hk2;
             if (!TextUtils.isEmpty(hk2)) {
-                btC = "EMUI";
+                bsL = "EMUI";
             } else {
                 String hk3 = hk("ro.build.version.opporom");
-                btD = hk3;
+                bsM = hk3;
                 if (!TextUtils.isEmpty(hk3)) {
-                    btC = "OPPO";
+                    bsL = "OPPO";
                 } else {
                     String hk4 = hk("ro.vivo.os.version");
-                    btD = hk4;
+                    bsM = hk4;
                     if (!TextUtils.isEmpty(hk4)) {
-                        btC = "VIVO";
+                        bsL = "VIVO";
                     } else {
                         String hk5 = hk("ro.smartisan.version");
-                        btD = hk5;
+                        bsM = hk5;
                         if (!TextUtils.isEmpty(hk5)) {
-                            btC = "SMARTISAN";
+                            bsL = "SMARTISAN";
                         } else {
                             String hk6 = hk("ro.gn.sv.version");
-                            btD = hk6;
+                            bsM = hk6;
                             if (!TextUtils.isEmpty(hk6)) {
-                                btC = "SMARTISAN";
+                                bsL = "SMARTISAN";
                             } else {
                                 String hk7 = hk("ro.build.rom.id");
-                                btD = hk7;
+                                bsM = hk7;
                                 if (!TextUtils.isEmpty(hk7)) {
-                                    btC = "NUBIA";
+                                    bsL = "NUBIA";
                                 } else {
-                                    btD = Build.DISPLAY;
-                                    if (btD.toUpperCase().contains("FLYME")) {
-                                        btC = "FLYME";
+                                    bsM = Build.DISPLAY;
+                                    if (bsM.toUpperCase().contains("FLYME")) {
+                                        bsL = "FLYME";
                                     } else {
-                                        btD = "unknown";
-                                        btC = Build.MANUFACTURER.toUpperCase();
+                                        bsM = "unknown";
+                                        bsL = Build.MANUFACTURER.toUpperCase();
                                     }
                                 }
                             }
@@ -123,7 +123,7 @@ public class u {
                 }
             }
         }
-        return btC.equals(str);
+        return bsL.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [236=4] */

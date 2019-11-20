@@ -22,10 +22,10 @@ public class d {
         if (isSuccess()) {
             return a.kD(str);
         }
-        return a.D(str, str2, Yi());
+        return a.D(str, str2, Yg());
     }
 
-    public String Yi() {
+    public String Yg() {
         return this.error;
     }
 
@@ -33,11 +33,11 @@ public class d {
         return this.data;
     }
 
-    public static Object Yj() {
+    public static Object Yh() {
         return new JsObject();
     }
 
-    public static String gb(int i) {
+    public static String ga(int i) {
         switch (i) {
             case 1:
                 return "boolean";
@@ -77,7 +77,7 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String D = a.D(str, str2, dVar.Yi());
+        String D = a.D(str, str2, dVar.Yg());
         bVar.throwJSException(JSExceptionType.Error, D);
         return D;
     }

@@ -28,10 +28,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.b> aVar) {
-        if (eVar == null || aVar == null || aVar.baZ() == null) {
+        if (eVar == null || aVar == null || aVar.baX() == null) {
             return null;
         }
-        aVar.baZ().a(eVar);
+        aVar.baX().a(eVar);
         return aVar.getView();
     }
 }

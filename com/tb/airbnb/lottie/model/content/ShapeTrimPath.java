@@ -6,10 +6,10 @@ import com.tb.airbnb.lottie.model.a.b;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ShapeTrimPath implements b {
-    private final Type ktu;
-    private final com.tb.airbnb.lottie.model.a.b kuE;
-    private final com.tb.airbnb.lottie.model.a.b kuI;
-    private final com.tb.airbnb.lottie.model.a.b kuJ;
+    private final Type ksD;
+    private final com.tb.airbnb.lottie.model.a.b ktN;
+    private final com.tb.airbnb.lottie.model.a.b ktR;
+    private final com.tb.airbnb.lottie.model.a.b ktS;
     private final String name;
 
     /* loaded from: classes6.dex */
@@ -31,30 +31,30 @@ public class ShapeTrimPath implements b {
 
     private ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.ktu = type;
-        this.kuI = bVar;
-        this.kuJ = bVar2;
-        this.kuE = bVar3;
+        this.ksD = type;
+        this.ktR = bVar;
+        this.ktS = bVar2;
+        this.ktN = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type cLf() {
-        return this.ktu;
+    public Type cLd() {
+        return this.ksD;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cMd() {
-        return this.kuJ;
+    public com.tb.airbnb.lottie.model.a.b cMb() {
+        return this.ktS;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cMe() {
-        return this.kuI;
+    public com.tb.airbnb.lottie.model.a.b cMc() {
+        return this.ktR;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLZ() {
-        return this.kuE;
+    public com.tb.airbnb.lottie.model.a.b cLX() {
+        return this.ktN;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -63,7 +63,7 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.kuI + ", end: " + this.kuJ + ", offset: " + this.kuE + "}";
+        return "Trim Path: {start: " + this.ktR + ", end: " + this.ktS + ", offset: " + this.ktN + "}";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

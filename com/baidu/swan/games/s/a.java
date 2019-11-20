@@ -41,7 +41,7 @@ public class a extends c {
     }
 
     public void clearStorage(JsObject jsObject) {
-        a(jsObject, "clearStorage", "", Yh());
+        a(jsObject, "clearStorage", "", Yf());
     }
 
     public void getStorageInfo(JsObject jsObject) {
@@ -73,7 +73,7 @@ public class a extends c {
                 if (propertyType == 7) {
                     return d.O(jsObject.toString(i));
                 }
-                return d.kE(String.format("parameter error: the key must be string instead of %s.", d.gb(propertyType)));
+                return d.kE(String.format("parameter error: the key must be string instead of %s.", d.ga(propertyType)));
             }
         }
         return d.kE("parameter error: the parameter key is necessary.");

@@ -18,9 +18,9 @@ public class b implements CustomMessageTask.CustomRunnable {
             intent.putExtra(AlaLiveRoomActivityConfig.LIVE_BROADCAST_GIFT_TOAST_QUEUE, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_BROADCAST_GIFT_TOAST_QUEUE));
             intent.putExtra("room_id", alaLiveRoomActivityConfig.getIntent().getStringExtra("room_id"));
             intent.putExtra("params", alaLiveRoomActivityConfig.getIntent().getStringExtra("params"));
-            e chE = com.baidu.tieba.sdk.c.a.chB().chE();
-            if (chE != null) {
-                chE.f(alaLiveRoomActivityConfig.getContext(), intent);
+            e chC = com.baidu.tieba.sdk.c.a.chz().chC();
+            if (chC != null) {
+                chC.f(alaLiveRoomActivityConfig.getContext(), intent);
                 return null;
             }
             return null;

@@ -12,29 +12,29 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h {
     private boolean closed;
-    private PointF gx;
-    private final List<com.tb.airbnb.lottie.model.c> ht;
+    private PointF fY;
+    private final List<com.tb.airbnb.lottie.model.c> gT;
 
     private h(PointF pointF, boolean z, List<com.tb.airbnb.lottie.model.c> list) {
-        this.ht = new ArrayList();
-        this.gx = pointF;
+        this.gT = new ArrayList();
+        this.fY = pointF;
         this.closed = z;
-        this.ht.addAll(list);
+        this.gT.addAll(list);
     }
 
     public h() {
-        this.ht = new ArrayList();
+        this.gT = new ArrayList();
     }
 
     private void i(float f, float f2) {
-        if (this.gx == null) {
-            this.gx = new PointF();
+        if (this.fY == null) {
+            this.fY = new PointF();
         }
-        this.gx.set(f, f2);
+        this.fY.set(f, f2);
     }
 
     public PointF cT() {
-        return this.gx;
+        return this.fY;
     }
 
     public boolean isClosed() {
@@ -42,26 +42,26 @@ public class h {
     }
 
     public List<com.tb.airbnb.lottie.model.c> cU() {
-        return this.ht;
+        return this.gT;
     }
 
     public void a(h hVar, h hVar2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (this.gx == null) {
-            this.gx = new PointF();
+        if (this.fY == null) {
+            this.fY = new PointF();
         }
         this.closed = hVar.isClosed() || hVar2.isClosed();
-        if (!this.ht.isEmpty() && this.ht.size() != hVar.cU().size() && this.ht.size() != hVar2.cU().size()) {
+        if (!this.gT.isEmpty() && this.gT.size() != hVar.cU().size() && this.gT.size() != hVar2.cU().size()) {
             throw new IllegalStateException("Curves must have the same number of control points. This: " + cU().size() + "\tShape 1: " + hVar.cU().size() + "\tShape 2: " + hVar2.cU().size());
         }
-        if (this.ht.isEmpty()) {
+        if (this.gT.isEmpty()) {
             for (int size = hVar.cU().size() - 1; size >= 0; size--) {
-                this.ht.add(new com.tb.airbnb.lottie.model.c());
+                this.gT.add(new com.tb.airbnb.lottie.model.c());
             }
         }
         PointF cT = hVar.cT();
         PointF cT2 = hVar2.cT();
         i(com.tb.airbnb.lottie.c.e.lerp(cT.x, cT2.x, f), com.tb.airbnb.lottie.c.e.lerp(cT.y, cT2.y, f));
-        for (int size2 = this.ht.size() - 1; size2 >= 0; size2--) {
+        for (int size2 = this.gT.size() - 1; size2 >= 0; size2--) {
             com.tb.airbnb.lottie.model.c cVar = hVar.cU().get(size2);
             com.tb.airbnb.lottie.model.c cVar2 = hVar2.cU().get(size2);
             PointF bS = cVar.bS();
@@ -70,19 +70,19 @@ public class h {
             PointF bS2 = cVar2.bS();
             PointF bT2 = cVar2.bT();
             PointF bU2 = cVar2.bU();
-            this.ht.get(size2).f(com.tb.airbnb.lottie.c.e.lerp(bS.x, bS2.x, f), com.tb.airbnb.lottie.c.e.lerp(bS.y, bS2.y, f));
-            this.ht.get(size2).g(com.tb.airbnb.lottie.c.e.lerp(bT.x, bT2.x, f), com.tb.airbnb.lottie.c.e.lerp(bT.y, bT2.y, f));
-            this.ht.get(size2).h(com.tb.airbnb.lottie.c.e.lerp(bU.x, bU2.x, f), com.tb.airbnb.lottie.c.e.lerp(bU.y, bU2.y, f));
+            this.gT.get(size2).f(com.tb.airbnb.lottie.c.e.lerp(bS.x, bS2.x, f), com.tb.airbnb.lottie.c.e.lerp(bS.y, bS2.y, f));
+            this.gT.get(size2).g(com.tb.airbnb.lottie.c.e.lerp(bT.x, bT2.x, f), com.tb.airbnb.lottie.c.e.lerp(bT.y, bT2.y, f));
+            this.gT.get(size2).h(com.tb.airbnb.lottie.c.e.lerp(bU.x, bU2.x, f), com.tb.airbnb.lottie.c.e.lerp(bU.y, bU2.y, f));
         }
     }
 
     public String toString() {
-        return "ShapeData{numCurves=" + this.ht.size() + "closed=" + this.closed + '}';
+        return "ShapeData{numCurves=" + this.gT.size() + "closed=" + this.closed + '}';
     }
 
     /* loaded from: classes6.dex */
     public static class a implements m.a<h> {
-        public static final a kuG = new a();
+        public static final a ktP = new a();
 
         private a() {
         }

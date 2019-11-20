@@ -59,9 +59,9 @@ public class a extends z {
                 return false;
             }
             c.i("accelerometer", " init ");
-            com.baidu.swan.apps.aj.a.a Th = com.baidu.swan.apps.aj.a.a.Th();
-            Th.k(context, C0155a.iy(optParamsAsJo.optString("interval")));
-            Th.a(new a.InterfaceC0154a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
+            com.baidu.swan.apps.aj.a.a Tj = com.baidu.swan.apps.aj.a.a.Tj();
+            Tj.k(context, C0155a.iy(optParamsAsJo.optString("interval")));
+            Tj.a(new a.InterfaceC0154a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
                 @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0154a
                 public void a(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
@@ -76,7 +76,7 @@ public class a extends z {
                     }
                 }
             });
-            Th.Ti();
+            Tj.Tk();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
@@ -99,16 +99,16 @@ public class a extends z {
     /* renamed from: com.baidu.swan.apps.aj.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static class C0155a {
-        private static ArrayMap<String, Integer> bqL = new ArrayMap<>(3);
+        private static ArrayMap<String, Integer> bqt = new ArrayMap<>(3);
 
         static {
-            bqL.put("ui", 60);
-            bqL.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
-            bqL.put("normal", 200);
+            bqt.put("ui", 60);
+            bqt.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
+            bqt.put("normal", 200);
         }
 
         public static int iy(String str) {
-            Integer num = bqL.get(str);
+            Integer num = bqt.get(str);
             if (num != null) {
                 return num.intValue();
             }

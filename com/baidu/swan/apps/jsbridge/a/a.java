@@ -18,15 +18,15 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("scheme", SchemeConfig.getSchemeHead());
-            ExtensionCore Hh = c.GO().Hh();
+            ExtensionCore Hi = c.GP().Hi();
             String str = "";
-            if (Hh != null && !TextUtils.isEmpty(Hh.aQG)) {
-                str = Hh.aQG;
+            if (Hi != null && !TextUtils.isEmpty(Hi.aQo)) {
+                str = Hi.aQo;
             }
             jSONObject.put("sdkExtension", str);
             jSONObject.put("isDebugSdk", DEBUG);
-            String string = f.SR().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ac.a.a.Ob()) {
+            String string = f.ST().getString("ctsUrl", "");
+            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ac.a.a.Oc()) {
                 jSONObject.put("ctsServerAddress", new JSONObject(string));
             }
             jSONObject.put("platform", "android");

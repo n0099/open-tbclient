@@ -11,7 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0287a cyq;
+    private InterfaceC0287a cxz;
 
     /* renamed from: com.baidu.tbadk.coreExtra.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -45,7 +45,7 @@ public class a {
                 } catch (JSONException e) {
                     BdLog.e(e);
                 }
-                eVar2.czb = str;
+                eVar2.cyk = str;
                 eVar2.imageUri = Uri.parse(str);
                 return eVar2;
             }
@@ -56,14 +56,14 @@ public class a {
             /* renamed from: c */
             public void onPostExecute(e eVar2) {
                 super.onPostExecute(eVar2);
-                if (a.this.cyq != null) {
-                    a.this.cyq.d(eVar2);
+                if (a.this.cxz != null) {
+                    a.this.cxz.d(eVar2);
                 }
             }
         }.execute(eVar);
     }
 
     public void a(InterfaceC0287a interfaceC0287a) {
-        this.cyq = interfaceC0287a;
+        this.cxz = interfaceC0287a;
     }
 }

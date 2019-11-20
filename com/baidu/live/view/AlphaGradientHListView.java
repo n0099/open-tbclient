@@ -12,37 +12,37 @@ import com.baidu.live.k.a;
 import com.baidu.live.tieba.horizonallist.widget.HListView;
 /* loaded from: classes6.dex */
 public class AlphaGradientHListView extends HListView {
-    private Paint ahX;
-    private int art;
-    private int ase;
-    private int asf;
-    private int asg;
-    private int ash;
+    private Paint ahF;
+    private int arM;
+    private int arN;
+    private int arO;
+    private int arP;
+    private int arb;
 
     public AlphaGradientHListView(Context context) {
         super(context);
-        this.art = 0;
-        this.asf = 0;
-        this.asg = -1;
-        this.ash = -1;
+        this.arb = 0;
+        this.arN = 0;
+        this.arO = -1;
+        this.arP = -1;
         init();
     }
 
     public AlphaGradientHListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.art = 0;
-        this.asf = 0;
-        this.asg = -1;
-        this.ash = -1;
+        this.arb = 0;
+        this.arN = 0;
+        this.arO = -1;
+        this.arP = -1;
         init();
     }
 
     public AlphaGradientHListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.art = 0;
-        this.asf = 0;
-        this.asg = -1;
-        this.ash = -1;
+        this.arb = 0;
+        this.arN = 0;
+        this.arO = -1;
+        this.arP = -1;
         init();
     }
 
@@ -51,25 +51,25 @@ public class AlphaGradientHListView extends HListView {
     }
 
     public void setColor(int i, int i2) {
-        this.art = i;
-        this.asf = i2;
+        this.arb = i;
+        this.arN = i2;
     }
 
     public void setShadowWidth(int i) {
-        this.ase = i;
+        this.arM = i;
     }
 
     public void setNeedAlphaShade(boolean z) {
         if (z) {
-            if (this.ase <= 0) {
-                this.ase = getResources().getDimensionPixelSize(a.e.sdk_ds28);
+            if (this.arM <= 0) {
+                this.arM = getResources().getDimensionPixelSize(a.e.sdk_ds28);
             }
-            this.ahX = new Paint();
-            this.ahX.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.ahX.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
+            this.ahF = new Paint();
+            this.ahF.setStyle(Paint.Style.FILL_AND_STROKE);
+            this.ahF.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
         } else {
-            this.ase = 0;
-            this.ahX = null;
+            this.arM = 0;
+            this.ahF = null;
         }
         invalidate();
     }
@@ -78,11 +78,11 @@ public class AlphaGradientHListView extends HListView {
     @Override // com.baidu.live.tieba.horizonallist.widget.HListView, com.baidu.live.tieba.horizonallist.widget.AbsHListView, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.ahX != null) {
-            if (this.asg != getMeasuredWidth() || this.ash != getMeasuredHeight()) {
-                this.ahX.setShader(new LinearGradient(getMeasuredWidth() - this.ase, 0.0f, getMeasuredWidth(), 0.0f, this.art, this.asf, Shader.TileMode.CLAMP));
-                this.asg = getMeasuredWidth();
-                this.ash = getMeasuredHeight();
+        if (this.ahF != null) {
+            if (this.arO != getMeasuredWidth() || this.arP != getMeasuredHeight()) {
+                this.ahF.setShader(new LinearGradient(getMeasuredWidth() - this.arM, 0.0f, getMeasuredWidth(), 0.0f, this.arb, this.arN, Shader.TileMode.CLAMP));
+                this.arO = getMeasuredWidth();
+                this.arP = getMeasuredHeight();
             }
         }
     }
@@ -91,8 +91,8 @@ public class AlphaGradientHListView extends HListView {
     @Override // com.baidu.live.tieba.horizonallist.widget.HListView, com.baidu.live.tieba.horizonallist.widget.AbsHListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.ahX != null) {
-            canvas.drawRect(getMeasuredWidth() - this.ase, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.ahX);
+        if (this.ahF != null) {
+            canvas.drawRect(getMeasuredWidth() - this.arM, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.ahF);
         }
     }
 }

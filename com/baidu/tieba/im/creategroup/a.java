@@ -9,41 +9,41 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class a extends com.baidu.adp.base.c<BaseActivity> {
-    private ImageView aBm;
-    private View cfY;
-    private TextView gCW;
+    private ImageView aAU;
+    private View cfh;
+    private TextView gCf;
     private View layoutView;
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
         this.layoutView = null;
-        this.gCW = null;
-        this.aBm = null;
-        this.cfY = null;
+        this.gCf = null;
+        this.aAU = null;
+        this.cfh = null;
         initUI();
     }
 
-    public View aMx() {
+    public View aMv() {
         return this.layoutView;
     }
 
     public void xt(String str) {
-        this.gCW.setText(str);
+        this.gCf.setText(str);
     }
 
     public void lK(boolean z) {
-        this.aBm.setVisibility(z ? 0 : 8);
+        this.aAU.setVisibility(z ? 0 : 8);
     }
 
     private void initUI() {
         this.layoutView = LayoutInflater.from(this.mContext.getContext()).inflate(R.layout.address_lbs_item, (ViewGroup) null);
-        this.gCW = (TextView) this.layoutView.findViewById(R.id.text);
-        this.aBm = (ImageView) this.layoutView.findViewById(R.id.group_address_list_item_selected);
-        this.cfY = this.layoutView.findViewById(R.id.group_address_list_item_divider);
+        this.gCf = (TextView) this.layoutView.findViewById(R.id.text);
+        this.aAU = (ImageView) this.layoutView.findViewById(R.id.group_address_list_item_selected);
+        this.cfh = this.layoutView.findViewById(R.id.group_address_list_item_divider);
         this.layoutView.setTag(this);
     }
 
-    public View byK() {
-        return this.cfY;
+    public View byI() {
+        return this.cfh;
     }
 }

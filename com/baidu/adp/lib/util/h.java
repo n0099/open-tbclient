@@ -21,20 +21,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h rC = null;
+    private static h rc = null;
 
     public static h gX() {
         h hVar;
-        if (rC == null) {
+        if (rc == null) {
             synchronized (h.class) {
-                if (rC == null) {
-                    rC = new h();
+                if (rc == null) {
+                    rc = new h();
                 }
-                hVar = rC;
+                hVar = rc;
             }
             return hVar;
         }
-        return rC;
+        return rc;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -295,13 +295,13 @@ public class h {
         boolean mLoadSuccess = false;
         StringBuilder mLogContent;
         String mNewFileName;
-        i rD;
+        i rd;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
             this.mLibName = str;
             this.mNewFileName = str2;
             this.mLogContent = sb;
-            this.rD = iVar;
+            this.rd = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -320,8 +320,8 @@ public class h {
             if (this.mLogContent.length() > 0) {
                 BdStatisticsManager.getInstance().error("so", "load_" + this.mLibName + PluginInstallerService.APK_LIB_SUFFIX, "", BdErrorInfo.ERR_SO_LOAD, this.mLogContent.toString(), new Object[0]);
             }
-            if (this.rD != null) {
-                this.rD.callback(this.mLoadSuccess);
+            if (this.rd != null) {
+                this.rd.callback(this.mLoadSuccess);
             }
         }
     }

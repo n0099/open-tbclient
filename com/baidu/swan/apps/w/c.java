@@ -15,56 +15,56 @@ import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.swan.apps.w.d;
 /* loaded from: classes2.dex */
 public interface c extends d.b {
-    com.baidu.swan.apps.core.d.e AH();
+    com.baidu.swan.apps.core.d.e AI();
 
-    void AK();
-
-    void Cf();
+    void AL();
 
     void Cg();
+
+    void Ch();
 
     FullScreenFloatView E(Activity activity);
 
     SwanAppPropertyWindow F(Activity activity);
 
-    com.baidu.swan.apps.ae.b FD();
-
-    com.baidu.swan.games.view.b FO();
+    com.baidu.swan.apps.ae.b FE();
 
     com.baidu.swan.games.view.b FP();
 
-    String Fb();
+    com.baidu.swan.games.view.b FQ();
 
-    com.baidu.swan.apps.core.d.d Fr();
+    String Fc();
 
-    void Lg();
+    com.baidu.swan.apps.core.d.d Fs();
 
     void Lh();
 
-    SwanCoreVersion Li();
+    void Li();
+
+    SwanCoreVersion Lj();
 
     @DebugTrace
-    com.baidu.swan.apps.b.c.a Lj();
+    com.baidu.swan.apps.b.c.a Lk();
 
-    boolean Lk();
+    boolean Ll();
 
-    com.baidu.swan.apps.ae.a.c Ll();
-
-    String Lm();
+    com.baidu.swan.apps.ae.a.c Lm();
 
     String Ln();
 
     String Lo();
 
-    SwanAppActivity Lp();
+    String Lp();
 
-    com.baidu.swan.apps.b.c.d Lq();
+    SwanAppActivity Lq();
 
-    @NonNull
-    Pair<Integer, Integer> Lr();
+    com.baidu.swan.apps.b.c.d Lr();
 
     @NonNull
     Pair<Integer, Integer> Ls();
+
+    @NonNull
+    Pair<Integer, Integer> Lt();
 
     void O(Intent intent);
 

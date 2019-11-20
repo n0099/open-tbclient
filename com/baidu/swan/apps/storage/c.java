@@ -14,52 +14,52 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.ae.c {
-    private e bnF;
-    public final String bnG;
-    public final File bpW;
-    private final c.a<Long> bpZ;
+    private e bnn;
+    public final String bno;
+    public final File bpE;
+    private final c.a<Long> bpH;
     public final String name;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static int bpX = 1024;
+    public static int bpF = 1024;
     public static int INVALID_INDEX = -1;
-    public static int bpY = 1;
+    public static int bpG = 1;
 
     public c(com.baidu.swan.apps.ae.b bVar) {
         super(bVar);
-        this.bpZ = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
+        this.bpH = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ak.c.a
-            /* renamed from: SP */
-            public Long SQ() throws IllegalStateException {
-                return Long.valueOf(c.this.SN());
+            /* renamed from: SR */
+            public Long SS() throws IllegalStateException {
+                return Long.valueOf(c.this.SP());
             }
         };
         this.name = b.d(bVar);
-        this.bnG = "aiapp_" + this.name;
-        this.bpW = new File(getApplicationInfo().dataDir, "shared_prefs/" + this.bnG + ".xml");
-        com.baidu.swan.apps.ak.e.bta.a(this.bpZ);
+        this.bno = "aiapp_" + this.name;
+        this.bpE = new File(getApplicationInfo().dataDir, "shared_prefs/" + this.bno + ".xml");
+        com.baidu.swan.apps.ak.e.bsj.a(this.bpH);
     }
 
-    public boolean SK() {
-        return SN() < SO();
+    public boolean SM() {
+        return SP() < SQ();
     }
 
-    public e SL() {
-        if (this.bnF == null) {
-            this.bnF = new e(this.bnG);
+    public e SN() {
+        if (this.bnn == null) {
+            this.bnn = new e(this.bno);
         }
-        return this.bnF;
+        return this.bnn;
     }
 
     public void L(boolean z) {
         if (z) {
-            SL().edit().clear().commit();
+            SN().edit().clear().commit();
         } else {
-            SL().edit().clear().apply();
+            SN().edit().clear().apply();
         }
-        com.baidu.swan.c.a.deleteFile(b.ik(com.baidu.swan.apps.ae.b.Rk()));
-        com.baidu.swan.c.a.deleteFile(b.ig(com.baidu.swan.apps.ae.b.Rk()));
-        com.baidu.swan.apps.ak.e.bta.update();
+        com.baidu.swan.c.a.deleteFile(b.ik(com.baidu.swan.apps.ae.b.Rm()));
+        com.baidu.swan.c.a.deleteFile(b.ig(com.baidu.swan.apps.ae.b.Rm()));
+        com.baidu.swan.apps.ak.e.bsj.update();
     }
 
     public int io(@NonNull String str) {
@@ -82,7 +82,7 @@ public class c extends com.baidu.swan.apps.ae.c {
         if (lastIndexOf == INVALID_INDEX || length <= lastIndexOf) {
             return null;
         }
-        return str.substring(bpY + lastIndexOf, length);
+        return str.substring(bpG + lastIndexOf, length);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [228=5, 230=4, 231=4, 232=4, 236=4, 238=4, 239=4, 240=4] */
@@ -104,7 +104,7 @@ public class c extends com.baidu.swan.apps.ae.c {
         FileInputStream fileInputStream2 = null;
         FileOutputStream fileOutputStream3 = null;
         fileOutputStream2 = null;
-        String ig = b.ig(com.baidu.swan.apps.ae.b.Rk());
+        String ig = b.ig(com.baidu.swan.apps.ae.b.Rm());
         try {
             if (TextUtils.isEmpty(ig)) {
                 return "";
@@ -115,7 +115,7 @@ public class c extends com.baidu.swan.apps.ae.c {
                 try {
                     fileOutputStream = new FileOutputStream(aO);
                     try {
-                        byte[] bArr = new byte[bpX];
+                        byte[] bArr = new byte[bpF];
                         while (true) {
                             int read = fileInputStream.read(bArr);
                             if (read == -1) {
@@ -252,12 +252,12 @@ public class c extends com.baidu.swan.apps.ae.c {
         }
         a aVar = new a();
         aVar.setSize(file.length());
-        aVar.ao(file.lastModified());
+        aVar.an(file.lastModified());
         return aVar;
     }
 
-    public List<a> SM() {
-        String ig = b.ig(com.baidu.swan.apps.ae.b.Rk());
+    public List<a> SO() {
+        String ig = b.ig(com.baidu.swan.apps.ae.b.Rm());
         if (TextUtils.isEmpty(ig)) {
             return null;
         }
@@ -287,7 +287,7 @@ public class c extends com.baidu.swan.apps.ae.c {
         if (file.isFile()) {
             aVar.setPath(file.getAbsolutePath());
             aVar.setSize(file.length());
-            aVar.ao(file.lastModified());
+            aVar.an(file.lastModified());
             arrayList.add(aVar);
         } else {
             File[] listFiles = file.listFiles();
@@ -304,23 +304,23 @@ public class c extends com.baidu.swan.apps.ae.c {
         return arrayList;
     }
 
-    public long SN() {
-        if (this.bpW == null) {
+    public long SP() {
+        if (this.bpE == null) {
             if (DEBUG) {
                 Log.i("SwanAppStorage", this.name + " isNull");
             }
             return 0L;
         }
         if (DEBUG) {
-            Log.i("SwanAppStorage", this.name + " exists = " + this.bpW.exists());
-            Log.i("SwanAppStorage", this.name + " isFile = " + this.bpW.isFile());
-            Log.i("SwanAppStorage", this.name + " path = " + this.bpW.getPath());
-            Log.i("SwanAppStorage", this.name + " size = " + this.bpW.length());
+            Log.i("SwanAppStorage", this.name + " exists = " + this.bpE.exists());
+            Log.i("SwanAppStorage", this.name + " isFile = " + this.bpE.isFile());
+            Log.i("SwanAppStorage", this.name + " path = " + this.bpE.getPath());
+            Log.i("SwanAppStorage", this.name + " size = " + this.bpE.length());
         }
-        return this.bpW.length();
+        return this.bpE.length();
     }
 
-    public long SO() {
+    public long SQ() {
         return 10485760L;
     }
 }

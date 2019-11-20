@@ -23,7 +23,7 @@ public class c extends a {
     public void a(a aVar, com.baidu.swan.apps.view.container.c.a aVar2) {
         super.a(aVar, aVar2);
         if ((aVar instanceof c) && !TextUtils.equals(this.text, ((c) aVar).text)) {
-            aVar2.fH(2);
+            aVar2.fG(2);
         }
     }
 }

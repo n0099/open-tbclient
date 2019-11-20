@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.live.k.a;
 /* loaded from: classes6.dex */
 public class AlaMasterOperationBaseItemView extends LinearLayout {
-    private TextView aMf;
+    private TextView aLN;
     private ImageView mIconView;
     public int mId;
 
@@ -19,7 +19,7 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
         setGravity(49);
         setPadding(0, context.getResources().getDimensionPixelSize(a.e.sdk_ds16), 0, 0);
         LayoutInflater.from(context).inflate(a.h.ala_gridview_item, this);
-        this.aMf = (TextView) findViewById(a.g.contentTv);
+        this.aLN = (TextView) findViewById(a.g.contentTv);
         this.mIconView = (ImageView) findViewById(a.g.icon_img);
     }
 
@@ -30,7 +30,7 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public void setTextResId(int i) {
         if (i > 0) {
-            this.aMf.setText(i);
+            this.aLN.setText(i);
         }
     }
 
@@ -42,14 +42,14 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
     }
 
     protected void setTextColorResId(int i) {
-        this.aMf.setTextColor(getResources().getColor(i));
-        this.aMf.setAlpha(0.7f);
+        this.aLN.setTextColor(getResources().getColor(i));
+        this.aLN.setAlpha(0.7f);
     }
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
         super.setEnabled(z);
-        this.aMf.setEnabled(z);
+        this.aLN.setEnabled(z);
         this.mIconView.setEnabled(z);
     }
 }

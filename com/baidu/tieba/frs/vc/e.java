@@ -17,38 +17,38 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
 /* loaded from: classes4.dex */
 public class e {
-    private NoPressedRelativeLayout fSK;
-    private FrsFragment fTc;
-    private TextView fTd;
+    private NoPressedRelativeLayout fRT;
+    private FrsFragment fSl;
+    private TextView fSm;
     private final Runnable mHideRunnable;
-    private int fwY = -1;
-    private int dvr = -1;
-    private int fTg = -1;
-    private final Handler fTb = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.frs.vc.e.1
+    private int fwh = -1;
+    private int duA = -1;
+    private int fSp = -1;
+    private final Handler fSk = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.frs.vc.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 111) {
-                e.this.bqv();
+                e.this.bqt();
                 return true;
             }
             return false;
         }
     });
-    private final Animation fTe = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_in);
-    private final Animation fTf = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+    private final Animation fSn = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_in);
+    private final Animation fSo = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
 
     public e(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        this.fSK = noPressedRelativeLayout;
-        this.fTc = frsFragment;
-        this.fTf.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.vc.e.2
+        this.fRT = noPressedRelativeLayout;
+        this.fSl = frsFragment;
+        this.fSo.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.vc.e.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (e.this.fTd.getParent() != null) {
-                    ((ViewGroup) e.this.fTd.getParent()).removeView(e.this.fTd);
+                if (e.this.fSm.getParent() != null) {
+                    ((ViewGroup) e.this.fSm.getParent()).removeView(e.this.fSm);
                 }
             }
 
@@ -59,77 +59,77 @@ public class e {
         this.mHideRunnable = new Runnable() { // from class: com.baidu.tieba.frs.vc.e.3
             @Override // java.lang.Runnable
             public void run() {
-                e.this.bqw();
+                e.this.bqu();
             }
         };
         initView();
     }
 
     private void initView() {
-        this.fTd = new TextView(TbadkCoreApplication.getInst());
-        this.fTd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.e.4
+        this.fSm = new TextView(TbadkCoreApplication.getInst());
+        this.fSm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.e.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.bqw();
-                if (e.this.fTc != null && !e.this.fTc.bkq() && e.this.fTc.bjP() != null) {
-                    e.this.fTc.bjP().startPullRefresh();
+                e.this.bqu();
+                if (e.this.fSl != null && !e.this.fSl.bko() && e.this.fSl.bjN() != null) {
+                    e.this.fSl.bjN().startPullRefresh();
                 }
             }
         });
-        this.fTd.setGravity(17);
-        this.fTd.setText(R.string.frs_game_refresh_tip_text);
-        int dimensionPixelSize = this.fTc.getResources().getDimensionPixelSize(R.dimen.ds20);
-        int dimensionPixelSize2 = this.fTc.getResources().getDimensionPixelSize(R.dimen.ds40);
-        this.fTd.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
-        this.fTd.setTextSize(0, this.fTc.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-        am.setBackgroundResource(this.fTd, R.drawable.bg_home_float);
-        am.setViewTextColor(this.fTd, (int) R.color.cp_link_tip_a);
+        this.fSm.setGravity(17);
+        this.fSm.setText(R.string.frs_game_refresh_tip_text);
+        int dimensionPixelSize = this.fSl.getResources().getDimensionPixelSize(R.dimen.ds20);
+        int dimensionPixelSize2 = this.fSl.getResources().getDimensionPixelSize(R.dimen.ds40);
+        this.fSm.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
+        this.fSm.setTextSize(0, this.fSl.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+        am.setBackgroundResource(this.fSm, R.drawable.bg_home_float);
+        am.setViewTextColor(this.fSm, (int) R.color.cp_link_tip_a);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
-        layoutParams.topMargin = this.fTc.aKR().getBottom() + l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds8);
-        this.fTd.setLayoutParams(layoutParams);
+        layoutParams.topMargin = this.fSl.aKP().getBottom() + l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds8);
+        this.fSm.setLayoutParams(layoutParams);
     }
 
     public void a(RecyclerView recyclerView, int i, int i2) {
-        this.fwY = i;
-        this.dvr = i2;
-        if (this.fTg < 0) {
-            this.fTg = this.fwY;
+        this.fwh = i;
+        this.duA = i2;
+        if (this.fSp < 0) {
+            this.fSp = this.fwh;
         }
     }
 
     public void onScrollStateChanged(RecyclerView recyclerView, int i) {
         if (i == 0) {
-            if (this.fwY > 0 && this.dvr > 0 && this.fTg >= 0 && this.fwY + this.dvr + 1 < this.fTg) {
-                this.fTb.sendEmptyMessage(111);
+            if (this.fwh > 0 && this.duA > 0 && this.fSp >= 0 && this.fwh + this.duA + 1 < this.fSp) {
+                this.fSk.sendEmptyMessage(111);
             }
-            this.fTg = this.fwY;
+            this.fSp = this.fwh;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bqv() {
-        if (this.fTd.getParent() == null) {
-            this.fSK.addView(this.fTd);
-            this.fTd.clearAnimation();
-            this.fTd.startAnimation(this.fTe);
-            this.fTb.removeCallbacks(this.mHideRunnable);
-            this.fTb.postDelayed(this.mHideRunnable, 4000L);
+    public void bqt() {
+        if (this.fSm.getParent() == null) {
+            this.fRT.addView(this.fSm);
+            this.fSm.clearAnimation();
+            this.fSm.startAnimation(this.fSn);
+            this.fSk.removeCallbacks(this.mHideRunnable);
+            this.fSk.postDelayed(this.mHideRunnable, 4000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bqw() {
-        if (this.fTd.getParent() != null) {
-            this.fwY = -1;
-            this.fTg = -1;
-            this.fTb.removeCallbacks(this.mHideRunnable);
-            this.fTd.clearAnimation();
-            this.fTd.startAnimation(this.fTf);
+    public void bqu() {
+        if (this.fSm.getParent() != null) {
+            this.fwh = -1;
+            this.fSp = -1;
+            this.fSk.removeCallbacks(this.mHideRunnable);
+            this.fSm.clearAnimation();
+            this.fSm.startAnimation(this.fSo);
         }
     }
 
     public void onDestory() {
-        this.fTb.removeCallbacksAndMessages(null);
+        this.fSk.removeCallbacksAndMessages(null);
     }
 }

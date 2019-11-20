@@ -5,7 +5,7 @@ public interface j {
 
     int at(String str, boolean z);
 
-    void cfw();
+    void cfu();
 
     void f(String str, int i, boolean z);
 }
