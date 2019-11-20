@@ -23,10 +23,10 @@ import com.baidu.live.tieba.horizonallist.widget.HListView;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class ImBarrageOptionListView extends HListView {
-    private int aeH;
-    private b aiO;
-    boolean aiP;
-    private a aiQ;
+    private int aep;
+    private b aiw;
+    boolean aix;
+    private a aiy;
     private int mDividerWidth;
 
     /* loaded from: classes6.dex */
@@ -36,27 +36,27 @@ public class ImBarrageOptionListView extends HListView {
 
     public ImBarrageOptionListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aiP = true;
-        this.aeH = -1;
+        this.aix = true;
+        this.aep = -1;
         init();
     }
 
     public void setCallback(a aVar) {
-        this.aiQ = aVar;
+        this.aiy = aVar;
     }
 
     public void setSelectEnabled(boolean z) {
-        this.aiP = z;
+        this.aix = z;
     }
 
     public void setData(ao[] aoVarArr, Map<String, Integer> map, int i) {
-        if (this.aiO == null) {
-            this.aiO = new b();
-            this.aiO.a(aoVarArr, map, UtilHelper.getRealScreenOrientation(getContext()), i);
-            setAdapter((ListAdapter) this.aiO);
+        if (this.aiw == null) {
+            this.aiw = new b();
+            this.aiw.a(aoVarArr, map, UtilHelper.getRealScreenOrientation(getContext()), i);
+            setAdapter((ListAdapter) this.aiw);
         } else {
-            this.aiO.a(aoVarArr, map, UtilHelper.getRealScreenOrientation(getContext()), i);
-            this.aiO.notifyDataSetChanged();
+            this.aiw.a(aoVarArr, map, UtilHelper.getRealScreenOrientation(getContext()), i);
+            this.aiw.notifyDataSetChanged();
         }
         setSelection(0);
     }
@@ -65,35 +65,35 @@ public class ImBarrageOptionListView extends HListView {
     @Override // com.baidu.live.tieba.horizonallist.widget.HListView, com.baidu.live.tieba.horizonallist.widget.AbsHListView, android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.aiO != null) {
-            this.aiO.bw(UtilHelper.getRealScreenOrientation(getContext()));
-            this.aiO.notifyDataSetChanged();
+        if (this.aiw != null) {
+            this.aiw.bw(UtilHelper.getRealScreenOrientation(getContext()));
+            this.aiw.notifyDataSetChanged();
         }
     }
 
     public void j(Map<String, Integer> map) {
-        if (this.aiO != null) {
-            this.aiO.a(map, UtilHelper.getRealScreenOrientation(getContext()));
-            this.aiO.notifyDataSetChanged();
+        if (this.aiw != null) {
+            this.aiw.a(map, UtilHelper.getRealScreenOrientation(getContext()));
+            this.aiw.notifyDataSetChanged();
         }
     }
 
     public int getSelect() {
-        return this.aeH;
+        return this.aep;
     }
 
     public void setSelect(int i) {
-        if (this.aeH != i) {
-            this.aeH = i;
-            if (this.aiO != null && this.aiO.getCount() > 0) {
-                this.aiO.notifyDataSetChanged();
+        if (this.aep != i) {
+            this.aep = i;
+            if (this.aiw != null && this.aiw.getCount() > 0) {
+                this.aiw.notifyDataSetChanged();
             }
         }
     }
 
     public ao getSelectInfo() {
-        if (this.aiO != null) {
-            return this.aiO.getItem(this.aeH);
+        if (this.aiw != null) {
+            return this.aiw.getItem(this.aep);
         }
         return null;
     }
@@ -104,18 +104,18 @@ public class ImBarrageOptionListView extends HListView {
         this.mDividerWidth = getResources().getDimensionPixelOffset(a.e.sdk_ds20);
         setDividerWidth(this.mDividerWidth);
         setSelector(new ColorDrawable(0));
-        this.aiP = true;
+        this.aix = true;
         setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.live.im.view.ImBarrageOptionListView.1
             @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
             public void a(AdapterView<?> adapterView, View view, int i, long j) {
-                if (ImBarrageOptionListView.this.aiP && ImBarrageOptionListView.this.aeH != i) {
-                    ImBarrageOptionListView.this.aeH = i;
-                    k.sM().setSelect(ImBarrageOptionListView.this.aeH);
-                    if (ImBarrageOptionListView.this.aiO != null) {
-                        ImBarrageOptionListView.this.aiO.notifyDataSetChanged();
+                if (ImBarrageOptionListView.this.aix && ImBarrageOptionListView.this.aep != i) {
+                    ImBarrageOptionListView.this.aep = i;
+                    k.sN().setSelect(ImBarrageOptionListView.this.aep);
+                    if (ImBarrageOptionListView.this.aiw != null) {
+                        ImBarrageOptionListView.this.aiw.notifyDataSetChanged();
                     }
-                    if (ImBarrageOptionListView.this.aiQ != null) {
-                        ImBarrageOptionListView.this.aiQ.bu(ImBarrageOptionListView.this.aeH);
+                    if (ImBarrageOptionListView.this.aiy != null) {
+                        ImBarrageOptionListView.this.aiy.bu(ImBarrageOptionListView.this.aep);
                     }
                 }
             }
@@ -124,34 +124,34 @@ public class ImBarrageOptionListView extends HListView {
 
     /* loaded from: classes6.dex */
     private class b extends BaseAdapter {
-        private ao[] aiS;
-        private Map<String, Integer> aiT;
-        private int aiU;
+        private ao[] aiA;
+        private Map<String, Integer> aiB;
+        private int aiC;
         private int from;
 
         private b() {
         }
 
         public void a(ao[] aoVarArr, Map<String, Integer> map, int i, int i2) {
-            this.aiS = aoVarArr;
-            this.aiT = map;
+            this.aiA = aoVarArr;
+            this.aiB = map;
             this.from = i2;
-            this.aiU = by(i);
+            this.aiC = by(i);
         }
 
         public void a(Map<String, Integer> map, int i) {
-            this.aiT = map;
-            this.aiU = by(i);
+            this.aiB = map;
+            this.aiC = by(i);
         }
 
         public void bw(int i) {
-            this.aiU = by(i);
+            this.aiC = by(i);
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.aiS != null) {
-                return this.aiS.length;
+            if (this.aiA != null) {
+                return this.aiA.length;
             }
             return 0;
         }
@@ -161,7 +161,7 @@ public class ImBarrageOptionListView extends HListView {
         /* renamed from: bx */
         public ao getItem(int i) {
             if (i < getCount()) {
-                return this.aiS[i];
+                return this.aiA[i];
             }
             return null;
         }
@@ -178,12 +178,12 @@ public class ImBarrageOptionListView extends HListView {
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.ala_im_barrage_option_item, (ViewGroup) null);
                 cVar = new c();
-                cVar.aiV = (FrameLayout) view.findViewById(a.g.layout_content);
-                cVar.aiW = (FrameLayout) view.findViewById(a.g.layout_normal);
+                cVar.aiD = (FrameLayout) view.findViewById(a.g.layout_content);
+                cVar.aiE = (FrameLayout) view.findViewById(a.g.layout_normal);
                 cVar.textView = (TextView) view.findViewById(a.g.tv);
-                cVar.aiX = view.findViewById(a.g.mask);
-                cVar.aiY = (ImBarrageItemGiftCountView) view.findViewById(a.g.gift_count);
-                cVar.aiZ = (ImageView) view.findViewById(a.g.iv_gift);
+                cVar.aiF = view.findViewById(a.g.mask);
+                cVar.aiG = (ImBarrageItemGiftCountView) view.findViewById(a.g.gift_count);
+                cVar.aiH = (ImageView) view.findViewById(a.g.iv_gift);
                 view.setTag(cVar);
             } else {
                 cVar = (c) view.getTag();
@@ -197,20 +197,20 @@ public class ImBarrageOptionListView extends HListView {
                 ((GradientDrawable) background).setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
             }
             ((GradientDrawable) background).setColors(item.oB());
-            cVar.aiV.setBackground(background);
-            boolean z = i == ImBarrageOptionListView.this.aeH;
-            if (!ImBarrageOptionListView.this.a(cVar, item, this.aiT, this.from, z)) {
-                cVar.aiW.setVisibility(0);
+            cVar.aiD.setBackground(background);
+            boolean z = i == ImBarrageOptionListView.this.aep;
+            if (!ImBarrageOptionListView.this.a(cVar, item, this.aiB, this.from, z)) {
+                cVar.aiE.setVisibility(0);
                 cVar.textView.setText(item.price + "T豆/条");
-                cVar.aiY.setVisibility(8);
-                cVar.aiZ.setVisibility(8);
+                cVar.aiG.setVisibility(8);
+                cVar.aiH.setVisibility(8);
             }
-            cVar.aiX.setVisibility(z ? 8 : 0);
-            ViewGroup.LayoutParams layoutParams = cVar.aiV.getLayoutParams();
+            cVar.aiF.setVisibility(z ? 8 : 0);
+            ViewGroup.LayoutParams layoutParams = cVar.aiD.getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new FrameLayout.LayoutParams(this.aiU, -1);
+                layoutParams = new FrameLayout.LayoutParams(this.aiC, -1);
             }
-            layoutParams.width = this.aiU;
+            layoutParams.width = this.aiC;
             return view;
         }
 
@@ -237,13 +237,13 @@ public class ImBarrageOptionListView extends HListView {
             return false;
         }
         if (map.containsKey(aoVar.id) && (intValue = map.get(aoVar.id).intValue()) != 0 && aoVar.price == 100) {
-            cVar.aiW.setVisibility(8);
-            cVar.aiY.setText(intValue > 999 ? "999+" : String.valueOf(intValue));
-            cVar.aiY.setTextColor(-16198405);
-            cVar.aiY.setVisibility(0);
-            cVar.aiZ.setImageResource(z ? a.f.sdk_icon_barrage_gift_price_100_selected : a.f.sdk_icon_barrage_gift_price_100_unselected);
-            cVar.aiZ.setVisibility(0);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) cVar.aiZ.getLayoutParams();
+            cVar.aiE.setVisibility(8);
+            cVar.aiG.setText(intValue > 999 ? "999+" : String.valueOf(intValue));
+            cVar.aiG.setTextColor(-16198405);
+            cVar.aiG.setVisibility(0);
+            cVar.aiH.setImageResource(z ? a.f.sdk_icon_barrage_gift_price_100_selected : a.f.sdk_icon_barrage_gift_price_100_unselected);
+            cVar.aiH.setVisibility(0);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) cVar.aiH.getLayoutParams();
             if (i == 0) {
                 layoutParams.width = -2;
                 layoutParams.height = -1;
@@ -255,7 +255,7 @@ public class ImBarrageOptionListView extends HListView {
                 layoutParams.leftMargin = 0;
                 layoutParams.gravity = 80;
             }
-            cVar.aiZ.setLayoutParams(layoutParams);
+            cVar.aiH.setLayoutParams(layoutParams);
             return true;
         }
         return false;
@@ -264,11 +264,11 @@ public class ImBarrageOptionListView extends HListView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class c {
-        FrameLayout aiV;
-        FrameLayout aiW;
-        View aiX;
-        ImBarrageItemGiftCountView aiY;
-        ImageView aiZ;
+        FrameLayout aiD;
+        FrameLayout aiE;
+        View aiF;
+        ImBarrageItemGiftCountView aiG;
+        ImageView aiH;
         TextView textView;
 
         private c() {

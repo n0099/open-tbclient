@@ -24,39 +24,39 @@ import java.util.List;
 import tbclient.FrsPage.RecmForumInfo;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tbadk.m.a {
-    private View bhm;
-    protected TbImageView cJP;
-    private com.baidu.adp.base.e cfJ;
-    private BdListView fVY;
-    private C0421a fVZ;
-    private TextView fWa;
+    private View bgU;
+    protected TbImageView cIY;
+    private com.baidu.adp.base.e ceS;
+    private BdListView fVh;
+    private C0421a fVi;
+    private TextView fVj;
     private TextView mTitleView;
     protected TextView subTextView;
 
     /* loaded from: classes4.dex */
     public static class b {
-        public View cfY;
-        public TextView fWe;
-        public TextView fWf;
-        public TextView fWg;
-        public ImageView fWh;
-        public TbImageView fWi;
-        public TextView fWj;
-        public TextView fWk;
-        public ImageView fWl;
+        public View cfh;
+        public TextView fVn;
+        public TextView fVo;
+        public TextView fVp;
+        public ImageView fVq;
+        public TbImageView fVr;
+        public TextView fVs;
+        public TextView fVt;
+        public ImageView fVu;
         public View rootView;
     }
 
     public a(com.baidu.adp.base.e eVar, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(eVar.getContext()).inflate(R.layout.forbid_detail_view_layout, (ViewGroup) null));
-        this.cfJ = eVar;
-        this.cJP = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.ceS = eVar;
+        this.cIY = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
         this.subTextView = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.bhm = this.attachedView.findViewById(R.id.divider);
-        this.fVY = (BdListView) this.attachedView.findViewById(R.id.recommend_bar_listview);
+        this.bgU = this.attachedView.findViewById(R.id.divider);
+        this.fVh = (BdListView) this.attachedView.findViewById(R.id.recommend_bar_listview);
         this.attachedView.setOnClickListener(null);
         this.mTitleView = (TextView) this.attachedView.findViewById(R.id.content_title);
-        this.fWa = (TextView) this.attachedView.findViewById(R.id.local_tip_tv);
+        this.fVj = (TextView) this.attachedView.findViewById(R.id.local_tip_tv);
     }
 
     public void setSubText(String str) {
@@ -70,8 +70,8 @@ public class a extends com.baidu.tbadk.m.a {
 
     public void cB(List<RecmForumInfo> list) {
         if (list != null) {
-            this.fVZ = new C0421a(list);
-            this.fVY.setAdapter((ListAdapter) this.fVZ);
+            this.fVi = new C0421a(list);
+            this.fVh.setAdapter((ListAdapter) this.fVi);
         }
     }
 
@@ -86,20 +86,20 @@ public class a extends com.baidu.tbadk.m.a {
     @Override // com.baidu.tbadk.m.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.cJP.setImageResource(0);
+        this.cIY.setImageResource(0);
     }
 
     public void onChangeSkinType() {
         if (isViewAttached()) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            am.setImageResource(this.cJP, R.drawable.new_pic_emotion_01);
+            am.setImageResource(this.cIY, R.drawable.new_pic_emotion_01);
             am.setViewTextColor(this.subTextView, R.color.cp_cont_d, 1, skinType);
             am.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d);
-            am.setBackgroundColor(this.bhm, R.color.cp_bg_line_c);
+            am.setBackgroundColor(this.bgU, R.color.cp_bg_line_c);
             am.setViewTextColor(this.mTitleView, R.color.cp_cont_d, 1, skinType);
-            am.setViewTextColor(this.fWa, R.color.cp_cont_f, 1, skinType);
-            if (this.fVZ != null) {
-                this.fVZ.notifyDataSetChanged();
+            am.setViewTextColor(this.fVj, R.color.cp_cont_f, 1, skinType);
+            if (this.fVi != null) {
+                this.fVi.notifyDataSetChanged();
             }
         }
     }
@@ -107,22 +107,22 @@ public class a extends com.baidu.tbadk.m.a {
     /* renamed from: com.baidu.tieba.frs.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public class C0421a extends BaseAdapter {
-        private List<RecmForumInfo> fWb;
+        private List<RecmForumInfo> fVk;
 
         public C0421a(List<RecmForumInfo> list) {
-            this.fWb = list;
+            this.fVk = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.fWb.size();
+            return this.fVk.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: sm */
+        /* renamed from: sl */
         public RecmForumInfo getItem(int i) {
-            return this.fWb.get(i);
+            return this.fVk.get(i);
         }
 
         @Override // android.widget.Adapter
@@ -134,45 +134,45 @@ public class a extends com.baidu.tbadk.m.a {
         public View getView(final int i, View view, ViewGroup viewGroup) {
             b bVar;
             if (view == null) {
-                view = LayoutInflater.from(a.this.cfJ.getPageActivity()).inflate(R.layout.recommend_view, (ViewGroup) null);
+                view = LayoutInflater.from(a.this.ceS.getPageActivity()).inflate(R.layout.recommend_view, (ViewGroup) null);
                 b bVar2 = new b();
                 bVar2.rootView = view.findViewById(R.id.root_view);
-                bVar2.fWe = (TextView) view.findViewById(R.id.forum_name);
-                bVar2.fWg = (TextView) view.findViewById(R.id.follow_tv);
-                bVar2.fWf = (TextView) view.findViewById(R.id.thread_tv);
-                bVar2.fWh = (ImageView) view.findViewById(R.id.arrow_item_img);
-                bVar2.fWi = (TbImageView) view.findViewById(R.id.headview);
-                bVar2.fWj = (TextView) view.findViewById(R.id.follow_title);
-                bVar2.fWk = (TextView) view.findViewById(R.id.thread_title);
-                bVar2.cfY = view.findViewById(R.id.divider_line);
-                bVar2.fWl = (ImageView) view.findViewById(R.id.content_img);
+                bVar2.fVn = (TextView) view.findViewById(R.id.forum_name);
+                bVar2.fVp = (TextView) view.findViewById(R.id.follow_tv);
+                bVar2.fVo = (TextView) view.findViewById(R.id.thread_tv);
+                bVar2.fVq = (ImageView) view.findViewById(R.id.arrow_item_img);
+                bVar2.fVr = (TbImageView) view.findViewById(R.id.headview);
+                bVar2.fVs = (TextView) view.findViewById(R.id.follow_title);
+                bVar2.fVt = (TextView) view.findViewById(R.id.thread_title);
+                bVar2.cfh = view.findViewById(R.id.divider_line);
+                bVar2.fVu = (ImageView) view.findViewById(R.id.content_img);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
             if (getItem(i) != null) {
-                bVar.fWe.setText(aq.cutChineseAndEnglishWithSuffix(getItem(i).forum_name, 14, StringHelper.STRING_MORE));
-                bVar.fWi.startLoad(getItem(i).avatar, 10, false);
-                bVar.fWg.setText(aq.numberUniformFormat(getItem(i).member_count.intValue()));
-                bVar.fWf.setText(aq.numberUniformFormat(getItem(i).post_num.intValue()));
+                bVar.fVn.setText(aq.cutChineseAndEnglishWithSuffix(getItem(i).forum_name, 14, StringHelper.STRING_MORE));
+                bVar.fVr.startLoad(getItem(i).avatar, 10, false);
+                bVar.fVp.setText(aq.numberUniformFormat(getItem(i).member_count.intValue()));
+                bVar.fVo.setText(aq.numberUniformFormat(getItem(i).post_num.intValue()));
                 bVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (!StringUtils.isNull(C0421a.this.getItem(i).forum_name)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(a.this.cfJ.getContext()).createNormalCfg(C0421a.this.getItem(i).forum_name, null)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(a.this.ceS.getContext()).createNormalCfg(C0421a.this.getItem(i).forum_name, null)));
                         }
                     }
                 });
-                am.setViewTextColor(bVar.fWe, (int) R.color.cp_cont_b);
-                am.setViewTextColor(bVar.fWg, (int) R.color.cp_cont_d);
-                am.setViewTextColor(bVar.fWf, (int) R.color.cp_cont_d);
-                am.setViewTextColor(bVar.fWk, (int) R.color.cp_cont_d);
-                am.setViewTextColor(bVar.fWj, (int) R.color.cp_cont_d);
-                am.setBackgroundResource(bVar.cfY, R.color.cp_bg_line_c);
-                SvgManager.amN().a(bVar.fWh, R.drawable.icon_pure_list_arrow16_right_tint_n_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+                am.setViewTextColor(bVar.fVn, (int) R.color.cp_cont_b);
+                am.setViewTextColor(bVar.fVp, (int) R.color.cp_cont_d);
+                am.setViewTextColor(bVar.fVo, (int) R.color.cp_cont_d);
+                am.setViewTextColor(bVar.fVt, (int) R.color.cp_cont_d);
+                am.setViewTextColor(bVar.fVs, (int) R.color.cp_cont_d);
+                am.setBackgroundResource(bVar.cfh, R.color.cp_bg_line_c);
+                SvgManager.amL().a(bVar.fVq, R.drawable.icon_pure_list_arrow16_right_tint_n_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
                 am.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-                am.setBackgroundResource(bVar.fWl, R.drawable.picture_content_frame);
+                am.setBackgroundResource(bVar.fVu, R.drawable.picture_content_frame);
             }
             return view;
         }

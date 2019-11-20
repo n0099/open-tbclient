@@ -8,8 +8,8 @@ public class h {
     private long id;
     private String img;
     private String img_popup;
-    private int jgj;
-    private List<i> jgk;
+    private int jfs;
+    private List<i> jft;
     private String thread_id;
     private String title;
     private int type;
@@ -23,10 +23,10 @@ public class h {
             this.type = businessPromot.type.intValue();
             this.thread_id = businessPromot.thread_id;
             this.url = businessPromot.url;
-            this.jgj = businessPromot.join_num.intValue();
+            this.jfs = businessPromot.join_num.intValue();
             this.id = businessPromot.id.longValue();
             if (businessPromot.comment_list != null) {
-                this.jgk = new LinkedList();
+                this.jft = new LinkedList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -34,7 +34,7 @@ public class h {
                         if (businessPromot.comment_list.get(i2) != null) {
                             i iVar = new i();
                             iVar.a(businessPromot.comment_list.get(i2));
-                            this.jgk.add(iVar);
+                            this.jft.add(iVar);
                         }
                         i = i2 + 1;
                     } else {
@@ -49,11 +49,11 @@ public class h {
         return this.title;
     }
 
-    public String aer() {
+    public String aep() {
         return this.img;
     }
 
-    public String cnn() {
+    public String cnl() {
         return this.img_popup;
     }
 
@@ -65,15 +65,15 @@ public class h {
         return this.url;
     }
 
-    public int cno() {
-        return this.jgj;
+    public int cnm() {
+        return this.jfs;
     }
 
     public long getId() {
         return this.id;
     }
 
-    public List<i> cnp() {
-        return this.jgk;
+    public List<i> cnn() {
+        return this.jft;
     }
 }

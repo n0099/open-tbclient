@@ -21,10 +21,10 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.tb.airbnb.lottie.LottieAnimationView;
 /* loaded from: classes6.dex */
 public class f {
-    private LottieAnimationView dHJ;
-    private AlphaAnimation dMq;
-    private AnimatorSet dMr;
-    private AnimatorSet dMs;
+    private LottieAnimationView dGS;
+    private AnimatorSet dLA;
+    private AnimatorSet dLB;
+    private AlphaAnimation dLz;
     private TbPageContext mTbPageContext;
     private String otherParams;
 
@@ -38,12 +38,12 @@ public class f {
 
     @SuppressLint({"ClickableViewAccessibility"})
     public void a(ViewGroup viewGroup, com.baidu.tieba.ala.guardclub.model.c cVar, com.baidu.live.data.i iVar) {
-        if (viewGroup != null && this.mTbPageContext != null && iVar != null && iVar.PN != null) {
-            String str = iVar.PN.nickName;
+        if (viewGroup != null && this.mTbPageContext != null && iVar != null && iVar.Pj != null) {
+            String str = iVar.Pj.nickName;
             if (TextUtils.isEmpty(str)) {
-                str = iVar.PN.userName;
+                str = iVar.Pj.userName;
             }
-            a(viewGroup, iVar.PN.portrait, str);
+            a(viewGroup, iVar.Pj.portrait, str);
         }
     }
 
@@ -57,11 +57,11 @@ public class f {
             layoutParams.topMargin = iArr[1] * (-1);
             inflate.setLayoutParams(layoutParams);
             final View findViewById = inflate.findViewById(a.g.shape_view);
-            this.dMq = new AlphaAnimation(0.0f, 1.0f);
-            this.dMq.setDuration(100L);
-            this.dHJ = (LottieAnimationView) inflate.findViewById(a.g.flowerAppear_lottieAnimationView);
-            this.dHJ.loop(false);
-            this.dHJ.setAnimation("anim_shouhuhua.json");
+            this.dLz = new AlphaAnimation(0.0f, 1.0f);
+            this.dLz.setDuration(100L);
+            this.dGS = (LottieAnimationView) inflate.findViewById(a.g.flowerAppear_lottieAnimationView);
+            this.dGS.loop(false);
+            this.dGS.setAnimation("anim_shouhuhua.json");
             LinearLayout linearLayout = (LinearLayout) inflate.findViewById(a.g.head_layout);
             TextView textView = (TextView) inflate.findViewById(a.g.name_textView);
             HeadImageView headImageView = (HeadImageView) inflate.findViewById(a.g.head_imageView);
@@ -69,19 +69,19 @@ public class f {
             headImageView.setAutoChangeStyle(false);
             headImageView.setDefaultBgResource(a.f.sdk_default_avatar);
             int screenHeight = ((int) (ScreenHelper.getScreenHeight(this.mTbPageContext.getPageActivity()) * 0.38200003f)) - this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds40);
-            ViewGroup.LayoutParams layoutParams2 = this.dHJ.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams2 = this.dGS.getLayoutParams();
             layoutParams2.height = screenHeight;
             layoutParams2.width = (int) ((screenHeight / 50.0f) * 75.0f);
-            this.dHJ.setLayoutParams(layoutParams2);
+            this.dGS.setLayoutParams(layoutParams2);
             ((RelativeLayout.LayoutParams) linearLayout.getLayoutParams()).topMargin = screenHeight - this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds140);
-            this.dHJ.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.guardclub.f.1
+            this.dGS.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.guardclub.f.1
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    f.this.dHJ.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.guardclub.f.1.1
+                    f.this.dGS.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.guardclub.f.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (viewGroup != null) {
@@ -104,17 +104,17 @@ public class f {
             new ObjectAnimator();
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(linearLayout, "translationY", dimensionPixelSize * (-1));
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(linearLayout, "alpha", 0.0f, 1.0f);
-            this.dMr = new AnimatorSet();
-            this.dMr.playTogether(ofFloat, ofFloat2);
-            this.dMr.setDuration(170L);
-            this.dMr.setStartDelay(830L);
+            this.dLA = new AnimatorSet();
+            this.dLA.playTogether(ofFloat, ofFloat2);
+            this.dLA.setDuration(170L);
+            this.dLA.setStartDelay(830L);
             new ObjectAnimator();
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(linearLayout, "translationY", dimensionPixelSize);
             ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(linearLayout, "alpha", 1.0f, 0.0f);
-            this.dMs = new AnimatorSet();
-            this.dMs.playTogether(ofFloat3, ofFloat4);
-            this.dMs.setDuration(210L);
-            this.dMs.setStartDelay(3000L);
+            this.dLB = new AnimatorSet();
+            this.dLB.playTogether(ofFloat3, ofFloat4);
+            this.dLB.setDuration(210L);
+            this.dLB.setStartDelay(3000L);
             if (str2 == null) {
                 str2 = "";
             }
@@ -124,10 +124,10 @@ public class f {
                 public void onComplete(String str3, boolean z) {
                     if (viewGroup != null && !f.this.mTbPageContext.getPageActivity().isFinishing()) {
                         viewGroup.addView(inflate);
-                        findViewById.startAnimation(f.this.dMq);
-                        f.this.dHJ.playAnimation();
-                        f.this.dMr.start();
-                        f.this.dMs.start();
+                        findViewById.startAnimation(f.this.dLz);
+                        f.this.dGS.playAnimation();
+                        f.this.dLA.start();
+                        f.this.dLB.start();
                     }
                 }
 
@@ -136,26 +136,26 @@ public class f {
                 }
             });
             TextView textView2 = (TextView) inflate.findViewById(a.g.desc_textView);
-            z aLz = m.aLx().aLz();
-            if (aLz != null && !TextUtils.isEmpty(aLz.TD)) {
-                textView2.setText(aLz.TD);
+            z aLx = m.aLv().aLx();
+            if (aLx != null && !TextUtils.isEmpty(aLx.Tk)) {
+                textView2.setText(aLx.Tk);
             }
             headImageView.startLoad(str, 12, false);
         }
     }
 
     public void onDestory() {
-        if (this.dMq != null) {
-            this.dMq.cancel();
+        if (this.dLz != null) {
+            this.dLz.cancel();
         }
-        if (this.dHJ != null) {
-            this.dHJ.cancelAnimation();
+        if (this.dGS != null) {
+            this.dGS.cancelAnimation();
         }
-        if (this.dMr != null) {
-            this.dMr.cancel();
+        if (this.dLA != null) {
+            this.dLA.cancel();
         }
-        if (this.dMs != null) {
-            this.dMs.cancel();
+        if (this.dLB != null) {
+            this.dLB.cancel();
         }
     }
 }

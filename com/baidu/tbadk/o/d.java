@@ -4,8 +4,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public String cLB;
-    private String cLC;
+    public String cKK;
+    private String cKL;
     private String currentPageKey;
     private long fid;
     public boolean isRouteStat = false;
@@ -70,12 +70,12 @@ public class d {
         return this.task_id;
     }
 
-    public String awy() {
-        return this.cLC;
+    public String aww() {
+        return this.cKL;
     }
 
     public void qd(String str) {
-        this.cLC = str;
+        this.cKL = str;
     }
 
     public boolean isDirtyData() {

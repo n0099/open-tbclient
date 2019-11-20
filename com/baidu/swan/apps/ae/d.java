@@ -5,15 +5,15 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class d extends c {
-    private Map<String, Object> bko;
+    private Map<String, Object> bjW;
 
     public d(b bVar) {
         super(bVar);
-        this.bko = new HashMap();
+        this.bjW = new HashMap();
     }
 
     public void clear() {
-        this.bko.clear();
+        this.bjW.clear();
     }
 
     @Override // com.baidu.swan.apps.ae.c
@@ -22,17 +22,17 @@ public class d extends c {
     }
 
     public void putBoolean(String str, boolean z) {
-        this.bko.put(str, Boolean.valueOf(z));
+        this.bjW.put(str, Boolean.valueOf(z));
     }
 
     public boolean getBoolean(String str, boolean z) {
-        return !(this.bko.get(str) instanceof Boolean) ? z : ((Boolean) this.bko.get(str)).booleanValue();
+        return !(this.bjW.get(str) instanceof Boolean) ? z : ((Boolean) this.bjW.get(str)).booleanValue();
     }
 
     public boolean containsKey(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.bko.containsKey(str);
+        return this.bjW.containsKey(str);
     }
 }

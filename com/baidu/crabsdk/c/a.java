@@ -3,26 +3,26 @@ package com.baidu.crabsdk.c;
 import android.util.Log;
 /* loaded from: classes3.dex */
 public final class a {
-    public static String Ku = "CRAB";
-    public static String Kv = "CRAB-NA";
+    public static String JU = "CRAB";
+    public static String JV = "CRAB-NA";
 
     public static int bu(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.i(Ku, bx(str));
+            return Log.i(JU, bx(str));
         }
         return -1;
     }
 
     public static int bv(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(Kv, bx(str));
+            return Log.d(JV, bx(str));
         }
         return -1;
     }
 
     public static int bw(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.w(Ku, bx(str));
+            return Log.w(JU, bx(str));
         }
         return -1;
     }
@@ -44,21 +44,21 @@ public final class a {
 
     public static int f(String str, Throwable th) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(Ku, bx(str), th);
+            return Log.e(JU, bx(str), th);
         }
         return -1;
     }
 
     public static int v(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(Ku, bx(str));
+            return Log.d(JU, bx(str));
         }
         return -1;
     }
 
     public static int w(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(Ku, bx(str));
+            return Log.e(JU, bx(str));
         }
         return -1;
     }

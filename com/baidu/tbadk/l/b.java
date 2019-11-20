@@ -9,34 +9,34 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 /* loaded from: classes.dex */
 public class b extends v.a {
-    private HTypeListView cJd;
-    private com.baidu.tieba.b.b cJe;
-    private int csX;
+    private HTypeListView cIm;
+    private com.baidu.tieba.b.b cIn;
+    private int csg;
     private View mBottomLine;
     private TbPageContext mPageContext;
 
     public b(View view, TbPageContext tbPageContext) {
         super(view);
-        this.csX = 3;
+        this.csg = 3;
         this.mPageContext = tbPageContext;
-        this.cJd = (HTypeListView) view.findViewById(R.id.follow_live_list);
+        this.cIm = (HTypeListView) view.findViewById(R.id.follow_live_list);
         this.mBottomLine = view.findViewById(R.id.follow_live_bottom_line);
-        this.cJd.setSelector(R.drawable.transparent_bg);
-        this.cJe = new com.baidu.tieba.b.b(this.mPageContext, this.cJd);
+        this.cIm.setSelector(R.drawable.transparent_bg);
+        this.cIn = new com.baidu.tieba.b.b(this.mPageContext, this.cIm);
     }
 
     public void a(com.baidu.tbadk.data.b bVar) {
         if (bVar != null) {
-            this.cJe.setDatas(bVar.getList());
+            this.cIn.setDatas(bVar.getList());
         }
     }
 
-    public void avs() {
-        if (this.csX != TbadkCoreApplication.getInst().getSkinType()) {
-            this.csX = TbadkCoreApplication.getInst().getSkinType();
-            am.setBackgroundColor(this.cJd, R.color.cp_bg_line_d);
+    public void avq() {
+        if (this.csg != TbadkCoreApplication.getInst().getSkinType()) {
+            this.csg = TbadkCoreApplication.getInst().getSkinType();
+            am.setBackgroundColor(this.cIm, R.color.cp_bg_line_d);
             am.setBackgroundColor(this.mBottomLine, R.color.cp_bg_line_c);
-            this.cJe.notifyDataSetChanged();
+            this.cIn.notifyDataSetChanged();
         }
     }
 }

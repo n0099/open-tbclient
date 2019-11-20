@@ -61,7 +61,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.apps.core.pms.a.Ge()) {
+        if (com.baidu.swan.apps.core.pms.a.Gf()) {
             return c.fq(str);
         }
         return com.baidu.swan.apps.core.a.c.Q(context, str);

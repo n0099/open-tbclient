@@ -12,20 +12,20 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.c;
 /* loaded from: classes.dex */
 public class SendView extends TextView implements l {
-    private EditorTools Dl;
-    private int Dm;
-    private boolean[] cHr;
-    private int[] cHs;
-    private int csX;
+    private EditorTools CJ;
+    private int CK;
+    private boolean[] cGA;
+    private int[] cGB;
+    private int csg;
     private int mType;
-    public static int cHt = 1;
+    public static int cGC = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.cHr = new boolean[]{false, false, false, false, false};
-        this.cHs = new int[]{0, 0};
-        this.csX = 0;
+        this.cGA = new boolean[]{false, false, false, false, false};
+        this.cGB = new int[]{0, 0};
+        this.csg = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds17), context.getResources().getDimensionPixelSize(R.dimen.ds28), context.getResources().getDimensionPixelSize(R.dimen.ds10), context.getResources().getDimensionPixelSize(R.dimen.ds28));
         setGravity(17);
@@ -48,90 +48,90 @@ public class SendView extends TextView implements l {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.cHr[0] = false;
+                        this.cGA[0] = false;
                         break;
                     } else {
-                        this.cHr[0] = true;
+                        this.cGA[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.cHr[0] = false;
-                    this.cHr[1] = false;
-                    this.cHr[2] = false;
-                    this.cHr[3] = false;
-                    this.cHr[4] = false;
-                    this.cHs[0] = 0;
-                    this.cHs[1] = 0;
+                    this.cGA[0] = false;
+                    this.cGA[1] = false;
+                    this.cGA[2] = false;
+                    this.cGA[3] = false;
+                    this.cGA[4] = false;
+                    this.cGB[0] = 0;
+                    this.cGB[1] = 0;
                     break;
                 case 10:
-                    this.cHr[2] = true;
+                    this.cGA[2] = true;
                     break;
                 case 11:
-                    this.cHr[2] = false;
+                    this.cGA[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.cGf != null) {
-                            if (aVar2.cGf.getChosedFiles() != null) {
-                                this.cHs[0] = aVar2.cGf.getChosedFiles().size();
+                        if (aVar2.cFo != null) {
+                            if (aVar2.cFo.getChosedFiles() != null) {
+                                this.cGB[0] = aVar2.cFo.getChosedFiles().size();
                             } else {
-                                this.cHs[0] = 0;
+                                this.cGB[0] = 0;
                             }
                         }
-                        if (this.cHs[0] > 0) {
-                            this.cHr[1] = true;
+                        if (this.cGB[0] > 0) {
+                            this.cGA[1] = true;
                             break;
                         } else {
-                            this.cHr[1] = false;
+                            this.cGA[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.cHs;
+                    int[] iArr = this.cGB;
                     iArr[0] = iArr[0] - 1;
-                    if (this.cHs[0] > 0) {
-                        this.cHr[1] = true;
+                    if (this.cGB[0] > 0) {
+                        this.cGA[1] = true;
                         break;
                     } else {
-                        this.cHr[1] = false;
+                        this.cGA[1] = false;
                         break;
                     }
                 case 28:
                 case 39:
-                    this.cHr[3] = true;
+                    this.cGA[3] = true;
                     break;
                 case 29:
-                    this.cHr[3] = false;
+                    this.cGA[3] = false;
                     break;
             }
-            jT(this.mType);
+            jS(this.mType);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setEditorTools(EditorTools editorTools) {
-        this.Dl = editorTools;
+        this.CJ = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.Dl != null) {
-            this.Dl.b(aVar);
+        if (this.CJ != null) {
+            this.CJ.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setToolId(int i) {
-        this.Dm = i;
+        this.CK = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public int getToolId() {
-        return this.Dm;
+        return this.CK;
     }
 
     @Override // com.baidu.tbadk.editortools.l
@@ -151,7 +151,7 @@ public class SendView extends TextView implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
-        this.csX = i;
+        this.csg = i;
         int color = am.getColor(R.color.cp_link_tip_a);
         setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.k(color, 0.3f), c.k(color, 0.5f), color}));
     }
@@ -160,15 +160,15 @@ public class SendView extends TextView implements l {
         this.mType = i;
     }
 
-    public void jT(int i) {
+    public void jS(int i) {
         if (i == ALL) {
-            if (this.cHr[0] || this.cHr[1] || this.cHr[2] || this.cHr[3] || this.cHr[4]) {
+            if (this.cGA[0] || this.cGA[1] || this.cGA[2] || this.cGA[3] || this.cGA[4]) {
                 setEnabled(true);
             } else {
                 setEnabled(false);
             }
-        } else if (i == cHt) {
-            if (this.cHr[1]) {
+        } else if (i == cGC) {
+            if (this.cGA[1]) {
                 setEnabled(true);
             } else {
                 setEnabled(false);

@@ -7,23 +7,23 @@ import com.baidu.swan.apps.a;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.swan.apps.res.widget.a.a {
-    private int bcC;
-    private int bcD;
-    private CommonOverflowMenuView bcE;
+    private int bck;
+    private int bcl;
+    private CommonOverflowMenuView bcm;
     private int mGravity;
 
     @Override // com.baidu.swan.apps.res.widget.a.a
     protected View getMenuView(Context context) {
         CommonOverflowMenuView commonOverflowMenuView = new CommonOverflowMenuView(context);
         commonOverflowMenuView.setOrientation(1);
-        this.bcE = commonOverflowMenuView;
+        this.bcm = commonOverflowMenuView;
         return commonOverflowMenuView;
     }
 
     public void r(int i, int i2, int i3) {
         this.mGravity = i;
-        this.bcC = i2;
-        this.bcD = i3;
+        this.bck = i2;
+        this.bcl = i3;
     }
 
     @Override // com.baidu.swan.apps.res.widget.a.a
@@ -37,10 +37,10 @@ public class a extends com.baidu.swan.apps.res.widget.a.a {
 
     @Override // com.baidu.swan.apps.res.widget.a.a
     protected void showMenu(PopupWindow popupWindow) {
-        popupWindow.showAtLocation(this.mViewToAttach, this.mGravity, this.bcC, this.bcD);
+        popupWindow.showAtLocation(this.mViewToAttach, this.mGravity, this.bck, this.bcl);
         if (popupWindow.isShowing()) {
             popupWindow.setAnimationStyle(a.i.brower_menu);
-            popupWindow.update(this.bcC, this.bcD, -1, -1, true);
+            popupWindow.update(this.bck, this.bcl, -1, -1, true);
         }
     }
 }

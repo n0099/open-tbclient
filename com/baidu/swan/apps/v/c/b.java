@@ -7,35 +7,35 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String aTt;
-    public com.baidu.swan.apps.an.d.a<b> aTv;
-    private final List<String> aTu = new ArrayList();
-    private final List<a> aTw = new ArrayList();
-    private String aTx = b.class.getPackage().getName();
+    private String aTb;
+    public com.baidu.swan.apps.an.d.a<b> aTd;
+    private final List<String> aTc = new ArrayList();
+    private final List<a> aTe = new ArrayList();
+    private String aTf = b.class.getPackage().getName();
 
     public b fH(String str) {
-        this.aTt = str;
+        this.aTb = str;
         return this;
     }
 
-    public String La() {
-        return this.aTt;
+    public String Lb() {
+        return this.aTb;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized List<a> Lb() {
-        return new ArrayList(this.aTw);
+    public synchronized List<a> Lc() {
+        return new ArrayList(this.aTe);
     }
 
-    public synchronized a KW() {
+    public synchronized a KX() {
         a aVar;
         aVar = new a();
-        this.aTw.add(aVar);
+        this.aTe.add(aVar);
         return aVar;
     }
 
     public synchronized a fG(String str) {
-        return KW().fK(str);
+        return KX().fK(str);
     }
 
     public synchronized a as(String str, String str2) {
@@ -43,12 +43,12 @@ public final class b {
     }
 
     public b c(com.baidu.swan.apps.an.d.a<b> aVar) {
-        this.aTv = aVar;
+        this.aTd = aVar;
         return this;
     }
 
-    public synchronized b Lc() {
-        return d(this.aTv);
+    public synchronized b Ld() {
+        return d(this.aTd);
     }
 
     public synchronized b d(com.baidu.swan.apps.an.d.a<b> aVar) {
@@ -61,23 +61,23 @@ public final class b {
 
     /* loaded from: classes2.dex */
     public class a {
-        final List<String> aTu;
-        private final List<StackTraceElement> aTy;
-        final /* synthetic */ b aTz;
+        final List<String> aTc;
+        private final List<StackTraceElement> aTg;
+        final /* synthetic */ b aTh;
         final List<String> msgs;
         String tag;
 
         private a(b bVar) {
             StackTraceElement[] stackTrace;
-            this.aTz = bVar;
+            this.aTh = bVar;
             this.msgs = new ArrayList();
-            this.aTu = new ArrayList();
-            this.aTy = new ArrayList();
+            this.aTc = new ArrayList();
+            this.aTg = new ArrayList();
             int i = 0;
             for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
                 i++;
-                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.aTx)) {
-                    this.aTy.add(stackTraceElement);
+                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.aTf)) {
+                    this.aTg.add(stackTraceElement);
                 }
             }
         }
@@ -88,7 +88,7 @@ public final class b {
         }
 
         public a fJ(String str) {
-            this.aTu.add(str);
+            this.aTc.add(str);
             return this;
         }
 
@@ -104,15 +104,15 @@ public final class b {
         public synchronized a dD(int i) {
             synchronized (this) {
                 int i2 = i >= 1 ? i : 1;
-                int size = i2 > this.aTy.size() ? this.aTy.size() : i2;
+                int size = i2 > this.aTg.size() ? this.aTg.size() : i2;
                 for (int i3 = 0; i3 < size; i3++) {
-                    this.aTz.fG("[Trace]==> " + this.aTy.get(i3).toString());
+                    this.aTh.fG("[Trace]==> " + this.aTg.get(i3).toString());
                 }
             }
             return this;
         }
 
-        public synchronized a Le() {
+        public synchronized a Lf() {
             return dD(1);
         }
     }
@@ -129,10 +129,10 @@ public final class b {
         /* renamed from: a */
         public void B(b bVar) {
             if (b.DEBUG) {
-                for (a aVar : bVar.aTw) {
+                for (a aVar : bVar.aTe) {
                     for (String str : aVar.msgs) {
-                        String La = bVar.La();
-                        au(TextUtils.isEmpty(aVar.tag) ? La : aVar.tag, La + " >>> " + str);
+                        String Lb = bVar.Lb();
+                        au(TextUtils.isEmpty(aVar.tag) ? Lb : aVar.tag, Lb + " >>> " + str);
                     }
                 }
             }

@@ -13,9 +13,9 @@ import java.io.IOException;
 public class b {
     public static Bitmap K(String str, boolean z) {
         Bitmap bitmap = null;
-        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
-        if (QZ != null) {
-            String a = com.baidu.swan.apps.storage.b.a(str, QZ, QZ.getVersion());
+        com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
+        if (Ra != null) {
+            String a = com.baidu.swan.apps.storage.b.a(str, Ra, Ra.getVersion());
             if (!TextUtils.isEmpty(a)) {
                 bitmap = kR(a);
             }

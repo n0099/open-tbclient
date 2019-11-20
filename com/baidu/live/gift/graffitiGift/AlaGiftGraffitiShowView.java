@@ -12,11 +12,11 @@ import com.baidu.live.k.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 /* loaded from: classes6.dex */
 public class AlaGiftGraffitiShowView extends LinearLayout {
-    private d acS;
-    private AlaGraffitiGiftInfoView acT;
-    private FrameLayout acU;
-    private int acV;
-    private int acW;
+    private d acA;
+    private AlaGraffitiGiftInfoView acB;
+    private FrameLayout acC;
+    private int acD;
+    private int acE;
 
     public AlaGiftGraffitiShowView(Context context) {
         super(context);
@@ -35,12 +35,12 @@ public class AlaGiftGraffitiShowView extends LinearLayout {
 
     private void init() {
         View.inflate(getContext(), a.h.ala_gift_graffiti_show_layout, this);
-        this.acT = (AlaGraffitiGiftInfoView) findViewById(a.g.ala_gift_graffiti_info);
-        this.acT.setBackgroundResource(a.f.ala_small_gift_bg_alpha_shape);
-        this.acU = (FrameLayout) findViewById(a.g.ala_gift_graffiti_show_container);
+        this.acB = (AlaGraffitiGiftInfoView) findViewById(a.g.ala_gift_graffiti_info);
+        this.acB.setBackgroundResource(a.f.ala_small_gift_bg_alpha_shape);
+        this.acC = (FrameLayout) findViewById(a.g.ala_gift_graffiti_show_container);
         int dip2px = BdUtilHelper.dip2px(getContext(), 32.0f);
-        this.acW = dip2px;
-        this.acV = dip2px;
+        this.acE = dip2px;
+        this.acD = dip2px;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -49,41 +49,41 @@ public class AlaGiftGraffitiShowView extends LinearLayout {
     }
 
     public void setGiftItem(d dVar) {
-        this.acS = dVar;
-        if (this.acS != null && this.acS.aaR.WJ != null) {
-            this.acT.setVisibility(0);
-            this.acT.setGiftInfo(this.acS.portrait, this.acS.aaR.pf(), String.format(getResources().getString(a.i.ala_gift_graffiti_send_info), dVar.userName, Integer.valueOf(ListUtils.getCount(dVar.aaR.WJ.Xp))));
+        this.acA = dVar;
+        if (this.acA != null && this.acA.aaz.Wq != null) {
+            this.acB.setVisibility(0);
+            this.acB.setGiftInfo(this.acA.portrait, this.acA.aaz.pf(), String.format(getResources().getString(a.i.ala_gift_graffiti_send_info), dVar.userName, Integer.valueOf(ListUtils.getCount(dVar.aaz.Wq.WX))));
             return;
         }
-        this.acT.setVisibility(4);
+        this.acB.setVisibility(4);
     }
 
     public void b(View view, int i, int i2, int i3, int i4) {
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.acW, this.acV);
-        layoutParams.leftMargin = (i - (this.acW / 2)) + i3;
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.acE, this.acD);
+        layoutParams.leftMargin = (i - (this.acE / 2)) + i3;
         layoutParams.topMargin = i2 - i4;
-        this.acU.addView(view, layoutParams);
+        this.acC.addView(view, layoutParams);
     }
 
-    public void rh() {
-        for (int childCount = this.acU.getChildCount() - 1; childCount >= 0; childCount--) {
-            this.acU.getChildAt(childCount).clearAnimation();
-            this.acU.removeViewAt(childCount);
+    public void ri() {
+        for (int childCount = this.acC.getChildCount() - 1; childCount >= 0; childCount--) {
+            this.acC.getChildAt(childCount).clearAnimation();
+            this.acC.removeViewAt(childCount);
         }
-        this.acT.setVisibility(4);
+        this.acB.setVisibility(4);
     }
 
     public View getInfoView() {
-        return this.acT;
+        return this.acB;
     }
 
     public void setOffsetY(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.acT.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.acB.getLayoutParams();
         layoutParams.topMargin = i;
         if (layoutParams.topMargin < 0) {
             layoutParams.topMargin = 0;
         }
-        this.acT.setLayoutParams(layoutParams);
-        this.acT.requestLayout();
+        this.acB.setLayoutParams(layoutParams);
+        this.acB.requestLayout();
     }
 }

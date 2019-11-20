@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e extends z {
-    private f aLC;
+    private f aLk;
 
     public e(j jVar) {
         super(jVar, "/swan/webviewPostMessage");
@@ -24,13 +24,13 @@ public class e extends z {
             Log.d("WebViewPostMsgAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         com.baidu.swan.apps.console.c.i("webviewPostMsg", "start post webview msg");
-        if (this.aLC == null) {
+        if (this.aLk == null) {
             com.baidu.swan.apps.console.c.e("webviewPostMsg", "none webview widget");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none webview widget");
             return false;
         }
-        d Cu = this.aLC.Cu();
-        if (Cu == null) {
+        d Cv = this.aLk.Cv();
+        if (Cv == null) {
             com.baidu.swan.apps.console.c.e("webviewPostMsg", "none WWWParams");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none WWWParams");
             return false;
@@ -50,15 +50,15 @@ public class e extends z {
             try {
                 jSONObject.put("data", optString);
                 jSONObject.put("eventType", "message");
-                jSONObject.put("wvID", Cu.aXH);
-                jSONObject.put("webviewId", Cu.id);
+                jSONObject.put("wvID", Cv.aXp);
+                jSONObject.put("webviewId", Cv.id);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
                 com.baidu.swan.apps.console.c.e("webviewPostMsg", "meet json exception");
             }
-            com.baidu.swan.apps.view.container.c.d.b(Cu.aXH, Cu.id, "webview", "message", jSONObject);
+            com.baidu.swan.apps.view.container.c.d.b(Cv.aXp, Cv.id, "webview", "message", jSONObject);
             com.baidu.swan.apps.console.c.i("webviewPostMsg", "post webview msg success");
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
@@ -66,6 +66,6 @@ public class e extends z {
     }
 
     public void c(f fVar) {
-        this.aLC = fVar;
+        this.aLk = fVar;
     }
 }

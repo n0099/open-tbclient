@@ -3,30 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes4.dex */
 public class a {
-    private static a ggz = new a();
-    private long ggA = 0;
-    private SparseArray<Long> ggB = new SparseArray<>();
-    private SparseArray<Long> ggC = new SparseArray<>();
-    private SparseArray<Long> ggD = new SparseArray<>();
-    private SparseArray<Long> ggE = new SparseArray<>();
+    private static a gfI = new a();
+    private long gfJ = 0;
+    private SparseArray<Long> gfK = new SparseArray<>();
+    private SparseArray<Long> gfL = new SparseArray<>();
+    private SparseArray<Long> gfM = new SparseArray<>();
+    private SparseArray<Long> gfN = new SparseArray<>();
 
     private a() {
     }
 
-    public static a btv() {
-        return ggz;
+    public static a btt() {
+        return gfI;
     }
 
     public long getCreateTime() {
-        return this.ggA;
+        return this.gfJ;
     }
 
     public void setCreateTime(long j) {
-        this.ggA = j;
+        this.gfJ = j;
     }
 
-    public long sI(int i) {
-        Long l = this.ggC.get(i);
+    public long sH(int i) {
+        Long l = this.gfL.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void m(long j, int i) {
-        this.ggC.put(i, Long.valueOf(j));
+        this.gfL.put(i, Long.valueOf(j));
     }
 
-    public long sJ(int i) {
-        Long l = this.ggB.get(i);
+    public long sI(int i) {
+        Long l = this.gfK.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void n(long j, int i) {
-        this.ggB.put(i, Long.valueOf(j));
+        this.gfK.put(i, Long.valueOf(j));
     }
 
-    public long sK(int i) {
-        Long l = this.ggD.get(i);
+    public long sJ(int i) {
+        Long l = this.gfM.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void o(long j, int i) {
-        this.ggD.put(i, Long.valueOf(j));
+        this.gfM.put(i, Long.valueOf(j));
     }
 
-    public long sL(int i) {
-        Long l = this.ggE.get(i);
+    public long sK(int i) {
+        Long l = this.gfN.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void p(long j, int i) {
-        this.ggE.put(i, Long.valueOf(j));
+        this.gfN.put(i, Long.valueOf(j));
     }
 }

@@ -7,11 +7,11 @@ public interface c extends b {
 
     void d(float f, boolean z);
 
-    void e(Drawable drawable);
+    void f(Drawable drawable);
 
     void reset();
 
-    void x(Throwable th);
-
     void y(Throwable th);
+
+    void z(Throwable th);
 }

@@ -23,7 +23,7 @@ public class c extends b {
                 return false;
             }
             if (DEBUG) {
-                Log.d("battery", "/swan/getBatteryInfoSync = level: " + bF.level + " ; plugged: " + bF.bqM);
+                Log.d("battery", "/swan/getBatteryInfoSync = level: " + bF.level + " ; plugged: " + bF.bqu);
             }
             JSONObject a = a(bF);
             if (a == null) {

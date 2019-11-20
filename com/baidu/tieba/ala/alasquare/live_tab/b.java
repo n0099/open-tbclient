@@ -25,16 +25,16 @@ public class b {
     private static void a(Context context, bh bhVar, String str) {
         if (!j.isNetWorkAvailable()) {
             l.showLongToast(context, context.getString(R.string.no_network_guide));
-        } else if (context != null && bhVar != null && bhVar.aiG() != null && bhVar.aiZ() != null) {
+        } else if (context != null && bhVar != null && bhVar.aiE() != null && bhVar.aiX() != null) {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bhVar.aiG().getUserId();
+                String userId = bhVar.aiE().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bhVar.aiZ());
+            alaLiveInfoCoreData.fillWithInfoData(bhVar.aiX());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
         }
     }

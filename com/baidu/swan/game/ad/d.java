@@ -12,7 +12,7 @@ public class d extends c {
     }
 
     @Override // com.baidu.swan.game.ad.c
-    public View VD() {
+    public View VB() {
         return LayoutInflater.from(this.c).inflate(a.e.ng_game_land_play, (ViewGroup) null);
     }
 }

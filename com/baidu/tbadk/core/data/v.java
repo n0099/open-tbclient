@@ -4,14 +4,14 @@ import com.baidu.live.tbadk.data.Config;
 import tbclient.MultiForumPerm;
 /* loaded from: classes.dex */
 public class v {
-    public boolean bYU;
+    public boolean bYd;
     public boolean isDeleted;
     public int type;
 
     public void a(MultiForumPerm multiForumPerm) {
         int i;
         if (multiForumPerm != null) {
-            this.bYU = multiForumPerm.is_bawu.intValue() == 1;
+            this.bYd = multiForumPerm.is_bawu.intValue() == 1;
             if (Config.BAWU_TYPE_MANAGER.equals(multiForumPerm.bawu_type)) {
                 i = 1;
             } else {

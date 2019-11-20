@@ -18,11 +18,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes5.dex */
 public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
-    private View.OnClickListener cpk;
+    private View.OnClickListener cot;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cpk = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
+        this.cot = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -46,7 +46,7 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bw */
     public b b(ViewGroup viewGroup) {
-        return new b(LayoutInflater.from(this.mContext).inflate(R.layout.frs_create_group_item_view, (ViewGroup) null), this.cpk);
+        return new b(LayoutInflater.from(this.mContext).inflate(R.layout.frs_create_group_item_view, (ViewGroup) null), this.cot);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,10 +57,10 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
         this.mPageContext.getLayoutMode().onModeChanged(view);
         bVar.rootView.setTag(Integer.valueOf(i));
         am.setBackgroundResource(bVar.rootView, R.drawable.frs_group_item_bg);
-        am.setBackgroundColor(bVar.gxD, R.color.cp_bg_line_c);
-        am.setViewTextColor(bVar.gGA, R.color.cp_cont_b, 1);
-        bVar.gGA.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
-        am.setBackgroundResource(bVar.cfY, R.color.cp_bg_line_c);
+        am.setBackgroundColor(bVar.gwM, R.color.cp_bg_line_c);
+        am.setViewTextColor(bVar.gFJ, R.color.cp_cont_b, 1);
+        bVar.gFJ.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
+        am.setBackgroundResource(bVar.cfh, R.color.cp_bg_line_c);
         return view;
     }
 

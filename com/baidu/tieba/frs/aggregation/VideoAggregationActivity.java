@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
-    private VideoAggregationFragment fBt;
+    private VideoAggregationFragment fAC;
     private String mFrom;
     private String mId;
 
@@ -27,16 +27,16 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (TextUtils.isEmpty(this.mId)) {
             finish();
         }
-        this.fBt = VideoAggregationFragment.s(this.mId, this.mFrom, stringExtra, stringExtra2);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.fBt).commit();
+        this.fAC = VideoAggregationFragment.s(this.mId, this.mFrom, stringExtra, stringExtra2);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.fAC).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.fBt != null) {
+        if (this.fAC != null) {
             getLayoutMode().setNightMode(i == 1);
-            getLayoutMode().onModeChanged(this.fBt.getView());
-            this.fBt.onChangeSkinType(i);
+            getLayoutMode().onModeChanged(this.fAC.getView());
+            this.fAC.onChangeSkinType(i);
         }
     }
 
@@ -52,10 +52,10 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.fBt == null) {
+        if (keyEvent == null || this.fAC == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.fBt.qP(i)) {
+        if (this.fAC.qO(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);

@@ -11,34 +11,34 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class a {
-    private final AssetManager fT;
+    private final AssetManager fu;
     @Nullable
-    private com.tb.airbnb.lottie.b ktM;
-    private final i<String> ktL = new i<>();
-    private final Map<i<String>, Typeface> fR = new HashMap();
-    private final Map<String, Typeface> fS = new HashMap();
-    private String fV = ".ttf";
+    private com.tb.airbnb.lottie.b ksV;
+    private final i<String> ksU = new i<>();
+    private final Map<i<String>, Typeface> fs = new HashMap();
+    private final Map<String, Typeface> ft = new HashMap();
+    private String fw = ".ttf";
 
     public a(Drawable.Callback callback, @Nullable com.tb.airbnb.lottie.b bVar) {
-        this.ktM = bVar;
+        this.ksV = bVar;
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
-            this.fT = null;
+            this.fu = null;
             return;
         }
-        this.fT = ((View) callback).getContext().getAssets();
+        this.fu = ((View) callback).getContext().getAssets();
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.b bVar) {
-        this.ktM = bVar;
+        this.ksV = bVar;
     }
 
     public Typeface g(String str, String str2) {
-        this.ktL.set(str, str2);
-        Typeface typeface = this.fR.get(this.ktL);
+        this.ksU.set(str, str2);
+        Typeface typeface = this.fs.get(this.ksU);
         if (typeface == null) {
             Typeface a = a(K(str), str2);
-            this.fR.put(this.ktL, a);
+            this.fs.put(this.ksU, a);
             return a;
         }
         return typeface;
@@ -46,19 +46,19 @@ public class a {
 
     private Typeface K(String str) {
         String C;
-        Typeface typeface = this.fS.get(str);
+        Typeface typeface = this.ft.get(str);
         if (typeface == null) {
             typeface = null;
-            if (this.ktM != null) {
-                typeface = this.ktM.B(str);
+            if (this.ksV != null) {
+                typeface = this.ksV.B(str);
             }
-            if (this.ktM != null && typeface == null && (C = this.ktM.C(str)) != null) {
-                typeface = Typeface.createFromAsset(this.fT, C);
+            if (this.ksV != null && typeface == null && (C = this.ksV.C(str)) != null) {
+                typeface = Typeface.createFromAsset(this.fu, C);
             }
             if (typeface == null) {
-                typeface = Typeface.createFromAsset(this.fT, "fonts/" + str + this.fV);
+                typeface = Typeface.createFromAsset(this.fu, "fonts/" + str + this.fw);
             }
-            this.fS.put(str, typeface);
+            this.ft.put(str, typeface);
         }
         return typeface;
     }

@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class PlaybacksResponseMessage extends JsonHttpResponsedMessage {
     public int errCode;
     public String errMsg;
-    public e evD;
+    public e euM;
 
     public PlaybacksResponseMessage(int i) {
         super(i);
@@ -24,8 +24,8 @@ public class PlaybacksResponseMessage extends JsonHttpResponsedMessage {
                 this.errCode = jSONObject.optInt("errno");
                 this.errMsg = jSONObject.optString("errmsg");
                 if (!TextUtils.isEmpty(jSONObject.optString("data"))) {
-                    this.evD = new e();
-                    this.evD.parserJson(jSONObject.optString("data"));
+                    this.euM = new e();
+                    this.euM.parserJson(jSONObject.optString("data"));
                 }
             } catch (Exception e) {
                 BdLog.e(e);

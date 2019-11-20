@@ -1,7 +1,7 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class bl extends com.baidu.adp.lib.b.a {
-    public static final String[] cOo = {"com.tencent.mm"};
+    public static final String[] cNx = {"com.tencent.mm"};
 
     @Override // com.baidu.adp.lib.b.a
     protected void C(int i) {
@@ -14,7 +14,7 @@ public class bl extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] fi() {
-        return cOo;
+        return cNx;
     }
 
     @Override // com.baidu.adp.lib.b.a

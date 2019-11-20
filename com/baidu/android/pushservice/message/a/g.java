@@ -9,7 +9,6 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.xiaomi.mipush.sdk.Constants;
-import com.xiaomi.mipush.sdk.MIPushNotificationHelper4Hybrid;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -69,7 +68,7 @@ public class g extends b {
                             str = PushConstants.ACTION_MESSAGE;
                         }
                         intent.putExtra("message_string", a4.mDescription);
-                        intent.putExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, e);
+                        intent.putExtra("message_id", e);
                         intent.putExtra("baidu_message_type", f);
                         intent.putExtra("baidu_message_body", bArr);
                         intent.putExtra(Constants.APP_ID, b);
@@ -112,7 +111,7 @@ public class g extends b {
                             intent2.setFlags(32);
                             intent2.putExtra("baidu_message_body", bArr);
                             intent2.putExtra("baidu_message_secur_info", a6);
-                            intent2.putExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, e);
+                            intent2.putExtra("message_id", e);
                             intent2.putExtra("baidu_message_type", f);
                             l.b(this.a, intent2, "com.baidu.android.pushservice.action.SDK_MESSAGE", c);
                         } catch (PackageManager.NameNotFoundException e4) {

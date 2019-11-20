@@ -20,46 +20,46 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ac;
 /* loaded from: classes3.dex */
 public class NewThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
-    private int HR;
-    CustomMessageListener coV;
-    CustomMessageListener coW;
+    private int Hr;
+    CustomMessageListener coe;
+    CustomMessageListener cof;
 
     private void init(Context context) {
-        this.cqX = R.drawable.icon_home_card_share;
-        this.cqW = R.drawable.icon_home_card_comment;
+        this.cqg = R.drawable.icon_home_card_share;
+        this.cqf = R.drawable.icon_home_card_comment;
     }
 
     public NewThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
-        this.HR = 11;
-        this.coV = new CustomMessageListener(2921416) { // from class: com.baidu.tbadk.core.view.NewThreadCommentAndPraiseInfoLayout.1
+        this.Hr = 11;
+        this.coe = new CustomMessageListener(2921416) { // from class: com.baidu.tbadk.core.view.NewThreadCommentAndPraiseInfoLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof bh)) {
                     bh bhVar = (bh) customResponsedMessage.getData();
-                    if (NewThreadCommentAndPraiseInfoLayout.this.FT != null && bhVar != null && !TextUtils.isEmpty(NewThreadCommentAndPraiseInfoLayout.this.FT.getId()) && NewThreadCommentAndPraiseInfoLayout.this.FT.getId().equals(bhVar.getId())) {
-                        NewThreadCommentAndPraiseInfoLayout.this.FT.hI(bhVar.aix());
+                    if (NewThreadCommentAndPraiseInfoLayout.this.Fs != null && bhVar != null && !TextUtils.isEmpty(NewThreadCommentAndPraiseInfoLayout.this.Fs.getId()) && NewThreadCommentAndPraiseInfoLayout.this.Fs.getId().equals(bhVar.getId())) {
+                        NewThreadCommentAndPraiseInfoLayout.this.Fs.hH(bhVar.aiv());
                         NewThreadCommentAndPraiseInfoLayout.this.r(bhVar);
                     }
                 }
             }
         };
-        this.coW = new CustomMessageListener(2921417) { // from class: com.baidu.tbadk.core.view.NewThreadCommentAndPraiseInfoLayout.2
+        this.cof = new CustomMessageListener(2921417) { // from class: com.baidu.tbadk.core.view.NewThreadCommentAndPraiseInfoLayout.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
                     String str = (String) customResponsedMessage.getData();
-                    if (!TextUtils.isEmpty(str) && NewThreadCommentAndPraiseInfoLayout.this.FT != null && str.equals(NewThreadCommentAndPraiseInfoLayout.this.FT.getId())) {
-                        if ((NewThreadCommentAndPraiseInfoLayout.this.FT.ajQ() || NewThreadCommentAndPraiseInfoLayout.this.FT.ajT()) && NewThreadCommentAndPraiseInfoLayout.this.FT.aiZ() != null) {
-                            if (NewThreadCommentAndPraiseInfoLayout.this.FT.aiZ() != null && NewThreadCommentAndPraiseInfoLayout.this.FT.aiZ().share_info != null) {
-                                NewThreadCommentAndPraiseInfoLayout.this.FT.aiZ().share_info.share_count++;
+                    if (!TextUtils.isEmpty(str) && NewThreadCommentAndPraiseInfoLayout.this.Fs != null && str.equals(NewThreadCommentAndPraiseInfoLayout.this.Fs.getId())) {
+                        if ((NewThreadCommentAndPraiseInfoLayout.this.Fs.ajO() || NewThreadCommentAndPraiseInfoLayout.this.Fs.ajR()) && NewThreadCommentAndPraiseInfoLayout.this.Fs.aiX() != null) {
+                            if (NewThreadCommentAndPraiseInfoLayout.this.Fs.aiX() != null && NewThreadCommentAndPraiseInfoLayout.this.Fs.aiX().share_info != null) {
+                                NewThreadCommentAndPraiseInfoLayout.this.Fs.aiX().share_info.share_count++;
                             }
                         } else {
-                            NewThreadCommentAndPraiseInfoLayout.this.FT.aN(NewThreadCommentAndPraiseInfoLayout.this.FT.akc() + 1);
+                            NewThreadCommentAndPraiseInfoLayout.this.Fs.aM(NewThreadCommentAndPraiseInfoLayout.this.Fs.aka() + 1);
                         }
-                        NewThreadCommentAndPraiseInfoLayout.this.q(NewThreadCommentAndPraiseInfoLayout.this.FT);
+                        NewThreadCommentAndPraiseInfoLayout.this.q(NewThreadCommentAndPraiseInfoLayout.this.Fs);
                     }
                 }
             }
@@ -69,35 +69,35 @@ public class NewThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseI
 
     public NewThreadCommentAndPraiseInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.HR = 11;
-        this.coV = new CustomMessageListener(2921416) { // from class: com.baidu.tbadk.core.view.NewThreadCommentAndPraiseInfoLayout.1
+        this.Hr = 11;
+        this.coe = new CustomMessageListener(2921416) { // from class: com.baidu.tbadk.core.view.NewThreadCommentAndPraiseInfoLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof bh)) {
                     bh bhVar = (bh) customResponsedMessage.getData();
-                    if (NewThreadCommentAndPraiseInfoLayout.this.FT != null && bhVar != null && !TextUtils.isEmpty(NewThreadCommentAndPraiseInfoLayout.this.FT.getId()) && NewThreadCommentAndPraiseInfoLayout.this.FT.getId().equals(bhVar.getId())) {
-                        NewThreadCommentAndPraiseInfoLayout.this.FT.hI(bhVar.aix());
+                    if (NewThreadCommentAndPraiseInfoLayout.this.Fs != null && bhVar != null && !TextUtils.isEmpty(NewThreadCommentAndPraiseInfoLayout.this.Fs.getId()) && NewThreadCommentAndPraiseInfoLayout.this.Fs.getId().equals(bhVar.getId())) {
+                        NewThreadCommentAndPraiseInfoLayout.this.Fs.hH(bhVar.aiv());
                         NewThreadCommentAndPraiseInfoLayout.this.r(bhVar);
                     }
                 }
             }
         };
-        this.coW = new CustomMessageListener(2921417) { // from class: com.baidu.tbadk.core.view.NewThreadCommentAndPraiseInfoLayout.2
+        this.cof = new CustomMessageListener(2921417) { // from class: com.baidu.tbadk.core.view.NewThreadCommentAndPraiseInfoLayout.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
                     String str = (String) customResponsedMessage.getData();
-                    if (!TextUtils.isEmpty(str) && NewThreadCommentAndPraiseInfoLayout.this.FT != null && str.equals(NewThreadCommentAndPraiseInfoLayout.this.FT.getId())) {
-                        if ((NewThreadCommentAndPraiseInfoLayout.this.FT.ajQ() || NewThreadCommentAndPraiseInfoLayout.this.FT.ajT()) && NewThreadCommentAndPraiseInfoLayout.this.FT.aiZ() != null) {
-                            if (NewThreadCommentAndPraiseInfoLayout.this.FT.aiZ() != null && NewThreadCommentAndPraiseInfoLayout.this.FT.aiZ().share_info != null) {
-                                NewThreadCommentAndPraiseInfoLayout.this.FT.aiZ().share_info.share_count++;
+                    if (!TextUtils.isEmpty(str) && NewThreadCommentAndPraiseInfoLayout.this.Fs != null && str.equals(NewThreadCommentAndPraiseInfoLayout.this.Fs.getId())) {
+                        if ((NewThreadCommentAndPraiseInfoLayout.this.Fs.ajO() || NewThreadCommentAndPraiseInfoLayout.this.Fs.ajR()) && NewThreadCommentAndPraiseInfoLayout.this.Fs.aiX() != null) {
+                            if (NewThreadCommentAndPraiseInfoLayout.this.Fs.aiX() != null && NewThreadCommentAndPraiseInfoLayout.this.Fs.aiX().share_info != null) {
+                                NewThreadCommentAndPraiseInfoLayout.this.Fs.aiX().share_info.share_count++;
                             }
                         } else {
-                            NewThreadCommentAndPraiseInfoLayout.this.FT.aN(NewThreadCommentAndPraiseInfoLayout.this.FT.akc() + 1);
+                            NewThreadCommentAndPraiseInfoLayout.this.Fs.aM(NewThreadCommentAndPraiseInfoLayout.this.Fs.aka() + 1);
                         }
-                        NewThreadCommentAndPraiseInfoLayout.this.q(NewThreadCommentAndPraiseInfoLayout.this.FT);
+                        NewThreadCommentAndPraiseInfoLayout.this.q(NewThreadCommentAndPraiseInfoLayout.this.Fs);
                     }
                 }
             }
@@ -111,145 +111,145 @@ public class NewThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseI
     }
 
     public void setShowFlag(int i) {
-        this.HR = i;
+        this.Hr = i;
         mc();
     }
 
     private void mc() {
-        this.cqv.setVisibility(aN(1) ? 0 : 8);
-        this.cqs.setVisibility(aN(2) ? 0 : 8);
-        this.cqC.setVisibility(aN(4) ? 0 : 8);
-        this.cqp.setVisibility(aN(8) ? 0 : 8);
+        this.cpE.setVisibility(aN(1) ? 0 : 8);
+        this.cpB.setVisibility(aN(2) ? 0 : 8);
+        this.cpL.setVisibility(aN(4) ? 0 : 8);
+        this.cpy.setVisibility(aN(8) ? 0 : 8);
     }
 
     private boolean aN(int i) {
-        return (this.HR & i) > 0;
+        return (this.Hr & i) > 0;
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updatePraiseNum(bh bhVar) {
-        if (bhVar.akv() != null) {
-            bhVar.akv().isInThread = true;
-            this.cqp.setData(bhVar.akv());
+        if (bhVar.akt() != null) {
+            bhVar.akt().isInThread = true;
+            this.cpy.setData(bhVar.akt());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void q(bh bhVar) {
-        if (this.cqv != null && this.cqt != null && bhVar != null) {
-            if (this.cqP) {
-                this.cqv.setVisibility(0);
-                long akc = bhVar.akc();
-                if ((bhVar.ajQ() || bhVar.ajT()) && bhVar.aiZ() != null && bhVar.aiZ().share_info != null) {
-                    akc = bhVar.aiZ().share_info.share_count;
+        if (this.cpE != null && this.cpC != null && bhVar != null) {
+            if (this.cpY) {
+                this.cpE.setVisibility(0);
+                long aka = bhVar.aka();
+                if ((bhVar.ajO() || bhVar.ajR()) && bhVar.aiX() != null && bhVar.aiX().share_info != null) {
+                    aka = bhVar.aiX().share_info.share_count;
                 }
-                this.cqt.setText(akc > 0 ? aq.numFormatOverWan(akc) : this.mContext.getString(R.string.share));
-                this.cqH = true;
-                if (bhVar.cec != null && bhVar.cec.isDeleted) {
+                this.cpC.setText(aka > 0 ? aq.numFormatOverWan(aka) : this.mContext.getString(R.string.share));
+                this.cpQ = true;
+                if (bhVar.cdl != null && bhVar.cdl.isDeleted) {
                     setShareClickable(false);
-                    SvgManager.amN().a(this.cqu, R.drawable.icon_pure_pb_bottom_share_h_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                    am.setViewTextColor(this.cqt, (int) R.color.cp_cont_e);
+                    SvgManager.amL().a(this.cpD, R.drawable.icon_pure_pb_bottom_share_h_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                    am.setViewTextColor(this.cpC, (int) R.color.cp_cont_e);
                     return;
                 }
                 setShareClickable(true);
-                SvgManager.amN().a(this.cqu, R.drawable.icon_pure_pb_bottom_share_h_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                am.setViewTextColor(this.cqt, (int) R.drawable.selector_comment_and_prise_item_text_color);
+                SvgManager.amL().a(this.cpD, R.drawable.icon_pure_pb_bottom_share_h_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                am.setViewTextColor(this.cpC, (int) R.drawable.selector_comment_and_prise_item_text_color);
                 return;
             }
-            this.cqv.setVisibility(8);
+            this.cpE.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void r(bh bhVar) {
-        if (this.cqq != null && bhVar != null) {
-            if (this.cqN) {
-                this.cqs.setVisibility(0);
-                if (bhVar.aix() > 0) {
-                    this.cqq.setVisibility(0);
-                    String numFormatOverWan = aq.numFormatOverWan(bhVar.aix());
-                    if (this.cqL) {
-                        SvgManager.amN().a(this.cqr, R.drawable.icon_pure_pb_bottom_comment_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                        this.cqq.setText(numFormatOverWan);
+        if (this.cpz != null && bhVar != null) {
+            if (this.cpW) {
+                this.cpB.setVisibility(0);
+                if (bhVar.aiv() > 0) {
+                    this.cpz.setVisibility(0);
+                    String numFormatOverWan = aq.numFormatOverWan(bhVar.aiv());
+                    if (this.cpU) {
+                        SvgManager.amL().a(this.cpA, R.drawable.icon_pure_pb_bottom_comment_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                        this.cpz.setText(numFormatOverWan);
                     } else {
-                        this.cqq.setText(String.format(this.mContext.getString(R.string.reply_num_tip), numFormatOverWan));
+                        this.cpz.setText(String.format(this.mContext.getString(R.string.reply_num_tip), numFormatOverWan));
                     }
-                    this.cqq.setContentDescription(this.mContext.getString(R.string.reply_num) + numFormatOverWan);
-                    this.cqH = true;
+                    this.cpz.setContentDescription(this.mContext.getString(R.string.reply_num) + numFormatOverWan);
+                    this.cpQ = true;
                     return;
-                } else if (this.cqL) {
-                    am.getDrawable(this.cqW);
-                    SvgManager.amN().a(this.cqr, R.drawable.icon_pure_pb_bottom_comment_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                    this.cqq.setText(this.mContext.getString(R.string.action_comment_default));
-                    this.cqq.setVisibility(0);
-                    this.cqH = true;
+                } else if (this.cpU) {
+                    am.getDrawable(this.cqf);
+                    SvgManager.amL().a(this.cpA, R.drawable.icon_pure_pb_bottom_comment_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                    this.cpz.setText(this.mContext.getString(R.string.action_comment_default));
+                    this.cpz.setVisibility(0);
+                    this.cpQ = true;
                     return;
                 } else {
-                    this.cqq.setVisibility(8);
+                    this.cpz.setVisibility(8);
                     return;
                 }
             }
-            this.cqs.setVisibility(8);
+            this.cpB.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void aP(View view) {
-        if (this.cqD == null) {
-            this.cqD = new ac(this.mPageContext, aN(16));
+        if (this.cpM == null) {
+            this.cpM = new ac(this.mPageContext, aN(16));
         }
-        this.cqD.setData(this.FT);
-        this.cqD.showDialog();
+        this.cpM.setData(this.Fs);
+        this.cpM.showDialog();
         TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_BAR_MANAGE_CLICK));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void s(bh bhVar) {
-        if (this.cqC != null && bhVar != null) {
-            this.cqQ = aN(4);
-            if (bhVar.cem != null) {
-                this.cqQ = false;
+        if (this.cpL != null && bhVar != null) {
+            this.cpZ = aN(4);
+            if (bhVar.cdv != null) {
+                this.cpZ = false;
             }
-            if (this.cqQ && (this.cqG == null || this.cqG.getVisibility() == 8)) {
-                this.cqC.setVisibility(0);
+            if (this.cpZ && (this.cpP == null || this.cpP.getVisibility() == 8)) {
+                this.cpL.setVisibility(0);
                 String string = this.mContext.getString(R.string.manage);
-                this.cqA.setText(string);
-                this.cqA.setContentDescription(string);
-                this.cqH = true;
+                this.cpJ.setText(string);
+                this.cpJ.setContentDescription(string);
+                this.cpQ = true;
                 return;
             }
-            this.cqC.setVisibility(8);
+            this.cpL.setVisibility(8);
         }
     }
 
     public void setAgreeStatisticData(com.baidu.tbadk.core.data.d dVar) {
-        if (this.cqp != null) {
-            this.cqp.setStatisticData(dVar);
+        if (this.cpy != null) {
+            this.cpy.setStatisticData(dVar);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void setGameId(int i) {
         super.setGameId(i);
-        if (this.cqp != null) {
-            this.cqp.setGameId(i);
+        if (this.cpy != null) {
+            this.cpy.setGameId(i);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.coV);
-        MessageManager.getInstance().registerListener(this.coW);
+        MessageManager.getInstance().registerListener(this.coe);
+        MessageManager.getInstance().registerListener(this.cof);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.coV);
-        MessageManager.getInstance().unRegisterListener(this.coW);
+        MessageManager.getInstance().unRegisterListener(this.coe);
+        MessageManager.getInstance().unRegisterListener(this.cof);
     }
 }

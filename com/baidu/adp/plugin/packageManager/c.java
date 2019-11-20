@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c vM;
-    private ArrayList<String> vD = new ArrayList<>();
-    private a vN;
+    private static volatile c vl;
+    private ArrayList<String> vc = new ArrayList<>();
+    private a vm;
 
     public static c iJ() {
-        if (vM == null) {
+        if (vl == null) {
             synchronized (c.class) {
-                if (vM == null) {
-                    vM = new c();
+                if (vl == null) {
+                    vl = new c();
                 }
             }
         }
-        return vM;
+        return vl;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.vD.iterator();
+            Iterator<String> it = this.vc.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,7 +45,7 @@ public class c {
                 }
             }
             if (!z) {
-                this.vD.add(pluginSetting.packageName);
+                this.vc.add(pluginSetting.packageName);
             }
             iF();
         }
@@ -53,9 +53,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void iF() {
-        if (this.vD.size() > 0 && this.vN == null) {
-            this.vN = new a(this.vD.get(0));
-            this.vN.execute(new String[0]);
+        if (this.vc.size() > 0 && this.vm == null) {
+            this.vm = new a(this.vc.get(0));
+            this.vm.execute(new String[0]);
         }
     }
 
@@ -83,16 +83,16 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.vN = null;
-            if (c.this.vD.size() > 0) {
-                Iterator it = c.this.vD.iterator();
+            c.this.vm = null;
+            if (c.this.vc.size() > 0) {
+                Iterator it = c.this.vc.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.vD.remove(str);
+                        c.this.vc.remove(str);
                         break;
                     }
                 }

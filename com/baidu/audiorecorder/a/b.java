@@ -11,13 +11,13 @@ import com.baidu.tieba.R;
 public class b extends k {
     public b(Context context) {
         super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
-        this.cFR = R.drawable.icon_pure_post_voice_n_svg;
-        this.cFS = R.drawable.icon_mask_post_voice_h_svg;
-        this.cFT = true;
-        this.cFW = 6;
-        this.cFX = true;
-        this.cFe = new NewVoiceRecordButton(context);
-        this.cFY = new int[]{1, 9};
+        this.cFa = R.drawable.icon_pure_post_voice_n_svg;
+        this.cFb = R.drawable.icon_mask_post_voice_h_svg;
+        this.cFc = true;
+        this.cFf = 6;
+        this.cFg = true;
+        this.cEn = new NewVoiceRecordButton(context);
+        this.cFh = new int[]{1, 9};
     }
 
     @Override // com.baidu.tbadk.editortools.k

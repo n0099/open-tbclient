@@ -21,7 +21,7 @@ public class n extends SQLiteOpenHelper {
         sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle INTEGER,state TEXT,begintime LONG,endtime LONG,content TEXT,option INTEGER,reserve1 TEXT,reserve2 TEXT,slot TEXT,extend TEXT );");
         sQLiteDatabase.execSQL("CREATE TABLE config (eventid TEXT PRIMARY KEY,type TEXT,recordrule TEXT,uploadrule TEXT,cycle INTEGER,switch TEXT,sample INTEGER,reserve1 TEXT,reserve2 TEXT,extend TEXT);");
         sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
-        u.adi().putString("ubc_version_md5", "0");
+        u.adg().putString("ubc_version_md5", "0");
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -29,23 +29,23 @@ public class n extends SQLiteOpenHelper {
         while (i < i2) {
             switch (i) {
                 case 1:
-                    A(sQLiteDatabase);
+                    z(sQLiteDatabase);
                     break;
                 case 2:
-                    D(sQLiteDatabase);
+                    C(sQLiteDatabase);
                     break;
                 case 3:
-                    B(sQLiteDatabase);
+                    A(sQLiteDatabase);
                     break;
                 case 4:
-                    C(sQLiteDatabase);
+                    B(sQLiteDatabase);
                     break;
             }
             i++;
         }
     }
 
-    private void A(SQLiteDatabase sQLiteDatabase) {
+    private void z(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
         } catch (SQLException e) {
@@ -53,7 +53,7 @@ public class n extends SQLiteOpenHelper {
         }
     }
 
-    private void B(SQLiteDatabase sQLiteDatabase) {
+    private void A(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("ALTER TABLE event ADD COLUMN extend TEXT");
             sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN extend TEXT");
@@ -62,7 +62,7 @@ public class n extends SQLiteOpenHelper {
         }
     }
 
-    private void C(SQLiteDatabase sQLiteDatabase) {
+    private void B(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN extend TEXT");
         } catch (SQLException e) {
@@ -70,7 +70,7 @@ public class n extends SQLiteOpenHelper {
         }
     }
 
-    private void D(SQLiteDatabase sQLiteDatabase) {
+    private void C(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN sample TEXT");
             sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN slot TEXT");
@@ -105,12 +105,12 @@ public class n extends SQLiteOpenHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aci() {
+    public long acg() {
         return new File(this.mContext.getDatabasePath("OpenStat.db").getPath()).length();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long acj() {
+    public long ach() {
         return new File(this.mContext.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
     }
 }

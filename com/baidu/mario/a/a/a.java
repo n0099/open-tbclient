@@ -11,26 +11,26 @@ import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.mario.a.a, f {
     private static final String TAG = a.class.getSimpleName();
-    private static volatile a awN;
-    private com.baidu.mario.a.b awM;
+    private static volatile a awv;
+    private com.baidu.mario.a.b awu;
     private ArrayList<b> mCallbackList;
     private ArrayList<f> mVolumeListenerList;
     private final Lock mAudioCallbackLock = new ReentrantLock(true);
     private final Lock mVolumeListenerLock = new ReentrantLock(true);
 
-    public static a xs() {
-        if (awN == null) {
+    public static a xt() {
+        if (awv == null) {
             synchronized (a.class) {
-                if (awN == null) {
-                    awN = new a();
+                if (awv == null) {
+                    awv = new a();
                 }
             }
         }
-        return awN;
+        return awv;
     }
 
     private static void releaseInstance() {
-        awN = null;
+        awv = null;
     }
 
     private a() {
@@ -41,8 +41,8 @@ public class a implements com.baidu.mario.a.a, f {
             Log.e(TAG, "AudioParams && EasyAudioCallback can not be null!!!");
             return;
         }
-        if (this.awM == null) {
-            this.awM = com.baidu.mario.a.b.xl();
+        if (this.awu == null) {
+            this.awu = com.baidu.mario.a.b.xm();
         }
         if (this.mCallbackList == null) {
             this.mCallbackList = new ArrayList<>();
@@ -51,11 +51,11 @@ public class a implements com.baidu.mario.a.a, f {
             Log.e(TAG, "EasyAudio has been started!!!");
             return;
         }
-        if (this.awM.isRunning()) {
-            bVar.a(true, this.awM.xm());
+        if (this.awu.isRunning()) {
+            bVar.a(true, this.awu.xn());
         } else {
             this.mCallbackList.clear();
-            this.awM.a(eVar, this);
+            this.awu.a(eVar, this);
         }
         this.mAudioCallbackLock.lock();
         try {
@@ -93,18 +93,18 @@ public class a implements com.baidu.mario.a.a, f {
     }
 
     private synchronized void stopAndReleaseAudioController() {
-        if (this.awM != null) {
-            this.awM.stopAudio();
-            this.awM.releaseAudio();
-            this.awM = null;
+        if (this.awu != null) {
+            this.awu.stopAudio();
+            this.awu.releaseAudio();
+            this.awu = null;
         }
     }
 
     @Override // com.baidu.mario.a.a
     public void onAudioSetup(boolean z) {
         if (z) {
-            if (this.awM != null) {
-                this.awM.startAudio();
+            if (this.awu != null) {
+                this.awu.startAudio();
             }
         } else if (this.mCallbackList != null && this.mCallbackList.get(0) != null) {
             this.mCallbackList.get(0).a(false, null);
@@ -114,8 +114,8 @@ public class a implements com.baidu.mario.a.a, f {
 
     @Override // com.baidu.mario.a.a
     public void onAudioStart(boolean z) {
-        if (this.mCallbackList != null && this.mCallbackList.get(0) != null && this.awM != null) {
-            this.mCallbackList.get(0).a(z, this.awM.xm());
+        if (this.mCallbackList != null && this.mCallbackList.get(0) != null && this.awu != null) {
+            this.mCallbackList.get(0).a(z, this.awu.xn());
         }
         if (!z) {
             release();

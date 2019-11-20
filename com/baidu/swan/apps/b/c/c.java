@@ -8,17 +8,17 @@ import com.baidu.swan.apps.b.c.d;
 import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 /* loaded from: classes2.dex */
 public interface c<T extends d> extends m, e<T> {
-    boolean Ck();
+    boolean Cl();
 
-    PullToRefreshBaseWebView Cl();
+    PullToRefreshBaseWebView Cm();
 
-    f Cm();
+    f Cn();
 
-    boolean Cn();
+    boolean Co();
 
-    void Co();
+    void Cp();
 
-    com.baidu.swan.apps.view.d.a Cp();
+    com.baidu.swan.apps.view.d.a Cq();
 
     void a(ViewGroup viewGroup, View view);
 

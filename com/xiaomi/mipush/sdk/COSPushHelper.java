@@ -3,32 +3,33 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
-import com.baidu.tieba.model.ReportUserInfoModel;
 /* loaded from: classes3.dex */
 public class COSPushHelper {
-    private static volatile boolean a = false;
-    private static long b = 0;
+
+    /* renamed from: a  reason: collision with other field name */
+    private static volatile boolean f18a = false;
+    private static long a = 0;
 
     public static void convertMessage(Intent intent) {
-        i.a(intent);
+        j.a(intent);
     }
 
     public static void doInNetworkChange(Context context) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (getNeedRegister()) {
-            if (b <= 0 || b + ReportUserInfoModel.TIME_INTERVAL <= elapsedRealtime) {
-                b = elapsedRealtime;
+            if (a <= 0 || a + 300000 <= elapsedRealtime) {
+                a = elapsedRealtime;
                 registerCOSAssemblePush(context);
             }
         }
     }
 
     public static boolean getNeedRegister() {
-        return a;
+        return f18a;
     }
 
     public static boolean hasNetwork(Context context) {
-        return i.a(context);
+        return j.m88a(context);
     }
 
     public static void onNotificationMessageCome(Context context, String str) {
@@ -38,20 +39,20 @@ public class COSPushHelper {
     }
 
     public static void registerCOSAssemblePush(Context context) {
-        AbstractPushManager c = g.a(context).c(f.ASSEMBLE_PUSH_COS);
-        if (c != null) {
-            com.xiaomi.channel.commonutils.logger.b.a("ASSEMBLE_PUSH :  register cos when network change!");
-            c.register();
+        AbstractPushManager a2 = g.a(context).a(f.ASSEMBLE_PUSH_COS);
+        if (a2 != null) {
+            com.xiaomi.channel.commonutils.logger.b.m30a("ASSEMBLE_PUSH :  register cos when network change!");
+            a2.register();
         }
     }
 
     public static synchronized void setNeedRegister(boolean z) {
         synchronized (COSPushHelper.class) {
-            a = z;
+            f18a = z;
         }
     }
 
     public static void uploadToken(Context context, String str) {
-        i.a(context, f.ASSEMBLE_PUSH_COS, str);
+        j.a(context, f.ASSEMBLE_PUSH_COS, str);
     }
 }

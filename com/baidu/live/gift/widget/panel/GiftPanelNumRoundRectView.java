@@ -10,8 +10,8 @@ import android.view.View;
 import com.baidu.live.k.a;
 /* loaded from: classes6.dex */
 public class GiftPanelNumRoundRectView extends View {
-    private float aeB;
-    private boolean aeC;
+    private float aej;
+    private boolean aek;
     private Paint mPaint;
     private Path mPath;
     private float mRadius;
@@ -22,9 +22,9 @@ public class GiftPanelNumRoundRectView extends View {
     }
 
     public void setStyleEnabled(boolean z) {
-        if (this.aeC != z) {
-            this.aeC = z;
-            this.mPaint.setColor(this.aeC ? -49609 : -8445926);
+        if (this.aek != z) {
+            this.aek = z;
+            this.mPaint.setColor(this.aek ? -49609 : -8445926);
             invalidate();
         }
     }
@@ -32,13 +32,13 @@ public class GiftPanelNumRoundRectView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        RectF rectF = new RectF(this.aeB, this.aeB, this.aeB + (this.mRadius * 2.0f), i2 - this.aeB);
+        RectF rectF = new RectF(this.aej, this.aej, this.aej + (this.mRadius * 2.0f), i2 - this.aej);
         this.mPath.reset();
         this.mPath.addArc(rectF, -90.0f, -180.0f);
-        this.mPath.moveTo(this.aeB + this.mRadius, this.aeB);
-        this.mPath.lineTo(i, this.aeB);
-        this.mPath.moveTo(this.aeB + this.mRadius, i2 - this.aeB);
-        this.mPath.lineTo(i, i2 - this.aeB);
+        this.mPath.moveTo(this.aej + this.mRadius, this.aej);
+        this.mPath.lineTo(i, this.aej);
+        this.mPath.moveTo(this.aej + this.mRadius, i2 - this.aej);
+        this.mPath.lineTo(i, i2 - this.aej);
     }
 
     @Override // android.view.View
@@ -49,7 +49,7 @@ public class GiftPanelNumRoundRectView extends View {
 
     private void init() {
         this.mRadius = getResources().getDimensionPixelOffset(a.e.sdk_ds28);
-        this.aeB = 0.5f * 2.0f;
+        this.aej = 0.5f * 2.0f;
         this.mPaint = new Paint(1);
         this.mPaint.setDither(true);
         this.mPaint.setColor(-49609);

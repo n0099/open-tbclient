@@ -20,8 +20,8 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public class a {
-    private BdUniqueId cKf;
-    private final com.baidu.adp.framework.listener.a eWA = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private BdUniqueId cJo;
+    private final com.baidu.adp.framework.listener.a eVJ = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -33,18 +33,18 @@ public class a {
             }
         }
     };
-    private TopicDetailView gob;
+    private TopicDetailView gnk;
 
     public a(TopicDetailView topicDetailView) {
-        this.gob = topicDetailView;
+        this.gnk = topicDetailView;
     }
 
     public void j(BdUniqueId bdUniqueId) {
-        this.cKf = bdUniqueId;
-        this.eWA.setTag(bdUniqueId);
-        this.eWA.getHttpMessageListener().setSelfListener(true);
-        this.eWA.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.eWA);
+        this.cJo = bdUniqueId;
+        this.eVJ.setTag(bdUniqueId);
+        this.eVJ.getHttpMessageListener().setSelfListener(true);
+        this.eVJ.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.eVJ);
     }
 
     public RunnableC0427a v(long j, long j2) {
@@ -68,11 +68,11 @@ public class a {
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i = 1;
-            if (ar.amO().isFrsShowBigImage()) {
+            if (ar.amM().isFrsShowBigImage()) {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(a.this.cKf);
+            requestGetMyPostNetMessage.setTag(a.this.cJo);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, equipmentWidth, equipmentHeight, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -89,9 +89,9 @@ public class a {
             ThreadInfo build = builder.build(true);
             bh bhVar = new bh();
             bhVar.a(build);
-            bhVar.aJ(new Date().getTime());
+            bhVar.aI(new Date().getTime());
             if (k.V(bhVar)) {
-                this.gob.ar(bhVar);
+                this.gnk.ar(bhVar);
             }
         }
     }

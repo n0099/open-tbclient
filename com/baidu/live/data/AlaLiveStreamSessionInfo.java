@@ -11,7 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class AlaLiveStreamSessionInfo implements Serializable {
-    private static aa PV = null;
+    private static aa Pq = null;
     public static final String STREAM_LEVEL_DEFAULT = "L0";
     public static final String STREAM_LEVEL_HIGH = "L3";
     public static final String STREAM_LEVEL_LOW = "L1";
@@ -123,8 +123,8 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         } else {
             str2 = sessionLine.flvUrl;
         }
-        if (PV != null) {
-            return PV.replaceFlvUrl(str2);
+        if (Pq != null) {
+            return Pq.replaceFlvUrl(str2);
         }
         return str2;
     }
@@ -137,8 +137,8 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         } else {
             str2 = sessionLine.rtmpUrl;
         }
-        if (PV != null) {
-            return PV.replaceRtmpUrl(str2);
+        if (Pq != null) {
+            return Pq.replaceRtmpUrl(str2);
         }
         return str2;
     }
@@ -151,8 +151,8 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         } else {
             str2 = sessionLine.hslUrl;
         }
-        if (PV != null) {
-            return PV.replaceHslUrl(str2);
+        if (Pq != null) {
+            return Pq.replaceHslUrl(str2);
         }
         return str2;
     }
@@ -213,14 +213,14 @@ public class AlaLiveStreamSessionInfo implements Serializable {
     }
 
     public String getPushUrl() {
-        return PV != null ? PV.replacePushUrl(this.pushUrl) : this.pushUrl;
+        return Pq != null ? Pq.replacePushUrl(this.pushUrl) : this.pushUrl;
     }
 
     public static aa getIReplaceUrl() {
-        return PV;
+        return Pq;
     }
 
     public static void setIReplaceUrl(aa aaVar) {
-        PV = aaVar;
+        Pq = aaVar;
     }
 }

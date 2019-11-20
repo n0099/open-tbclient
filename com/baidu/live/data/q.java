@@ -7,12 +7,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class q {
-    public int SB;
-    public ArrayList<p> SC;
+    public int Si;
+    public ArrayList<p> Sj;
 
     public void parserJson(JSONObject jSONObject) {
-        this.SB = jSONObject.optInt("received");
-        this.SC = new ArrayList<>();
+        this.Si = jSONObject.optInt("received");
+        this.Sj = new ArrayList<>();
         JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
@@ -20,15 +20,15 @@ public class q {
                 if (optJSONObject != null) {
                     p pVar = new p();
                     pVar.parseJson(optJSONObject);
-                    this.SC.add(pVar);
+                    this.Sj.add(pVar);
                 }
             }
         }
     }
 
     public boolean os() {
-        if (!ListUtils.isEmpty(this.SC)) {
-            Iterator<p> it = this.SC.iterator();
+        if (!ListUtils.isEmpty(this.Sj)) {
+            Iterator<p> it = this.Sj.iterator();
             while (it.hasNext()) {
                 if (it.next().or()) {
                     return true;
@@ -39,8 +39,8 @@ public class q {
     }
 
     public p ot() {
-        if (!ListUtils.isEmpty(this.SC)) {
-            Iterator<p> it = this.SC.iterator();
+        if (!ListUtils.isEmpty(this.Sj)) {
+            Iterator<p> it = this.Sj.iterator();
             while (it.hasNext()) {
                 p next = it.next();
                 if (next.op()) {

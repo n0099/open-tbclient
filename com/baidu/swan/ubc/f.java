@@ -1,13 +1,13 @@
 package com.baidu.swan.ubc;
 /* loaded from: classes2.dex */
 class f {
-    private String bPp;
-    private String bPq;
-    private int bPr;
-    private String bPs;
-    private int bPt;
-    private int bPu;
-    private String bPv;
+    private int bOA;
+    private String bOB;
+    private int bOC;
+    private int bOD;
+    private String bOE;
+    private String bOy;
+    private String bOz;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,14 +15,14 @@ class f {
 
     public f(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.bPp = str2;
-        this.bPq = str3;
-        this.bPr = i;
+        this.bOy = str2;
+        this.bOz = str3;
+        this.bOA = i;
         this.mType = str4;
-        this.bPs = str5;
+        this.bOB = str5;
     }
 
-    public void gU(int i) {
+    public void gT(int i) {
         this.mRate = i;
     }
 
@@ -30,39 +30,39 @@ class f {
         this.mCategory = str;
     }
 
-    public void gV(int i) {
-        this.bPt = i;
+    public void gU(int i) {
+        this.bOC = i;
     }
 
-    public void gW(int i) {
-        this.bPu = i;
+    public void gV(int i) {
+        this.bOD = i;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String acz() {
-        return this.bPp;
+    public String acx() {
+        return this.bOy;
     }
 
-    public String acA() {
-        return this.bPq;
+    public String acy() {
+        return this.bOz;
     }
 
     public int getTimeout() {
-        return this.bPr;
+        return this.bOA;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String acB() {
-        return this.bPs;
+    public String acz() {
+        return this.bOB;
     }
 
-    public int acC() {
+    public int acA() {
         return this.mRate;
     }
 
@@ -70,19 +70,19 @@ class f {
         return this.mCategory;
     }
 
-    public int acD() {
-        return this.bPt;
+    public int acB() {
+        return this.bOC;
     }
 
-    public int acE() {
-        return this.bPu;
+    public int acC() {
+        return this.bOD;
     }
 
     public void ly(String str) {
-        this.bPv = str;
+        this.bOE = str;
     }
 
-    public String acF() {
-        return this.bPv;
+    public String acD() {
+        return this.bOE;
     }
 }

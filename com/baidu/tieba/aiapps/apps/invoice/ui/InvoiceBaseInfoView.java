@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.aiapps.apps.invoice.e;
 /* loaded from: classes4.dex */
 public abstract class InvoiceBaseInfoView extends LinearLayout implements e {
-    protected InvoiceInfoItemView[] doO;
+    protected InvoiceInfoItemView[] dnW;
 
     public InvoiceBaseInfoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -17,30 +17,30 @@ public abstract class InvoiceBaseInfoView extends LinearLayout implements e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.doO != null && textWatcher != null) {
-            for (int i = 0; i < this.doO.length; i++) {
-                this.doO[i].setTextChangedListener(textWatcher);
+        if (this.dnW != null && textWatcher != null) {
+            for (int i = 0; i < this.dnW.length; i++) {
+                this.dnW[i].setTextChangedListener(textWatcher);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void e(TextWatcher textWatcher) {
-        if (this.doO != null && textWatcher != null) {
-            for (int i = 0; i < this.doO.length; i++) {
-                this.doO[i].e(textWatcher);
+        if (this.dnW != null && textWatcher != null) {
+            for (int i = 0; i < this.dnW.length; i++) {
+                this.dnW[i].e(textWatcher);
             }
         }
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.e
-    public boolean aGD() {
+    public boolean aGB() {
         InvoiceInfoItemView[] invoiceInfoItemViewArr;
-        if (this.doO == null || this.doO.length == 0) {
+        if (this.dnW == null || this.dnW.length == 0) {
             return false;
         }
-        for (InvoiceInfoItemView invoiceInfoItemView : this.doO) {
-            if (invoiceInfoItemView.aGJ() && TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
+        for (InvoiceInfoItemView invoiceInfoItemView : this.dnW) {
+            if (invoiceInfoItemView.aGH() && TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
                 return false;
             }
         }
@@ -48,11 +48,11 @@ public abstract class InvoiceBaseInfoView extends LinearLayout implements e {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.e
-    public boolean aGE() {
-        if (this.doO == null || this.doO.length == 0) {
+    public boolean aGC() {
+        if (this.dnW == null || this.dnW.length == 0) {
             return false;
         }
-        for (InvoiceInfoItemView invoiceInfoItemView : this.doO) {
+        for (InvoiceInfoItemView invoiceInfoItemView : this.dnW) {
             if (!TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
                 return true;
             }

@@ -6,21 +6,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class c {
-    public ArrayList<bh> dxd;
-    public boolean dxg = false;
+    public ArrayList<bh> dwm;
+    public boolean dwp = false;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.dxg = jSONObject.optInt("need_show") == 1;
+            this.dwp = jSONObject.optInt("need_show") == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray("live_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.dxd = new ArrayList<>(optJSONArray.length());
+                this.dwm = new ArrayList<>(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         bh bhVar = new bh();
                         bhVar.parserJson(optJSONObject);
-                        this.dxd.add(bhVar);
+                        this.dwm.add(bhVar);
                     }
                 }
             }

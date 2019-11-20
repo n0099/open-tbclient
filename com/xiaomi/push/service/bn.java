@@ -1,8 +1,9 @@
 package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.al;
 /* loaded from: classes3.dex */
-class bn implements com.xiaomi.smack.f {
+class bn implements al.a {
     final /* synthetic */ XMPushService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,13 +11,11 @@ class bn implements com.xiaomi.smack.f {
         this.a = xMPushService;
     }
 
-    @Override // com.xiaomi.smack.f
-    public void a(com.xiaomi.slim.b bVar) {
-        this.a.a(new XMPushService.c(bVar));
-    }
-
-    @Override // com.xiaomi.smack.f
-    public void b(com.xiaomi.smack.packet.d dVar) {
-        this.a.a(new XMPushService.k(dVar));
+    @Override // com.xiaomi.push.service.al.a
+    public void a() {
+        this.a.e();
+        if (al.a().m493a() <= 0) {
+            this.a.a(new XMPushService.f(12, null));
+        }
     }
 }

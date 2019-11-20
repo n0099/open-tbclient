@@ -1,18 +1,18 @@
 package com.baidu.c.a.b.a;
 /* loaded from: classes6.dex */
 public class c {
-    public String avf;
-    public String avg;
-    public String avh;
-    public String avk;
-    public C0042c avm;
-    public String avn;
-    public String avp;
-    public String avs;
-    public String avt;
-    public C0042c avu;
-    public a avv;
-    public String avw;
+    public String auN;
+    public String auO;
+    public String auP;
+    public String auS;
+    public C0042c auU;
+    public String auV;
+    public String auX;
+    public String ava;
+    public String avb;
+    public C0042c avc;
+    public a avd;
+    public String ave;
     public String content;
     public long msgId;
     public String name;
@@ -20,31 +20,31 @@ public class c {
     public long time;
     public String uid;
     public String type = "0";
-    public String avi = "0";
-    public String avj = "1005";
-    public String avl = "0";
-    public String avo = "0";
-    public String avq = "0";
-    public String avr = "1005";
+    public String auQ = "0";
+    public String auR = "1005";
+    public String auT = "0";
+    public String auW = "0";
+    public String auY = "0";
+    public String auZ = "1005";
 
     /* loaded from: classes6.dex */
     public static class a {
-        public int avE;
-        public int avF;
-        public c avG;
-        public long[] avH;
-        public int avI;
-        public String avJ;
-        public String avK;
+        public int avm;
+        public int avn;
+        public c avo;
+        public long[] avp;
+        public int avq;
+        public String avr;
+        public String avs;
         public int feedback = 0;
-        public String avx = "";
-        public int avy = 0;
+        public String avf = "";
+        public int avg = 0;
         public String duration = "";
-        public String avz = "";
-        public String avA = "";
-        public String avB = "";
-        public String avC = "";
-        public String avD = "";
+        public String avh = "";
+        public String avi = "";
+        public String avj = "";
+        public String avk = "";
+        public String avl = "";
     }
 
     /* loaded from: classes6.dex */
@@ -56,20 +56,20 @@ public class c {
     /* renamed from: com.baidu.c.a.b.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0042c {
-        public e avL;
-        public d avM;
-        public f avN;
-        public b avO;
+        public e avt;
+        public d avu;
+        public f avv;
+        public b avw;
     }
 
     /* loaded from: classes6.dex */
     public static class d {
-        public a avP;
-        public a avQ;
+        public a avx;
+        public a avy;
 
         /* loaded from: classes6.dex */
         public static class a {
-            public String avR;
+            public String avz;
             public int height;
             public String url;
             public int width;
@@ -83,12 +83,12 @@ public class c {
 
     /* loaded from: classes6.dex */
     public static class f {
-        public String avR;
+        public String avz;
         public String duration;
         public String url;
     }
 
     public String toString() {
-        return "LiveMessageBean:{" + this.avf + "}";
+        return "LiveMessageBean:{" + this.auN + "}";
     }
 }

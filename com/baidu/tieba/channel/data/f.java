@@ -7,15 +7,15 @@ public class f {
     private String channel_name;
     private String create_time;
     private String description;
-    private String eSZ;
+    private String eSi;
     private String follow_time;
     private String user_id;
 
-    public String bbo() {
-        return this.eSZ;
+    public String bbm() {
+        return this.eSi;
     }
 
-    public String bbp() {
+    public String bbn() {
         return this.channel_name;
     }
 
@@ -23,12 +23,12 @@ public class f {
         return this.description;
     }
 
-    public String bbq() {
+    public String bbo() {
         return this.channel_avatar;
     }
 
     public void parserJson(JSONObject jSONObject) {
-        this.eSZ = jSONObject.optString("channel_id");
+        this.eSi = jSONObject.optString("channel_id");
         this.channel_name = jSONObject.optString("channel_name");
         this.description = jSONObject.optString("description");
         this.channel_avatar = jSONObject.optString("channel_avatar");

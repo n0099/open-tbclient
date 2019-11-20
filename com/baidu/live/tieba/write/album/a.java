@@ -6,53 +6,53 @@ import com.baidu.live.adp.base.BdBaseView;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes6.dex */
 public class a extends BdBaseView<BaseFragmentActivity> {
-    private Fragment[] adI;
-    private String apG;
-    private String apH;
-    private AlbumActivity apI;
-    private String[] apJ;
-    private ImageListFragment apK;
-    private AlbumImageBrowseFragment apL;
+    private Fragment[] adq;
+    private String apn;
+    private String apo;
+    private AlbumActivity apq;
+    private String[] apr;
+    private ImageListFragment aps;
+    private AlbumImageBrowseFragment apt;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.apG = "tag_image";
-        this.apH = "tag_b_image";
-        this.apI = albumActivity;
+        this.apn = "tag_image";
+        this.apo = "tag_b_image";
+        this.apq = albumActivity;
     }
 
-    public void vJ() {
-        this.adI = new Fragment[2];
-        this.apJ = new String[2];
-        this.apK = new ImageListFragment();
-        this.adI[0] = this.apK;
-        this.apJ[0] = this.apG;
-        this.apL = new AlbumImageBrowseFragment();
-        this.adI[1] = this.apL;
-        this.apJ[1] = this.apH;
+    public void vK() {
+        this.adq = new Fragment[2];
+        this.apr = new String[2];
+        this.aps = new ImageListFragment();
+        this.adq[0] = this.aps;
+        this.apr[0] = this.apn;
+        this.apt = new AlbumImageBrowseFragment();
+        this.adq[1] = this.apt;
+        this.apr[1] = this.apo;
     }
 
     public Fragment ce(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.adI[i];
+        return this.adq[i];
     }
 
     public String cf(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.apJ[i];
+        return this.apr[i];
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.adI.length) {
-                if (this.adI[i3] != null && (this.adI[i3] instanceof ImageListFragment)) {
-                    ((ImageListFragment) this.adI[i3]).onChangeSkinType(i);
+            if (i3 < this.adq.length) {
+                if (this.adq[i3] != null && (this.adq[i3] instanceof ImageListFragment)) {
+                    ((ImageListFragment) this.adq[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -61,57 +61,57 @@ public class a extends BdBaseView<BaseFragmentActivity> {
         }
     }
 
-    public View vK() {
-        if (this.apK == null) {
-            return null;
-        }
-        return this.apK.vS();
-    }
-
     public View vL() {
-        if (this.apK == null) {
+        if (this.aps == null) {
             return null;
         }
-        return this.apK.wh();
+        return this.aps.vT();
     }
 
     public View vM() {
-        if (this.apL == null) {
+        if (this.aps == null) {
             return null;
         }
-        return this.apL.vS();
+        return this.aps.wi();
     }
 
     public View vN() {
-        if (this.apL == null) {
+        if (this.apt == null) {
             return null;
         }
-        return this.apL.vT();
+        return this.apt.vT();
     }
 
     public View vO() {
-        if (this.apL == null) {
+        if (this.apt == null) {
             return null;
         }
-        return this.apL.vO();
+        return this.apt.vU();
     }
 
     public View vP() {
-        if (this.apK == null) {
+        if (this.apt == null) {
             return null;
         }
-        return this.apK.vO();
+        return this.apt.vP();
+    }
+
+    public View vQ() {
+        if (this.aps == null) {
+            return null;
+        }
+        return this.aps.vP();
     }
 
     public void onDestroy() {
     }
 
     public void aQ(boolean z) {
-        if (this.apL != null) {
-            this.apL.aQ(z);
+        if (this.apt != null) {
+            this.apt.aQ(z);
         }
-        if (this.apK != null) {
-            this.apK.aQ(z);
+        if (this.aps != null) {
+            this.aps.aQ(z);
         }
     }
 }

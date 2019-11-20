@@ -16,16 +16,16 @@ public class InvoiceInfo implements Parcelable, c {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: lQ */
+        /* renamed from: lP */
         public InvoiceInfo[] newArray(int i) {
             return new InvoiceInfo[i];
         }
     };
-    public String doF;
-    public String doG;
-    public String doH;
-    public String doI;
-    public String doJ;
+    public String dnN;
+    public String dnO;
+    public String dnP;
+    public String dnQ;
+    public String dnR;
     public long mId;
     public int mIsDefault;
     public String mTitle;
@@ -37,28 +37,28 @@ public class InvoiceInfo implements Parcelable, c {
     public InvoiceInfo(int i, String str, String str2, String str3, String str4, String str5, String str6) {
         this.mType = i;
         this.mTitle = str;
-        this.doF = str2;
-        this.doG = str3;
-        this.doH = str4;
-        this.doI = str5;
-        this.doJ = str6;
+        this.dnN = str2;
+        this.dnO = str3;
+        this.dnP = str4;
+        this.dnQ = str5;
+        this.dnR = str6;
     }
 
     public InvoiceInfo(int i, String str, String str2) {
         this.mType = i;
         this.mTitle = str;
-        this.doH = str2;
+        this.dnP = str2;
     }
 
     private InvoiceInfo(Parcel parcel) {
         this.mId = parcel.readLong();
         this.mType = parcel.readInt();
         this.mTitle = parcel.readString();
-        this.doF = parcel.readString();
-        this.doG = parcel.readString();
-        this.doH = parcel.readString();
-        this.doI = parcel.readString();
-        this.doJ = parcel.readString();
+        this.dnN = parcel.readString();
+        this.dnO = parcel.readString();
+        this.dnP = parcel.readString();
+        this.dnQ = parcel.readString();
+        this.dnR = parcel.readString();
         this.mIsDefault = parcel.readInt();
     }
 
@@ -72,11 +72,11 @@ public class InvoiceInfo implements Parcelable, c {
         parcel.writeLong(this.mId);
         parcel.writeInt(this.mType);
         parcel.writeString(this.mTitle);
-        parcel.writeString(this.doF);
-        parcel.writeString(this.doG);
-        parcel.writeString(this.doH);
-        parcel.writeString(this.doI);
-        parcel.writeString(this.doJ);
+        parcel.writeString(this.dnN);
+        parcel.writeString(this.dnO);
+        parcel.writeString(this.dnP);
+        parcel.writeString(this.dnQ);
+        parcel.writeString(this.dnR);
         parcel.writeInt(this.mIsDefault);
     }
 
@@ -98,11 +98,11 @@ public class InvoiceInfo implements Parcelable, c {
             jSONObject.put("id", this.mId);
             jSONObject.put("type", this.mType);
             jSONObject.put("title", this.mTitle);
-            jSONObject.put("tax_number", this.doF);
-            jSONObject.put("company_address", this.doG);
-            jSONObject.put("telephone", this.doH);
-            jSONObject.put("bank_name", this.doI);
-            jSONObject.put("bank_account", this.doJ);
+            jSONObject.put("tax_number", this.dnN);
+            jSONObject.put("company_address", this.dnO);
+            jSONObject.put("telephone", this.dnP);
+            jSONObject.put("bank_name", this.dnQ);
+            jSONObject.put("bank_account", this.dnR);
             jSONObject.put("is_default", this.mIsDefault);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -111,16 +111,16 @@ public class InvoiceInfo implements Parcelable, c {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.model.c
-    public void bE(JSONObject jSONObject) {
+    public void bF(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mId = jSONObject.optLong("id");
             this.mType = jSONObject.optInt("type");
             this.mTitle = jSONObject.optString("title");
-            this.doF = jSONObject.optString("tax_number");
-            this.doG = jSONObject.optString("company_address");
-            this.doH = jSONObject.optString("telephone");
-            this.doI = jSONObject.optString("bank_name");
-            this.doJ = jSONObject.optString("bank_account");
+            this.dnN = jSONObject.optString("tax_number");
+            this.dnO = jSONObject.optString("company_address");
+            this.dnP = jSONObject.optString("telephone");
+            this.dnQ = jSONObject.optString("bank_name");
+            this.dnR = jSONObject.optString("bank_account");
             this.mIsDefault = jSONObject.optInt("is_default");
         }
     }

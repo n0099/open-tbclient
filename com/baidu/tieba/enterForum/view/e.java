@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e implements AbsListView.OnScrollListener {
-    private a fhb;
-    private b fhd;
+    private a fgk;
+    private b fgm;
     private int mScrollState = -1;
-    private int fhc = 0;
+    private int fgl = 0;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -28,34 +28,34 @@ public class e implements AbsListView.OnScrollListener {
         View childAt;
         if (absListView != null && i >= 0 && absListView.getChildCount() > 0 && (childAt = absListView.getChildAt(0)) != null) {
             if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-                if (this.fhc != 0 && this.fhd != null) {
-                    this.fhd.a(absListView, 0, -this.fhc);
+                if (this.fgl != 0 && this.fgm != null) {
+                    this.fgm.a(absListView, 0, -this.fgl);
                 }
-                this.fhc = 0;
-                this.fhb = null;
+                this.fgl = 0;
+                this.fgk = null;
                 return;
             }
             a aVar = new a(absListView, i);
-            if (this.fhb == null) {
-                this.fhb = aVar;
-                this.fhc = absListView.getPaddingTop() - childAt.getTop();
-                if (this.fhd != null) {
-                    this.fhd.a(absListView, this.fhc, 0);
+            if (this.fgk == null) {
+                this.fgk = aVar;
+                this.fgl = absListView.getPaddingTop() - childAt.getTop();
+                if (this.fgm != null) {
+                    this.fgm.a(absListView, this.fgl, 0);
                     return;
                 }
                 return;
             }
-            int a2 = this.fhb.a(aVar);
-            this.fhb = aVar;
-            this.fhc += a2;
-            if (this.fhd != null) {
-                this.fhd.a(absListView, this.fhc, a2);
+            int a2 = this.fgk.a(aVar);
+            this.fgk = aVar;
+            this.fgl += a2;
+            if (this.fgm != null) {
+                this.fgm.a(absListView, this.fgl, a2);
             }
         }
     }
 
     public void a(b bVar) {
-        this.fhd = bVar;
+        this.fgm = bVar;
     }
 
     /* loaded from: classes4.dex */

@@ -6,9 +6,9 @@ import com.tb.airbnb.lottie.model.a.h;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class Mask {
-    private final com.tb.airbnb.lottie.model.a.d kuf;
-    private final MaskMode kuu;
-    private final com.tb.airbnb.lottie.model.a.h kuv;
+    private final MaskMode ktD;
+    private final com.tb.airbnb.lottie.model.a.h ktE;
+    private final com.tb.airbnb.lottie.model.a.d kto;
 
     /* loaded from: classes6.dex */
     public enum MaskMode {
@@ -19,9 +19,9 @@ public class Mask {
     }
 
     private Mask(MaskMode maskMode, com.tb.airbnb.lottie.model.a.h hVar, com.tb.airbnb.lottie.model.a.d dVar) {
-        this.kuu = maskMode;
-        this.kuv = hVar;
-        this.kuf = dVar;
+        this.ktD = maskMode;
+        this.ktE = hVar;
+        this.kto = dVar;
     }
 
     /* loaded from: classes6.dex */
@@ -68,15 +68,15 @@ public class Mask {
         }
     }
 
-    public MaskMode cLO() {
-        return this.kuu;
+    public MaskMode cLM() {
+        return this.ktD;
     }
 
-    public com.tb.airbnb.lottie.model.a.h cLP() {
-        return this.kuv;
+    public com.tb.airbnb.lottie.model.a.h cLN() {
+        return this.ktE;
     }
 
-    public com.tb.airbnb.lottie.model.a.d cLz() {
-        return this.kuf;
+    public com.tb.airbnb.lottie.model.a.d cLx() {
+        return this.kto;
     }
 }

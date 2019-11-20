@@ -8,7 +8,7 @@ public interface e {
 
     void O(ArrayList<AlaLiveInfoData> arrayList);
 
-    void aPK();
+    void aPI();
 
     void hD(boolean z);
 

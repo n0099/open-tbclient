@@ -13,37 +13,37 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private Map<BdUniqueId, ArrayList<an>> jfL;
-    private String[] jfM = {"obj_floor", "obj_isad", "obj_id", "tid", "pid", "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate"};
+    private Map<BdUniqueId, ArrayList<an>> jeU;
+    private String[] jeV = {"obj_floor", "obj_isad", "obj_id", "tid", "pid", "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate"};
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        if (this.jfL == null) {
-            this.jfL = new LinkedHashMap();
+        if (this.jeU == null) {
+            this.jeU = new LinkedHashMap();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void v(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.jfL.put(bdUniqueId, null);
+            this.jeU.put(bdUniqueId, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void w(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.jfL.remove(bdUniqueId);
+            this.jeU.remove(bdUniqueId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, an anVar) {
         if (anVar != null && bdUniqueId != null) {
-            ArrayList<an> arrayList = this.jfL.get(bdUniqueId);
+            ArrayList<an> arrayList = this.jeU.get(bdUniqueId);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.jfL.put(bdUniqueId, arrayList);
+                this.jeU.put(bdUniqueId, arrayList);
             }
             arrayList.add(anVar);
         }
@@ -51,13 +51,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean x(BdUniqueId bdUniqueId) {
-        return this.jfL.containsKey(bdUniqueId);
+        return this.jeU.containsKey(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cnj() {
-        if (this.jfL.size() != 0) {
-            for (Map.Entry<BdUniqueId, ArrayList<an>> entry : this.jfL.entrySet()) {
+    public void cnh() {
+        if (this.jeU.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<an>> entry : this.jeU.entrySet()) {
                 ArrayList<an> value = entry.getValue();
                 if (value != null) {
                     value.clear();
@@ -69,7 +69,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId != null) {
-            ArrayList<an> arrayList = this.jfL.get(bdUniqueId);
+            ArrayList<an> arrayList = this.jeU.get(bdUniqueId);
             if (v.getCount(arrayList) != 0) {
                 aJ(arrayList);
                 arrayList.clear();
@@ -98,17 +98,17 @@ public class b {
                     List list = (List) entry.getValue();
                     if (v.getCount(list) != 0) {
                         an anVar2 = (an) list.get(0);
-                        for (int i2 = 0; i2 < this.jfM.length; i2++) {
+                        for (int i2 = 0; i2 < this.jeV.length; i2++) {
                             StringBuilder sb = new StringBuilder();
                             for (int i3 = 0; i3 < list.size(); i3++) {
-                                sb.append(k(((an) list.get(i3)).getParams(), this.jfM[i2]));
+                                sb.append(k(((an) list.get(i3)).getParams(), this.jeV[i2]));
                                 sb.append("|");
                             }
                             if (sb.length() > 0) {
                                 sb.deleteCharAt(sb.length() - 1);
                             }
-                            anVar2.delete(this.jfM[i2]);
-                            anVar2.bS(this.jfM[i2] + "s", sb.toString());
+                            anVar2.delete(this.jeV[i2]);
+                            anVar2.bS(this.jeV[i2] + "s", sb.toString());
                         }
                         TiebaStatic.log(anVar2);
                     }

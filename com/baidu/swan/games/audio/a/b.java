@@ -6,22 +6,22 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String byr;
-    private HashMap<String, c> byq = new HashMap<>();
+    private String bxA;
+    private HashMap<String, c> bxz = new HashMap<>();
     private HashMap<String, ArrayList<a>> mCallbackMap = new HashMap<>();
-    private final Object byt = new Object();
-    private com.baidu.swan.games.network.b bys = com.baidu.swan.games.network.b.Xw();
+    private final Object bxC = new Object();
+    private com.baidu.swan.games.network.b bxB = com.baidu.swan.games.network.b.Xu();
 
     public b(String str) {
-        this.byr = str;
+        this.bxA = str;
     }
 
     private boolean jv(String str) {
-        return this.byq.containsKey(str);
+        return this.bxz.containsKey(str);
     }
 
     public void a(String str, a aVar) {
-        synchronized (this.byt) {
+        synchronized (this.bxC) {
             if (!jv(str)) {
                 if (DEBUG) {
                     Log.e("AudioDownloadManager", "start load url = " + str);
@@ -35,8 +35,8 @@ public class b implements a {
     }
 
     public void jw(String str) {
-        c cVar = new c(this.bys, this.byr, str, this);
-        this.byq.put(str, cVar);
+        c cVar = new c(this.bxB, this.bxA, str, this);
+        this.bxz.put(str, cVar);
         cVar.load();
     }
 
@@ -53,7 +53,7 @@ public class b implements a {
     @Override // com.baidu.swan.games.audio.a.a
     public void aX(String str, String str2) {
         ArrayList<a> arrayList;
-        synchronized (this.byt) {
+        synchronized (this.bxC) {
             if (jv(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
@@ -62,21 +62,21 @@ public class b implements a {
                         Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.byq.remove(str);
+                this.bxz.remove(str);
             }
         }
     }
 
     @Override // com.baidu.swan.games.audio.a.a
-    public void x(int i, String str) {
+    public void w(int i, String str) {
         ArrayList<a> arrayList;
-        synchronized (this.byt) {
+        synchronized (this.bxC) {
             if (jv(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    arrayList.get(i2).x(i, str);
+                    arrayList.get(i2).w(i, str);
                 }
-                this.byq.remove(str);
+                this.bxz.remove(str);
             }
         }
     }

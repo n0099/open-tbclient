@@ -10,79 +10,79 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.kvG;
-        long j = this.kER;
-        long cPo = cPo();
-        long ex = ex(cPo);
-        if (b(eArr, ex) != null) {
-            if (cPo - cPn() > j) {
+        E[] eArr = this.kuP;
+        long j = this.kEa;
+        long cPm = cPm();
+        long ew = ew(cPm);
+        if (b(eArr, ew) != null) {
+            if (cPm - cPl() > j) {
                 return false;
             }
             do {
-            } while (b(eArr, ex) != null);
-            a(eArr, ex, e);
-            ez(1 + cPo);
+            } while (b(eArr, ew) != null);
+            a(eArr, ew, e);
+            ey(1 + cPm);
             return true;
         }
-        a(eArr, ex, e);
-        ez(1 + cPo);
+        a(eArr, ew, e);
+        ey(1 + cPm);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long cPn;
-        long cPr = cPr();
+        long cPl;
+        long cPp = cPp();
         do {
-            cPn = cPn();
-            if (cPn >= cPr) {
-                long cPo = cPo();
-                if (cPn >= cPo) {
+            cPl = cPl();
+            if (cPl >= cPp) {
+                long cPm = cPm();
+                if (cPl >= cPm) {
                     return null;
                 }
-                eA(cPo);
+                ez(cPm);
             }
-        } while (!G(cPn, 1 + cPn));
-        long ex = ex(cPn);
-        E[] eArr = this.kvG;
-        E a = a(eArr, ex);
-        b(eArr, ex, null);
+        } while (!G(cPl, 1 + cPl));
+        long ew = ew(cPl);
+        E[] eArr = this.kuP;
+        E a = a(eArr, ew);
+        b(eArr, ew, null);
         return a;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        E ey;
-        long cPr = cPr();
+        E ex;
+        long cPp = cPp();
         do {
-            long cPn = cPn();
-            if (cPn >= cPr) {
-                long cPo = cPo();
-                if (cPn >= cPo) {
+            long cPl = cPl();
+            if (cPl >= cPp) {
+                long cPm = cPm();
+                if (cPl >= cPm) {
                     return null;
                 }
-                eA(cPo);
+                ez(cPm);
             }
-            ey = ey(ex(cPn));
-        } while (ey == null);
-        return ey;
+            ex = ex(ew(cPl));
+        } while (ex == null);
+        return ex;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cPn = cPn();
+        long cPl = cPl();
         while (true) {
-            long cPo = cPo();
-            long cPn2 = cPn();
-            if (cPn == cPn2) {
-                return (int) (cPo - cPn2);
+            long cPm = cPm();
+            long cPl2 = cPl();
+            if (cPl == cPl2) {
+                return (int) (cPm - cPl2);
             }
-            cPn = cPn2;
+            cPl = cPl2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cPn() == cPo();
+        return cPl() == cPm();
     }
 }

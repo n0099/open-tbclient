@@ -9,7 +9,7 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class DataEntryUrlBox extends AbstractFullBox {
     public static final String TYPE = "url ";
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();

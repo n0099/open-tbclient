@@ -33,7 +33,7 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        bVar.Rd().a((Activity) context, "mapp_choose_address", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.c.a.a.1
+        bVar.Rf().a((Activity) context, "mapp_choose_address", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.c.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
@@ -66,9 +66,9 @@ public class a extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.u.a.Jo().a(context, bVar.id, bVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.c.a.a.2
+        com.baidu.swan.apps.u.a.Jp().a(context, bVar.id, bVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.c.a.a.2
             @Override // com.baidu.swan.apps.c.a.b
-            public void P(JSONObject jSONObject) {
+            public void Q(JSONObject jSONObject) {
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), a.this.mCallback);
             }
 

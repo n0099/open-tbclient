@@ -7,53 +7,53 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class v {
-    private View cPl;
-    private int cPm;
-    private boolean cPn;
+    private View cOu;
+    private int cOv;
+    private boolean cOw;
     private final Handler mHandler;
 
-    public void axK() {
+    public void axI() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void axL() {
+    public void axJ() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void axM() {
+    public void axK() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     public void fD(boolean z) {
-        if (this.cPl != null) {
-            if (z || this.cPl.getVisibility() != 8) {
-                axL();
+        if (this.cOu != null) {
+            if (z || this.cOu.getVisibility() != 8) {
+                axJ();
             }
         }
     }
 
     public void fE(boolean z) {
-        if (this.cPl != null) {
-            if (z || this.cPl.getVisibility() != 0) {
-                axK();
+        if (this.cOu != null) {
+            if (z || this.cOu.getVisibility() != 0) {
+                axI();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.cPl != null) {
-            if (i != 0 && i2 > i && this.cPl.getVisibility() != 8) {
+        if (this.cOu != null) {
+            if (i != 0 && i2 > i && this.cOu.getVisibility() != 8) {
                 fD(false);
-            } else if ((i == 0 || i2 < i) && this.cPl.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.cOu.getVisibility() != 0) {
                 fE(false);
             }
-            this.cPm = i;
+            this.cOv = i;
         }
     }
 
@@ -67,12 +67,12 @@ public class v {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.cPm) {
+            if (firstVisiblePosition > this.cOv) {
                 fD(true);
-            } else if (firstVisiblePosition < this.cPm) {
+            } else if (firstVisiblePosition < this.cOv) {
                 fE(true);
-            } else if (firstVisiblePosition == this.cPm) {
-                if (firstVisiblePosition == 0 || !this.cPn) {
+            } else if (firstVisiblePosition == this.cOv) {
+                if (firstVisiblePosition == 0 || !this.cOw) {
                     fE(true);
                 } else {
                     fD(true);

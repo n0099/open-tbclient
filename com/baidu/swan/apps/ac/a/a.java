@@ -15,15 +15,15 @@ import java.util.UUID;
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean NS() {
-        return f.SR().getBoolean("swan_debug_force_ab", false);
-    }
-
     public static boolean NT() {
-        return getBoolean("aiapps_websafe_debug_key", true);
+        return f.ST().getBoolean("swan_debug_force_ab", false);
     }
 
     public static boolean NU() {
+        return getBoolean("aiapps_websafe_debug_key", true);
+    }
+
+    public static boolean NV() {
         return getBoolean("aiapps_server_domains_debug_key", false);
     }
 
@@ -35,15 +35,15 @@ public final class a {
         v("aiapps_server_domains_debug_key", z);
     }
 
-    public static boolean NV() {
+    public static boolean NW() {
         return getBoolean("aiapps_close_view_disable_debug_key", false);
     }
 
-    public static boolean NW() {
+    public static boolean NX() {
         return getBoolean("aiapps_sconsole_scan_mode_debug_key", false);
     }
 
-    public static boolean NX() {
+    public static boolean NY() {
         return getBoolean("aiapps_use_extension_debug_key", false);
     }
 
@@ -51,7 +51,7 @@ public final class a {
         v("aiapps_use_extension_debug_key", z);
     }
 
-    public static boolean NY() {
+    public static boolean NZ() {
         return getBoolean("aiapps_emit_live_debug_key", false);
     }
 
@@ -59,7 +59,7 @@ public final class a {
         v("aiapps_emit_live_debug_key", z);
     }
 
-    public static boolean NZ() {
+    public static boolean Oa() {
         return getBoolean("aiapps_emit_https_debug_key", false);
     }
 
@@ -67,7 +67,7 @@ public final class a {
         v("aiapps_emit_https_debug_key", z);
     }
 
-    public static boolean Oa() {
+    public static boolean Ob() {
         return getBoolean("aiapps_emit_wss_debug_key", false);
     }
 
@@ -79,43 +79,43 @@ public final class a {
         v("aiapps_load_cts_debug_key", z);
     }
 
-    public static boolean Ob() {
+    public static boolean Oc() {
         return getBoolean("aiapps_load_cts_debug_key", false);
     }
 
     public static void gN(String str) {
-        f.SR().putString("aiapps_env_data", str);
+        f.ST().putString("aiapps_env_data", str);
     }
 
-    public static String Oc() {
-        return f.SR().getString("aiapps_env_data", "");
+    public static String Od() {
+        return f.ST().getString("aiapps_env_data", "");
     }
 
     private static void v(String str, boolean z) {
-        f.SR().putBoolean(str, z);
+        f.ST().putBoolean(str, z);
     }
 
     private static boolean getBoolean(String str, boolean z) {
-        return f.SR().getBoolean(str, z);
+        return f.ST().getBoolean(str, z);
     }
 
     private static boolean b(c cVar) {
-        return (DEBUG && cVar.aTf) || gO(cVar.aTn);
+        return (DEBUG && cVar.aSN) || gO(cVar.aSV);
     }
 
     public static boolean l(com.baidu.swan.apps.v.b.b bVar) {
-        return (DEBUG && bVar.isDebug()) || gO(bVar.KT());
+        return (DEBUG && bVar.isDebug()) || gO(bVar.KU());
     }
 
     public static boolean gO(String str) {
-        return !TextUtils.isEmpty(str) || d.Dk();
-    }
-
-    public static boolean Od() {
-        return getBoolean("aiapps_force_authorized_key", false);
+        return !TextUtils.isEmpty(str) || d.Dl();
     }
 
     public static boolean Oe() {
+        return getBoolean("aiapps_force_authorized_key", false);
+    }
+
+    public static boolean Of() {
         return getBoolean("aiapps_pay_channel_key", false);
     }
 
@@ -123,7 +123,7 @@ public final class a {
         if (DEBUG && bVar.isDebug()) {
             return e.a.a(bVar, bVar2);
         }
-        if (gO(bVar.KT())) {
+        if (gO(bVar.KU())) {
             return e.C0192e.j(bVar);
         }
         return null;
@@ -131,24 +131,24 @@ public final class a {
 
     public static boolean d(Context context, c cVar) {
         if (b(cVar)) {
-            com.baidu.swan.apps.v.b.b Kq = Kq();
-            cVar.Ks().putLong("aiapp_start_timestamp", System.currentTimeMillis());
-            Kq.setAppId(cVar.mAppId);
-            Kq.fv(cVar.mFrom);
-            Kq.setPage(cVar.aTe);
-            Kq.setDebug(cVar.aTf);
-            Kq.fz(cVar.aTh);
-            Kq.p(cVar.Ks());
-            Kq.fw(cVar.aTi);
-            Kq.fA(cVar.aTj);
-            Kq.a(cVar.aOc);
-            Kq.a(cVar.aOd);
-            Kq.fD(cVar.aTk);
-            Kq.fE(cVar.aTn);
-            Kq.setVersion("0");
-            Kq.m19do(cVar.aTl);
-            Kq.setOrientation(cVar.aTm);
-            SwanAppLauncherActivity.a(context, Kq, UUID.randomUUID().toString());
+            com.baidu.swan.apps.v.b.b Kr = Kr();
+            cVar.Kt().putLong("aiapp_start_timestamp", System.currentTimeMillis());
+            Kr.setAppId(cVar.mAppId);
+            Kr.fv(cVar.mFrom);
+            Kr.setPage(cVar.aSM);
+            Kr.setDebug(cVar.aSN);
+            Kr.fz(cVar.aSP);
+            Kr.p(cVar.Kt());
+            Kr.fw(cVar.aSQ);
+            Kr.fA(cVar.aSR);
+            Kr.a(cVar.aNK);
+            Kr.a(cVar.aNL);
+            Kr.fD(cVar.aSS);
+            Kr.fE(cVar.aSV);
+            Kr.setVersion("0");
+            Kr.m19do(cVar.aST);
+            Kr.setOrientation(cVar.aSU);
+            SwanAppLauncherActivity.a(context, Kr, UUID.randomUUID().toString());
             return true;
         }
         return false;
@@ -156,20 +156,20 @@ public final class a {
 
     public static String m(com.baidu.swan.apps.v.b.b bVar) {
         if (DEBUG && bVar.isDebug()) {
-            return e.a.IY().getPath();
+            return e.a.IZ().getPath();
         }
-        if (gO(bVar.KT())) {
-            return e.C0192e.IZ().getPath();
+        if (gO(bVar.KU())) {
+            return e.C0192e.Ja().getPath();
         }
         return "";
     }
 
-    public static com.baidu.swan.apps.v.b.b Kq() {
+    public static com.baidu.swan.apps.v.b.b Kr() {
         com.baidu.swan.apps.v.b.b bVar = new com.baidu.swan.apps.v.b.b();
         bVar.e(new PMSAppInfo());
         bVar.eM("小程序测试");
         bVar.setAppId("10985873");
-        bVar.Y(Color.parseColor("#FF308EF0"));
+        bVar.X(Color.parseColor("#FF308EF0"));
         bVar.fv("1230000000000000");
         bVar.fs("小程序简介");
         bVar.ft("测试服务类目");

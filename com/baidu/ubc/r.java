@@ -5,12 +5,12 @@ public class r extends com.baidu.f.d {
         super("com.baidu.searchbox_ubc");
     }
 
-    public static r cAW() {
-        return a.jXH;
+    public static r cAU() {
+        return a.jWQ;
     }
 
     /* loaded from: classes2.dex */
     private static final class a {
-        private static final r jXH = new r();
+        private static final r jWQ = new r();
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.adp.newwidget.ImageView;
 /* loaded from: classes.dex */
 public class e {
-    public static e tY = new e();
+    public static e tz = new e();
 
     private e() {
     }
 
     public static e hT() {
-        return tY;
+        return tz;
     }
 
     public a X(int i) {

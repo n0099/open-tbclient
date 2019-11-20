@@ -23,7 +23,7 @@ public class a {
         if (bdUniqueId != null && dVar != null) {
             an anVar = new an("common_exp");
             a(anVar, dVar, postData, i, i2, false, str);
-            c.cnk().a(bdUniqueId, str2, anVar);
+            c.cni().a(bdUniqueId, str2, anVar);
         }
     }
 
@@ -71,11 +71,11 @@ public class a {
         if (postData != null) {
             anVar.bS("pid", postData.getId() + "");
         }
-        if (dVar.bQz() != null) {
-            anVar.O("thread_type", dVar.bQz().threadType);
+        if (dVar.bQx() != null) {
+            anVar.O("thread_type", dVar.bQx().threadType);
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.bS(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().cuL);
+            anVar.bS(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().ctT);
         }
         return anVar;
     }

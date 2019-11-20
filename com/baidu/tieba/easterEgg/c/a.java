@@ -8,13 +8,13 @@ import com.baidu.tbadk.TbConfig;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class a extends d {
-    private com.baidu.tieba.easterEgg.d eYt;
-    private HashMap<String, String> eYu;
-    private com.google.gson.d eYv;
+    private com.baidu.tieba.easterEgg.d eXC;
+    private HashMap<String, String> eXD;
+    private com.google.gson.d eXE;
 
     public a(int i) {
         super(i);
-        this.eYv = new com.google.gson.d();
+        this.eXE = new com.google.gson.d();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,18 +23,18 @@ public class a extends d {
     public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
         String uP = uP(httpMessageTask.getUrl());
-        if (uP != null && this.eYt != null) {
+        if (uP != null && this.eXC != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
                     json = "";
                 } else {
-                    json = this.eYv.toJson(netMessage.getSocketMessage().getData());
+                    json = this.eXE.toJson(netMessage.getSocketMessage().getData());
                 }
             } else {
-                json = this.eYv.toJson(httpMessage.getParams());
+                json = this.eXE.toJson(httpMessage.getParams());
             }
-            this.eYt.V(httpMessageTask.getUrl(), this.eYv.toJson(uP), this.eYv.toJson(json));
+            this.eXC.V(httpMessageTask.getUrl(), this.eXE.toJson(uP), this.eXE.toJson(json));
         }
         return httpMessage;
     }
@@ -44,17 +44,17 @@ public class a extends d {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.eYu != null) {
-            return this.eYu.get(replace);
+        if (this.eXD != null) {
+            return this.eXD.get(replace);
         }
         return null;
     }
 
     public void r(HashMap<String, String> hashMap) {
-        this.eYu = hashMap;
+        this.eXD = hashMap;
     }
 
     public void a(com.baidu.tieba.easterEgg.d dVar) {
-        this.eYt = dVar;
+        this.eXC = dVar;
     }
 }

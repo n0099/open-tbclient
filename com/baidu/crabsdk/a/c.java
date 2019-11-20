@@ -8,31 +8,31 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes3.dex */
 public class c {
-    private static c Jk;
-    private static Context Jl;
-    private static ExecutorService Jm;
+    private static c IH;
+    private static Context II;
+    private static ExecutorService IJ;
     private static boolean al = false;
-    public l Ji;
-    public p Jj;
+    public l IF;
+    public p IG;
 
     private c(Context context) {
-        Jl = context;
-        this.Jj = new p(Looper.getMainLooper().getThread(), a.U);
-        this.Ji = new l(new d(this), context);
-        if (Jm == null) {
-            Jm = Executors.newSingleThreadExecutor();
+        II = context;
+        this.IG = new p(Looper.getMainLooper().getThread(), a.U);
+        this.IF = new l(new d(this), context);
+        if (IJ == null) {
+            IJ = Executors.newSingleThreadExecutor();
         }
     }
 
     public static c aj(Context context) {
-        if (Jk == null) {
+        if (IH == null) {
             synchronized (c.class) {
-                if (Jk == null) {
-                    Jk = new c(context);
+                if (IH == null) {
+                    IH = new c(context);
                 }
             }
         }
-        return Jk;
+        return IH;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -43,14 +43,14 @@ public class c {
             return;
         }
         a mh = a.mh();
-        mh.Je = c;
+        mh.IA = c;
         mh.a(j, j2, j3, j4);
     }
 
     public static void start() {
         al = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.Jo.start();
+            e.IL.start();
             com.baidu.crabsdk.c.a.bu("start FrameMonitor...");
         }
     }
@@ -58,7 +58,7 @@ public class c {
     public static void stop() {
         al = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.Jo.stop();
+            e.IL.stop();
         }
     }
 }

@@ -38,23 +38,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b cwH;
-    private com.baidu.tbadk.coreExtra.model.e cwJ;
-    private String cwM;
-    private String cwN;
-    private String cwO;
-    public static boolean cwE = true;
-    public static boolean cwF = false;
-    private static Date cwK = null;
+    private static b cvQ;
+    private com.baidu.tbadk.coreExtra.model.e cvS;
+    private String cvV;
+    private String cvW;
+    private String cvX;
+    public static boolean cvN = true;
+    public static boolean cvO = false;
+    private static Date cvT = null;
     private static Handler mHandler = new Handler() { // from class: com.baidu.tbadk.coreExtra.messageCenter.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 0) {
-                b.aqt().b(b.aqt().aqQ());
+                b.aqr().b(b.aqr().aqO());
             }
         }
     };
-    private final HashMap<Integer, HashSet> cwG = new HashMap<>();
+    private final HashMap<Integer, HashSet> cvP = new HashMap<>();
     private int mMsgAgreeme = 0;
     private int mMsgReplyme = 0;
     private int mMsgAtme = 0;
@@ -62,22 +62,22 @@ public class b {
     private int mMsgBookmark = 0;
     private int mMsgFans = 0;
     private int mMsgGiftNum = 0;
-    private com.baidu.tbadk.coreExtra.model.e cwI = new com.baidu.tbadk.coreExtra.model.e();
-    private boolean cwL = true;
-    private final int[] cwP = new int[10];
+    private com.baidu.tbadk.coreExtra.model.e cvR = new com.baidu.tbadk.coreExtra.model.e();
+    private boolean cvU = true;
+    private final int[] cvY = new int[10];
     private final Context appContext = TbadkCoreApplication.getInst().getApp();
 
-    public static b aqt() {
-        if (cwH == null) {
-            cwH = new b();
+    public static b aqr() {
+        if (cvQ == null) {
+            cvQ = new b();
         }
-        return cwH;
+        return cvQ;
     }
 
     private b() {
     }
 
-    public void by(JSONObject jSONObject) {
+    public void bz(JSONObject jSONObject) {
         if (jSONObject != null) {
             int optInt = jSONObject.optInt("replyme");
             int optInt2 = jSONObject.optInt("agree");
@@ -87,13 +87,13 @@ public class b {
                 String optString2 = optJSONObject.optString("atme");
                 String optString3 = optJSONObject.optString("agree");
                 if (!StringUtils.isNull(optString) && optInt > 0) {
-                    this.cwN = optString;
+                    this.cvW = optString;
                 }
                 if (!StringUtils.isNull(optString3) && optInt2 > 0) {
-                    this.cwM = optString3;
+                    this.cvV = optString3;
                 }
                 if (!StringUtils.isNull(optString2)) {
-                    this.cwO = optString2;
+                    this.cvX = optString2;
                 }
             }
         }
@@ -108,19 +108,19 @@ public class b {
                 i8 = 2;
             }
             int i9 = 0;
-            if (i > this.mMsgAgreeme && d.ara().arr()) {
+            if (i > this.mMsgAgreeme && d.aqY().arp()) {
                 i9 = 1;
             } else if (i < this.mMsgAgreeme) {
                 i9 = 2;
             }
             int i10 = 0;
-            if (i2 > this.mMsgReplyme && d.ara().arh()) {
+            if (i2 > this.mMsgReplyme && d.aqY().arf()) {
                 i10 = 1;
             } else if (i2 < this.mMsgReplyme) {
                 i10 = 2;
             }
             int i11 = 0;
-            if (i3 > this.mMsgAtme && d.ara().arf()) {
+            if (i3 > this.mMsgAtme && d.aqY().ard()) {
                 i11 = 1;
             } else if (i3 < this.mMsgAtme) {
                 i11 = 2;
@@ -144,7 +144,7 @@ public class b {
             this.mMsgFans = i5;
             this.mMsgBookmark = i6;
             this.mMsgGiftNum = i7;
-            if (aqO() <= 0) {
+            if (aqM() <= 0) {
                 i8 = 2;
                 i14 = 2;
                 i12 = 2;
@@ -154,14 +154,14 @@ public class b {
                 i9 = 2;
             }
             if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0) {
-                aqL();
-                al(i14, 23);
-                al(i12, 16);
-                al(i8, 17);
-                al(i10, 24);
-                al(i11, 25);
-                al(i13, 26);
-                al(i9, 29);
+                aqJ();
+                aj(i14, 23);
+                aj(i12, 16);
+                aj(i8, 17);
+                aj(i10, 24);
+                aj(i11, 25);
+                aj(i13, 26);
+                aj(i9, 29);
             }
         }
     }
@@ -174,34 +174,34 @@ public class b {
             this.mMsgChat = i4;
             this.mMsgFans = i5;
             this.mMsgGiftNum = i6;
-            aqL();
-            if (aqO() <= 0) {
-                al(2, 16);
-                al(2, 17);
+            aqJ();
+            if (aqM() <= 0) {
+                aj(2, 16);
+                aj(2, 17);
             }
         }
     }
 
-    public static boolean aqu() {
-        if (cwK == null) {
-            cwK = new Date();
+    public static boolean aqs() {
+        if (cvT == null) {
+            cvT = new Date();
         } else {
             Date date = new Date();
-            if (date.getTime() - cwK.getTime() < 10000) {
+            if (date.getTime() - cvT.getTime() < 10000) {
                 return false;
             }
-            cwK = date;
+            cvT = date;
         }
         return true;
     }
 
-    public static boolean aqv() {
-        if (d.ara().arl()) {
+    public static boolean aqt() {
+        if (d.aqY().arj()) {
             Calendar calendar = Calendar.getInstance();
             int i = calendar.get(12) + (calendar.get(11) * 60);
-            String[] split = d.ara().arn().split(":");
+            String[] split = d.aqY().arl().split(":");
             int parseInt = Integer.parseInt(split[1]) + (Integer.parseInt(split[0]) * 60);
-            String[] split2 = d.ara().aro().split(":");
+            String[] split2 = d.aqY().arm().split(":");
             int parseInt2 = Integer.parseInt(split2[1]) + (Integer.parseInt(split2[0]) * 60);
             if (parseInt < parseInt2) {
                 if (i >= parseInt && i <= parseInt2) {
@@ -219,7 +219,7 @@ public class b {
         return false;
     }
 
-    private void al(int i, int i2) {
+    private void aj(int i, int i2) {
         try {
             if (i == 1) {
                 if (i2 == 23) {
@@ -242,8 +242,8 @@ public class b {
                             sb2.append(this.appContext.getString(R.string.notify_unit));
                             sb2.append("]");
                         }
-                        if (this.cwN != null) {
-                            sb2.append(this.cwN);
+                        if (this.cvW != null) {
+                            sb2.append(this.cvW);
                         } else {
                             sb2.append(this.appContext.getString(R.string.notify_reply));
                         }
@@ -258,8 +258,8 @@ public class b {
                             sb3.append(this.appContext.getString(R.string.notify_unit));
                             sb3.append("]");
                         }
-                        if (this.cwO != null) {
-                            sb3.append(this.cwO);
+                        if (this.cvX != null) {
+                            sb3.append(this.cvX);
                         } else {
                             sb3.append(this.appContext.getString(R.string.notify_at));
                         }
@@ -271,7 +271,7 @@ public class b {
                         sb4.append(String.format(this.appContext.getString(R.string.notify_fans), Integer.valueOf(this.mMsgFans)));
                         d(26, null, sb4.toString(), sb4.toString());
                     }
-                } else if (i2 == 16 || !d.ara().arq() || d.ara().ard() > 0) {
+                } else if (i2 == 16 || !d.aqY().aro() || d.aqY().arb() > 0) {
                 }
             } else if (i == 2) {
                 NotificationHelper.cancelNotification(this.appContext, 16);
@@ -313,8 +313,8 @@ public class b {
                                 sb.append(this.appContext.getString(R.string.notify_unit));
                                 sb.append("]");
                             }
-                            if (this.cwM != null) {
-                                sb.append(this.cwM);
+                            if (this.cvV != null) {
+                                sb.append(this.cvV);
                             } else {
                                 sb.append(this.appContext.getString(R.string.notify_agree));
                             }
@@ -329,8 +329,8 @@ public class b {
                                 sb2.append(this.appContext.getString(R.string.notify_unit));
                                 sb2.append("]");
                             }
-                            if (this.cwN != null) {
-                                sb2.append(this.cwN);
+                            if (this.cvW != null) {
+                                sb2.append(this.cvW);
                             } else {
                                 sb2.append(this.appContext.getString(R.string.notify_reply));
                             }
@@ -345,8 +345,8 @@ public class b {
                                 sb3.append(this.appContext.getString(R.string.notify_unit));
                                 sb3.append("]");
                             }
-                            if (this.cwO != null) {
-                                sb3.append(this.cwO);
+                            if (this.cvX != null) {
+                                sb3.append(this.cvX);
                             } else {
                                 sb3.append(this.appContext.getString(R.string.notify_at));
                             }
@@ -362,9 +362,9 @@ public class b {
                             d(26, null, sb4.toString(), sb4.toString());
                         }
                     } else if (i2 == 16) {
-                        int unReadGroupMessage = (!d.ara().arq() || d.ara().ard() <= 0) ? 0 : eVar.getUnReadGroupMessage() - eVar.getUnReadGroupMessageNotNotify();
+                        int unReadGroupMessage = (!d.aqY().aro() || d.aqY().arb() <= 0) ? 0 : eVar.getUnReadGroupMessage() - eVar.getUnReadGroupMessageNotNotify();
                         long j = 0;
-                        if (d.ara().ari() && d.ara().ard() > 0) {
+                        if (d.aqY().arg() && d.aqY().arb() > 0) {
                             j = eVar.getUnReadPrivateMessageCount();
                         }
                         boolean z4 = j > 0;
@@ -399,8 +399,8 @@ public class b {
                         if (officialNotificationListData != null && officialNotificationListData.size() != 0) {
                             for (e.a aVar : officialNotificationListData) {
                                 if (aVar != null && !StringUtils.isNull(aVar.content) && !aq.isEmpty(aVar.gid) && aVar.unReadCount > aVar.unReadPreCount && aVar.isShow == null) {
-                                    aqR();
-                                    if (aqS().contains(aVar.gid)) {
+                                    aqP();
+                                    if (aqQ().contains(aVar.gid)) {
                                         a(aVar, 30);
                                     } else {
                                         a(aVar, 19);
@@ -408,8 +408,8 @@ public class b {
                                 }
                             }
                         }
-                    } else if (d.ara().arq() && d.ara().ard() > 0 && eVar.getUnReadGroupUpdates() + eVar.getUnReadGroupValidate() > 0) {
-                        if (eVar.getUnReadGroupUpdates() > 0 && !aqC()) {
+                    } else if (d.aqY().aro() && d.aqY().arb() > 0 && eVar.getUnReadGroupUpdates() + eVar.getUnReadGroupValidate() > 0) {
+                        if (eVar.getUnReadGroupUpdates() > 0 && !aqA()) {
                             long unReadGroupUpdates = eVar.getUnReadGroupUpdates() - eVar.getUnReadGroupUpdatesEventCount();
                             if (unReadGroupUpdates > 0) {
                                 stringBuffer.append(String.format(this.appContext.getString(R.string.notify_updates), Long.valueOf(unReadGroupUpdates)));
@@ -418,7 +418,7 @@ public class b {
                             } else if (eVar.getUnReadGroupUpdatesEventCount() > 0) {
                                 z = true;
                             }
-                            if (eVar.getUnReadGroupValidate() > 0 || aqB()) {
+                            if (eVar.getUnReadGroupValidate() > 0 || aqz()) {
                                 z3 = z2;
                             } else if (!z2) {
                                 stringBuffer.append(String.format(this.appContext.getString(R.string.notify_validate), Integer.valueOf(eVar.getUnReadGroupValidate())));
@@ -477,7 +477,7 @@ public class b {
             } else {
                 service = PendingIntent.getService(this.appContext, i, a, 134217728);
             }
-            h(jl(i), i);
+            h(jk(i), i);
             NotificationHelper.showNotification(this.appContext, i, aVar.title, aVar.content, aVar.tickerText, service, false);
         }
     }
@@ -485,13 +485,13 @@ public class b {
     private void a(int i, String str, String str2, String str3, boolean z) {
         Intent v;
         PendingIntent service;
-        if (this.cwL) {
+        if (this.cvU) {
             if (i == 23 && this.mMsgGiftNum > 0) {
-                v = jg(i);
+                v = jf(i);
             } else if (i == 26 && this.mMsgFans > 0) {
-                v = jh(i);
+                v = jg(i);
             } else if (i == 18) {
-                v = aqw();
+                v = aqu();
             } else if (i == 24) {
                 v = v(i, z);
                 v.putExtra("tab_id", 1);
@@ -510,12 +510,12 @@ public class b {
             } else {
                 service = PendingIntent.getService(this.appContext, i, v, 134217728);
             }
-            h(jl(i), i);
+            h(jk(i), i);
             NotificationHelper.showNotification(this.appContext, i, str, str2, str3, service, false);
         }
     }
 
-    public Intent jg(int i) {
+    public Intent jf(int i) {
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
             intent.setClass(this.appContext, DealIntentActivity.class);
@@ -534,7 +534,7 @@ public class b {
         return intent;
     }
 
-    public Intent jh(int i) {
+    public Intent jg(int i) {
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
             intent.setClass(this.appContext, DealIntentActivity.class);
@@ -558,7 +558,7 @@ public class b {
         if (aVar == null) {
             return null;
         }
-        ImMessageCenterPojo aN = com.baidu.tieba.im.memorycache.b.bCM().aN(aVar.gid, aVar.userType);
+        ImMessageCenterPojo aN = com.baidu.tieba.im.memorycache.b.bCK().aN(aVar.gid, aVar.userType);
         if (aN == null || aN.getLast_content() == null) {
             return null;
         }
@@ -654,19 +654,19 @@ public class b {
     }
 
     public Intent c(e.a aVar) {
-        HashMap<Integer, HashSet> aqR = aqR();
+        HashMap<Integer, HashSet> aqP = aqP();
         String str = aVar.gid;
-        if (aqR != null && !aq.isEmpty(str)) {
+        if (aqP != null && !aq.isEmpty(str)) {
+            HashSet<String> aqQ = aqQ();
+            HashSet<String> aqR = aqR();
             HashSet<String> aqS = aqS();
-            HashSet<String> aqT = aqT();
-            HashSet<String> aqU = aqU();
-            if (aqS != null && aqS.contains(str)) {
+            if (aqQ != null && aqQ.contains(str)) {
                 return b(aVar, 3);
             }
-            if (aqT != null && aqT.contains(str)) {
+            if (aqR != null && aqR.contains(str)) {
                 return b(aVar, 1);
             }
-            if (aqU != null && aqU.contains(str)) {
+            if (aqS != null && aqS.contains(str)) {
                 return b(aVar, 2);
             }
         }
@@ -676,7 +676,7 @@ public class b {
     public Intent v(int i, boolean z) {
         String str = "";
         if (z) {
-            Set<String> keySet = this.cwI.getPrivateGidName().keySet();
+            Set<String> keySet = this.cvR.getPrivateGidName().keySet();
             if (keySet.iterator().hasNext()) {
                 str = keySet.iterator().next();
             }
@@ -694,15 +694,15 @@ public class b {
         intent.putExtra("reply_me", this.mMsgReplyme);
         intent.putExtra("fans", this.mMsgFans);
         intent.putExtra("chat", getMsgChat());
-        intent.putExtra("group_msg", this.cwI.getUnReadGroupMessage() - this.cwI.getUnReadGroupMessageNotNotify());
-        intent.putExtra("group_msg_validate", this.cwI.getUnReadGroupValidate());
-        intent.putExtra("group_msg_updates", this.cwI.getUnReadGroupUpdates());
-        intent.putExtra("officialbar_msg", this.cwI.getUnReadOfficialMessageCount());
+        intent.putExtra("group_msg", this.cvR.getUnReadGroupMessage() - this.cvR.getUnReadGroupMessageNotNotify());
+        intent.putExtra("group_msg_validate", this.cvR.getUnReadGroupValidate());
+        intent.putExtra("group_msg_updates", this.cvR.getUnReadGroupUpdates());
+        intent.putExtra("officialbar_msg", this.cvR.getUnReadOfficialMessageCount());
         intent.putExtra("privateGid", str);
         return intent;
     }
 
-    public Intent aqw() {
+    public Intent aqu() {
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
             intent.setClass(this.appContext, DealIntentActivity.class);
@@ -710,11 +710,11 @@ public class b {
             intent.setClass(this.appContext, DealIntentService.class);
         }
         intent.putExtra(DealIntentService.KEY_CLASS, 14);
-        intent.putExtra("group_msg_updates", this.cwI.getUnReadGroupUpdatesEventCount());
+        intent.putExtra("group_msg_updates", this.cvR.getUnReadGroupUpdatesEventCount());
         return intent;
     }
 
-    public void aqx() {
+    public void aqv() {
         NotificationHelper.cancelNotification(this.appContext, 23);
         NotificationHelper.cancelNotification(this.appContext, 24);
         NotificationHelper.cancelNotification(this.appContext, 25);
@@ -726,88 +726,88 @@ public class b {
         NotificationHelper.cancelNotification(this.appContext, 12);
     }
 
-    public void aqy() {
+    public void aqw() {
         NotificationHelper.cancelNotification(this.appContext, 16);
     }
 
-    public void aqz() {
+    public void aqx() {
         NotificationHelper.cancelNotification(this.appContext, 19);
     }
 
-    public void ji(int i) {
+    public void jh(int i) {
         NotificationHelper.cancelNotification(this.appContext, i);
     }
 
-    public void aqA() {
+    public void aqy() {
         NotificationHelper.cancelNotification(this.appContext, 30);
     }
 
     public void oO(String str) {
         if (TextUtils.isEmpty(str)) {
-            aqy();
+            aqw();
             return;
         }
-        com.baidu.tbadk.coreExtra.model.e aqP = aqP();
-        if (aqP == null) {
-            aqy();
+        com.baidu.tbadk.coreExtra.model.e aqN = aqN();
+        if (aqN == null) {
+            aqw();
             return;
         }
-        HashMap<String, String> groupGidName = aqP.getGroupGidName();
+        HashMap<String, String> groupGidName = aqN.getGroupGidName();
         if (groupGidName == null || groupGidName.isEmpty()) {
-            aqy();
+            aqw();
         } else if (groupGidName.containsKey(str)) {
-            aqy();
+            aqw();
         }
     }
 
     public void oP(String str) {
         if (TextUtils.isEmpty(str)) {
-            aqy();
+            aqw();
             return;
         }
-        com.baidu.tbadk.coreExtra.model.e aqP = aqP();
-        if (aqP == null) {
-            aqy();
+        com.baidu.tbadk.coreExtra.model.e aqN = aqN();
+        if (aqN == null) {
+            aqw();
             return;
         }
-        HashMap<String, String> privateGidName = aqP.getPrivateGidName();
+        HashMap<String, String> privateGidName = aqN.getPrivateGidName();
         if (privateGidName == null || privateGidName.isEmpty()) {
-            aqy();
+            aqw();
         } else if (privateGidName.containsKey(str)) {
-            aqy();
+            aqw();
         }
     }
 
-    private boolean aqB() {
+    private boolean aqz() {
         return ChatStatusManager.getInst().getIsOpen(7);
     }
 
-    private boolean aqC() {
+    private boolean aqA() {
         return ChatStatusManager.getInst().getIsOpen(6);
     }
 
-    public void aqD() {
+    public void aqB() {
         NotificationHelper.cancelNotification(this.appContext, 17);
     }
 
-    public void jj(int i) {
-        com.baidu.tbadk.coreExtra.model.e aqP = aqP();
-        if (aqP == null) {
-            aqD();
+    public void ji(int i) {
+        com.baidu.tbadk.coreExtra.model.e aqN = aqN();
+        if (aqN == null) {
+            aqB();
         } else if (1 == i) {
-            if (aqP.getUnReadGroupUpdates() <= 0) {
-                aqD();
+            if (aqN.getUnReadGroupUpdates() <= 0) {
+                aqB();
             }
-        } else if (2 == i && aqP.getUnReadGroupValidate() <= 0) {
-            aqD();
+        } else if (2 == i && aqN.getUnReadGroupValidate() <= 0) {
+            aqB();
         }
     }
 
-    public void aqE() {
+    public void aqC() {
         NotificationHelper.cancelNotification(this.appContext, 18);
     }
 
-    public void aqF() {
+    public void aqD() {
         NotificationHelper.cancelNotification(this.appContext, 26);
         NotificationHelper.cancelNotification(this.appContext, 25);
         NotificationHelper.cancelNotification(this.appContext, 24);
@@ -817,7 +817,7 @@ public class b {
         NotificationHelper.cancelNotification(this.appContext, 29);
     }
 
-    public void aqG() {
+    public void aqE() {
         NotificationHelper.cancelNotification(this.appContext, 17);
         NotificationHelper.cancelNotification(this.appContext, 19);
         NotificationHelper.cancelNotification(this.appContext, 16);
@@ -825,41 +825,41 @@ public class b {
         NotificationHelper.cancelNotification(this.appContext, 30);
     }
 
-    public void aqH() {
+    public void aqF() {
         NotificationHelper.cancelNotification(this.appContext, 24);
     }
 
-    public void aqI() {
+    public void aqG() {
         NotificationHelper.cancelNotification(this.appContext, 25);
     }
 
-    public void aqJ() {
+    public void aqH() {
         NotificationHelper.cancelNotification(this.appContext, 29);
     }
 
-    public void aqK() {
+    public void aqI() {
         NotificationHelper.cancelNotification(this.appContext, 23);
     }
 
-    public void aqL() {
+    public void aqJ() {
         NewsNotifyMessage newsNotifyMessage = new NewsNotifyMessage();
-        newsNotifyMessage.setMsgAgree(aqM());
+        newsNotifyMessage.setMsgAgree(aqK());
         newsNotifyMessage.setMsgAtme(getMsgAtme());
         newsNotifyMessage.setMsgBookmark(getMsgBookmark());
-        newsNotifyMessage.setMsgChat(aqN());
+        newsNotifyMessage.setMsgChat(aqL());
         newsNotifyMessage.setMsgFans(getMsgFans());
         newsNotifyMessage.setMsgReplyme(getMsgReplyme());
         newsNotifyMessage.setMsgGiftNum(getMsgGiftNum());
-        newsNotifyMessage.setMsgPrivateChat(this.cwI.getUnReadPrivateMessageCount());
-        newsNotifyMessage.setMsgStrangerChat(this.cwI.getUnReadStrangerMergeCount());
-        newsNotifyMessage.setMsgOfficialMerge(this.cwI.getUnReadOfficialMergeCount());
+        newsNotifyMessage.setMsgPrivateChat(this.cvR.getUnReadPrivateMessageCount());
+        newsNotifyMessage.setMsgStrangerChat(this.cvR.getUnReadStrangerMergeCount());
+        newsNotifyMessage.setMsgOfficialMerge(this.cvR.getUnReadOfficialMergeCount());
         MessageManager.getInstance().dispatchResponsedMessageToUI(newsNotifyMessage);
     }
 
     public void a(com.baidu.tbadk.coreExtra.model.e eVar) {
         if (eVar != null) {
             NewsNotifyMessage newsNotifyMessage = new NewsNotifyMessage();
-            newsNotifyMessage.setMsgAgree(aqM());
+            newsNotifyMessage.setMsgAgree(aqK());
             newsNotifyMessage.setMsgAtme(getMsgAtme());
             newsNotifyMessage.setMsgBookmark(getMsgBookmark());
             newsNotifyMessage.setMsgChat(((((eVar.getUnReadPrivateMessageCount() + eVar.getUnReadGroupMessage()) + eVar.getUnReadStrangerMergeCount()) + eVar.getUnReadOfficialMergeCount()) + eVar.getUnReadOfficialAccountCount()) - eVar.getUnReadGroupMessageNotNotify());
@@ -893,11 +893,11 @@ public class b {
         }
     }
 
-    public int aqM() {
+    public int aqK() {
         return this.mMsgAgreeme;
     }
 
-    public void jk(int i) {
+    public void jj(int i) {
         if (i >= 0) {
             a(i, this.mMsgReplyme, this.mMsgAtme, this.mMsgChat, this.mMsgFans, this.mMsgBookmark, this.mMsgGiftNum);
         }
@@ -907,8 +907,8 @@ public class b {
         return this.mMsgChat;
     }
 
-    public int aqN() {
-        return ((((this.cwI.getUnReadPrivateMessageCount() + this.cwI.getUnReadGroupMessage()) + this.cwI.getUnReadStrangerMergeCount()) + this.cwI.getUnReadOfficialMergeCount()) + this.cwI.getUnReadOfficialAccountCount()) - this.cwI.getUnReadGroupMessageNotNotify();
+    public int aqL() {
+        return ((((this.cvR.getUnReadPrivateMessageCount() + this.cvR.getUnReadGroupMessage()) + this.cvR.getUnReadStrangerMergeCount()) + this.cvR.getUnReadOfficialMergeCount()) + this.cvR.getUnReadOfficialAccountCount()) - this.cvR.getUnReadGroupMessageNotNotify();
     }
 
     public int getMsgFans() {
@@ -960,25 +960,25 @@ public class b {
         this.mMsgBookmark = 0;
     }
 
-    public int aqO() {
+    public int aqM() {
         return this.mMsgAgreeme + this.mMsgReplyme + this.mMsgAtme + this.mMsgChat + this.mMsgFans + this.mMsgGiftNum;
     }
 
     public void b(com.baidu.tbadk.coreExtra.model.e eVar) {
         int i = 0;
         if (eVar != null) {
-            this.cwI = eVar;
+            this.cvR = eVar;
             this.mMsgChat = (eVar.getUnReadGroupMessage() - eVar.getUnReadGroupMessageNotNotify()) + eVar.getUnReadPrivateMessageCount() + eVar.getUnReadOfficialMergeCount() + eVar.getUnReadOfficialAccountCount();
             a(eVar);
             if (eVar.isShowInNotifyBar()) {
-                this.cwJ = null;
+                this.cvS = null;
                 mHandler.removeMessages(0);
             }
             if (eVar.isShowInNotifyBar()) {
-                if (d.ara().arq() && d.ara().ard() > 0) {
+                if (d.aqY().aro() && d.aqY().arb() > 0) {
                     i = eVar.getUnReadGroupMessage() - eVar.getUnReadGroupMessageNotNotify();
                 }
-                long unReadPrivateMessageCount = (!d.ara().ari() || d.ara().ard() <= 0) ? 0L : eVar.getUnReadPrivateMessageCount();
+                long unReadPrivateMessageCount = (!d.aqY().arg() || d.aqY().arb() <= 0) ? 0L : eVar.getUnReadPrivateMessageCount();
                 if ((i > 0 || unReadPrivateMessageCount > 0) && ((i > eVar.getUnReadGroupMessagePreCount() - eVar.getUnReadGroupMessageNotNotify() && i > 0) || unReadPrivateMessageCount > eVar.getUnReadPrivateMessagePreCount())) {
                     a(1, 16, eVar);
                 }
@@ -987,8 +987,8 @@ public class b {
                     a(1, 19, eVar);
                 }
                 if (eVar.getUnReadGroupUpdates() > eVar.getUnReadGroupUpdatesPre() || eVar.getUnReadGroupValidate() > eVar.getUnReadGroupValidatePre()) {
-                    if (eVar.getUnReadGroupUpdates() <= eVar.getUnReadGroupUpdatesPre() || eVar.getUnReadGroupValidate() != eVar.getUnReadGroupValidatePre() || !aqC()) {
-                        if (eVar.getUnReadGroupUpdates() != eVar.getUnReadGroupUpdatesPre() || eVar.getUnReadGroupValidate() <= eVar.getUnReadGroupValidatePre() || !aqB()) {
+                    if (eVar.getUnReadGroupUpdates() <= eVar.getUnReadGroupUpdatesPre() || eVar.getUnReadGroupValidate() != eVar.getUnReadGroupValidatePre() || !aqA()) {
+                        if (eVar.getUnReadGroupUpdates() != eVar.getUnReadGroupUpdatesPre() || eVar.getUnReadGroupValidate() <= eVar.getUnReadGroupValidatePre() || !aqz()) {
                             a(1, 17, eVar);
                         }
                     }
@@ -997,19 +997,19 @@ public class b {
         }
     }
 
-    public com.baidu.tbadk.coreExtra.model.e aqP() {
-        return this.cwI;
+    public com.baidu.tbadk.coreExtra.model.e aqN() {
+        return this.cvR;
     }
 
     public void c(com.baidu.tbadk.coreExtra.model.e eVar) {
-        this.cwI = eVar;
+        this.cvR = eVar;
     }
 
-    public com.baidu.tbadk.coreExtra.model.e aqQ() {
-        return this.cwJ;
+    public com.baidu.tbadk.coreExtra.model.e aqO() {
+        return this.cvS;
     }
 
-    public int jl(int i) {
+    public int jk(int i) {
         switch (i) {
             case 12:
             case 13:
@@ -1054,27 +1054,27 @@ public class b {
         }
     }
 
-    public HashMap<Integer, HashSet> aqR() {
+    public HashMap<Integer, HashSet> aqP() {
         JSONArray jSONArray;
-        if (!cwE && cwF) {
-            return this.cwG;
+        if (!cvN && cvO) {
+            return this.cvP;
         }
-        String string = com.baidu.tbadk.core.sharedPref.b.alR().getString(SharedPrefConfig.KEY_RESPONSED_PULL_CONFIG_TAB_UID, null);
+        String string = com.baidu.tbadk.core.sharedPref.b.alP().getString(SharedPrefConfig.KEY_RESPONSED_PULL_CONFIG_TAB_UID, null);
         if (string == null) {
-            if (this.cwG.get(0) == null) {
-                this.cwG.put(0, new HashSet());
+            if (this.cvP.get(0) == null) {
+                this.cvP.put(0, new HashSet());
             }
-            this.cwG.get(0).add("3222425470");
-            return this.cwG;
+            this.cvP.get(0).add("3222425470");
+            return this.cvP;
         }
-        if (this.cwG.get(0) != null) {
-            this.cwG.get(0).clear();
+        if (this.cvP.get(0) != null) {
+            this.cvP.get(0).clear();
         }
-        if (this.cwG.get(1) != null) {
-            this.cwG.get(1).clear();
+        if (this.cvP.get(1) != null) {
+            this.cvP.get(1).clear();
         }
-        if (this.cwG.get(2) != null) {
-            this.cwG.get(2).clear();
+        if (this.cvP.get(2) != null) {
+            this.cvP.get(2).clear();
         }
         try {
             jSONArray = new JSONArray(string);
@@ -1091,52 +1091,52 @@ public class b {
                 String optString = optJSONObject.optString("uid");
                 switch (optInt) {
                     case 0:
-                        if (this.cwG.get(0) == null) {
-                            this.cwG.put(0, new HashSet());
+                        if (this.cvP.get(0) == null) {
+                            this.cvP.put(0, new HashSet());
                         }
-                        this.cwG.get(0).add(optString);
+                        this.cvP.get(0).add(optString);
                         continue;
                     case 1:
-                        if (this.cwG.get(1) == null) {
-                            this.cwG.put(1, new HashSet());
+                        if (this.cvP.get(1) == null) {
+                            this.cvP.put(1, new HashSet());
                         }
-                        this.cwG.get(1).add(optString);
+                        this.cvP.get(1).add(optString);
                         continue;
                     case 2:
-                        if (this.cwG.get(2) == null) {
-                            this.cwG.put(2, new HashSet());
+                        if (this.cvP.get(2) == null) {
+                            this.cvP.put(2, new HashSet());
                         }
-                        this.cwG.get(2).add(optString);
+                        this.cvP.get(2).add(optString);
                         continue;
                     default:
                         continue;
                 }
             }
         }
-        cwF = true;
-        cwE = false;
-        return this.cwG;
+        cvO = true;
+        cvN = false;
+        return this.cvP;
+    }
+
+    public HashSet<String> aqQ() {
+        aqP();
+        return this.cvP.get(0);
+    }
+
+    public HashSet<String> aqR() {
+        aqP();
+        return this.cvP.get(1);
     }
 
     public HashSet<String> aqS() {
-        aqR();
-        return this.cwG.get(0);
+        aqP();
+        return this.cvP.get(2);
     }
 
-    public HashSet<String> aqT() {
-        aqR();
-        return this.cwG.get(1);
-    }
-
-    public HashSet<String> aqU() {
-        aqR();
-        return this.cwG.get(2);
-    }
-
-    public String aqV() {
-        HashSet<String> aqS = aqS();
-        if (aqS != null) {
-            Iterator<String> it = aqS.iterator();
+    public String aqT() {
+        HashSet<String> aqQ = aqQ();
+        if (aqQ != null) {
+            Iterator<String> it = aqQ.iterator();
             if (it.hasNext()) {
                 return it.next();
             }

@@ -58,16 +58,16 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     protected void bk(String str, int i) {
-        BdToast.b(getAppContext(), str, i, false).akT();
+        BdToast.b(getAppContext(), str, i, false).akR();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void zf(int i) {
-        aF(i, null);
+    public void ze(int i) {
+        aE(i, null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aF(int i, String str) {
+    public void aE(int i, String str) {
         if (i == 1) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_success, new Object[0]);
@@ -85,11 +85,11 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
             Do(str);
         }
         if (!TextUtils.isEmpty(this.tid)) {
-            zg(i);
+            zf(i);
         }
     }
 
-    public void zg(int i) {
+    public void zf(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt("status", i);
         bundle.putString(IntentConfig.SHARE_THREAD_ID, this.tid);
@@ -106,12 +106,12 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap ckI() {
+    public Bitmap ckG() {
         return BitmapHelper.getCashBitmap(R.drawable.icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap zh(int i) {
+    public Bitmap zg(int i) {
         return BitmapHelper.getCashBitmap(i);
     }
 
@@ -158,10 +158,10 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     public com.baidu.adp.widget.ImageView.a a(ShareEntity shareEntity) {
-        if (shareEntity == null || shareEntity.cyH == null) {
+        if (shareEntity == null || shareEntity.cxQ == null) {
             return null;
         }
-        Bundle bundle = shareEntity.cyH;
+        Bundle bundle = shareEntity.cxQ;
         String string = bundle.getString("path");
         String string2 = bundle.getString("name");
         if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {

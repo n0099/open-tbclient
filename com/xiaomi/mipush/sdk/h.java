@@ -1,20 +1,32 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes3.dex */
-/* synthetic */ class h {
-    static final /* synthetic */ int[] a = new int[f.values().length];
 
-    static {
-        try {
-            a[f.ASSEMBLE_PUSH_HUAWEI.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
-        }
-        try {
-            a[f.ASSEMBLE_PUSH_FCM.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            a[f.ASSEMBLE_PUSH_COS.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+import android.content.Context;
+import com.xiaomi.push.hl;
+import com.xiaomi.push.service.ag;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes3.dex */
+public class h extends ag.a {
+    final /* synthetic */ g a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(g gVar, int i, String str) {
+        super(i, str);
+        this.a = gVar;
+    }
+
+    @Override // com.xiaomi.push.service.ag.a
+    protected void a() {
+        Context context;
+        boolean z;
+        Context context2;
+        context = this.a.f68a;
+        boolean a = com.xiaomi.push.service.ag.a(context).a(hl.AggregatePushSwitch.a(), true);
+        z = this.a.f71a;
+        if (z != a) {
+            this.a.f71a = a;
+            context2 = this.a.f68a;
+            j.b(context2);
         }
     }
 }

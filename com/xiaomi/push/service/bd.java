@@ -1,33 +1,27 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.XMPushService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.xiaomi.push.service.bc;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class bd extends XMPushService.i {
-    private XMPushService b;
-    private com.xiaomi.slim.b c;
+class bd implements Runnable {
+    final /* synthetic */ bc a;
 
-    public bd(XMPushService xMPushService, com.xiaomi.slim.b bVar) {
-        super(4);
-        this.b = null;
-        this.b = xMPushService;
-        this.c = bVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bd(bc bcVar) {
+        this.a = bcVar;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
+    @Override // java.lang.Runnable
+    public void run() {
+        ConcurrentHashMap concurrentHashMap;
         try {
-            if (this.c != null) {
-                this.b.a(this.c);
+            concurrentHashMap = this.a.f892a;
+            for (bc.a aVar : concurrentHashMap.values()) {
+                aVar.run();
             }
-        } catch (com.xiaomi.smack.l e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.b.a(10, e);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.m30a("Sync job exception :" + e.getMessage());
         }
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String b() {
-        return "send a message.";
+        this.a.f893a = false;
     }
 }

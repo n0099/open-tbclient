@@ -16,13 +16,13 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
-    private final List<d> NB;
-    private final List<e> NC;
-    private e ND;
-    private AlaLiveRoomPanelTabHost NE;
-    private com.baidu.live.bottompanel.a NF;
-    private boolean NG;
-    private a NH;
+    private final List<d> Na;
+    private final List<e> Nb;
+    private e Nc;
+    private AlaLiveRoomPanelTabHost Nd;
+    private com.baidu.live.bottompanel.a Ne;
+    private boolean Nf;
+    private a Ng;
     private float mDownX;
     private Scroller mScroller;
     private int mTouchSlop;
@@ -34,11 +34,11 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
 
     public AlaAudienceLiveRoomBottomPanelView(Context context) {
         super(context);
-        this.NB = new LinkedList();
-        this.NC = new LinkedList();
+        this.Na = new LinkedList();
+        this.Nb = new LinkedList();
         this.mDownX = 0.0f;
-        this.NG = false;
-        this.NH = new a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.1
+        this.Nf = false;
+        this.Ng = new a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.1
             @Override // com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.a
             public void nv() {
                 AlaAudienceLiveRoomBottomPanelView.this.nu();
@@ -51,17 +51,17 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
         setOrientation(0);
         this.mScroller = new Scroller(getContext());
         this.mTouchSlop = BdUtilHelper.getScreenDimensions(getContext())[0] / 4;
-        this.NE = new AlaLiveRoomPanelTabHost(getContext());
-        this.NE.setOnPageChangeListener(new AlaLiveRoomPanelTabHost.a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.2
+        this.Nd = new AlaLiveRoomPanelTabHost(getContext());
+        this.Nd.setOnPageChangeListener(new AlaLiveRoomPanelTabHost.a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.2
             @Override // com.baidu.live.bottompanel.AlaLiveRoomPanelTabHost.a
             public void a(int i, d dVar) {
-                if (dVar != null && dVar.st() != 1) {
+                if (dVar != null && dVar.su() != 1) {
                     BdUtilHelper.hideSoftKeyPad(AlaAudienceLiveRoomBottomPanelView.this.getContext(), AlaAudienceLiveRoomBottomPanelView.this);
                 }
             }
         });
-        addView(this.NE);
-        this.NF = new com.baidu.live.bottompanel.a(getContext(), this.NH);
+        addView(this.Nd);
+        this.Ne = new com.baidu.live.bottompanel.a(getContext(), this.Ng);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -75,44 +75,44 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
     }
 
     public void setTabCtlList(List<d> list) {
-        this.NB.clear();
+        this.Na.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.NB.addAll(list);
+            this.Na.addAll(list);
         }
-        Collections.sort(this.NB, new Comparator<d>() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.3
+        Collections.sort(this.Na, new Comparator<d>() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(d dVar, d dVar2) {
-                return dVar.st() - dVar2.st();
+                return dVar.su() - dVar2.su();
             }
         });
-        this.NE.setData(this.NB, true);
+        this.Nd.setData(this.Na, true);
     }
 
     public void setPageCtlList(List<e> list) {
-        this.NC.clear();
+        this.Nb.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.NC.addAll(list);
+            this.Nb.addAll(list);
         }
     }
 
     public boolean nu() {
-        if (this.ND != null) {
-            View rootView = this.NF.getRootView();
+        if (this.Nc != null) {
+            View rootView = this.Ne.getRootView();
             this.mScroller.startScroll(rootView.getMeasuredWidth(), 0, -rootView.getMeasuredWidth(), 0);
-            this.ND.enterBackground();
+            this.Nc.enterBackground();
             removeView(rootView);
-            this.NF.reset();
-            this.ND = null;
-            this.NG = false;
+            this.Ne.reset();
+            this.Nc = null;
+            this.Nf = false;
             return true;
         }
         return false;
     }
 
     public void setPageSelectedListener(AlaLiveRoomPanelTabHost.b bVar) {
-        this.NE.setPageSelectedListener(bVar);
+        this.Nd.setPageSelectedListener(bVar);
     }
 
     @Override // android.view.View
@@ -131,7 +131,7 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.NG) {
+        if (this.Nf) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mDownX = (int) motionEvent.getX();
@@ -150,7 +150,7 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.NG) {
+        if (this.Nf) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                 default:
@@ -159,7 +159,7 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
                     this.mDownX = 0.0f;
                     return false;
                 case 2:
-                    if (((int) motionEvent.getX()) - this.mDownX < this.mTouchSlop || this.ND == null) {
+                    if (((int) motionEvent.getX()) - this.mDownX < this.mTouchSlop || this.Nc == null) {
                         return true;
                     }
                     nu();

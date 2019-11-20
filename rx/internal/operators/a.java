@@ -30,11 +30,11 @@ public final class a {
     }
 
     public static <T> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super T> jVar) {
-        a(atomicLong, queue, jVar, UtilityFunctions.cPi());
+        a(atomicLong, queue, jVar, UtilityFunctions.cPg());
     }
 
     public static <T> boolean a(AtomicLong atomicLong, long j, Queue<T> queue, rx.j<? super T> jVar) {
-        return a(atomicLong, j, queue, jVar, UtilityFunctions.cPi());
+        return a(atomicLong, j, queue, jVar, UtilityFunctions.cPg());
     }
 
     public static <T, R> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super R> jVar, rx.functions.f<? super T, ? extends R> fVar) {
@@ -143,7 +143,7 @@ public final class a {
         return j3;
     }
 
-    public static boolean eo(long j) {
+    public static boolean en(long j) {
         if (j < 0) {
             throw new IllegalArgumentException("n >= 0 required but it was " + j);
         }

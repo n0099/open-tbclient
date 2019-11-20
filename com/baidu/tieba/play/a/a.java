@@ -9,11 +9,11 @@ import com.baidu.tieba.play.g;
 public interface a extends MediaController.MediaPlayerControl {
     void a(String str, long j, long j2, long j3, long j4, long j5, String str2, int i);
 
-    void bIM();
+    void bIK();
 
-    void cbC();
+    void cbA();
 
-    boolean ccq();
+    boolean cco();
 
     int getCurrentPositionSync();
 

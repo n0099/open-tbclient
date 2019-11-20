@@ -16,14 +16,14 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private HotTopicChangeFourmActivity jQC;
+    private HotTopicChangeFourmActivity jPL;
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
     private ViewGroup mParent = null;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.jQC = hotTopicChangeFourmActivity;
-        this.mContext = this.jQC.getPageContext().getContext();
+        this.jPL = hotTopicChangeFourmActivity;
+        this.mContext = this.jPL.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -40,7 +40,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: BD */
+    /* renamed from: BC */
     public HotTopicBussinessData getItem(int i) {
         if (this.mData != null && i < this.mData.size()) {
             return this.mData.get(i);
@@ -84,29 +84,29 @@ public class a extends BaseAdapter {
     private C0540a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         C0540a c0540a;
         if (obj == null) {
-            c0540a = cyA();
+            c0540a = cyy();
         } else {
             c0540a = (C0540a) obj;
         }
-        c0540a.jQE.setText(FD(hotTopicBussinessData.mForumName));
-        c0540a.jQD.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0540a.jPN.setText(FD(hotTopicBussinessData.mForumName));
+        c0540a.jPM.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         am.setBackgroundResource(c0540a.mRootView, R.drawable.select_forum_item_bg);
-        am.setViewTextColor(c0540a.jQE, (int) R.color.cp_cont_b);
-        am.setBackgroundColor(c0540a.fFI, R.color.cp_bg_line_e);
+        am.setViewTextColor(c0540a.jPN, (int) R.color.cp_cont_b);
+        am.setBackgroundColor(c0540a.fER, R.color.cp_bg_line_e);
         return c0540a;
     }
 
-    private C0540a cyA() {
+    private C0540a cyy() {
         C0540a c0540a = new C0540a();
         c0540a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
         am.setBackgroundResource(c0540a.mRootView, R.drawable.select_forum_item_bg);
-        am.setViewTextColor(c0540a.jQE, (int) R.color.cp_cont_b);
-        c0540a.jQE = (TextView) c0540a.mRootView.findViewById(R.id.fourm_tv);
-        c0540a.fFI = c0540a.mRootView.findViewById(R.id.line_view);
-        c0540a.jQD = (TbImageView) c0540a.mRootView.findViewById(R.id.icon_img);
-        c0540a.jQD.setDefaultBgResource(R.color.cp_bg_line_e);
-        c0540a.jQD.setDefaultResource(R.drawable.transparent_bg);
-        c0540a.jQD.setDefaultErrorResource(R.drawable.icon_default_ba_120);
+        am.setViewTextColor(c0540a.jPN, (int) R.color.cp_cont_b);
+        c0540a.jPN = (TextView) c0540a.mRootView.findViewById(R.id.fourm_tv);
+        c0540a.fER = c0540a.mRootView.findViewById(R.id.line_view);
+        c0540a.jPM = (TbImageView) c0540a.mRootView.findViewById(R.id.icon_img);
+        c0540a.jPM.setDefaultBgResource(R.color.cp_bg_line_e);
+        c0540a.jPM.setDefaultResource(R.drawable.transparent_bg);
+        c0540a.jPM.setDefaultErrorResource(R.drawable.icon_default_ba_120);
         c0540a.mRootView.setTag(c0540a);
         return c0540a;
     }
@@ -115,9 +115,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0540a {
-        public View fFI;
-        public TbImageView jQD;
-        public TextView jQE;
+        public View fER;
+        public TbImageView jPM;
+        public TextView jPN;
         public View mRootView;
 
         private C0540a() {

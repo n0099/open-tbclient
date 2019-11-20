@@ -79,7 +79,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean cl(JSONObject jSONObject) {
+    public boolean cm(JSONObject jSONObject) {
         String optString = jSONObject.optString("forum_name");
         String optString2 = jSONObject.optString("thread_id");
         String optString3 = jSONObject.optString("thread_name");
@@ -177,7 +177,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String bNS() {
+    public String bNQ() {
         return this.threadName;
     }
 
@@ -201,7 +201,7 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String auu() {
+    public String aus() {
         return this.postID;
     }
 
@@ -209,7 +209,7 @@ public class a implements f {
         this.postID = str;
     }
 
-    public boolean bNT() {
+    public boolean bNR() {
         return this.isHostOnly;
     }
 
@@ -217,7 +217,7 @@ public class a implements f {
         this.isHostOnly = z;
     }
 
-    public boolean bNU() {
+    public boolean bNS() {
         return this.isSquence;
     }
 
@@ -255,7 +255,7 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String avM() {
+    public String avK() {
         return toJsonObject().toString();
     }
 
@@ -263,7 +263,7 @@ public class a implements f {
     public boolean qc(String str) {
         if (str != null) {
             try {
-                return cl(new JSONObject(str));
+                return cm(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

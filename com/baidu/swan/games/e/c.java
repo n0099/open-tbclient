@@ -24,9 +24,9 @@ public class c extends com.baidu.swan.games.e.a {
 
     @Override // com.baidu.swan.games.e.a
     @NonNull
-    public EventTarget Wv() {
-        b bVar = new b(this, this.bzy.Gb());
-        bVar.env.config = com.baidu.swan.apps.swancore.b.a.SX();
+    public EventTarget Wt() {
+        b bVar = new b(this, this.byH.Gc());
+        bVar.env.config = com.baidu.swan.apps.swancore.b.a.SZ();
         return bVar;
     }
 

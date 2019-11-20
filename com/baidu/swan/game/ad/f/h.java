@@ -20,15 +20,15 @@ import com.baidu.swan.game.ad.c.b;
 /* loaded from: classes2.dex */
 public class h implements a.InterfaceC0240a, a.b, a.c {
     public String b;
-    private com.baidu.swan.game.ad.c bxJ;
-    private com.baidu.swan.apps.media.d.a bxK;
-    private com.baidu.swan.game.ad.a.a bxL;
-    private com.baidu.swan.games.view.a.a bxM;
-    private k bxN;
-    private l bxO;
-    public com.baidu.swan.apps.res.widget.dialog.g bxP;
-    private j bxQ;
-    private a bxS;
+    private com.baidu.swan.game.ad.c bwS;
+    private com.baidu.swan.apps.media.d.a bwT;
+    private com.baidu.swan.game.ad.a.a bwU;
+    private com.baidu.swan.games.view.a.a bwV;
+    private k bwW;
+    private l bwX;
+    public com.baidu.swan.apps.res.widget.dialog.g bwY;
+    private j bwZ;
+    private a bxb;
     private String l;
     private boolean n;
     private boolean q;
@@ -36,7 +36,7 @@ public class h implements a.InterfaceC0240a, a.b, a.c {
     private int i = 0;
     private boolean r = true;
     private Context c = AppRuntime.getAppContext();
-    private d bxR = new d(this.c);
+    private d bxa = new d(this.c);
 
     public h(String str, String str2) {
         this.b = "";
@@ -45,13 +45,13 @@ public class h implements a.InterfaceC0240a, a.b, a.c {
     }
 
     public void a(j jVar) {
-        this.bxQ = jVar;
+        this.bwZ = jVar;
     }
 
     public synchronized void a(com.baidu.swan.games.binding.model.c cVar) {
         k c = k.c(cVar);
         if (this.g == 257) {
-            c.VF().a(c);
+            c.VD().a(c);
         } else if (this.g == 261 || this.g == 260 || this.g == 265) {
             a(c, "3010006");
         } else {
@@ -63,21 +63,21 @@ public class h implements a.InterfaceC0240a, a.b, a.c {
                 }
             }
             if (this.g == 259 || this.g == 262 || this.g == 263 || this.g == 264 || this.g == 256 || this.g == 272) {
-                com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
+                com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
                 String str = "";
-                if (QZ != null) {
-                    str = QZ.getAppKey();
+                if (Ra != null) {
+                    str = Ra.getAppKey();
                 }
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.b)) {
                     a(c, "3010007");
                 } else {
-                    this.bxN = c;
+                    this.bwW = c;
                     this.g = 257;
-                    com.baidu.swan.game.ad.c.e eVar = new com.baidu.swan.game.ad.c.e(this.c, new b.a().jm(this.l).jn(this.b).jo(str).VE());
+                    com.baidu.swan.game.ad.c.e eVar = new com.baidu.swan.game.ad.c.e(this.c, new b.a().jm(this.l).jn(this.b).jo(str).VC());
                     com.baidu.swan.game.ad.c.a aVar = new com.baidu.swan.game.ad.c.a(this.c);
                     aVar.a(this);
                     com.baidu.swan.games.view.a.b.br("video", null);
-                    aVar.a(eVar, this.bxR);
+                    aVar.a(eVar, this.bxa);
                 }
             }
         }
@@ -89,12 +89,12 @@ public class h implements a.InterfaceC0240a, a.b, a.c {
             if (d != null) {
                 d.a("3010004");
             }
-            if (this.bxQ != null) {
-                this.bxQ.a("3010004");
+            if (this.bwZ != null) {
+                this.bwZ.a("3010004");
             }
         } else if (this.g != 258 || e()) {
             a(d, "3010004");
-        } else if (this.bxL != null && TextUtils.isEmpty(this.bxL.e())) {
+        } else if (this.bwU != null && TextUtils.isEmpty(this.bwU.e())) {
             a(d, "3010008");
         } else if (this.g == 258) {
             this.g = 265;
@@ -102,16 +102,16 @@ public class h implements a.InterfaceC0240a, a.b, a.c {
                 @Override // java.lang.Runnable
                 public void run() {
                     h.this.i();
-                    if (com.baidu.swan.games.view.a.c.az(h.this.bxJ.a())) {
-                        com.baidu.swan.games.view.a.c.at(h.this.bxJ.a());
+                    if (com.baidu.swan.games.view.a.c.az(h.this.bwS.a())) {
+                        com.baidu.swan.games.view.a.c.at(h.this.bwS.a());
                     }
-                    if (!com.baidu.swan.games.view.a.c.c(h.this.bxJ.a(), com.baidu.swan.apps.model.a.a.b.Ms())) {
+                    if (!com.baidu.swan.games.view.a.c.c(h.this.bwS.a(), com.baidu.swan.apps.model.a.a.b.Mt())) {
                         h.this.a(d, "3010000");
                         return;
                     }
-                    h.this.bxO = d;
+                    h.this.bwX = d;
                     h.this.g = 260;
-                    h.this.bxJ.a(h.this.bxL.e());
+                    h.this.bwS.a(h.this.bwU.e());
                 }
             });
         }
@@ -119,44 +119,44 @@ public class h implements a.InterfaceC0240a, a.b, a.c {
 
     @Override // com.baidu.swan.game.ad.b.a.InterfaceC0240a
     public void a(com.baidu.swan.game.ad.a.a aVar) {
-        this.bxL = aVar;
+        this.bwU = aVar;
         this.g = 258;
-        a(this.bxN);
+        a(this.bwW);
         com.baidu.swan.games.view.a.b.br("video", "success");
     }
 
     @Override // com.baidu.swan.game.ad.b.a.InterfaceC0240a
     public void a(String str) {
         this.g = 259;
-        a(this.bxN, str);
+        a(this.bwW, str);
         com.baidu.swan.games.view.a.b.br("video", LivenessStat.TYPE_FACE_MATCH_FAIL);
     }
 
     @Override // com.baidu.swan.game.ad.b.a.b
     public void a() {
-        SwanAppActivity Lp;
+        SwanAppActivity Lq;
         int i;
         int i2;
         int i3;
-        if (this.bxK != null && (Lp = com.baidu.swan.apps.w.e.LD().Lp()) != null && !this.n) {
-            int Yw = com.baidu.swan.games.view.a.c.Yw();
-            int Yx = com.baidu.swan.games.view.a.c.Yx();
+        if (this.bwT != null && (Lq = com.baidu.swan.apps.w.e.LE().Lq()) != null && !this.n) {
+            int Yu = com.baidu.swan.games.view.a.c.Yu();
+            int Yv = com.baidu.swan.games.view.a.c.Yv();
             if (com.baidu.swan.games.view.a.c.isLandScape()) {
-                i = (int) (Yw * 0.275f);
-                i2 = (int) (Yw * 0.275f);
-                i3 = (int) (0.05f * Yx);
+                i = (int) (Yu * 0.275f);
+                i2 = (int) (Yu * 0.275f);
+                i3 = (int) (0.05f * Yv);
             } else {
-                i = (int) (Yw * 0.1f);
-                i2 = (int) (Yw * 0.1f);
+                i = (int) (Yu * 0.1f);
+                i2 = (int) (Yu * 0.1f);
                 i3 = 0;
             }
             g();
-            if (this.bxK.isEnd()) {
+            if (this.bwT.isEnd()) {
                 c();
                 return;
             }
             this.n = true;
-            this.bxP = new g.a(Lp).ct(true).c(a.f.ad_close, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.game.ad.f.h.4
+            this.bwY = new g.a(Lq).ct(true).c(a.f.ad_close, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.game.ad.f.h.4
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i4) {
                     h.this.c();
@@ -173,115 +173,115 @@ public class h implements a.InterfaceC0240a, a.b, a.c {
                 public void onDismiss(DialogInterface dialogInterface) {
                     h.this.n = false;
                 }
-            }).a(new com.baidu.swan.apps.view.b.a()).k(i, 0, i2, i3).Qu();
+            }).a(new com.baidu.swan.apps.view.b.a()).k(i, 0, i2, i3).Qv();
         }
     }
 
     @Override // com.baidu.swan.game.ad.b.a.c
     public void b() {
-        com.baidu.swan.apps.core.d.e AH = com.baidu.swan.apps.w.e.LD().AH();
-        if (AH == null) {
+        com.baidu.swan.apps.core.d.e AI = com.baidu.swan.apps.w.e.LE().AI();
+        if (AI == null) {
             if (this.c != null) {
-                com.baidu.swan.apps.res.widget.b.d.i(this.c, a.f.aiapps_open_fragment_failed_toast).QN();
+                com.baidu.swan.apps.res.widget.b.d.i(this.c, a.f.aiapps_open_fragment_failed_toast).QO();
                 return;
             }
             return;
         }
-        if (this.bxL != null) {
-            String f = this.bxL.f();
-            AH.eC("adLanding").H(com.baidu.swan.apps.core.d.e.aLl, com.baidu.swan.apps.core.d.e.aLn).a("adLanding", com.baidu.swan.apps.model.b.ay(f, f)).FC();
+        if (this.bwU != null) {
+            String f = this.bwU.f();
+            AI.eC("adLanding").F(com.baidu.swan.apps.core.d.e.aKT, com.baidu.swan.apps.core.d.e.aKV).a("adLanding", com.baidu.swan.apps.model.b.ay(f, f)).FD();
         }
-        com.baidu.swan.game.ad.d.a.b(this.bxL, this.bxR);
+        com.baidu.swan.game.ad.d.a.b(this.bwU, this.bxa);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.bxQ != null && this.bxK != null) {
-            this.bxQ.a(this.bxK.isEnd());
+        if (this.bwZ != null && this.bwT != null) {
+            this.bwZ.a(this.bwT.isEnd());
         }
         d();
-        com.baidu.swan.game.ad.d.a.d(this.bxL, this.bxR);
+        com.baidu.swan.game.ad.d.a.d(this.bwU, this.bxa);
         this.g = 263;
         a((com.baidu.swan.games.binding.model.c) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (this.bxK != null) {
-            this.bxK.pause();
-            this.bxK.onDestroy();
+        if (this.bwT != null) {
+            this.bwT.pause();
+            this.bwT.onDestroy();
         }
-        if (this.bxS != null) {
-            this.c.unregisterReceiver(this.bxS);
-            this.bxS = null;
+        if (this.bxb != null) {
+            this.c.unregisterReceiver(this.bxb);
+            this.bxb = null;
         }
-        if (this.bxJ != null) {
-            this.bxJ.g();
-            this.bxJ.a().setAnimation(AnimationUtils.loadAnimation(this.c, a.C0239a.ng_game_ad_close));
-            com.baidu.swan.games.view.a.c.at(this.bxJ.a());
+        if (this.bwS != null) {
+            this.bwS.g();
+            this.bwS.a().setAnimation(AnimationUtils.loadAnimation(this.c, a.C0239a.ng_game_ad_close));
+            com.baidu.swan.games.view.a.c.at(this.bwS.a());
         }
-        if (this.bxM != null) {
-            com.baidu.swan.games.view.a.c.b(this.bxM);
-            this.bxM = null;
+        if (this.bwV != null) {
+            com.baidu.swan.games.view.a.c.b(this.bwV);
+            this.bwV = null;
         }
     }
 
     private boolean e() {
-        if (this.bxL == null) {
+        if (this.bwU == null) {
             return true;
         }
-        long j = this.bxL.j() * 1000;
+        long j = this.bwU.j() * 1000;
         if (j == 0) {
             j = 1740000;
         }
-        return System.currentTimeMillis() - this.bxL.i() >= j;
+        return System.currentTimeMillis() - this.bwU.i() >= j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int f() {
-        if (this.bxK != null) {
-            return this.bxK.getCurrentPosition() / 1000;
+        if (this.bwT != null) {
+            return this.bwT.getCurrentPosition() / 1000;
         }
         return 0;
     }
 
     private void a(k kVar) {
-        if (this.bxQ != null) {
-            this.bxQ.a();
+        if (this.bwZ != null) {
+            this.bwZ.a();
         }
         if (kVar != null) {
             kVar.a();
         }
-        c.VF().a(16, "");
+        c.VD().a(16, "");
     }
 
     private void a(k kVar, String str) {
-        if (this.bxQ != null) {
-            this.bxQ.a(str);
+        if (this.bwZ != null) {
+            this.bwZ.a(str);
         }
         if (kVar != null) {
             kVar.a(str);
         }
-        c.VF().a(17, str);
+        c.VD().a(17, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        if (this.bxK != null && this.bxJ != null && this.bxK.isPlaying()) {
-            this.bxK.pause();
-            this.bxJ.e();
-            com.baidu.swan.game.ad.d.a.a(f(), this.i, this.bxL, this.bxR);
+        if (this.bwT != null && this.bwS != null && this.bwT.isPlaying()) {
+            this.bwT.pause();
+            this.bwS.e();
+            com.baidu.swan.game.ad.d.a.a(f(), this.i, this.bwU, this.bxa);
             this.i = f();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.bxK != null && this.bxJ != null) {
-            if ((this.bxP == null || !this.bxP.isShowing()) && !this.bxK.isPlaying() && !this.bxK.isEnd()) {
-                this.bxK.resume();
-                this.bxJ.f();
-                com.baidu.swan.game.ad.d.a.c(this.bxL, this.bxR);
+        if (this.bwT != null && this.bwS != null) {
+            if ((this.bwY == null || !this.bwY.isShowing()) && !this.bwT.isPlaying() && !this.bwT.isEnd()) {
+                this.bwT.resume();
+                this.bwS.f();
+                com.baidu.swan.game.ad.d.a.c(this.bwU, this.bxa);
             }
         }
     }
@@ -291,8 +291,8 @@ public class h implements a.InterfaceC0240a, a.b, a.c {
         if (lVar != null) {
             lVar.a(str);
         }
-        if (this.bxQ != null) {
-            this.bxQ.a(str);
+        if (this.bwZ != null) {
+            this.bwZ.a(str);
         }
         this.g = 264;
     }
@@ -300,61 +300,61 @@ public class h implements a.InterfaceC0240a, a.b, a.c {
     /* JADX INFO: Access modifiers changed from: private */
     public void i() {
         if (com.baidu.swan.games.view.a.c.isLandScape()) {
-            this.bxJ = new com.baidu.swan.game.ad.d(this.c, this.bxL);
+            this.bwS = new com.baidu.swan.game.ad.d(this.c, this.bwU);
         } else {
-            this.bxJ = new com.baidu.swan.game.ad.e(this.c, this.bxL);
+            this.bwS = new com.baidu.swan.game.ad.e(this.c, this.bwU);
         }
-        this.bxJ.a((a.b) this);
-        this.bxJ.a((a.c) this);
-        this.bxK = this.bxJ.VC();
-        this.bxK.a(new com.baidu.swan.apps.media.d.b() { // from class: com.baidu.swan.game.ad.f.h.5
+        this.bwS.a((a.b) this);
+        this.bwS.a((a.c) this);
+        this.bwT = this.bwS.VA();
+        this.bwT.a(new com.baidu.swan.apps.media.d.b() { // from class: com.baidu.swan.game.ad.f.h.5
             @Override // com.baidu.swan.apps.media.d.b
             public void b(v vVar) {
-                if (h.this.bxK != null) {
-                    h.this.bxK.bJ(true);
+                if (h.this.bwT != null) {
+                    h.this.bwT.bJ(true);
                 }
-                if (h.this.bxJ != null) {
-                    h.this.bxJ.d();
+                if (h.this.bwS != null) {
+                    h.this.bwS.d();
                 }
                 h.this.g = 261;
                 h.this.i = 0;
-                if (h.this.bxJ != null) {
-                    h.this.bxJ.c();
+                if (h.this.bwS != null) {
+                    h.this.bwS.c();
                 }
-                if (h.this.bxO != null) {
-                    h.this.bxO.a();
+                if (h.this.bwX != null) {
+                    h.this.bwX.a();
                 }
-                if (h.this.bxS == null) {
-                    h.this.bxS = new a();
+                if (h.this.bxb == null) {
+                    h.this.bxb = new a();
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction("android.intent.action.SCREEN_ON");
                     intentFilter.addAction("android.intent.action.SCREEN_OFF");
-                    h.this.c.registerReceiver(h.this.bxS, intentFilter);
+                    h.this.c.registerReceiver(h.this.bxb, intentFilter);
                 }
-                com.baidu.swan.game.ad.d.a.a(h.this.bxL, h.this.bxR);
-                com.baidu.swan.game.ad.d.a.c(h.this.bxL, h.this.bxR);
+                com.baidu.swan.game.ad.d.a.a(h.this.bwU, h.this.bxa);
+                com.baidu.swan.game.ad.d.a.c(h.this.bwU, h.this.bxa);
             }
 
             @Override // com.baidu.swan.apps.media.d.b
             public boolean a(v vVar, int i, int i2) {
                 h.this.d();
-                h.this.a(h.this.bxO, "3010001");
+                h.this.a(h.this.bwX, "3010001");
                 return true;
             }
 
             @Override // com.baidu.swan.apps.media.d.b
             public void a(v vVar) {
                 h.this.g = 262;
-                com.baidu.swan.game.ad.d.a.a(h.this.f(), h.this.i, h.this.bxL, h.this.bxR);
-                if (h.this.bxJ != null) {
-                    h.this.bxJ.h();
+                com.baidu.swan.game.ad.d.a.a(h.this.f(), h.this.i, h.this.bwU, h.this.bxa);
+                if (h.this.bwS != null) {
+                    h.this.bwS.h();
                 }
             }
         });
-        if (this.bxM == null) {
-            this.bxM = new com.baidu.swan.games.view.a.a() { // from class: com.baidu.swan.game.ad.f.h.6
+        if (this.bwV == null) {
+            this.bwV = new com.baidu.swan.games.view.a.a() { // from class: com.baidu.swan.game.ad.f.h.6
                 @Override // com.baidu.swan.games.view.a.a
-                public void VG() {
+                public void VE() {
                     h.this.q = true;
                     if (h.this.r) {
                         h.this.h();
@@ -362,14 +362,14 @@ public class h implements a.InterfaceC0240a, a.b, a.c {
                 }
 
                 @Override // com.baidu.swan.games.view.a.a
-                public void VH() {
+                public void VF() {
                     h.this.q = false;
                     h.this.g();
                 }
             };
-            com.baidu.swan.games.view.a.c.a(this.bxM);
+            com.baidu.swan.games.view.a.c.a(this.bwV);
         }
-        this.bxJ.a().setAnimation(AnimationUtils.loadAnimation(this.c, a.C0239a.ng_game_ad_open));
+        this.bwS.a().setAnimation(AnimationUtils.loadAnimation(this.c, a.C0239a.ng_game_ad_open));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -380,7 +380,7 @@ public class h implements a.InterfaceC0240a, a.b, a.c {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (h.this.bxK != null) {
+            if (h.this.bwT != null) {
                 if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_ON")) {
                     h.this.r = true;
                     if (h.this.q) {

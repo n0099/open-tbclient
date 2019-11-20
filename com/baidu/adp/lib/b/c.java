@@ -6,53 +6,53 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
-    public static String oo = "_crashtime";
-    public static String oq = "_crashtype";
-    private int or;
-    private int ot;
-    private b ou;
+    public static String nO = "_crashtime";
+    public static String nP = "_crashtype";
+    private int nQ;
+    private int nR;
+    private b nS;
 
     public c(b bVar) {
-        this.or = 0;
-        this.ot = 0;
-        this.ou = null;
+        this.nQ = 0;
+        this.nR = 0;
+        this.nS = null;
         if (bVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.ou = bVar;
-        if (this.ou.fl() > 0 && this.ou.fp() != null) {
-            this.or = fs();
-            if (this.or == -1) {
+        this.nS = bVar;
+        if (this.nS.fl() > 0 && this.nS.fp() != null) {
+            this.nQ = fs();
+            if (this.nQ == -1) {
                 reset();
             }
         }
         if (!bVar.fo()) {
-            this.ot = fq();
+            this.nR = fq();
         }
-        this.ou.f(this.ot, true);
+        this.nS.f(this.nR, true);
     }
 
     public String getName() {
-        return this.ou.getName();
+        return this.nS.getName();
     }
 
     public int fj() {
-        return this.ou.fj();
+        return this.nS.fj();
     }
 
     public int getType() {
-        return this.ot;
+        return this.nR;
     }
 
     public boolean D(int i) {
-        if (this.ou.fl() >= 0 && this.or >= this.ou.fl() + 2) {
-            i = this.ou.fk();
+        if (this.nS.fl() >= 0 && this.nQ >= this.nS.fl() + 2) {
+            i = this.nS.fk();
         }
-        if (i == this.ot) {
+        if (i == this.nR) {
             return false;
         }
-        this.ot = i;
-        this.ou.f(this.ot, false);
+        this.nR = i;
+        this.nS.f(this.nR, false);
         E(i);
         return true;
     }
@@ -60,33 +60,33 @@ public class c {
     public boolean ae(String str) {
         String[] fm;
         String[] fp;
-        if (str == null || this.ou.fl() <= 0) {
+        if (str == null || this.nS.fl() <= 0) {
             return false;
         }
-        if (this.ou.fp() != null) {
-            for (String str2 : this.ou.fp()) {
+        if (this.nS.fp() != null) {
+            for (String str2 : this.nS.fp()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.or++;
-                    F(this.or);
-                    if (this.or >= this.ou.fl()) {
-                        E(this.ou.fk());
-                        this.ot = this.ou.fk();
-                        this.ou.f(this.ou.fk(), false);
+                    this.nQ++;
+                    F(this.nQ);
+                    if (this.nQ >= this.nS.fl()) {
+                        E(this.nS.fk());
+                        this.nR = this.nS.fk();
+                        this.nS.f(this.nS.fk(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.ou.fm() != null) {
-            for (String str3 : this.ou.fm()) {
+        if (this.nS.fm() != null) {
+            for (String str3 : this.nS.fm()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.or++;
-                    F(this.or);
-                    if (this.or >= this.ou.fl()) {
-                        E(this.ou.fk());
-                        this.ot = this.ou.fk();
-                        this.ou.f(this.ou.fk(), false);
+                    this.nQ++;
+                    F(this.nQ);
+                    if (this.nQ >= this.nS.fl()) {
+                        E(this.nS.fk());
+                        this.nR = this.nS.fk();
+                        this.nS.f(this.nS.fk(), false);
                         return true;
                     }
                     return true;
@@ -98,29 +98,29 @@ public class c {
 
     private void E(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.ou.getName() + oq, i);
+        edit.putInt(this.nS.getName() + nP, i);
         edit.commit();
     }
 
     private int fq() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.ou.getName() + oq, this.ou.fj());
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.nS.getName() + nP, this.nS.fj());
     }
 
     private int fs() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.ou.getName() + oo, -1);
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.nS.getName() + nO, -1);
     }
 
     private void F(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.ou.getName() + oo, i);
+        edit.putInt(this.nS.getName() + nO, i);
         edit.commit();
     }
 
     public void reset() {
-        this.or = 0;
+        this.nQ = 0;
     }
 
     public void G(int i) {
-        this.or = i;
+        this.nQ = i;
     }
 }

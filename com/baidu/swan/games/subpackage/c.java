@@ -7,12 +7,12 @@ import com.baidu.swan.games.subpackage.aps.SwanGameSubPackageAPSInfo;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class c {
-    private static c bEA;
-    private HashMap<String, a> bEB = new HashMap<>();
+    private static c bDJ;
+    private HashMap<String, a> bDK = new HashMap<>();
 
     /* loaded from: classes2.dex */
     public interface a {
-        void Ym();
+        void Yk();
 
         void d(int i, long j, long j2);
 
@@ -22,42 +22,42 @@ public class c {
     private c() {
     }
 
-    public static c Yl() {
-        if (bEA == null) {
+    public static c Yj() {
+        if (bDJ == null) {
             synchronized (c.class) {
-                if (bEA == null) {
-                    bEA = new c();
+                if (bDJ == null) {
+                    bDJ = new c();
                 }
             }
         }
-        return bEA;
+        return bDJ;
     }
 
     public void a(String str, a aVar) {
-        com.baidu.swan.apps.ae.b QZ;
-        if (aVar != null && !TextUtils.isEmpty(str) && (QZ = com.baidu.swan.apps.ae.b.QZ()) != null) {
-            if (com.baidu.swan.games.subpackage.a.Yk().kF(str)) {
-                aVar.Ym();
+        com.baidu.swan.apps.ae.b Ra;
+        if (aVar != null && !TextUtils.isEmpty(str) && (Ra = com.baidu.swan.apps.ae.b.Ra()) != null) {
+            if (com.baidu.swan.games.subpackage.a.Yi().kF(str)) {
+                aVar.Yk();
                 return;
             }
-            String hq = com.baidu.swan.games.subpackage.a.Yk().hq(str);
+            String hq = com.baidu.swan.games.subpackage.a.Yi().hq(str);
             if (TextUtils.isEmpty(hq)) {
                 aVar.dF(2112);
                 return;
             }
-            com.baidu.swan.apps.process.messaging.client.a Iy = QZ.Iy();
-            if (Iy != null) {
+            com.baidu.swan.apps.process.messaging.client.a Iz = Ra.Iz();
+            if (Iz != null) {
                 SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo = new SwanGameSubPackageAPSInfo();
                 String a2 = a(aVar);
-                swanGameSubPackageAPSInfo.appId = QZ.id;
-                swanGameSubPackageAPSInfo.awa = QZ.getVersion();
+                swanGameSubPackageAPSInfo.appId = Ra.id;
+                swanGameSubPackageAPSInfo.avI = Ra.getVersion();
                 swanGameSubPackageAPSInfo.key = hq;
-                swanGameSubPackageAPSInfo.bEH = e.LD().Lm();
-                swanGameSubPackageAPSInfo.bEI = com.baidu.swan.games.subpackage.a.Yk().G(str, 1);
+                swanGameSubPackageAPSInfo.bDQ = e.LE().Ln();
+                swanGameSubPackageAPSInfo.bDR = com.baidu.swan.games.subpackage.a.Yi().G(str, 1);
                 swanGameSubPackageAPSInfo.callbackKey = a2;
-                swanGameSubPackageAPSInfo.bEK = com.baidu.swan.games.subpackage.a.Yk().G(str, 2);
-                Iy.a(11, swanGameSubPackageAPSInfo);
-                this.bEB.put(a2, aVar);
+                swanGameSubPackageAPSInfo.bDT = com.baidu.swan.games.subpackage.a.Yi().G(str, 2);
+                Iz.a(11, swanGameSubPackageAPSInfo);
+                this.bDK.put(a2, aVar);
                 return;
             }
             aVar.dF(2113);
@@ -69,10 +69,10 @@ public class c {
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
             SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo = (SwanGameSubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
-            if (swanGameSubPackageAPSInfo != null && (aVar = this.bEB.get(swanGameSubPackageAPSInfo.callbackKey)) != null) {
-                com.baidu.swan.games.subpackage.a.Yk().w(swanGameSubPackageAPSInfo.bEI, true);
-                aVar.Ym();
-                this.bEB.remove(swanGameSubPackageAPSInfo.callbackKey);
+            if (swanGameSubPackageAPSInfo != null && (aVar = this.bDK.get(swanGameSubPackageAPSInfo.callbackKey)) != null) {
+                com.baidu.swan.games.subpackage.a.Yi().w(swanGameSubPackageAPSInfo.bDR, true);
+                aVar.Yk();
+                this.bDK.remove(swanGameSubPackageAPSInfo.callbackKey);
             }
         }
     }
@@ -82,9 +82,9 @@ public class c {
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
             SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo = (SwanGameSubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
-            if (swanGameSubPackageAPSInfo != null && (aVar = this.bEB.get(swanGameSubPackageAPSInfo.callbackKey)) != null) {
+            if (swanGameSubPackageAPSInfo != null && (aVar = this.bDK.get(swanGameSubPackageAPSInfo.callbackKey)) != null) {
                 aVar.dF(swanGameSubPackageAPSInfo.resultCode);
-                this.bEB.remove(swanGameSubPackageAPSInfo.callbackKey);
+                this.bDK.remove(swanGameSubPackageAPSInfo.callbackKey);
             }
         }
     }
@@ -96,7 +96,7 @@ public class c {
             long j = bundle.getLong("aigames_sub_package_bytes_read_key");
             long j2 = bundle.getLong("aigames_sub_package_content_length_key");
             String string = bundle.getString("aigames_sub_package_callback_key");
-            if (!TextUtils.isEmpty(string) && (aVar = this.bEB.get(string)) != null) {
+            if (!TextUtils.isEmpty(string) && (aVar = this.bDK.get(string)) != null) {
                 if (j2 == -1 && j != 0) {
                     aVar.d(0, j, j2);
                 } else if (j2 <= 0 || j > j2 || j == 0) {

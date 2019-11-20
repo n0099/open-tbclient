@@ -51,14 +51,14 @@ public class SwanAppNetworkUtils {
     public static void a(Context context, CallbackHandler callbackHandler, String str) {
         if (context != null && !TextUtils.isEmpty(str) && callbackHandler != null) {
             boolean isNetworkConnected = isNetworkConnected(context);
-            String MO = MO();
+            String MP = MP();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("isConnected", isNetworkConnected);
-                if (TextUtils.equals(MO, "no")) {
-                    MO = IXAdSystemUtils.NT_NONE;
+                if (TextUtils.equals(MP, "no")) {
+                    MP = IXAdSystemUtils.NT_NONE;
                 }
-                jSONObject.put("networkType", MO);
+                jSONObject.put("networkType", MP);
                 if (DEBUG) {
                     Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
                 }
@@ -128,7 +128,7 @@ public class SwanAppNetworkUtils {
         return null;
     }
 
-    public static String MO() {
+    public static String MP() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(AppRuntime.getAppContext());
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return "no";
@@ -142,42 +142,42 @@ public class SwanAppNetworkUtils {
         return "unknown";
     }
 
-    public static NetType MP() {
-        String MO = MO();
+    public static NetType MQ() {
+        String MP = MP();
         char c = 65535;
-        switch (MO.hashCode()) {
+        switch (MP.hashCode()) {
             case -840472412:
-                if (MO.equals("unknow")) {
+                if (MP.equals("unknow")) {
                     c = 5;
                     break;
                 }
                 break;
             case 1653:
-                if (MO.equals(BdNetTypeUtil.NET_TYPENAME_2G)) {
+                if (MP.equals(BdNetTypeUtil.NET_TYPENAME_2G)) {
                     c = 0;
                     break;
                 }
                 break;
             case 1684:
-                if (MO.equals(BdNetTypeUtil.NET_TYPENAME_3G)) {
+                if (MP.equals(BdNetTypeUtil.NET_TYPENAME_3G)) {
                     c = 1;
                     break;
                 }
                 break;
             case 1715:
-                if (MO.equals(BdNetTypeUtil.NET_TYPENAME_4G)) {
+                if (MP.equals(BdNetTypeUtil.NET_TYPENAME_4G)) {
                     c = 2;
                     break;
                 }
                 break;
             case 3521:
-                if (MO.equals("no")) {
+                if (MP.equals("no")) {
                     c = 4;
                     break;
                 }
                 break;
             case 3649301:
-                if (MO.equals("wifi")) {
+                if (MP.equals("wifi")) {
                     c = 3;
                     break;
                 }

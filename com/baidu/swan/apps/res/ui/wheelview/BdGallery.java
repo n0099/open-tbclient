@@ -19,31 +19,31 @@ import com.baidu.swan.apps.res.ui.wheelview.BdAdapterView;
 public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener {
     private int bgA;
     private int bgB;
-    private View bgC;
-    private a bgD;
-    private long bgE;
-    private Runnable bgF;
-    private boolean bgG;
-    private View bgH;
-    private boolean bgI;
-    private boolean bgJ;
-    private boolean bgK;
-    private boolean bgL;
-    private BdAdapterView.a bgM;
-    private boolean bgN;
-    private boolean bgO;
-    private boolean bgP;
-    private boolean bgQ;
-    private int bgR;
-    private int bgS;
-    private int bgT;
-    private float bgU;
-    private boolean bgV;
-    private boolean bgW;
-    private boolean bgX;
-    private c bgY;
-    private int bgx;
-    private float bgy;
+    private float bgC;
+    private boolean bgD;
+    private boolean bgE;
+    private boolean bgF;
+    private c bgG;
+    private int bge;
+    private float bgf;
+    private int bgg;
+    private int bgh;
+    private int bgi;
+    private View bgj;
+    private a bgk;
+    private long bgl;
+    private Runnable bgm;
+    private boolean bgn;
+    private View bgo;
+    private boolean bgp;
+    private boolean bgq;
+    private boolean bgr;
+    private boolean bgt;
+    private BdAdapterView.a bgu;
+    private boolean bgv;
+    private boolean bgw;
+    private boolean bgx;
+    private boolean bgy;
     private int bgz;
     private GestureDetector mGestureDetector;
     private int mGravity;
@@ -66,30 +66,30 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
     public BdGallery(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSpacing = 0;
-        this.bgx = 400;
-        this.bgD = new a();
-        this.bgE = 2147483646L;
-        this.bgF = new Runnable() { // from class: com.baidu.swan.apps.res.ui.wheelview.BdGallery.1
+        this.bge = 400;
+        this.bgk = new a();
+        this.bgl = 2147483646L;
+        this.bgm = new Runnable() { // from class: com.baidu.swan.apps.res.ui.wheelview.BdGallery.1
             @Override // java.lang.Runnable
             public void run() {
-                BdGallery.this.bgK = false;
+                BdGallery.this.bgr = false;
                 BdGallery.this.selectionChanged();
             }
         };
-        this.bgI = true;
-        this.bgJ = true;
-        this.bgO = false;
-        this.bgP = false;
-        this.bgQ = false;
-        this.bgR = 0;
-        this.bgS = 0;
-        this.bgT = 5;
-        this.bgU = 1.0f;
-        this.bgV = false;
-        this.bgW = true;
-        this.bgX = false;
+        this.bgp = true;
+        this.bgq = true;
+        this.bgw = false;
+        this.bgx = false;
+        this.bgy = false;
+        this.bgz = 0;
+        this.bgA = 0;
+        this.bgB = 5;
+        this.bgC = 1.0f;
+        this.bgD = false;
+        this.bgE = true;
+        this.bgF = false;
         this.mOrientation = 1;
-        this.bgY = null;
+        this.bgG = null;
         this.mGestureDetector = new GestureDetector(context, this);
         this.mGestureDetector.setIsLongpressEnabled(true);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.Gallery, i, 0);
@@ -106,8 +106,8 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         obtainStyledAttributes.recycle();
         setChildrenDrawingOrderEnabled(true);
         setStaticTransformationsEnabled(true);
-        this.bgT = ViewConfiguration.get(context).getScaledScrollBarSize();
-        if (PY()) {
+        this.bgB = ViewConfiguration.get(context).getScaledScrollBarSize();
+        if (PZ()) {
             this.mGravity = 1;
         } else {
             this.mGravity = 16;
@@ -115,15 +115,15 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
     }
 
     public void setCallbackDuringFling(boolean z) {
-        this.bgI = z;
+        this.bgp = z;
     }
 
     public void setCallbackOnUnselectedItemClick(boolean z) {
-        this.bgJ = z;
+        this.bgq = z;
     }
 
     public void setAnimationDuration(int i) {
-        this.bgx = i;
+        this.bge = i;
     }
 
     public void setSpacing(int i) {
@@ -131,20 +131,20 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
     }
 
     public void setUnselectedAlpha(float f) {
-        this.bgy = f;
+        this.bgf = f;
     }
 
     @Override // android.view.ViewGroup
     protected boolean getChildStaticTransformation(View view, Transformation transformation) {
         transformation.clear();
-        transformation.setAlpha(view == this.bgH ? 1.0f : this.bgy);
-        hb(" getChildStaticTransformation   mSelectedPosition =  " + this.mSelectedPosition + "   mFirstPosition = " + this.mFirstPosition + "     mSelectedChild = " + this.bgH);
+        transformation.setAlpha(view == this.bgo ? 1.0f : this.bgf);
+        hb(" getChildStaticTransformation   mSelectedPosition =  " + this.mSelectedPosition + "   mFirstPosition = " + this.mFirstPosition + "     mSelectedChild = " + this.bgo);
         return true;
     }
 
     @Override // android.view.View
     public void invalidate(int i, int i2, int i3, int i4) {
-        super.invalidate(i, i2 - (this.bgT + this.bgS), i3, i4);
+        super.invalidate(i, i2 - (this.bgB + this.bgA), i3, i4);
     }
 
     @Override // android.view.View
@@ -230,21 +230,21 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         int i2 = 0;
         if (getChildCount() != 0) {
             boolean z = i < 0;
-            if (PX()) {
-                if ((!Qb() || getChildCount() >= this.mItemCount) && c(z, i) != i) {
-                    this.bgD.cm(false);
-                    PK();
+            if (PY()) {
+                if ((!Qc() || getChildCount() >= this.mItemCount) && c(z, i) != i) {
+                    this.bgk.cm(false);
+                    PL();
                 }
                 if (ci(z)) {
                     offsetChildrenLeftAndRight(i);
                     cj(z);
                     if (z) {
-                        PQ();
+                        PR();
                     } else {
-                        PO();
+                        PP();
                     }
-                    this.bgm.clear();
-                    PL();
+                    this.bfU.clear();
+                    PM();
                     invalidate();
                     return;
                 }
@@ -253,16 +253,16 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             if (z) {
                 View childAt = getChildAt(getChildCount() - 1);
                 if (childAt != null && childAt.getRight() < getStopFlingPosition()) {
-                    if (this.bgD != null) {
-                        this.bgD.cl(false);
+                    if (this.bgk != null) {
+                        this.bgk.cl(false);
                     }
                 }
                 i2 = i;
             } else {
                 View childAt2 = getChildAt(0);
                 if (childAt2 != null && childAt2.getLeft() > getWidth() - getStopFlingPosition()) {
-                    if (this.bgD != null) {
-                        this.bgD.cl(false);
+                    if (this.bgk != null) {
+                        this.bgk.cl(false);
                     }
                 }
                 i2 = i;
@@ -270,12 +270,12 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             offsetChildrenLeftAndRight(i2);
             cj(z);
             if (z) {
-                PQ();
+                PR();
             } else {
-                PO();
+                PP();
             }
-            this.bgm.clear();
-            PL();
+            this.bfU.clear();
+            PM();
             awakenScrollBars();
             invalidate();
         }
@@ -285,36 +285,36 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         int i2 = 0;
         if (getChildCount() != 0) {
             boolean z = i < 0;
-            if (PX()) {
-                if ((!Qb() || getChildCount() >= this.mItemCount) && c(z, i) != i) {
-                    this.bgD.cm(false);
-                    PK();
+            if (PY()) {
+                if ((!Qc() || getChildCount() >= this.mItemCount) && c(z, i) != i) {
+                    this.bgk.cm(false);
+                    PL();
                 }
                 ef(i);
                 ck(z);
                 if (z) {
-                    PR();
+                    PS();
                 } else {
-                    PP();
+                    PQ();
                 }
-                this.bgm.clear();
-                PM();
+                this.bfU.clear();
+                PN();
                 invalidate();
                 return;
             }
             if (z) {
                 View childAt = getChildAt(getChildCount() - 1);
                 if (childAt != null && childAt.getRight() < getStopFlingPosition()) {
-                    if (this.bgD != null) {
-                        this.bgD.cl(false);
+                    if (this.bgk != null) {
+                        this.bgk.cl(false);
                     }
                 }
                 i2 = i;
             } else {
                 View childAt2 = getChildAt(0);
                 if (childAt2 != null && childAt2.getLeft() > getWidth() - getStopFlingPosition()) {
-                    if (this.bgD != null) {
-                        this.bgD.cl(false);
+                    if (this.bgk != null) {
+                        this.bgk.cl(false);
                     }
                 }
                 i2 = i;
@@ -322,12 +322,12 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             ef(i2);
             ck(z);
             if (z) {
-                PR();
+                PS();
             } else {
-                PP();
+                PQ();
             }
-            this.bgm.clear();
-            PL();
+            this.bfU.clear();
+            PM();
             awakenScrollBars();
             invalidate();
         }
@@ -358,7 +358,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         }
         int aj = aj(childAt);
         int centerOfGallery = getCenterOfGallery();
-        if (PX()) {
+        if (PY()) {
             if (z) {
                 if (aj < centerOfGallery - getMaxMoveOffset()) {
                     return false;
@@ -390,19 +390,19 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int getCenterOfGallery() {
-        return PY() ? (((getHeight() - getPaddingTop()) - getPaddingBottom()) / 2) + getPaddingTop() : (((getWidth() - getPaddingLeft()) - getPaddingRight()) / 2) + getPaddingLeft();
+        return PZ() ? (((getHeight() - getPaddingTop()) - getPaddingBottom()) / 2) + getPaddingTop() : (((getWidth() - getPaddingLeft()) - getPaddingRight()) / 2) + getPaddingLeft();
     }
 
     private float getStopFlingPosition() {
-        return PY() ? (((getHeight() - getPaddingTop()) - getPaddingBottom()) * PH()) + getPaddingTop() : (((getWidth() - getPaddingLeft()) - getPaddingRight()) * PH()) + getPaddingLeft();
+        return PZ() ? (((getHeight() - getPaddingTop()) - getPaddingBottom()) * PI()) + getPaddingTop() : (((getWidth() - getPaddingLeft()) - getPaddingRight()) * PI()) + getPaddingLeft();
     }
 
-    protected float PH() {
+    protected float PI() {
         return 0.0f;
     }
 
     private int aj(View view) {
-        return PY() ? view.getTop() + (view.getHeight() / 2) : view.getLeft() + (view.getWidth() / 2);
+        return PZ() ? view.getTop() + (view.getHeight() / 2) : view.getLeft() + (view.getWidth() / 2);
     }
 
     private void cj(boolean z) {
@@ -419,7 +419,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
                 if (childAt.getRight() >= paddingLeft) {
                     break;
                 }
-                this.bgm.d(i3 + i4, childAt);
+                this.bfU.d(i3 + i4, childAt);
                 i4++;
                 i++;
             }
@@ -434,7 +434,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
                 if (childAt2.getLeft() <= width) {
                     break;
                 }
-                this.bgm.d(i3 + i5, childAt2);
+                this.bfU.d(i3 + i5, childAt2);
                 i++;
                 i2 = i5;
             }
@@ -445,7 +445,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         detachViewsFromParent(i2, i);
         if (z) {
             this.mFirstPosition = i + this.mFirstPosition;
-            if (Qb()) {
+            if (Qc()) {
                 this.mFirstPosition %= this.mItemCount;
             }
         }
@@ -465,7 +465,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
                 if (childAt.getBottom() >= paddingTop) {
                     break;
                 }
-                this.bgm.d(i3 + i4, childAt);
+                this.bfU.d(i3 + i4, childAt);
                 i4++;
                 i++;
             }
@@ -480,7 +480,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
                 if (childAt2.getTop() <= height) {
                     break;
                 }
-                this.bgm.d(i3 + i5, childAt2);
+                this.bfU.d(i3 + i5, childAt2);
                 i++;
                 i2 = i5;
             }
@@ -491,23 +491,23 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         detachViewsFromParent(i2, i);
         if (z) {
             this.mFirstPosition = i + this.mFirstPosition;
-            if (Qb()) {
+            if (Qc()) {
                 this.mFirstPosition %= this.mItemCount;
             }
         }
     }
 
-    public void PI() {
+    public void PJ() {
         int i = 0;
-        if (PY()) {
-            PJ();
-        } else if (PX()) {
-            if (getChildCount() != 0 && this.bgH != null) {
-                int centerOfGallery = getCenterOfGallery() - aj(this.bgH);
+        if (PZ()) {
+            PK();
+        } else if (PY()) {
+            if (getChildCount() != 0 && this.bgo != null) {
+                int centerOfGallery = getCenterOfGallery() - aj(this.bgo);
                 if (centerOfGallery != 0) {
-                    this.bgD.ej(centerOfGallery);
+                    this.bgk.ej(centerOfGallery);
                 } else {
-                    PK();
+                    PL();
                 }
             }
         } else if (getChildCount() != 0) {
@@ -518,7 +518,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
                 } else {
                     View childAt2 = getChildAt(getChildCount() - 1);
                     if (childAt2.getRight() - childAt.getLeft() < getRight() - getPaddingRight()) {
-                        i = getPaddingLeft() - this.bgR;
+                        i = getPaddingLeft() - this.bgz;
                     } else if (childAt2.getRight() < getRight() - getPaddingRight()) {
                         i = (getWidth() - getPaddingRight()) - childAt2.getRight();
                     }
@@ -530,22 +530,22 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
                 }
             }
             if (i != 0) {
-                this.bgD.ej(i);
+                this.bgk.ej(i);
             } else {
-                PK();
+                PL();
             }
         }
     }
 
-    private void PJ() {
+    private void PK() {
         int i = 0;
-        if (PX()) {
-            if (getChildCount() != 0 && this.bgH != null) {
-                int centerOfGallery = getCenterOfGallery() - aj(this.bgH);
+        if (PY()) {
+            if (getChildCount() != 0 && this.bgo != null) {
+                int centerOfGallery = getCenterOfGallery() - aj(this.bgo);
                 if (centerOfGallery != 0) {
-                    this.bgD.ej(centerOfGallery);
+                    this.bgk.ej(centerOfGallery);
                 } else {
-                    PK();
+                    PL();
                 }
             }
         } else if (getChildCount() != 0) {
@@ -556,7 +556,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
                 } else {
                     View childAt2 = getChildAt(getChildCount() - 1);
                     if (childAt2.getBottom() - childAt.getTop() < getBottom() - getPaddingBottom()) {
-                        i = getPaddingLeft() - this.bgR;
+                        i = getPaddingLeft() - this.bgz;
                     } else if (childAt2.getBottom() < getBottom() - getPaddingBottom()) {
                         i = (getHeight() - getPaddingBottom()) - childAt2.getBottom();
                     }
@@ -568,33 +568,33 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
                 }
             }
             if (i != 0) {
-                this.bgD.ej(i);
+                this.bgk.ej(i);
             } else {
-                PK();
+                PL();
             }
         }
     }
 
-    private void PK() {
-        if (this.bgK) {
-            this.bgK = false;
+    private void PL() {
+        if (this.bgr) {
+            this.bgr = false;
         }
         super.selectionChanged();
         invalidate();
-        PZ();
+        Qa();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.wheelview.BdAdapterView
     public void selectionChanged() {
-        if (!this.bgK) {
+        if (!this.bgr) {
             super.selectionChanged();
         }
     }
 
-    private void PL() {
-        View view = this.bgH;
-        if (this.bgH != null) {
+    private void PM() {
+        View view = this.bgo;
+        if (this.bgo != null) {
             int centerOfGallery = getCenterOfGallery();
             if (view.getLeft() > centerOfGallery || view.getRight() < centerOfGallery) {
                 int i = Integer.MAX_VALUE;
@@ -619,7 +619,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
                     i = min;
                 }
                 int i3 = this.mFirstPosition + childCount;
-                if (Qb()) {
+                if (Qc()) {
                     i3 %= this.mItemCount;
                 }
                 if (i3 != this.mSelectedPosition) {
@@ -631,9 +631,9 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         }
     }
 
-    private void PM() {
-        View view = this.bgH;
-        if (this.bgH != null) {
+    private void PN() {
+        View view = this.bgo;
+        if (this.bgo != null) {
             int centerOfGallery = getCenterOfGallery();
             if (view == null || view.getTop() > centerOfGallery || view.getBottom() < centerOfGallery) {
                 int i = Integer.MAX_VALUE;
@@ -658,7 +658,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
                     i = min;
                 }
                 int i3 = this.mFirstPosition + childCount;
-                if (Qb()) {
+                if (Qc()) {
                     i3 %= this.mItemCount;
                 }
                 if (i3 != this.mSelectedPosition) {
@@ -672,11 +672,11 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
 
     @Override // com.baidu.swan.apps.res.ui.wheelview.BdAbsSpinner
     void q(int i, boolean z) {
-        if (PY()) {
+        if (PZ()) {
             r(i, z);
             return;
         }
-        int i2 = this.bgR + this.bgk.left;
+        int i2 = this.bgz + this.bfS.left;
         if (this.mDataChanged) {
             handleDataChanged();
         }
@@ -687,26 +687,26 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         if (this.mNextSelectedPosition >= 0) {
             setSelectedPositionInt(this.mNextSelectedPosition);
         }
-        PG();
+        PH();
         detachAllViewsFromParent();
-        this.bgA = 0;
-        this.bgz = 0;
+        this.bgh = 0;
+        this.bgg = 0;
         this.mFirstPosition = this.mSelectedPosition;
         View a2 = a(this.mFirstPosition, 0, 0, true);
         int i3 = this.mSpacing + i2;
-        if (PX()) {
-            i3 = (((((getRight() - getLeft()) - this.bgk.left) - this.bgk.right) / 2) + i2) - (a2.getWidth() / 2);
+        if (PY()) {
+            i3 = (((((getRight() - getLeft()) - this.bfS.left) - this.bfS.right) / 2) + i2) - (a2.getWidth() / 2);
         }
         a2.offsetLeftAndRight(i3);
-        PQ();
-        PO();
-        this.bgm.clear();
+        PR();
+        PP();
+        this.bfU.clear();
         invalidate();
         this.mDataChanged = false;
         this.mNeedSync = false;
         setNextSelectedPositionInt(this.mSelectedPosition);
-        PW();
-        this.bgW = getChildCount() < this.mItemCount;
+        PX();
+        this.bgE = getChildCount() < this.mItemCount;
     }
 
     void r(int i, boolean z) {
@@ -720,42 +720,42 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         if (this.mNextSelectedPosition >= 0) {
             setSelectedPositionInt(this.mNextSelectedPosition);
         }
-        PN();
-        boolean z2 = this.bgW;
-        this.bgW = getChildCount() < this.mItemCount;
-        if (z2 != this.bgW) {
-            PN();
+        PO();
+        boolean z2 = this.bgE;
+        this.bgE = getChildCount() < this.mItemCount;
+        if (z2 != this.bgE) {
+            PO();
         }
-        this.bgm.clear();
+        this.bfU.clear();
         invalidate();
         this.mDataChanged = false;
         this.mNeedSync = false;
         setNextSelectedPositionInt(this.mSelectedPosition);
-        PW();
-    }
-
-    private void PN() {
-        int i = this.bgR + this.bgk.top;
-        PG();
-        detachAllViewsFromParent();
-        this.bgA = 0;
-        this.bgz = 0;
-        this.mFirstPosition = this.mSelectedPosition;
-        View b2 = b(this.mFirstPosition, 0, 0, true);
-        int i2 = this.mSpacing + i;
-        if (PX()) {
-            i2 = (((((getBottom() - getTop()) - this.bgk.top) - this.bgk.bottom) / 2) + i) - (b2.getHeight() / 2);
-        }
-        b2.offsetTopAndBottom(i2);
-        PR();
-        PP();
+        PX();
     }
 
     private void PO() {
+        int i = this.bgz + this.bfS.top;
+        PH();
+        detachAllViewsFromParent();
+        this.bgh = 0;
+        this.bgg = 0;
+        this.mFirstPosition = this.mSelectedPosition;
+        View b2 = b(this.mFirstPosition, 0, 0, true);
+        int i2 = this.mSpacing + i;
+        if (PY()) {
+            i2 = (((((getBottom() - getTop()) - this.bfS.top) - this.bfS.bottom) / 2) + i) - (b2.getHeight() / 2);
+        }
+        b2.offsetTopAndBottom(i2);
+        PS();
+        PQ();
+    }
+
+    private void PP() {
         int right;
         int i;
-        if (Qb()) {
-            Qc();
+        if (Qc()) {
+            Qd();
             return;
         }
         int i2 = this.mSpacing;
@@ -766,7 +766,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             right = childAt.getLeft() - i2;
         } else {
             right = (getRight() - getLeft()) - getPaddingRight();
-            this.bgG = true;
+            this.bgn = true;
             i = 0;
         }
         while (right > paddingLeft && i >= 0) {
@@ -777,11 +777,11 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         }
     }
 
-    private void PP() {
+    private void PQ() {
         int bottom;
         int i;
-        if (Qb()) {
-            Qd();
+        if (Qc()) {
+            Qe();
             return;
         }
         int i2 = this.mSpacing;
@@ -792,7 +792,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             bottom = childAt.getTop() - i2;
         } else {
             bottom = (getBottom() - getTop()) - getPaddingBottom();
-            this.bgG = true;
+            this.bgn = true;
             i = 0;
         }
         while (bottom > paddingTop && i >= 0) {
@@ -803,11 +803,11 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         }
     }
 
-    private void PQ() {
+    private void PR() {
         int i;
         int paddingLeft;
-        if (Qb()) {
-            Qe();
+        if (Qc()) {
+            Qf();
             return;
         }
         int i2 = this.mSpacing;
@@ -822,7 +822,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             i = this.mItemCount - 1;
             this.mFirstPosition = i;
             paddingLeft = getPaddingLeft();
-            this.bgG = true;
+            this.bgn = true;
         }
         while (paddingLeft < right && i < i3) {
             paddingLeft = a(i, i - this.mSelectedPosition, paddingLeft, true).getRight() + i2;
@@ -830,11 +830,11 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         }
     }
 
-    private void PR() {
+    private void PS() {
         int i;
         int paddingTop;
-        if (Qb()) {
-            Qf();
+        if (Qc()) {
+            Qg();
             return;
         }
         int i2 = this.mSpacing;
@@ -849,7 +849,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             i = this.mItemCount - 1;
             this.mFirstPosition = i;
             paddingTop = getPaddingTop();
-            this.bgG = true;
+            this.bgn = true;
         }
         while (paddingTop < bottom && i < i3) {
             paddingTop = b(i, i - this.mSelectedPosition, paddingTop, true).getBottom() + i2;
@@ -859,10 +859,10 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
 
     private View a(int i, int i2, int i3, boolean z) {
         View eb;
-        if (!this.mDataChanged && (eb = this.bgm.eb(i)) != null) {
+        if (!this.mDataChanged && (eb = this.bfU.eb(i)) != null) {
             int left = eb.getLeft();
-            this.bgA = Math.max(this.bgA, eb.getMeasuredWidth() + left);
-            this.bgz = Math.min(this.bgz, left);
+            this.bgh = Math.max(this.bgh, eb.getMeasuredWidth() + left);
+            this.bgg = Math.min(this.bgg, left);
             a(eb, i2, i3, z);
             return eb;
         }
@@ -873,10 +873,10 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
 
     private View b(int i, int i2, int i3, boolean z) {
         View eb;
-        if (!this.mDataChanged && (eb = this.bgm.eb(i)) != null) {
+        if (!this.mDataChanged && (eb = this.bfU.eb(i)) != null) {
             int top = eb.getTop();
-            this.bgA = Math.max(this.bgA, eb.getMeasuredHeight() + top);
-            this.bgz = Math.min(this.bgz, top);
+            this.bgh = Math.max(this.bgh, eb.getMeasuredHeight() + top);
+            this.bgg = Math.min(this.bgg, top);
             b(eb, i2, i3, z);
             return eb;
         }
@@ -891,7 +891,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         b bVar2 = bVar == null ? (b) generateDefaultLayoutParams() : bVar;
         addViewInLayout(view, z ? -1 : 0, bVar2);
         view.setSelected(i == 0);
-        view.measure(ViewGroup.getChildMeasureSpec(this.mWidthMeasureSpec, this.bgk.left + this.bgk.right, bVar2.width), ViewGroup.getChildMeasureSpec(this.mHeightMeasureSpec, this.bgk.top + this.bgk.bottom, bVar2.height));
+        view.measure(ViewGroup.getChildMeasureSpec(this.mWidthMeasureSpec, this.bfS.left + this.bfS.right, bVar2.width), ViewGroup.getChildMeasureSpec(this.mHeightMeasureSpec, this.bfS.top + this.bfS.bottom, bVar2.height));
         int b2 = b(view, true);
         int measuredHeight = b2 + view.getMeasuredHeight();
         int measuredWidth = view.getMeasuredWidth();
@@ -911,7 +911,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         b bVar2 = bVar == null ? (b) generateDefaultLayoutParams() : bVar;
         addViewInLayout(view, z ? -1 : 0, bVar2);
         view.setSelected(i == 0);
-        view.measure(ViewGroup.getChildMeasureSpec(this.mWidthMeasureSpec, this.bgk.left + this.bgk.right, bVar2.width), ViewGroup.getChildMeasureSpec(this.mHeightMeasureSpec, this.bgk.top + this.bgk.bottom, bVar2.height));
+        view.measure(ViewGroup.getChildMeasureSpec(this.mWidthMeasureSpec, this.bfS.left + this.bfS.right, bVar2.width), ViewGroup.getChildMeasureSpec(this.mHeightMeasureSpec, this.bfS.top + this.bfS.bottom, bVar2.height));
         int c2 = c(view, true);
         int measuredWidth = c2 + view.getMeasuredWidth();
         int measuredHeight = view.getMeasuredHeight();
@@ -930,11 +930,11 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         int measuredHeight2 = z ? view.getMeasuredHeight() : view.getHeight();
         switch (this.mGravity) {
             case 16:
-                return ((((measuredHeight - this.bgk.bottom) - this.bgk.top) - measuredHeight2) / 2) + this.bgk.top;
+                return ((((measuredHeight - this.bfS.bottom) - this.bfS.top) - measuredHeight2) / 2) + this.bfS.top;
             case 48:
-                return this.bgk.top;
+                return this.bfS.top;
             case 80:
-                return (measuredHeight - this.bgk.bottom) - measuredHeight2;
+                return (measuredHeight - this.bfS.bottom) - measuredHeight2;
             default:
                 return 0;
         }
@@ -945,15 +945,15 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         int measuredWidth2 = z ? view.getMeasuredWidth() : view.getWidth();
         switch (this.mGravity) {
             case 1:
-                return ((((measuredWidth - this.bgk.right) - this.bgk.left) - measuredWidth2) / 2) + this.bgk.left;
+                return ((((measuredWidth - this.bfS.right) - this.bfS.left) - measuredWidth2) / 2) + this.bfS.left;
             case 2:
             case 4:
             default:
                 return 0;
             case 3:
-                return this.bgk.left;
+                return this.bfS.left;
             case 5:
-                return (measuredWidth - this.bgk.right) - measuredWidth2;
+                return (measuredWidth - this.bfS.right) - measuredWidth2;
         }
     }
 
@@ -962,7 +962,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         boolean onTouchEvent = this.mGestureDetector.onTouchEvent(motionEvent);
         int action = motionEvent.getAction();
         if (action == 1) {
-            PS();
+            PT();
         } else if (action == 3) {
             onCancel();
         }
@@ -971,16 +971,16 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onSingleTapUp(MotionEvent motionEvent) {
-        if (this.bgB >= 0) {
-            if (Qb()) {
-                this.bgB %= getCount();
+        if (this.bgi >= 0) {
+            if (Qc()) {
+                this.bgi %= getCount();
             }
-            if (PX()) {
-                eg(this.bgB - this.mFirstPosition);
+            if (PY()) {
+                eg(this.bgi - this.mFirstPosition);
             }
-            eh(this.bgB);
-            if (this.bgJ || this.bgB == this.mSelectedPosition) {
-                performItemClick(this.bgC, this.bgB, this.mAdapter.getItemId(this.bgB));
+            eh(this.bgi);
+            if (this.bgq || this.bgi == this.mSelectedPosition) {
+                performItemClick(this.bgj, this.bgi, this.mAdapter.getItemId(this.bgi));
             }
             return true;
         }
@@ -989,17 +989,17 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (!Qa()) {
-            if (!this.bgI) {
-                removeCallbacks(this.bgF);
-                if (!this.bgK) {
-                    this.bgK = true;
+        if (!Qb()) {
+            if (!this.bgp) {
+                removeCallbacks(this.bgm);
+                if (!this.bgr) {
+                    this.bgr = true;
                 }
             }
-            if (PY()) {
-                this.bgD.ei((int) (-(getVelocityRatio() * f2)));
+            if (PZ()) {
+                this.bgk.ei((int) (-(getVelocityRatio() * f2)));
             } else {
-                this.bgD.ei((int) (-(getVelocityRatio() * f)));
+                this.bgk.ei((int) (-(getVelocityRatio() * f)));
             }
         }
         return true;
@@ -1007,20 +1007,20 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (!Qa()) {
-            this.bgQ = true;
+        if (!Qb()) {
+            this.bgy = true;
             getParent().requestDisallowInterceptTouchEvent(true);
-            if (!this.bgI) {
-                if (this.bgN) {
-                    if (!this.bgK) {
-                        this.bgK = true;
+            if (!this.bgp) {
+                if (this.bgv) {
+                    if (!this.bgr) {
+                        this.bgr = true;
                     }
-                    postDelayed(this.bgF, 250L);
+                    postDelayed(this.bgm, 250L);
                 }
-            } else if (this.bgK) {
-                this.bgK = false;
+            } else if (this.bgr) {
+                this.bgr = false;
             }
-            if (PY()) {
+            if (PZ()) {
                 ee(((int) f2) * (-1));
             } else {
                 int i = ((int) f) * (-1);
@@ -1028,39 +1028,39 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
                     ed(i);
                 }
             }
-            this.bgN = false;
+            this.bgv = false;
         }
         return true;
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onDown(MotionEvent motionEvent) {
-        this.bgD.cl(false);
-        this.bgB = pointToPosition((int) motionEvent.getX(), (int) motionEvent.getY());
-        if (this.bgB >= 0) {
-            this.bgC = getChildAt(this.bgB - this.mFirstPosition);
-            this.bgC.setPressed(true);
+        this.bgk.cl(false);
+        this.bgi = pointToPosition((int) motionEvent.getX(), (int) motionEvent.getY());
+        if (this.bgi >= 0) {
+            this.bgj = getChildAt(this.bgi - this.mFirstPosition);
+            this.bgj.setPressed(true);
         }
-        this.bgN = true;
+        this.bgv = true;
         return true;
     }
 
-    protected void PS() {
-        if (this.bgD.mScroller.isFinished()) {
-            PI();
+    protected void PT() {
+        if (this.bgk.mScroller.isFinished()) {
+            PJ();
         }
-        PT();
+        PU();
     }
 
     void onCancel() {
-        PS();
+        PT();
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
     public void onLongPress(MotionEvent motionEvent) {
-        if (this.bgB >= 0) {
+        if (this.bgi >= 0) {
             performHapticFeedback(0);
-            c(this.bgC, this.bgB, getItemIdAtPosition(this.bgB));
+            c(this.bgj, this.bgi, getItemIdAtPosition(this.bgi));
         }
     }
 
@@ -1075,7 +1075,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         setPressed(true);
     }
 
-    protected void PT() {
+    protected void PU() {
         for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
             getChildAt(childCount).setPressed(false);
         }
@@ -1088,14 +1088,14 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchSetPressed(boolean z) {
-        if (this.bgH != null) {
-            this.bgH.setPressed(z);
+        if (this.bgo != null) {
+            this.bgo.setPressed(z);
         }
     }
 
     @Override // android.view.View
     protected ContextMenu.ContextMenuInfo getContextMenuInfo() {
-        return this.bgM;
+        return this.bgu;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
@@ -1116,9 +1116,9 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
     }
 
     private boolean c(View view, int i, long j) {
-        boolean d = this.bgr != null ? this.bgr.d(this, this.bgC, this.bgB, j) : false;
+        boolean d = this.bfZ != null ? this.bfZ.d(this, this.bgj, this.bgi, j) : false;
         if (!d) {
-            this.bgM = new BdAdapterView.a(view, i, j);
+            this.bgu = new BdAdapterView.a(view, i, j);
             d = super.showContextMenuForChild(this);
         }
         if (d) {
@@ -1137,20 +1137,20 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 21:
-                if (PU()) {
+                if (PV()) {
                     playSoundEffect(1);
                     return true;
                 }
                 return true;
             case 22:
-                if (PV()) {
+                if (PW()) {
                     playSoundEffect(3);
                     return true;
                 }
                 return true;
             case 23:
             case 66:
-                this.bgL = true;
+                this.bgt = true;
                 break;
         }
         return super.onKeyDown(i, keyEvent);
@@ -1161,35 +1161,35 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         switch (i) {
             case 23:
             case 66:
-                if (this.bgL && this.mItemCount > 0) {
-                    ak(this.bgH);
+                if (this.bgt && this.mItemCount > 0) {
+                    ak(this.bgo);
                     postDelayed(new Runnable() { // from class: com.baidu.swan.apps.res.ui.wheelview.BdGallery.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            BdGallery.this.PT();
+                            BdGallery.this.PU();
                         }
                     }, ViewConfiguration.getPressedStateDuration());
                     performItemClick(getChildAt(this.mSelectedPosition - this.mFirstPosition), this.mSelectedPosition, this.mAdapter.getItemId(this.mSelectedPosition));
                 }
-                this.bgL = false;
+                this.bgt = false;
                 return true;
             default:
                 return super.onKeyUp(i, keyEvent);
         }
     }
 
-    boolean PU() {
+    boolean PV() {
         return this.mItemCount > 0 && this.mSelectedPosition > 0;
     }
 
-    boolean PV() {
+    boolean PW() {
         return this.mItemCount > 0 && this.mSelectedPosition < this.mItemCount + (-1);
     }
 
     private boolean eg(int i) {
         View childAt = getChildAt(i);
         if (childAt != null) {
-            this.bgD.ej(getCenterOfGallery() - aj(childAt));
+            this.bgk.ej(getCenterOfGallery() - aj(childAt));
             return true;
         }
         return false;
@@ -1199,18 +1199,18 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
     @Override // com.baidu.swan.apps.res.ui.wheelview.BdAdapterView
     public void setSelectedPositionInt(int i) {
         super.setSelectedPositionInt(i);
-        PW();
+        PX();
     }
 
-    private void PW() {
-        View view = this.bgH;
+    private void PX() {
+        View view = this.bgo;
         hb(" updateSelectedItemMetadata   mSelectedPosition =  " + this.mSelectedPosition + "   mFirstPosition = " + this.mFirstPosition);
         int i = this.mSelectedPosition - this.mFirstPosition;
-        if (Qb() && this.mFirstPosition > this.mSelectedPosition) {
+        if (Qc() && this.mFirstPosition > this.mSelectedPosition) {
             i = (this.mItemCount - this.mFirstPosition) + this.mSelectedPosition;
         }
         View childAt = getChildAt(i);
-        this.bgH = childAt;
+        this.bgo = childAt;
         if (childAt != null) {
             childAt.setSelected(true);
             childAt.setFocusable(true);
@@ -1249,8 +1249,8 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
     @Override // android.view.View
     protected void onFocusChanged(boolean z, int i, Rect rect) {
         super.onFocusChanged(z, i, rect);
-        if (z && this.bgH != null) {
-            this.bgH.requestFocus(i);
+        if (z && this.bgo != null) {
+            this.bgo.requestFocus(i);
         }
     }
 
@@ -1272,7 +1272,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         public void ei(int i) {
             if (i != 0) {
                 startCommon();
-                if (BdGallery.this.PY()) {
+                if (BdGallery.this.PZ()) {
                     int i2 = i < 0 ? Integer.MAX_VALUE : 0;
                     this.mLastFlingY = i2;
                     this.mScroller.fling(0, i2, 0, i, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
@@ -1288,18 +1288,18 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
 
         public void ej(int i) {
             if (i != 0) {
-                if (BdGallery.this.PY()) {
+                if (BdGallery.this.PZ()) {
                     startCommon();
-                    BdGallery.this.bgQ = true;
+                    BdGallery.this.bgy = true;
                     this.mLastFlingY = 0;
-                    this.mScroller.startScroll(0, 0, 0, -i, BdGallery.this.bgx);
+                    this.mScroller.startScroll(0, 0, 0, -i, BdGallery.this.bge);
                     BdGallery.this.post(this);
                     return;
                 }
                 startCommon();
-                BdGallery.this.bgQ = true;
+                BdGallery.this.bgy = true;
                 this.mLastFlingX = 0;
-                this.mScroller.startScroll(0, 0, -i, 0, BdGallery.this.bgx);
+                this.mScroller.startScroll(0, 0, -i, 0, BdGallery.this.bge);
                 BdGallery.this.post(this);
             }
         }
@@ -1311,38 +1311,38 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
 
         /* JADX INFO: Access modifiers changed from: private */
         public void cm(boolean z) {
-            BdGallery.this.bgQ = false;
+            BdGallery.this.bgy = false;
             this.mScroller.forceFinished(true);
             if (z) {
-                BdGallery.this.PI();
+                BdGallery.this.PJ();
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int max;
-            if (BdGallery.this.PY()) {
-                Qg();
+            if (BdGallery.this.PZ()) {
+                Qh();
             } else if (BdGallery.this.mItemCount != 0) {
-                BdGallery.this.bgG = false;
+                BdGallery.this.bgn = false;
                 Scroller scroller = this.mScroller;
                 boolean computeScrollOffset = scroller.computeScrollOffset();
                 int currX = scroller.getCurrX();
                 int i = this.mLastFlingX - currX;
                 if (i > 0) {
-                    BdGallery.this.bgB = BdGallery.this.mFirstPosition;
+                    BdGallery.this.bgi = BdGallery.this.mFirstPosition;
                     max = Math.min(((BdGallery.this.getWidth() - BdGallery.this.getPaddingLeft()) - BdGallery.this.getPaddingRight()) - 1, i);
                 } else {
-                    BdGallery.this.bgB = (BdGallery.this.getChildCount() - 1) + BdGallery.this.mFirstPosition;
+                    BdGallery.this.bgi = (BdGallery.this.getChildCount() - 1) + BdGallery.this.mFirstPosition;
                     max = Math.max(-(((BdGallery.this.getWidth() - BdGallery.this.getPaddingRight()) - BdGallery.this.getPaddingLeft()) - 1), i);
                 }
                 boolean z = max <= 0;
                 if (max != 0 && !BdGallery.this.ci(z)) {
-                    BdGallery.this.bgG = true;
+                    BdGallery.this.bgn = true;
                 } else {
                     BdGallery.this.ed(max);
                 }
-                if (computeScrollOffset && !BdGallery.this.bgG) {
+                if (computeScrollOffset && !BdGallery.this.bgn) {
                     this.mLastFlingX = currX;
                     BdGallery.this.post(this);
                     return;
@@ -1353,23 +1353,23 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             }
         }
 
-        public void Qg() {
+        public void Qh() {
             int max;
             if (BdGallery.this.mItemCount != 0) {
-                BdGallery.this.bgG = false;
+                BdGallery.this.bgn = false;
                 Scroller scroller = this.mScroller;
                 boolean computeScrollOffset = scroller.computeScrollOffset();
                 int currY = scroller.getCurrY();
                 int i = this.mLastFlingY - currY;
                 if (i > 0) {
-                    BdGallery.this.bgB = BdGallery.this.mFirstPosition;
+                    BdGallery.this.bgi = BdGallery.this.mFirstPosition;
                     max = Math.min(((BdGallery.this.getHeight() - BdGallery.this.getPaddingTop()) - BdGallery.this.getPaddingBottom()) - 1, i);
                 } else {
-                    BdGallery.this.bgB = (BdGallery.this.getChildCount() - 1) + BdGallery.this.mFirstPosition;
+                    BdGallery.this.bgi = (BdGallery.this.getChildCount() - 1) + BdGallery.this.mFirstPosition;
                     max = Math.max(-(((BdGallery.this.getHeight() - BdGallery.this.getPaddingBottom()) - BdGallery.this.getPaddingTop()) - 1), i);
                 }
                 BdGallery.this.ee(max);
-                if (computeScrollOffset && !BdGallery.this.bgG) {
+                if (computeScrollOffset && !BdGallery.this.bgn) {
                     this.mLastFlingY = currY;
                     BdGallery.this.post(this);
                     return;
@@ -1407,7 +1407,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
     }
 
     public void setFirstChildOffset(int i) {
-        this.bgR = i;
+        this.bgz = i;
     }
 
     public void setFirstPosition(int i) {
@@ -1415,15 +1415,15 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
     }
 
     public void setSlotInCenter(boolean z) {
-        this.bgX = z;
+        this.bgF = z;
     }
 
-    public boolean PX() {
-        return this.bgX;
+    public boolean PY() {
+        return this.bgF;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean PY() {
+    public boolean PZ() {
         return this.mOrientation == 2;
     }
 
@@ -1436,24 +1436,24 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
     }
 
     public void setOnEndFlingListener(c cVar) {
-        this.bgY = cVar;
+        this.bgG = cVar;
     }
 
     public void setDisableScroll(boolean z) {
-        this.bgO = z;
+        this.bgw = z;
     }
 
     public void setDisableScrollAnyway(boolean z) {
-        this.bgP = z;
+        this.bgx = z;
     }
 
     public void setScrollBarBottomMargin(int i) {
-        this.bgS = i;
+        this.bgA = i;
     }
 
     @Override // android.view.View
     public void setScrollBarSize(int i) {
-        this.bgT = i;
+        this.bgB = i;
     }
 
     public int getFirstPosition() {
@@ -1464,30 +1464,30 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         return this.mSpacing;
     }
 
-    protected void PZ() {
-        if (this.bgY != null && !this.mInLayout && !this.mBlockLayoutRequests) {
-            this.bgY.a(this);
+    protected void Qa() {
+        if (this.bgG != null && !this.mInLayout && !this.mBlockLayoutRequests) {
+            this.bgG.a(this);
         }
     }
 
     public float getVelocityRatio() {
-        return this.bgU;
+        return this.bgC;
     }
 
     public void setVelocityRatio(float f) {
-        this.bgU = f;
-        if (this.bgU < 0.5f) {
-            this.bgU = 0.5f;
-        } else if (this.bgU > 1.5f) {
-            this.bgU = 1.5f;
+        this.bgC = f;
+        if (this.bgC < 0.5f) {
+            this.bgC = 0.5f;
+        } else if (this.bgC > 1.5f) {
+            this.bgC = 1.5f;
         }
     }
 
-    protected boolean Qa() {
-        if (this.bgP) {
+    protected boolean Qb() {
+        if (this.bgx) {
             return true;
         }
-        if (this.bgO && getChildCount() >= this.mItemCount) {
+        if (this.bgw && getChildCount() >= this.mItemCount) {
             View childAt = getChildAt(0);
             if (childAt == null || childAt.getLeft() >= getLeft()) {
                 View childAt2 = getChildAt(getChildCount() - 1);
@@ -1505,11 +1505,11 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (1 != motionEvent.getAction() || this.bgB < 0) {
+        if (1 != motionEvent.getAction() || this.bgi < 0) {
             return false;
         }
-        if (this.bgJ || this.bgB == this.mSelectedPosition) {
-            b(this.bgC, this.bgB, this.mAdapter.getItemId(this.bgB));
+        if (this.bgq || this.bgi == this.mSelectedPosition) {
+            b(this.bgj, this.bgi, this.mAdapter.getItemId(this.bgi));
             return true;
         }
         return true;
@@ -1521,25 +1521,25 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
     }
 
     public void setScrollCycle(boolean z) {
-        this.bgV = z;
+        this.bgD = z;
     }
 
-    public boolean Qb() {
-        return this.bgV && this.bgW;
+    public boolean Qc() {
+        return this.bgD && this.bgE;
     }
 
     public void setMaxMoveOffset(int i) {
-        this.bgE = i;
+        this.bgl = i;
     }
 
     private long getMaxMoveOffset() {
-        return this.bgE;
+        return this.bgl;
     }
 
     protected void hb(String str) {
     }
 
-    private void Qc() {
+    private void Qd() {
         int right;
         int i;
         int i2 = this.mSpacing;
@@ -1550,7 +1550,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             right = childAt.getLeft() - i2;
         } else {
             right = (getRight() - getLeft()) - getPaddingRight();
-            this.bgG = true;
+            this.bgn = true;
             i = 0;
         }
         while (right > paddingLeft && i >= 0) {
@@ -1568,7 +1568,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         }
     }
 
-    private void Qd() {
+    private void Qe() {
         int bottom;
         int i;
         int i2 = this.mSpacing;
@@ -1579,7 +1579,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             bottom = childAt.getTop() - i2;
         } else {
             bottom = (getBottom() - getTop()) - getPaddingBottom();
-            this.bgG = true;
+            this.bgn = true;
             i = 0;
         }
         while (bottom > paddingTop && i >= 0) {
@@ -1597,7 +1597,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         }
     }
 
-    private void Qe() {
+    private void Qf() {
         int i;
         int paddingLeft;
         int i2 = this.mSpacing;
@@ -1613,7 +1613,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             i = this.mItemCount - 1;
             this.mFirstPosition = i;
             paddingLeft = getPaddingLeft();
-            this.bgG = true;
+            this.bgn = true;
         }
         while (paddingLeft < right && i < i3) {
             paddingLeft = a(i, i - this.mSelectedPosition, paddingLeft, true).getRight() + i2;
@@ -1626,7 +1626,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         }
     }
 
-    private void Qf() {
+    private void Qg() {
         int i;
         int paddingTop;
         int i2 = this.mSpacing;
@@ -1642,7 +1642,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             i = this.mItemCount - 1;
             this.mFirstPosition = i;
             paddingTop = getPaddingTop();
-            this.bgG = true;
+            this.bgn = true;
         }
         while (paddingTop < bottom && i < i3) {
             paddingTop = b(i, i - this.mSelectedPosition, paddingTop, true).getBottom() + i2;

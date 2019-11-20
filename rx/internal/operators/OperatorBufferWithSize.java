@@ -22,17 +22,17 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         if (this.skip == this.count) {
             a aVar = new a(jVar, this.count);
             jVar.add(aVar);
-            jVar.setProducer(aVar.cOC());
+            jVar.setProducer(aVar.cOA());
             return aVar;
         } else if (this.skip > this.count) {
             BufferSkip bufferSkip = new BufferSkip(jVar, this.count, this.skip);
             jVar.add(bufferSkip);
-            jVar.setProducer(bufferSkip.cOC());
+            jVar.setProducer(bufferSkip.cOA());
             return bufferSkip;
         } else {
             BufferOverlap bufferOverlap = new BufferOverlap(jVar, this.count, this.skip);
             jVar.add(bufferOverlap);
-            jVar.setProducer(bufferOverlap.cOC());
+            jVar.setProducer(bufferOverlap.cOA());
             return bufferOverlap;
         }
     }
@@ -42,7 +42,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
     public static final class a<T> extends rx.j<T> {
         final rx.j<? super List<T>> actual;
         final int count;
-        List<T> kAC;
+        List<T> kzL;
 
         public a(rx.j<? super List<T>> jVar, int i) {
             this.actual = jVar;
@@ -52,34 +52,34 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            List list = this.kAC;
+            List list = this.kzL;
             if (list == null) {
                 list = new ArrayList(this.count);
-                this.kAC = list;
+                this.kzL = list;
             }
             list.add(t);
             if (list.size() == this.count) {
-                this.kAC = null;
+                this.kzL = null;
                 this.actual.onNext(list);
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.kAC = null;
+            this.kzL = null;
             this.actual.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            List<T> list = this.kAC;
+            List<T> list = this.kzL;
             if (list != null) {
                 this.actual.onNext(list);
             }
             this.actual.onCompleted();
         }
 
-        rx.f cOC() {
+        rx.f cOA() {
             return new rx.f() { // from class: rx.internal.operators.OperatorBufferWithSize.a.1
                 @Override // rx.f
                 public void request(long j) {
@@ -100,7 +100,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         final rx.j<? super List<T>> actual;
         final int count;
         long index;
-        List<T> kAC;
+        List<T> kzL;
         final int skip;
 
         public BufferSkip(rx.j<? super List<T>> jVar, int i, int i2) {
@@ -113,10 +113,10 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         @Override // rx.e
         public void onNext(T t) {
             long j = this.index;
-            List list = this.kAC;
+            List list = this.kzL;
             if (j == 0) {
                 list = new ArrayList(this.count);
-                this.kAC = list;
+                this.kzL = list;
             }
             long j2 = j + 1;
             if (j2 == this.skip) {
@@ -127,7 +127,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             if (list != null) {
                 list.add(t);
                 if (list.size() == this.count) {
-                    this.kAC = null;
+                    this.kzL = null;
                     this.actual.onNext(list);
                 }
             }
@@ -135,21 +135,21 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.kAC = null;
+            this.kzL = null;
             this.actual.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            List<T> list = this.kAC;
+            List<T> list = this.kzL;
             if (list != null) {
-                this.kAC = null;
+                this.kzL = null;
                 this.actual.onNext(list);
             }
             this.actual.onCompleted();
         }
 
-        rx.f cOC() {
+        rx.f cOA() {
             return new BufferSkipProducer();
         }
 
@@ -186,7 +186,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         long index;
         long produced;
         final int skip;
-        final ArrayDeque<List<T>> kAE = new ArrayDeque<>();
+        final ArrayDeque<List<T>> kzN = new ArrayDeque<>();
         final AtomicLong requested = new AtomicLong();
 
         public BufferOverlap(rx.j<? super List<T>> jVar, int i, int i2) {
@@ -200,7 +200,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         public void onNext(T t) {
             long j = this.index;
             if (j == 0) {
-                this.kAE.offer(new ArrayList(this.count));
+                this.kzN.offer(new ArrayList(this.count));
             }
             long j2 = j + 1;
             if (j2 == this.skip) {
@@ -208,13 +208,13 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             } else {
                 this.index = j2;
             }
-            Iterator<List<T>> it = this.kAE.iterator();
+            Iterator<List<T>> it = this.kzN.iterator();
             while (it.hasNext()) {
                 it.next().add(t);
             }
-            List<T> peek = this.kAE.peek();
+            List<T> peek = this.kzN.peek();
             if (peek != null && peek.size() == this.count) {
-                this.kAE.poll();
+                this.kzN.poll();
                 this.produced++;
                 this.actual.onNext(peek);
             }
@@ -222,7 +222,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.kAE.clear();
+            this.kzN.clear();
             this.actual.onError(th);
         }
 
@@ -236,10 +236,10 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
                 }
                 this.requested.addAndGet(-j);
             }
-            rx.internal.operators.a.a(this.requested, this.kAE, this.actual);
+            rx.internal.operators.a.a(this.requested, this.kzN, this.actual);
         }
 
-        rx.f cOC() {
+        rx.f cOA() {
             return new BufferOverlapProducer();
         }
 
@@ -254,7 +254,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             @Override // rx.f
             public void request(long j) {
                 BufferOverlap bufferOverlap = BufferOverlap.this;
-                if (rx.internal.operators.a.a(bufferOverlap.requested, j, bufferOverlap.kAE, bufferOverlap.actual) && j != 0) {
+                if (rx.internal.operators.a.a(bufferOverlap.requested, j, bufferOverlap.kzN, bufferOverlap.actual) && j != 0) {
                     if (get() || !compareAndSet(false, true)) {
                         bufferOverlap.request(rx.internal.operators.a.C(bufferOverlap.skip, j));
                     } else {

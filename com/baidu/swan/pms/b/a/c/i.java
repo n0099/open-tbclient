@@ -6,26 +6,26 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class i implements b {
-    private com.baidu.swan.pms.a.b aRY;
-    private List<com.baidu.swan.pms.model.e> bMI = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> bMJ = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> bMK = new ArrayList();
-    private List<com.baidu.swan.pms.b.a.b> bMH = new ArrayList();
+    private com.baidu.swan.pms.a.b aRG;
+    private List<com.baidu.swan.pms.model.e> bLR = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> bLS = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> bLT = new ArrayList();
+    private List<com.baidu.swan.pms.b.a.b> bLQ = new ArrayList();
 
     public i(com.baidu.swan.pms.a.b bVar) {
-        this.aRY = bVar;
-        d.abr().c(this);
+        this.aRG = bVar;
+        d.abp().c(this);
     }
 
     public void a(com.baidu.swan.pms.b.a.b bVar) {
         if (bVar != null) {
-            this.bMH.add(bVar);
+            this.bLQ.add(bVar);
         }
     }
 
     public void startDownload() {
-        if (!abB()) {
-            for (com.baidu.swan.pms.b.a.b bVar : this.bMH) {
+        if (!abz()) {
+            for (com.baidu.swan.pms.b.a.b bVar : this.bLQ) {
                 bVar.dC(false);
             }
         }
@@ -37,41 +37,41 @@ public class i implements b {
 
     @Override // com.baidu.swan.pms.b.a.c.b
     public <T> void e(f<T> fVar) {
-        Iterator<com.baidu.swan.pms.b.a.b> it = this.bMH.iterator();
+        Iterator<com.baidu.swan.pms.b.a.b> it = this.bLQ.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             com.baidu.swan.pms.b.a.b next = it.next();
             if (next.a(fVar)) {
-                int abu = fVar.abu();
-                this.bMH.remove(next);
-                switch (abu) {
+                int abs = fVar.abs();
+                this.bLQ.remove(next);
+                switch (abs) {
                     case 2:
-                        this.bMK.add(next.abp().bMC.bMB);
+                        this.bLT.add(next.abn().bLL.bLK);
                         break;
                     case 3:
-                        this.bMJ.add(next.abp().bMC.bMB);
+                        this.bLS.add(next.abn().bLL.bLK);
                         break;
                     case 10:
-                        this.bMI.add(next.abp().bMC.bMB);
+                        this.bLR.add(next.abn().bLL.bLK);
                         break;
                     default:
                         if (com.baidu.swan.pms.e.DEBUG) {
-                            Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + abu);
+                            Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + abs);
                             break;
                         }
                         break;
                 }
             }
         }
-        abB();
+        abz();
     }
 
-    private boolean abB() {
-        if (this.bMH.isEmpty()) {
-            this.aRY.aaU();
-            d.abr().d(this);
+    private boolean abz() {
+        if (this.bLQ.isEmpty()) {
+            this.aRG.aaS();
+            d.abp().d(this);
             return true;
         }
         return false;

@@ -14,32 +14,32 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.EmotionButton;
 /* loaded from: classes.dex */
 public class h extends a {
-    protected TbImageView cJP;
-    protected TextView cJQ;
-    private LinearLayout cJR;
-    protected EmotionButton cJW;
-    private int cJX;
+    protected TbImageView cIY;
+    protected TextView cIZ;
+    private LinearLayout cJa;
+    protected EmotionButton cJf;
+    private int cJg;
     protected TextView subTextView;
 
     public TextView getTitleView() {
-        return this.cJQ;
+        return this.cIZ;
     }
 
-    public EmotionButton avx() {
-        return this.cJW;
+    public EmotionButton avv() {
+        return this.cJf;
     }
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null));
-        this.cJP = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.cIY = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
         this.subTextView = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.cJQ = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
-        this.cJR = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
-        this.cJW = (EmotionButton) this.attachedView.findViewById(R.id.net_refresh_button);
-        this.cJX = R.drawable.new_pic_emotion_09;
-        this.cJW.setOnClickListener(onClickListener);
+        this.cIZ = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.cJa = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.cJf = (EmotionButton) this.attachedView.findViewById(R.id.net_refresh_button);
+        this.cJg = R.drawable.new_pic_emotion_09;
+        this.cJf.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
-        kc(0);
+        kb(0);
     }
 
     public void setSubText(String str) {
@@ -53,28 +53,28 @@ public class h extends a {
 
     public void setTitle(String str) {
         if (str != null) {
-            this.cJQ.setText(str);
+            this.cIZ.setText(str);
         }
     }
 
     public void pZ(String str) {
         if (str != null) {
-            this.cJQ.setText(str);
-            this.cJQ.setVisibility(0);
+            this.cIZ.setText(str);
+            this.cIZ.setVisibility(0);
         }
     }
 
-    public void ka(int i) {
-        this.cJX = i;
+    public void jZ(int i) {
+        this.cJg = i;
     }
 
-    public void kb(int i) {
-        this.cJP.setImageResource(i);
+    public void ka(int i) {
+        this.cIY.setImageResource(i);
     }
 
     public void setButtonText(String str) {
         if (str != null) {
-            this.cJW.setText(str);
+            this.cJf.setText(str);
         }
     }
 
@@ -89,19 +89,19 @@ public class h extends a {
     @Override // com.baidu.tbadk.m.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.cJP.setImageResource(0);
+        this.cIY.setImageResource(0);
     }
 
     public void setLayoutMargin(int i) {
-        ViewGroup.LayoutParams layoutParams = this.cJP.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.cIY.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.cJP.setLayoutParams(marginLayoutParams);
+            this.cIY.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void kc(int i) {
+    public void kb(int i) {
         int i2;
         if (i < 0) {
             i = 0;
@@ -112,31 +112,31 @@ public class h extends a {
         } else {
             i2 = (int) (equipmentHeight * 0.11d);
         }
-        ViewGroup.LayoutParams layoutParams = this.cJP.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.cIY.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i2 + i;
-            this.cJP.setLayoutParams(marginLayoutParams);
+            this.cIY.setLayoutParams(marginLayoutParams);
         }
     }
 
     public void showRefreshButton() {
-        this.cJW.setVisibility(0);
-        this.cJQ.setVisibility(0);
+        this.cJf.setVisibility(0);
+        this.cIZ.setVisibility(0);
         am.setViewTextColor(this.subTextView, R.color.cp_cont_d, 1);
     }
 
     public void hideRefreshButton() {
-        this.cJW.setVisibility(8);
-        this.cJQ.setVisibility(8);
+        this.cJf.setVisibility(8);
+        this.cIZ.setVisibility(8);
         am.setViewTextColor(this.subTextView, R.color.cp_cont_b, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        am.setImageResource(this.cJP, this.cJX);
+        am.setImageResource(this.cIY, this.cJg);
         am.setViewTextColor(this.subTextView, R.color.cp_cont_d, 1, skinType);
-        am.setViewTextColor(this.cJQ, R.color.cp_cont_j, 1, skinType);
+        am.setViewTextColor(this.cIZ, R.color.cp_cont_j, 1, skinType);
         am.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d);
     }
 

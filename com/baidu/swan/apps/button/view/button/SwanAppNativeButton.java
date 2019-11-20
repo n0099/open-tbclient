@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.widget.TextView;
 /* loaded from: classes2.dex */
 public class SwanAppNativeButton extends TextView implements a<TextView, com.baidu.swan.apps.button.b.a.a> {
-    private com.baidu.swan.apps.button.b.a.a aEX;
+    private com.baidu.swan.apps.button.b.a.a aEF;
 
     public SwanAppNativeButton(@NonNull Context context) {
         super(context);
@@ -14,7 +14,7 @@ public class SwanAppNativeButton extends TextView implements a<TextView, com.bai
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.button.view.a.a, com.baidu.swan.apps.button.view.a
     public com.baidu.swan.apps.button.b.a.a getModel() {
-        return this.aEX;
+        return this.aEF;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ public class SwanAppNativeButton extends TextView implements a<TextView, com.bai
     }
 
     public void a(@NonNull com.baidu.swan.apps.button.b.a.a aVar) {
-        this.aEX = aVar;
+        this.aEF = aVar;
         com.baidu.swan.apps.button.c.a.b(this);
     }
 
@@ -34,13 +34,13 @@ public class SwanAppNativeButton extends TextView implements a<TextView, com.bai
     /* renamed from: b */
     public boolean a(@NonNull com.baidu.swan.apps.button.b.a.a aVar) {
         com.baidu.swan.apps.button.b.a.a aVar2;
-        if (aVar.aXJ == null || !aVar.aXJ.isValid() || (aVar2 = this.aEX) == null || aVar2.aXJ == null || !aVar2.aXJ.isValid()) {
+        if (aVar.aXr == null || !aVar.aXr.isValid() || (aVar2 = this.aEF) == null || aVar2.aXr == null || !aVar2.aXr.isValid()) {
             return false;
         }
-        if ((com.baidu.swan.apps.button.c.a.a(aVar2, aVar).Vl() & 2) == 2) {
+        if ((com.baidu.swan.apps.button.c.a.a(aVar2, aVar).Vj() & 2) == 2) {
             a(aVar);
         } else {
-            this.aEX = aVar;
+            this.aEF = aVar;
         }
         return true;
     }

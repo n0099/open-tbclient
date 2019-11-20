@@ -12,7 +12,7 @@ public final class a {
     /* renamed from: com.baidu.swan.apps.process.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0200a {
-        void Ok();
+        void Ol();
     }
 
     public static boolean a(final IBinder iBinder, final InterfaceC0200a interfaceC0200a) {
@@ -28,7 +28,7 @@ public final class a {
                     }
                     iBinder.unlinkToDeath(this, 0);
                     if (interfaceC0200a != null) {
-                        interfaceC0200a.Ok();
+                        interfaceC0200a.Ol();
                     }
                 }
             }, 0);

@@ -15,8 +15,8 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private b clB;
-    private InterfaceC0284a clC;
+    private b ckK;
+    private InterfaceC0284a ckL;
     private ArrayList<String> requestPermissionList = new ArrayList<>();
 
     /* renamed from: com.baidu.tbadk.core.util.c.a$a  reason: collision with other inner class name */
@@ -45,7 +45,7 @@ public class a {
     }
 
     public boolean startRequestPermission(Activity activity) {
-        if (!com.baidu.e.a.zB()) {
+        if (!com.baidu.e.a.zC()) {
             onPermissionsGranted();
             return false;
         } else if (v.isEmpty(this.requestPermissionList)) {
@@ -75,8 +75,8 @@ public class a {
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
         aVar.eh(false);
-        aVar.hT(R.string.request_permission_default_title);
-        aVar.hU(getPermissionDescriptionId(str));
+        aVar.hS(R.string.request_permission_default_title);
+        aVar.hT(getPermissionDescriptionId(str));
         aVar.a(R.string.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.c.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -86,20 +86,20 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.clB != null) {
-                    a.this.clB.onDialogComfirmed(str);
+                if (a.this.ckK != null) {
+                    a.this.ckK.onDialogComfirmed(str);
                 }
             }
         }).b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.c.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.clB != null) {
-                    a.this.clB.onDialogCaneled(str);
+                if (a.this.ckK != null) {
+                    a.this.ckK.onDialogCaneled(str);
                 }
             }
         }).b(i.ab(activity));
-        aVar.akO();
+        aVar.akM();
         return false;
     }
 
@@ -136,12 +136,12 @@ public class a {
     }
 
     public void a(InterfaceC0284a interfaceC0284a) {
-        this.clC = interfaceC0284a;
+        this.ckL = interfaceC0284a;
     }
 
     public void onPermissionsGranted() {
-        if (this.clC != null) {
-            this.clC.onPermissionsGranted();
+        if (this.ckL != null) {
+            this.ckL.onPermissionsGranted();
         }
     }
 }

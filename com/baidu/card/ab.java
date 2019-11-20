@@ -14,35 +14,35 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
 /* loaded from: classes3.dex */
 public class ab extends b<com.baidu.tbadk.core.data.a> {
-    private static final int FI = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
-    private TextView FK;
-    private com.baidu.tbadk.core.data.a Fx;
-    private OriginalThreadCardView Hn;
-    private OriginalThreadCardView.a Ho;
+    private static final int Fi = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
+    private com.baidu.tbadk.core.data.a EX;
+    private TextView Fk;
+    private OriginalThreadCardView GL;
+    private OriginalThreadCardView.a GM;
     private View mRootView;
     private TextView mTitle;
 
     public ab(Context context) {
         super(context);
-        this.Ho = new OriginalThreadCardView.a() { // from class: com.baidu.card.ab.1
+        this.GM = new OriginalThreadCardView.a() { // from class: com.baidu.card.ab.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (ab.this.Fx != null && ab.this.Fx.agI() != null) {
+                if (ab.this.EX != null && ab.this.EX.agG() != null) {
                     if (ab.this.lH() != null) {
-                        ab.this.lH().a(ab.this.Hn, ab.this.Fx);
+                        ab.this.lH().a(ab.this.GL, ab.this.EX);
                     }
-                    String id = ab.this.Fx.agI().getId();
+                    String id = ab.this.EX.agG().getId();
                     com.baidu.tieba.card.n.uz(id);
                     ab.this.bt(id);
-                    ab.this.Fp.b(new a.C0044a(1));
+                    ab.this.EO.b(new a.C0044a(1));
                 }
             }
         };
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.thread_card_title);
-        this.FK = (TextView) this.mRootView.findViewById(R.id.thread_card_abstract);
-        this.Hn = (OriginalThreadCardView) this.mRootView.findViewById(R.id.original_thread_view);
-        this.Hn.setSubClickListener(this.Ho);
+        this.Fk = (TextView) this.mRootView.findViewById(R.id.thread_card_abstract);
+        this.GL = (OriginalThreadCardView) this.mRootView.findViewById(R.id.original_thread_view);
+        this.GL.setSubClickListener(this.GM);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -55,28 +55,28 @@ public class ab extends b<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void z(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.agI() != null) {
-            this.Fx = aVar;
-            au.a(this.mTitle, aVar.agI());
-            au.a(this.FK, this.mTitle, aVar.agI(), FI);
-            this.Hn.b(aVar.agI().cec);
+        if (aVar != null && aVar.agG() != null) {
+            this.EX = aVar;
+            au.a(this.mTitle, aVar.agG());
+            au.a(this.Fk, this.mTitle, aVar.agG(), Fi);
+            this.GL.b(aVar.agG().cdl);
         }
     }
 
     public void aM(int i) {
-        this.Hn.ePg = i;
+        this.GL.eOp = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bt(String str) {
         com.baidu.tieba.card.n.a(this.mTitle, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-        com.baidu.tieba.card.n.a(this.FK, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-        this.Hn.setReadState(com.baidu.tieba.card.n.uA(str));
+        com.baidu.tieba.card.n.a(this.Fk, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        this.GL.setReadState(com.baidu.tieba.card.n.uA(str));
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.Hn.onChangeSkinType();
+        this.GL.onChangeSkinType();
     }
 
     @Override // com.baidu.card.b

@@ -10,7 +10,6 @@ import com.baidu.location.BDNotifyListener;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClient;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
@@ -99,7 +98,7 @@ public class a {
             bDNotifyListener.mLongitudeC = coorEncrypt[0];
             bDNotifyListener.mLatitudeC = coorEncrypt[1];
         }
-        if (this.c == null || System.currentTimeMillis() - this.d > ReportUserInfoModel.TIME_INTERVAL) {
+        if (this.c == null || System.currentTimeMillis() - this.d > 300000) {
             this.e.requestNotifyLocation();
         } else {
             float[] fArr = new float[1];

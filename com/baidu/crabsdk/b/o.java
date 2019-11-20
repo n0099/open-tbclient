@@ -5,9 +5,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 /* loaded from: classes3.dex */
 public final class o {
-    private static PackageManager Km;
-    private static PackageInfo Kn;
-    private static String Ko;
+    private static PackageManager JM;
+    private static PackageInfo JN;
+    private static String JO;
     private static Context mContext;
 
     public static String F() {
@@ -15,32 +15,32 @@ public final class o {
     }
 
     public static String G() {
-        if (Ko == null) {
-            if (Kn == null) {
+        if (JO == null) {
+            if (JN == null) {
                 return "N/A";
             }
-            Ko = Kn.applicationInfo.loadLabel(Km).toString();
+            JO = JN.applicationInfo.loadLabel(JM).toString();
         }
-        return Ko;
+        return JO;
     }
 
     public static String H() {
-        return Kn == null ? "N/A" : Kn.versionName;
+        return JN == null ? "N/A" : JN.versionName;
     }
 
     public static int I() {
-        if (Kn == null) {
+        if (JN == null) {
             return 0;
         }
-        return Kn.versionCode;
+        return JN.versionCode;
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            Km = context.getPackageManager();
+            JM = context.getPackageManager();
             try {
-                Kn = Km.getPackageInfo(mContext.getPackageName(), 0);
+                JN = JM.getPackageInfo(mContext.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
                 com.baidu.crabsdk.c.a.f("PackageCollector.init fail.", e);
             }

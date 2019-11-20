@@ -59,7 +59,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
                     this.pbData.a(pbPageResIdl.data, this.context);
                     if (!this.pbData.isValid()) {
                         this.pbData = null;
-                    } else if (isMarkCache() && this.pbData.afl() != null && !this.pbData.afl().equals(this.postId)) {
+                    } else if (isMarkCache() && this.pbData.afj() != null && !this.pbData.afj().equals(this.postId)) {
                         this.pbData = null;
                     }
                 } catch (Exception e) {

@@ -5,7 +5,7 @@ import android.content.Context;
 public interface a {
     C0296a ag(Context context, String str);
 
-    int aum();
+    int auk();
 
     int pA(String str);
 

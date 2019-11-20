@@ -14,35 +14,35 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forumsearch.controller.e;
 /* loaded from: classes6.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.b> {
-    private View.OnClickListener ftr;
-    private BarImageView fuf;
-    private TextView fug;
-    private TextView fuh;
-    private TextView fui;
-    private com.baidu.tieba.forumsearch.b.b fuj;
+    private View.OnClickListener fsA;
+    private BarImageView fto;
+    private TextView ftp;
+    private TextView ftq;
+    private TextView ftr;
+    private com.baidu.tieba.forumsearch.b.b fts;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.fuf = (BarImageView) getView().findViewById(R.id.forum_avatar);
-        this.fug = (TextView) getView().findViewById(R.id.forum_name);
-        this.fuh = (TextView) getView().findViewById(R.id.forum_attention);
-        this.fui = (TextView) getView().findViewById(R.id.forum_thread_count);
+        this.fto = (BarImageView) getView().findViewById(R.id.forum_avatar);
+        this.ftp = (TextView) getView().findViewById(R.id.forum_name);
+        this.ftq = (TextView) getView().findViewById(R.id.forum_attention);
+        this.ftr = (TextView) getView().findViewById(R.id.forum_thread_count);
         getView().setOnClickListener(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void v(View.OnClickListener onClickListener) {
-        this.ftr = onClickListener;
+        this.fsA = onClickListener;
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setViewTextColor(this.fug, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.fuh, (int) R.color.cp_cont_d);
-            am.setViewTextColor(this.fui, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.ftp, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.ftq, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.ftr, (int) R.color.cp_cont_d);
             am.setBackgroundResource(getView(), R.drawable.square_search_item_bg);
             this.mSkinType = i;
         }
@@ -57,11 +57,11 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.b> {
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.forumsearch.b.b bVar) {
         if (bVar != null) {
-            this.fuj = bVar;
-            this.fuf.startLoad(bVar.getAvatar(), 10, false);
-            this.fug.setText(cJ(bVar.getForumName(), bVar.biT()));
-            this.fuh.setText(String.format(this.mTbPageContext.getString(R.string.concern), bVar.biR()));
-            this.fui.setText(String.format(this.mTbPageContext.getString(R.string.search_bar_thread), bVar.biS()));
+            this.fts = bVar;
+            this.fto.startLoad(bVar.getAvatar(), 10, false);
+            this.ftp.setText(cJ(bVar.getForumName(), bVar.biR()));
+            this.ftq.setText(String.format(this.mTbPageContext.getString(R.string.concern), bVar.biP()));
+            this.ftr.setText(String.format(this.mTbPageContext.getString(R.string.search_bar_thread), bVar.biQ()));
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -83,12 +83,12 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.b> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fuj != null) {
+        if (this.fts != null) {
             TiebaStatic.log("c12261");
-            e.vJ(this.fuj.biT());
-            view.setTag(this.fuj);
-            if (this.ftr != null) {
-                this.ftr.onClick(view);
+            e.vJ(this.fts.biR());
+            view.setTag(this.fts);
+            if (this.fsA != null) {
+                this.fsA.onClick(view);
             }
         }
     }

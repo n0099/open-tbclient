@@ -1,43 +1,39 @@
 package com.xiaomi.push.service;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
+import com.xiaomi.push.fx;
+import com.xiaomi.push.service.XMPushService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-class bs extends Handler {
+public class bs extends XMPushService.i {
     final /* synthetic */ XMPushService a;
 
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ String f901a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ byte[] f902a;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(XMPushService xMPushService) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bs(XMPushService xMPushService, int i, String str, byte[] bArr) {
+        super(i);
         this.a = xMPushService;
+        this.f901a = str;
+        this.f902a = bArr;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        String str;
-        super.handleMessage(message);
-        if (message != null) {
-            try {
-                switch (message.what) {
-                    case 17:
-                        if (message.obj != null) {
-                            this.a.onStart((Intent) message.obj, XMPushService.d);
-                            break;
-                        }
-                        break;
-                    case 18:
-                        Message obtain = Message.obtain((Handler) null, 0);
-                        obtain.what = 18;
-                        Bundle bundle = new Bundle();
-                        str = this.a.g;
-                        bundle.putString("xmsf_region", str);
-                        obtain.setData(bundle);
-                        message.replyTo.send(obtain);
-                        break;
-                }
-            } catch (Throwable th) {
-            }
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "send mi push message";
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        try {
+            w.a(this.a, this.f901a, this.f902a);
+        } catch (fx e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            this.a.a(10, e);
         }
     }
 }

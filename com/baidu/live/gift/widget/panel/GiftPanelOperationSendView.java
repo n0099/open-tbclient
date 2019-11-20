@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.baidu.live.k.a;
 /* loaded from: classes6.dex */
 public class GiftPanelOperationSendView extends TextView {
-    private GradientDrawable aeD;
-    private float aeE;
+    private GradientDrawable ael;
+    private float aem;
     private int mStyle;
 
     public GiftPanelOperationSendView(Context context, @Nullable AttributeSet attributeSet) {
@@ -38,34 +38,34 @@ public class GiftPanelOperationSendView extends TextView {
                     break;
             }
             if (!(z & true)) {
-                this.aeD.clearColorFilter();
+                this.ael.clearColorFilter();
                 setTextColor(-1);
                 setEnabled(true);
             } else {
-                this.aeD.setColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
+                this.ael.setColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
                 setTextColor(-2130706433);
                 setEnabled(false);
             }
             if (!(z & true)) {
-                this.aeD.setCornerRadius(this.aeE);
+                this.ael.setCornerRadius(this.aem);
             } else {
-                this.aeD.setCornerRadii(new float[]{0.0f, 0.0f, this.aeE, this.aeE, this.aeE, this.aeE, 0.0f, 0.0f});
+                this.ael.setCornerRadii(new float[]{0.0f, 0.0f, this.aem, this.aem, this.aem, this.aem, 0.0f, 0.0f});
             }
-            setBackgroundDrawable(this.aeD);
+            setBackgroundDrawable(this.ael);
         }
     }
 
     private void init() {
-        this.aeE = getResources().getDimensionPixelOffset(a.e.sdk_ds28);
-        this.aeD = new GradientDrawable();
-        this.aeD.setShape(0);
-        this.aeD.setCornerRadius(this.aeE);
-        this.aeD.setGradientType(0);
+        this.aem = getResources().getDimensionPixelOffset(a.e.sdk_ds28);
+        this.ael = new GradientDrawable();
+        this.ael.setShape(0);
+        this.ael.setCornerRadius(this.aem);
+        this.ael.setGradientType(0);
         if (Build.VERSION.SDK_INT >= 16) {
-            this.aeD.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-            this.aeD.setColors(new int[]{-49865, -40664});
+            this.ael.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            this.ael.setColors(new int[]{-49865, -40664});
         }
-        setBackgroundDrawable(this.aeD);
+        setBackgroundDrawable(this.ael);
         setGravity(17);
         setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize24));
     }

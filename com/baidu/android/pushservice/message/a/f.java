@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.i.l;
 import com.xiaomi.mipush.sdk.Constants;
-import com.xiaomi.mipush.sdk.MIPushNotificationHelper4Hybrid;
 /* loaded from: classes3.dex */
 public class f extends b {
     public f(Context context) {
@@ -39,7 +38,7 @@ public class f extends b {
                     intent.putExtra("msg_id", e);
                     intent.putExtra("message", bArr);
                     intent.putExtra("message_string", str);
-                    intent.putExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, e);
+                    intent.putExtra("message_id", e);
                     intent.putExtra("baidu_message_type", f);
                     intent.putExtra("baidu_message_body", bArr);
                     intent.putExtra("baidu_message_secur_info", a3);
@@ -63,7 +62,7 @@ public class f extends b {
                     intent2.putExtra("baidu_message_type", f);
                     intent2.putExtra("baidu_message_body", bArr);
                     intent2.putExtra("baidu_message_secur_info", a4);
-                    intent2.putExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, e);
+                    intent2.putExtra("message_id", e);
                     l.b(this.a, intent2, "com.baidu.android.pushservice.action.SDK_MESSAGE", c);
                     i = 0;
                     break;

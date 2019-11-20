@@ -17,7 +17,7 @@ final class CharCategory$Companion$categoryMap$2 extends Lambda implements kotli
     @Override // kotlin.jvm.a.a
     public final Map<Integer, ? extends CharCategory> invoke() {
         CharCategory[] values = CharCategory.values();
-        LinkedHashMap linkedHashMap = new LinkedHashMap(kotlin.b.d.cO(aa.Df(values.length), 16));
+        LinkedHashMap linkedHashMap = new LinkedHashMap(kotlin.b.d.cM(aa.De(values.length), 16));
         for (CharCategory charCategory : values) {
             linkedHashMap.put(Integer.valueOf(charCategory.getValue()), charCategory);
         }

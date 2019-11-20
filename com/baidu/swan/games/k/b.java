@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes2.dex */
 public class b {
-    private com.baidu.swan.games.e.b bCj;
+    private com.baidu.swan.games.e.b bBs;
 
     public b(com.baidu.swan.games.e.b bVar) {
-        this.bCj = bVar;
+        this.bBs = bVar;
     }
 
     public void km(String str) {
@@ -32,12 +32,12 @@ public class b {
     }
 
     private void bl(String str, String str2) {
-        if (this.bCj != null && this.bCj.WB() != null && this.bCj.WB().hasEventListener(str2)) {
+        if (this.bBs != null && this.bBs.Wz() != null && this.bBs.Wz().hasEventListener(str2)) {
             com.baidu.swan.games.k.a.a aVar = new com.baidu.swan.games.k.a.a();
             aVar.value = str;
             JSEvent jSEvent = new JSEvent(str2);
             jSEvent.data = aVar;
-            this.bCj.WB().dispatchEvent(jSEvent);
+            this.bBs.Wz().dispatchEvent(jSEvent);
         }
     }
 }

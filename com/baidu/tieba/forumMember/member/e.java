@@ -26,10 +26,10 @@ import tbclient.PriManagerApplyInfo;
 import tbclient.User;
 /* loaded from: classes5.dex */
 public class e implements af {
-    private BdUniqueId cKf;
+    private BdUniqueId cJo;
     private String forumId;
     private String forumName;
-    private ai frN;
+    private ai fqV;
     private ManagerApplyInfo mManagerApplyInfo;
     private MemberGodInfo mMemberGodInfo;
     private List<MemberGroupInfo> mMemberGroupInfoList;
@@ -37,9 +37,9 @@ public class e implements af {
     private com.baidu.tieba.tbadkCore.t mUserInfo;
     private boolean mIsPrivateForum = false;
     private boolean mIsBawuShow = false;
-    private boolean fou = true;
-    private ap frP = new ap();
-    private com.baidu.adp.framework.listener.a fdl = new com.baidu.adp.framework.listener.a(1001706, CmdConfigSocket.CMD_FRS_MEMBER_TAB) { // from class: com.baidu.tieba.forumMember.member.e.1
+    private boolean fnD = true;
+    private ap fqX = new ap();
+    private com.baidu.adp.framework.listener.a fcu = new com.baidu.adp.framework.listener.a(1001706, CmdConfigSocket.CMD_FRS_MEMBER_TAB) { // from class: com.baidu.tieba.forumMember.member.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -65,24 +65,24 @@ public class e implements af {
                             e.this.mPrivateMgrApplyInfo = forumMemberSocketResponseMessage.getPrivateMgrApplyInfo();
                         }
                     }
-                    e.this.fou = false;
-                    e.this.frP.errCode = responsedMessage.getError();
-                    e.this.frP.errMsg = responsedMessage.getErrorString();
-                    e.this.frP.hasMore = false;
-                    e.this.frP.fzB = false;
-                    e.this.frP.fzA = false;
-                    e.this.frP.forumId = e.this.forumId;
-                    e.this.frP.forumName = e.this.forumName;
-                    e.this.frP.pn = 1;
-                    if (e.this.frN != null) {
-                        e.this.frN.a(3, 0, e.this.frP, e.this.a(e.this.mUserInfo, e.this.mMemberGroupInfoList, e.this.mMemberGodInfo, e.this.mManagerApplyInfo, e.this.mIsBawuShow, e.this.mIsPrivateForum, e.this.mPrivateMgrApplyInfo));
+                    e.this.fnD = false;
+                    e.this.fqX.errCode = responsedMessage.getError();
+                    e.this.fqX.errMsg = responsedMessage.getErrorString();
+                    e.this.fqX.hasMore = false;
+                    e.this.fqX.fyK = false;
+                    e.this.fqX.fyJ = false;
+                    e.this.fqX.forumId = e.this.forumId;
+                    e.this.fqX.forumName = e.this.forumName;
+                    e.this.fqX.pn = 1;
+                    if (e.this.fqV != null) {
+                        e.this.fqV.a(3, 0, e.this.fqX, e.this.a(e.this.mUserInfo, e.this.mMemberGroupInfoList, e.this.mMemberGodInfo, e.this.mManagerApplyInfo, e.this.mIsBawuShow, e.this.mIsPrivateForum, e.this.mPrivateMgrApplyInfo));
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_EXPERIENCE_TIP, e.this.mUserInfo));
                 }
             }
         }
     };
-    private CustomMessageListener frg = new CustomMessageListener(CmdConfigCustom.CMD_FRS_MEMBER_INFO_CACHE) { // from class: com.baidu.tieba.forumMember.member.e.2
+    private CustomMessageListener fqp = new CustomMessageListener(CmdConfigCustom.CMD_FRS_MEMBER_INFO_CACHE) { // from class: com.baidu.tieba.forumMember.member.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -97,56 +97,56 @@ public class e implements af {
                     e.this.mIsPrivateForum = forumMemberReadCacheResponseMessage.isPrivateForum();
                     e.this.mPrivateMgrApplyInfo = forumMemberReadCacheResponseMessage.getPrivateMgrApplyInfo();
                 }
-                e.this.frP.errCode = customResponsedMessage.getError();
-                e.this.frP.errMsg = customResponsedMessage.getErrorString();
-                e.this.frP.hasMore = false;
-                e.this.frP.fzB = false;
-                e.this.frP.fzA = false;
-                e.this.frP.forumId = e.this.forumId;
-                e.this.frP.forumName = e.this.forumName;
-                e.this.frP.pn = 1;
-                if (e.this.frN != null) {
+                e.this.fqX.errCode = customResponsedMessage.getError();
+                e.this.fqX.errMsg = customResponsedMessage.getErrorString();
+                e.this.fqX.hasMore = false;
+                e.this.fqX.fyK = false;
+                e.this.fqX.fyJ = false;
+                e.this.fqX.forumId = e.this.forumId;
+                e.this.fqX.forumName = e.this.forumName;
+                e.this.fqX.pn = 1;
+                if (e.this.fqV != null) {
                     ArrayList<com.baidu.adp.widget.ListView.m> a = e.this.a(e.this.mUserInfo, e.this.mMemberGroupInfoList, e.this.mMemberGodInfo, e.this.mManagerApplyInfo, e.this.mIsBawuShow, e.this.mIsPrivateForum, e.this.mPrivateMgrApplyInfo);
                     if (a == null || a.size() <= 0) {
-                        if (!e.this.fou) {
-                            e.this.frN.a(3, 0, e.this.frP, a);
+                        if (!e.this.fnD) {
+                            e.this.fqV.a(3, 0, e.this.fqX, a);
                         }
                     } else {
-                        e.this.frN.a(3, 0, e.this.frP, a);
+                        e.this.fqV.a(3, 0, e.this.fqX, a);
                     }
                 }
-                if (e.this.fou) {
+                if (e.this.fnD) {
                     e.this.f(com.baidu.adp.lib.g.b.toLong(e.this.forumId, 0L), e.this.forumName);
                 }
             }
         }
     };
-    private CustomMessageListener frQ = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS) { // from class: com.baidu.tieba.forumMember.member.e.3
+    private CustomMessageListener fqY = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS) { // from class: com.baidu.tieba.forumMember.member.e.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.t)) {
-                e.this.frP.errCode = customResponsedMessage.getError();
-                e.this.frP.errMsg = customResponsedMessage.getErrorString();
-                e.this.frP.hasMore = false;
-                e.this.frP.fzB = false;
-                e.this.frP.fzA = false;
-                e.this.frP.forumId = e.this.forumId;
-                e.this.frP.forumName = e.this.forumName;
-                e.this.frP.pn = 1;
+                e.this.fqX.errCode = customResponsedMessage.getError();
+                e.this.fqX.errMsg = customResponsedMessage.getErrorString();
+                e.this.fqX.hasMore = false;
+                e.this.fqX.fyK = false;
+                e.this.fqX.fyJ = false;
+                e.this.fqX.forumId = e.this.forumId;
+                e.this.fqX.forumName = e.this.forumName;
+                e.this.fqX.pn = 1;
                 com.baidu.tieba.tbadkCore.t tVar = (com.baidu.tieba.tbadkCore.t) customResponsedMessage.getData();
                 if (tVar != null && tVar.isLike() == 0 && e.this.mUserInfo != null) {
                     tVar.setCurScore(e.this.mUserInfo.getCurScore());
                     tVar.setLevelupScore(e.this.mUserInfo.getLevelupScore());
                 }
                 e.this.mUserInfo = tVar;
-                if (e.this.frN != null) {
-                    e.this.frN.a(3, 0, e.this.frP, e.this.a(e.this.mUserInfo, e.this.mMemberGroupInfoList, e.this.mMemberGodInfo, e.this.mManagerApplyInfo, e.this.mIsBawuShow, e.this.mIsPrivateForum, e.this.mPrivateMgrApplyInfo));
+                if (e.this.fqV != null) {
+                    e.this.fqV.a(3, 0, e.this.fqX, e.this.a(e.this.mUserInfo, e.this.mMemberGroupInfoList, e.this.mMemberGodInfo, e.this.mManagerApplyInfo, e.this.mIsBawuShow, e.this.mIsPrivateForum, e.this.mPrivateMgrApplyInfo));
                 }
             }
         }
     };
-    private CustomMessageListener frR = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE) { // from class: com.baidu.tieba.forumMember.member.e.4
+    private CustomMessageListener fqZ = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE) { // from class: com.baidu.tieba.forumMember.member.e.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -158,8 +158,8 @@ public class e implements af {
 
     public void vD(String str) {
         ForumMemberReadCacheRequestMessage forumMemberReadCacheRequestMessage = new ForumMemberReadCacheRequestMessage();
-        if (this.cKf != null) {
-            forumMemberReadCacheRequestMessage.setTag(this.cKf);
+        if (this.cJo != null) {
+            forumMemberReadCacheRequestMessage.setTag(this.cJo);
         }
         forumMemberReadCacheRequestMessage.setForumName(str);
         MessageManager.getInstance().sendMessage(forumMemberReadCacheRequestMessage);
@@ -168,8 +168,8 @@ public class e implements af {
     public void f(long j, String str) {
         if (j > 0 && !StringUtils.isNull(str)) {
             ForumMemberRequestMessage forumMemberRequestMessage = new ForumMemberRequestMessage();
-            if (this.cKf != null) {
-                forumMemberRequestMessage.setTag(this.cKf);
+            if (this.cJo != null) {
+                forumMemberRequestMessage.setTag(this.cJo);
             }
             forumMemberRequestMessage.setForumId(j);
             forumMemberRequestMessage.setForumName(str);
@@ -178,15 +178,15 @@ public class e implements af {
     }
 
     private void refreshData() {
-        this.frP.errCode = 0;
-        this.frP.hasMore = false;
-        this.frP.fzB = false;
-        this.frP.fzA = false;
-        this.frP.forumId = this.forumId;
-        this.frP.forumName = this.forumName;
-        this.frP.pn = 1;
-        if (this.frN != null) {
-            this.frN.a(3, 0, this.frP, a(this.mUserInfo, this.mMemberGroupInfoList, this.mMemberGodInfo, this.mManagerApplyInfo, this.mIsBawuShow, this.mIsPrivateForum, this.mPrivateMgrApplyInfo));
+        this.fqX.errCode = 0;
+        this.fqX.hasMore = false;
+        this.fqX.fyK = false;
+        this.fqX.fyJ = false;
+        this.fqX.forumId = this.forumId;
+        this.fqX.forumName = this.forumName;
+        this.fqX.pn = 1;
+        if (this.fqV != null) {
+            this.fqV.a(3, 0, this.fqX, a(this.mUserInfo, this.mMemberGroupInfoList, this.mMemberGodInfo, this.mManagerApplyInfo, this.mIsBawuShow, this.mIsPrivateForum, this.mPrivateMgrApplyInfo));
         }
     }
 
@@ -227,31 +227,31 @@ public class e implements af {
             if (this.mIsBawuShow && priManagerApplyInfo != null) {
                 s sVar = new s();
                 if (sVar != null) {
-                    sVar.qe(priManagerApplyInfo.assist_left_num.intValue());
+                    sVar.qd(priManagerApplyInfo.assist_left_num.intValue());
                     sVar.vF(priManagerApplyInfo.assist_apply_url);
-                    sVar.qf(priManagerApplyInfo.assist_apply_status.intValue());
+                    sVar.qe(priManagerApplyInfo.assist_apply_status.intValue());
                 }
                 arrayList.add(sVar);
             }
         } else {
             p pVar = new p();
             if (managerApplyInfo != null) {
-                pVar.qc(managerApplyInfo.manager_left_num.intValue());
+                pVar.qb(managerApplyInfo.manager_left_num.intValue());
                 pVar.vE(managerApplyInfo.manager_apply_url);
-                pVar.qe(managerApplyInfo.assist_left_num.intValue());
+                pVar.qd(managerApplyInfo.assist_left_num.intValue());
                 pVar.vF(managerApplyInfo.assist_apply_url);
-                pVar.qd(managerApplyInfo.manager_apply_status.intValue());
+                pVar.qc(managerApplyInfo.manager_apply_status.intValue());
             }
             arrayList.add(pVar);
             b bVar = new b();
-            bVar.frI = R.string.complaint_bar_lord;
+            bVar.fqQ = R.string.complaint_bar_lord;
             bVar.mUrl = "https://tieba.baidu.com/n/interact/complainManager/" + this.forumId;
             arrayList.add(bVar);
         }
         a(memberGodInfo, arrayList);
-        com.baidu.adp.widget.ListView.m bix = bix();
-        if (bix != null) {
-            arrayList.add(bix);
+        com.baidu.adp.widget.ListView.m biv = biv();
+        if (biv != null) {
+            arrayList.add(biv);
         }
         return arrayList;
     }
@@ -282,7 +282,7 @@ public class e implements af {
         }
     }
 
-    private com.baidu.tieba.frs.i bix() {
+    private com.baidu.tieba.frs.i biv() {
         int dimens;
         if (this.mMemberGroupInfoList == null || this.mMemberGroupInfoList.size() <= 0) {
             return null;
@@ -299,13 +299,13 @@ public class e implements af {
             dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds200);
         }
         iVar.setHeight(equipmentHeight - ((dimens + (dimens2 + dimens3)) + (dimens4 * size)));
-        iVar.ql(R.drawable.transparent_bg);
+        iVar.qk(R.drawable.transparent_bg);
         return iVar;
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.cKf = bdUniqueId;
+            this.cJo = bdUniqueId;
         }
     }
 
@@ -314,7 +314,7 @@ public class e implements af {
         if (i == 3 && amVar != null) {
             this.forumId = amVar.forumId;
             this.forumName = amVar.forumName;
-            if (this.fou) {
+            if (this.fnD) {
                 vD(amVar.forumName);
             } else if (amVar.pn == -1) {
                 f(com.baidu.adp.lib.g.b.toLong(amVar.forumId, 0L), amVar.forumName);
@@ -326,34 +326,34 @@ public class e implements af {
 
     @Override // com.baidu.tieba.frs.af
     public void a(ai aiVar) {
-        this.frN = aiVar;
+        this.fqV = aiVar;
     }
 
     @Override // com.baidu.tieba.frs.af
     public void init() {
         registerTask();
-        if (this.cKf != null) {
-            this.frg.setTag(this.cKf);
-            this.fdl.setTag(this.cKf);
-            this.frg.setSelfListener(true);
-            if (this.fdl.getHttpMessageListener() != null) {
-                this.fdl.getHttpMessageListener().setSelfListener(true);
+        if (this.cJo != null) {
+            this.fqp.setTag(this.cJo);
+            this.fcu.setTag(this.cJo);
+            this.fqp.setSelfListener(true);
+            if (this.fcu.getHttpMessageListener() != null) {
+                this.fcu.getHttpMessageListener().setSelfListener(true);
             }
-            if (this.fdl.getSocketMessageListener() != null) {
-                this.fdl.getSocketMessageListener().setSelfListener(true);
+            if (this.fcu.getSocketMessageListener() != null) {
+                this.fcu.getSocketMessageListener().setSelfListener(true);
             }
         }
-        MessageManager.getInstance().registerListener(this.frg);
-        MessageManager.getInstance().registerListener(this.fdl);
-        MessageManager.getInstance().registerListener(this.frQ);
-        MessageManager.getInstance().registerListener(this.frR);
+        MessageManager.getInstance().registerListener(this.fqp);
+        MessageManager.getInstance().registerListener(this.fcu);
+        MessageManager.getInstance().registerListener(this.fqY);
+        MessageManager.getInstance().registerListener(this.fqZ);
     }
 
     @Override // com.baidu.tieba.frs.af
-    public void aMM() {
-        MessageManager.getInstance().unRegisterListener(this.fdl);
-        MessageManager.getInstance().unRegisterListener(this.frg);
-        MessageManager.getInstance().unRegisterListener(this.frQ);
-        MessageManager.getInstance().unRegisterListener(this.frR);
+    public void aMK() {
+        MessageManager.getInstance().unRegisterListener(this.fcu);
+        MessageManager.getInstance().unRegisterListener(this.fqp);
+        MessageManager.getInstance().unRegisterListener(this.fqY);
+        MessageManager.getInstance().unRegisterListener(this.fqZ);
     }
 }

@@ -12,11 +12,11 @@ public class d implements a {
     }
 
     @Override // com.baidu.adp.gif.a
-    public com.baidu.adp.widget.ImageView.a e(byte[] bArr, int i, int i2) {
-        NSGif f = NSGif.f(bArr, i, i2);
-        if (f == null) {
+    public com.baidu.adp.widget.ImageView.a d(byte[] bArr, int i, int i2) {
+        NSGif e = NSGif.e(bArr, i, i2);
+        if (e == null) {
             return null;
         }
-        return new com.baidu.adp.widget.ImageView.a(f);
+        return new com.baidu.adp.widget.ImageView.a(e);
     }
 }

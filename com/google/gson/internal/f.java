@@ -7,7 +7,7 @@ import java.io.Writer;
 /* loaded from: classes2.dex */
 public final class f {
     public static void b(h hVar, com.google.gson.stream.a aVar) throws IOException {
-        m.krf.a(aVar, hVar);
+        m.kqo.a(aVar, hVar);
     }
 
     public static Writer a(Appendable appendable) {
@@ -16,22 +16,22 @@ public final class f {
 
     /* loaded from: classes2.dex */
     private static final class a extends Writer {
-        private final Appendable kpt;
-        private final C0569a kpu = new C0569a();
+        private final Appendable koC;
+        private final C0569a koD = new C0569a();
 
         a(Appendable appendable) {
-            this.kpt = appendable;
+            this.koC = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.kpu.chars = cArr;
-            this.kpt.append(this.kpu, i, i + i2);
+            this.koD.chars = cArr;
+            this.koC.append(this.koD, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.kpt.append((char) i);
+            this.koC.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable

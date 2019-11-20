@@ -6,18 +6,18 @@ import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class c {
-    public long OF;
+    public long Of;
     public long createTime;
-    public String dNX;
-    public String dNY;
-    public long dNZ;
-    public long dOa;
-    public long dOb;
-    public int dOc;
-    public long dOd;
-    public String dOe;
-    public String dOf;
-    public JSONObject dOg;
+    public String dNg;
+    public String dNh;
+    public long dNi;
+    public long dNj;
+    public long dNk;
+    public int dNl;
+    public long dNm;
+    public String dNn;
+    public String dNo;
+    public JSONObject dNp;
     public String description;
     public int id;
     public long liveId;
@@ -33,28 +33,28 @@ public class c {
                 try {
                     String optString = jSONObject.optString("anchor_id");
                     if (!TextUtils.isEmpty(optString)) {
-                        this.OF = Long.parseLong(EncryptionHelper.getDecryptUserId(optString));
+                        this.Of = Long.parseLong(EncryptionHelper.getDecryptUserId(optString));
                     }
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
-                this.dNX = jSONObject.optString("regiment_name");
-                this.dNY = jSONObject.optString("regiment_icon");
+                this.dNg = jSONObject.optString("regiment_name");
+                this.dNh = jSONObject.optString("regiment_icon");
                 this.description = jSONObject.optString("description");
-                this.dNZ = jSONObject.optLong("score");
-                this.dOa = jSONObject.optLong("week_score");
+                this.dNi = jSONObject.optLong("score");
+                this.dNj = jSONObject.optLong("week_score");
                 this.status = jSONObject.optInt("status");
                 this.createTime = jSONObject.optLong("create_time");
                 this.updateTime = jSONObject.optLong("update_time");
-                this.dOb = jSONObject.optLong("member_counts");
-                this.dOc = jSONObject.optInt("guard_level");
-                this.dOd = jSONObject.optLong("next_level_need_score");
-                this.dOe = jSONObject.optString("guard_club_portrait");
+                this.dNk = jSONObject.optLong("member_counts");
+                this.dNl = jSONObject.optInt("guard_level");
+                this.dNm = jSONObject.optLong("next_level_need_score");
+                this.dNn = jSONObject.optString("guard_club_portrait");
                 this.liveStatus = jSONObject.optInt("live_status");
                 this.liveId = jSONObject.optLong("live_id");
                 this.rank = jSONObject.optString("rank");
-                this.dOf = jSONObject.optString("week_rank");
-                this.dOg = jSONObject.optJSONObject("privilege");
+                this.dNo = jSONObject.optString("week_rank");
+                this.dNp = jSONObject.optJSONObject("privilege");
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }

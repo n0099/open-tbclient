@@ -12,70 +12,70 @@ import com.baidu.live.im.l;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes6.dex */
 public class n implements IConnectListener {
-    public static String agL = "imlog";
-    private static boolean agM = false;
-    private a agO;
-    private String agP;
-    private boolean agN = false;
-    private boolean ur = false;
+    public static String agt = "imlog";
+    private static boolean agu = false;
+    private a agw;
+    private String agx;
+    private boolean agv = false;
+    private boolean tN = false;
 
     public void init(String str) {
-        this.agP = str;
-        if (!this.ur) {
-            this.ur = true;
-            l.sR().init(TbadkCoreApplication.getInst());
-            sV();
-            l.sR().a(new l.a() { // from class: com.baidu.live.im.n.1
+        this.agx = str;
+        if (!this.tN) {
+            this.tN = true;
+            l.sS().init(TbadkCoreApplication.getInst());
+            sW();
+            l.sS().a(new l.a() { // from class: com.baidu.live.im.n.1
                 @Override // com.baidu.live.im.l.a
                 public void k(int i, String str2) {
-                    LogUtils.d(n.agL + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str2 + ", isConnected = " + n.this.agN);
-                    if (i == 0 && !n.this.agN) {
+                    LogUtils.d(n.agt + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str2 + ", isConnected = " + n.this.agv);
+                    if (i == 0 && !n.this.agv) {
                         n.this.onResult(0);
                     }
                 }
             });
-            if (this.agO == null) {
-                this.agO = new a();
+            if (this.agw == null) {
+                this.agw = new a();
             }
-            this.agO.register();
-            if (!agM) {
-                agM = true;
+            this.agw.register();
+            if (!agu) {
+                agu = true;
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                 com.baidu.c.b.a.aB(inst).a(new com.baidu.c.b.a.a.b(inst, new com.baidu.c.b.a.b(inst)));
-                f.sv().aq(inst);
+                f.sw().aq(inst);
             }
         }
     }
 
-    private void sV() {
-        LogUtils.d(agL + "LiveIMManager", "registerIMConnectListener");
-        this.agN = false;
+    private void sW() {
+        LogUtils.d(agt + "LiveIMManager", "registerIMConnectListener");
+        this.agv = false;
         BIMManager.unregisterConnectListener();
         BIMManager.registerConnectListener(this);
     }
 
     @Override // com.baidu.android.imsdk.account.IConnectListener
     public void onResult(int i) {
-        LogUtils.d(agL + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
-        this.agN = true;
+        LogUtils.d(agt + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
+        this.agv = true;
         if (i == 0) {
-            LogUtils.d(agL + "LiveIMManager", "IConnectListener net connect");
+            LogUtils.d(agt + "LiveIMManager", "IConnectListener net connect");
         } else if (i == 1) {
-            LogUtils.d(agL + "LiveIMManager", "IConnectListener net disconnect");
+            LogUtils.d(agt + "LiveIMManager", "IConnectListener net disconnect");
         }
     }
 
     public void cI(String str) {
-        if (this.agP == null || this.agP.equals(str)) {
-            this.ur = false;
-            LogUtils.d(agL + "LiveIMManager", "destroy");
-            this.agN = false;
-            if (this.agO != null) {
-                this.agO.destroy();
-                this.agO = null;
+        if (this.agx == null || this.agx.equals(str)) {
+            this.tN = false;
+            LogUtils.d(agt + "LiveIMManager", "destroy");
+            this.agv = false;
+            if (this.agw != null) {
+                this.agw.destroy();
+                this.agw = null;
             }
             BIMManager.unregisterConnectListener();
-            l.sR().destroy();
+            l.sS().destroy();
         }
     }
 

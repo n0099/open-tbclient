@@ -10,7 +10,7 @@ import java.util.Arrays;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private SparseArray<InterfaceC0152a> baL = new SparseArray<>();
+    private SparseArray<InterfaceC0152a> bat = new SparseArray<>();
 
     /* renamed from: com.baidu.swan.apps.ab.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -21,7 +21,7 @@ public final class a {
     @TargetApi(23)
     public void a(Activity activity, int i, @NonNull String[] strArr, InterfaceC0152a interfaceC0152a) {
         if (interfaceC0152a != null) {
-            this.baL.put(i, interfaceC0152a);
+            this.bat.put(i, interfaceC0152a);
             activity.requestPermissions(strArr, i);
             if (DEBUG) {
                 Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
@@ -30,10 +30,10 @@ public final class a {
     }
 
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        InterfaceC0152a interfaceC0152a = this.baL.get(i);
+        InterfaceC0152a interfaceC0152a = this.bat.get(i);
         if (interfaceC0152a != null) {
             interfaceC0152a.onRequestPermissionsResult(i, strArr, iArr);
-            this.baL.remove(i);
+            this.bat.remove(i);
         }
         if (DEBUG) {
             Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));

@@ -15,22 +15,22 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a vz = null;
-    private HashMap<String, ArrayList<Message<?>>> vy = null;
+    private static volatile a uY = null;
+    private HashMap<String, ArrayList<Message<?>>> uX = null;
 
     public static a iB() {
-        if (vz == null) {
+        if (uY == null) {
             synchronized (a.class) {
-                if (vz == null) {
-                    vz = new a();
+                if (uY == null) {
+                    uY = new a();
                 }
             }
         }
-        return vz;
+        return uY;
     }
 
     public void init() {
-        this.vy = new HashMap<>();
+        this.uX = new HashMap<>();
         iD();
         iC();
     }
@@ -44,13 +44,13 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.vx == 0 && a.this.vy.size() > 0 && (arrayList = (ArrayList) a.this.vy.get(aVar.vw)) != null && arrayList.size() > 0) {
+                    if (aVar.uW == 0 && a.this.uX.size() > 0 && (arrayList = (ArrayList) a.this.uX.get(aVar.uV)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.vy.remove(aVar.vw);
+                    a.this.uX.remove(aVar.uV);
                 }
             }
         });
@@ -83,10 +83,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.vy.get(str);
+            ArrayList<Message<?>> arrayList = this.uX.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.vy.put(str, arrayList);
+                this.uX.put(str, arrayList);
             }
             arrayList.add(message);
         }

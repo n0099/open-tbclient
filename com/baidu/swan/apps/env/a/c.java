@@ -12,10 +12,10 @@ public class c implements a {
         if (list == null) {
             return null;
         }
-        List<com.baidu.swan.apps.database.a> Hw = com.baidu.swan.apps.database.favorite.a.Hw();
-        if (Hw.size() != 0) {
+        List<com.baidu.swan.apps.database.a> Hx = com.baidu.swan.apps.database.favorite.a.Hx();
+        if (Hx.size() != 0) {
             HashSet hashSet = new HashSet();
-            for (com.baidu.swan.apps.database.a aVar : Hw) {
+            for (com.baidu.swan.apps.database.a aVar : Hx) {
                 hashSet.add(aVar.appId);
             }
             list.removeAll(hashSet);

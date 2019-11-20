@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tieba.video.editvideo.data.a jyR;
+    private com.baidu.tieba.video.editvideo.data.a jya;
     private List<com.baidu.tieba.video.editvideo.data.a> mList = new ArrayList();
 
     public void setData(List<com.baidu.tieba.video.editvideo.data.a> list) {
         if (list != null) {
             this.mList = list;
             if (this.mList.size() > 0) {
-                this.jyR = this.mList.get(0);
+                this.jya = this.mList.get(0);
             }
         }
     }
@@ -50,16 +50,16 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_filter, (ViewGroup) null);
-            aVar.jyS = (TbImageView) view.findViewById(R.id.iv_effect);
-            aVar.jyS.setIsRound(true);
-            aVar.jyS.setDrawerType(1);
-            aVar.jyS.setDefaultBgResource(R.color.transparent);
-            aVar.jyS.setBorderWidth(l.getDimens(viewGroup.getContext(), R.dimen.ds4));
-            aVar.jyS.setBorderColor(am.getColor(R.color.cp_link_tip_a));
-            aVar.jyS.setConrers(15);
-            aVar.hQt = (TextView) view.findViewById(R.id.tv_name);
-            am.setViewTextColor(aVar.hQt, (int) R.color.cp_cont_j);
-            aVar.hQt = (TextView) view.findViewById(R.id.tv_name);
+            aVar.jyb = (TbImageView) view.findViewById(R.id.iv_effect);
+            aVar.jyb.setIsRound(true);
+            aVar.jyb.setDrawerType(1);
+            aVar.jyb.setDefaultBgResource(R.color.transparent);
+            aVar.jyb.setBorderWidth(l.getDimens(viewGroup.getContext(), R.dimen.ds4));
+            aVar.jyb.setBorderColor(am.getColor(R.color.cp_link_tip_a));
+            aVar.jyb.setConrers(15);
+            aVar.hPC = (TextView) view.findViewById(R.id.tv_name);
+            am.setViewTextColor(aVar.hPC, (int) R.color.cp_cont_j);
+            aVar.hPC = (TextView) view.findViewById(R.id.tv_name);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -67,15 +67,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (i >= 0 && i < this.mList.size()) {
             com.baidu.tieba.video.editvideo.data.a aVar2 = this.mList.get(i);
             if (aVar2 != null) {
-                aVar.jyS.setTag(aVar2);
-                aVar.jyS.setOnClickListener(this);
-                aVar.jyS.startLoad(String.valueOf(aVar2.jzu), 24, false);
-                aVar.hQt.setText(aVar2.name);
+                aVar.jyb.setTag(aVar2);
+                aVar.jyb.setOnClickListener(this);
+                aVar.jyb.startLoad(String.valueOf(aVar2.jyD), 24, false);
+                aVar.hPC.setText(aVar2.name);
             }
-            if (!TextUtils.isEmpty(aVar2.name) && this.jyR != null && TextUtils.equals(aVar2.name, this.jyR.name)) {
-                aVar.jyS.setDrawBorder(true);
+            if (!TextUtils.isEmpty(aVar2.name) && this.jya != null && TextUtils.equals(aVar2.name, this.jya.name)) {
+                aVar.jyb.setDrawBorder(true);
             } else {
-                aVar.jyS.setDrawBorder(false);
+                aVar.jyb.setDrawBorder(false);
             }
         }
         return view;
@@ -84,15 +84,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.iv_effect && (view.getTag() instanceof com.baidu.tieba.video.editvideo.data.a)) {
-            this.jyR = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
+            this.jya = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
             notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes5.dex */
     class a {
-        TextView hQt;
-        TbImageView jyS;
+        TextView hPC;
+        TbImageView jyb;
 
         a() {
         }

@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
-    private static int geM;
-    private static int geN;
+    private static int gdU;
+    private static int gdV;
 
     public j(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.geX);
-        geM = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds102);
-        geN = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds166);
+        super(context, com.baidu.tieba.homepage.concern.b.a.gef);
+        gdU = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds102);
+        gdV = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,37 +39,37 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        aVar2.geO.setText(aVar.tipString);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.geO.getLayoutParams();
-        if (aVar.gfa) {
-            layoutParams.height = geN;
-            aVar2.fEY.setVisibility(0);
-        } else if (aVar.gfb) {
-            layoutParams.height = geM;
+        aVar2.gdW.setText(aVar.tipString);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.gdW.getLayoutParams();
+        if (aVar.gei) {
+            layoutParams.height = gdV;
+            aVar2.fEh.setVisibility(0);
+        } else if (aVar.gej) {
+            layoutParams.height = gdU;
         }
-        aVar2.geO.setLayoutParams(layoutParams);
+        aVar2.gdW.setLayoutParams(layoutParams);
         aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar2.getView();
     }
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        private int csX;
-        public View fEY;
-        public TextView geO;
+        private int csg;
+        public View fEh;
+        public TextView gdW;
 
         public a(View view) {
             super(view);
-            this.csX = 3;
-            this.geO = (TextView) view.findViewById(R.id.concern_tip_txt);
-            this.fEY = view.findViewById(R.id.concern_tip_top_line);
+            this.csg = 3;
+            this.gdW = (TextView) view.findViewById(R.id.concern_tip_txt);
+            this.fEh = view.findViewById(R.id.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.csX != i) {
+            if (this.csg != i) {
                 am.setBackgroundColor(getView(), R.color.cp_bg_line_e);
-                am.setViewTextColor(this.geO, (int) R.color.cp_cont_d);
-                am.setBackgroundResource(this.fEY, R.color.cp_bg_line_e);
+                am.setViewTextColor(this.gdW, (int) R.color.cp_cont_d);
+                am.setBackgroundResource(this.fEh, R.color.cp_bg_line_e);
             }
         }
     }

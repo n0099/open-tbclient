@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class d {
     private long duration;
     private boolean hasLoaded = false;
-    private String jCy;
+    private String jBH;
     private long lastModified;
     private String mimeType;
     private Bitmap thumbnailBitmap;
@@ -59,18 +59,18 @@ public class d {
     }
 
     public void EY(String str) {
-        this.jCy = str;
+        this.jBH = str;
     }
 
-    public long cuq() {
+    public long cuo() {
         return this.lastModified;
     }
 
-    public void ea(long j) {
+    public void dZ(long j) {
         this.lastModified = j;
     }
 
-    public synchronized Bitmap cur() {
+    public synchronized Bitmap cup() {
         return this.thumbnailBitmap;
     }
 
@@ -82,7 +82,7 @@ public class d {
         this.hasLoaded = z;
     }
 
-    public boolean cus() {
+    public boolean cuq() {
         return this.hasLoaded;
     }
 }

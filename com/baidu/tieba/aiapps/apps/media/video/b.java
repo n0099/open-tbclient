@@ -20,14 +20,14 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class b {
-    private SwanAppNAViewContainer aFc;
-    private a dqY;
+    private SwanAppNAViewContainer aEK;
+    private a dqh;
     private Context mContext;
 
     public b(Context context) {
         this.mContext = context;
-        this.aFc = new SwanAppNAViewContainer(this.mContext);
-        this.aFc.setBackgroundColor(Color.parseColor("#666666"));
+        this.aEK = new SwanAppNAViewContainer(this.mContext);
+        this.aEK.setBackgroundColor(Color.parseColor("#666666"));
     }
 
     public void j(com.baidu.swan.apps.media.d.c cVar) {
@@ -38,57 +38,57 @@ public class b {
 
     private void k(com.baidu.swan.apps.media.d.c cVar) {
         if (cVar != null) {
-            if (com.baidu.swan.apps.view.container.c.b.a(cVar.aXH, cVar.id, ac.jc(cVar.aXH)) == null) {
-                if (aHs().getModel() != null) {
-                    aHs().Vc();
+            if (com.baidu.swan.apps.view.container.c.b.a(cVar.aXp, cVar.id, ac.jc(cVar.aXp)) == null) {
+                if (aHq().getModel() != null) {
+                    aHq().Va();
                 }
-                if (aHo().getParent() instanceof ViewGroup) {
-                    ((ViewGroup) aHo().getParent()).removeView(aHo());
+                if (aHm().getParent() instanceof ViewGroup) {
+                    ((ViewGroup) aHm().getParent()).removeView(aHm());
                 }
-                aHs().setDescendantFocusability(393216);
-                com.baidu.swan.apps.console.c.d("video", "Add CoverContainerWrapper " + aHs().a(aHo(), cVar) + " position " + cVar.aXJ);
+                aHq().setDescendantFocusability(393216);
+                com.baidu.swan.apps.console.c.d("video", "Add CoverContainerWrapper " + aHq().a(aHm(), cVar) + " position " + cVar.aXr);
                 return;
             }
-            com.baidu.swan.apps.model.a.a.a Mq = cVar.Mq();
-            Mq.aXH = aHs().getSlaveId();
-            Mq.aXI = aHs().getParentId();
-            Mq.id = aHs().getViewId();
-            com.baidu.swan.apps.console.c.d("video", "Update CoverContainerWrapper " + aHs().a(Mq) + " position " + cVar.aXJ);
+            com.baidu.swan.apps.model.a.a.a Mr = cVar.Mr();
+            Mr.aXp = aHq().getSlaveId();
+            Mr.aXq = aHq().getParentId();
+            Mr.id = aHq().getViewId();
+            com.baidu.swan.apps.console.c.d("video", "Update CoverContainerWrapper " + aHq().a(Mr) + " position " + cVar.aXr);
         }
     }
 
-    private a aHo() {
-        if (this.dqY == null) {
-            this.dqY = new a(this.mContext);
+    private a aHm() {
+        if (this.dqh == null) {
+            this.dqh = new a(this.mContext);
         }
-        return this.dqY;
+        return this.dqh;
     }
 
-    public FrameLayout aHp() {
-        return aHo().aHp();
+    public FrameLayout aHn() {
+        return aHm().aHn();
     }
 
     public void k(View.OnClickListener onClickListener) {
-        View aHw = aHo().aHw();
-        aHw.setOnClickListener(onClickListener);
-        l(aHw, 0);
+        View aHu = aHm().aHu();
+        aHu.setOnClickListener(onClickListener);
+        l(aHu, 0);
     }
 
-    public void aHq() {
-        l(aHo().aHw(), 8);
+    public void aHo() {
+        l(aHm().aHu(), 8);
     }
 
     public void ck(String str, String str2) {
-        aHo().cl(str, str2);
-        l(aHo().aHx(), 0);
+        aHm().cl(str, str2);
+        l(aHm().aHv(), 0);
     }
 
-    public void aHr() {
-        l(aHo().aHx(), 8);
+    public void aHp() {
+        l(aHm().aHv(), 8);
     }
 
-    public SwanAppNAViewContainer aHs() {
-        return this.aFc;
+    public SwanAppNAViewContainer aHq() {
+        return this.aEK;
     }
 
     private void l(View view, int i) {
@@ -100,47 +100,47 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class a extends FrameLayout {
-        private FrameLayout dqT;
-        private ImageView dqZ;
-        private SimpleDraweeView dra;
+        private FrameLayout dqc;
+        private ImageView dqi;
+        private SimpleDraweeView dqj;
 
         public a(@NonNull Context context) {
             super(context);
+            aHr();
+            aHs();
             aHt();
-            aHu();
-            aHv();
+        }
+
+        private void aHr() {
+            this.dqc = new FrameLayout(getContext());
+            addView(this.dqc, new FrameLayout.LayoutParams(-1, -1));
+        }
+
+        private void aHs() {
+            this.dqj = new SimpleDraweeView(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+            this.dqj.getHierarchy().b(n.b.ked);
+            addView(this.dqj, layoutParams);
         }
 
         private void aHt() {
-            this.dqT = new FrameLayout(getContext());
-            addView(this.dqT, new FrameLayout.LayoutParams(-1, -1));
-        }
-
-        private void aHu() {
-            this.dra = new SimpleDraweeView(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.dra.getHierarchy().b(n.b.keV);
-            addView(this.dra, layoutParams);
-        }
-
-        private void aHv() {
-            this.dqZ = new ImageView(b.this.mContext);
-            this.dqZ.setImageResource(R.drawable.btn_play);
+            this.dqi = new ImageView(b.this.mContext);
+            this.dqi.setImageResource(R.drawable.btn_play);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.dqZ, layoutParams);
+            addView(this.dqi, layoutParams);
         }
 
-        public FrameLayout aHp() {
-            return this.dqT;
+        public FrameLayout aHn() {
+            return this.dqc;
         }
 
-        public View aHw() {
-            return this.dqZ;
+        public View aHu() {
+            return this.dqi;
         }
 
-        public SimpleDraweeView aHx() {
-            return this.dra;
+        public SimpleDraweeView aHv() {
+            return this.dqj;
         }
 
         public void cl(String str, String str2) {
@@ -148,7 +148,7 @@ public class b {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "cover";
                 }
-                n.b bVar = n.b.keV;
+                n.b bVar = n.b.ked;
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case 3143043:
@@ -172,17 +172,17 @@ public class b {
                 }
                 switch (c) {
                     case 0:
-                        n.b bVar2 = n.b.keU;
+                        n.b bVar2 = n.b.kec;
                         break;
                     case 1:
-                        n.b bVar3 = n.b.keV;
+                        n.b bVar3 = n.b.ked;
                         break;
                     case 2:
-                        n.b bVar4 = n.b.keP;
+                        n.b bVar4 = n.b.kdX;
                         break;
                 }
-                this.dra.getHierarchy().b(n.b.keV);
-                a(str, this.dra);
+                this.dqj.getHierarchy().b(n.b.ked);
+                a(str, this.dqj);
             }
         }
 
@@ -198,7 +198,7 @@ public class b {
             if (measuredWidth > 0 && measuredHeight > 0) {
                 R.c(new com.facebook.imagepipeline.common.c(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.cDB().b(simpleDraweeView.getController()).aJ(R.cJI()).cEl());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.cDz().b(simpleDraweeView.getController()).aJ(R.cJG()).cEj());
         }
 
         public Uri jb(String str) {

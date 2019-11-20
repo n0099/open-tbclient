@@ -6,54 +6,54 @@ import android.view.View;
 import com.baidu.tieba.write.e;
 /* loaded from: classes.dex */
 public abstract class f {
-    protected View cir;
-    protected e.a jNr;
-    protected a jNz;
+    protected View chz;
+    protected e.a jMA;
+    protected a jMI;
     protected View mAnchorView;
     protected Context mContext;
     protected int mState = 4;
-    protected Rect jNX = new Rect();
-    protected Rect jNY = new Rect();
+    protected Rect jNg = new Rect();
+    protected Rect jNh = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
-        void Bx(int i);
+        void Bw(int i);
     }
+
+    public abstract void cxG();
 
     public abstract void cxI();
 
-    public abstract void cxK();
-
-    public abstract void cxL();
+    public abstract void cxJ();
 
     public abstract void onDestroy();
 
     public f(Context context, e.a aVar) {
         this.mContext = context;
-        this.jNr = aVar;
+        this.jMA = aVar;
     }
 
     public void a(a aVar) {
-        this.jNz = aVar;
+        this.jMI = aVar;
     }
 
     public void c(View view, View view2) {
         this.mAnchorView = view;
-        this.cir = view2;
-        if (this.cir != null) {
-            this.cir.getGlobalVisibleRect(this.jNX);
+        this.chz = view2;
+        if (this.chz != null) {
+            this.chz.getGlobalVisibleRect(this.jNg);
         }
     }
 
     public void show() {
-        cxI();
+        cxG();
     }
 
     public void cd(boolean z) {
         if (z) {
-            cxK();
+            cxI();
         } else {
-            cxL();
+            cxJ();
         }
     }
 }

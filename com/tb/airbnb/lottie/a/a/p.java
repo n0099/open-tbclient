@@ -7,15 +7,15 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.model.content.ShapeStroke;
 /* loaded from: classes6.dex */
 public class p extends a {
-    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> ktb;
+    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> ksk;
     private final String name;
 
     public p(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
-        super(fVar, aVar, shapeStroke.cLL().toPaintCap(), shapeStroke.cLM().toPaintJoin(), shapeStroke.cLz(), shapeStroke.cLK(), shapeStroke.cE(), shapeStroke.cLN());
+        super(fVar, aVar, shapeStroke.cLJ().toPaintCap(), shapeStroke.cLK().toPaintJoin(), shapeStroke.cLx(), shapeStroke.cLI(), shapeStroke.cE(), shapeStroke.cLL());
         this.name = shapeStroke.getName();
-        this.ktb = shapeStroke.cMb().cLn();
-        this.ktb.b(this);
-        aVar.a(this.ktb);
+        this.ksk = shapeStroke.cLZ().cLl();
+        this.ksk.b(this);
+        aVar.a(this.ksk);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.d
@@ -25,7 +25,7 @@ public class p extends a {
 
     @Override // com.tb.airbnb.lottie.a.a.a, com.tb.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        this.paint.setColor(this.ktb.getValue().intValue());
+        this.paint.setColor(this.ksk.getValue().intValue());
         super.a(canvas, matrix, i);
     }
 

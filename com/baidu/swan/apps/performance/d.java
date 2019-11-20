@@ -17,28 +17,28 @@ public class d implements com.baidu.swan.apps.an.d.a<HybridUbcFlow> {
     }
 
     public void d(HybridUbcFlow hybridUbcFlow) {
-        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
-        if (hybridUbcFlow != null && !hybridUbcFlow.aZQ.isEmpty()) {
+        com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
+        if (hybridUbcFlow != null && !hybridUbcFlow.aZy.isEmpty()) {
             long l = hybridUbcFlow.l("slave_first_rendered", "master_dispatch_start");
-            com.baidu.swan.apps.ak.e.bsZ.I(Long.valueOf(l));
-            com.baidu.swan.apps.ak.e.bsU.I(Long.valueOf(hybridUbcFlow.l("slave_first_rendered", "naStart")));
-            com.baidu.swan.apps.ak.e.bsV.I(Long.valueOf(hybridUbcFlow.l("aps_end_download", "aps_start_download", "aps_end_req", "aps_start_req", "naStart")));
-            if (DEBUG && QZ != null) {
+            com.baidu.swan.apps.ak.e.bsi.I(Long.valueOf(l));
+            com.baidu.swan.apps.ak.e.bsd.I(Long.valueOf(hybridUbcFlow.l("slave_first_rendered", "naStart")));
+            com.baidu.swan.apps.ak.e.bse.I(Long.valueOf(hybridUbcFlow.l("aps_end_download", "aps_start_download", "aps_end_req", "aps_start_req", "naStart")));
+            if (DEBUG && Ra != null) {
                 long l2 = hybridUbcFlow.l("slave_first_rendered", "naStart");
                 long j = l2 < 1 ? 1L : l2;
-                String name = QZ.getName();
+                String name = Ra.getName();
                 if (TextUtils.isEmpty(name)) {
                     name = "";
                 }
-                Log.i("StartupReporter", "\n\n  小程序启动性能报告: " + name + " appID: " + (!TextUtils.isEmpty(QZ.id) ? QZ.id : "") + " speedLog\n");
+                Log.i("StartupReporter", "\n\n  小程序启动性能报告: " + name + " appID: " + (!TextUtils.isEmpty(Ra.id) ? Ra.id : "") + " speedLog\n");
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < 100; i++) {
                     sb.append("&");
                 }
                 Log.i("StartupReporter", String.format("Delta [%s]  Cost Src  Total Action", sb.toString()));
                 long j2 = 0;
-                long NK = hybridUbcFlow.aZQ.get(0).NK();
-                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.aZQ) {
+                long NL = hybridUbcFlow.aZy.get(0).NL();
+                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.aZy) {
                     long l3 = hybridUbcFlow.l(ubcFlowEvent.id, "naStart");
                     boolean z = l3 < 0;
                     boolean z2 = l3 > j;
@@ -72,14 +72,14 @@ public class d implements com.baidu.swan.apps.an.d.a<HybridUbcFlow> {
                             sb2.append("#");
                         }
                     }
-                    sb2.append(z2 ? ">" : "]").append(String.format(Locale.getDefault(), " %5d", Long.valueOf(l3))).append(String.format("  %s", ubcFlowEvent.NL())).append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(ubcFlowEvent.NK() - NK))).append(ubcFlowEvent.id);
-                    if (ubcFlowEvent.NM()) {
+                    sb2.append(z2 ? ">" : "]").append(String.format(Locale.getDefault(), " %5d", Long.valueOf(l3))).append(String.format("  %s", ubcFlowEvent.NM())).append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(ubcFlowEvent.NL() - NL))).append(ubcFlowEvent.id);
+                    if (ubcFlowEvent.NN()) {
                         sb2.append("(LocalRecord)");
                     }
                     Log.i("StartupReporter", sb2.toString());
                     j2 = l3;
                 }
-                Log.i("StartupReporter", "Total  ： " + hybridUbcFlow.aZQ.size());
+                Log.i("StartupReporter", "Total  ： " + hybridUbcFlow.aZy.size());
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("\n========APS下载完成:" + hybridUbcFlow.l("aps_end_download", "naStart"));
                 sb3.append("\n========解压包时长:" + hybridUbcFlow.l("package_end_unzip", "first_anim_start", "aps_end_download"));
@@ -106,13 +106,13 @@ public class d implements com.baidu.swan.apps.an.d.a<HybridUbcFlow> {
                 sb3.append("\n========下载-安装（IO开销，从下载开始，到小程序包解压安装作业完成）:" + hybridUbcFlow.l("package_end_unzip", "aps_start_download"));
                 sb3.append("\n========小程序框架启动总时长（NA开销，从开始，到 NA 准备完成）:" + hybridUbcFlow.l("master_dispatch_start", "naStart"));
                 sb3.append("\n========小程序业务渲染总时长（H5开销，从 NA 准备完成，到页面渲染）:" + l);
-                int optInt = hybridUbcFlow.Nk().optInt("type", -1);
+                int optInt = hybridUbcFlow.Nl().optInt("type", -1);
                 String gD = hybridUbcFlow.gD("preload_scene");
                 if (TextUtils.isEmpty(gD)) {
                     gD = LivenessStat.TYPE_STRING_DEFAULT;
                 }
                 sb3.append("\n\n小程序启动总时长：========> " + j);
-                sb3.append(!hybridUbcFlow.aZO.contains("package_start_unzip") ? "(热启动)" : "(冷启动)").append("  relaunchType:" + optInt).append("  preloadType:" + gD);
+                sb3.append(!hybridUbcFlow.aZw.contains("package_start_unzip") ? "(热启动)" : "(冷启动)").append("  relaunchType:" + optInt).append("  preloadType:" + gD);
                 Log.i("StartupReporter", "Report ： " + sb3.toString());
             }
         }

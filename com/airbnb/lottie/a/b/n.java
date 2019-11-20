@@ -5,11 +5,11 @@ import com.airbnb.lottie.a.b.a;
 import java.util.Collections;
 /* loaded from: classes2.dex */
 public class n<K, A> extends a<K, A> {
-    private final A fI;
+    private final A fg;
 
     public n(A a) {
         super(Collections.emptyList());
-        this.fI = a;
+        this.fg = a;
     }
 
     @Override // com.airbnb.lottie.a.b.a
@@ -22,11 +22,11 @@ public class n<K, A> extends a<K, A> {
 
     @Override // com.airbnb.lottie.a.b.a
     public A getValue() {
-        return this.fI;
+        return this.fg;
     }
 
     @Override // com.airbnb.lottie.a.b.a
     public A a(com.airbnb.lottie.a.a<K> aVar, float f) {
-        return this.fI;
+        return this.fg;
     }
 }

@@ -82,7 +82,7 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
                 AlaSdkWalletActivity.this.finishSelf();
                 return;
             }
-            ah aMn = ((GetOrderHttpResponsedMessage) httpResponsedMessage).aMn();
+            ah aMl = ((GetOrderHttpResponsedMessage) httpResponsedMessage).aMl();
             if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     errorString = AlaSdkWalletActivity.this.mContext.getResources().getString(a.i.sdk_neterror);
@@ -92,13 +92,13 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
                 AlaSdkWalletActivity.this.showToast(errorString);
                 AlaSdkWalletActivity.this.mPayStatus = 3;
                 AlaSdkWalletActivity.this.finishSelf();
-            } else if (aMn == null) {
+            } else if (aMl == null) {
                 AlaSdkWalletActivity.this.showToast(a.i.sdk_pay_fail);
                 AlaSdkWalletActivity.this.mPayStatus = 3;
                 AlaSdkWalletActivity.this.finishSelf();
             } else {
-                AlaSdkWalletActivity.this.mOrderId = aMn.orderId;
-                AlaSdkWalletActivity.this.mCurPayOrderInfo = aMn;
+                AlaSdkWalletActivity.this.mOrderId = aMl.orderId;
+                AlaSdkWalletActivity.this.mCurPayOrderInfo = aMl;
                 if (TextUtils.isEmpty(AlaSdkWalletActivity.this.mCurPayOrderInfo.pay_channel) || "url".equalsIgnoreCase(AlaSdkWalletActivity.this.mCurPayOrderInfo.call_type)) {
                     AlaSdkWalletActivity.this.payByWallet();
                     return;
@@ -156,7 +156,7 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
 
         @Override // com.baidu.tieba.ala.live.a.b
         public void doPay(String str) {
-            AlaSdkWalletActivity.this.mCurPayOrderInfo.UB = str;
+            AlaSdkWalletActivity.this.mCurPayOrderInfo.Uh = str;
             AlaSdkWalletActivity.this.realPay();
         }
     };

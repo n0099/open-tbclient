@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class f {
-    private TextView hIA;
-    private TextView hIB;
-    private ImageView hIC;
-    private RelativeLayout hIz;
+    private RelativeLayout hHI;
+    private TextView hHJ;
+    private TextView hHK;
+    private ImageView hHL;
     private View rootView;
 
     public f(View view) {
         this.rootView = view;
-        this.hIz = (RelativeLayout) view.findViewById(R.id.chosen_pb_reply_text);
-        this.hIA = (TextView) view.findViewById(R.id.chosen_pb_reply_comment);
-        this.hIB = (TextView) view.findViewById(R.id.chosen_pb_reply_number);
-        this.hIC = (ImageView) view.findViewById(R.id.chosen_pb_reply_share);
+        this.hHI = (RelativeLayout) view.findViewById(R.id.chosen_pb_reply_text);
+        this.hHJ = (TextView) view.findViewById(R.id.chosen_pb_reply_comment);
+        this.hHK = (TextView) view.findViewById(R.id.chosen_pb_reply_number);
+        this.hHL = (ImageView) view.findViewById(R.id.chosen_pb_reply_share);
     }
 
     public void M(View.OnClickListener onClickListener) {
-        this.hIz.setOnClickListener(onClickListener);
+        this.hHI.setOnClickListener(onClickListener);
     }
 
     public void setVisible(boolean z) {
@@ -31,18 +31,18 @@ public class f {
     }
 
     public void N(View.OnClickListener onClickListener) {
-        this.hIC.setOnClickListener(onClickListener);
+        this.hHL.setOnClickListener(onClickListener);
     }
 
     public void AB(String str) {
-        this.hIB.setText(str);
+        this.hHK.setText(str);
     }
 
     public void onChangeSkinType() {
         am.setBackgroundResource(this.rootView, R.drawable.bg_rec_lick);
-        am.setBackgroundResource(this.hIz, R.drawable.bg_rec_comment);
-        am.setViewTextColor(this.hIA, R.color.cp_cont_c, 1);
-        am.setViewTextColor(this.hIB, R.color.cp_cont_e, 1);
-        am.setImageResource(this.hIC, R.drawable.recommend_pb_share_selector);
+        am.setBackgroundResource(this.hHI, R.drawable.bg_rec_comment);
+        am.setViewTextColor(this.hHJ, R.color.cp_cont_c, 1);
+        am.setViewTextColor(this.hHK, R.color.cp_cont_e, 1);
+        am.setImageResource(this.hHL, R.drawable.recommend_pb_share_selector);
     }
 }

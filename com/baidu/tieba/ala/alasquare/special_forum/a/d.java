@@ -28,7 +28,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         if (aVar == null || cVar == null) {
             return null;
         }
-        aVar.dDq.a(cVar);
+        aVar.dCz.a(cVar);
         return aVar.getView();
     }
 }

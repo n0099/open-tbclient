@@ -1,100 +1,81 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.text.TextUtils;
-import java.text.Collator;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
+import com.xiaomi.push.Cif;
+import com.xiaomi.push.hg;
+import com.xiaomi.push.hq;
+import com.xiaomi.push.ht;
+import java.util.HashMap;
+import java.util.Map;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class bf {
-    public static void a(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
-        long j = sharedPreferences.getLong("last_sync_info", -1L);
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        long a = com.xiaomi.push.service.an.a(context).a(com.xiaomi.xmpush.thrift.g.SyncInfoFrequency.a(), 1209600);
-        if (j == -1) {
-            sharedPreferences.edit().putLong("last_sync_info", currentTimeMillis).commit();
-        } else if (Math.abs(currentTimeMillis - j) > a) {
-            a(context, true);
-            sharedPreferences.edit().putLong("last_sync_info", currentTimeMillis).commit();
-        }
+public final class bf implements Runnable {
+    final /* synthetic */ Context a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ boolean f57a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bf(Context context, boolean z) {
+        this.a = context;
+        this.f57a = z;
     }
 
-    public static void a(Context context, com.xiaomi.xmpush.thrift.ai aiVar) {
-        com.xiaomi.channel.commonutils.logger.b.a("need to update local info with: " + aiVar.j());
-        String str = aiVar.j().get(Constants.EXTRA_KEY_ACCEPT_TIME);
-        if (str != null) {
-            MiPushClient.removeAcceptTime(context);
-            String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-            if (split.length == 2) {
-                MiPushClient.addAcceptTime(context, split[0], split[1]);
-                if ("00:00".equals(split[0]) && "00:00".equals(split[1])) {
-                    d.a(context).a(true);
-                } else {
-                    d.a(context).a(false);
-                }
+    @Override // java.lang.Runnable
+    public void run() {
+        String d;
+        String d2;
+        String d3;
+        String c;
+        String c2;
+        String c3;
+        com.xiaomi.channel.commonutils.logger.b.m30a("do sync info");
+        Cif cif = new Cif(com.xiaomi.push.service.aj.a(), false);
+        d m68a = d.m68a(this.a);
+        cif.c(hq.SyncInfo.f489a);
+        cif.b(m68a.m69a());
+        cif.d(this.a.getPackageName());
+        cif.f629a = new HashMap();
+        com.xiaomi.push.n.a(cif.f629a, "app_version", com.xiaomi.push.g.m279a(this.a, this.a.getPackageName()));
+        com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(this.a, this.a.getPackageName())));
+        com.xiaomi.push.n.a(cif.f629a, "push_sdk_vn", "3_6_19");
+        com.xiaomi.push.n.a(cif.f629a, "push_sdk_vc", Integer.toString(30619));
+        com.xiaomi.push.n.a(cif.f629a, "token", m68a.b());
+        if (!com.xiaomi.push.l.d()) {
+            String a = com.xiaomi.push.ay.a(com.xiaomi.push.i.f(this.a));
+            String h = com.xiaomi.push.i.h(this.a);
+            if (!TextUtils.isEmpty(h)) {
+                a = a + Constants.ACCEPT_TIME_SEPARATOR_SP + h;
+            }
+            if (!TextUtils.isEmpty(a)) {
+                com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_IMEI_MD5, a);
             }
         }
-        String str2 = aiVar.j().get(Constants.EXTRA_KEY_ALIASES);
-        if (str2 != null) {
-            MiPushClient.removeAllAliases(context);
-            if (!"".equals(str2)) {
-                String[] split2 = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                for (String str3 : split2) {
-                    MiPushClient.addAlias(context, str3);
-                }
-            }
+        com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_REG_ID, m68a.m76c());
+        com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_REG_SECRET, m68a.d());
+        com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(Constants.ACCEPT_TIME_SEPARATOR_SP, Constants.ACCEPT_TIME_SEPARATOR_SERVER));
+        if (this.f57a) {
+            Map<String, String> map = cif.f629a;
+            c = be.c(MiPushClient.getAllAlias(this.a));
+            com.xiaomi.push.n.a(map, Constants.EXTRA_KEY_ALIASES_MD5, c);
+            Map<String, String> map2 = cif.f629a;
+            c2 = be.c(MiPushClient.getAllTopic(this.a));
+            com.xiaomi.push.n.a(map2, Constants.EXTRA_KEY_TOPICS_MD5, c2);
+            Map<String, String> map3 = cif.f629a;
+            c3 = be.c(MiPushClient.getAllUserAccount(this.a));
+            com.xiaomi.push.n.a(map3, Constants.EXTRA_KEY_ACCOUNTS_MD5, c3);
+        } else {
+            Map<String, String> map4 = cif.f629a;
+            d = be.d(MiPushClient.getAllAlias(this.a));
+            com.xiaomi.push.n.a(map4, Constants.EXTRA_KEY_ALIASES, d);
+            Map<String, String> map5 = cif.f629a;
+            d2 = be.d(MiPushClient.getAllTopic(this.a));
+            com.xiaomi.push.n.a(map5, Constants.EXTRA_KEY_TOPICS, d2);
+            Map<String, String> map6 = cif.f629a;
+            d3 = be.d(MiPushClient.getAllUserAccount(this.a));
+            com.xiaomi.push.n.a(map6, Constants.EXTRA_KEY_ACCOUNTS, d3);
         }
-        String str4 = aiVar.j().get(Constants.EXTRA_KEY_TOPICS);
-        if (str4 != null) {
-            MiPushClient.removeAllTopics(context);
-            if (!"".equals(str4)) {
-                String[] split3 = str4.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                for (String str5 : split3) {
-                    MiPushClient.addTopic(context, str5);
-                }
-            }
-        }
-        String str6 = aiVar.j().get(Constants.EXTRA_KEY_ACCOUNTS);
-        if (str6 != null) {
-            MiPushClient.removeAllAccounts(context);
-            if ("".equals(str6)) {
-                return;
-            }
-            String[] split4 = str6.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            for (String str7 : split4) {
-                MiPushClient.addAccount(context, str7);
-            }
-        }
-    }
-
-    public static void a(Context context, boolean z) {
-        com.xiaomi.channel.commonutils.misc.h.a(context).a(new bg(context, z));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static String c(List<String> list) {
-        String a = com.xiaomi.channel.commonutils.string.d.a(d(list));
-        return (TextUtils.isEmpty(a) || a.length() <= 4) ? "" : a.substring(0, 4).toLowerCase();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static String d(List<String> list) {
-        if (com.xiaomi.channel.commonutils.misc.c.a(list)) {
-            return "";
-        }
-        ArrayList<String> arrayList = new ArrayList(list);
-        Collections.sort(arrayList, Collator.getInstance(Locale.CHINA));
-        String str = "";
-        for (String str2 : arrayList) {
-            if (!TextUtils.isEmpty(str)) {
-                str = str + Constants.ACCEPT_TIME_SEPARATOR_SP;
-            }
-            str = str + str2;
-        }
-        return str;
+        ay.a(this.a).a((ay) cif, hg.Notification, false, (ht) null);
     }
 }

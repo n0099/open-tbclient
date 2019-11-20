@@ -53,7 +53,7 @@ public class b extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            com.baidu.swan.apps.media.audio.b a = com.baidu.swan.apps.media.audio.b.a(fT, fU.LV());
+            com.baidu.swan.apps.media.audio.b a = com.baidu.swan.apps.media.audio.b.a(fT, fU.LW());
             if (!a.isValid()) {
                 c.e("audio", "params is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -109,37 +109,37 @@ public class b extends z {
             }
             switch (c) {
                 case 0:
-                    c.i("audio", "open, audio id:" + a.aUO);
+                    c.i("audio", "open, audio id:" + a.aUw);
                     fU.a(a, callbackHandler);
                     z = true;
                     break;
                 case 1:
-                    c.i("audio", "update, audio id:" + a.aUO);
+                    c.i("audio", "update, audio id:" + a.aUw);
                     fU.a(a);
                     z = true;
                     break;
                 case 2:
-                    c.i("audio", "play, audio id:" + a.aUO);
+                    c.i("audio", "play, audio id:" + a.aUw);
                     fU.play();
                     z = true;
                     break;
                 case 3:
-                    c.i("audio", "pause, audio id:" + a.aUO);
+                    c.i("audio", "pause, audio id:" + a.aUw);
                     fU.pause();
                     z = true;
                     break;
                 case 4:
-                    c.i("audio", "seek, audio id:" + a.aUO);
+                    c.i("audio", "seek, audio id:" + a.aUw);
                     fU.seekTo(a.mPos);
                     z = true;
                     break;
                 case 5:
-                    c.i("audio", "stop, audio id:" + a.aUO);
+                    c.i("audio", "stop, audio id:" + a.aUw);
                     fU.stop();
                     z = true;
                     break;
                 case 6:
-                    c.i("audio", "release, audio id:" + a.aUO);
+                    c.i("audio", "release, audio id:" + a.aUw);
                     fU.release();
                     z = true;
                     break;
@@ -163,7 +163,7 @@ public class b extends z {
         if (!(fP instanceof SwanAppAudioPlayer)) {
             return null;
         }
-        return (SwanAppAudioPlayer) fP.LM();
+        return (SwanAppAudioPlayer) fP.LN();
     }
 
     private JSONObject fT(String str) {
@@ -187,7 +187,7 @@ public class b extends z {
         }
         try {
             boolean optBoolean = jSONObject.optBoolean("mixWithOther", false);
-            bVar.Rj().putBoolean("key_audio_is_mix_with_other", optBoolean);
+            bVar.Rl().putBoolean("key_audio_is_mix_with_other", optBoolean);
             if (DEBUG) {
                 Log.d("AudioPlayerAction", "Audio Mix Changed to " + optBoolean);
             }

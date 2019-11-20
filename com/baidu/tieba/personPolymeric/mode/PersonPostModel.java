@@ -53,9 +53,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
-    private static int itd = 0;
-    private static int ite = 1;
-    private static String itf = "";
+    private static int ism = 0;
+    private static int isn = 1;
+    private static String iso = "";
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -182,36 +182,36 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        ite = 1;
+        isn = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(itf)) {
-                itd = 1;
-                itf = str;
+            if (z || !str.equals(iso)) {
+                ism = 1;
+                iso = str;
             } else {
-                itd++;
+                ism++;
             }
         } else {
-            if (z || !str.equals(itf)) {
+            if (z || !str.equals(iso)) {
                 if (this.mFrom == FROM_PERSON_POLYMERIC) {
-                    ite = 1;
+                    isn = 1;
                 } else {
-                    ite = 0;
+                    isn = 0;
                 }
-                itf = str;
+                iso = str;
             }
-            ite++;
+            isn++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(itf);
+        userPostPageRequestMessage.setUid(iso);
         if (z3) {
-            userPostPageRequestMessage.setPn(itd);
+            userPostPageRequestMessage.setPn(ism);
         } else {
-            userPostPageRequestMessage.setPn(ite);
+            userPostPageRequestMessage.setPn(isn);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -222,7 +222,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
         int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = ar.amO().isFrsShowBigImage() ? 2 : 1;
+        int i2 = ar.amM().isFrsShowBigImage() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(equipmentWidth);
         userPostPageRequestMessage.set_scr_h(equipmentHeight);
         userPostPageRequestMessage.set_scr_dip(f);
@@ -264,7 +264,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.eQS != 33) {
+                if (cardPersonDynamicThreadData.eQb != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -510,17 +510,17 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         while (it.hasNext()) {
             m next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).eRe = true;
-                ((CardPersonDynamicThreadData) next).eRd = true;
-                long j = ((CardPersonDynamicThreadData) next).eQQ * 1000;
+                ((CardPersonDynamicThreadData) next).eQn = true;
+                ((CardPersonDynamicThreadData) next).eQm = true;
+                long j = ((CardPersonDynamicThreadData) next).ePZ * 1000;
                 String yearBytime2 = aq.getYearBytime(j);
                 String chineseMonthBytime = aq.getChineseMonthBytime(j);
                 String dateBytime = aq.getDateBytime(j);
                 if (aq.equals(yearBytime2, yearBytime)) {
-                    ((CardPersonDynamicThreadData) next).eRe = false;
+                    ((CardPersonDynamicThreadData) next).eQn = false;
                 }
                 if (aq.equals(dateBytime, str5) && aq.equals(chineseMonthBytime, str4) && aq.equals(yearBytime2, yearBytime)) {
-                    ((CardPersonDynamicThreadData) next).eRd = false;
+                    ((CardPersonDynamicThreadData) next).eQm = false;
                     str = str5;
                     str2 = str4;
                     str3 = yearBytime;

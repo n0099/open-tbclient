@@ -14,11 +14,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a {
-    private static final Pattern btB;
-    private static HashMap<String, Integer> btx = new HashMap<>();
-    private static HashMap<String, Integer> bty = new HashMap<>();
-    private static HashMap<String, String> btz = new HashMap<>();
-    private static HashMap<String, String> btA = new HashMap<>();
+    private static HashMap<String, Integer> bsG = new HashMap<>();
+    private static HashMap<String, Integer> bsH = new HashMap<>();
+    private static HashMap<String, String> bsI = new HashMap<>();
+    private static HashMap<String, String> bsJ = new HashMap<>();
+    private static final Pattern bsK;
 
     static {
         e("application/andrew-inset", "ez", 5);
@@ -339,15 +339,15 @@ public final class a {
         e("audio/aac", "aac", 1);
         e("application/vnd.rn-realmedia", "rm", 0);
         e("message/rfc822", "mht", 11);
-        btB = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        bsK = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void e(String str, String str2, int i) {
-        btx.put(str2, Integer.valueOf(i));
-        bty.put(str, Integer.valueOf(i));
-        btz.put(str2, str);
-        if (!btA.containsKey(str)) {
-            btA.put(str, str2);
+        bsG.put(str2, Integer.valueOf(i));
+        bsH.put(str, Integer.valueOf(i));
+        bsI.put(str2, str);
+        if (!bsJ.containsKey(str)) {
+            bsJ.put(str, str2);
         }
     }
 
@@ -356,9 +356,9 @@ public final class a {
     }
 
     public static int u(String str, String str2, boolean z) {
-        Integer num = bty.get(str2);
+        Integer num = bsH.get(str2);
         if (num == null) {
-            num = btx.get(str);
+            num = bsG.get(str);
             if (num == null) {
                 num = 5;
             } else if (z && num.intValue() == 8) {
@@ -382,14 +382,14 @@ public final class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return btz.get(str);
+        return bsI.get(str);
     }
 
     public static String rA(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return btA.get(str);
+        return bsJ.get(str);
     }
 
     public static String N(String str, String str2, String str3) {
@@ -501,7 +501,7 @@ public final class a {
 
     static String rC(String str) {
         try {
-            Matcher matcher = btB.matcher(str);
+            Matcher matcher = bsK.matcher(str);
             if (matcher.find()) {
                 return matcher.group(2);
             }

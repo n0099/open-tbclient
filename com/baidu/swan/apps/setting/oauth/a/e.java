@@ -19,29 +19,29 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e extends g<c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public g.a boH;
-    public b boI = new b(Looper.getMainLooper(), this);
-    public Bundle boJ;
+    public g.a bop;
+    public b boq = new b(Looper.getMainLooper(), this);
+    public Bundle bor;
     protected final Activity mActivity;
 
     public e(Activity activity, g.a aVar, Bundle bundle) {
         this.mActivity = activity;
-        this.boH = aVar;
-        this.boJ = bundle;
+        this.bop = aVar;
+        this.bor = bundle;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean IM() {
+    protected boolean IN() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", Rq().id);
+            jSONObject.put("ma_id", Rs().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", Rq().getAppKey());
+            jSONObject2.put("app_key", Rs().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String BQ = com.baidu.swan.apps.u.a.Ju().BQ();
-            if (!TextUtils.isEmpty(BQ)) {
-                jSONObject2.put("host_api_key", BQ);
+            String BR = com.baidu.swan.apps.u.a.Jv().BR();
+            if (!TextUtils.isEmpty(BR)) {
+                jSONObject2.put("host_api_key", BR);
             }
             jSONObject.put("open", jSONObject2);
         } catch (JSONException e) {
@@ -53,37 +53,37 @@ public class e extends g<c> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.u.a.Ju().d(this.mActivity, gVar.Ss());
+        return com.baidu.swan.apps.u.a.Jv().d(this.mActivity, gVar.Su());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    public boolean IL() {
-        a(IP());
-        return super.IL();
+    public boolean IM() {
+        a(IQ());
+        return super.IM();
     }
 
     @NonNull
-    protected com.baidu.swan.apps.setting.oauth.d IP() {
+    protected com.baidu.swan.apps.setting.oauth.d IQ() {
         return new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: aG */
-    public c X(JSONObject jSONObject) throws JSONException {
-        JSONObject aD = com.baidu.swan.apps.setting.oauth.c.aD(jSONObject);
-        int optInt = aD.optInt("errno", 11001);
+    /* renamed from: aH */
+    public c Y(JSONObject jSONObject) throws JSONException {
+        JSONObject aE = com.baidu.swan.apps.setting.oauth.c.aE(jSONObject);
+        int optInt = aE.optInt("errno", 11001);
         if (optInt != 0) {
             if (11001 == optInt) {
-                com.baidu.swan.apps.setting.oauth.c.aC(aD);
-                com.baidu.swan.apps.setting.oauth.c.aH("LoginRequest", aD.toString());
+                com.baidu.swan.apps.setting.oauth.c.aD(aE);
+                com.baidu.swan.apps.setting.oauth.c.aH("LoginRequest", aE.toString());
             }
-            throw new JSONException("Illegal errno=" + optInt + " errms=" + aD.optString("errms"));
+            throw new JSONException("Illegal errno=" + optInt + " errms=" + aE.optString("errms"));
         }
         String str = "";
-        JSONObject jSONObject2 = aD.getJSONObject("data");
+        JSONObject jSONObject2 = aE.getJSONObject("data");
         if (jSONObject2 != null) {
             str = jSONObject2.optString("code", "");
         }
@@ -92,12 +92,12 @@ public class e extends g<c> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    public void l(@Nullable Exception exc) {
-        super.l(exc);
+    public void k(@Nullable Exception exc) {
+        super.k(exc);
         if (DEBUG) {
             Log.d("LoginRequest", "finish: remove timeout msg");
         }
-        this.boI.removeMessages(1);
+        this.boq.removeMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -107,14 +107,14 @@ public class e extends g<c> {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean IO() throws Exception {
-            com.baidu.swan.apps.a.b Re = e.this.Rq().Re();
-            boolean isLogin = Re.isLogin(e.this.mActivity);
+        protected boolean IP() throws Exception {
+            com.baidu.swan.apps.a.b Rg = e.this.Rs().Rg();
+            boolean isLogin = Rg.isLogin(e.this.mActivity);
             if (e.DEBUG) {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + isLogin + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!isLogin) {
-                Re.a(e.this.mActivity, e.this.boJ, this);
+                Rg.a(e.this.mActivity, e.this.bor, this);
             }
             return isLogin;
         }
@@ -125,16 +125,16 @@ public class e extends g<c> {
             switch (i) {
                 case -2:
                     com.baidu.swan.apps.setting.oauth.c.a("login error ERR_BY_UESR_REFUSE", (Boolean) true);
-                    m(new OAuthException("login cancel by user", 10004));
+                    l(new OAuthException("login cancel by user", 10004));
                     return;
                 case -1:
                 default:
                     com.baidu.swan.apps.setting.oauth.c.a("login error ERR_BY_LOGIN", (Boolean) true);
-                    m(new OAuthException("system login error", 10004));
+                    l(new OAuthException("system login error", 10004));
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.a("Login Preparation ok, is already login", (Boolean) false);
-                    Sn();
+                    Sp();
                     return;
             }
         }
@@ -155,23 +155,23 @@ public class e extends g<c> {
 
     /* loaded from: classes2.dex */
     public static class b extends Handler {
-        private WeakReference<e> boL;
+        private WeakReference<e> bot;
 
         private b(Looper looper, e eVar) {
             super(looper);
-            this.boL = new WeakReference<>(eVar);
+            this.bot = new WeakReference<>(eVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            e eVar = this.boL.get();
+            e eVar = this.bot.get();
             if (eVar != null) {
                 switch (message.what) {
                     case 1:
                         if (e.DEBUG) {
                             Log.d("LoginRequest", "handleMessage: timeout");
                         }
-                        eVar.l(new OAuthException("request timeout", 10007));
+                        eVar.k(new OAuthException("request timeout", 10007));
                         return;
                     default:
                         return;

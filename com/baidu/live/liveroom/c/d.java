@@ -13,9 +13,9 @@ public interface d {
 
     void onDestroy();
 
-    View sr();
+    View ss();
 
-    String ss();
+    String st();
 
-    short st();
+    short su();
 }

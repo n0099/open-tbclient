@@ -1,25 +1,37 @@
 package com.xiaomi.push.service;
 
-import android.app.NotificationManager;
-import com.xiaomi.channel.commonutils.misc.h;
+import com.xiaomi.push.hm;
+import com.xiaomi.push.hn;
 /* loaded from: classes3.dex */
-final class ai extends h.a {
-    final /* synthetic */ int a;
-    final /* synthetic */ NotificationManager b;
+/* synthetic */ class ai {
+    static final /* synthetic */ int[] a;
+    static final /* synthetic */ int[] b = new int[hn.values().length];
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(int i, NotificationManager notificationManager) {
-        this.a = i;
-        this.b = notificationManager;
-    }
-
-    @Override // com.xiaomi.channel.commonutils.misc.h.a
-    public int a() {
-        return this.a;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        this.b.cancel(this.a);
+    static {
+        try {
+            b[hn.INT.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
+        }
+        try {
+            b[hn.LONG.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
+        try {
+            b[hn.STRING.ordinal()] = 3;
+        } catch (NoSuchFieldError e3) {
+        }
+        try {
+            b[hn.BOOLEAN.ordinal()] = 4;
+        } catch (NoSuchFieldError e4) {
+        }
+        a = new int[hm.values().length];
+        try {
+            a[hm.MISC_CONFIG.ordinal()] = 1;
+        } catch (NoSuchFieldError e5) {
+        }
+        try {
+            a[hm.PLUGIN_CONFIG.ordinal()] = 2;
+        } catch (NoSuchFieldError e6) {
+        }
     }
 }

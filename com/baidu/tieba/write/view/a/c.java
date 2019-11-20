@@ -13,12 +13,12 @@ import com.baidu.tieba.write.write.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private HorizontalListView jBo;
-    private d jSX;
+    private HorizontalListView jAx;
+    private d jSg;
     private View mRootView;
 
     public void a(com.baidu.tieba.write.write.c cVar) {
-        this.jSX.b(cVar);
+        this.jSg.b(cVar);
     }
 
     public c(e eVar) {
@@ -28,9 +28,9 @@ public class c extends a {
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_sticker_view, (ViewGroup) null);
-        this.jBo = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
-        this.jSX = new d();
-        this.jBo.setAdapter((ListAdapter) this.jSX);
+        this.jAx = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
+        this.jSg = new d();
+        this.jAx.setAdapter((ListAdapter) this.jSg);
     }
 
     public View getRootView() {
@@ -39,17 +39,17 @@ public class c extends a {
 
     public void onChangeSkinType() {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        aMa();
+        aLY();
     }
 
     public void eM(List<String> list) {
         if (!v.isEmpty(list)) {
-            this.jSX.setData(list);
-            this.jSX.notifyDataSetChanged();
+            this.jSg.setData(list);
+            this.jSg.notifyDataSetChanged();
         }
     }
 
-    public void aMa() {
-        this.jSX.notifyDataSetChanged();
+    public void aLY() {
+        this.jSg.notifyDataSetChanged();
     }
 }

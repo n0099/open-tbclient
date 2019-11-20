@@ -16,91 +16,91 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
 /* loaded from: classes2.dex */
 public final class d {
-    private static final com.google.gson.b.a<?> kof = new com.google.gson.b.a<Object>() { // from class: com.google.gson.d.1
+    private static final com.google.gson.b.a<?> kno = new com.google.gson.b.a<Object>() { // from class: com.google.gson.d.1
     };
-    private final List<o> heJ;
-    private final ThreadLocal<Map<com.google.gson.b.a<?>, a<?>>> kog;
-    private final Map<com.google.gson.b.a<?>, n<?>> koh;
-    private final com.google.gson.internal.b koi;
-    private final com.google.gson.internal.c koj;
-    private final c kok;
-    private final boolean kol;
-    private final boolean kom;
-    private final boolean kon;
-    private final boolean koo;
-    private final boolean kop;
-    private final com.google.gson.internal.a.d koq;
+    private final List<o> hdS;
+    private final ThreadLocal<Map<com.google.gson.b.a<?>, a<?>>> knp;
+    private final Map<com.google.gson.b.a<?>, n<?>> knq;
+    private final com.google.gson.internal.b knr;
+    private final com.google.gson.internal.c kns;
+    private final c knt;
+    private final boolean knu;
+    private final boolean knv;
+    private final boolean knw;
+    private final boolean knx;
+    private final boolean kny;
+    private final com.google.gson.internal.a.d knz;
 
     public d() {
-        this(com.google.gson.internal.c.koI, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, LongSerializationPolicy.DEFAULT, Collections.emptyList());
+        this(com.google.gson.internal.c.knR, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, LongSerializationPolicy.DEFAULT, Collections.emptyList());
     }
 
     d(com.google.gson.internal.c cVar, c cVar2, Map<Type, e<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, LongSerializationPolicy longSerializationPolicy, List<o> list) {
-        this.kog = new ThreadLocal<>();
-        this.koh = new ConcurrentHashMap();
-        this.koi = new com.google.gson.internal.b(map);
-        this.koj = cVar;
-        this.kok = cVar2;
-        this.kol = z;
-        this.kon = z3;
-        this.kom = z4;
-        this.koo = z5;
-        this.kop = z6;
+        this.knp = new ThreadLocal<>();
+        this.knq = new ConcurrentHashMap();
+        this.knr = new com.google.gson.internal.b(map);
+        this.kns = cVar;
+        this.knt = cVar2;
+        this.knu = z;
+        this.knw = z3;
+        this.knv = z4;
+        this.knx = z5;
+        this.kny = z6;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(com.google.gson.internal.a.m.krg);
-        arrayList.add(com.google.gson.internal.a.g.kpz);
+        arrayList.add(com.google.gson.internal.a.m.kqp);
+        arrayList.add(com.google.gson.internal.a.g.koI);
         arrayList.add(cVar);
         arrayList.addAll(list);
-        arrayList.add(com.google.gson.internal.a.m.kqL);
-        arrayList.add(com.google.gson.internal.a.m.kqu);
-        arrayList.add(com.google.gson.internal.a.m.kqo);
-        arrayList.add(com.google.gson.internal.a.m.kqq);
-        arrayList.add(com.google.gson.internal.a.m.kqs);
+        arrayList.add(com.google.gson.internal.a.m.kpU);
+        arrayList.add(com.google.gson.internal.a.m.kpD);
+        arrayList.add(com.google.gson.internal.a.m.kpx);
+        arrayList.add(com.google.gson.internal.a.m.kpz);
+        arrayList.add(com.google.gson.internal.a.m.kpB);
         n<Number> a2 = a(longSerializationPolicy);
         arrayList.add(com.google.gson.internal.a.m.a(Long.TYPE, Long.class, a2));
         arrayList.add(com.google.gson.internal.a.m.a(Double.TYPE, Double.class, sn(z7)));
         arrayList.add(com.google.gson.internal.a.m.a(Float.TYPE, Float.class, so(z7)));
-        arrayList.add(com.google.gson.internal.a.m.kqF);
-        arrayList.add(com.google.gson.internal.a.m.kqw);
-        arrayList.add(com.google.gson.internal.a.m.kqy);
+        arrayList.add(com.google.gson.internal.a.m.kpO);
+        arrayList.add(com.google.gson.internal.a.m.kpF);
+        arrayList.add(com.google.gson.internal.a.m.kpH);
         arrayList.add(com.google.gson.internal.a.m.a(AtomicLong.class, a(a2)));
         arrayList.add(com.google.gson.internal.a.m.a(AtomicLongArray.class, b(a2)));
-        arrayList.add(com.google.gson.internal.a.m.kqA);
-        arrayList.add(com.google.gson.internal.a.m.kqH);
-        arrayList.add(com.google.gson.internal.a.m.kqN);
-        arrayList.add(com.google.gson.internal.a.m.kqP);
-        arrayList.add(com.google.gson.internal.a.m.a(BigDecimal.class, com.google.gson.internal.a.m.kqJ));
-        arrayList.add(com.google.gson.internal.a.m.a(BigInteger.class, com.google.gson.internal.a.m.kqK));
-        arrayList.add(com.google.gson.internal.a.m.kqR);
-        arrayList.add(com.google.gson.internal.a.m.kqT);
-        arrayList.add(com.google.gson.internal.a.m.kqX);
-        arrayList.add(com.google.gson.internal.a.m.kqZ);
-        arrayList.add(com.google.gson.internal.a.m.kre);
-        arrayList.add(com.google.gson.internal.a.m.kqV);
+        arrayList.add(com.google.gson.internal.a.m.kpJ);
+        arrayList.add(com.google.gson.internal.a.m.kpQ);
+        arrayList.add(com.google.gson.internal.a.m.kpW);
+        arrayList.add(com.google.gson.internal.a.m.kpY);
+        arrayList.add(com.google.gson.internal.a.m.a(BigDecimal.class, com.google.gson.internal.a.m.kpS));
+        arrayList.add(com.google.gson.internal.a.m.a(BigInteger.class, com.google.gson.internal.a.m.kpT));
+        arrayList.add(com.google.gson.internal.a.m.kqa);
+        arrayList.add(com.google.gson.internal.a.m.kqc);
+        arrayList.add(com.google.gson.internal.a.m.kqg);
+        arrayList.add(com.google.gson.internal.a.m.kqi);
+        arrayList.add(com.google.gson.internal.a.m.kqn);
+        arrayList.add(com.google.gson.internal.a.m.kqe);
+        arrayList.add(com.google.gson.internal.a.m.kpu);
+        arrayList.add(com.google.gson.internal.a.c.koI);
         arrayList.add(com.google.gson.internal.a.m.kql);
-        arrayList.add(com.google.gson.internal.a.c.kpz);
-        arrayList.add(com.google.gson.internal.a.m.krc);
-        arrayList.add(com.google.gson.internal.a.j.kpz);
-        arrayList.add(com.google.gson.internal.a.i.kpz);
-        arrayList.add(com.google.gson.internal.a.m.kra);
-        arrayList.add(com.google.gson.internal.a.a.kpz);
+        arrayList.add(com.google.gson.internal.a.j.koI);
+        arrayList.add(com.google.gson.internal.a.i.koI);
         arrayList.add(com.google.gson.internal.a.m.kqj);
-        arrayList.add(new com.google.gson.internal.a.b(this.koi));
-        arrayList.add(new com.google.gson.internal.a.f(this.koi, z2));
-        this.koq = new com.google.gson.internal.a.d(this.koi);
-        arrayList.add(this.koq);
-        arrayList.add(com.google.gson.internal.a.m.krh);
-        arrayList.add(new com.google.gson.internal.a.h(this.koi, cVar2, cVar, this.koq));
-        this.heJ = Collections.unmodifiableList(arrayList);
+        arrayList.add(com.google.gson.internal.a.a.koI);
+        arrayList.add(com.google.gson.internal.a.m.kps);
+        arrayList.add(new com.google.gson.internal.a.b(this.knr));
+        arrayList.add(new com.google.gson.internal.a.f(this.knr, z2));
+        this.knz = new com.google.gson.internal.a.d(this.knr);
+        arrayList.add(this.knz);
+        arrayList.add(com.google.gson.internal.a.m.kqq);
+        arrayList.add(new com.google.gson.internal.a.h(this.knr, cVar2, cVar, this.knz));
+        this.hdS = Collections.unmodifiableList(arrayList);
     }
 
     private n<Number> sn(boolean z) {
-        return z ? com.google.gson.internal.a.m.kqD : new n<Number>() { // from class: com.google.gson.d.2
+        return z ? com.google.gson.internal.a.m.kpM : new n<Number>() { // from class: com.google.gson.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.n
             public void a(com.google.gson.stream.a aVar, Number number) throws IOException {
                 if (number == null) {
-                    aVar.cKD();
+                    aVar.cKB();
                     return;
                 }
                 d.q(number.doubleValue());
@@ -110,12 +110,12 @@ public final class d {
     }
 
     private n<Number> so(boolean z) {
-        return z ? com.google.gson.internal.a.m.kqC : new n<Number>() { // from class: com.google.gson.d.3
+        return z ? com.google.gson.internal.a.m.kpL : new n<Number>() { // from class: com.google.gson.d.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.n
             public void a(com.google.gson.stream.a aVar, Number number) throws IOException {
                 if (number == null) {
-                    aVar.cKD();
+                    aVar.cKB();
                     return;
                 }
                 d.q(number.floatValue());
@@ -131,12 +131,12 @@ public final class d {
     }
 
     private static n<Number> a(LongSerializationPolicy longSerializationPolicy) {
-        return longSerializationPolicy == LongSerializationPolicy.DEFAULT ? com.google.gson.internal.a.m.kqB : new n<Number>() { // from class: com.google.gson.d.4
+        return longSerializationPolicy == LongSerializationPolicy.DEFAULT ? com.google.gson.internal.a.m.kpK : new n<Number>() { // from class: com.google.gson.d.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.n
             public void a(com.google.gson.stream.a aVar, Number number) throws IOException {
                 if (number == null) {
-                    aVar.cKD();
+                    aVar.cKB();
                 } else {
                     aVar.GP(number.toString());
                 }
@@ -151,7 +151,7 @@ public final class d {
             public void a(com.google.gson.stream.a aVar, AtomicLong atomicLong) throws IOException {
                 n.this.a(aVar, Long.valueOf(atomicLong.get()));
             }
-        }.cKf();
+        }.cKd();
     }
 
     private static n<AtomicLongArray> b(final n<Number> nVar) {
@@ -159,25 +159,25 @@ public final class d {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.n
             public void a(com.google.gson.stream.a aVar, AtomicLongArray atomicLongArray) throws IOException {
-                aVar.cKz();
+                aVar.cKx();
                 int length = atomicLongArray.length();
                 for (int i = 0; i < length; i++) {
                     n.this.a(aVar, Long.valueOf(atomicLongArray.get(i)));
                 }
-                aVar.cKA();
+                aVar.cKy();
             }
-        }.cKf();
+        }.cKd();
     }
 
     public <T> n<T> a(com.google.gson.b.a<T> aVar) {
         HashMap hashMap;
-        n<T> nVar = (n<T>) this.koh.get(aVar == null ? kof : aVar);
+        n<T> nVar = (n<T>) this.knq.get(aVar == null ? kno : aVar);
         if (nVar == null) {
-            Map<com.google.gson.b.a<?>, a<?>> map = this.kog.get();
+            Map<com.google.gson.b.a<?>, a<?>> map = this.knp.get();
             boolean z = false;
             if (map == null) {
                 HashMap hashMap2 = new HashMap();
-                this.kog.set(hashMap2);
+                this.knp.set(hashMap2);
                 hashMap = hashMap2;
                 z = true;
             } else {
@@ -188,14 +188,14 @@ public final class d {
                 try {
                     a<?> aVar2 = new a<>();
                     hashMap.put(aVar, aVar2);
-                    for (o oVar : this.heJ) {
+                    for (o oVar : this.hdS) {
                         nVar = oVar.a(this, aVar);
                         if (nVar != null) {
                             aVar2.c(nVar);
-                            this.koh.put(aVar, nVar);
+                            this.knq.put(aVar, nVar);
                             hashMap.remove(aVar);
                             if (z) {
-                                this.kog.remove();
+                                this.knp.remove();
                             }
                         }
                     }
@@ -203,7 +203,7 @@ public final class d {
                 } catch (Throwable th) {
                     hashMap.remove(aVar);
                     if (z) {
-                        this.kog.remove();
+                        this.knp.remove();
                     }
                     throw th;
                 }
@@ -213,11 +213,11 @@ public final class d {
     }
 
     public <T> n<T> a(o oVar, com.google.gson.b.a<T> aVar) {
-        if (!this.heJ.contains(oVar)) {
-            oVar = this.koq;
+        if (!this.hdS.contains(oVar)) {
+            oVar = this.knz;
         }
         boolean z = false;
-        for (o oVar2 : this.heJ) {
+        for (o oVar2 : this.hdS) {
             if (!z) {
                 if (oVar2 == oVar) {
                     z = true;
@@ -237,7 +237,7 @@ public final class d {
     }
 
     public String toJson(Object obj) {
-        return obj == null ? a(i.kov) : b(obj, obj.getClass());
+        return obj == null ? a(i.knE) : b(obj, obj.getClass());
     }
 
     public String b(Object obj, Type type) {
@@ -256,12 +256,12 @@ public final class d {
 
     public void a(Object obj, Type type, com.google.gson.stream.a aVar) throws JsonIOException {
         n a2 = a(com.google.gson.b.a.l(type));
-        boolean cKG = aVar.cKG();
+        boolean cKE = aVar.cKE();
         aVar.sq(true);
-        boolean cKH = aVar.cKH();
-        aVar.sr(this.kom);
-        boolean cKI = aVar.cKI();
-        aVar.ss(this.kol);
+        boolean cKF = aVar.cKF();
+        aVar.sr(this.knv);
+        boolean cKG = aVar.cKG();
+        aVar.ss(this.knu);
         try {
             try {
                 a2.a(aVar, obj);
@@ -269,9 +269,9 @@ public final class d {
                 throw new JsonIOException(e);
             }
         } finally {
-            aVar.sq(cKG);
-            aVar.sr(cKH);
-            aVar.ss(cKI);
+            aVar.sq(cKE);
+            aVar.sr(cKF);
+            aVar.ss(cKG);
         }
     }
 
@@ -290,24 +290,24 @@ public final class d {
     }
 
     public com.google.gson.stream.a a(Writer writer) throws IOException {
-        if (this.kon) {
+        if (this.knw) {
             writer.write(")]}'\n");
         }
         com.google.gson.stream.a aVar = new com.google.gson.stream.a(writer);
-        if (this.koo) {
+        if (this.knx) {
             aVar.GQ("  ");
         }
-        aVar.ss(this.kol);
+        aVar.ss(this.knu);
         return aVar;
     }
 
     public void a(h hVar, com.google.gson.stream.a aVar) throws JsonIOException {
-        boolean cKG = aVar.cKG();
+        boolean cKE = aVar.cKE();
         aVar.sq(true);
-        boolean cKH = aVar.cKH();
-        aVar.sr(this.kom);
-        boolean cKI = aVar.cKI();
-        aVar.ss(this.kol);
+        boolean cKF = aVar.cKF();
+        aVar.sr(this.knv);
+        boolean cKG = aVar.cKG();
+        aVar.ss(this.knu);
         try {
             try {
                 com.google.gson.internal.f.b(hVar, aVar);
@@ -315,37 +315,37 @@ public final class d {
                 throw new JsonIOException(e);
             }
         } finally {
-            aVar.sq(cKG);
-            aVar.sr(cKH);
-            aVar.ss(cKI);
+            aVar.sq(cKE);
+            aVar.sr(cKF);
+            aVar.ss(cKG);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a<T> extends n<T> {
-        private n<T> kot;
+        private n<T> knC;
 
         a() {
         }
 
         public void c(n<T> nVar) {
-            if (this.kot != null) {
+            if (this.knC != null) {
                 throw new AssertionError();
             }
-            this.kot = nVar;
+            this.knC = nVar;
         }
 
         @Override // com.google.gson.n
         public void a(com.google.gson.stream.a aVar, T t) throws IOException {
-            if (this.kot == null) {
+            if (this.knC == null) {
                 throw new IllegalStateException();
             }
-            this.kot.a(aVar, t);
+            this.knC.a(aVar, t);
         }
     }
 
     public String toString() {
-        return "{serializeNulls:" + this.kol + "factories:" + this.heJ + ",instanceCreators:" + this.koi + "}";
+        return "{serializeNulls:" + this.knu + "factories:" + this.hdS + ",instanceCreators:" + this.knr + "}";
     }
 }

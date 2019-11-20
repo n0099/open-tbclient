@@ -9,5 +9,5 @@ public interface d {
 
     void unregisterConnectListener();
 
-    void wX();
+    void wY();
 }

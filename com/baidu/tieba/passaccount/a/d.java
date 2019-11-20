@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.data.AccountData;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d implements com.baidu.tbadk.coreExtra.a.c {
-    private static d hFQ;
+    private static d hEZ;
 
     private d() {
     }
 
-    public static synchronized d bPH() {
+    public static synchronized d bPF() {
         d dVar;
         synchronized (d.class) {
-            if (hFQ == null) {
-                hFQ = new d();
+            if (hEZ == null) {
+                hEZ = new d();
             }
-            dVar = hFQ;
+            dVar = hEZ;
         }
         return dVar;
     }

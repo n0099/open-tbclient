@@ -12,7 +12,7 @@ public class a<T> {
         notifyAll();
     }
 
-    public synchronized T abq() {
+    public synchronized T abo() {
         T t;
         if (this.mQueue.isEmpty()) {
             t = null;

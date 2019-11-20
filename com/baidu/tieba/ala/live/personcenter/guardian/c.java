@@ -18,41 +18,41 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class c extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.ala.live.personcenter.guardian.a> bbZ;
-    private AlaGuardianListActivity dSK;
-    private View.OnClickListener dSL = null;
-    private View.OnClickListener dGj = null;
+    private ArrayList<com.baidu.tieba.ala.live.personcenter.guardian.a> bbH;
+    private AlaGuardianListActivity dRT;
+    private View.OnClickListener dRU = null;
+    private View.OnClickListener dFs = null;
 
     public c(AlaGuardianListActivity alaGuardianListActivity) {
-        this.bbZ = null;
-        this.dSK = null;
-        this.dSK = alaGuardianListActivity;
-        this.bbZ = new ArrayList<>();
+        this.bbH = null;
+        this.dRT = null;
+        this.dRT = alaGuardianListActivity;
+        this.bbH = new ArrayList<>();
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.dGj = onClickListener;
+        this.dFs = onClickListener;
     }
 
     public void c(d dVar) {
-        this.bbZ.clear();
-        this.bbZ.addAll(dVar.aMH());
+        this.bbH.clear();
+        this.bbH.addAll(dVar.aMF());
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bbZ == null) {
+        if (this.bbH == null) {
             return 0;
         }
-        return this.bbZ.size();
+        return this.bbH.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.bbZ == null || i >= this.bbZ.size()) {
+        if (this.bbH == null || i >= this.bbH.size()) {
             return null;
         }
-        return this.bbZ.get(i);
+        return this.bbH.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -64,99 +64,99 @@ public class c extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.dSK.getPageContext().getPageActivity()).inflate(a.h.sdk_prc_person_center_guardian_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.dRT.getPageContext().getPageActivity()).inflate(a.h.sdk_prc_person_center_guardian_item, (ViewGroup) null);
             aVar = new a(view);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.mW(i);
-        this.dSK.getLayoutMode().onModeChanged(view);
+        aVar.mV(i);
+        this.dRT.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* loaded from: classes6.dex */
     class a {
-        ViewGroup dGA;
-        HeadImageView dGD;
-        TextView dGE;
-        ImageView dSM;
-        TextView dSN;
-        LinearLayout dSO;
-        TextView dSP;
+        ViewGroup dFJ;
+        HeadImageView dFM;
+        TextView dFN;
+        ImageView dRV;
+        TextView dRW;
+        LinearLayout dRX;
+        TextView dRY;
         TextView mName;
 
         public a(View view) {
-            this.dSM = (ImageView) view.findViewById(a.g.imgGradeRound);
-            this.dSN = (TextView) view.findViewById(a.g.tvGradeNum);
-            this.dGA = (ViewGroup) view.findViewById(a.g.item_view);
-            this.dGA.setOnClickListener(c.this.dSL);
-            this.dGD = (HeadImageView) view.findViewById(a.g.photo);
-            this.dGD.setRadius(BdUtilHelper.getDimens(c.this.dSK.getPageContext().getPageActivity(), a.e.sdk_ds90));
-            this.dGD.setAutoChangeStyle(true);
-            this.dGD.setClickable(false);
-            this.dSO = (LinearLayout) view.findViewById(a.g.info);
+            this.dRV = (ImageView) view.findViewById(a.g.imgGradeRound);
+            this.dRW = (TextView) view.findViewById(a.g.tvGradeNum);
+            this.dFJ = (ViewGroup) view.findViewById(a.g.item_view);
+            this.dFJ.setOnClickListener(c.this.dRU);
+            this.dFM = (HeadImageView) view.findViewById(a.g.photo);
+            this.dFM.setRadius(BdUtilHelper.getDimens(c.this.dRT.getPageContext().getPageActivity(), a.e.sdk_ds90));
+            this.dFM.setAutoChangeStyle(true);
+            this.dFM.setClickable(false);
+            this.dRX = (LinearLayout) view.findViewById(a.g.info);
             this.mName = (TextView) view.findViewById(a.g.ala_name);
-            this.dGE = (TextView) view.findViewById(a.g.ala_intro);
-            this.dSP = (TextView) view.findViewById(a.g.attention_btn);
-            this.dSP.setOnClickListener(c.this.dGj);
+            this.dFN = (TextView) view.findViewById(a.g.ala_intro);
+            this.dRY = (TextView) view.findViewById(a.g.attention_btn);
+            this.dRY.setOnClickListener(c.this.dFs);
         }
 
-        public void mW(int i) {
+        public void mV(int i) {
             com.baidu.tieba.ala.live.personcenter.guardian.a aVar = (com.baidu.tieba.ala.live.personcenter.guardian.a) c.this.getItem(i);
             if (aVar != null) {
-                this.dGA.setTag(Integer.valueOf(i));
-                this.dSP.setTag(Integer.valueOf(i));
-                my(i);
-                j.a(this.dGD, aVar.portrait, true, !StringUtils.isNull(aVar.appId));
+                this.dFJ.setTag(Integer.valueOf(i));
+                this.dRY.setTag(Integer.valueOf(i));
+                mx(i);
+                j.a(this.dFM, aVar.portrait, true, !StringUtils.isNull(aVar.appId));
                 this.mName.setText(aVar.getNameShow());
-                this.dGE.setText(c.this.dSK.getResources().getString(a.i.sdk_prc_guardian_list_item_charm, aVar.dSD));
+                this.dFN.setText(c.this.dRT.getResources().getString(a.i.sdk_prc_guardian_list_item_charm, aVar.dRM));
                 gP(aVar.followStatus != 0);
             }
         }
 
         private void gP(boolean z) {
-            if (this.dSP != null) {
-                this.dSP.setVisibility(8);
+            if (this.dRY != null) {
+                this.dRY.setVisibility(8);
             } else if (z) {
-                this.dSP.setText(c.this.dSK.getPageContext().getString(a.i.sdk_prc_guardian_list_attention));
-                this.dSP.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                SkinManager.setViewTextColor(this.dSP, a.d.sdk_cp_cont_d);
+                this.dRY.setText(c.this.dRT.getPageContext().getString(a.i.sdk_prc_guardian_list_attention));
+                this.dRY.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                SkinManager.setViewTextColor(this.dRY, a.d.sdk_cp_cont_d);
             } else {
-                this.dSP.setText(c.this.dSK.getPageContext().getString(a.i.sdk_prc_guardian_list_not_attention));
-                this.dSP.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.f.sdk_prc_live_attention_add_selector), (Drawable) null, (Drawable) null, (Drawable) null);
-                SkinManager.setViewTextColor(this.dSP, a.d.sdk_cp_other_b);
+                this.dRY.setText(c.this.dRT.getPageContext().getString(a.i.sdk_prc_guardian_list_not_attention));
+                this.dRY.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.f.sdk_prc_live_attention_add_selector), (Drawable) null, (Drawable) null, (Drawable) null);
+                SkinManager.setViewTextColor(this.dRY, a.d.sdk_cp_other_b);
             }
         }
 
-        public void my(int i) {
-            this.dSM.setVisibility(8);
-            this.dSN.setVisibility(8);
+        public void mx(int i) {
+            this.dRV.setVisibility(8);
+            this.dRW.setVisibility(8);
             if (i == 0) {
-                this.dSM.setVisibility(0);
-                SkinManager.setImageResource(this.dSM, a.f.sdk_prc_icon_grade_round_no1);
+                this.dRV.setVisibility(0);
+                SkinManager.setImageResource(this.dRV, a.f.sdk_prc_icon_grade_round_no1);
             } else if (i == 1) {
-                this.dSM.setVisibility(0);
-                SkinManager.setImageResource(this.dSM, a.f.sdk_prc_icon_grade_round_no2);
+                this.dRV.setVisibility(0);
+                SkinManager.setImageResource(this.dRV, a.f.sdk_prc_icon_grade_round_no2);
             } else if (i == 2) {
-                this.dSM.setVisibility(0);
-                SkinManager.setImageResource(this.dSM, a.f.sdk_prc_icon_grade_round_no3);
+                this.dRV.setVisibility(0);
+                SkinManager.setImageResource(this.dRV, a.f.sdk_prc_icon_grade_round_no3);
             } else {
-                this.dSN.setVisibility(0);
-                this.dSN.setText(String.valueOf(i + 1));
+                this.dRW.setVisibility(0);
+                this.dRW.setText(String.valueOf(i + 1));
             }
         }
     }
 
     public void T(String str, boolean z) {
-        if (this.bbZ != null && str != null) {
-            Iterator<com.baidu.tieba.ala.live.personcenter.guardian.a> it = this.bbZ.iterator();
+        if (this.bbH != null && str != null) {
+            Iterator<com.baidu.tieba.ala.live.personcenter.guardian.a> it = this.bbH.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.tieba.ala.live.personcenter.guardian.a next = it.next();
-                if (str.equals(next.dSy)) {
+                if (str.equals(next.dRH)) {
                     if (z) {
                         next.followStatus = 1;
                     } else {

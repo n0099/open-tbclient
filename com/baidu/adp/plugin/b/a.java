@@ -15,31 +15,31 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a vq = null;
-    private HashMap<String, Integer> vo = new HashMap<>();
+    private static volatile a uP = null;
+    private HashMap<String, Integer> uO = new HashMap<>();
 
     public static synchronized a iv() {
         a aVar;
         synchronized (a.class) {
-            if (vq == null) {
+            if (uP == null) {
                 synchronized (a.class) {
-                    if (vq == null) {
-                        vq = new a();
+                    if (uP == null) {
+                        uP = new a();
                     }
                 }
             }
-            aVar = vq;
+            aVar = uP;
         }
         return aVar;
     }
 
     public void aH(String str) {
         if (str != null) {
-            Integer num = this.vo.get(str);
+            Integer num = this.uO.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.vo.put(str, Integer.valueOf(num.intValue() + 1));
+            this.uO.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
@@ -50,14 +50,14 @@ public class a {
     }
 
     public void f(String str, long j) {
-        a(str, j, 0);
+        b(str, j, 0);
     }
 
     public void b(String str, long j, String str2) {
         b(str, j, 0, str2);
     }
 
-    public void a(String str, long j, int i) {
+    public void b(String str, long j, int i) {
         b(str, j, i, null);
     }
 
@@ -136,7 +136,7 @@ public class a {
     }
 
     public void iw() {
-        if (this.vo.size() != 0) {
+        if (this.uO.size() != 0) {
             com.baidu.adp.lib.stats.a fU = fU();
             c(fU);
             fU.append("appver", BdStatisticsManager.getInstance().getAppVersion());
@@ -176,10 +176,10 @@ public class a {
 
     private void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
-            for (Map.Entry<String, Integer> entry : this.vo.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.uO.entrySet()) {
                 aVar.append(entry.getKey() + "_count", String.valueOf(entry.getValue()));
             }
-            this.vo.clear();
+            this.uO.clear();
         }
     }
 

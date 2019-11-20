@@ -25,14 +25,14 @@ public class b {
 
     /* loaded from: classes4.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String hHl;
-        private String hHm;
-        private InterfaceC0480b hHn;
+        private String hGu;
+        private String hGv;
+        private InterfaceC0480b hGw;
 
         public a(String str, String str2, InterfaceC0480b interfaceC0480b) {
-            this.hHl = str;
-            this.hHm = str2;
-            this.hHn = interfaceC0480b;
+            this.hGu = str;
+            this.hGv = str2;
+            this.hGw = interfaceC0480b;
             setPriority(3);
         }
 
@@ -42,10 +42,10 @@ public class b {
         /* renamed from: C */
         public ForbidTplData doInBackground(String... strArr) {
             x xVar = new x(b.BAWU_LIST_REASON);
-            xVar.addPostData("forum_id", this.hHl);
-            xVar.addPostData("user_id", this.hHm);
+            xVar.addPostData("forum_id", this.hGu);
+            xVar.addPostData("user_id", this.hGv);
             String postNetData = xVar.postNetData();
-            if (xVar.amr().amS().isRequestSuccess()) {
+            if (xVar.amp().amQ().isRequestSuccess()) {
                 try {
                     return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
                 } catch (Exception e) {
@@ -67,11 +67,11 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.hHn != null) {
+            if (this.hGw != null) {
                 if (forbidTplData.error.errno == 0 && aq.isEmpty(forbidTplData.error.errMsg)) {
-                    this.hHn.a(forbidTplData);
+                    this.hGw.a(forbidTplData);
                 } else {
-                    this.hHn.b(forbidTplData);
+                    this.hGw.b(forbidTplData);
                 }
             }
         }

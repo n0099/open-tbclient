@@ -14,10 +14,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.live.view.web.a {
-    private SchemeCallback atT;
+    private SchemeCallback atB;
 
     public e(SchemeCallback schemeCallback) {
-        this.atT = schemeCallback;
+        this.atB = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -32,7 +32,7 @@ public class e extends com.baidu.live.view.web.a {
             JSONObject jSONObject = new JSONObject(str);
             final String optString = jSONObject.optString(BuyTBeanActivityConfig.CALLBACK);
             boolean z = jSONObject.optInt("is_translucent") == 1;
-            if (this.atT != null) {
+            if (this.atB != null) {
                 ExtraParamsManager.addEnterBuyTBeanCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.e.1
                     @Override // com.baidu.live.tbadk.extraparams.ResultCallback
                     public void onCallback(JSONObject jSONObject2) {
@@ -52,7 +52,7 @@ public class e extends com.baidu.live.view.web.a {
                             if (!TextUtils.isEmpty(optString5)) {
                                 jSONObject3.put("transitionId", optString5);
                             }
-                            e.this.atT.doJsCallback(optInt, optString2, jSONObject3, optString);
+                            e.this.atB.doJsCallback(optInt, optString2, jSONObject3, optString);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

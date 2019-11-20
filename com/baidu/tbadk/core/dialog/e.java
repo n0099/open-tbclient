@@ -17,8 +17,8 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e {
-    private l cfk;
-    private TbPageContext<?> cfl;
+    private l cet;
+    private TbPageContext<?> ceu;
     private AlertDialog mDialog;
     private ArrayList<m> mItems;
     private View mLineView;
@@ -26,18 +26,18 @@ public class e {
     private ViewGroup mRootView;
     private String mTitle;
     private TextView mTitleView;
-    private BdListView yl;
+    private BdListView xL;
     private int mAnimationStyleId = -1;
     private int mDialogGravity = -1;
     private boolean mDialogCreated = false;
 
     public e(TbPageContext<?> tbPageContext) {
-        this.cfl = tbPageContext;
-        this.mRootView = (ViewGroup) LayoutInflater.from(this.cfl.getPageActivity()).inflate(R.layout.dialog_rich_layout, (ViewGroup) null);
+        this.ceu = tbPageContext;
+        this.mRootView = (ViewGroup) LayoutInflater.from(this.ceu.getPageActivity()).inflate(R.layout.dialog_rich_layout, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.dialog_title_list);
-        this.yl = (BdListView) this.mRootView.findViewById(R.id.dialog_content_list);
+        this.xL = (BdListView) this.mRootView.findViewById(R.id.dialog_content_list);
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
-        this.cfk = new l(this.cfl);
+        this.cet = new l(this.ceu);
     }
 
     public e np(String str) {
@@ -45,8 +45,8 @@ public class e {
         return this;
     }
 
-    public e ib(int i) {
-        return np(this.cfl.getResources().getString(i));
+    public e ia(int i) {
+        return np(this.ceu.getResources().getString(i));
     }
 
     public e a(ArrayList<m> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -54,13 +54,13 @@ public class e {
             this.mItems = arrayList;
             if (onItemClickListener != null) {
                 this.mOnItemClickListener = onItemClickListener;
-                this.yl.setOnItemClickListener(this.mOnItemClickListener);
+                this.xL.setOnItemClickListener(this.mOnItemClickListener);
             }
         }
         return this;
     }
 
-    public e akQ() {
+    public e akO() {
         if (!this.mDialogCreated) {
             this.mDialogCreated = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -71,9 +71,9 @@ public class e {
                 this.mTitleView.setVisibility(8);
                 this.mLineView.setVisibility(8);
             }
-            this.yl.setAdapter((ListAdapter) this.cfk);
-            this.cfk.setData(this.mItems);
-            c(this.cfl);
+            this.xL.setAdapter((ListAdapter) this.cet);
+            this.cet.setData(this.mItems);
+            c(this.ceu);
         }
         return this;
     }
@@ -86,19 +86,19 @@ public class e {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.cfk.setData(this.mItems);
+        this.cet.setData(this.mItems);
     }
 
-    public e akR() {
+    public e akP() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.mDialog != null) {
-            com.baidu.adp.lib.g.g.a(this.mDialog, this.cfl);
+            com.baidu.adp.lib.g.g.a(this.mDialog, this.ceu);
         } else {
-            this.mDialog = new AlertDialog.Builder(this.cfl.getPageActivity()).create();
+            this.mDialog = new AlertDialog.Builder(this.ceu.getPageActivity()).create();
             this.mDialog.setCanceledOnTouchOutside(true);
-            if (com.baidu.adp.lib.g.g.showDialog(this.mDialog, this.cfl.getPageActivity())) {
+            if (com.baidu.adp.lib.g.g.showDialog(this.mDialog, this.ceu.getPageActivity())) {
                 Window window = this.mDialog.getWindow();
                 if (this.mAnimationStyleId == -1) {
                     this.mAnimationStyleId = R.style.dialog_ani_b2t;
@@ -127,15 +127,15 @@ public class e {
     }
 
     public void onChangeSkinType() {
-        c(this.cfl);
-        if (this.cfk != null) {
-            this.cfk.notifyDataSetChanged();
+        c(this.ceu);
+        if (this.cet != null) {
+            this.cet.notifyDataSetChanged();
         }
     }
 
     public void dismiss() {
         if (this.mDialog != null) {
-            com.baidu.adp.lib.g.g.dismissDialog(this.mDialog, this.cfl.getPageActivity());
+            com.baidu.adp.lib.g.g.dismissDialog(this.mDialog, this.ceu.getPageActivity());
         }
     }
 }

@@ -8,8 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    public c VG;
-    private JSONObject VH;
+    public c Vn;
+    private JSONObject Vo;
     public int frameCount;
     public String id;
     public int priority;
@@ -17,29 +17,29 @@ public class a {
 
     public a(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.VH = jSONObject;
+            this.Vo = jSONObject;
         }
     }
 
     public JSONObject oI() {
-        return this.VH;
+        return this.Vo;
     }
 
     public a c(String str, List<String> list) {
-        if (this.VG == null) {
-            this.VG = new c();
+        if (this.Vn == null) {
+            this.Vn = new c();
         }
-        this.VG.upZipDirPath = str;
+        this.Vn.upZipDirPath = str;
         if (list != null) {
             this.frameCount = list.size();
-            if (this.VG.Wm != null && this.VG.Wm.Wl != null) {
-                this.VG.Wm.Wl.frame_count = this.frameCount;
+            if (this.Vn.VT != null && this.Vn.VT.VS != null) {
+                this.Vn.VT.VS.frame_count = this.frameCount;
             }
-            this.VG.unZipFilesPathList = new ArrayList<>();
-            this.VG.unZipFilesPathList.addAll(list);
-            if (this.VH != null) {
+            this.Vn.unZipFilesPathList = new ArrayList<>();
+            this.Vn.unZipFilesPathList.addAll(list);
+            if (this.Vo != null) {
                 try {
-                    this.VH.put("frame_count", this.frameCount);
+                    this.Vo.put("frame_count", this.frameCount);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

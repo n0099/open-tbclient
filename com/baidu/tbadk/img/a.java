@@ -9,12 +9,12 @@ import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
-    private final f cJr;
+    private final f cIA;
     private String mPath;
     public T progessObject;
     private WeakReference<InterfaceC0297a<T>> mUploadProgressCallback = null;
-    private c cJp = null;
-    private a<T>.b cJq = null;
+    private c cIy = null;
+    private a<T>.b cIz = null;
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -30,18 +30,18 @@ public class a<T> {
     public a(String str, String str2) {
         this.mPath = null;
         this.mPath = str;
-        this.cJr = new f(str2);
+        this.cIA = new f(str2);
     }
 
     public void setServersideResize(int i, int i2, int i3, int i4) {
-        this.cJr.setServersideResize(i, i2, i3, i4);
+        this.cIA.setServersideResize(i, i2, i3, i4);
     }
 
     public void loadPic(boolean z) {
-        if (this.cJq == null) {
-            this.cJq = new b();
-            this.cJq.setIsNeedAddWater(z);
-            this.cJq.execute(new String[0]);
+        if (this.cIz == null) {
+            this.cIz = new b();
+            this.cIz.setIsNeedAddWater(z);
+            this.cIz.execute(new String[0]);
         }
     }
 
@@ -62,12 +62,12 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: o */
         public ImageUploadResult doInBackground(String... strArr) {
-            return avv();
+            return avt();
         }
 
-        private ImageUploadResult avv() {
-            a.this.cJr.a(this, null);
-            ImageUploadResult Q = a.this.cJr.Q(a.this.mPath, this.isNeedAddWater);
+        private ImageUploadResult avt() {
+            a.this.cIA.a(this, null);
+            ImageUploadResult Q = a.this.cIA.Q(a.this.mPath, this.isNeedAddWater);
             publishProgress(100);
             return Q;
         }
@@ -99,19 +99,19 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (a.this.cJp != null) {
+            if (a.this.cIy != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
                 imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
-                a.this.cJp.a(a.this.mPath, imageUploadResult);
+                a.this.cIy.a(a.this.mPath, imageUploadResult);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            a.this.cJq = null;
-            a.this.cJr.cancel();
+            a.this.cIz = null;
+            a.this.cIA.cancel();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -120,15 +120,15 @@ public class a<T> {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            a.this.cJq = null;
-            if (a.this.cJp != null) {
+            a.this.cIz = null;
+            if (a.this.cIy != null) {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
                     imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
                     TiebaStatic.imgError(-1002, imageUploadResult.error_msg, "");
                 }
-                a.this.cJp.a(a.this.mPath, imageUploadResult);
+                a.this.cIy.a(a.this.mPath, imageUploadResult);
             }
         }
     }
@@ -138,11 +138,11 @@ public class a<T> {
     }
 
     public void a(c cVar) {
-        this.cJp = cVar;
+        this.cIy = cVar;
     }
 
     public void setGroupId(String str) {
-        this.cJr.setGroupId(str);
+        this.cIA.setGroupId(str);
     }
 
     public T getProgessObject() {
@@ -154,8 +154,8 @@ public class a<T> {
     }
 
     public void setServerResizeForIMImage() {
-        LocalViewSize.ImageSize amp = LocalViewSize.amo().amp();
-        LocalViewSize.ImageSize amq = LocalViewSize.amo().amq();
-        setServersideResize(amq.width, amq.height, amp.width, amp.height);
+        LocalViewSize.ImageSize amn = LocalViewSize.amm().amn();
+        LocalViewSize.ImageSize amo = LocalViewSize.amm().amo();
+        setServersideResize(amo.width, amo.height, amn.width, amn.height);
     }
 }

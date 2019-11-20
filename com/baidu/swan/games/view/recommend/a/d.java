@@ -5,9 +5,9 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class d {
-    private float bFV;
-    private float bFW;
-    private a bFX;
+    private float bFe;
+    private float bFf;
+    private a bFg;
     @V8JavascriptField
     public volatile float height;
     @V8JavascriptField
@@ -23,13 +23,13 @@ public class d {
     }
 
     public d() {
-        Resources resources = com.baidu.swan.apps.u.a.Ji() != null ? com.baidu.swan.apps.u.a.Ji().getResources() : null;
+        Resources resources = com.baidu.swan.apps.u.a.Jj() != null ? com.baidu.swan.apps.u.a.Jj().getResources() : null;
         this.left = a(resources, a.d.swangame_recommend_button_default_left);
         this.top = a(resources, a.d.swangame_recommend_button_default_top);
         this.width = a(resources, a.d.swangame_recommend_button_default_width);
         this.height = a(resources, a.d.swangame_recommend_button_default_height);
-        this.bFV = this.width;
-        this.bFW = this.height;
+        this.bFe = this.width;
+        this.bFf = this.height;
     }
 
     private float a(Resources resources, int i) {
@@ -40,14 +40,14 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.bFX = aVar;
+        this.bFg = aVar;
     }
 
     public void onFieldChangedCallback(String str) {
-        this.width = this.bFV;
-        this.height = this.bFW;
-        if (this.bFX != null) {
-            this.bFX.jp(str);
+        this.width = this.bFe;
+        this.height = this.bFf;
+        if (this.bFg != null) {
+            this.bFg.jp(str);
         }
     }
 

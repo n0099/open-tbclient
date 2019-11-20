@@ -1,15 +1,15 @@
 package com.baidu.b.a.a;
 /* loaded from: classes3.dex */
 public class a {
-    public String Li;
-    public float Lj;
-    public float Lk;
-    public float Ll;
-    public float Lm;
-    public float Ln;
-    public int Lo;
-    public float Lp;
-    public String Lq;
+    public String KI;
+    public float KJ;
+    public float KK;
+    public float KL;
+    public float KM;
+    public float KN;
+    public int KO;
+    public float KP;
+    public String KQ;
     public int color;
     public int height;
     public String src;

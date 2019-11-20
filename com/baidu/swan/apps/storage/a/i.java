@@ -30,8 +30,8 @@ public class i extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        bVar.Rc().SL().remove(optString);
-        com.baidu.swan.apps.ak.e.bta.update();
+        bVar.Re().SN().remove(optString);
+        com.baidu.swan.apps.ak.e.bsj.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

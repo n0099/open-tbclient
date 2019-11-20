@@ -12,7 +12,7 @@ public class c implements Interceptor {
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Request request = chain.request();
-        String jd = ac.jd(com.baidu.swan.apps.core.j.c.GO().Hj());
+        String jd = ac.jd(com.baidu.swan.apps.core.j.c.GP().Hk());
         if (TextUtils.isEmpty(jd)) {
             jd = "";
         }

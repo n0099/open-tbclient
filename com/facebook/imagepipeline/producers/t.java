@@ -13,14 +13,14 @@ import java.util.concurrent.Future;
 import okhttp3.internal.http.StatusLine;
 /* loaded from: classes2.dex */
 public class t extends c<s> {
-    private final ExecutorService btS;
+    private final ExecutorService btb;
 
     public t() {
         this(Executors.newFixedThreadPool(3));
     }
 
     t(ExecutorService executorService) {
-        this.btS = executorService;
+        this.btb = executorService;
     }
 
     @Override // com.facebook.imagepipeline.producers.af
@@ -30,17 +30,17 @@ public class t extends c<s> {
 
     @Override // com.facebook.imagepipeline.producers.af
     public void a(final s sVar, final af.a aVar) {
-        final Future<?> submit = this.btS.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
+        final Future<?> submit = this.btb.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
             @Override // java.lang.Runnable
             public void run() {
                 t.this.b(sVar, aVar);
             }
         });
-        sVar.cIV().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
+        sVar.cIT().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void cIO() {
+            public void cIM() {
                 if (submit.cancel(false)) {
-                    aVar.cCH();
+                    aVar.cCF();
                 }
             }
         });
@@ -76,7 +76,7 @@ public class t extends c<s> {
                         inputStream = r1;
                     } catch (IOException e) {
                         e = e;
-                        aVar.A(e);
+                        aVar.B(e);
                         if (r1 != 0) {
                             try {
                                 r1.close();
@@ -128,8 +128,8 @@ public class t extends c<s> {
     private HttpURLConnection b(Uri uri, int i) throws IOException {
         HttpURLConnection M = M(uri);
         int responseCode = M.getResponseCode();
-        if (!CP(responseCode)) {
-            if (CQ(responseCode)) {
+        if (!CO(responseCode)) {
+            if (CP(responseCode)) {
                 String headerField = M.getHeaderField("Location");
                 M.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
@@ -149,11 +149,11 @@ public class t extends c<s> {
         return (HttpURLConnection) new URL(uri.toString()).openConnection();
     }
 
-    private static boolean CP(int i) {
+    private static boolean CO(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean CQ(int i) {
+    private static boolean CP(int i) {
         switch (i) {
             case 300:
             case 301:

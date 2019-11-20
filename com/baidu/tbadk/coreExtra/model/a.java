@@ -16,7 +16,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0291a cxD;
+    private C0291a cwM;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -33,18 +33,18 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.cxD == null) {
-            this.cxD = new C0291a();
-            this.cxD.setPriority(2);
-            this.cxD.eN(z);
-            this.cxD.setPortrait(str);
-            this.cxD.setToUid(str2);
-            this.cxD.setIsGod(z2);
-            this.cxD.setFrom(str3);
-            this.cxD.setPageId(bdUniqueId);
-            this.cxD.setForumId(str4);
-            this.cxD.setInLive(str5);
-            this.cxD.execute(new Integer[0]);
+        if (this.cwM == null) {
+            this.cwM = new C0291a();
+            this.cwM.setPriority(2);
+            this.cwM.eN(z);
+            this.cwM.setPortrait(str);
+            this.cwM.setToUid(str2);
+            this.cwM.setIsGod(z2);
+            this.cwM.setFrom(str3);
+            this.cwM.setPageId(bdUniqueId);
+            this.cwM.setForumId(str4);
+            this.cwM.setInLive(str5);
+            this.cwM.execute(new Integer[0]);
         }
     }
 
@@ -131,7 +131,7 @@ public class a {
                     }
                     this.mNetwork.addPostData("in_live", this.inLive);
                     this.mNetwork.addPostData("authsid", this.authSid);
-                    this.mNetwork.amr().amR().mIsNeedTbs = true;
+                    this.mNetwork.amp().amP().mIsNeedTbs = true;
                     String postNetData = this.mNetwork.postNetData();
                     this.tokenData = AuthTokenData.parse(postNetData);
                     return postNetData;
@@ -147,17 +147,17 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0291a) str);
-            a.this.cxD = null;
+            a.this.cwM = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.isSucc = this.mNetwork.amr().amS().isRequestSuccess();
+                aVar.isSucc = this.mNetwork.amp().amQ().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.parserJson(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.amr().amS().isRequestSuccess()) {
-                    aVar.cwD = null;
+                if (this.mNetwork.amp().amQ().isRequestSuccess()) {
+                    aVar.cvM = null;
                 }
                 if (!AntiHelper.d(a.this.getContext(), this.mNetwork.getServerErrorCode(), aVar.blockUrl)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
@@ -174,9 +174,9 @@ public class a {
                 this.mNetwork.cancelNetConnect();
                 this.mNetwork = null;
             }
-            if (a.this.cxD != null) {
-                a.this.cxD.cancel();
-                a.this.cxD = null;
+            if (a.this.cwM != null) {
+                a.this.cwM.cancel();
+                a.this.cwM = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.callback(false);
@@ -192,8 +192,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.cxD != null) {
-            this.cxD.cancel();
+        if (this.cwM != null) {
+            this.cwM.cancel();
         }
     }
 }

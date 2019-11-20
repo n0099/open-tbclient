@@ -16,16 +16,16 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class StatFsHelper {
-    private static StatFsHelper kbB;
-    private static final long kbC = TimeUnit.MINUTES.toMillis(2);
-    private volatile File kbE;
-    private volatile File kbG;
+    private static StatFsHelper kaK;
+    private static final long kaL = TimeUnit.MINUTES.toMillis(2);
+    private volatile File kaN;
+    private volatile File kaP;
     @GuardedBy("lock")
-    private long kbH;
-    private volatile StatFs kbD = null;
-    private volatile StatFs kbF = null;
+    private long kaQ;
+    private volatile StatFs kaM = null;
+    private volatile StatFs kaO = null;
     private volatile boolean mInitialized = false;
-    private final Lock kbI = new ReentrantLock();
+    private final Lock kaR = new ReentrantLock();
 
     /* loaded from: classes2.dex */
     public enum StorageType {
@@ -33,13 +33,13 @@ public class StatFsHelper {
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper cDf() {
+    public static synchronized StatFsHelper cDd() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (kbB == null) {
-                kbB = new StatFsHelper();
+            if (kaK == null) {
+                kaK = new StatFsHelper();
             }
-            statFsHelper = kbB;
+            statFsHelper = kaK;
         }
         return statFsHelper;
     }
@@ -49,16 +49,16 @@ public class StatFsHelper {
 
     private void ensureInitialized() {
         if (!this.mInitialized) {
-            this.kbI.lock();
+            this.kaR.lock();
             try {
                 if (!this.mInitialized) {
-                    this.kbE = Environment.getDataDirectory();
-                    this.kbG = Environment.getExternalStorageDirectory();
-                    cDh();
+                    this.kaN = Environment.getDataDirectory();
+                    this.kaP = Environment.getExternalStorageDirectory();
+                    cDf();
                     this.mInitialized = true;
                 }
             } finally {
-                this.kbI.unlock();
+                this.kaR.unlock();
             }
         }
     }
@@ -74,8 +74,8 @@ public class StatFsHelper {
         long blockSize;
         long availableBlocks;
         ensureInitialized();
-        cDg();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.kbD : this.kbF;
+        cDe();
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.kaM : this.kaO;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -89,23 +89,23 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void cDg() {
-        if (this.kbI.tryLock()) {
+    private void cDe() {
+        if (this.kaR.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.kbH > kbC) {
-                    cDh();
+                if (SystemClock.uptimeMillis() - this.kaQ > kaL) {
+                    cDf();
                 }
             } finally {
-                this.kbI.unlock();
+                this.kaR.unlock();
             }
         }
     }
 
     @GuardedBy("lock")
-    private void cDh() {
-        this.kbD = a(this.kbD, this.kbE);
-        this.kbF = a(this.kbF, this.kbG);
-        this.kbH = SystemClock.uptimeMillis();
+    private void cDf() {
+        this.kaM = a(this.kaM, this.kaN);
+        this.kaO = a(this.kaO, this.kaP);
+        this.kaQ = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {
@@ -122,7 +122,7 @@ public class StatFsHelper {
         } catch (IllegalArgumentException e) {
             return null;
         } catch (Throwable th) {
-            throw k.q(th);
+            throw k.r(th);
         }
     }
 

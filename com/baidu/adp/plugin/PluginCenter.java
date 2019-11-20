@@ -63,7 +63,7 @@ public class PluginCenter {
 
     public Plugin.b launch(String str) {
         Plugin.b bVar = new Plugin.b();
-        bVar.ud = str;
+        bVar.pkgName = str;
         if (TextUtils.isEmpty(str)) {
             if (BdBaseApplication.getInst().isDebugMode()) {
                 throw new IllegalArgumentException("plugincenter launch args exception!");
@@ -323,7 +323,7 @@ public class PluginCenter {
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                             sb.append(initWithBroadcast.reason);
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                            sb.append(initWithBroadcast.ue);
+                            sb.append(initWithBroadcast.tD);
                         }
                     }
                 }
@@ -364,7 +364,7 @@ public class PluginCenter {
                                     com.baidu.adp.plugin.b.a.iv().aI("plugin_load_retry_succ");
                                 }
                             } else if (PluginPackageManager.iL().isMainProcess()) {
-                                com.baidu.adp.plugin.b.a.iv().h("plugin_loaded_failed", key, bVar.reason, bVar.ue);
+                                com.baidu.adp.plugin.b.a.iv().h("plugin_loaded_failed", key, bVar.reason, bVar.tD);
                             }
                         }
                     }
@@ -406,7 +406,7 @@ public class PluginCenter {
                                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                     sb.append(bVar.reason);
                                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                                    sb.append(bVar.ue);
+                                    sb.append(bVar.tD);
                                 } else {
                                     sb.append("-ret==null");
                                 }

@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a jyX;
-    private b jyY;
-    b.a jyZ;
+    private com.baidu.tieba.video.editvideo.data.a jyg;
+    private b jyh;
+    b.a jyi;
     private Context mContext;
 
     public a(Context context) {
@@ -20,45 +20,45 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.jyX = aVar;
+        this.jyg = aVar;
     }
 
-    public boolean ctg() {
-        return (this.jyX == null || "normal".equalsIgnoreCase(this.jyX.value)) ? false : true;
+    public boolean cte() {
+        return (this.jyg == null || "normal".equalsIgnoreCase(this.jyg.value)) ? false : true;
     }
 
     public void EO(String str) {
-        if ((this.jyY == null || !this.jyY.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String ctj = ctj();
+        if ((this.jyh == null || !this.jyh.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String cth = cth();
             String str2 = "normal";
-            if (this.jyX != null) {
-                str2 = this.jyX.value;
+            if (this.jyg != null) {
+                str2 = this.jyg.value;
             }
-            this.jyY = new b(this.mContext, str, ctj, str2);
-            if (this.jyZ != null) {
-                this.jyY.a(this.jyZ);
+            this.jyh = new b(this.mContext, str, cth, str2);
+            if (this.jyi != null) {
+                this.jyh.a(this.jyi);
             }
-            this.jyY.ctk();
+            this.jyh.cti();
         }
     }
 
-    public boolean cth() {
-        if (this.jyY != null) {
-            return this.jyY.isRunning();
+    public boolean ctf() {
+        if (this.jyh != null) {
+            return this.jyh.isRunning();
         }
         return false;
     }
 
-    public void cti() {
-        if (this.jyY != null) {
-            this.jyY.ctl();
+    public void ctg() {
+        if (this.jyh != null) {
+            this.jyh.ctj();
         }
     }
 
     public void a(b.a aVar) {
-        this.jyZ = aVar;
-        if (this.jyY != null) {
-            this.jyY.a(this.jyZ);
+        this.jyi = aVar;
+        if (this.jyh != null) {
+            this.jyh.a(this.jyi);
         }
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String ctj() {
-        return com.baidu.tieba.video.c.jwU + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String cth() {
+        return com.baidu.tieba.video.c.jwd + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

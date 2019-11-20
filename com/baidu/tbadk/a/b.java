@@ -12,50 +12,50 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b bTL;
-    private final HashMap<String, a> ow = new HashMap<>();
+    private static b bSU;
+    private final HashMap<String, a> nU = new HashMap<>();
 
     public b() {
-        HashMap<String, a> aeX = aeX();
-        this.ow.clear();
-        this.ow.putAll(aeX);
+        HashMap<String, a> aeV = aeV();
+        this.nU.clear();
+        this.nU.putAll(aeV);
     }
 
-    public static b aeV() {
-        if (bTL == null) {
+    public static b aeT() {
+        if (bSU == null) {
             synchronized (b.class) {
-                if (bTL == null) {
-                    bTL = new b();
+                if (bSU == null) {
+                    bSU = new b();
                 }
             }
         }
-        return bTL;
+        return bSU;
     }
 
-    private static String aeW() {
+    private static String aeU() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(aeW(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(aeU(), 0);
     }
 
     public synchronized a ma(String str) {
-        return this.ow.get(str);
+        return this.nU.get(str);
     }
 
     private String bF(String str, String str2) {
         a ma = ma(str);
-        if (ma != null && !TextUtils.isEmpty(ma.bTK)) {
-            return ma.bTK;
+        if (ma != null && !TextUtils.isEmpty(ma.bST)) {
+            return ma.bST;
         }
         return str2;
     }
 
     private void clearAll() {
         try {
-            synchronized (this.ow) {
-                this.ow.clear();
+            synchronized (this.nU) {
+                this.nU.clear();
             }
             SharedPreferences.Editor edit = getSharedPreferences().edit();
             edit.clear();
@@ -83,9 +83,9 @@ public class b {
                     hashMap.put(optString, new a(optString, jSONObject.optString("branch"), jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME)));
                 }
             }
-            synchronized (this.ow) {
-                this.ow.clear();
-                this.ow.putAll(hashMap);
+            synchronized (this.nU) {
+                this.nU.clear();
+                this.nU.putAll(hashMap);
             }
             EditorHelper.putString(getSharedPreferences(), "pref_key_abtest_switchs", jSONArray.toString());
         } catch (Exception e) {
@@ -93,7 +93,7 @@ public class b {
         }
     }
 
-    private HashMap<String, a> aeX() {
+    private HashMap<String, a> aeV() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -111,6 +111,6 @@ public class b {
     }
 
     public static boolean mb(String str) {
-        return Config.APP_VERSION_CODE.equalsIgnoreCase(aeV().bF(str, ""));
+        return Config.APP_VERSION_CODE.equalsIgnoreCase(aeT().bF(str, ""));
     }
 }

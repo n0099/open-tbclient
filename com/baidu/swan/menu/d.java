@@ -68,6 +68,6 @@ public class d {
     }
 
     private static long e(BaseMenuView baseMenuView) {
-        return baseMenuView.aaw() ? 240L : 200L;
+        return baseMenuView.aau() ? 240L : 200L;
     }
 }

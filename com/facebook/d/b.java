@@ -7,8 +7,8 @@ import java.io.InputStream;
 import org.apache.http.HttpStatus;
 /* loaded from: classes2.dex */
 public class b {
-    public static int CU(int i) {
-        return d.CU(i);
+    public static int CT(int i) {
+        return d.CT(i);
     }
 
     public static int v(InputStream inputStream) {
@@ -30,7 +30,7 @@ public class b {
             while (i2 == 255) {
                 i2 = c.a(inputStream, 1, false);
             }
-            if ((i == 192 && CV(i2)) || i2 == i) {
+            if ((i == 192 && CU(i2)) || i2 == i) {
                 return true;
             }
             if (i2 != 216 && i2 != 1) {
@@ -43,7 +43,7 @@ public class b {
         return false;
     }
 
-    private static boolean CV(int i) {
+    private static boolean CU(int i) {
         switch (i) {
             case 192:
             case Constants.METHOD_IM_FETCH_CONFIG_MSG /* 193 */:

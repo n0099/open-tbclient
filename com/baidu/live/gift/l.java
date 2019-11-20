@@ -5,16 +5,16 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class l {
-    private g Xs = new g();
-    private int Xt = 0;
+    private g Xa = new g();
+    private int Xb = 0;
     private String mIcon;
 
     public g pF() {
-        return this.Xs;
+        return this.Xa;
     }
 
     public int pG() {
-        return this.Xt;
+        return this.Xb;
     }
 
     public String pH() {
@@ -24,15 +24,15 @@ public class l {
     public void parseJson(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.Xt = optJSONObject.optInt("switch");
+            this.Xb = optJSONObject.optInt("switch");
             this.mIcon = optJSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-            this.Xs = new g();
-            this.Xs.parseJson(optJSONObject.optJSONObject("gift_info"));
-            if (!TextUtils.equals(this.Xs.pc(), com.baidu.live.c.np().getString("quick_gift_id", ""))) {
-                com.baidu.live.c.np().putString("quick_gift_id", this.Xs.pc());
+            this.Xa = new g();
+            this.Xa.parseJson(optJSONObject.optJSONObject("gift_info"));
+            if (!TextUtils.equals(this.Xa.pc(), com.baidu.live.c.np().getString("quick_gift_id", ""))) {
+                com.baidu.live.c.np().putString("quick_gift_id", this.Xa.pc());
                 com.baidu.live.c.np().putBoolean("quick_gift_guide_show", true);
             }
-            this.Xs.setSceneFrom(com.baidu.live.utils.o.wu());
+            this.Xa.setSceneFrom(com.baidu.live.utils.o.wv());
         }
     }
 }

@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import com.baidu.swan.apps.b.c.d;
 /* loaded from: classes2.dex */
 public interface a<T extends d> extends e<T> {
-    void Ci();
-
     void Cj();
+
+    void Ck();
 
     void T(View view);
 

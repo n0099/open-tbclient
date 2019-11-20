@@ -19,10 +19,10 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes6.dex */
 public class AlaLiveRecordConfigHelper {
-    private static AlaLiveRecordConfigHelper efe;
+    private static AlaLiveRecordConfigHelper een;
 
     public VideoResolution hJ(boolean z) {
-        return x(a.uA().ajX.QO, z);
+        return x(a.uB().ajF.Qn, z);
     }
 
     public VideoResolution x(int i, boolean z) {
@@ -44,15 +44,15 @@ public class AlaLiveRecordConfigHelper {
         return VideoResolution.P540;
     }
 
-    public static AlaLiveRecordConfigHelper aRw() {
-        if (efe == null) {
+    public static AlaLiveRecordConfigHelper aRu() {
+        if (een == null) {
             synchronized (AlaLiveRecordConfigHelper.class) {
-                if (efe == null) {
-                    efe = new AlaLiveRecordConfigHelper();
+                if (een == null) {
+                    een = new AlaLiveRecordConfigHelper();
                 }
             }
         }
-        return efe;
+        return een;
     }
 
     public AlaLiveVideoConfig i(int i, int i2, boolean z) {
@@ -63,15 +63,15 @@ public class AlaLiveRecordConfigHelper {
         if (videoResolution == null) {
             videoResolution = x(i, false);
         }
-        if (i2 == 1 && !a.uA().ajX.QP) {
+        if (i2 == 1 && !a.uB().ajF.Qo) {
             videoResolution = VideoResolution.P360;
         }
-        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(tE(a.uA().ajX.QS), tE(a.uA().ajX.QT), a.uA().ajX.increaseThreshold, a.uA().ajX.decreaseThreshold, a.uA().ajX.increaseCount, a.uA().ajX.QP, a.uA().ajX.QR, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
+        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(tE(a.uB().ajF.Qq), tE(a.uB().ajF.Qr), a.uB().ajF.increaseThreshold, a.uB().ajF.decreaseThreshold, a.uB().ajF.increaseCount, a.uB().ajF.Qo, a.uB().ajF.Qp, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
         if (i2 == 1) {
             isLandscape.setPreviewWidth(720);
             isLandscape.setPreviewHeight(1280);
-            if (a.uA().ajX != null) {
-                isLandscape.setSupportFaceStyle(a.uA().ajX.QW);
+            if (a.uB().ajF != null) {
+                isLandscape.setSupportFaceStyle(a.uB().ajF.Qu);
             }
             return isLandscape;
         } else if (i2 == 2) {

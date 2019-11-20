@@ -6,37 +6,37 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class b {
-    private Map<DownloadCacheKey, AdDownloadData> dik;
+    private Map<DownloadCacheKey, AdDownloadData> dht;
 
     /* loaded from: classes3.dex */
     private static final class a {
-        private static final b dil = new b();
+        private static final b dhu = new b();
     }
 
     private b() {
-        this.dik = new HashMap();
+        this.dht = new HashMap();
     }
 
-    public static b aDF() {
-        return a.dil;
+    public static b aDD() {
+        return a.dhu;
     }
 
     public void a(@NonNull DownloadCacheKey downloadCacheKey, @NonNull AdDownloadData adDownloadData) {
-        if (this.dik.get(downloadCacheKey) == null) {
-            this.dik.put(downloadCacheKey, adDownloadData);
+        if (this.dht.get(downloadCacheKey) == null) {
+            this.dht.put(downloadCacheKey, adDownloadData);
         }
     }
 
     public AdDownloadData b(@NonNull DownloadCacheKey downloadCacheKey) {
-        return this.dik.get(downloadCacheKey);
+        return this.dht.get(downloadCacheKey);
     }
 
     public Map<DownloadCacheKey, AdDownloadData> rp(String str) {
-        HashMap hashMap = new HashMap(this.dik.size());
+        HashMap hashMap = new HashMap(this.dht.size());
         if (TextUtils.isEmpty(str)) {
             return hashMap;
         }
-        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.dik.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.dht.entrySet()) {
             if (entry.getKey() != null && entry.getKey().samePackage(str)) {
                 hashMap.put(entry.getKey(), entry.getValue());
             }

@@ -14,10 +14,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private InterfaceC0379a evE;
-    private b evF;
-    private c evG;
-    private c evH;
+    private InterfaceC0379a euN;
+    private b euO;
+    private c euP;
+    private c euQ;
     private TbPageContext mTbPageContext;
 
     /* renamed from: com.baidu.tieba.ala.person.c.a$a  reason: collision with other inner class name */
@@ -34,13 +34,13 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.evG = new c(tbPageContext);
-        this.evH = new c(tbPageContext);
-        this.evG.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.1
+        this.euP = new c(tbPageContext);
+        this.euQ = new c(tbPageContext);
+        this.euP.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.1
             @Override // com.baidu.tieba.ala.person.c.c.a
             public void c(com.baidu.tieba.ala.person.a.d dVar) {
-                if (dVar != null && a.this.evE != null) {
-                    a.this.evE.a(dVar);
+                if (dVar != null && a.this.euN != null) {
+                    a.this.euN.a(dVar);
                 }
             }
 
@@ -48,11 +48,11 @@ public class a {
             public void onFail(String str) {
             }
         });
-        this.evH.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.2
+        this.euQ.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.2
             @Override // com.baidu.tieba.ala.person.c.c.a
             public void c(com.baidu.tieba.ala.person.a.d dVar) {
-                if (dVar != null && a.this.evE != null) {
-                    a.this.evE.b(dVar);
+                if (dVar != null && a.this.euN != null) {
+                    a.this.euN.b(dVar);
                 }
             }
 
@@ -64,37 +64,37 @@ public class a {
 
     public void h(String str, String str2, String str3, String str4, String str5) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.evE != null) {
-                this.evE.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_no_network));
+            if (this.euN != null) {
+                this.euN.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_no_network));
                 return;
             }
             return;
         }
-        this.evF = new b();
-        this.evF.execute(str, str2, str3, str4, str5);
+        this.euO = new b();
+        this.euO.execute(str, str2, str3, str4, str5);
         cs(str, str4);
     }
 
     public void cs(String str, String str2) {
         if (TbadkCoreApplication.isLogin()) {
-            this.evG.setPn(-1);
-            this.evG.i(0, str, str2);
-            this.evH.setPn(-1);
-            this.evH.i(1, str, str2);
+            this.euP.setPn(-1);
+            this.euP.i(0, str, str2);
+            this.euQ.setPn(-1);
+            this.euQ.i(1, str, str2);
         }
     }
 
     public void onDestroy() {
-        if (this.evF != null && !this.evF.isCancelled()) {
-            this.evF.cancel();
+        if (this.euO != null && !this.euO.isCancelled()) {
+            this.euO.cancel();
         }
-        if (this.evE != null) {
-            this.evE.onFail(null);
+        if (this.euN != null) {
+            this.euN.onFail(null);
         }
     }
 
     public void a(InterfaceC0379a interfaceC0379a) {
-        this.evE = interfaceC0379a;
+        this.euN = interfaceC0379a;
     }
 
     /* loaded from: classes6.dex */
@@ -144,8 +144,8 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (a.this.evE != null) {
-                a.this.evE.b((PersonUserData) obj);
+            if (a.this.euN != null) {
+                a.this.euN.b((PersonUserData) obj);
             }
         }
     }

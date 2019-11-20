@@ -123,18 +123,18 @@ public class c extends z {
                 }
             });
             b.al(inflate);
-            b.Qs();
+            b.Qt();
             b.ep(j(context, arrayList.size()));
-            final g FW = b.FW();
-            Window window = FW.getWindow();
+            final g FX = b.FX();
+            Window window = FX.getWindow();
             if (window != null) {
                 window.setGravity(80);
                 window.setDimAmount(0.65f);
                 window.setLayout(com.baidu.swan.apps.an.z.bT(context), -2);
                 window.setWindowAnimations(a.i.action_sheet_animation);
             }
-            FW.cp(false);
-            FW.setCanceledOnTouchOutside(true);
+            FX.cp(false);
+            FX.setCanceledOnTouchOutside(true);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.apps.scheme.actions.d.c.4
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
@@ -142,7 +142,7 @@ public class c extends z {
                     try {
                         jSONObject.put("tapIndex", i3);
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                        FW.dismiss();
+                        FX.dismiss();
                     } catch (JSONException e2) {
                         if (c.DEBUG) {
                             e2.printStackTrace();
@@ -151,7 +151,7 @@ public class c extends z {
                     }
                 }
             });
-            FW.show();
+            FX.show();
             return true;
         }
         i = -1;
@@ -163,6 +163,6 @@ public class c extends z {
         int bT;
         Resources resources = context.getResources();
         int dimensionPixelSize = ((resources.getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider) + ((i + 1) * resources.getDimensionPixelSize(a.d.aiapps_action_sheet_list_item))) + i) - 1;
-        return (!com.baidu.swan.apps.an.z.Uw() || dimensionPixelSize <= (bT = com.baidu.swan.apps.an.z.bT(context) - com.baidu.swan.apps.an.z.getStatusBarHeight())) ? dimensionPixelSize : bT;
+        return (!com.baidu.swan.apps.an.z.Uu() || dimensionPixelSize <= (bT = com.baidu.swan.apps.an.z.bT(context) - com.baidu.swan.apps.an.z.getStatusBarHeight())) ? dimensionPixelSize : bT;
     }
 }

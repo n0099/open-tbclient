@@ -6,38 +6,38 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator aoN;
-    private boolean aoO;
-    private boolean aoP;
+    private ObjectAnimator aov;
+    private boolean aow;
+    private boolean aox;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.aoO = false;
-        this.aoP = false;
+        this.aow = false;
+        this.aox = false;
         init();
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aoO = false;
-        this.aoP = false;
+        this.aow = false;
+        this.aox = false;
         init();
     }
 
     private void init() {
-        this.aoN = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.aoN.setRepeatMode(1);
-        this.aoN.setRepeatCount(-1);
-        this.aoN.setDuration(700L);
+        this.aov = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.aov.setRepeatMode(1);
+        this.aov.setRepeatCount(-1);
+        this.aov.setDuration(700L);
         setVisibility(8);
-        this.aoO = false;
+        this.aow = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.aoP) {
+        if (this.aox) {
             startPlayAnimation();
         }
     }
@@ -46,30 +46,30 @@ public class AlaPlayAnimationView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        vx();
+        vy();
     }
 
     public void setAutoStartPlay(boolean z) {
-        this.aoP = z;
+        this.aox = z;
     }
 
     public void startPlayAnimation() {
-        if (!this.aoO) {
-            this.aoO = true;
-            if (this.aoN != null) {
+        if (!this.aow) {
+            this.aow = true;
+            if (this.aov != null) {
                 setVisibility(0);
-                this.aoN.start();
+                this.aov.start();
             }
         }
     }
 
-    public void vx() {
-        if (this.aoN != null) {
-            this.aoN.setRepeatCount(-1);
-            this.aoN.cancel();
+    public void vy() {
+        if (this.aov != null) {
+            this.aov.setRepeatCount(-1);
+            this.aov.cancel();
             clearAnimation();
         }
-        this.aoO = false;
+        this.aow = false;
         setVisibility(8);
     }
 }

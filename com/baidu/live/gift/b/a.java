@@ -26,7 +26,7 @@ public class a {
         }
     }
 
-    public static void ra() {
+    public static void rb() {
         com.baidu.live.d.a.cleanDir(new File(DIR_PATH));
     }
 
@@ -75,7 +75,7 @@ public class a {
         return false;
     }
 
-    public static void rb() {
+    public static void rc() {
         com.baidu.live.d.b.aY(19);
     }
 }

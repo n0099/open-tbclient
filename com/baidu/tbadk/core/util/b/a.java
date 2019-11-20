@@ -8,10 +8,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private List<String> clp;
-    private long clq;
+    private List<String> cky;
+    private long ckz;
     private long mStartTime = System.currentTimeMillis();
-    private String sT;
+    private String su;
 
     public a ob(String str) {
         JSONArray optJSONArray;
@@ -20,20 +20,20 @@ public class a {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.clq = jSONObject.optLong("ttl");
+            this.ckz = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
                 return null;
             }
-            this.sT = optJSONObject.keys().next();
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.sT);
+            this.su = optJSONObject.keys().next();
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.su);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP)) != null && optJSONArray.length() > 0) {
-                this.clp = new ArrayList();
+                this.cky = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.clp.add((String) optJSONArray.get(i2));
+                        this.cky.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -49,8 +49,8 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aV(long j) {
-        this.clq = j;
+    public void aU(long j) {
+        this.ckz = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -58,11 +58,11 @@ public class a {
         this.mStartTime = j;
     }
 
-    public List<String> anc() {
-        return this.clp;
+    public List<String> ana() {
+        return this.cky;
     }
 
-    public boolean aW(long j) {
-        return j - this.mStartTime > this.clq * 1000;
+    public boolean aV(long j) {
+        return j - this.mStartTime > this.ckz * 1000;
     }
 }

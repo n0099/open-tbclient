@@ -24,16 +24,16 @@ public final class x {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public final boolean btE;
-        public final boolean btF;
-        public final int btG;
+        public final boolean bsN;
+        public final boolean bsO;
+        public final int bsP;
         public final String mPath;
 
         a(String str, boolean z, boolean z2, int i) {
             this.mPath = str;
-            this.btE = z;
-            this.btF = z2;
-            this.btG = i;
+            this.bsN = z;
+            this.bsO = z2;
+            this.bsP = i;
         }
     }
 
@@ -43,7 +43,7 @@ public final class x {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<a> Ut() {
+    public static List<a> Ur() {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2;
         BufferedReader bufferedReader3;

@@ -4,23 +4,23 @@ import android.content.Context;
 import com.baidu.swan.apps.canvas.view.CanvasView;
 /* loaded from: classes2.dex */
 public class g {
-    public String aHe;
-    public CanvasView aHf;
+    public String aGM;
+    public CanvasView aGN;
 
     public g(Context context, String str, a aVar) {
-        this.aHe = str;
-        this.aHf = new CanvasView(context);
+        this.aGM = str;
+        this.aGN = new CanvasView(context);
         if (aVar != null) {
-            this.aHf.setInterceptTouchEvent(aVar.aGV);
-            this.aHf.setHide(aVar.hidden);
-            this.aHf.setGesture(aVar.aXK);
-            if (aVar.aXK) {
-                this.aHf.setInterceptTouchEvent(false);
+            this.aGN.setInterceptTouchEvent(aVar.aGD);
+            this.aGN.setHide(aVar.hidden);
+            this.aGN.setGesture(aVar.aXs);
+            if (aVar.aXs) {
+                this.aGN.setInterceptTouchEvent(false);
             }
         }
     }
 
     public void release() {
-        this.aHf = null;
+        this.aGN = null;
     }
 }

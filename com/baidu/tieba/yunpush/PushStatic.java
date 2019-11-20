@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.t.cc;
 /* loaded from: classes3.dex */
 public class PushStatic {
-    private static CustomMessageListener jXr = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
+    private static CustomMessageListener jWA = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -22,18 +22,18 @@ public class PushStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.yunpush.PushStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        PushStatic.cAS();
+                        PushStatic.cAQ();
                     }
                 }).start();
             }
         }
     };
 
-    private static void cAQ() {
+    private static void cAO() {
         en(TbadkApplication.getInst());
     }
 
-    private static void cAR() {
+    private static void cAP() {
         eo(TbadkCoreApplication.getInst());
     }
 
@@ -49,23 +49,23 @@ public class PushStatic {
     }
 
     private static void eo(Context context) {
-        if (b.alR().getBoolean(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
+        if (b.alP().getBoolean(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
             PushManager.stopWork(context);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void cAS() {
+    public static void cAQ() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (TbadkCoreApplication.getInst().isBaiduYunPushAvailable()) {
-                cAQ();
+                cAO();
             } else {
-                cAR();
+                cAP();
             }
         }
     }
 
     static {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, jXr);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, jWA);
     }
 }

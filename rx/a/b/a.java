@@ -4,19 +4,19 @@ import android.os.Looper;
 import rx.g;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final a kyM = new a();
-    private final g kyN;
+    private static final a kxV = new a();
+    private final g kxW;
 
     private a() {
-        g cOr = rx.a.a.a.cOo().cOp().cOr();
-        if (cOr != null) {
-            this.kyN = cOr;
+        g cOp = rx.a.a.a.cOm().cOn().cOp();
+        if (cOp != null) {
+            this.kxW = cOp;
         } else {
-            this.kyN = new b(Looper.getMainLooper());
+            this.kxW = new b(Looper.getMainLooper());
         }
     }
 
-    public static g cOs() {
-        return kyM.kyN;
+    public static g cOq() {
+        return kxV.kxW;
     }
 }

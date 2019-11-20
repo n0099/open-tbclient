@@ -15,30 +15,30 @@ public class PMSAppInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: gD */
+        /* renamed from: gC */
         public PMSAppInfo[] newArray(int i) {
             return new PMSAppInfo[i];
         }
     };
-    public String aOG;
-    public String aOJ;
-    public String aOK;
-    public String aOL;
-    public long aOT;
+    public long aOB;
+    public String aOo;
+    public String aOr;
+    public String aOs;
+    public String aOt;
     public String appId;
     public String appKey;
     public String appName;
     public int appStatus;
-    public long bLP;
-    public String bLQ;
-    public String bLR;
-    public long bLS;
-    public int bLT;
-    public int bLU;
-    public String bLV;
-    public String bLW;
-    public String bLX;
-    public String bLY;
+    public long bKY;
+    public String bKZ;
+    public String bLa;
+    public long bLb;
+    public int bLc;
+    public int bLd;
+    public String bLe;
+    public String bLf;
+    public String bLg;
+    public String bLh;
     public long createTime;
     public String description;
     public String iconUrl;
@@ -48,37 +48,37 @@ public class PMSAppInfo implements Parcelable {
     public String versionName;
 
     public PMSAppInfo() {
-        this.aOT = 432000L;
+        this.aOB = 432000L;
     }
 
     private PMSAppInfo(Parcel parcel) {
-        this.aOT = 432000L;
+        this.aOB = 432000L;
         this.appId = parcel.readString();
         this.appKey = parcel.readString();
-        this.bLP = parcel.readLong();
+        this.bKY = parcel.readLong();
         this.versionCode = parcel.readInt();
         this.versionName = parcel.readString();
         this.description = parcel.readString();
         this.appStatus = parcel.readInt();
-        this.bLQ = parcel.readString();
-        this.bLR = parcel.readString();
-        this.aOG = parcel.readString();
+        this.bKZ = parcel.readString();
+        this.bLa = parcel.readString();
+        this.aOo = parcel.readString();
         this.iconUrl = parcel.readString();
         this.appName = parcel.readString();
-        this.aOJ = parcel.readString();
-        this.aOK = parcel.readString();
+        this.aOr = parcel.readString();
+        this.aOs = parcel.readString();
         this.type = parcel.readInt();
-        this.bLS = parcel.readLong();
-        this.bLT = parcel.readInt();
-        this.bLU = parcel.readInt();
+        this.bLb = parcel.readLong();
+        this.bLc = parcel.readInt();
+        this.bLd = parcel.readInt();
         this.orientation = parcel.readInt();
-        this.aOT = parcel.readLong();
+        this.aOB = parcel.readLong();
         this.createTime = parcel.readLong();
-        this.bLV = parcel.readString();
-        this.bLW = parcel.readString();
-        this.bLX = parcel.readString();
-        this.aOL = parcel.readString();
-        this.bLY = parcel.readString();
+        this.bLe = parcel.readString();
+        this.bLf = parcel.readString();
+        this.bLg = parcel.readString();
+        this.aOt = parcel.readString();
+        this.bLh = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -90,47 +90,47 @@ public class PMSAppInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.appId);
         parcel.writeString(this.appKey);
-        parcel.writeLong(this.bLP);
+        parcel.writeLong(this.bKY);
         parcel.writeInt(this.versionCode);
         parcel.writeString(this.versionName);
         parcel.writeString(this.description);
         parcel.writeInt(this.appStatus);
-        parcel.writeString(this.bLQ);
-        parcel.writeString(this.bLR);
-        parcel.writeString(this.aOG);
+        parcel.writeString(this.bKZ);
+        parcel.writeString(this.bLa);
+        parcel.writeString(this.aOo);
         parcel.writeString(this.iconUrl);
         parcel.writeString(this.appName);
-        parcel.writeString(this.aOJ);
-        parcel.writeString(this.aOK);
+        parcel.writeString(this.aOr);
+        parcel.writeString(this.aOs);
         parcel.writeInt(this.type);
-        parcel.writeLong(this.bLS);
-        parcel.writeInt(this.bLT);
-        parcel.writeInt(this.bLU);
+        parcel.writeLong(this.bLb);
+        parcel.writeInt(this.bLc);
+        parcel.writeInt(this.bLd);
         parcel.writeInt(this.orientation);
-        parcel.writeLong(this.aOT);
+        parcel.writeLong(this.aOB);
         parcel.writeLong(this.createTime);
-        parcel.writeString(this.bLV);
-        parcel.writeString(this.bLW);
-        parcel.writeString(this.bLX);
-        parcel.writeString(this.aOL);
-        parcel.writeString(this.bLY);
+        parcel.writeString(this.bLe);
+        parcel.writeString(this.bLf);
+        parcel.writeString(this.bLg);
+        parcel.writeString(this.aOt);
+        parcel.writeString(this.bLh);
     }
 
-    public boolean abf() {
-        return this.bLT != 0;
+    public boolean abd() {
+        return this.bLc != 0;
     }
 
-    public boolean Hr() {
-        return (System.currentTimeMillis() - this.createTime) / 1000 > this.aOT;
+    public boolean Hs() {
+        return (System.currentTimeMillis() - this.createTime) / 1000 > this.aOB;
     }
 
     public void g(f fVar) {
         if (fVar != null) {
-            this.appId = fVar.bMa;
+            this.appId = fVar.bLj;
             this.versionCode = fVar.versionCode;
             this.versionName = fVar.versionName;
-            this.type = fVar.bMb;
-            this.bLS = fVar.size;
+            this.type = fVar.bLk;
+            this.bLb = fVar.size;
         }
     }
 
@@ -139,20 +139,20 @@ public class PMSAppInfo implements Parcelable {
             this.versionCode = pMSAppInfo.versionCode;
             this.versionName = pMSAppInfo.versionName;
             this.type = pMSAppInfo.type;
-            this.bLS = pMSAppInfo.bLS;
+            this.bLb = pMSAppInfo.bLb;
             this.createTime = pMSAppInfo.createTime;
             this.orientation = pMSAppInfo.orientation;
         }
     }
 
-    public void abg() {
-        if (this.aOT <= 0) {
-            this.aOT = 432000L;
+    public void abe() {
+        if (this.aOB <= 0) {
+            this.aOB = 432000L;
         }
         this.createTime = System.currentTimeMillis();
     }
 
-    public boolean abh() {
-        return !TextUtils.isEmpty(this.appKey) && this.bLP > 0;
+    public boolean abf() {
+        return !TextUtils.isEmpty(this.appKey) && this.bKY > 0;
     }
 }

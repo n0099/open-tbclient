@@ -9,8 +9,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    JSONArray aHC;
-    String aHD;
+    JSONArray aHk;
+    String aHl;
     String appId;
     String appKey;
 
@@ -19,23 +19,23 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String cO(int i) {
-        if (this.aHC == null) {
+        if (this.aHk == null) {
             return "";
         }
-        String optString = this.aHC.optString(i);
+        String optString = this.aHk.optString(i);
         if (!TextUtils.isEmpty(optString)) {
-            return "http://" + optString + ":" + this.aHD;
+            return "http://" + optString + ":" + this.aHl;
         }
         return "";
     }
 
-    public static c R(JSONObject jSONObject) {
+    public static c S(JSONObject jSONObject) {
         c cVar = new c();
         try {
-            cVar.aHC = jSONObject.getJSONArray("host");
+            cVar.aHk = jSONObject.getJSONArray("host");
             cVar.appKey = jSONObject.getString("appKey");
             cVar.appId = jSONObject.getString("appId");
-            cVar.aHD = jSONObject.getString(ClientCookie.PORT_ATTR);
+            cVar.aHl = jSONObject.getString(ClientCookie.PORT_ATTR);
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {

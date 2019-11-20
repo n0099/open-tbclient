@@ -13,23 +13,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FeedBackModel extends BdBaseModel<TbPageContext> {
-    private TbPageContext cfl;
-    private a jTy;
-    private ArrayList<bh> jTz;
+    private TbPageContext ceu;
+    private a jSH;
+    private ArrayList<bh> jSI;
     private int mErrCode;
 
     public FeedBackModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.jTy = null;
-        this.jTz = null;
+        this.jSH = null;
+        this.jSI = null;
         this.mErrCode = 0;
-        this.cfl = tbPageContext;
-        this.jTz = new ArrayList<>();
+        this.ceu = tbPageContext;
+        this.jSI = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<bh> czg() {
-        return this.jTz;
+    public ArrayList<bh> cze() {
+        return this.jSI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,16 +39,16 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void FN(String str) {
-        if (this.jTy == null) {
-            this.jTy = new a();
-            this.jTy.setPriority(3);
-            this.jTy.execute(str);
+        if (this.jSH == null) {
+            this.jSH = new a();
+            this.jSH.setPriority(3);
+            this.jSH.execute(str);
         }
     }
 
     /* loaded from: classes3.dex */
     private class a extends BdAsyncTask<Object, FeedBackModel, FeedBackModel> {
-        private x bVP;
+        private x bUY;
 
         private a() {
         }
@@ -59,13 +59,13 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* renamed from: H */
         public FeedBackModel doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
-            this.bVP = new x(TbConfig.SERVER_ADDRESS + Config.FRS_TOP_LIST);
-            this.bVP.addPostData("kw", obj);
-            String postNetData = this.bVP.postNetData();
-            if (!this.bVP.amr().amS().isRequestSuccess()) {
+            this.bUY = new x(TbConfig.SERVER_ADDRESS + Config.FRS_TOP_LIST);
+            this.bUY.addPostData("kw", obj);
+            String postNetData = this.bUY.postNetData();
+            if (!this.bUY.amp().amQ().isRequestSuccess()) {
                 return null;
             }
-            FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.cfl);
+            FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.ceu);
             feedBackModel.parserJson(postNetData);
             return feedBackModel;
         }
@@ -76,16 +76,16 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
             super.onPostExecute(feedBackModel);
-            FeedBackModel.this.jTy = null;
+            FeedBackModel.this.jSH = null;
             FeedBackModel.this.mLoadDataCallBack.callback(feedBackModel);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            FeedBackModel.this.jTy = null;
-            if (this.bVP != null) {
-                this.bVP.cancelNetConnect();
+            FeedBackModel.this.jSH = null;
+            if (this.bUY != null) {
+                this.bUY.cancelNetConnect();
             }
         }
     }
@@ -109,7 +109,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
                         if (jSONObject2 != null) {
                             bh bhVar = new bh();
                             bhVar.parserJson(jSONObject2);
-                            this.jTz.add(bhVar);
+                            this.jSI.add(bhVar);
                         }
                     }
                 }
@@ -126,8 +126,8 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.jTy != null) {
-            this.jTy.cancel();
+        if (this.jSH != null) {
+            this.jSH.cancel();
             return true;
         }
         return true;

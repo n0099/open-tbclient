@@ -4,5 +4,5 @@ import com.baidu.swan.pms.model.h;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    public List<h> bMN;
+    public List<h> bLW;
 }

@@ -12,18 +12,18 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a aNk;
-    private Map<String, c> aNl;
+    private static volatile a aMS;
+    private Map<String, c> aMT;
 
-    public static a GC() {
-        if (aNk == null) {
+    public static a GD() {
+        if (aMS == null) {
             synchronized (a.class) {
-                if (aNk == null) {
-                    aNk = new a();
+                if (aMS == null) {
+                    aMS = new a();
                 }
             }
         }
-        return aNk;
+        return aMS;
     }
 
     public void aj(String str, String str2) {
@@ -35,11 +35,11 @@ public class a {
                     Log.i("SwanAppPreHandleHelper", "pre handle configData : " + l);
                 }
                 c hs = c.hs(l);
-                if (this.aNl == null) {
-                    this.aNl = new HashMap();
+                if (this.aMT == null) {
+                    this.aMT = new HashMap();
                 }
                 if (hs != null) {
-                    this.aNl.put(str, hs);
+                    this.aMT.put(str, hs);
                 }
             }
         }
@@ -47,20 +47,20 @@ public class a {
 
     @Nullable
     public c eE(String str) {
-        if (this.aNl == null || TextUtils.isEmpty(str)) {
+        if (this.aMT == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.aNl.get(str);
+        return this.aMT.get(str);
     }
 
-    private void GD() {
-        this.aNl = null;
-        aNk = null;
+    private void GE() {
+        this.aMT = null;
+        aMS = null;
     }
 
     public static void release() {
-        if (aNk != null) {
-            aNk.GD();
+        if (aMS != null) {
+            aMS.GE();
         }
     }
 }

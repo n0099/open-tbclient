@@ -4,48 +4,48 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 class c {
-    private final Object bar = new Object();
-    private List<Runnable> bas;
+    private final Object aZZ = new Object();
+    private List<Runnable> baa;
 
     public c d(Runnable runnable) {
-        synchronized (this.bar) {
-            NE().add(runnable);
+        synchronized (this.aZZ) {
+            NF().add(runnable);
         }
         return this;
     }
 
-    public void ND() {
-        synchronized (this.bar) {
-            this.bas = null;
+    public void NE() {
+        synchronized (this.aZZ) {
+            this.baa = null;
         }
     }
 
-    public List<Runnable> NE() {
+    public List<Runnable> NF() {
         List<Runnable> list;
-        synchronized (this.bar) {
-            if (this.bas == null) {
-                this.bas = new ArrayList();
+        synchronized (this.aZZ) {
+            if (this.baa == null) {
+                this.baa = new ArrayList();
             }
-            list = this.bas;
+            list = this.baa;
         }
         return list;
     }
 
-    public List<Runnable> NF() {
-        List<Runnable> NE = NE();
-        ND();
-        return NE;
+    public List<Runnable> NG() {
+        List<Runnable> NF = NF();
+        NE();
+        return NF;
     }
 
     public int size() {
-        if (this.bas == null) {
+        if (this.baa == null) {
             return 0;
         }
-        return this.bas.size();
+        return this.baa.size();
     }
 
-    public c NG() {
-        for (Runnable runnable : NF()) {
+    public c NH() {
+        for (Runnable runnable : NG()) {
             runnable.run();
         }
         return this;

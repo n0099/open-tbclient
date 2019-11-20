@@ -47,10 +47,10 @@ public class e {
             }
             JSONObject jSONObject = new JSONObject(content);
             String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != com.baidu.tieba.im.sendmessage.a.gQg.longValue()) {
+            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != com.baidu.tieba.im.sendmessage.a.gPp.longValue()) {
                 return -1L;
             }
-            return com.baidu.tieba.im.util.d.ds(optJSONObject.optLong("readMsgId"));
+            return com.baidu.tieba.im.util.d.dr(optJSONObject.optLong("readMsgId"));
         } catch (Exception e) {
             return -1L;
         }

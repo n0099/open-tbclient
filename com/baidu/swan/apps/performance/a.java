@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
-    private final Map<String, HybridUbcFlow> aZH = new HashMap();
-    private final Map<String, com.baidu.swan.apps.an.d.a<HybridUbcFlow>> aZI = new HashMap();
-    private final com.baidu.swan.apps.an.d.a<HybridUbcFlow> aZJ = new com.baidu.swan.apps.an.d.a<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.a.1
+    private final Map<String, HybridUbcFlow> aZp = new HashMap();
+    private final Map<String, com.baidu.swan.apps.an.d.a<HybridUbcFlow>> aZq = new HashMap();
+    private final com.baidu.swan.apps.an.d.a<HybridUbcFlow> aZr = new com.baidu.swan.apps.an.d.a<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.an.d.a
         /* renamed from: a */
@@ -18,16 +18,16 @@ public class a {
 
     public synchronized HybridUbcFlow gz(String str) {
         HybridUbcFlow gB;
-        synchronized (this.aZH) {
+        synchronized (this.aZp) {
             gB = gB(str);
             if (gB == null) {
                 HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-                hybridUbcFlow.a(HybridUbcFlow.ExtensionType.CALLBACK_ON_SUBMIT, this.aZJ);
-                com.baidu.swan.apps.an.d.a<HybridUbcFlow> aVar = this.aZI.get(str);
+                hybridUbcFlow.a(HybridUbcFlow.ExtensionType.CALLBACK_ON_SUBMIT, this.aZr);
+                com.baidu.swan.apps.an.d.a<HybridUbcFlow> aVar = this.aZq.get(str);
                 if (aVar != null) {
                     aVar.B(hybridUbcFlow);
                 }
-                this.aZH.put(str, hybridUbcFlow);
+                this.aZp.put(str, hybridUbcFlow);
                 gB = hybridUbcFlow;
             }
         }
@@ -35,23 +35,23 @@ public class a {
     }
 
     public a b(String str, com.baidu.swan.apps.an.d.a<HybridUbcFlow> aVar) {
-        synchronized (this.aZI) {
-            this.aZI.put(str, aVar);
+        synchronized (this.aZq) {
+            this.aZq.put(str, aVar);
         }
         return this;
     }
 
     public a gA(String str) {
-        synchronized (this.aZH) {
-            this.aZH.remove(str);
+        synchronized (this.aZp) {
+            this.aZp.remove(str);
         }
         return this;
     }
 
     public HybridUbcFlow gB(String str) {
         HybridUbcFlow hybridUbcFlow;
-        synchronized (this.aZH) {
-            hybridUbcFlow = this.aZH.get(str);
+        synchronized (this.aZp) {
+            hybridUbcFlow = this.aZp.get(str);
         }
         return hybridUbcFlow;
     }

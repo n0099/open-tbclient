@@ -12,9 +12,9 @@ public class c extends f<Float> {
     @Override // com.airbnb.lottie.a.b.a
     /* renamed from: c */
     public Float a(com.airbnb.lottie.a.a<Float> aVar, float f) {
-        if (aVar.ej == null || aVar.ek == null) {
+        if (aVar.dK == null || aVar.dL == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        return Float.valueOf(com.airbnb.lottie.c.e.lerp(aVar.ej.floatValue(), aVar.ek.floatValue(), f));
+        return Float.valueOf(com.airbnb.lottie.c.e.lerp(aVar.dK.floatValue(), aVar.dL.floatValue(), f));
     }
 }

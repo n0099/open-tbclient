@@ -16,7 +16,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.d.exP);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.d.ewX);
         this.mPageContext = tbPageContext;
     }
 
@@ -32,36 +32,36 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.d.b> aVar) {
-        if (aVar.baZ() == null) {
+        if (aVar.baX() == null) {
             return null;
         }
-        aVar.baZ().a(dVar);
-        aVar.baZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.baZ().d(new ab<com.baidu.tieba.ala.personcenter.c.d>() { // from class: com.baidu.tieba.ala.personcenter.a.b.1
+        aVar.baX().a(dVar);
+        aVar.baX().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.baX().d(new ab<com.baidu.tieba.ala.personcenter.c.d>() { // from class: com.baidu.tieba.ala.personcenter.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, com.baidu.tieba.ala.personcenter.c.d dVar2) {
                 b.this.a(dVar2);
             }
         });
-        return aVar.baZ().getView();
+        return aVar.baX().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.personcenter.c.d dVar) {
         com.baidu.tieba.ala.personcenter.c.b personCenterData;
-        if (dVar != null && (personCenterData = dVar.getPersonCenterData()) != null && personCenterData.aXE() != null) {
+        if (dVar != null && (personCenterData = dVar.getPersonCenterData()) != null && personCenterData.aXC() != null) {
             if (!personCenterData.isHost()) {
                 TiebaStatic.log("c11864");
             } else {
                 TiebaStatic.log("c11857");
             }
-            int i = personCenterData.aXE().level_id;
+            int i = personCenterData.aXC().level_id;
             if (i >= 40) {
                 i = 40;
             }
             int i2 = i + 1;
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterExpActivityConfig(this.mPageContext.getPageActivity(), personCenterData.aXE().level_exp, i, personCenterData.aXE().next_exp, i2 <= 40 ? i2 : 40, personCenterData.isHost())));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterExpActivityConfig(this.mPageContext.getPageActivity(), personCenterData.aXC().level_exp, i, personCenterData.aXC().next_exp, i2 <= 40 ? i2 : 40, personCenterData.isHost())));
         }
     }
 }

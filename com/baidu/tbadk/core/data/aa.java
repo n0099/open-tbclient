@@ -1,16 +1,16 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes3.dex */
 public class aa {
-    public int Pi;
+    public int OF;
     public int accountType;
-    public int bZA;
-    public int bZB;
-    public long bZu;
-    public String bZv;
-    public long bZw;
-    public long bZx;
-    public int bZy;
-    public int bZz;
+    public long bYD;
+    public String bYE;
+    public long bYF;
+    public long bYG;
+    public int bYH;
+    public int bYI;
+    public int bYJ;
+    public int bYK;
     public long beginTime;
     public String desc;
     public long endTime;

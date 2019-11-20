@@ -5,11 +5,10 @@ import android.util.SparseArray;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
-import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.c {
-    private static c cDf = new c();
+    private static c cCo = new c();
     private final SparseArray<a> availableAPIs;
     private boolean closeLongConnectionAPI;
     private int longConnectionFailedErrno;
@@ -17,14 +16,14 @@ public class c extends com.baidu.adp.framework.listener.c {
     private long retryTimeInMills;
     private final HashSet<Integer> unavailableAPIS;
 
-    public static c atf() {
-        return cDf;
+    public static c atd() {
+        return cCo;
     }
 
     private c() {
         super(1001);
         this.maxErrorCount = 3;
-        this.retryTimeInMills = ReportUserInfoModel.TIME_INTERVAL;
+        this.retryTimeInMills = 300000L;
         this.availableAPIs = new SparseArray<>();
         this.unavailableAPIS = new HashSet<>();
         this.longConnectionFailedErrno = 0;
@@ -42,7 +41,7 @@ public class c extends com.baidu.adp.framework.listener.c {
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
             this.longConnectionFailedErrno = 1;
             return false;
-        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().getLastReceDataTime() > e.ath().getForegroundInterval() + 20000) {
+        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().getLastReceDataTime() > e.atf().getForegroundInterval() + 20000) {
             com.baidu.adp.framework.client.socket.i.debug("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
             this.longConnectionFailedErrno = 2;
             return false;

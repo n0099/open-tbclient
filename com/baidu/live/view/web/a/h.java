@@ -18,12 +18,12 @@ import com.baidu.live.tbadk.scheme.SchemeUtils;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class h extends com.baidu.live.view.web.a {
-    private SchemeCallback atT;
+    private SchemeCallback atB;
     private Context context;
 
     public h(Context context, SchemeCallback schemeCallback) {
         this.context = context;
-        this.atT = schemeCallback;
+        this.atB = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -38,10 +38,10 @@ public class h extends com.baidu.live.view.web.a {
             if (this.context instanceof Activity) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceRecognitionActivityConfig(this.context, RequestResponseCode.REQUEST_REAL_AUTHEN, "")));
             }
-        } else if (this.atT == null) {
+        } else if (this.atB == null) {
             SchemeUtils.openScheme(str);
         } else {
-            SchemeUtils.openScheme(str, this.atT);
+            SchemeUtils.openScheme(str, this.atB);
         }
     }
 
@@ -52,8 +52,8 @@ public class h extends com.baidu.live.view.web.a {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
             List<ResolveInfo> queryIntentActivities = (this.context == null || (packageManager = this.context.getPackageManager()) == null) ? null : packageManager.queryIntentActivities(intent, 0);
             boolean z2 = (queryIntentActivities == null || queryIntentActivities.isEmpty()) ? false : true;
-            if (this.atT != null) {
-                this.atT.doJsCallback(z2 ? 1 : 0, "", null, str2);
+            if (this.atB != null) {
+                this.atB.doJsCallback(z2 ? 1 : 0, "", null, str2);
             }
             if (z && z2) {
                 intent.addFlags(268435456);

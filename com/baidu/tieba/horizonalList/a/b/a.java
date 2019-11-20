@@ -17,7 +17,7 @@ public class a extends a.b {
 
     @Override // com.baidu.tieba.horizonalList.a.a.b, com.baidu.tieba.horizonalList.a.a.AbstractC0428a
     @TargetApi(11)
-    public boolean uR() {
+    public boolean uS() {
         return this.view.isHardwareAccelerated();
     }
 }

@@ -25,17 +25,17 @@ import com.baidu.tieba.ala.tasklist.model.AlaTaskRewardHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a implements com.baidu.live.m.b {
-    private ImageView eDo;
-    private TBLottieAnimationView eDp;
-    private int eDr;
+    private int eCA;
+    private ImageView eCx;
+    private TBLottieAnimationView eCy;
     private Context mContext;
     private View mRootView;
-    private final int eDl = 95;
-    private final int eDm = 31;
-    private final int eDn = 80;
-    private boolean dYO = true;
-    private boolean eDq = false;
-    private HttpMessageListener eDb = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.taskview.a.2
+    private final int eCu = 95;
+    private final int eCv = 31;
+    private final int eCw = 80;
+    private boolean dXX = true;
+    private boolean eCz = false;
+    private HttpMessageListener eCk = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.taskview.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -44,12 +44,12 @@ public class a implements com.baidu.live.m.b {
                 int error = httpResponsedMessage.getError();
                 AlaTaskRewardHttpResponsedMessage alaTaskRewardHttpResponsedMessage = (AlaTaskRewardHttpResponsedMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    a.this.a(alaTaskRewardHttpResponsedMessage.eCY);
+                    a.this.a(alaTaskRewardHttpResponsedMessage.eCh);
                 }
             }
         }
     };
-    private Animator.AnimatorListener eDs = new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.taskview.a.4
+    private Animator.AnimatorListener eCB = new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.taskview.a.4
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
         }
@@ -67,7 +67,7 @@ public class a implements com.baidu.live.m.b {
         public void onAnimationRepeat(Animator animator) {
         }
     };
-    private Animator.AnimatorListener eDt = new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.taskview.a.5
+    private Animator.AnimatorListener eCC = new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.taskview.a.5
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
         }
@@ -82,10 +82,10 @@ public class a implements com.baidu.live.m.b {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            if (!a.this.eDq) {
-                a.this.eDq = true;
-                a.this.eDp.setMinFrame(31);
-                a.this.eDp.setMaxFrame(80);
+            if (!a.this.eCz) {
+                a.this.eCz = true;
+                a.this.eCy.setMinFrame(31);
+                a.this.eCy.setMaxFrame(80);
             }
         }
     };
@@ -93,27 +93,27 @@ public class a implements com.baidu.live.m.b {
     public a(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_task_view, (ViewGroup) null);
-        this.eDo = (ImageView) this.mRootView.findViewById(a.g.alaFlowerImg);
-        this.eDp = (TBLottieAnimationView) this.mRootView.findViewById(a.g.animation_view);
-        this.eDp.setAnimation("flower_entry.json");
-        this.eDp.setImageAssetsFolder("images/");
-        this.eDp.setVisibility(4);
-        this.eDp.addAnimatorListener(this.eDt);
+        this.eCx = (ImageView) this.mRootView.findViewById(a.g.alaFlowerImg);
+        this.eCy = (TBLottieAnimationView) this.mRootView.findViewById(a.g.animation_view);
+        this.eCy.setAnimation("flower_entry.json");
+        this.eCy.setImageAssetsFolder("images/");
+        this.eCy.setVisibility(4);
+        this.eCy.addAnimatorListener(this.eCC);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.taskview.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(a.this.mContext);
                 } else {
-                    a.this.aRV();
+                    a.this.aRT();
                 }
             }
         });
-        MessageManager.getInstance().registerListener(this.eDb);
+        MessageManager.getInstance().registerListener(this.eCk);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aRV() {
+    public void aRT() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new d(this.mContext)));
     }
 
@@ -125,12 +125,12 @@ public class a implements com.baidu.live.m.b {
     @Override // com.baidu.live.m.b
     public void a(q qVar) {
         if (qVar != null) {
-            a(qVar.SB, qVar);
+            a(qVar.Si, qVar);
         }
     }
 
     @Override // com.baidu.live.m.b
-    public void y(JSONObject jSONObject) {
+    public void z(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("task_info");
             p pVar = new p();
@@ -143,19 +143,19 @@ public class a implements com.baidu.live.m.b {
 
     @Override // com.baidu.live.m.b
     public void setCanVisible(boolean z) {
-        this.dYO = z;
+        this.dXX = z;
     }
 
     private void a(int i, q qVar) {
         if (i >= 1 && i <= 3) {
-            this.eDr = i;
+            this.eCA = i;
         }
-        if (qVar != null && !ListUtils.isEmpty(qVar.SC)) {
+        if (qVar != null && !ListUtils.isEmpty(qVar.Sj)) {
             if (qVar.os()) {
-                if (this.dYO) {
+                if (this.dXX) {
                     this.mRootView.setVisibility(0);
                     ix(true);
-                    aYS();
+                    aYQ();
                     return;
                 }
                 return;
@@ -166,20 +166,20 @@ public class a implements com.baidu.live.m.b {
 
     private void a(int i, p pVar) {
         if (i >= 1 && i <= 3) {
-            this.eDr = i;
+            this.eCA = i;
         }
         if (i == 2) {
-            if (this.dYO) {
+            if (this.dXX) {
                 this.mRootView.setVisibility(0);
                 ix(true);
-                aYS();
+                aYQ();
             }
         } else if (i == 1 && pVar != null && pVar.op() && pVar.status == 3) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913035, -1));
         }
     }
 
-    private void aYS() {
+    private void aYQ() {
         if (TbConfig.FLOWER_GUIDE_STATUS == 1) {
             this.mRootView.post(new Runnable() { // from class: com.baidu.tieba.ala.taskview.a.3
                 @Override // java.lang.Runnable
@@ -194,60 +194,60 @@ public class a implements com.baidu.live.m.b {
 
     private void ix(boolean z) {
         if (z) {
-            if (!this.eDp.isAnimating()) {
-                this.eDp.cancelAnimation();
-                this.eDp.loop(true);
-                this.eDp.setMinFrame(0);
-                this.eDp.setMaxFrame(80);
-                this.eDp.addAnimatorListener(this.eDt);
-                this.eDp.removeAnimatorListener(this.eDs);
-                this.eDp.playAnimation();
-                this.eDq = false;
+            if (!this.eCy.isAnimating()) {
+                this.eCy.cancelAnimation();
+                this.eCy.loop(true);
+                this.eCy.setMinFrame(0);
+                this.eCy.setMaxFrame(80);
+                this.eCy.addAnimatorListener(this.eCC);
+                this.eCy.removeAnimatorListener(this.eCB);
+                this.eCy.playAnimation();
+                this.eCz = false;
             }
-        } else if (this.eDp.isAnimating()) {
-            this.eDp.cancelAnimation();
-            this.eDp.loop(false);
-            this.eDp.addAnimatorListener(this.eDs);
-            this.eDp.removeAnimatorListener(this.eDt);
-            this.eDp.setMaxFrame(95);
-            this.eDp.setMinFrame(80);
-            this.eDp.playAnimation();
+        } else if (this.eCy.isAnimating()) {
+            this.eCy.cancelAnimation();
+            this.eCy.loop(false);
+            this.eCy.addAnimatorListener(this.eCB);
+            this.eCy.removeAnimatorListener(this.eCC);
+            this.eCy.setMaxFrame(95);
+            this.eCy.setMinFrame(80);
+            this.eCy.playAnimation();
         } else {
-            this.eDp.cancelAnimation();
+            this.eCy.cancelAnimation();
             this.mRootView.setVisibility(8);
         }
     }
 
-    private void or(int i) {
+    private void oq(int i) {
         if (i == 8) {
-            this.eDo.setImageResource(a.f.icon_liveshow_flowerless);
-            this.eDo.setVisibility(0);
-            this.eDp.setVisibility(4);
+            this.eCx.setImageResource(a.f.icon_liveshow_flowerless);
+            this.eCx.setVisibility(0);
+            this.eCy.setVisibility(4);
         } else if (i == 0) {
-            this.eDo.setImageResource(a.f.icon_liveshow_flower);
-            this.eDo.setVisibility(4);
-            this.eDp.setVisibility(0);
-        }
-    }
-
-    @Override // com.baidu.live.m.b
-    public void uM() {
-        if (!TbadkCoreApplication.isLogin()) {
-            or(8);
-        } else {
-            or(0);
+            this.eCx.setImageResource(a.f.icon_liveshow_flower);
+            this.eCx.setVisibility(4);
+            this.eCy.setVisibility(0);
         }
     }
 
     @Override // com.baidu.live.m.b
     public void uN() {
-        if (this.eDp != null) {
-            this.eDp.cancelAnimation();
+        if (!TbadkCoreApplication.isLogin()) {
+            oq(8);
+        } else {
+            oq(0);
+        }
+    }
+
+    @Override // com.baidu.live.m.b
+    public void uO() {
+        if (this.eCy != null) {
+            this.eCy.cancelAnimation();
         }
     }
 
     @Override // com.baidu.live.m.b
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eDb);
+        MessageManager.getInstance().unRegisterListener(this.eCk);
     }
 }

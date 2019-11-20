@@ -8,10 +8,10 @@ import com.baidu.tbadk.widget.ScrollTextView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class VerticalScrollNumberView extends LinearLayout {
-    private int fzU;
-    private int fzV;
-    private int fzW;
-    private int fzX;
+    private int fzd;
+    private int fze;
+    private int fzf;
+    private int fzg;
     private Context mContext;
 
     public VerticalScrollNumberView(Context context) {
@@ -34,10 +34,10 @@ public class VerticalScrollNumberView extends LinearLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        this.fzU = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds30);
-        this.fzV = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds40);
-        this.fzW = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds2);
-        this.fzX = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds8);
+        this.fzd = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds30);
+        this.fze = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds40);
+        this.fzf = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds2);
+        this.fzg = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds8);
     }
 
     public void setData(int i) {
@@ -54,10 +54,10 @@ public class VerticalScrollNumberView extends LinearLayout {
             if (getChildAt(childCount) instanceof ScrollTextView) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 if (i4 == 2) {
-                    layoutParams.setMargins(this.fzX, 0, 0, 0);
+                    layoutParams.setMargins(this.fzg, 0, 0, 0);
                     i4 = 0;
                 } else {
-                    layoutParams.setMargins(this.fzW, 0, 0, 0);
+                    layoutParams.setMargins(this.fzf, 0, 0, 0);
                     i4++;
                 }
                 getChildAt(childCount).setLayoutParams(layoutParams);
@@ -77,8 +77,8 @@ public class VerticalScrollNumberView extends LinearLayout {
         scrollTextView.setMaxLines(1);
         scrollTextView.setContinuousScrolling(false);
         scrollTextView.setSpeed((float) ((Math.random() * 5.0d) + 10.0d));
-        scrollTextView.setWidth(this.fzU);
-        scrollTextView.setHeight(this.fzV);
+        scrollTextView.setWidth(this.fzd);
+        scrollTextView.setHeight(this.fze);
         addView(scrollTextView);
     }
 }

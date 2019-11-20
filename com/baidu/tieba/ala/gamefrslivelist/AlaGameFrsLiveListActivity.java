@@ -35,15 +35,15 @@ import com.baidu.tieba.frs.ac;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
-    private AlaGameFrsLiveListAdapter dKA;
-    private ImageView dKt;
+    private ImageView dJC;
+    private AlaGameFrsLiveListAdapter dJJ;
     private String forumGameLabel;
     private String forumId;
     private String forumName;
     private NavigationBar mNavigationBar;
     private View mStatusBarView;
     private FragmentTabHost mTabHost;
-    private int dKv = -1;
+    private int dJE = -1;
     private final Handler mHandler = new Handler();
 
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -73,9 +73,9 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         });
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams2.setMargins(0, 0, l.getDimens(getPageContext().getPageActivity(), R.dimen.ds24), 0);
-        this.dKt = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.ala_frs_game_tab_forum_detail, (View.OnClickListener) null);
-        this.dKt.setLayoutParams(layoutParams2);
-        this.dKt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity.2
+        this.dJC = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.ala_frs_game_tab_forum_detail, (View.OnClickListener) null);
+        this.dJC.setLayoutParams(layoutParams2);
+        this.dJC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!StringUtils.isNull(AlaGameFrsLiveListActivity.this.forumId)) {
@@ -83,7 +83,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 }
             }
         });
-        aKQ();
+        aKO();
         linearLayout.addView(this.mNavigationBar, new LinearLayout.LayoutParams(-1, -2));
         this.mNavigationBar.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         am.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.cp_bg_line_c);
@@ -116,7 +116,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         }
         setContentView(onCreateView(getLayoutInflater(), new FrameLayout(getPageContext().getPageActivity()), (Bundle) null));
         initTabSpec();
-        this.dKv = 0;
+        this.dJE = 0;
         this.mTabHost.setCurrentTab(0);
     }
 
@@ -151,13 +151,13 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             this.mNavigationBar.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             am.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.cp_bg_line_c);
         }
-        if (this.dKt != null) {
-            am.setNavbarIconSrc(this.dKt, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
+        if (this.dJC != null) {
+            am.setNavbarIconSrc(this.dJC, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
         }
-        if (this.dKA != null) {
-            int count = this.dKA.getCount();
+        if (this.dJJ != null) {
+            int count = this.dJJ.getCount();
             for (int i2 = 0; i2 < count; i2++) {
-                Fragment item = this.dKA.getItem(i2);
+                Fragment item = this.dJJ.getItem(i2);
                 if (item instanceof BaseFragment) {
                     ((BaseFragment) item).changeSkinType(i);
                 }
@@ -175,7 +175,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
 
             @Override // com.baidu.tbadk.o.b
             public int getMaxCost() {
-                return e.awz().getMaxCostFromServer();
+                return e.awx().getMaxCostFromServer();
             }
 
             @Override // com.baidu.tbadk.o.b
@@ -198,7 +198,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         return null;
     }
 
-    private String mG(int i) {
+    private String mF(int i) {
         switch (i) {
             case 0:
                 return getResources().getString(R.string.frs_game_live_bagame2);
@@ -208,12 +208,12 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String mF(int i) {
-        return mG(i);
+    public String mE(int i) {
+        return mF(i);
     }
 
     private void initTabSpec() {
-        this.dKA = new AlaGameFrsLiveListAdapter(getSupportFragmentManager());
+        this.dJJ = new AlaGameFrsLiveListAdapter(getSupportFragmentManager());
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_LIVE_ADD_TAB) { // from class: com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -221,17 +221,17 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ac)) {
                     ac acVar = (ac) customResponsedMessage.getData();
                     ArrayList arrayList = new ArrayList();
-                    if (acVar.bjw() != null) {
-                        for (com.baidu.tbadk.mainTab.b bVar : acVar.bjw()) {
-                            if (bVar.avz().frag != null) {
-                                arrayList.add(bVar.avz().frag);
+                    if (acVar.bju() != null) {
+                        for (com.baidu.tbadk.mainTab.b bVar : acVar.bju()) {
+                            if (bVar.avx().frag != null) {
+                                arrayList.add(bVar.avx().frag);
                             }
                         }
                     }
-                    AlaGameFrsLiveListActivity.this.dKA.bs(arrayList);
-                    int count = AlaGameFrsLiveListActivity.this.dKA.getCount();
+                    AlaGameFrsLiveListActivity.this.dJJ.bs(arrayList);
+                    int count = AlaGameFrsLiveListActivity.this.dJJ.getCount();
                     for (int i = 0; i < count; i++) {
-                        AlaGameFrsLiveListActivity.this.a(AlaGameFrsLiveListActivity.this.dKA.getItem(i), i, AlaGameFrsLiveListActivity.this.mF(i));
+                        AlaGameFrsLiveListActivity.this.a(AlaGameFrsLiveListActivity.this.dJJ.getItem(i), i, AlaGameFrsLiveListActivity.this.mE(i));
                     }
                     AlaGameFrsLiveListActivity.this.mTabHost.initViewPagerWithNoType();
                     AlaGameFrsLiveListActivity.this.mTabHost.changeStyle(0);
@@ -258,7 +258,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             fragmentTabIndicator.dayTextColorResId = R.color.fragment_tab_host_indicator_text_color;
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
             fragmentTabIndicator.setContentWidthWrapContent();
-            bVar.cim = fragmentTabIndicator;
+            bVar.chu = fragmentTabIndicator;
             this.mTabHost.a(bVar);
         }
     }
@@ -269,14 +269,14 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.dKv = i;
+        this.dJE = i;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
     }
 
-    private void aKQ() {
+    private void aKO() {
         if (this.mNavigationBar != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(UtilHelper.getFixedBarText(this.forumName, 5, true, true) + getResources().getString(R.string.forum));

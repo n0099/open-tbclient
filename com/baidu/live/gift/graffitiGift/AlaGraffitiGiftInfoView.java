@@ -11,8 +11,8 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.utils.j;
 /* loaded from: classes6.dex */
 public class AlaGraffitiGiftInfoView extends LinearLayout {
-    private TbImageView acX;
-    private HeadImageView acY;
+    private TbImageView acF;
+    private HeadImageView acG;
     private TextView mTitle;
 
     public AlaGraffitiGiftInfoView(Context context) {
@@ -33,23 +33,23 @@ public class AlaGraffitiGiftInfoView extends LinearLayout {
     private void init() {
         View.inflate(getContext(), a.h.popup_graffiti_gift_info_layout, this);
         setBackgroundResource(a.f.ala_small_gift_bg_alpha_shape);
-        this.acX = (TbImageView) findViewById(a.g.graffiti_sender_img);
-        this.acX.setIsNight(false);
-        this.acX.setAutoChangeStyle(false);
-        this.acY = (HeadImageView) findViewById(a.g.graffiti_sender_avatar);
-        this.acY.setIsRound(true);
-        this.acY.setAutoChangeStyle(false);
-        this.acY.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.acY.setIsNight(false);
-        this.acY.setAutoChangeStyle(false);
+        this.acF = (TbImageView) findViewById(a.g.graffiti_sender_img);
+        this.acF.setIsNight(false);
+        this.acF.setAutoChangeStyle(false);
+        this.acG = (HeadImageView) findViewById(a.g.graffiti_sender_avatar);
+        this.acG.setIsRound(true);
+        this.acG.setAutoChangeStyle(false);
+        this.acG.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.acG.setIsNight(false);
+        this.acG.setAutoChangeStyle(false);
         this.mTitle = (TextView) findViewById(a.g.graffiti_sender_info_txt);
     }
 
     public void setGiftInfo(String str, String str2, String str3) {
-        this.acX.stopLoad();
-        this.acX.startLoad(str2, 10, false);
-        this.acY.setUrl(str);
-        j.a(this.acY, str, false, false);
+        this.acF.stopLoad();
+        this.acF.startLoad(str2, 10, false);
+        this.acG.setUrl(str);
+        j.a(this.acG, str, false, false);
         this.mTitle.setText(str3);
     }
 }

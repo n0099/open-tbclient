@@ -23,8 +23,8 @@ import java.util.zip.ZipInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class b {
-    private com.baidu.live.entereffect.a.a VQ;
-    private String VR;
+    private com.baidu.live.entereffect.a.a Vx;
+    private String Vy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final com.baidu.live.entereffect.a.a aVar, final String str, final String str2) {
@@ -37,8 +37,8 @@ public class b {
                 if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(aVar.url) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     return null;
                 }
-                b.this.VQ = aVar;
-                b.this.VR = str;
+                b.this.Vx = aVar;
+                b.this.Vy = str;
                 if (com.baidu.live.d.a.existFile(str)) {
                     b.this.oJ();
                 } else if (!new File(str).mkdirs()) {
@@ -67,7 +67,7 @@ public class b {
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
-                        b.this.cb(b.this.J(b.this.VR, str2));
+                        b.this.cb(b.this.J(b.this.Vy, str2));
                     }
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -92,14 +92,14 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cb(final String str) {
-        if (!TextUtils.isEmpty(this.VR) && !TextUtils.isEmpty(str)) {
+        if (!TextUtils.isEmpty(this.Vy) && !TextUtils.isEmpty(str)) {
             new BdAsyncTask<Void, Void, List<String>>() { // from class: com.baidu.live.entereffect.b.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
                 public List<String> doInBackground(Void... voidArr) {
-                    List<String> K = b.this.K(b.this.VR, str);
+                    List<String> K = b.this.K(b.this.Vy, str);
                     if (K == null || K.isEmpty()) {
                         b.this.oJ();
                     }
@@ -113,7 +113,7 @@ public class b {
                 public void onPostExecute(List<String> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.oK().a(b.this.VQ, b.this.VR, list);
+                        c.oK().a(b.this.Vx, b.this.Vy, list);
                     }
                 }
             }.execute(new Void[0]);
@@ -353,8 +353,8 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void oJ() {
-        if (!TextUtils.isEmpty(this.VR)) {
-            com.baidu.live.d.a.cleanDir(new File(this.VR));
+        if (!TextUtils.isEmpty(this.Vy)) {
+            com.baidu.live.d.a.cleanDir(new File(this.Vy));
         }
     }
 }

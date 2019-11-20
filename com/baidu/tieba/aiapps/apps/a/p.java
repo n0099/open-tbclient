@@ -17,9 +17,9 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class p {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String dmx = "cookieMap";
-    public static String dmy = "ptokenDomains";
-    public static String dmz = "bdussDomains";
+    public static String dlG = "cookieMap";
+    public static String dlH = "ptokenDomains";
+    public static String dlI = "bdussDomains";
 
     public static void dd(Context context) {
         if (ProcessUtils.isMainProcess()) {
@@ -48,10 +48,10 @@ public class p {
                 stringArrayList = null;
                 map = c.j(context, hashMap);
             } else {
-                Map<String, String> map2 = delegateResult.mResult.getSerializable(dmx) != null ? (Map) delegateResult.mResult.getSerializable(dmx) : null;
-                stringArrayList = delegateResult.mResult.containsKey(dmz) ? delegateResult.mResult.getStringArrayList(dmz) : null;
-                if (delegateResult.mResult.containsKey(dmy)) {
-                    arrayList = delegateResult.mResult.getStringArrayList(dmy);
+                Map<String, String> map2 = delegateResult.mResult.getSerializable(dlG) != null ? (Map) delegateResult.mResult.getSerializable(dlG) : null;
+                stringArrayList = delegateResult.mResult.containsKey(dlI) ? delegateResult.mResult.getStringArrayList(dlI) : null;
+                if (delegateResult.mResult.containsKey(dlH)) {
+                    arrayList = delegateResult.mResult.getStringArrayList(dlH);
                     map = map2;
                 } else {
                     map = map2;
@@ -66,15 +66,15 @@ public class p {
             }
             for (String str : map.keySet()) {
                 if (TextUtils.equals(str, "bd_box_bduss")) {
-                    c(context, map.get(str), stringArrayList);
+                    b(context, map.get(str), stringArrayList);
                 } else if (TextUtils.equals(str, "bd_box_ptoken")) {
-                    d(context, map.get(str), arrayList);
+                    c(context, map.get(str), arrayList);
                 }
             }
         }
     }
 
-    private static void c(Context context, String str, List<String> list) {
+    private static void b(Context context, String str, List<String> list) {
         String buildBDUSSCookie;
         if (list == null) {
             list = SapiUtils.getAuthorizedDomains(context.getApplicationContext());
@@ -96,7 +96,7 @@ public class p {
         }
     }
 
-    private static void d(Context context, String str, List<String> list) {
+    private static void c(Context context, String str, List<String> list) {
         String buildPtokenCookie;
         if (list == null) {
             list = SapiUtils.getAuthorizedDomainsForPtoken(context);

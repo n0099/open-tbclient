@@ -14,40 +14,40 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private SharedPreferences bEv;
-    private File bpW;
+    private SharedPreferences bDE;
+    private File bpE;
 
     public b() {
-        String Yc = Yc();
+        String Ya = Ya();
         if (DEBUG) {
-            Log.i("SwanGameStorageManager", "preferencesName:" + Yc);
+            Log.i("SwanGameStorageManager", "preferencesName:" + Ya);
         }
-        if (Yc != null) {
-            this.bEv = com.baidu.swan.apps.u.a.Ji().getSharedPreferences(Yc, 0);
-            this.bpW = new File(Yg(), Yc + ".xml");
+        if (Ya != null) {
+            this.bDE = com.baidu.swan.apps.u.a.Jj().getSharedPreferences(Ya, 0);
+            this.bpE = new File(Ye(), Ya + ".xml");
         }
-        e.bta.a(new c.a<Long>() { // from class: com.baidu.swan.games.s.b.1
+        e.bsj.a(new c.a<Long>() { // from class: com.baidu.swan.games.s.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ak.c.a
-            /* renamed from: SP */
-            public Long SQ() throws IllegalStateException {
-                return Long.valueOf(b.this.SN());
+            /* renamed from: SR */
+            public Long SS() throws IllegalStateException {
+                return Long.valueOf(b.this.SP());
             }
         });
     }
 
     @Nullable
-    private String Yc() {
-        String Rk = com.baidu.swan.apps.ae.b.Rk();
-        String bf = com.baidu.swan.apps.u.a.Jn().bf(com.baidu.swan.apps.u.a.Ji());
-        if (TextUtils.isEmpty(Rk) || TextUtils.isEmpty(bf)) {
+    private String Ya() {
+        String Rm = com.baidu.swan.apps.ae.b.Rm();
+        String bf = com.baidu.swan.apps.u.a.Jo().bf(com.baidu.swan.apps.u.a.Jj());
+        if (TextUtils.isEmpty(Rm) || TextUtils.isEmpty(bf)) {
             return null;
         }
-        String format = String.format("aigame_storage_%s_%s", Rk, com.baidu.swan.c.b.toMd5(bf.getBytes(), false));
-        String be = com.baidu.swan.apps.u.a.Jn().be(com.baidu.swan.apps.u.a.Ji());
+        String format = String.format("aigame_storage_%s_%s", Rm, com.baidu.swan.c.b.toMd5(bf.getBytes(), false));
+        String be = com.baidu.swan.apps.u.a.Jo().be(com.baidu.swan.apps.u.a.Jj());
         if (!TextUtils.isEmpty(be)) {
-            String format2 = String.format("aigame_storage_%s_%s", Rk, com.baidu.swan.c.b.toMd5(be.getBytes(), false));
-            if (!new File(Yg(), format2 + ".xml").exists()) {
+            String format2 = String.format("aigame_storage_%s_%s", Rm, com.baidu.swan.c.b.toMd5(be.getBytes(), false));
+            if (!new File(Ye(), format2 + ".xml").exists()) {
                 format2 = format;
             }
             return format2;
@@ -55,33 +55,33 @@ public class b {
         return format;
     }
 
-    private boolean Yd() {
-        return this.bEv != null;
+    private boolean Yb() {
+        return this.bDE != null;
     }
 
-    public long SN() {
-        if (this.bpW != null) {
-            return this.bpW.length();
+    public long SP() {
+        if (this.bpE != null) {
+            return this.bpE.length();
         }
         return 0L;
     }
 
-    public long SO() {
+    public long SQ() {
         return 10485760L;
     }
 
     public String getString(String str, String str2) {
-        if (Yd()) {
-            return this.bEv.getString(str, str2);
+        if (Yb()) {
+            return this.bDE.getString(str, str2);
         }
         return null;
     }
 
-    public String[] Ye() {
-        if (!Yd()) {
+    public String[] Yc() {
+        if (!Yb()) {
             return new String[0];
         }
-        Set<String> keySet = this.bEv.getAll().keySet();
+        Set<String> keySet = this.bDE.getAll().keySet();
         String[] strArr = new String[keySet.size()];
         keySet.toArray(strArr);
         return strArr;
@@ -89,21 +89,21 @@ public class b {
 
     @SuppressLint({"ApplySharedPref"})
     public boolean bo(String str, String str2) {
-        return Yd() && this.bEv.edit().putString(str, str2).commit();
+        return Yb() && this.bDE.edit().putString(str, str2).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
     public boolean remove(String str) {
-        return Yd() && this.bEv.edit().remove(str).commit();
+        return Yb() && this.bDE.edit().remove(str).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
-    public boolean Yf() {
-        return Yd() && this.bEv.edit().clear().commit();
+    public boolean Yd() {
+        return Yb() && this.bDE.edit().clear().commit();
     }
 
     @NonNull
-    public static File Yg() {
+    public static File Ye() {
         return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs");
     }
 
@@ -113,7 +113,7 @@ public class b {
 
     private static void kA(String str) {
         File[] listFiles;
-        if (str != null && str.startsWith("aigame_storage_") && (listFiles = Yg().listFiles()) != null) {
+        if (str != null && str.startsWith("aigame_storage_") && (listFiles = Ye().listFiles()) != null) {
             for (File file : listFiles) {
                 if (file.getName().startsWith(str)) {
                     file.delete();

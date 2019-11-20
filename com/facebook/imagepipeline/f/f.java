@@ -1,34 +1,34 @@
 package com.facebook.imagepipeline.f;
 /* loaded from: classes2.dex */
 public class f implements g {
-    public static final g kjZ = g(Integer.MAX_VALUE, true, true);
-    boolean kka;
-    boolean kkb;
+    public static final g kji = g(Integer.MAX_VALUE, true, true);
+    boolean kjj;
+    boolean kjk;
     int mQuality;
 
     private f(int i, boolean z, boolean z2) {
         this.mQuality = i;
-        this.kka = z;
-        this.kkb = z2;
+        this.kjj = z;
+        this.kjk = z2;
     }
 
     @Override // com.facebook.imagepipeline.f.g
-    public int cHU() {
+    public int cHS() {
         return this.mQuality;
     }
 
     @Override // com.facebook.imagepipeline.f.g
-    public boolean cHV() {
-        return this.kka;
+    public boolean cHT() {
+        return this.kjj;
     }
 
     @Override // com.facebook.imagepipeline.f.g
-    public boolean cHW() {
-        return this.kkb;
+    public boolean cHU() {
+        return this.kjk;
     }
 
     public int hashCode() {
-        return ((this.kka ? 4194304 : 0) ^ this.mQuality) ^ (this.kkb ? 8388608 : 0);
+        return ((this.kjj ? 4194304 : 0) ^ this.mQuality) ^ (this.kjk ? 8388608 : 0);
     }
 
     public boolean equals(Object obj) {
@@ -37,7 +37,7 @@ public class f implements g {
         }
         if (obj instanceof f) {
             f fVar = (f) obj;
-            return this.mQuality == fVar.mQuality && this.kka == fVar.kka && this.kkb == fVar.kkb;
+            return this.mQuality == fVar.mQuality && this.kjj == fVar.kjj && this.kjk == fVar.kjk;
         }
         return false;
     }

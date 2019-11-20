@@ -11,21 +11,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private boolean VB;
-    private com.baidu.live.entereffect.c.a VC;
-    private List<com.baidu.live.entereffect.a.a> VD;
+    private boolean Vi;
+    private com.baidu.live.entereffect.c.a Vj;
+    private List<com.baidu.live.entereffect.a.a> Vk;
 
     public static a oF() {
-        return C0061a.VF;
+        return C0061a.Vm;
     }
 
     public void oG() {
-        if (!this.VB || this.VD == null || this.VD.isEmpty()) {
+        if (!this.Vi || this.Vk == null || this.Vk.isEmpty()) {
             release();
-            this.VB = true;
-            if (this.VC == null) {
-                this.VC = new com.baidu.live.entereffect.c.a();
-                this.VC.a(new b.a() { // from class: com.baidu.live.entereffect.a.1
+            this.Vi = true;
+            if (this.Vj == null) {
+                this.Vj = new com.baidu.live.entereffect.c.a();
+                this.Vj.a(new b.a() { // from class: com.baidu.live.entereffect.a.1
                     @Override // com.baidu.live.entereffect.c.b.a
                     public void a(boolean z, List<com.baidu.live.entereffect.a.a> list) {
                         if (z) {
@@ -34,25 +34,25 @@ public class a {
                     }
                 });
             }
-            this.VC.oG();
+            this.Vj.oG();
         }
     }
 
     public void o(List<com.baidu.live.entereffect.a.a> list) {
         if (list != null && !list.isEmpty()) {
-            if (this.VD == null) {
-                this.VD = new ArrayList();
+            if (this.Vk == null) {
+                this.Vk = new ArrayList();
             }
-            this.VD.clear();
-            this.VD.addAll(list);
-        } else if (this.VD != null) {
-            this.VD.clear();
+            this.Vk.clear();
+            this.Vk.addAll(list);
+        } else if (this.Vk != null) {
+            this.Vk.clear();
         }
     }
 
     public boolean a(com.baidu.live.im.data.a aVar) {
         JSONObject jSONObject;
-        if (aVar == null || aVar.th()) {
+        if (aVar == null || aVar.ti()) {
             return false;
         }
         try {
@@ -81,8 +81,8 @@ public class a {
     }
 
     public void bZ(String str) {
-        if (this.VD != null && !this.VD.isEmpty() && !TextUtils.isEmpty(str)) {
-            for (com.baidu.live.entereffect.a.a aVar : this.VD) {
+        if (this.Vk != null && !this.Vk.isEmpty() && !TextUtils.isEmpty(str)) {
+            for (com.baidu.live.entereffect.a.a aVar : this.Vk) {
                 if (aVar.id.equals(str)) {
                     c.oK().a(aVar);
                     return;
@@ -97,9 +97,9 @@ public class a {
         }
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
-            com.baidu.live.entereffect.a.a s = com.baidu.live.entereffect.b.a.s(jSONArray.optJSONObject(i));
-            if (s != null) {
-                arrayList.add(s);
+            com.baidu.live.entereffect.a.a t = com.baidu.live.entereffect.b.a.t(jSONArray.optJSONObject(i));
+            if (t != null) {
+                arrayList.add(t);
             }
         }
         return arrayList;
@@ -124,13 +124,13 @@ public class a {
     }
 
     private void release() {
-        this.VB = false;
+        this.Vi = false;
         c.oK().release();
-        if (this.VC != null) {
-            this.VC.release();
+        if (this.Vj != null) {
+            this.Vj.release();
         }
-        if (this.VD != null) {
-            this.VD.clear();
+        if (this.Vk != null) {
+            this.Vk.clear();
         }
     }
 
@@ -141,6 +141,6 @@ public class a {
     /* renamed from: com.baidu.live.entereffect.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0061a {
-        private static a VF = new a();
+        private static a Vm = new a();
     }
 }

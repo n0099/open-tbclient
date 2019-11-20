@@ -7,26 +7,26 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder idw;
-    private int idx;
+    private SpannableStringBuilder icC;
+    private int icD;
     private int textSize;
 
     public g() {
-        this.idx = 0;
+        this.icD = 0;
         this.textSize = -1;
-        this.idw = new SpannableStringBuilder();
+        this.icC = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.idx = 0;
+        this.icD = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.idw = new SpannableStringBuilder();
+            this.icC = new SpannableStringBuilder();
             if (excContent != null) {
-                this.idw.append((CharSequence) excContent.text);
+                this.icC.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.idx = excContent.align.intValue();
+                this.icD = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -42,7 +42,7 @@ public class g implements c {
 
     public void j(CharSequence charSequence) {
         if (charSequence != null) {
-            this.idw.append(charSequence);
+            this.icC.append(charSequence);
         }
     }
 
@@ -52,21 +52,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence bXL() {
-        return this.idw;
+    public CharSequence bXJ() {
+        return this.icC;
     }
 
-    public int bXN() {
-        return this.idx;
+    public int bXL() {
+        return this.icD;
     }
 
-    public String bXO() {
+    public String bXM() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean bXM() {
-        return (this.idx > 0 && this.idx < 3) || !StringUtils.isNull(this.color);
+    public boolean bXK() {
+        return (this.icD > 0 && this.icD < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

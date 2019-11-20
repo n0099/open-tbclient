@@ -4,24 +4,24 @@ public interface f {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void aUb();
+        void aTZ();
 
-        void aUc();
+        void aUa();
     }
 
     /* loaded from: classes6.dex */
     public interface b {
+        void aUb();
+
+        void aUc();
+
         void aUd();
 
-        void aUe();
+        boolean aUe();
 
         void aUf();
 
-        boolean aUg();
-
-        void aUh();
-
-        void aUi();
+        void aUg();
 
         void onCloseClicked();
     }

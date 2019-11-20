@@ -7,39 +7,39 @@ import com.baidu.tbadk.core.data.bh;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class e extends ar {
-    private TextView hLv;
+    private TextView hKE;
 
     public e(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.hLv = null;
+        this.hKE = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.ar
     protected void a(d dVar) {
-        this.hLv = (TextView) this.mRootView.findViewById(R.id.icon_push);
-        this.hLv.setVisibility(8);
+        this.hKE = (TextView) this.mRootView.findViewById(R.id.icon_push);
+        this.hKE.setVisibility(8);
     }
 
     public void nY(boolean z) {
-        if (this.hLv != null) {
+        if (this.hKE != null) {
             if (z) {
-                this.hLv.setText(R.string.push);
-                com.baidu.tbadk.core.util.am.setViewTextColor(this.hLv, (int) R.drawable.push_text_selector);
-                com.baidu.tbadk.core.util.am.setBackgroundResource(this.hLv, R.drawable.push_bg_selector);
-                this.hLv.setClickable(true);
+                this.hKE.setText(R.string.push);
+                com.baidu.tbadk.core.util.am.setViewTextColor(this.hKE, (int) R.drawable.push_text_selector);
+                com.baidu.tbadk.core.util.am.setBackgroundResource(this.hKE, R.drawable.push_bg_selector);
+                this.hKE.setClickable(true);
             } else {
-                this.hLv.setText(R.string.already_push);
-                com.baidu.tbadk.core.util.am.setBackgroundResource(this.hLv, R.drawable.label_bg_gray80);
-                com.baidu.tbadk.core.util.am.setViewTextColor(this.hLv, (int) R.color.cp_cont_d);
-                this.hLv.setClickable(false);
+                this.hKE.setText(R.string.already_push);
+                com.baidu.tbadk.core.util.am.setBackgroundResource(this.hKE, R.drawable.label_bg_gray80);
+                com.baidu.tbadk.core.util.am.setViewTextColor(this.hKE, (int) R.color.cp_cont_d);
+                this.hKE.setClickable(false);
             }
-            this.hLv.setVisibility(0);
+            this.hKE.setVisibility(0);
         }
     }
 
     public void at(bh bhVar) {
-        if (bhVar != null && bhVar.aja() != null) {
-            int status = bhVar.aja().getStatus();
+        if (bhVar != null && bhVar.aiY() != null) {
+            int status = bhVar.aiY().getStatus();
             if (status == 1) {
                 nY(true);
             } else if (status == 2) {
@@ -48,7 +48,7 @@ public class e extends ar {
         }
     }
 
-    public TextView bRR() {
-        return this.hLv;
+    public TextView bRP() {
+        return this.hKE;
     }
 }

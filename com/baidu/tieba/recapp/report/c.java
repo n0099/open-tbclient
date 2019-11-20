@@ -15,43 +15,43 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 /* loaded from: classes.dex */
 public class c {
-    private static c iNL;
-    private CustomMessageListener iNN = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.c.1
+    private static c iMU;
+    private CustomMessageListener iMW = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && c.this.iNM != null) {
-                c.this.iNM.cgK();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && c.this.iMV != null) {
+                c.this.iMV.cgI();
             }
         }
     };
-    private d iNM = new g();
+    private d iMV = new g();
 
-    public static c cgI() {
-        if (iNL == null) {
+    public static c cgG() {
+        if (iMU == null) {
             synchronized (c.class) {
-                if (iNL == null) {
-                    iNL = new c();
+                if (iMU == null) {
+                    iMU = new c();
                 }
             }
         }
-        return iNL;
+        return iMU;
     }
 
-    private boolean cgJ() {
+    private boolean cgH() {
         return com.baidu.adp.lib.b.d.ft().af("ad_log_open") != 0;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.iNN);
+        MessageManager.getInstance().registerListener(this.iMW);
     }
 
     public void a(b bVar) {
-        if (cgJ() && bVar != null && this.iNM != null) {
+        if (cgH() && bVar != null && this.iMV != null) {
             if (j.isNetWorkAvailable()) {
-                this.iNM.b(bVar);
+                this.iMV.b(bVar);
             } else {
-                this.iNM.c(bVar);
+                this.iMV.c(bVar);
             }
         }
     }
@@ -70,7 +70,7 @@ public class c {
             AdUploadHttpRequest adUploadHttpRequest = new AdUploadHttpRequest(new ArrayList());
             String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
             if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-                cookie = com.baidu.tbadk.browser.a.bUC;
+                cookie = com.baidu.tbadk.browser.a.bTL;
             }
             adUploadHttpRequest.addHeader(SM.COOKIE, cookie);
             MessageManager.getInstance().sendMessage(adUploadHttpRequest, httpMessageTask);

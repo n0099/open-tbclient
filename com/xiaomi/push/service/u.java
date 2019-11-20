@@ -1,127 +1,42 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.ArrayList;
-import java.util.List;
+import com.xiaomi.push.fx;
+import com.xiaomi.push.ic;
+import com.xiaomi.push.service.XMPushService;
 /* loaded from: classes3.dex */
-public class u {
-    private static u a = null;
-    private Context b;
-    private List<String> c = new ArrayList();
-    private final List<String> d = new ArrayList();
-    private final List<String> e = new ArrayList();
+final class u extends XMPushService.i {
+    final /* synthetic */ ic a;
 
-    private u(Context context) {
-        String[] split;
-        String[] split2;
-        String[] split3;
-        this.b = context.getApplicationContext();
-        if (this.b == null) {
-            this.b = context;
-        }
-        SharedPreferences sharedPreferences = this.b.getSharedPreferences("mipush_app_info", 0);
-        for (String str : sharedPreferences.getString("unregistered_pkg_names", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (TextUtils.isEmpty(str)) {
-                this.c.add(str);
-            }
-        }
-        for (String str2 : sharedPreferences.getString("disable_push_pkg_names", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (!TextUtils.isEmpty(str2)) {
-                this.d.add(str2);
-            }
-        }
-        for (String str3 : sharedPreferences.getString("disable_push_pkg_names_cache", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (!TextUtils.isEmpty(str3)) {
-                this.e.add(str3);
-            }
-        }
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ XMPushService f932a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ String f933a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u(int i, XMPushService xMPushService, ic icVar, String str) {
+        super(i);
+        this.f932a = xMPushService;
+        this.a = icVar;
+        this.f933a = str;
     }
 
-    public static u a(Context context) {
-        if (a == null) {
-            a = new u(context);
-        }
-        return a;
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "send app absent ack message for message.";
     }
 
-    public boolean a(String str) {
-        boolean contains;
-        synchronized (this.c) {
-            contains = this.c.contains(str);
-        }
-        return contains;
-    }
-
-    public boolean b(String str) {
-        boolean contains;
-        synchronized (this.d) {
-            contains = this.d.contains(str);
-        }
-        return contains;
-    }
-
-    public boolean c(String str) {
-        boolean contains;
-        synchronized (this.e) {
-            contains = this.e.contains(str);
-        }
-        return contains;
-    }
-
-    public void d(String str) {
-        synchronized (this.c) {
-            if (!this.c.contains(str)) {
-                this.c.add(str);
-                this.b.getSharedPreferences("mipush_app_info", 0).edit().putString("unregistered_pkg_names", com.xiaomi.channel.commonutils.string.d.a(this.c, Constants.ACCEPT_TIME_SEPARATOR_SP)).commit();
-            }
-        }
-    }
-
-    public void e(String str) {
-        synchronized (this.d) {
-            if (!this.d.contains(str)) {
-                this.d.add(str);
-                this.b.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.channel.commonutils.string.d.a(this.d, Constants.ACCEPT_TIME_SEPARATOR_SP)).commit();
-            }
-        }
-    }
-
-    public void f(String str) {
-        synchronized (this.e) {
-            if (!this.e.contains(str)) {
-                this.e.add(str);
-                this.b.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.channel.commonutils.string.d.a(this.e, Constants.ACCEPT_TIME_SEPARATOR_SP)).commit();
-            }
-        }
-    }
-
-    public void g(String str) {
-        synchronized (this.c) {
-            if (this.c.contains(str)) {
-                this.c.remove(str);
-                this.b.getSharedPreferences("mipush_app_info", 0).edit().putString("unregistered_pkg_names", com.xiaomi.channel.commonutils.string.d.a(this.c, Constants.ACCEPT_TIME_SEPARATOR_SP)).commit();
-            }
-        }
-    }
-
-    public void h(String str) {
-        synchronized (this.d) {
-            if (this.d.contains(str)) {
-                this.d.remove(str);
-                this.b.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.channel.commonutils.string.d.a(this.d, Constants.ACCEPT_TIME_SEPARATOR_SP)).commit();
-            }
-        }
-    }
-
-    public void i(String str) {
-        synchronized (this.e) {
-            if (this.e.contains(str)) {
-                this.e.remove(str);
-                this.b.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.channel.commonutils.string.d.a(this.e, Constants.ACCEPT_TIME_SEPARATOR_SP)).commit();
-            }
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        try {
+            ic a = p.a((Context) this.f932a, this.a);
+            a.m384a().a("absent_target_package", this.f933a);
+            w.a(this.f932a, a);
+        } catch (fx e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            this.f932a.a(10, e);
         }
     }
 }

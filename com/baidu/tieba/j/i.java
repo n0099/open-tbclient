@@ -1,7 +1,7 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface i {
-    void KZ();
+    void La();
 
     String a(int i, int i2, int i3, String str, boolean z, long j, String str2);
 
@@ -11,6 +11,10 @@ public interface i {
 
     void a(String str, long j, long j2, long j3, long j4, long j5, String str2, int i);
 
+    void bMD();
+
+    void bME();
+
     void bMF();
 
     void bMG();
@@ -19,13 +23,9 @@ public interface i {
 
     void bMI();
 
-    void bMJ();
+    String bMJ();
 
-    void bMK();
-
-    String bML();
-
-    String bMM();
+    String bMK();
 
     void i(int i, int i2, String str);
 
@@ -33,9 +33,9 @@ public interface i {
 
     void nn(boolean z);
 
-    void vW(int i);
+    void vV(int i);
 
-    void vX(int i);
+    void vW(int i);
 
     void zU(String str);
 

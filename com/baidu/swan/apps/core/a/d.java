@@ -9,9 +9,9 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d aJo;
-    private HashMap<String, a> aJp = new HashMap<>();
-    private HashMap<String, Set<b>> aJq = new HashMap<>();
+    private static volatile d aIW;
+    private HashMap<String, a> aIX = new HashMap<>();
+    private HashMap<String, Set<b>> aIY = new HashMap<>();
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -21,15 +21,15 @@ public final class d {
     private d() {
     }
 
-    public static d Ea() {
-        if (aJo == null) {
+    public static d Eb() {
+        if (aIW == null) {
             synchronized (d.class) {
-                if (aJo == null) {
-                    aJo = new d();
+                if (aIW == null) {
+                    aIW = new d();
                 }
             }
         }
-        return aJo;
+        return aIW;
     }
 
     public synchronized void ej(String str) {
@@ -38,11 +38,11 @@ public final class d {
                 Log.i("SwanAppAPSStatusSync", "swanAppPreDownloadFinish:" + str);
             }
             a aVar = new a(2, 0);
-            if (this.aJp != null) {
-                this.aJp.put(str, aVar);
+            if (this.aIX != null) {
+                this.aIX.put(str, aVar);
             }
-            if (this.aJq != null) {
-                Set<b> set = this.aJq.get(str);
+            if (this.aIY != null) {
+                Set<b> set = this.aIY.get(str);
                 if (set != null) {
                     for (b bVar : set) {
                         if (bVar != null) {
@@ -50,7 +50,7 @@ public final class d {
                         }
                     }
                 }
-                this.aJq.remove(str);
+                this.aIY.remove(str);
             }
         }
     }
@@ -64,7 +64,7 @@ public final class d {
             return "";
         }
         String str = subPackageAPSInfo.mAppId;
-        String str2 = subPackageAPSInfo.aSA;
+        String str2 = subPackageAPSInfo.aSi;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return "";
         }

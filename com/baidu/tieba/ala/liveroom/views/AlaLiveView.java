@@ -13,17 +13,17 @@ import android.widget.Scroller;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 /* loaded from: classes6.dex */
 public class AlaLiveView extends RelativeLayout implements com.baidu.live.liveroom.e.a {
-    private boolean aiA;
-    private float dbc;
-    private int ero;
-    private boolean erp;
-    private boolean erq;
-    private boolean ers;
-    public boolean ert;
-    public boolean eru;
-    private c erv;
-    private b erw;
-    private int erx;
+    private boolean aii;
+    private float dak;
+    private boolean eqA;
+    public boolean eqB;
+    public boolean eqC;
+    private c eqD;
+    private b eqE;
+    private int eqF;
+    private int eqx;
+    private boolean eqy;
+    private boolean eqz;
     private int mActivePointerId;
     private float mDownX;
     private int mFlingDistance;
@@ -45,7 +45,7 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
 
     /* loaded from: classes6.dex */
     public interface c {
-        void aOQ();
+        void aOO();
 
         void hs(boolean z);
     }
@@ -55,11 +55,11 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         this.mIsSilding = false;
         this.mIsScrolling = false;
         this.mActivePointerId = -1;
-        this.erp = true;
-        this.erq = true;
-        this.ers = false;
-        this.ert = true;
-        this.aiA = false;
+        this.eqy = true;
+        this.eqz = true;
+        this.eqA = false;
+        this.eqB = true;
+        this.aii = false;
         init(context);
     }
 
@@ -68,11 +68,11 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         this.mIsSilding = false;
         this.mIsScrolling = false;
         this.mActivePointerId = -1;
-        this.erp = true;
-        this.erq = true;
-        this.ers = false;
-        this.ert = true;
-        this.aiA = false;
+        this.eqy = true;
+        this.eqz = true;
+        this.eqA = false;
+        this.eqB = true;
+        this.aii = false;
         init(context);
     }
 
@@ -81,11 +81,11 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         this.mIsSilding = false;
         this.mIsScrolling = false;
         this.mActivePointerId = -1;
-        this.erp = true;
-        this.erq = true;
-        this.ers = false;
-        this.ert = true;
-        this.aiA = false;
+        this.eqy = true;
+        this.eqz = true;
+        this.eqA = false;
+        this.eqB = true;
+        this.aii = false;
         init(context);
     }
 
@@ -95,17 +95,17 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
         this.mMoveDistance = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
         this.mFlingDistance = BdUtilHelper.getEquipmentWidth(context) / 4;
-        this.ero = Math.max(ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2, 50);
+        this.eqx = Math.max(ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2, 50);
     }
 
     public void setSwipeClearEnable(boolean z) {
-        this.erq = z;
+        this.eqz = z;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.erx = (int) motionEvent.getX();
+            this.eqF = (int) motionEvent.getX();
             completeScroll();
             int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
             this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
@@ -115,10 +115,10 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
             this.mLastMotionX = motionEvent.getX();
             this.mLastMotionY = motionEvent.getY();
             this.mDownX = MotionEventCompat.getX(motionEvent, actionIndex);
-            this.dbc = MotionEventCompat.getY(motionEvent, actionIndex);
+            this.dak = MotionEventCompat.getY(motionEvent, actionIndex);
             return super.onInterceptTouchEvent(motionEvent);
         } else if (motionEvent.getAction() == 2) {
-            return Math.abs(((int) motionEvent.getX()) - this.erx) > this.ero;
+            return Math.abs(((int) motionEvent.getX()) - this.eqF) > this.eqx;
         } else {
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -126,20 +126,20 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.erw != null) {
-            this.erw.dispatchTouchEvent(motionEvent);
+        if (this.eqE != null) {
+            this.eqE.dispatchTouchEvent(motionEvent);
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.ert ? z(motionEvent) : super.onTouchEvent(motionEvent);
+        return this.eqB ? z(motionEvent) : super.onTouchEvent(motionEvent);
     }
 
     public boolean z(MotionEvent motionEvent) {
-        if (!this.erq || this.mIsScrolling) {
-            if (this.ers) {
+        if (!this.eqz || this.mIsScrolling) {
+            if (this.eqA) {
                 return true;
             }
             return super.onTouchEvent(motionEvent);
@@ -157,7 +157,7 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
                     this.mLastMotionX = motionEvent.getX();
                     this.mLastMotionY = motionEvent.getY();
                     this.mDownX = MotionEventCompat.getX(motionEvent, actionIndex);
-                    this.dbc = MotionEventCompat.getY(motionEvent, actionIndex);
+                    this.dak = MotionEventCompat.getY(motionEvent, actionIndex);
                     return true;
                 }
                 break;
@@ -187,7 +187,7 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
                 endDrag();
                 break;
             case 2:
-                if (this.aiA) {
+                if (this.aii) {
                     BdUtilHelper.hideSoftKeyPad(getContext(), getRootView());
                     endDrag();
                     return false;
@@ -311,21 +311,21 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         if (isInvalidEvent(motionEvent, pointerIndex, i)) {
             return 0;
         }
-        return (int) (MotionEventCompat.getY(motionEvent, pointerIndex) - this.dbc);
+        return (int) (MotionEventCompat.getY(motionEvent, pointerIndex) - this.dak);
     }
 
-    public void aWG() {
-        if (!this.erp) {
-            aWI();
+    public void aWE() {
+        if (!this.eqy) {
+            aWG();
         }
     }
 
-    public void aWH() {
+    public void aWF() {
         if (this.mScroller != null) {
             this.mScroller.forceFinished(true);
         }
         this.mScroller = null;
-        this.eru = true;
+        this.eqC = true;
     }
 
     private void endDrag() {
@@ -335,42 +335,42 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
     }
 
     private void scrollRight() {
-        if (this.erv != null) {
-            this.erv.aOQ();
+        if (this.eqD != null) {
+            this.eqD.aOO();
         }
-        this.erp = false;
+        this.eqy = false;
         this.mIsScrolling = true;
         int scrollX = getScrollX() - getWidth();
         if (this.mScroller != null) {
             this.mScroller.startScroll(getScrollX(), 0, scrollX - 1, 0);
         }
-        if (this.erv != null) {
-            this.erv.hs(this.erp);
+        if (this.eqD != null) {
+            this.eqD.hs(this.eqy);
         }
         BdUtilHelper.hideSoftKeyPad(getContext(), getRootView());
         postInvalidate();
     }
 
-    public void aWI() {
-        od(1);
+    public void aWG() {
+        oc(1);
     }
 
     public void scrollOrigin() {
-        od(ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION);
+        oc(ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION);
     }
 
-    public void od(int i) {
-        if (this.erv != null) {
-            this.erv.aOQ();
+    public void oc(int i) {
+        if (this.eqD != null) {
+            this.eqD.aOO();
         }
-        this.erp = true;
+        this.eqy = true;
         this.mIsScrolling = true;
         int scrollX = getScrollX();
         if (this.mScroller != null) {
             this.mScroller.startScroll(getScrollX(), 0, -scrollX, 0, i);
         }
-        if (this.erv != null) {
-            this.erv.hs(this.erp);
+        if (this.eqD != null) {
+            this.eqD.hs(this.eqy);
         }
         postInvalidate();
     }
@@ -379,7 +379,7 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        this.aiA = z;
+        this.aii = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -402,14 +402,14 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
     }
 
     public void setOnLiveViewScrollListener(c cVar) {
-        this.erv = cVar;
+        this.eqD = cVar;
     }
 
     public void setOnDispatchTouchEventListener(b bVar) {
-        this.erw = bVar;
+        this.eqE = bVar;
     }
 
     public void setIsForceHandledTouch(boolean z) {
-        this.ers = z;
+        this.eqA = z;
     }
 }

@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private k cEO;
-    private boolean cEP;
+    private k cDX;
+    private boolean cDY;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -22,9 +22,9 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, k kVar) {
         super(context);
         this.mSkinType = 0;
-        this.cEP = false;
+        this.cDY = false;
         if (kVar != null) {
-            this.cEO = kVar;
+            this.cDX = kVar;
             setIcon();
             setToolId(kVar.id);
         }
@@ -34,11 +34,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public void setIcon() {
-        if (this.cEO != null) {
-            if (this.cEO.cFT) {
-                setImageDrawable(SvgManager.amN().v(this.cEO.cFR, this.cEO.cFS, this.mSkinType));
+        if (this.cDX != null) {
+            if (this.cDX.cFc) {
+                setImageDrawable(SvgManager.amL().v(this.cDX.cFa, this.cDX.cFb, this.mSkinType));
             } else {
-                am.setImageResource(this, this.cEO.cFR, this.mSkinType);
+                am.setImageResource(this, this.cDX.cFa, this.mSkinType);
             }
         }
     }
@@ -59,7 +59,7 @@ public class BLauncher extends ImageView implements g {
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        atY();
+        atW();
         setVisibility(8);
     }
 
@@ -94,7 +94,7 @@ public class BLauncher extends ImageView implements g {
         }
     }
 
-    public void atY() {
+    public void atW() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -109,7 +109,7 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                atY();
+                atW();
             } else if (aVar.data instanceof String) {
                 px((String) aVar.data);
             }
@@ -131,11 +131,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.cEP;
+        return this.cDY;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.cEP = z;
+        this.cDY = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

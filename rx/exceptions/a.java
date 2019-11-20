@@ -6,7 +6,7 @@ import rx.e;
 import rx.i;
 /* loaded from: classes2.dex */
 public final class a {
-    public static RuntimeException q(Throwable th) {
+    public static RuntimeException r(Throwable th) {
         if (th instanceof RuntimeException) {
             throw ((RuntimeException) th);
         }
@@ -16,7 +16,7 @@ public final class a {
         throw new RuntimeException(th);
     }
 
-    public static void J(Throwable th) {
+    public static void K(Throwable th) {
         if (th instanceof OnErrorNotImplementedException) {
             throw ((OnErrorNotImplementedException) th);
         }
@@ -58,7 +58,7 @@ public final class a {
         }
     }
 
-    public static Throwable K(Throwable th) {
+    public static Throwable L(Throwable th) {
         int i = 0;
         while (th.getCause() != null) {
             int i2 = i + 1;
@@ -88,22 +88,22 @@ public final class a {
     }
 
     public static void a(Throwable th, e<?> eVar, Object obj) {
-        J(th);
+        K(th);
         eVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
     }
 
     public static void a(Throwable th, i<?> iVar, Object obj) {
-        J(th);
+        K(th);
         iVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
     }
 
     public static void a(Throwable th, e<?> eVar) {
-        J(th);
+        K(th);
         eVar.onError(th);
     }
 
     public static void a(Throwable th, i<?> iVar) {
-        J(th);
+        K(th);
         iVar.onError(th);
     }
 }

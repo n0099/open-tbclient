@@ -42,8 +42,8 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        com.baidu.swan.apps.i.a S = com.baidu.swan.apps.i.a.S(optParamsAsJo);
-        if (!S.isValid()) {
+        com.baidu.swan.apps.i.a T = com.baidu.swan.apps.i.a.T(optParamsAsJo);
+        if (!T.isValid()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
@@ -66,11 +66,11 @@ public class a extends z {
         switch (c) {
             case 0:
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                a(context, S, callbackHandler);
+                a(context, T, callbackHandler);
                 return true;
             case 1:
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                b(context, S, callbackHandler);
+                b(context, T, callbackHandler);
                 return true;
             default:
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -115,20 +115,20 @@ public class a extends z {
 
     private ArrayList<ContentValues> a(com.baidu.swan.apps.i.a aVar) {
         ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-        arrayList.add(aVar.Dw());
         arrayList.add(aVar.Dx());
         arrayList.add(aVar.Dy());
         arrayList.add(aVar.Dz());
         arrayList.add(aVar.DA());
         arrayList.add(aVar.DB());
-        arrayList.add(aVar.Du());
         arrayList.add(aVar.DC());
-        arrayList.add(aVar.DE());
         arrayList.add(aVar.Dv());
         arrayList.add(aVar.DD());
         arrayList.add(aVar.DF());
+        arrayList.add(aVar.Dw());
+        arrayList.add(aVar.DE());
         arrayList.add(aVar.DG());
         arrayList.add(aVar.DH());
+        arrayList.add(aVar.DI());
         return arrayList;
     }
 }

@@ -4,50 +4,50 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public final class d {
-    private static volatile d baH;
-    private HashMap<String, e> baI;
-    private HashMap<String, e> baJ;
-    private HashMap<String, e> baK;
+    private static volatile d bap;
+    private HashMap<String, e> baq;
+    private HashMap<String, e> bar;
+    private HashMap<String, e> bas;
 
     private d() {
-        NR();
+        NS();
     }
 
-    public static d NQ() {
-        if (baH == null) {
+    public static d NR() {
+        if (bap == null) {
             synchronized (d.class) {
-                if (baH == null) {
-                    baH = new d();
+                if (bap == null) {
+                    bap = new d();
                 }
             }
         }
-        return baH;
+        return bap;
     }
 
     public static synchronized void releaseInstance() {
         synchronized (d.class) {
-            if (baH != null) {
-                baH.release();
-                baH = null;
+            if (bap != null) {
+                bap.release();
+                bap = null;
             }
         }
     }
 
     private void release() {
-        if (this.baI != null) {
-            this.baI.clear();
+        if (this.baq != null) {
+            this.baq.clear();
         }
-        if (this.baJ != null) {
-            this.baJ.clear();
+        if (this.bar != null) {
+            this.bar.clear();
         }
-        if (this.baK != null) {
-            this.baK.clear();
+        if (this.bas != null) {
+            this.bas.clear();
         }
     }
 
-    public void e(String str, String str2, long j) {
+    public void d(String str, String str2, long j) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
-            NR();
+            NS();
             char c = 65535;
             switch (str2.hashCode()) {
                 case -1880922749:
@@ -91,12 +91,12 @@ public final class d {
                 case 0:
                 case 1:
                 case 2:
-                    f(str, str2, j);
+                    e(str, str2, j);
                     return;
                 case 3:
                 case 4:
                 case 5:
-                    g(str, str2, j);
+                    f(str, str2, j);
                     return;
                 default:
                     return;
@@ -104,19 +104,19 @@ public final class d {
         }
     }
 
-    private void NR() {
-        if (this.baI == null) {
-            this.baI = new HashMap<>();
+    private void NS() {
+        if (this.baq == null) {
+            this.baq = new HashMap<>();
         }
-        if (this.baJ == null) {
-            this.baJ = new HashMap<>();
+        if (this.bar == null) {
+            this.bar = new HashMap<>();
         }
-        if (this.baK == null) {
-            this.baK = new HashMap<>();
+        if (this.bas == null) {
+            this.bas = new HashMap<>();
         }
     }
 
-    private void f(String str, String str2, long j) {
+    private void e(String str, String str2, long j) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             e eVar = null;
             char c = 65535;
@@ -142,37 +142,37 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.baI.get(str);
+                    eVar = this.baq.get(str);
                     if (eVar == null) {
                         eVar = new b();
-                        this.baI.put(str, eVar);
+                        this.baq.put(str, eVar);
                         break;
                     }
                     break;
                 case 1:
-                    eVar = this.baJ.get(str);
+                    eVar = this.bar.get(str);
                     if (eVar == null) {
                         eVar = new a();
-                        this.baJ.put(str, eVar);
+                        this.bar.put(str, eVar);
                         break;
                     }
                     break;
                 case 2:
-                    eVar = this.baK.get(str);
+                    eVar = this.bas.get(str);
                     if (eVar == null) {
                         eVar = new c();
-                        this.baK.put(str, eVar);
+                        this.bas.put(str, eVar);
                         break;
                     }
                     break;
             }
             if (eVar != null) {
-                eVar.ag(j);
+                eVar.af(j);
             }
         }
     }
 
-    private void g(String str, String str2, long j) {
+    private void f(String str, String str2, long j) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             e eVar = null;
             char c = 65535;
@@ -198,18 +198,18 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.baI.remove(str);
+                    eVar = this.baq.remove(str);
                     break;
                 case 1:
-                    eVar = this.baJ.remove(str);
+                    eVar = this.bar.remove(str);
                     break;
                 case 2:
-                    eVar = this.baK.remove(str);
+                    eVar = this.bas.remove(str);
                     break;
             }
             if (eVar != null) {
-                eVar.ah(j);
-                n(eVar.getType(), eVar.NP());
+                eVar.ag(j);
+                n(eVar.getType(), eVar.NQ());
             }
         }
     }
@@ -239,13 +239,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    com.baidu.swan.apps.ak.e.bsW.I(Long.valueOf(j));
+                    com.baidu.swan.apps.ak.e.bsf.I(Long.valueOf(j));
                     return;
                 case 1:
-                    com.baidu.swan.apps.ak.e.bsX.I(Long.valueOf(j));
+                    com.baidu.swan.apps.ak.e.bsg.I(Long.valueOf(j));
                     return;
                 case 2:
-                    com.baidu.swan.apps.ak.e.bsY.I(Long.valueOf(j));
+                    com.baidu.swan.apps.ak.e.bsh.I(Long.valueOf(j));
                     return;
                 default:
                     return;

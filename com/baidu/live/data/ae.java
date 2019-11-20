@@ -5,8 +5,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ae {
-    private String Ua;
-    private String Ub;
+    private String TG;
+    private String TH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(String str) {
@@ -14,19 +14,19 @@ public class ae {
     }
 
     public boolean oy() {
-        return "1".equals(this.Ua) && !TextUtils.isEmpty(this.Ub);
+        return "1".equals(this.TG) && !TextUtils.isEmpty(this.TH);
     }
 
     public String oz() {
-        return this.Ub;
+        return this.TH;
     }
 
     private void parserJson(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.Ua = jSONObject.optString("is_open");
-                this.Ub = jSONObject.optString("homepage_url");
+                this.TG = jSONObject.optString("is_open");
+                this.TH = jSONObject.optString("homepage_url");
             } catch (JSONException e) {
                 e.printStackTrace();
             }

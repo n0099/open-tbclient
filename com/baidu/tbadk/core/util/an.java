@@ -61,13 +61,13 @@ public class an {
         }
     }
 
-    public an amJ() {
+    public an amH() {
         an anVar = new an(getKey());
         anVar.av(getParams());
         return anVar;
     }
 
-    public void amK() {
+    public void amI() {
         TiebaStatic.log(this);
     }
 }

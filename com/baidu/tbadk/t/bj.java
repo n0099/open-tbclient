@@ -1,7 +1,7 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class bj {
-    public static void axl() {
+    public static void axj() {
         com.baidu.adp.lib.b.d.ft().f(ab.class);
         com.baidu.adp.lib.b.d.ft().f(a.class);
         com.baidu.adp.lib.b.d.ft().f(b.class);

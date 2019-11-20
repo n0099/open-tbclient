@@ -5,7 +5,7 @@ public interface b {
 
     void Fm(String str);
 
-    void GL();
+    void GM();
 
     void ei(String str, String str2);
 

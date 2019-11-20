@@ -8,34 +8,34 @@ import org.json.JSONObject;
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private String aTe;
-    private boolean aXC;
+    private String aSM;
+    private boolean aXk;
     private String mBaseUrl;
     private String mParams;
 
     public String getPage() {
-        return this.aTe;
+        return this.aSM;
     }
 
     public String getParams() {
         return this.mParams;
     }
 
-    public String Lm() {
+    public String Ln() {
         return this.mBaseUrl;
     }
 
-    public void Fp() {
-        this.aXC = false;
+    public void Fq() {
+        this.aXk = false;
     }
 
-    public String Mo() {
+    public String Mp() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("page", this.aTe);
+            jSONObject.put("page", this.aSM);
             jSONObject.put("params", this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.aXC);
+            jSONObject.put("isFirstPage", this.aXk);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -51,10 +51,10 @@ public final class c {
         try {
             c cVar = new c();
             JSONObject jSONObject = new JSONObject(str);
-            cVar.aTe = jSONObject.optString("page");
+            cVar.aSM = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString("params");
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.aXC = jSONObject.optBoolean("isFirstPage");
+            cVar.aXk = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -67,30 +67,30 @@ public final class c {
 
     /* loaded from: classes2.dex */
     public static class a {
-        private c aKw = new c();
+        private c aKe = new c();
 
         public a gc(String str) {
-            this.aKw.aTe = str;
+            this.aKe.aSM = str;
             return this;
         }
 
         public a gd(String str) {
-            this.aKw.mParams = str;
+            this.aKe.mParams = str;
             return this;
         }
 
         public a ge(String str) {
-            this.aKw.mBaseUrl = str;
+            this.aKe.mBaseUrl = str;
             return this;
         }
 
         public a bS(boolean z) {
-            this.aKw.aXC = z;
+            this.aKe.aXk = z;
             return this;
         }
 
-        public c Mp() {
-            return this.aKw;
+        public c Mq() {
+            return this.aKe;
         }
     }
 }

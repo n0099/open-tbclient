@@ -9,24 +9,24 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends f {
-    private static final int cTE = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-    private int cTF;
-    ConstrainImageLayout.a cTG;
+    private static final int cSN = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+    private int cSO;
+    ConstrainImageLayout.a cSP;
 
     public a(int i) {
         super(i);
-        this.cTF = 0;
-        this.cTG = new ConstrainImageLayout.a() { // from class: com.baidu.tbadk.widget.layout.a.1
+        this.cSO = 0;
+        this.cSP = new ConstrainImageLayout.a() { // from class: com.baidu.tbadk.widget.layout.a.1
             @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.a
             public void a(TbImageView tbImageView, int i2) {
-                tbImageView.setRadius(a.cTE);
-                tbImageView.ayj();
+                tbImageView.setRadius(a.cSN);
+                tbImageView.ayh();
                 tbImageView.setDrawCorner(true);
                 if (i2 == 0) {
-                    tbImageView.kp(5);
+                    tbImageView.ko(5);
                 }
-                if (i2 == a.this.cTF - 1) {
-                    tbImageView.kp(10);
+                if (i2 == a.this.cSO - 1) {
+                    tbImageView.ko(10);
                 }
             }
         };
@@ -34,8 +34,8 @@ public class a extends f {
 
     @Override // com.baidu.tbadk.widget.layout.f, com.baidu.tbadk.widget.layout.c
     public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        this.cTF = list.size() < this.cUQ ? list.size() : this.cUQ;
-        constrainImageLayout.setTbImageViewConfiguration(this.cTG);
+        this.cSO = list.size() < this.cTZ ? list.size() : this.cTZ;
+        constrainImageLayout.setTbImageViewConfiguration(this.cSP);
         return super.a(constrainImageLayout, list, i, i2);
     }
 }

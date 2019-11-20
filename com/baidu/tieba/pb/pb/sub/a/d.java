@@ -27,29 +27,29 @@ public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.sub.a.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.pb.sub.b.b bVar, a aVar) {
-        ((a) this.xN).idk.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
-        ((a) this.xN).onChangeSkinType();
+        ((a) this.xn).ict.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
+        ((a) this.xn).onChangeSkinType();
         return aVar.getView();
     }
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        private View eND;
-        private TextView idk;
+        private View eMM;
+        private TextView ict;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.idk = (TextView) view.findViewById(R.id.floor_reply_text);
-            this.eND = view.findViewById(R.id.floor_reply_top_line);
+            this.ict = (TextView) view.findViewById(R.id.floor_reply_text);
+            this.eMM = view.findViewById(R.id.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                am.setViewTextColor(this.idk, (int) R.color.cp_cont_b);
-                am.setBackgroundColor(this.eND, R.color.cp_bg_line_c);
-                am.setBackgroundColor(this.idk, R.color.cp_bg_line_d);
+                am.setViewTextColor(this.ict, (int) R.color.cp_cont_b);
+                am.setBackgroundColor(this.eMM, R.color.cp_bg_line_c);
+                am.setBackgroundColor(this.ict, R.color.cp_bg_line_d);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

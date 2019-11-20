@@ -20,11 +20,11 @@ public class c extends BaseAdapter {
     /* loaded from: classes4.dex */
     public static class a {
         public View dividerLine;
-        public View fdA;
-        public TbImageView fdw;
-        public TextView fdx;
-        public TextView fdy;
-        public TextView fdz;
+        public TbImageView fcF;
+        public TextView fcG;
+        public TextView fcH;
+        public TextView fcI;
+        public View fcJ;
     }
 
     public c(Context context) {
@@ -42,7 +42,7 @@ public class c extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pC */
+    /* renamed from: pB */
     public b getItem(int i) {
         return (b) v.getItem(this.mDatas, i);
     }
@@ -63,28 +63,28 @@ public class c extends BaseAdapter {
         } else {
             View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.item_recommend_forum_by_tag, viewGroup, false);
             aVar = new a();
-            aVar.fdw = (TbImageView) inflate.findViewById(R.id.imageview_forum);
-            aVar.fdx = (TextView) inflate.findViewById(R.id.textview_forum_name);
-            aVar.fdy = (TextView) inflate.findViewById(R.id.textview_forum_concern_count);
-            aVar.fdz = (TextView) inflate.findViewById(R.id.textview_forum_thread_count);
-            aVar.fdA = inflate.findViewById(R.id.view_check_state);
+            aVar.fcF = (TbImageView) inflate.findViewById(R.id.imageview_forum);
+            aVar.fcG = (TextView) inflate.findViewById(R.id.textview_forum_name);
+            aVar.fcH = (TextView) inflate.findViewById(R.id.textview_forum_concern_count);
+            aVar.fcI = (TextView) inflate.findViewById(R.id.textview_forum_thread_count);
+            aVar.fcJ = inflate.findViewById(R.id.view_check_state);
             aVar.dividerLine = inflate.findViewById(R.id.view_bottom_line);
             inflate.setTag(aVar);
             view2 = inflate;
         }
         if (item != null) {
-            aVar.fdw.startLoad(item.avatar, 10, false);
-            aVar.fdx.setText(item.forumName);
-            aVar.fdy.setText(String.format(this.mContext.getString(R.string.concern), aq.numberUniformFormat(item.followNum)));
-            aVar.fdz.setText(String.format(this.mContext.getString(R.string.forum_thread_number), aq.numberUniformFormat(item.threadNum)));
+            aVar.fcF.startLoad(item.avatar, 10, false);
+            aVar.fcG.setText(item.forumName);
+            aVar.fcH.setText(String.format(this.mContext.getString(R.string.concern), aq.numberUniformFormat(item.followNum)));
+            aVar.fcI.setText(String.format(this.mContext.getString(R.string.forum_thread_number), aq.numberUniformFormat(item.threadNum)));
             if (item.isSelected) {
-                am.setBackgroundResource(aVar.fdA, R.drawable.icon_list_confirm_s);
+                am.setBackgroundResource(aVar.fcJ, R.drawable.icon_list_confirm_s);
             } else {
-                am.setBackgroundResource(aVar.fdA, R.drawable.icon_jinba_confirm_n);
+                am.setBackgroundResource(aVar.fcJ, R.drawable.icon_jinba_confirm_n);
             }
-            am.setViewTextColor(aVar.fdx, (int) R.color.cp_cont_b);
-            am.setViewTextColor(aVar.fdy, (int) R.color.cp_cont_f);
-            am.setViewTextColor(aVar.fdz, (int) R.color.cp_cont_f);
+            am.setViewTextColor(aVar.fcG, (int) R.color.cp_cont_b);
+            am.setViewTextColor(aVar.fcH, (int) R.color.cp_cont_f);
+            am.setViewTextColor(aVar.fcI, (int) R.color.cp_cont_f);
             am.setBackgroundColor(aVar.dividerLine, R.color.cp_bg_line_c);
         }
         return view2;

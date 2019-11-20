@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 /* loaded from: classes6.dex */
 public class b {
-    private RelativeLayout ehj;
-    private AlaLivePriseGuideView ehk;
+    private RelativeLayout egs;
+    private AlaLivePriseGuideView egt;
     private TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext) {
@@ -23,9 +23,9 @@ public class b {
     @SuppressLint({"ClickableViewAccessibility"})
     public void ae(ViewGroup viewGroup) {
         boolean z = SharedPrefHelper.getInstance().getBoolean("live_root_key_guide_double_click_praise", false);
-        if (viewGroup != null && this.mTbPageContext != null && !z && this.ehk == null) {
-            this.ehk = new AlaLivePriseGuideView(this.mTbPageContext.getPageActivity());
-            this.ehk.setOrientation(1);
+        if (viewGroup != null && this.mTbPageContext != null && !z && this.egt == null) {
+            this.egt = new AlaLivePriseGuideView(this.mTbPageContext.getPageActivity());
+            this.egt.setOrientation(1);
             TextView textView = new TextView(this.mTbPageContext.getPageActivity());
             textView.setText("为主播点赞");
             textView.setTextColor(-1);
@@ -33,19 +33,19 @@ public class b {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 1;
             layoutParams.topMargin = 20;
-            this.ehk.addView(textView, layoutParams);
+            this.egt.addView(textView, layoutParams);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams2.addRule(13, -1);
-            this.ehj = new RelativeLayout(this.mTbPageContext.getPageActivity());
+            this.egs = new RelativeLayout(this.mTbPageContext.getPageActivity());
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -1);
-            this.ehj.setBackgroundResource(a.d.sdk_black_alpha50);
-            this.ehj.addView(this.ehk, layoutParams2);
-            this.ehj.setTag("AlaLivePraiseGuideController");
-            viewGroup.addView(this.ehj, layoutParams3);
-            this.ehj.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.guide.b.1
+            this.egs.setBackgroundResource(a.d.sdk_black_alpha50);
+            this.egs.addView(this.egt, layoutParams2);
+            this.egs.setTag("AlaLivePraiseGuideController");
+            viewGroup.addView(this.egs, layoutParams3);
+            this.egs.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.guide.b.1
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    b.this.aSh();
+                    b.this.aSf();
                     return false;
                 }
             });
@@ -53,12 +53,12 @@ public class b {
         }
     }
 
-    public boolean aSh() {
-        if (this.ehk == null || !this.ehk.aSh()) {
+    public boolean aSf() {
+        if (this.egt == null || !this.egt.aSf()) {
             return false;
         }
-        if (this.ehj != null && this.ehj.getParent() != null) {
-            ((ViewGroup) this.ehj.getParent()).removeView(this.ehj);
+        if (this.egs != null && this.egs.getParent() != null) {
+            ((ViewGroup) this.egs.getParent()).removeView(this.egs);
         }
         return true;
     }

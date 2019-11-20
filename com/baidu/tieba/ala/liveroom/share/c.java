@@ -13,10 +13,10 @@ import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.tieba.model.a;
 /* loaded from: classes6.dex */
 public class c {
-    private BlueCircleProgressDialog aqD;
-    private com.baidu.live.tieba.model.a eoj;
-    private i eok;
-    private a.InterfaceC0076a eol = new a.InterfaceC0076a() { // from class: com.baidu.tieba.ala.liveroom.share.c.1
+    private BlueCircleProgressDialog aql;
+    private com.baidu.live.tieba.model.a enr;
+    private i ens;
+    private a.InterfaceC0076a ent = new a.InterfaceC0076a() { // from class: com.baidu.tieba.ala.liveroom.share.c.1
     };
     private TbPageContext mPageContext;
 
@@ -27,33 +27,33 @@ public class c {
     public void c(i iVar, boolean z) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), a.i.sdk_neterror);
-        } else if (iVar != null && iVar.Ps != null && iVar.mLiveInfo != null) {
-            this.eok = iVar;
-            LogManager.getMigrateFromTiebaLogger().doClickShareLog(iVar.Ps.userId + "", iVar.mLiveInfo.live_id + "");
+        } else if (iVar != null && iVar.OR != null && iVar.mLiveInfo != null) {
+            this.ens = iVar;
+            LogManager.getMigrateFromTiebaLogger().doClickShareLog(iVar.OR.userId + "", iVar.mLiveInfo.live_id + "");
             if (TbadkCoreApplication.IS_SDK) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2913077, this.eok));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2913077, this.ens));
             }
         }
     }
 
-    private void aVW() {
-        if (this.aqD != null) {
-            this.aqD.setDialogVisiable(false);
+    private void aVU() {
+        if (this.aql != null) {
+            this.aql.setDialogVisiable(false);
         }
     }
 
     public void nA() {
-        aVW();
-        if (this.eoj != null) {
-            this.eoj.vp();
+        aVU();
+        if (this.enr != null) {
+            this.enr.vq();
         }
     }
 
     public void onDestroy() {
-        aVW();
-        if (this.eoj != null) {
-            this.eoj.vp();
-            this.eoj.onDestroy();
+        aVU();
+        if (this.enr != null) {
+            this.enr.vq();
+            this.enr.onDestroy();
         }
     }
 }

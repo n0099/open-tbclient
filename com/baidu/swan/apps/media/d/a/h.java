@@ -15,13 +15,13 @@ public class h extends g {
 
     @Override // com.baidu.swan.apps.media.d.a.g
     public boolean a(com.baidu.swan.apps.media.d.a aVar, com.baidu.swan.apps.media.d.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.console.c.i("video", "remove, video id:" + cVar.aUO + " slave id: " + cVar.aXH);
+        com.baidu.swan.apps.console.c.i("video", "remove, video id:" + cVar.aUw + " slave id: " + cVar.aXp);
         b(aVar, cVar, unitedSchemeEntity, callbackHandler);
         return true;
     }
 
     private void b(com.baidu.swan.apps.media.d.a aVar, com.baidu.swan.apps.media.d.c cVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        com.baidu.swan.apps.view.container.a ji = com.baidu.swan.apps.view.container.c.c.ji(cVar.aXH);
+        com.baidu.swan.apps.view.container.a ji = com.baidu.swan.apps.view.container.c.c.ji(cVar.aXp);
         SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(cVar, ji);
         if (ji != null && a != null) {
             com.baidu.swan.apps.view.container.c.c.b(a, ji);

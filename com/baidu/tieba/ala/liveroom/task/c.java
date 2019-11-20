@@ -17,78 +17,78 @@ import com.baidu.live.k.a;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 /* loaded from: classes6.dex */
 public class c {
-    private static int eoM = 0;
-    private static c eoN = null;
+    private static int enV = 0;
+    private static c enW = null;
     private long currLiveId;
     private long duration;
     private long now;
     private Handler handler = new Handler();
-    Runnable eoO = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.c.1
+    Runnable enX = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.c.1
         @Override // java.lang.Runnable
         public void run() {
-            Log.i("TaskHelper", "@@ reportRunnable haokan=" + c.eoM + ", currLiveId=" + c.this.currLiveId + ", duration=" + c.this.duration);
-            c.this.KZ();
+            Log.i("TaskHelper", "@@ reportRunnable haokan=" + c.enV + ", currLiveId=" + c.this.currLiveId + ", duration=" + c.this.duration);
+            c.this.La();
             c.this.stopRecord();
         }
     };
 
-    public static c aWd() {
-        if (eoN == null) {
+    public static c aWb() {
+        if (enW == null) {
             synchronized (c.class) {
-                if (eoN == null) {
-                    eoN = new c();
+                if (enW == null) {
+                    enW = new c();
                 }
             }
         }
-        return eoN;
+        return enW;
     }
 
-    public void cm(long j) {
-        Log.i("TaskHelper", "@@ startRecord watchCount=" + eoM + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
-        if (aWe()) {
+    public void cl(long j) {
+        Log.i("TaskHelper", "@@ startRecord watchCount=" + enV + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
+        if (aWc()) {
             this.currLiveId = j;
             this.duration = 0L;
             this.now = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.eoO);
-            this.handler.postDelayed(this.eoO, 60000 - this.duration);
+            this.handler.removeCallbacks(this.enX);
+            this.handler.postDelayed(this.enX, 60000 - this.duration);
         }
     }
 
     public void pauseRecord() {
-        Log.i("TaskHelper", "@@ pauseRecord watchCount=" + eoM + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
-        this.handler.removeCallbacks(this.eoO);
+        Log.i("TaskHelper", "@@ pauseRecord watchCount=" + enV + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
+        this.handler.removeCallbacks(this.enX);
         this.duration = System.currentTimeMillis() - this.now;
         if (this.duration < 0) {
             this.duration = 0L;
         }
     }
 
-    public void cn(long j) {
-        Log.i("TaskHelper", "@@ resumeRecord watchCount=" + eoM + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
+    public void cm(long j) {
+        Log.i("TaskHelper", "@@ resumeRecord watchCount=" + enV + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
         if (this.currLiveId == 0 || this.currLiveId != j) {
             stopRecord();
             return;
         }
         this.now = System.currentTimeMillis();
-        this.handler.removeCallbacks(this.eoO);
-        this.handler.postDelayed(this.eoO, 60000 - this.duration);
+        this.handler.removeCallbacks(this.enX);
+        this.handler.postDelayed(this.enX, 60000 - this.duration);
     }
 
     public void stopRecord() {
-        Log.i("TaskHelper", "@@ stopRecord watchCount=" + eoM + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
+        Log.i("TaskHelper", "@@ stopRecord watchCount=" + enV + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
         this.duration = 0L;
         this.currLiveId = 0L;
-        this.handler.removeCallbacks(this.eoO);
+        this.handler.removeCallbacks(this.enX);
     }
 
-    private boolean aWe() {
-        return eoM < 30;
+    private boolean aWc() {
+        return enV < 30;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KZ() {
-        Log.i("TaskHelper", "@@ report watchCount=" + eoM + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration + ", isNeed=" + aWe());
-        if (aWe()) {
+    public void La() {
+        Log.i("TaskHelper", "@@ report watchCount=" + enV + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration + ", isNeed=" + aWc());
+        if (aWc()) {
             HttpMessage httpMessage = new HttpMessage(1021127);
             httpMessage.addParam("live_id", this.currLiveId);
             httpMessage.addParam("client_ip", "");
@@ -98,8 +98,8 @@ public class c {
 
     public void a(Context context, a aVar) {
         if (aVar != null) {
-            eoM++;
-            if (context != null && (context instanceof Activity) && aVar.eoB == 1 && !TextUtils.isEmpty(aVar.tips)) {
+            enV++;
+            if (context != null && (context instanceof Activity) && aVar.enK == 1 && !TextUtils.isEmpty(aVar.tips)) {
                 e(context, aVar.tips, aVar.url, aVar.title);
             }
         }

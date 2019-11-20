@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes6.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String ftx;
-    private g iCU;
-    private d iCV;
+    public String fsG;
+    private g iCd;
+    private d iCe;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -21,7 +21,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            PostSearchActivity.this.xQ(i);
+            PostSearchActivity.this.xP(i);
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -33,58 +33,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iCU = new g(this);
-        this.iCU.initView();
-        this.iCU.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.iCV = new d(this);
+        this.iCd = new g(this);
+        this.iCd.initView();
+        this.iCd.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.iCe = new d(this);
         initData();
     }
 
     public void kQ(String str) {
-        this.ftx = str;
-        this.iCU.xW(1);
-        this.iCV.cer();
-        this.iCU.showLoadingView();
+        this.fsG = str;
+        this.iCd.xV(1);
+        this.iCe.cep();
+        this.iCd.showLoadingView();
     }
 
     public void Cc(String str) {
-        this.iCU.Cc(str);
+        this.iCd.Cc(str);
     }
 
-    public void ceb() {
-        this.iCU.aF(this.iCV.iDt);
+    public void cdZ() {
+        this.iCd.aF(this.iCe.iCC);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.bDR())) {
-            this.iCU.hideLoadingView();
-            this.iCU.cev();
+        if (i == 1 && (bVar == null || !bVar.bDP())) {
+            this.iCd.hideLoadingView();
+            this.iCd.cet();
             return;
         }
-        this.iCU.hideLoadingView();
-        this.iCU.cej();
-        this.iCU.a(i, bVar, z);
+        this.iCd.hideLoadingView();
+        this.iCd.ceh();
+        this.iCd.a(i, bVar, z);
     }
 
-    public boolean cec() {
-        return this.iCU.cec();
+    public boolean cea() {
+        return this.iCd.cea();
     }
 
     public void hideSoftKeyPad() {
-        this.iCU.hideSoftKeyPad();
+        this.iCd.hideSoftKeyPad();
     }
 
-    public d ced() {
-        return this.iCV;
+    public d ceb() {
+        return this.iCe;
     }
 
-    public g cee() {
-        return this.iCU;
+    public g cec() {
+        return this.iCd;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.iCU.onChangeSkinType(i);
+        this.iCd.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -93,20 +93,20 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.iCV.ceo();
+        this.iCe.cem();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.iCU != null) {
-            this.iCU.onDestroy();
+        if (this.iCd != null) {
+            this.iCd.onDestroy();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xQ(int i) {
+    public void xP(int i) {
         int i2 = 0;
         switch (i) {
             case 0:

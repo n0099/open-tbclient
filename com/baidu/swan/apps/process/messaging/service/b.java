@@ -9,15 +9,15 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        private static b bbA = new b();
+        private static b bbi = new b();
     }
 
-    public static b OJ() {
-        return a.bbA;
+    public static b OK() {
+        return a.bbi;
     }
 
     public void a(final SwanAppProcessInfo swanAppProcessInfo, final int i, final Bundle bundle) {
-        com.baidu.swan.apps.process.a.Of().b(new a.InterfaceC0199a() { // from class: com.baidu.swan.apps.process.messaging.service.b.1
+        com.baidu.swan.apps.process.a.Og().b(new a.InterfaceC0199a() { // from class: com.baidu.swan.apps.process.messaging.service.b.1
             @Override // com.baidu.swan.apps.process.a.InterfaceC0199a
             public void onReady() {
                 SwanAppMessengerService serviceObject = SwanAppMessengerService.getServiceObject();

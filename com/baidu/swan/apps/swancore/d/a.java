@@ -11,15 +11,15 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static C0226a bqm;
-    private static C0226a bqn;
+    private static C0226a bpU;
+    private static C0226a bpV;
 
     public static void d(boolean z, int i) {
-        f.SR().putBoolean(eY(i), z);
+        f.ST().putBoolean(eY(i), z);
     }
 
     public static boolean eX(int i) {
-        return f.SR().getBoolean(eY(i), false);
+        return f.ST().getBoolean(eY(i), false);
     }
 
     private static String eY(int i) {
@@ -27,25 +27,25 @@ public final class a {
     }
 
     public static long eZ(int i) {
-        return f.SR().getLong(fd(i), 0L);
+        return f.ST().getLong(fd(i), 0L);
     }
 
     public static C0226a fa(int i) {
-        return i == 1 ? Ta() : Tb();
+        return i == 1 ? Tc() : Td();
     }
 
-    private static C0226a Ta() {
-        if (bqn == null) {
-            bqn = C0226a.c(ff(1), 1);
+    private static C0226a Tc() {
+        if (bpV == null) {
+            bpV = C0226a.c(ff(1), 1);
         }
-        return bqn;
+        return bpV;
     }
 
-    private static C0226a Tb() {
-        if (bqm == null) {
-            bqm = C0226a.c(ff(0), 0);
+    private static C0226a Td() {
+        if (bpU == null) {
+            bpU = C0226a.c(ff(0), 0);
         }
-        return bqm;
+        return bpU;
     }
 
     public static synchronized void fb(int i) {
@@ -55,8 +55,8 @@ public final class a {
             }
             if (eX(i)) {
                 C0226a fa = fa(i);
-                long j = f.SR().getLong(fc(i), 0L);
-                long iu = com.baidu.swan.apps.swancore.b.iu(fa.bqo);
+                long j = f.ST().getLong(fc(i), 0L);
+                long iu = com.baidu.swan.apps.swancore.b.iu(fa.bpW);
                 if (DEBUG) {
                     Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + iu);
                 }
@@ -78,12 +78,12 @@ public final class a {
             ArrayList arrayList = new ArrayList();
             arrayList.add(Long.valueOf(j));
             com.baidu.swan.apps.swancore.b.c(fe(i), arrayList);
-            f.SR().putLong(fd(i), j);
+            f.ST().putLong(fd(i), j);
             d(false, i);
             if (DEBUG) {
                 String b = com.baidu.swan.c.b.b(new File(fc(i)), false);
                 if (!TextUtils.isEmpty(b)) {
-                    f.SR().putString(com.baidu.swan.apps.swancore.a.eM(i), b);
+                    f.ST().putString(com.baidu.swan.apps.swancore.a.eM(i), b);
                 }
             }
         } else if (DEBUG) {
@@ -139,12 +139,12 @@ public final class a {
     /* renamed from: com.baidu.swan.apps.swancore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0226a {
-        public String bqo;
+        public String bpW;
 
         public static C0226a c(JSONObject jSONObject, int i) {
             C0226a c0226a = new C0226a();
             if (jSONObject != null) {
-                c0226a.bqo = jSONObject.optString(eP(i));
+                c0226a.bpW = jSONObject.optString(eP(i));
             }
             return c0226a;
         }

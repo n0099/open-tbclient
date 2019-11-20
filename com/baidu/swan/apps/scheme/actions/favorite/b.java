@@ -12,7 +12,7 @@ import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 /* loaded from: classes2.dex */
 public abstract class b extends z {
-    protected String bmg;
+    protected String blO;
     protected String mCallback;
 
     protected abstract void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
@@ -22,7 +22,7 @@ public abstract class b extends z {
     public b(j jVar, String str) {
         super(jVar, str);
         this.mCallback = null;
-        this.bmg = null;
+        this.blO = null;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.z
@@ -55,7 +55,7 @@ public abstract class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params error");
             return false;
         } else {
-            bVar.Rd().a((Activity) context, "mapp_favorite", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.favorite.b.1
+            bVar.Rf().a((Activity) context, "mapp_favorite", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.favorite.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */

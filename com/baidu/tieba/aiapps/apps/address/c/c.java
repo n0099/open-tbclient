@@ -57,7 +57,7 @@ public class c {
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i);
             if (optJSONObject != null) {
-                arrayList.add(b.bC(optJSONObject));
+                arrayList.add(b.bD(optJSONObject));
             }
         }
         return arrayList;

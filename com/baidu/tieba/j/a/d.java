@@ -11,7 +11,7 @@ public class d extends a<com.baidu.tieba.play.c.b> {
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public void bNd() {
+    public void bNb() {
         dK(this.list);
     }
 }

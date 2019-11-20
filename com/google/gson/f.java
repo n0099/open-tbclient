@@ -5,49 +5,49 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class f extends h implements Iterable<h> {
-    private final List<h> kou = new ArrayList();
+    private final List<h> knD = new ArrayList();
 
     public void b(h hVar) {
         if (hVar == null) {
-            hVar = i.kov;
+            hVar = i.knE;
         }
-        this.kou.add(hVar);
+        this.knD.add(hVar);
     }
 
     @Override // java.lang.Iterable
     public Iterator<h> iterator() {
-        return this.kou.iterator();
+        return this.knD.iterator();
     }
 
     @Override // com.google.gson.h
-    public Number cJR() {
-        if (this.kou.size() == 1) {
-            return this.kou.get(0).cJR();
+    public Number cJP() {
+        if (this.knD.size() == 1) {
+            return this.knD.get(0).cJP();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.h
-    public String cJS() {
-        if (this.kou.size() == 1) {
-            return this.kou.get(0).cJS();
+    public String cJQ() {
+        if (this.knD.size() == 1) {
+            return this.knD.get(0).cJQ();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.h
-    public boolean cJT() {
-        if (this.kou.size() == 1) {
-            return this.kou.get(0).cJT();
+    public boolean cJR() {
+        if (this.knD.size() == 1) {
+            return this.knD.get(0).cJR();
         }
         throw new IllegalStateException();
     }
 
     public boolean equals(Object obj) {
-        return obj == this || ((obj instanceof f) && ((f) obj).kou.equals(this.kou));
+        return obj == this || ((obj instanceof f) && ((f) obj).knD.equals(this.knD));
     }
 
     public int hashCode() {
-        return this.kou.hashCode();
+        return this.knD.hashCode();
     }
 }

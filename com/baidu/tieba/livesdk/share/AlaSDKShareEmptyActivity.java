@@ -16,13 +16,13 @@ import com.baidu.tieba.share.ImplicitShareMessage;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 /* loaded from: classes6.dex */
 public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActivity> {
-    private String bYK;
-    private String hkZ;
+    private String bXT;
+    private String hki;
     private String mContent;
     private e mShareItem;
     private String mTitle;
     private int mChannel = 0;
-    private int hla = 0;
+    private int hkj = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -32,38 +32,38 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (bundle != null) {
             this.mTitle = bundle.getString("title");
             this.mContent = bundle.getString("content");
-            this.hkZ = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
-            this.bYK = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
+            this.hki = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
+            this.bXT = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
             this.mChannel = bundle.getInt("channel");
-            this.hla = bundle.getInt("action");
+            this.hkj = bundle.getInt("action");
         } else if (getIntent() == null) {
             finish();
             return;
         } else {
             this.mTitle = getIntent().getStringExtra("title");
             this.mContent = getIntent().getStringExtra("content");
-            this.hkZ = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
-            this.bYK = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
+            this.hki = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
+            this.bXT = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
             this.mChannel = getIntent().getIntExtra("channel", 0);
-            this.hla = getIntent().getIntExtra("action", 0);
+            this.hkj = getIntent().getIntExtra("action", 0);
         }
-        this.mShareItem = bJI();
-        if (this.hla == 1) {
-            bJH();
-        } else if (this.hla == 2) {
-            bJG();
+        this.mShareItem = bJG();
+        if (this.hkj == 1) {
+            bJF();
+        } else if (this.hkj == 2) {
+            bJE();
         } else {
             finish();
         }
     }
 
-    private void bJG() {
+    private void bJE() {
         if (this.mShareItem != null) {
             MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this, this.mChannel, this.mShareItem, true));
         }
     }
 
-    private void bJH() {
+    private void bJF() {
         if (this.mShareItem != null) {
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this, this.mShareItem, true);
             shareDialogConfig.setAlaLiveRoomShare(true);
@@ -79,18 +79,18 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         }
     }
 
-    private e bJI() {
+    private e bJG() {
         e eVar = new e();
         eVar.title = this.mTitle;
         eVar.content = this.mContent;
-        if (!StringUtils.isNull(this.hkZ)) {
-            if (this.hkZ.startsWith(SkiaImageDecoder.FILE_PREFIX)) {
-                eVar.cyG = this.hkZ.substring(7);
+        if (!StringUtils.isNull(this.hki)) {
+            if (this.hki.startsWith(SkiaImageDecoder.FILE_PREFIX)) {
+                eVar.cxP = this.hki.substring(7);
             } else {
-                eVar.imageUri = Uri.parse(this.hkZ);
+                eVar.imageUri = Uri.parse(this.hki);
             }
         }
-        eVar.linkUrl = this.bYK;
+        eVar.linkUrl = this.bXT;
         return eVar;
     }
 
@@ -111,9 +111,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         super.onSaveInstanceState(bundle);
         bundle.putString("title", this.mTitle);
         bundle.putString("content", this.mContent);
-        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY, this.hkZ);
-        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY, this.bYK);
+        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY, this.hki);
+        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY, this.bXT);
         bundle.putInt("channel", this.mChannel);
-        bundle.putInt("action", this.hla);
+        bundle.putInt("action", this.hkj);
     }
 }

@@ -11,13 +11,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    public long OJ;
-    public long OL;
-    public int OM;
-    public boolean OO;
-    public boolean OP;
-    public int OQ;
-    public List<AlaLiveMarkData> OR;
+    public long Oj;
+    public long Ok;
+    public int Ol;
+    public boolean Om;
+    public boolean On;
+    public int Oo;
+    public List<AlaLiveMarkData> Op;
     public String appId;
     public int level_id;
     public String name_show;
@@ -41,23 +41,23 @@ public class a {
             }
             this.level_id = jSONObject.optInt("level");
             this.sex = jSONObject.optInt("sex");
-            this.OJ = jSONObject.optLong("fan_num");
-            this.OL = jSONObject.optLong("concern_num");
-            this.OM = jSONObject.optInt("have_concern");
-            this.OO = jSONObject.optBoolean("isOfficial");
-            this.OP = jSONObject.optBoolean("isLiveAdmin");
+            this.Oj = jSONObject.optLong("fan_num");
+            this.Ok = jSONObject.optLong("concern_num");
+            this.Ol = jSONObject.optInt("have_concern");
+            this.Om = jSONObject.optBoolean("isOfficial");
+            this.On = jSONObject.optBoolean("isLiveAdmin");
             this.appId = jSONObject.optString(Constants.APP_ID);
             this.tagName = jSONObject.optString("tag_name");
-            this.OQ = jSONObject.optInt("tag_type");
+            this.Oo = jSONObject.optInt("tag_type");
             this.appId = jSONObject.optString(Constants.APP_ID);
             JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.OR = new ArrayList(optJSONArray.length());
+                this.Op = new ArrayList(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
                     alaLiveMarkData.parserJson(optJSONObject);
-                    this.OR.add(alaLiveMarkData);
+                    this.Op.add(alaLiveMarkData);
                 }
             }
         }
@@ -72,17 +72,17 @@ public class a {
             jSONObject.put("portrait", this.portrait);
             jSONObject.put("level", this.level_id);
             jSONObject.put("sex", this.sex);
-            jSONObject.put("fan_num", this.OJ);
-            jSONObject.put("concern_num", this.OL);
-            jSONObject.put("have_concern", this.OM);
-            jSONObject.put("isOfficial", this.OO);
-            jSONObject.put("isLiveAdmin", this.OP);
+            jSONObject.put("fan_num", this.Oj);
+            jSONObject.put("concern_num", this.Ok);
+            jSONObject.put("have_concern", this.Ol);
+            jSONObject.put("isOfficial", this.Om);
+            jSONObject.put("isLiveAdmin", this.On);
             jSONObject.put(Constants.APP_ID, this.appId);
             jSONObject.put("tag_name", this.tagName);
-            jSONObject.put("tag_type", this.OQ);
+            jSONObject.put("tag_type", this.Oo);
             JSONArray jSONArray = new JSONArray();
-            if (this.OR != null) {
-                for (AlaLiveMarkData alaLiveMarkData : this.OR) {
+            if (this.Op != null) {
+                for (AlaLiveMarkData alaLiveMarkData : this.Op) {
                     jSONArray.put(alaLiveMarkData.toJsonObject());
                 }
             }

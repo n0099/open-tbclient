@@ -14,8 +14,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.q;
 /* loaded from: classes.dex */
 public class a extends b implements q {
-    private View cLA;
-    private TbPageContextSupport<?> cLz;
+    private TbPageContextSupport<?> cKI;
+    private View cKJ;
     private int mHeight;
     private View.OnClickListener mOnClickListener;
     private ViewGroup mParentView;
@@ -25,13 +25,13 @@ public class a extends b implements q {
     private int padding;
 
     public a(TbPageContextSupport<?> tbPageContextSupport) {
-        this.cLz = null;
+        this.cKI = null;
         this.mTextView = null;
         this.mProgressBar = null;
         this.mOnClickListener = null;
         this.mRoot = null;
-        this.cLz = tbPageContextSupport;
-        this.padding = this.cLz.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
+        this.cKI = tbPageContextSupport;
+        this.padding = this.cKI.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
     }
 
     public a(TbPageContextSupport<?> tbPageContextSupport, ViewGroup viewGroup) {
@@ -42,9 +42,9 @@ public class a extends b implements q {
     @Override // com.baidu.adp.widget.ListView.b
     public View createView() {
         if (this.mParentView == null) {
-            this.mRoot = LayoutInflater.from(this.cLz.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+            this.mRoot = LayoutInflater.from(this.cKI.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         } else {
-            this.mRoot = LayoutInflater.from(this.cLz.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.mParentView, false);
+            this.mRoot = LayoutInflater.from(this.cKI.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.mParentView, false);
         }
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
         if (this.mHeight != 0) {
@@ -53,37 +53,37 @@ public class a extends b implements q {
             this.mRoot.setLayoutParams(layoutParams);
         }
         this.mTextView = (TextView) this.mRoot.findViewById(R.id.pb_more_text);
-        this.cLA = this.mRoot.findViewById(R.id.pb_more_view);
-        this.cLA.setVisibility(8);
+        this.cKJ = this.mRoot.findViewById(R.id.pb_more_view);
+        this.cKJ.setVisibility(8);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(R.id.progress);
-        b(this.cLz.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.cLA.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        b(this.cKI.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.cKJ.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.mRoot;
     }
 
     @Override // com.baidu.tieba.tbadkCore.q
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        this.cLz.getPageContext().getLayoutMode().onModeChanged(this.cLA);
+        this.cKI.getPageContext().getLayoutMode().onModeChanged(this.cKJ);
         return true;
     }
 
     public void hide() {
-        this.cLA.setVisibility(8);
+        this.cKJ.setVisibility(8);
         this.mRoot.setPadding(0, 0, 0, 0);
     }
 
     public void le() {
-        this.cLA.setVisibility(0);
+        this.cKJ.setVisibility(0);
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void ke(int i) {
+    public void kd(int i) {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(i);
-        this.cLA.setVisibility(0);
+        this.cKJ.setVisibility(0);
     }
 
-    public void kf(int i) {
+    public void ke(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }

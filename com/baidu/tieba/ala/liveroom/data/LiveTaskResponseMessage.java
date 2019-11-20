@@ -6,10 +6,10 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class LiveTaskResponseMessage extends JsonHttpResponsedMessage {
     public String btnText;
-    public long egq;
-    public int egr;
-    public String egs;
-    public String egt;
+    public int efA;
+    public String efB;
+    public String efC;
+    public long efz;
     public String message;
     public String scheme;
     public String url;
@@ -26,15 +26,15 @@ public class LiveTaskResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject != null) {
                 this.message = optJSONObject.optString("message");
                 this.btnText = optJSONObject.optString("btnText");
-                this.egq = optJSONObject.optLong("toastDuration");
+                this.efz = optJSONObject.optLong("toastDuration");
                 this.url = optJSONObject.optString("url");
                 this.scheme = optJSONObject.optString("schema");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
             if (optJSONObject2 != null) {
-                this.egr = optJSONObject2.optInt("errno");
-                this.egs = optJSONObject2.optString("errmsg");
-                this.egt = optJSONObject2.optString("usermsg");
+                this.efA = optJSONObject2.optInt("errno");
+                this.efB = optJSONObject2.optString("errmsg");
+                this.efC = optJSONObject2.optString("usermsg");
             }
         }
     }

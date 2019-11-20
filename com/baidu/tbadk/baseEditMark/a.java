@@ -18,15 +18,15 @@ public abstract class a {
 
     public abstract void a(InterfaceC0279a interfaceC0279a);
 
-    public abstract String afl();
+    public abstract String afj();
 
-    public abstract boolean afm();
+    public abstract boolean afk();
 
-    public abstract void afn();
+    public abstract void afl();
 
-    public abstract void afo();
+    public abstract void afm();
 
-    public abstract MarkData afp();
+    public abstract MarkData afn();
 
     public abstract void dO(boolean z);
 

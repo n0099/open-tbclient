@@ -34,7 +34,7 @@ public class UBC {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static final l getUBCContext() {
-        return com.baidu.tieba.aiapps.apps.q.g.aIB();
+        return com.baidu.tieba.aiapps.apps.q.g.aIz();
     }
 
     public static final void onEvent(String str) {
@@ -70,7 +70,7 @@ public class UBC {
     }
 
     public static void onMutilProcessEvent(String str, String str2, String str3) {
-        d.cAU().g(str, str2, com.baidu.f.e.FT(str3), 8);
+        d.cAS().g(str, str2, com.baidu.f.e.FT(str3), 8);
     }
 
     public static final Flow beginFlow(String str) {

@@ -2,7 +2,7 @@ package com.baidu.tieba.VideoCache;
 /* loaded from: classes4.dex */
 public class d {
     private long currentSize;
-    private long dfE;
+    private long deN;
     private String fileName;
 
     public String getFileName() {
@@ -13,19 +13,19 @@ public class d {
         this.fileName = str;
     }
 
-    public long aCz() {
-        return this.dfE;
+    public long aCx() {
+        return this.deN;
     }
 
-    public void bB(long j) {
-        this.dfE = j;
+    public void bA(long j) {
+        this.deN = j;
     }
 
-    public long aCA() {
+    public long aCy() {
         return this.currentSize;
     }
 
-    public void bC(long j) {
+    public void bB(long j) {
         this.currentSize = j;
     }
 }

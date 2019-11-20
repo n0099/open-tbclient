@@ -14,14 +14,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ShapeStroke implements b {
-    private final com.airbnb.lottie.model.a.a gD;
-    private final com.airbnb.lottie.model.a.d gL;
-    private final com.airbnb.lottie.model.a.b hb;
-    private final LineCapType hc;
-    private final LineJoinType hd;
-    private final List<com.airbnb.lottie.model.a.b> hf;
+    private final com.airbnb.lottie.model.a.b gC;
+    private final LineCapType gD;
+    private final LineJoinType gE;
+    private final List<com.airbnb.lottie.model.a.b> gF;
     @Nullable
-    private final com.airbnb.lottie.model.a.b hr;
+    private final com.airbnb.lottie.model.a.b gR;
+    private final com.airbnb.lottie.model.a.a ge;
+    private final com.airbnb.lottie.model.a.d gm;
     private final String name;
 
     /* loaded from: classes2.dex */
@@ -64,13 +64,13 @@ public class ShapeStroke implements b {
 
     private ShapeStroke(String str, @Nullable com.airbnb.lottie.model.a.b bVar, List<com.airbnb.lottie.model.a.b> list, com.airbnb.lottie.model.a.a aVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType) {
         this.name = str;
-        this.hr = bVar;
-        this.hf = list;
-        this.gD = aVar;
-        this.gL = dVar;
-        this.hb = bVar2;
-        this.hc = lineCapType;
-        this.hd = lineJoinType;
+        this.gR = bVar;
+        this.gF = list;
+        this.ge = aVar;
+        this.gm = dVar;
+        this.gC = bVar2;
+        this.gD = lineCapType;
+        this.gE = lineJoinType;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -117,30 +117,30 @@ public class ShapeStroke implements b {
     }
 
     public com.airbnb.lottie.model.a.a cV() {
-        return this.gD;
+        return this.ge;
     }
 
     public com.airbnb.lottie.model.a.d cn() {
-        return this.gL;
+        return this.gm;
     }
 
     public com.airbnb.lottie.model.a.b cB() {
-        return this.hb;
+        return this.gC;
     }
 
     public List<com.airbnb.lottie.model.a.b> cE() {
-        return this.hf;
+        return this.gF;
     }
 
     public com.airbnb.lottie.model.a.b cF() {
-        return this.hr;
+        return this.gR;
     }
 
     public LineCapType cC() {
-        return this.hc;
+        return this.gD;
     }
 
     public LineJoinType cD() {
-        return this.hd;
+        return this.gE;
     }
 }

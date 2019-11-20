@@ -6,9 +6,9 @@ import org.json.JSONObject;
 import tbclient.TaskInfo;
 /* loaded from: classes.dex */
 public class bf {
-    private long cbd;
-    private String cbe;
-    private String cbf;
+    private long cam;
+    private String can;
+    private String cao;
     private long endTime;
     private long forumId;
     private String forumName;
@@ -26,11 +26,11 @@ public class bf {
         return this.forumId + "";
     }
 
-    public long ahZ() {
-        return this.cbd;
+    public long ahX() {
+        return this.cam;
     }
 
-    public long aia() {
+    public long ahY() {
         return this.endTime;
     }
 
@@ -43,18 +43,18 @@ public class bf {
     }
 
     public String getThreadImgUrl() {
-        return this.cbf;
+        return this.cao;
     }
 
-    public int aib() {
+    public int ahZ() {
         return this.mWidth;
     }
 
-    public int aic() {
+    public int aia() {
         return this.mHeight;
     }
 
-    public String aid() {
+    public String aib() {
         return this.obj_id;
     }
 
@@ -64,9 +64,9 @@ public class bf {
             this.forumId = taskInfo.forum_id.longValue();
             this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
             this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
-            this.cbe = taskInfo.bgimg;
-            this.cbf = taskInfo.thread_img;
-            this.cbd = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
+            this.can = taskInfo.bgimg;
+            this.cao = taskInfo.thread_img;
+            this.cam = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
             this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
             String str = taskInfo.thread_img_size;
             if (str != null) {
@@ -95,10 +95,10 @@ public class bf {
                 this.forumId = jSONObject.optLong("forum_id");
                 this.taskId = jSONObject.optLong("task_id");
                 this.threadId = jSONObject.optLong("thread_id");
-                this.cbe = jSONObject.optString("bgimg");
-                this.cbd = jSONObject.optLong("start_time");
+                this.can = jSONObject.optString("bgimg");
+                this.cam = jSONObject.optLong("start_time");
                 this.endTime = jSONObject.optLong("end_time");
-                this.cbf = jSONObject.optString("thread_img");
+                this.cao = jSONObject.optString("thread_img");
                 String optString = jSONObject.optString("thread_img_size");
                 if (optString != null && optString.length() > 0) {
                     String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);

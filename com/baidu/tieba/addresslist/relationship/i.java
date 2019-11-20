@@ -5,18 +5,18 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class i extends BdAsyncTask<Void, Void, Void> {
-    private a dle;
+    private a dkn;
 
     public i(a aVar) {
-        this.dle = aVar;
+        this.dkn = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
-        if (!f.aEx().a(this.dle)) {
-            com.baidu.tbadk.core.sharedPref.b.alR().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true);
+        if (!f.aEv().a(this.dkn)) {
+            com.baidu.tbadk.core.sharedPref.b.alP().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true);
             return null;
         }
         return null;

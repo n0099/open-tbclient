@@ -10,8 +10,8 @@ import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a baM;
-    private SwanAppMessengerService baN;
+    private static volatile a bau;
+    private SwanAppMessengerService bav;
 
     /* renamed from: com.baidu.swan.apps.process.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -22,15 +22,15 @@ public final class a {
     private a() {
     }
 
-    public static a Of() {
-        if (baM == null) {
+    public static a Og() {
+        if (bau == null) {
             synchronized (a.class) {
-                if (baM == null) {
-                    baM = new a();
+                if (bau == null) {
+                    bau = new a();
                 }
             }
         }
-        return baM;
+        return bau;
     }
 
     private void a(final InterfaceC0199a interfaceC0199a) {
@@ -38,7 +38,7 @@ public final class a {
         appContext.bindService(new Intent(appContext, SwanAppMessengerService.class), new ServiceConnection() { // from class: com.baidu.swan.apps.process.a.1
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                a.this.baN = SwanAppMessengerService.getServiceObject();
+                a.this.bav = SwanAppMessengerService.getServiceObject();
                 if (interfaceC0199a != null) {
                     interfaceC0199a.onReady();
                 }
@@ -46,14 +46,14 @@ public final class a {
 
             @Override // android.content.ServiceConnection
             public void onServiceDisconnected(ComponentName componentName) {
-                a.this.baN = null;
+                a.this.bav = null;
             }
         }, 1);
     }
 
     public void b(InterfaceC0199a interfaceC0199a) {
         if (interfaceC0199a != null) {
-            if (this.baN == null) {
+            if (this.bav == null) {
                 a(interfaceC0199a);
             } else {
                 interfaceC0199a.onReady();

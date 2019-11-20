@@ -5,54 +5,54 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes2.dex */
 public class c implements b {
-    private final Queue<a> bui = new ArrayDeque();
-    private a buj;
+    private final Queue<a> btq = new ArrayDeque();
+    private a btr;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.bui) {
-                this.bui.offer(aVar.a(this));
+            synchronized (this.btq) {
+                this.btq.offer(aVar.a(this));
             }
         }
-        UK();
+        UI();
     }
 
     @Override // com.baidu.swan.apps.an.c.b
     public void a(a aVar) {
-        synchronized (this.bui) {
-            if (aVar == this.buj) {
-                UL();
+        synchronized (this.btq) {
+            if (aVar == this.btr) {
+                UJ();
             }
         }
     }
 
-    private void UK() {
-        synchronized (this.bui) {
-            if (this.buj == null) {
-                UL();
+    private void UI() {
+        synchronized (this.btq) {
+            if (this.btr == null) {
+                UJ();
             }
         }
     }
 
-    private void UL() {
-        synchronized (this.bui) {
-            this.buj = null;
-            if (!this.bui.isEmpty()) {
-                this.buj = this.bui.poll();
-                if (this.buj == null) {
-                    UL();
+    private void UJ() {
+        synchronized (this.btq) {
+            this.btr = null;
+            if (!this.btq.isEmpty()) {
+                this.btr = this.btq.poll();
+                if (this.btr == null) {
+                    UJ();
                 } else {
-                    ac.i(this.buj);
+                    ac.i(this.btr);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.buj != null) {
-            this.buj.finish();
-            this.buj = null;
+        if (this.btr != null) {
+            this.btr.finish();
+            this.btr = null;
         }
-        this.bui.clear();
+        this.btq.clear();
     }
 }

@@ -1,32 +1,24 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.mipush.sdk.ErrorCode;
+import com.xiaomi.push.service.al;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public final class y extends XMPushService.i {
-    final /* synthetic */ XMPushService b;
-    final /* synthetic */ com.xiaomi.xmpush.thrift.af c;
+public final class y implements al.b.a {
+    final /* synthetic */ XMPushService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y(int i, XMPushService xMPushService, com.xiaomi.xmpush.thrift.af afVar) {
-        super(i);
-        this.b = xMPushService;
-        this.c = afVar;
+    public y(XMPushService xMPushService) {
+        this.a = xMPushService;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        try {
-            af.a(this.b, af.a(this.c.j(), this.c.h()));
-        } catch (com.xiaomi.smack.l e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.b.a(10, e);
+    @Override // com.xiaomi.push.service.al.b.a
+    public void a(al.c cVar, al.c cVar2, int i) {
+        if (cVar2 == al.c.binded) {
+            o.a(this.a);
+            o.b(this.a);
+        } else if (cVar2 == al.c.unbind) {
+            o.a(this.a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
         }
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String b() {
-        return "send app absent message.";
     }
 }

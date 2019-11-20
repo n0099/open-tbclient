@@ -9,37 +9,37 @@ import com.baidu.live.message.GetLiveActivityHttpResponseMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes6.dex */
 public class b {
-    private static volatile b akT;
-    private HttpMessageListener akU = new HttpMessageListener(1021122) { // from class: com.baidu.live.l.b.1
+    private static volatile b akB;
+    public ac ajP;
+    private HttpMessageListener akC = new HttpMessageListener(1021122) { // from class: com.baidu.live.l.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021122 && (httpResponsedMessage instanceof GetLiveActivityHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() == 0) {
                     GetLiveActivityHttpResponseMessage getLiveActivityHttpResponseMessage = (GetLiveActivityHttpResponseMessage) httpResponsedMessage;
-                    if (getLiveActivityHttpResponseMessage.uq() != null) {
-                        b.this.akh = getLiveActivityHttpResponseMessage.uq();
+                    if (getLiveActivityHttpResponseMessage.ur() != null) {
+                        b.this.ajP = getLiveActivityHttpResponseMessage.ur();
                     }
                 }
             }
         }
     };
-    public ac akh;
 
-    public static b uF() {
-        if (akT == null) {
+    public static b uG() {
+        if (akB == null) {
             synchronized (b.class) {
-                if (akT == null) {
-                    akT = new b();
+                if (akB == null) {
+                    akB = new b();
                 }
             }
         }
-        return akT;
+        return akB;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.akU);
-        this.akh = new ac();
+        MessageManager.getInstance().registerListener(this.akC);
+        this.ajP = new ac();
     }
 
     public void d(long j, long j2, long j3, long j4) {

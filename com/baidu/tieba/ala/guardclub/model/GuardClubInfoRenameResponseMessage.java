@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class GuardClubInfoRenameResponseMessage extends JsonHttpResponsedMessage {
-    public c dLd;
+    public c dKm;
 
     public GuardClubInfoRenameResponseMessage() {
         super(1021142);
@@ -18,8 +18,8 @@ public class GuardClubInfoRenameResponseMessage extends JsonHttpResponsedMessage
         if (getError() == 0) {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("guard_club_info")) != null) {
-                this.dLd = new c();
-                this.dLd.parseJson(optJSONObject);
+                this.dKm = new c();
+                this.dKm.parseJson(optJSONObject);
                 return;
             }
             return;

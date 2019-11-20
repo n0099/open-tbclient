@@ -1,20 +1,20 @@
 package com.baidu.swan.b;
 /* loaded from: classes2.dex */
 public final class b extends com.baidu.swan.c.d {
-    private static volatile b bQv;
+    private static volatile b bPE;
 
     public b() {
         super("aiapp_open_stat");
     }
 
-    public static b adr() {
-        if (bQv == null) {
+    public static b adp() {
+        if (bPE == null) {
             synchronized (b.class) {
-                if (bQv == null) {
-                    bQv = new b();
+                if (bPE == null) {
+                    bPE = new b();
                 }
             }
         }
-        return bQv;
+        return bPE;
     }
 }

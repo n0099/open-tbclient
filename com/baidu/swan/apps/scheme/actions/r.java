@@ -33,14 +33,14 @@ public class r extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
             return false;
         }
-        final com.baidu.swan.apps.b.c.d Lq = com.baidu.swan.apps.w.e.LD().Lq();
-        if (Lq != null) {
-            ValueAnimator ofInt = ValueAnimator.ofInt(Lq.getWebViewScrollY(), a(Lq, com.baidu.swan.apps.an.z.dip2px(context, optInt)));
+        final com.baidu.swan.apps.b.c.d Lr = com.baidu.swan.apps.w.e.LE().Lr();
+        if (Lr != null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(Lr.getWebViewScrollY(), a(Lr, com.baidu.swan.apps.an.z.dip2px(context, optInt)));
             ofInt.setDuration(optInt2);
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.scheme.actions.r.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    Lq.G(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    Lr.E(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             });
             ofInt.start();
@@ -50,7 +50,7 @@ public class r extends z {
     }
 
     private int a(@NonNull com.baidu.swan.apps.b.c.d dVar, int i) {
-        int contentHeight = ((int) (dVar.getContentHeight() * dVar.getScale())) - ((Integer) com.baidu.swan.apps.w.e.LD().Lr().second).intValue();
+        int contentHeight = ((int) (dVar.getContentHeight() * dVar.getScale())) - ((Integer) com.baidu.swan.apps.w.e.LE().Ls().second).intValue();
         if (contentHeight <= 0) {
             return 0;
         }

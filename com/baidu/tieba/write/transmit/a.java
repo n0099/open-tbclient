@@ -1,9 +1,9 @@
 package com.baidu.tieba.write.transmit;
 /* loaded from: classes3.dex */
 public interface a {
-    boolean cyC();
+    boolean cyA();
 
-    void cyD();
+    void cyB();
 
-    void cyE();
+    void cyC();
 }

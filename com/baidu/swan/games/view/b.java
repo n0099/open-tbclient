@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public class b {
-    private FrameLayout bEW;
-    private boolean bEX;
+    private FrameLayout bEf;
+    private boolean bEg;
 
     public b(@NonNull FrameLayout frameLayout) {
-        this.bEW = frameLayout;
+        this.bEf = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.b bVar) {
@@ -19,8 +19,8 @@ public class b {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bVar.getWidth(), bVar.getHeight());
         layoutParams.leftMargin = bVar.getLeft();
-        layoutParams.topMargin = bVar.Mt();
-        this.bEW.addView(view, layoutParams);
+        layoutParams.topMargin = bVar.Mu();
+        this.bEf.addView(view, layoutParams);
         return true;
     }
 
@@ -28,7 +28,7 @@ public class b {
         if (!ay(view)) {
             return false;
         }
-        this.bEW.removeView(view);
+        this.bEf.removeView(view);
         return true;
     }
 
@@ -38,28 +38,28 @@ public class b {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bVar.getWidth(), bVar.getHeight());
         layoutParams.leftMargin = bVar.getLeft();
-        layoutParams.topMargin = bVar.Mt();
-        this.bEW.updateViewLayout(view, layoutParams);
+        layoutParams.topMargin = bVar.Mu();
+        this.bEf.updateViewLayout(view, layoutParams);
         return true;
     }
 
     public boolean isLandScape() {
-        return this.bEX;
+        return this.bEg;
     }
 
     public void dm(boolean z) {
-        this.bEX = z;
+        this.bEg = z;
     }
 
     public boolean ay(View view) {
-        return view != null && view.getParent() == this.bEW && this.bEW.indexOfChild(view) >= 0;
+        return view != null && view.getParent() == this.bEf && this.bEf.indexOfChild(view) >= 0;
     }
 
     public Context getContext() {
-        return this.bEW.getContext();
+        return this.bEf.getContext();
     }
 
-    public FrameLayout Yt() {
-        return this.bEW;
+    public FrameLayout Yr() {
+        return this.bEf;
     }
 }

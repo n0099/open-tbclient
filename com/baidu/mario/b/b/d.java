@@ -3,47 +3,47 @@ package com.baidu.mario.b.b;
 import com.baidu.ala.livePlayer.StreamConfig;
 /* loaded from: classes2.dex */
 public class d {
-    private String ayA = "/sdcard/AR/video/arvideo.mp4";
-    private int ayB = 0;
-    private long ayC = 0;
-    private boolean ayD = true;
+    private String ayi = "/sdcard/AR/video/arvideo.mp4";
+    private int ayj = 0;
+    private long ayk = 0;
+    private boolean ayl = true;
     private int mVideoWidth = 720;
     private int mVideoHeight = 1280;
-    private String ayE = "video/avc";
-    private int ayF = 8294400;
-    private int ayG = 30;
-    private int ayH = 1;
-    private boolean ayI = false;
-    private String ayJ = "audio/mp4a-latm";
-    private int ayK = 1;
-    private int ayL = 128000;
-    private int ayM = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_16K;
-    private int ayN = 1024;
+    private String aym = "video/avc";
+    private int ayn = 8294400;
+    private int ayo = 30;
+    private int ayp = 1;
+    private boolean ayq = false;
+    private String ayr = "audio/mp4a-latm";
+    private int ays = 1;
+    private int ayt = 128000;
+    private int ayu = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_16K;
+    private int ayv = 1024;
 
-    public String yL() {
-        return this.ayA;
+    public String yM() {
+        return this.ayi;
     }
 
     public void dq(String str) {
         if (str != null && !str.isEmpty()) {
-            this.ayA = str;
+            this.ayi = str;
         }
     }
 
-    public int yM() {
-        return this.ayB;
+    public int yN() {
+        return this.ayj;
     }
 
-    public long yN() {
-        return this.ayC;
+    public long yO() {
+        return this.ayk;
     }
 
-    public void S(long j) {
-        this.ayC = j;
+    public void R(long j) {
+        this.ayk = j;
     }
 
-    public boolean yO() {
-        return this.ayD;
+    public boolean yP() {
+        return this.ayl;
     }
 
     public int getVideoWidth() {
@@ -62,47 +62,47 @@ public class d {
         this.mVideoHeight = i;
     }
 
-    public String yP() {
-        return this.ayE;
-    }
-
-    public int yQ() {
-        return this.ayF;
+    public String yQ() {
+        return this.aym;
     }
 
     public int yR() {
-        return this.ayG;
+        return this.ayn;
     }
 
     public int yS() {
-        return this.ayH;
+        return this.ayo;
     }
 
-    public boolean yT() {
-        return this.ayI;
+    public int yT() {
+        return this.ayp;
+    }
+
+    public boolean yU() {
+        return this.ayq;
     }
 
     public void bh(boolean z) {
-        this.ayI = z;
+        this.ayq = z;
     }
 
-    public String yU() {
-        return this.ayJ;
-    }
-
-    public int yV() {
-        return this.ayK;
+    public String yV() {
+        return this.ayr;
     }
 
     public int yW() {
-        return this.ayL;
+        return this.ays;
     }
 
     public int yX() {
-        return this.ayM;
+        return this.ayt;
     }
 
     public int yY() {
-        return this.ayN;
+        return this.ayu;
+    }
+
+    public int yZ() {
+        return this.ayv;
     }
 }

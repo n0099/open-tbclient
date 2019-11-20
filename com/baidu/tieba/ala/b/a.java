@@ -21,13 +21,13 @@ import com.baidu.live.k.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes6.dex */
 public class a implements View.OnClickListener {
-    public TextView dQw;
-    public TextView dQx;
-    public TextView dQy;
+    public TextView dPF;
+    public TextView dPG;
+    public TextView dPH;
     private Context mContext;
     private AlertDialog mDialog;
     Handler handler = new Handler();
-    CustomMessageListener agm = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.b.a.1
+    CustomMessageListener afT = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -36,32 +36,32 @@ public class a implements View.OnClickListener {
             }
         }
     };
-    private Runnable dQz = new Runnable() { // from class: com.baidu.tieba.ala.b.a.3
+    private Runnable dPI = new Runnable() { // from class: com.baidu.tieba.ala.b.a.3
         @Override // java.lang.Runnable
         public void run() {
             a.this.dismiss();
         }
     };
     private View mRootView = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(a.h.ala_level_up_dialog, (ViewGroup) null);
-    public ImageView dQv = (ImageView) this.mRootView.findViewById(a.g.close_img);
+    public ImageView dPE = (ImageView) this.mRootView.findViewById(a.g.close_img);
 
     public a(Context context) {
         this.mContext = context;
-        this.dQv.setOnClickListener(this);
+        this.dPE.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
-        this.dQw = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLevel);
-        this.dQx = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipNum);
-        this.dQy = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLebel);
+        this.dPF = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLevel);
+        this.dPG = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipNum);
+        this.dPH = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLebel);
     }
 
-    private void aMl() {
-        MessageManager.getInstance().registerListener(this.agm);
+    private void aMj() {
+        MessageManager.getInstance().registerListener(this.afT);
     }
 
     public void w(String str, String str2, boolean z) {
-        this.dQy.setVisibility(z ? 0 : 8);
-        this.dQw.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_level, str2));
-        this.dQx.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_flower_num, str));
+        this.dPH.setVisibility(z ? 0 : 8);
+        this.dPF.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_level, str2));
+        this.dPG.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_flower_num, str));
     }
 
     public void show() {
@@ -70,12 +70,12 @@ public class a implements View.OnClickListener {
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.b.a.2
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                MessageManager.getInstance().unRegisterListener(a.this.agm);
+                MessageManager.getInstance().unRegisterListener(a.this.afT);
             }
         });
         if (this.mContext instanceof Activity) {
             ShowUtil.showDialog(this.mDialog, (Activity) this.mContext);
-            this.handler.postDelayed(this.dQz, 5000L);
+            this.handler.postDelayed(this.dPI, 5000L);
         }
         Window window = this.mDialog.getWindow();
         window.setWindowAnimations(a.j.sdk_dialog_ani_b2t);
@@ -84,12 +84,12 @@ public class a implements View.OnClickListener {
         window.setBackgroundDrawable(new ColorDrawable(this.mContext.getResources().getColor(a.d.sdk_black_alpha35)));
         window.setLayout(-1, -1);
         window.setContentView(this.mRootView);
-        aMl();
+        aMj();
     }
 
     public void dismiss() {
         if (this.handler != null) {
-            this.handler.removeCallbacks(this.dQz);
+            this.handler.removeCallbacks(this.dPI);
         }
         if (this.mDialog != null && (this.mContext instanceof Activity)) {
             ShowUtil.dismissDialog(this.mDialog, (Activity) this.mContext);

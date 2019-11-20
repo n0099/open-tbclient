@@ -5,8 +5,8 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
     private int mExecuteNum;
-    private BdUniqueId nL;
-    private BdAsyncTaskParallelType nM;
+    private BdUniqueId nl;
+    private BdAsyncTaskParallelType nm;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -19,26 +19,26 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.nL = null;
-        this.nM = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.nl = null;
+        this.nm = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.nM = bdAsyncTaskParallelType;
-        this.nL = bdUniqueId;
+        this.nm = bdAsyncTaskParallelType;
+        this.nl = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.nL = null;
-        this.nM = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.nl = null;
+        this.nm = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.nM = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.nm = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
         this.mExecuteNum = i;
-        this.nL = bdUniqueId;
+        this.nl = bdUniqueId;
     }
 
     public int getExecuteNum() {
@@ -46,13 +46,13 @@ public class BdAsyncTaskParallel {
     }
 
     public int getTag() {
-        if (this.nL == null) {
+        if (this.nl == null) {
             return 0;
         }
-        return this.nL.getId();
+        return this.nl.getId();
     }
 
     public BdAsyncTaskParallelType eZ() {
-        return this.nM;
+        return this.nm;
     }
 }

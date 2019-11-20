@@ -19,12 +19,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class b extends a {
-    private static int KC = 5;
-    private boolean KB;
+    private static int Kc = 5;
+    private boolean Kb;
 
     public b(Context context) {
         super(context);
-        this.KB = false;
+        this.Kb = false;
     }
 
     private static void a(Map<String, Object> map) {
@@ -105,7 +105,7 @@ public final class b extends a {
                 }
                 if (readLine.startsWith("-----") && readLine.endsWith("-----") && readLine.contains(" pid ") && readLine.contains(" at ")) {
                     i++;
-                    if (i > KC) {
+                    if (i > Kc) {
                         bufferedReader.close();
                         return null;
                     }
@@ -274,7 +274,7 @@ public final class b extends a {
         com.baidu.crabsdk.a.N.onAnrStarted(r0);
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
-        r1 = com.baidu.crabsdk.sender.g.a(r13.KA, (java.lang.Throwable) null, false);
+        r1 = com.baidu.crabsdk.sender.g.a(r13.Ka, (java.lang.Throwable) null, false);
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x009b, code lost:
         if (r0 == null) goto L37;
@@ -285,7 +285,7 @@ public final class b extends a {
     /* JADX WARN: Code restructure failed: missing block: B:27:0x00a3, code lost:
         r1.putAll(r0);
         com.baidu.crabsdk.sender.g.b(r1);
-        com.baidu.crabsdk.sender.i.a(r13.KA, com.baidu.crabsdk.sender.i.g(r1));
+        com.baidu.crabsdk.sender.i.a(r13.Ka, com.baidu.crabsdk.sender.i.g(r1));
         com.baidu.crabsdk.sender.h.ab();
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x00b9, code lost:
@@ -293,7 +293,7 @@ public final class b extends a {
      */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x00bb, code lost:
         com.baidu.crabsdk.c.a.v("===uploadAnr===");
-        com.baidu.crabsdk.sender.k.a(false, r13.KA);
+        com.baidu.crabsdk.sender.k.a(false, r13.Ka);
      */
     /* JADX WARN: Code restructure failed: missing block: B:45:?, code lost:
         return;
@@ -308,10 +308,10 @@ public final class b extends a {
     public final void d(String str) {
         String readLine;
         com.baidu.crabsdk.c.a.v("===readLog()===");
-        if (this.KB) {
+        if (this.Kb) {
             return;
         }
-        this.KB = true;
+        this.Kb = true;
         try {
             com.baidu.crabsdk.c.a.v("===readingTrace===");
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
@@ -331,6 +331,6 @@ public final class b extends a {
         } catch (OutOfMemoryError e2) {
             com.baidu.crabsdk.c.a.f("内存溢出了！", e2);
         }
-        this.KB = false;
+        this.Kb = false;
     }
 }

@@ -14,15 +14,15 @@ public class b {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void ZZ();
+        void ZX();
 
-        void aaa();
+        void ZY();
 
         void kP(String str);
     }
 
     public static void a(Activity activity, LatLng latLng, LatLng latLng2, a aVar) {
-        com.baidu.swan.impl.map.a.Zi();
+        com.baidu.swan.impl.map.a.Zg();
         b(activity, latLng, latLng2, aVar);
     }
 
@@ -30,7 +30,7 @@ public class b {
         final WalkNavigateHelper walkNavigateHelper = WalkNavigateHelper.getInstance();
         if (aVar != null) {
             try {
-                aVar.ZZ();
+                aVar.ZX();
             } catch (Exception e) {
                 c.e("map", "initNaviEngine fail");
                 walkNavigateHelper.quit();
@@ -81,7 +81,7 @@ public class b {
                 @Override // com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener
                 public void onRoutePlanSuccess() {
                     if (a.this != null) {
-                        a.this.aaa();
+                        a.this.ZY();
                     }
                 }
 

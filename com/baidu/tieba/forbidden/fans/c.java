@@ -12,29 +12,29 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class c {
-    private an fqD;
-    private ArrayList<com.baidu.tieba.forbidden.fans.a> fqE;
-    private a fqF;
-    private HttpMessageListener fqG = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
+    private an fpM;
+    private ArrayList<com.baidu.tieba.forbidden.fans.a> fpN;
+    private a fpO;
+    private HttpMessageListener fpP = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof GetForbiddenFansResponse) {
                 GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                c.this.fqD = getForbiddenFansResponse.getPageData();
-                if (c.this.fqE == null) {
-                    c.this.fqE = new ArrayList();
+                c.this.fpM = getForbiddenFansResponse.getPageData();
+                if (c.this.fpN == null) {
+                    c.this.fpN = new ArrayList();
                 }
-                if (c.this.fqD != null) {
-                    if (c.this.fqD.ahy() == 1) {
-                        c.this.fqE.clear();
+                if (c.this.fpM != null) {
+                    if (c.this.fpM.ahw() == 1) {
+                        c.this.fpN.clear();
                     }
                     if (getForbiddenFansResponse.getFansList() != null) {
-                        c.this.fqE.addAll(getForbiddenFansResponse.getFansList());
+                        c.this.fpN.addAll(getForbiddenFansResponse.getFansList());
                     }
                 }
-                if (c.this.fqF != null) {
-                    c.this.fqF.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.fqE);
+                if (c.this.fpO != null) {
+                    c.this.fpO.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.fpN);
                 }
             }
         }
@@ -52,35 +52,35 @@ public class c {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.fqG);
+        MessageManager.getInstance().registerListener(this.fpP);
     }
 
-    public void bil() {
+    public void bij() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
         httpMessage.addParam("rn", 20);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void bim() {
-        if (this.fqD == null || this.fqD.ahA() == 1) {
-            int ahy = this.fqD != null ? this.fqD.ahy() + 1 : 1;
+    public void bik() {
+        if (this.fpM == null || this.fpM.ahy() == 1) {
+            int ahw = this.fpM != null ? this.fpM.ahw() + 1 : 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
             httpMessage.addParam("rn", 20);
-            httpMessage.addParam(Config.PACKAGE_NAME, ahy);
+            httpMessage.addParam(Config.PACKAGE_NAME, ahw);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public boolean hasMore() {
-        return this.fqD != null && this.fqD.ahA() == 1;
+        return this.fpM != null && this.fpM.ahy() == 1;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fqG);
+        MessageManager.getInstance().unRegisterListener(this.fpP);
     }
 
     public void a(a aVar) {
-        this.fqF = aVar;
+        this.fpO = aVar;
     }
 }

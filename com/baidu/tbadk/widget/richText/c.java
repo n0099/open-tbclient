@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String cWU;
-    private int cWV;
+    private String cWd;
+    private int cWe;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -44,8 +44,8 @@ public class c extends ClickableSpan {
         this.mType = i;
     }
 
-    public void kP(int i) {
-        this.cWV = i;
+    public void kO(int i) {
+        this.cWe = i;
     }
 
     public void setColor(int i) {
@@ -56,12 +56,12 @@ public class c extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void kQ(int i) {
+    public void kP(int i) {
         this.urlType = i;
     }
 
     public void qw(String str) {
-        this.cWU = str;
+        this.cWd = str;
     }
 
     public String getLink() {
@@ -80,13 +80,13 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.cWV == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.cWe == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = am.getColor(R.color.cp_bg_line_c);
             } else {
                 textPaint.bgColor = am.getColor(R.color.cp_bg_line_z);
             }
-        } else if (this.cWV == 2) {
+        } else if (this.cWe == 2) {
             textPaint.bgColor = am.getColor(R.color.transparent);
         }
     }
@@ -95,7 +95,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.cWU));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.cWd));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {

@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a hFB = null;
-    private final a.InterfaceC0280a hFC = new a.InterfaceC0280a() { // from class: com.baidu.tieba.passaccount.a.a.1
+    private static a hEK = null;
+    private final a.InterfaceC0280a hEL = new a.InterfaceC0280a() { // from class: com.baidu.tieba.passaccount.a.a.1
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0280a
         public void onBeforeLogin(String str) {
         }
@@ -23,7 +23,7 @@ public class a extends com.baidu.tbadk.core.a.a {
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0280a
         public void onFailure(final String str, int i, String str2) {
             if (i == 1) {
-                ReloginManager.alK().e(null);
+                ReloginManager.alI().e(null);
             }
             BdAsyncTask<Void, Void, AccountData> bdAsyncTask = new BdAsyncTask<Void, Void, AccountData>() { // from class: com.baidu.tieba.passaccount.a.a.1.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -53,11 +53,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a bPx() {
-        if (hFB == null) {
-            hFB = new a();
+    public static a bPv() {
+        if (hEK == null) {
+            hEK = new a();
         }
-        return hFB;
+        return hEK;
     }
 
     @Override // com.baidu.tbadk.core.a.a
@@ -95,7 +95,7 @@ public class a extends com.baidu.tbadk.core.a.a {
         AccountData currentAccountObj;
         a.b mJ;
         if (j.isNetWorkAvailable() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (mJ = mJ(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), mJ.mBduss, mJ.mPtoken, currentAccountObj.getStoken(), this.hFC);
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), mJ.mBduss, mJ.mPtoken, currentAccountObj.getStoken(), this.hEL);
         }
     }
 

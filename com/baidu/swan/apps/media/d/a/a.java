@@ -66,7 +66,7 @@ public class a extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                bVar.Rd().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.media.d.a.a.1
+                bVar.Rf().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.media.d.a.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: b */
@@ -100,13 +100,13 @@ public class a extends z {
                 @Override // rx.functions.f
                 /* renamed from: j */
                 public File call(File file2) {
-                    String ik = com.baidu.swan.apps.storage.b.ik(com.baidu.swan.apps.ae.b.Rk());
+                    String ik = com.baidu.swan.apps.storage.b.ik(com.baidu.swan.apps.ae.b.Rm());
                     if (!TextUtils.isEmpty(ik) && file2.getPath().startsWith(ik)) {
                         return a.this.d(context, file2);
                     }
                     return null;
                 }
-            }).b(Schedulers.io()).a(rx.a.b.a.cOs()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
+            }).b(Schedulers.io()).a(rx.a.b.a.cOq()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: i */
@@ -130,9 +130,9 @@ public class a extends z {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(Context context, String str, long j) {
         if (checkFile(str)) {
-            long ac = ac(j);
-            ContentValues m = m(str, ac);
-            m.put("datetaken", Long.valueOf(ac));
+            long ab = ab(j);
+            ContentValues m = m(str, ab);
+            m.put("datetaken", Long.valueOf(ab));
             m.put("mime_type", getVideoMimeType(str));
             context.getContentResolver().insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, m);
         }
@@ -141,11 +141,11 @@ public class a extends z {
     private ContentValues m(String str, long j) {
         ContentValues contentValues = new ContentValues();
         File file = new File(str);
-        long ac = ac(j);
+        long ab = ab(j);
         contentValues.put("title", file.getName());
         contentValues.put("_display_name", file.getName());
-        contentValues.put("date_modified", Long.valueOf(ac));
-        contentValues.put("date_added", Long.valueOf(ac));
+        contentValues.put("date_modified", Long.valueOf(ab));
+        contentValues.put("date_added", Long.valueOf(ab));
         contentValues.put("_data", file.getAbsolutePath());
         contentValues.put("_size", Long.valueOf(file.length()));
         return contentValues;
@@ -159,7 +159,7 @@ public class a extends z {
         return "video/mp4";
     }
 
-    private long ac(long j) {
+    private long ab(long j) {
         if (j <= 0) {
             return System.currentTimeMillis();
         }

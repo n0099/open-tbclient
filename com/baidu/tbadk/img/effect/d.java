@@ -14,7 +14,7 @@ public class d extends b {
         return ResizeImageAction.ACTION_NAME;
     }
 
-    public static ImageOperation ao(int i, int i2) {
+    public static ImageOperation am(int i, int i2) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = ResizeImageAction.ACTION_NAME;
         imageOperation.actionParam = i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2;
@@ -37,7 +37,7 @@ public class d extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.avu().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.avs().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
         return BitmapHelper.resizeBitmap(bitmap, this.maxWidth, this.maxHeight, z);
     }
 

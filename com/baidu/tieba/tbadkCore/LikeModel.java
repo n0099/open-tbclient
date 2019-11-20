@@ -19,9 +19,9 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class LikeModel extends BdBaseModel {
     private String from;
-    private String jhf;
-    private String jhg;
-    private a jhh;
+    private String jgo;
+    private String jgp;
+    private a jgq;
     private String mAuthSid;
     private BlockPopInfoData mBlockPopInfoData;
     private String mForumId;
@@ -32,8 +32,8 @@ public class LikeModel extends BdBaseModel {
         super(tbPageContext);
         this.mForumName = null;
         this.mForumId = null;
-        this.jhf = null;
-        this.jhh = null;
+        this.jgo = null;
+        this.jgq = null;
         this.mPageContext = tbPageContext;
     }
 
@@ -55,30 +55,30 @@ public class LikeModel extends BdBaseModel {
         return this.mBlockPopInfoData;
     }
 
-    public void cnF() {
-        if (this.jhh != null) {
-            this.jhh.cancel();
-            this.jhh = null;
+    public void cnD() {
+        if (this.jgq != null) {
+            this.jgq.cancel();
+            this.jgq = null;
         }
     }
 
     public void ag(String str, String str2, String str3) {
         dY(str, str2);
-        this.jhf = str3;
+        this.jgo = str3;
     }
 
     public void dY(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.jhh == null) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.jgq == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.jhh = new a();
-            this.jhh.setPriority(2);
-            this.jhh.execute(new Object[0]);
+            this.jgq = new a();
+            this.jgq.setPriority(2);
+            this.jgq.execute(new Object[0]);
         }
     }
 
-    public boolean cnG() {
-        return this.jhh != null;
+    public boolean cnE() {
+        return this.jgq != null;
     }
 
     public Context getContext() {
@@ -109,16 +109,16 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.addPostData("fid", LikeModel.this.mForumId);
                 this.mNetwork.addPostData("st_type", LikeModel.this.from);
                 this.mNetwork.addPostData("authsid", LikeModel.this.mAuthSid);
-                if (!StringUtils.isNull(LikeModel.this.jhg)) {
-                    this.mNetwork.addPostData("dev_id", LikeModel.this.jhg);
+                if (!StringUtils.isNull(LikeModel.this.jgp)) {
+                    this.mNetwork.addPostData("dev_id", LikeModel.this.jgp);
                 }
-                if (!TextUtils.isEmpty(LikeModel.this.jhf)) {
-                    this.mNetwork.addPostData("pagefrom", LikeModel.this.jhf);
+                if (!TextUtils.isEmpty(LikeModel.this.jgo)) {
+                    this.mNetwork.addPostData("pagefrom", LikeModel.this.jgo);
                 }
                 this.mNetwork.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
                 this.mNetwork.addPostData("forum_name", LikeModel.this.mForumName);
-                this.mNetwork.amr().amR().mIsNeedTbs = true;
+                this.mNetwork.amp().amP().mIsNeedTbs = true;
                 this.mNetwork.ek(true);
                 String postNetData = this.mNetwork.postNetData();
                 int serverErrorCode = this.mNetwork.getServerErrorCode();
@@ -129,7 +129,7 @@ public class LikeModel extends BdBaseModel {
                 if (postNetData != null) {
                     t tVar = new t();
                     tVar.parserJson(postNetData);
-                    if (this.mNetwork.amr().amS().isRequestSuccess()) {
+                    if (this.mNetwork.amp().amQ().isRequestSuccess()) {
                         tVar.setBlockPopInfoData(null);
                     }
                     LikeModel.this.mBlockPopInfoData = tVar.getBlockPopInfoData();
@@ -150,13 +150,13 @@ public class LikeModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(t tVar) {
-            LikeModel.this.jhh = null;
-            if (this.mNetwork != null && tVar != null && !AntiHelper.d(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), tVar.cnH())) {
+            LikeModel.this.jgq = null;
+            if (this.mNetwork != null && tVar != null && !AntiHelper.d(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), tVar.cnF())) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = com.baidu.adp.lib.g.b.toLong(tVar.getFid(), 0L);
-                if (tVar != null && this.mNetwork.amr().amS().isRequestSuccess()) {
+                if (tVar != null && this.mNetwork.amp().amQ().isRequestSuccess()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.g.b.toLong(tVar.getFid(), 0L))));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM_NAME, new d.a(LikeModel.this.mForumName, tVar.clQ())));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM_NAME, new d.a(LikeModel.this.mForumName, tVar.clO())));
                     TbadkCoreApplication.getInst().addLikeForum(LikeModel.this.mForumName);
                     aVar.isSuccess = true;
                     aVar.errorMessage = LikeModel.this.getErrorString();
@@ -177,7 +177,7 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.cancelNetConnect();
                 this.mNetwork = null;
             }
-            LikeModel.this.jhh = null;
+            LikeModel.this.jgq = null;
             super.cancel(true);
             if (LikeModel.this.mLoadDataCallBack != null) {
                 LikeModel.this.mLoadDataCallBack.callback(null);

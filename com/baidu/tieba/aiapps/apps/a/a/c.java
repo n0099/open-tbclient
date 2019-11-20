@@ -43,7 +43,7 @@ public class c extends z {
         final g.a aVar = new g.a(optParamsAsJo);
         final Bundle bundle = new Bundle();
         bundle.putInt("key_login_mode", rZ);
-        bVar.Rd().a((Activity) context, "mapp_i_login", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.c.1
+        bVar.Rf().a((Activity) context, "mapp_i_login", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
@@ -66,7 +66,7 @@ public class c extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.ae.b bVar, Activity activity, final g.a aVar, final CallbackHandler callbackHandler, final String str, Bundle bundle) {
-        bVar.Rd().a(activity, aVar, bundle, new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<e.c>>() { // from class: com.baidu.tieba.aiapps.apps.a.a.c.2
+        bVar.Rf().a(activity, aVar, bundle, new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<e.c>>() { // from class: com.baidu.tieba.aiapps.apps.a.a.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: a */

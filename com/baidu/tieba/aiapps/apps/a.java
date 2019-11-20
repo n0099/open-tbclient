@@ -9,7 +9,7 @@ public class a {
     private Context mContext;
     private static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static SharedPreferences dma = null;
+    private static SharedPreferences dlj = null;
 
     private a(Context context) {
         this.mContext = null;
@@ -21,10 +21,10 @@ public class a {
     }
 
     private static SharedPreferences cR(Context context) {
-        if (dma == null) {
-            dma = context.getSharedPreferences("downgradefile", 0);
+        if (dlj == null) {
+            dlj = context.getSharedPreferences("downgradefile", 0);
         }
-        return dma;
+        return dlj;
     }
 
     private int cS(Context context) {
@@ -55,41 +55,41 @@ public class a {
         edit.apply();
     }
 
-    public void aFe() {
+    public void aFc() {
         int cT = cT(this.mContext);
         int cS = cS(this.mContext);
         if (DEBUG) {
             Log.d(TAG, "处理升级逻辑：newVersionCode=" + cT + " /oldVersionCode=" + cS);
         }
         if (cS == 0) {
-            lK(cT);
+            lJ(cT);
             r(this.mContext, cT);
             s(this.mContext, cS);
         } else if (cT > cS) {
-            N(cT, cS);
+            L(cT, cS);
             r(this.mContext, cT);
             s(this.mContext, cS);
         } else if (cT < cS) {
-            aF(cT, cS);
+            aD(cT, cS);
             r(this.mContext, cT);
             s(this.mContext, cS);
         } else {
-            aFf();
+            aFd();
         }
     }
 
-    private void N(int i, int i2) {
-        com.baidu.swan.apps.am.a.N(i2, i);
+    private void L(int i, int i2) {
+        com.baidu.swan.apps.am.a.L(i2, i);
     }
 
-    private void aF(int i, int i2) {
+    private void aD(int i, int i2) {
     }
 
-    private void lK(int i) {
-        com.baidu.swan.apps.am.a.N(0, i);
+    private void lJ(int i) {
+        com.baidu.swan.apps.am.a.L(0, i);
     }
 
-    private void aFf() {
+    private void aFd() {
         if (DEBUG) {
             Log.d(TAG, "新旧版本一样:" + cS(this.mContext));
         }

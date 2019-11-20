@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class g extends a {
     private final int arrayLength;
-    private ContinuousAnimationView cJU;
+    private ContinuousAnimationView cJd;
     private int currentIndex;
     private TextView loadingTextView;
     private int mSkinType;
@@ -49,13 +49,13 @@ public class g extends a {
                 TbadkCoreApplication.getInst().handler.postDelayed(g.this.runnable, 200L);
             }
         };
-        this.cJU = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
+        this.cJd = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.cJU.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.cJd.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.cJU.setLayoutParams(marginLayoutParams);
+                this.cJd.setLayoutParams(marginLayoutParams);
             }
         }
         this.textView = (TextView) this.attachedView.findViewById(R.id.loading_anim_ellipsis);
@@ -65,14 +65,14 @@ public class g extends a {
     }
 
     private void startLoadingAnimation() {
-        if (this.cJU != null) {
-            this.cJU.playAnimation();
+        if (this.cJd != null) {
+            this.cJd.playAnimation();
         }
     }
 
     private void stopLoadingAnimation() {
-        if (this.cJU != null) {
-            this.cJU.pauseAnimation();
+        if (this.cJd != null) {
+            this.cJd.pauseAnimation();
         }
     }
 
@@ -126,20 +126,20 @@ public class g extends a {
 
     @Override // com.baidu.tbadk.m.a
     public void dettachView(View view) {
-        if (this.cJU != null) {
-            this.cJU.cancelAnimation();
+        if (this.cJd != null) {
+            this.cJd.cancelAnimation();
         }
         TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
         super.dettachView(view);
     }
 
     public void setTopMargin(int i) {
-        if (this.cJU != null) {
-            ViewGroup.LayoutParams layoutParams = this.cJU.getLayoutParams();
+        if (this.cJd != null) {
+            ViewGroup.LayoutParams layoutParams = this.cJd.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.cJU.setLayoutParams(marginLayoutParams);
+                this.cJd.setLayoutParams(marginLayoutParams);
             }
         }
     }

@@ -16,67 +16,67 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class b extends ContextWrapper {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.v.b.b aEi;
-    com.baidu.swan.apps.ae.a.c bkc;
-    com.baidu.swan.games.p.a.a bkd;
-    private com.baidu.swan.apps.storage.c bke;
-    private com.baidu.swan.apps.setting.a bkf;
-    private com.baidu.swan.apps.a.b bkg;
-    private j bkh;
-    private com.baidu.swan.games.network.b bki;
-    private com.baidu.swan.apps.af.a.a bkj;
-    private com.baidu.swan.apps.media.audio.d bkk;
-    private k bkl;
-    private d bkm;
-    private Map<String, String> bkn;
+    private com.baidu.swan.apps.v.b.b aDQ;
+    com.baidu.swan.apps.ae.a.c bjK;
+    com.baidu.swan.games.p.a.a bjL;
+    private com.baidu.swan.apps.storage.c bjM;
+    private com.baidu.swan.apps.setting.a bjN;
+    private com.baidu.swan.apps.a.b bjO;
+    private j bjP;
+    private com.baidu.swan.games.network.b bjQ;
+    private com.baidu.swan.apps.af.a.a bjR;
+    private com.baidu.swan.apps.media.audio.d bjS;
+    private k bjT;
+    private d bjU;
+    private Map<String, String> bjV;
     public final String id;
     private Activity mActivity;
 
     /* loaded from: classes2.dex */
     static abstract class a implements com.baidu.swan.apps.an.d.b<b> {
-        abstract String Ro();
+        abstract String Rq();
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.an.d.b
-        /* renamed from: Rp */
-        public b Ba() {
-            String Ro = Ro();
-            if (TextUtils.isEmpty(Ro)) {
+        /* renamed from: Rr */
+        public b Bb() {
+            String Rq = Rq();
+            if (TextUtils.isEmpty(Rq)) {
                 return null;
             }
-            return new b(Ro);
+            return new b(Rq);
         }
     }
 
     @Nullable
-    public static b QZ() {
-        return e.Rr().bkq.get();
+    public static b Ra() {
+        return e.Rt().bjY.get();
     }
 
     @Deprecated
     public static synchronized void n(com.baidu.swan.apps.v.b.b bVar) {
         synchronized (b.class) {
-            e.Rr().p(bVar);
+            e.Rt().p(bVar);
         }
     }
 
     @Deprecated
     public static synchronized void terminate() {
         synchronized (b.class) {
-            e.Rr().terminate();
+            e.Rt().terminate();
         }
     }
 
-    public void purge() {
-        Rd().Sa();
-        Rc().L(true);
+    public void Rb() {
+        Rf().Sc();
+        Re().L(true);
     }
 
     private b(String str) {
         super(AppRuntime.getApplication());
         this.id = str;
-        this.bkj = new com.baidu.swan.apps.af.a.a();
-        this.bkj.hy(str);
+        this.bjR = new com.baidu.swan.apps.af.a.a();
+        this.bjR.hy(str);
     }
 
     public void K(Activity activity) {
@@ -84,55 +84,55 @@ public class b extends ContextWrapper {
     }
 
     public void L(Activity activity) {
-        Rd().L(activity);
+        Rf().L(activity);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void release() {
         if (DEBUG) {
-            Log.d("SwanApp", "——> release client Id " + Rk());
+            Log.d("SwanApp", "——> release client Id " + Rm());
         }
-        if (this.bkm != null) {
-            this.bkm.onDestroy();
+        if (this.bjU != null) {
+            this.bjU.onDestroy();
         }
-        com.baidu.swan.c.a.deleteFile(com.baidu.swan.apps.storage.b.ik(Rk()));
-        if (this.bkk != null) {
-            this.bkk.release();
+        com.baidu.swan.c.a.deleteFile(com.baidu.swan.apps.storage.b.ik(Rm()));
+        if (this.bjS != null) {
+            this.bjS.release();
         }
-        if (this.bkj != null) {
-            this.bkj.release();
+        if (this.bjR != null) {
+            this.bjR.release();
         }
-        if (this.bkl != null) {
-            this.bkl.release();
+        if (this.bjT != null) {
+            this.bjT.release();
         }
-        this.bke = null;
-        this.bkf = null;
-        this.bki = null;
+        this.bjM = null;
+        this.bjN = null;
+        this.bjQ = null;
     }
 
     public void c(com.baidu.swan.apps.ae.a.c cVar) {
-        this.bkc = cVar;
+        this.bjK = cVar;
     }
 
-    public com.baidu.swan.apps.ae.a.c Ra() {
-        return this.bkc;
+    public com.baidu.swan.apps.ae.a.c Rc() {
+        return this.bjK;
     }
 
     public void a(com.baidu.swan.games.p.a.a aVar) {
-        this.bkd = aVar;
+        this.bjL = aVar;
     }
 
-    public com.baidu.swan.games.p.a.a Rb() {
-        return this.bkd;
+    public com.baidu.swan.games.p.a.a Rd() {
+        return this.bjL;
     }
 
     public void o(com.baidu.swan.apps.v.b.b bVar) {
-        this.aEi = bVar;
+        this.aDQ = bVar;
     }
 
     @Nullable
-    public com.baidu.swan.apps.v.b.b AJ() {
-        return this.aEi;
+    public com.baidu.swan.apps.v.b.b AK() {
+        return this.aDQ;
     }
 
     @Nullable
@@ -140,176 +140,176 @@ public class b extends ContextWrapper {
         return this.mActivity;
     }
 
-    public com.baidu.swan.apps.storage.c Rc() {
-        if (this.bke == null) {
-            this.bke = new com.baidu.swan.apps.storage.c(this);
+    public com.baidu.swan.apps.storage.c Re() {
+        if (this.bjM == null) {
+            this.bjM = new com.baidu.swan.apps.storage.c(this);
         }
-        return this.bke;
+        return this.bjM;
     }
 
     @NonNull
-    public com.baidu.swan.apps.setting.a Rd() {
-        if (this.bkf == null) {
-            this.bkf = new com.baidu.swan.apps.setting.a(this);
+    public com.baidu.swan.apps.setting.a Rf() {
+        if (this.bjN == null) {
+            this.bjN = new com.baidu.swan.apps.setting.a(this);
         }
-        return this.bkf;
+        return this.bjN;
     }
 
-    public com.baidu.swan.apps.a.b Re() {
-        if (this.bkg == null) {
-            this.bkg = new com.baidu.swan.apps.a.b(this);
+    public com.baidu.swan.apps.a.b Rg() {
+        if (this.bjO == null) {
+            this.bjO = new com.baidu.swan.apps.a.b(this);
         }
-        return this.bkg;
+        return this.bjO;
     }
 
-    public synchronized j Rf() {
-        if (this.bkh == null) {
-            this.bkh = new j(this);
+    public synchronized j Rh() {
+        if (this.bjP == null) {
+            this.bjP = new j(this);
         }
-        return this.bkh;
+        return this.bjP;
     }
 
-    public synchronized com.baidu.swan.games.network.b Rg() {
-        if (this.bki == null) {
-            this.bki = com.baidu.swan.games.network.b.Xw();
+    public synchronized com.baidu.swan.games.network.b Ri() {
+        if (this.bjQ == null) {
+            this.bjQ = com.baidu.swan.games.network.b.Xu();
         }
-        return this.bki;
+        return this.bjQ;
     }
 
-    public k Rh() {
-        if (this.bkl == null) {
-            this.bkl = new k();
+    public k Rj() {
+        if (this.bjT == null) {
+            this.bjT = new k();
         }
-        return this.bkl;
+        return this.bjT;
     }
 
-    public com.baidu.swan.apps.media.audio.d Ri() {
-        if (this.bkk == null) {
-            this.bkk = new com.baidu.swan.apps.media.audio.d(this);
+    public com.baidu.swan.apps.media.audio.d Rk() {
+        if (this.bjS == null) {
+            this.bjS = new com.baidu.swan.apps.media.audio.d(this);
         }
-        return this.bkk;
+        return this.bjS;
     }
 
     @NonNull
-    public d Rj() {
-        if (this.bkm == null) {
-            this.bkm = new d(this);
+    public d Rl() {
+        if (this.bjU == null) {
+            this.bjU = new d(this);
         }
-        return this.bkm;
+        return this.bjU;
     }
 
     @Nullable
     @Deprecated
-    public com.baidu.swan.apps.process.messaging.client.a Iy() {
-        return com.baidu.swan.apps.process.messaging.client.a.Op();
+    public com.baidu.swan.apps.process.messaging.client.a Iz() {
+        return com.baidu.swan.apps.process.messaging.client.a.Oq();
     }
 
     public String getAppKey() {
-        return (this.aEi == null || TextUtils.isEmpty(this.aEi.getAppKey())) ? "" : this.aEi.getAppKey();
+        return (this.aDQ == null || TextUtils.isEmpty(this.aDQ.getAppKey())) ? "" : this.aDQ.getAppKey();
     }
 
     @Nullable
-    public static String Rk() {
-        if (QZ() == null) {
+    public static String Rm() {
+        if (Ra() == null) {
             return null;
         }
-        return QZ().id;
+        return Ra().id;
     }
 
-    public static int AB() {
-        if (QZ() == null || QZ().aEi == null) {
+    public static int AC() {
+        if (Ra() == null || Ra().aDQ == null) {
             return 0;
         }
-        return QZ().aEi.KO();
+        return Ra().aDQ.KP();
     }
 
-    public boolean Rl() {
-        return this.aEi != null && this.aEi.KO() == 1;
+    public boolean Rn() {
+        return this.aDQ != null && this.aDQ.KP() == 1;
     }
 
     public String getName() {
-        return this.aEi == null ? "" : this.aEi.Ht();
+        return this.aDQ == null ? "" : this.aDQ.Hu();
     }
 
     public String getVersion() {
-        return this.aEi != null ? this.aEi.getVersion() : "";
+        return this.aDQ != null ? this.aDQ.getVersion() : "";
     }
 
     public static boolean isDataValid() {
         if (DEBUG) {
-            Log.d("SwanApp isDataValid:", "SwanApp.get() != null " + (QZ() != null));
-            Log.d("SwanApp isDataValid:", "SwanApp.getSwanAppId() != null " + (Rk() != null));
-            Log.d("SwanApp isDataValid:", "SwanApp.get().getLaunchInfo() != null " + ((QZ() == null || QZ().AJ() == null) ? false : true));
+            Log.d("SwanApp isDataValid:", "SwanApp.get() != null " + (Ra() != null));
+            Log.d("SwanApp isDataValid:", "SwanApp.getSwanAppId() != null " + (Rm() != null));
+            Log.d("SwanApp isDataValid:", "SwanApp.get().getLaunchInfo() != null " + ((Ra() == null || Ra().AK() == null) ? false : true));
         }
-        return (QZ() == null || Rk() == null || QZ().AJ() == null) ? false : true;
+        return (Ra() == null || Rm() == null || Ra().AK() == null) ? false : true;
     }
 
-    public com.baidu.swan.apps.af.a.a Rm() {
-        if (this.bkj == null) {
-            this.bkj = new com.baidu.swan.apps.af.a.a();
+    public com.baidu.swan.apps.af.a.a Ro() {
+        if (this.bjR == null) {
+            this.bjR = new com.baidu.swan.apps.af.a.a();
         }
-        return this.bkj;
+        return this.bjR;
     }
 
     public boolean hl(String str) {
-        if (TextUtils.isEmpty(str) || this.bkc == null || this.bkc.bkz == null) {
+        if (TextUtils.isEmpty(str) || this.bjK == null || this.bjK.bkh == null) {
             return false;
         }
-        return this.bkc.bkz.hw(str);
+        return this.bjK.bkh.hw(str);
     }
 
     public boolean hm(String str) {
-        if (TextUtils.isEmpty(str) || this.bkc == null || this.bkc.bkA == null || this.bkc.bkA.bkN == null || !this.bkc.bkA.bkN.containsKey(str)) {
+        if (TextUtils.isEmpty(str) || this.bjK == null || this.bjK.bki == null || this.bjK.bki.bkv == null || !this.bjK.bki.bkv.containsKey(str)) {
             return false;
         }
         if (DEBUG) {
             Log.i("SwanApp", "内存中查询分包是否存在信息");
         }
-        return this.bkc.bkA.bkN.get(str).booleanValue();
+        return this.bjK.bki.bkv.get(str).booleanValue();
     }
 
     public boolean hn(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return com.baidu.swan.apps.database.subpackage.a.HI().q(this.id, getVersion(), str);
+        return com.baidu.swan.apps.database.subpackage.a.HJ().q(this.id, getVersion(), str);
     }
 
     public boolean ho(String str) {
-        return new File(com.baidu.swan.apps.w.e.LD().Lm(), str).exists();
+        return new File(com.baidu.swan.apps.w.e.LE().Ln(), str).exists();
     }
 
     public void w(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.bkc != null && this.bkc.bkA != null && this.bkc.bkA.bkN != null) {
+        if (!TextUtils.isEmpty(str) && this.bjK != null && this.bjK.bki != null && this.bjK.bki.bkv != null) {
             if (DEBUG) {
                 Log.i("SwanApp", "更新内存缓存信息: " + str + ": " + z);
             }
-            this.bkc.bkA.bkN.put(str, Boolean.valueOf(z));
+            this.bjK.bki.bkv.put(str, Boolean.valueOf(z));
         }
     }
 
     public String hp(String str) {
-        if (this.bkc == null || this.bkc.bkA == null || this.bkc.bkA.bkO == null) {
+        if (this.bjK == null || this.bjK.bki == null || this.bjK.bki.bkw == null) {
             return null;
         }
-        return this.bkc.bkA.bkO.get(str);
+        return this.bjK.bki.bkw.get(str);
     }
 
     public String hq(String str) {
-        if (this.bkc == null || this.bkc.bkB == null || this.bkc.bkB.bkP == null) {
+        if (this.bjK == null || this.bjK.bkj == null || this.bjK.bkj.bkx == null) {
             return null;
         }
-        return this.bkc.bkB.bkP.get(str);
+        return this.bjK.bkj.bkx.get(str);
     }
 
-    public String Rn() {
-        com.baidu.swan.apps.v.b.b AJ = AJ();
-        return AJ != null ? eH(AJ.getType()) : "0";
+    public String Rp() {
+        com.baidu.swan.apps.v.b.b AK = AK();
+        return AK != null ? eH(AK.getType()) : "0";
     }
 
     private String eH(int i) {
         if (i == 0) {
-            String versionCode = this.aEi != null ? this.aEi.getVersionCode() : "";
+            String versionCode = this.aDQ != null ? this.aDQ.getVersionCode() : "";
             if (TextUtils.isEmpty(versionCode)) {
                 versionCode = getVersion();
             }
@@ -322,21 +322,21 @@ public class b extends ContextWrapper {
 
     public void aC(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (this.bkn == null) {
-                this.bkn = new HashMap();
+            if (this.bjV == null) {
+                this.bjV = new HashMap();
             }
             if (DEBUG) {
                 Log.d("SwanApp", "update initData, page: " + str2 + " initDta : " + str);
             }
-            this.bkn.put(str2, str);
+            this.bjV.put(str2, str);
         }
     }
 
     @Nullable
     public String hr(String str) {
-        if (TextUtils.isEmpty(str) || this.bkn == null) {
+        if (TextUtils.isEmpty(str) || this.bjV == null) {
             return null;
         }
-        return this.bkn.get(str);
+        return this.bjV.get(str);
     }
 }

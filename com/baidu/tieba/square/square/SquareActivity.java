@@ -21,59 +21,59 @@ import com.baidu.tieba.square.square.SquareModel;
 /* loaded from: classes5.dex */
 public class SquareActivity extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c {
     public static boolean needRefresh = false;
-    private TbPageContext<Object> cfl;
+    private TbPageContext<Object> ceu;
     private NavigationBar mNavigationBar;
     private View mRootView;
-    private h jek = null;
-    private SquareModel jel = null;
-    private boolean jem = false;
-    private boolean jen = false;
-    private long fbN = -1;
-    private final SquareModel.a jeo = new SquareModel.a() { // from class: com.baidu.tieba.square.square.SquareActivity.2
+    private h jdt = null;
+    private SquareModel jdu = null;
+    private boolean jdv = false;
+    private boolean jdw = false;
+    private long faW = -1;
+    private final SquareModel.a jdx = new SquareModel.a() { // from class: com.baidu.tieba.square.square.SquareActivity.2
         @Override // com.baidu.tieba.square.square.SquareModel.a
         public void a(boolean z, String str, f fVar) {
-            SquareActivity.this.jek.y(true, "");
-            SquareActivity.this.hideLoadingView(SquareActivity.this.jek.getRootView());
+            SquareActivity.this.jdt.y(true, "");
+            SquareActivity.this.hideLoadingView(SquareActivity.this.jdt.getRootView());
             if (z && fVar != null && !fVar.isEmpty()) {
-                SquareActivity.this.jek.c(SquareActivity.this.jel.cnc());
-                SquareActivity.this.jem = true;
-                SquareActivity.this.jek.hideNoDataView();
-                SquareActivity.this.bgw();
+                SquareActivity.this.jdt.c(SquareActivity.this.jdu.cna());
+                SquareActivity.this.jdv = true;
+                SquareActivity.this.jdt.hideNoDataView();
+                SquareActivity.this.bgu();
             }
-            if (SquareActivity.this.jen) {
-                SquareActivity.this.jen = false;
+            if (SquareActivity.this.jdw) {
+                SquareActivity.this.jdw = false;
                 SquareActivity.this.qI(true);
-                if (!SquareActivity.this.jem) {
-                    SquareActivity.this.jek.hideNoDataView();
-                    SquareActivity.this.showLoadingView(SquareActivity.this.jek.getRootView());
+                if (!SquareActivity.this.jdv) {
+                    SquareActivity.this.jdt.hideNoDataView();
+                    SquareActivity.this.showLoadingView(SquareActivity.this.jdt.getRootView());
                 }
             } else {
-                if (SquareActivity.this.fbN > -1) {
+                if (SquareActivity.this.faW > -1) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    TiebaStatic.page(TiebaInitialize.OpKey.OP_SQUARE_ENTER, currentTimeMillis - SquareActivity.this.fbN, SquareActivity.this.jel.beO() - SquareActivity.this.fbN, SquareActivity.this.jel.beM(), SquareActivity.this.jel.beN(), currentTimeMillis - SquareActivity.this.jel.beL());
-                    SquareActivity.this.fbN = -1L;
+                    TiebaStatic.page(TiebaInitialize.OpKey.OP_SQUARE_ENTER, currentTimeMillis - SquareActivity.this.faW, SquareActivity.this.jdu.beM() - SquareActivity.this.faW, SquareActivity.this.jdu.beK(), SquareActivity.this.jdu.beL(), currentTimeMillis - SquareActivity.this.jdu.beJ());
+                    SquareActivity.this.faW = -1L;
                 }
-                if (!SquareActivity.this.jem) {
+                if (!SquareActivity.this.jdv) {
                     if (j.isNetWorkAvailable()) {
-                        SquareActivity.this.jek.uc(R.string.no_data_text);
+                        SquareActivity.this.jdt.ub(R.string.no_data_text);
                     } else {
-                        SquareActivity.this.jek.uc(R.string.game_index_no_network_text);
+                        SquareActivity.this.jdt.ub(R.string.game_index_no_network_text);
                     }
                 }
             }
             if (!j.isNetWorkAvailable()) {
-                SquareActivity.this.jek.cnf();
-                if (!SquareActivity.this.jem) {
-                    SquareActivity.this.bgv();
+                SquareActivity.this.jdt.cnd();
+                if (!SquareActivity.this.jdv) {
+                    SquareActivity.this.bgt();
                     return;
                 }
                 return;
             }
-            SquareActivity.this.cfl.showToast(str);
-            SquareActivity.this.jek.cng();
+            SquareActivity.this.ceu.showToast(str);
+            SquareActivity.this.jdt.cne();
         }
     };
-    private final NoNetworkView.a eRC = new NoNetworkView.a() { // from class: com.baidu.tieba.square.square.SquareActivity.3
+    private final NoNetworkView.a eQL = new NoNetworkView.a() { // from class: com.baidu.tieba.square.square.SquareActivity.3
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
             if (z) {
@@ -81,7 +81,7 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
             }
         }
     };
-    private final View.OnKeyListener jep = new View.OnKeyListener() { // from class: com.baidu.tieba.square.square.SquareActivity.4
+    private final View.OnKeyListener jdy = new View.OnKeyListener() { // from class: com.baidu.tieba.square.square.SquareActivity.4
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View view, int i, KeyEvent keyEvent) {
             if (view instanceof ListView) {
@@ -105,7 +105,7 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
             return false;
         }
     };
-    private final h.c cpS = new h.c() { // from class: com.baidu.tieba.square.square.SquareActivity.5
+    private final h.c cpa = new h.c() { // from class: com.baidu.tieba.square.square.SquareActivity.5
         @Override // com.baidu.tbadk.core.view.h.c
         public void onListPullRefresh(boolean z) {
             SquareActivity.this.qI(true);
@@ -116,8 +116,8 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cfl = getPageContext();
-        this.fbN = System.currentTimeMillis();
+        this.ceu = getPageContext();
+        this.faW = System.currentTimeMillis();
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.square_view, (ViewGroup) null);
         getPageContext().getPageActivity().setContentView(this.mRootView);
         initUI();
@@ -125,33 +125,33 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     }
 
     private void initUI() {
-        this.jek = new h(getPageContext(), this.mRootView, this.jep);
-        this.jek.setListPullRefreshListener(this.cpS);
-        this.mNavigationBar = (NavigationBar) this.cfl.getPageActivity().findViewById(R.id.view_navigation_bar);
+        this.jdt = new h(getPageContext(), this.mRootView, this.jdy);
+        this.jdt.setListPullRefreshListener(this.cpa);
+        this.mNavigationBar = (NavigationBar) this.ceu.getPageActivity().findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.square.square.SquareActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SquareActivity.this.closeActivity();
             }
         });
-        this.mNavigationBar.setTitleText(this.cfl.getString(R.string.ba_square));
+        this.mNavigationBar.setTitleText(this.ceu.getString(R.string.ba_square));
     }
 
     private void initData() {
-        this.jel = new SquareModel(getPageContext());
-        this.jel.a(this.jeo);
-        this.jen = true;
-        qI(this.jen);
+        this.jdu = new SquareModel(getPageContext());
+        this.jdu.a(this.jdx);
+        this.jdw = true;
+        qI(this.jdw);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgv() {
-        this.jek.d(this.eRC);
+    public void bgt() {
+        this.jdt.d(this.eQL);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgw() {
-        this.jek.e(this.eRC);
+    public void bgu() {
+        this.jdt.e(this.eQL);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -172,15 +172,15 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jek != null) {
-            this.jek.onChangeSkinType(i);
+        if (this.jdt != null) {
+            this.jdt.onChangeSkinType(i);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
     }
 
     private void cancelAllAsyncTask() {
-        if (this.jel != null) {
-            this.jel.cancelLoadData();
+        if (this.jdu != null) {
+            this.jdu.cancelLoadData();
         }
     }
 
@@ -189,19 +189,19 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
         boolean z2;
         boolean z3;
         boolean z4 = false;
-        if (this.jel != null) {
-            boolean z5 = this.jel.cnc() == null || this.jel.cnc().isEmpty();
+        if (this.jdu != null) {
+            boolean z5 = this.jdu.cna() == null || this.jdu.cna().isEmpty();
             boolean z6 = z;
             if (j.isNetWorkAvailable()) {
                 boolean z7 = z5;
                 z2 = z6;
                 z3 = z7;
             } else {
-                this.jen = false;
+                this.jdw = false;
                 z3 = true;
                 z2 = false;
             }
-            if (this.jen) {
+            if (this.jdw) {
                 z3 = true;
             } else {
                 z4 = z2;
@@ -209,9 +209,9 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
             if (z3 || z4) {
                 cancelAllAsyncTask();
                 if (z4) {
-                    this.jel.cnd();
+                    this.jdu.cnb();
                 } else {
-                    this.jel.cne();
+                    this.jdu.cnc();
                 }
             }
         }

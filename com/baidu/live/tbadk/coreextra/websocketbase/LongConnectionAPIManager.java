@@ -6,7 +6,6 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.client.socket.SocketLog;
 import com.baidu.live.adp.framework.listener.SocketMessageListener;
 import com.baidu.live.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes6.dex */
 public class LongConnectionAPIManager extends SocketMessageListener {
@@ -27,7 +26,7 @@ public class LongConnectionAPIManager extends SocketMessageListener {
     private LongConnectionAPIManager() {
         super(1001);
         this.maxErrorCount = 3;
-        this.retryTimeInMills = ReportUserInfoModel.TIME_INTERVAL;
+        this.retryTimeInMills = 300000L;
         this.availableAPIs = new SparseArray<>();
         this.unavailableAPIS = new HashSet<>();
         this.longConnectionFailedErrno = 0;

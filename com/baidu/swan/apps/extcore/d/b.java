@@ -9,22 +9,22 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static b aQK;
-    public String aQF;
+    private static b aQs;
+    public String aQn;
 
     @NonNull
     public static b fg(@NonNull String str) {
-        if (aQK == null) {
-            aQK = T(fh(str));
+        if (aQs == null) {
+            aQs = U(fh(str));
         }
-        return aQK;
+        return aQs;
     }
 
     @NonNull
-    private static b T(JSONObject jSONObject) {
+    private static b U(JSONObject jSONObject) {
         b bVar = new b();
         if (jSONObject != null) {
-            bVar.aQF = jSONObject.optString("extension-core-version");
+            bVar.aQn = jSONObject.optString("extension-core-version");
         }
         return bVar;
     }

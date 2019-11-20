@@ -23,29 +23,29 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class b {
-    private int dln;
-    private Float dlo;
-    private RsplashType dlq;
-    private WeakReference<ViewGroup> dlr;
-    private int dlm = 5;
-    private int dlp = -1;
-    private com.baidu.tbadk.g.b dls = new com.baidu.tbadk.g.b() { // from class: com.baidu.tieba.advert.sdk.b.1
+    private WeakReference<ViewGroup> dkA;
+    private int dkw;
+    private Float dkx;
+    private RsplashType dkz;
+    private int dkv = 5;
+    private int dky = -1;
+    private com.baidu.tbadk.g.b dkB = new com.baidu.tbadk.g.b() { // from class: com.baidu.tieba.advert.sdk.b.1
         @Override // com.baidu.tbadk.g.b
-        public void afE() {
-            if (b.this.dlr != null && ((ViewGroup) b.this.dlr.get()).getParent() != null) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ((ViewGroup) b.this.dlr.get()).getLayoutParams();
-                if (1 != b.this.dln) {
-                    layoutParams.width = l.getEquipmentWidth(((ViewGroup) b.this.dlr.get()).getContext());
-                    layoutParams.height = (int) (l.getEquipmentHeight(((ViewGroup) b.this.dlr.get()).getContext()) * 0.8125d);
+        public void afC() {
+            if (b.this.dkA != null && ((ViewGroup) b.this.dkA.get()).getParent() != null) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ((ViewGroup) b.this.dkA.get()).getLayoutParams();
+                if (1 != b.this.dkw) {
+                    layoutParams.width = l.getEquipmentWidth(((ViewGroup) b.this.dkA.get()).getContext());
+                    layoutParams.height = (int) (l.getEquipmentHeight(((ViewGroup) b.this.dkA.get()).getContext()) * 0.8125d);
                 } else {
                     layoutParams.width = -1;
                     layoutParams.height = -1;
                 }
-                ((ViewGroup) b.this.dlr.get()).setLayoutParams(layoutParams);
+                ((ViewGroup) b.this.dkA.get()).setLayoutParams(layoutParams);
             }
         }
     };
-    private CustomMessageTask dlt = new CustomMessageTask(CmdConfigCustom.CMD_START_REQUEST_BES_AD, new CustomMessageTask.CustomRunnable<c>() { // from class: com.baidu.tieba.advert.sdk.b.2
+    private CustomMessageTask dkC = new CustomMessageTask(CmdConfigCustom.CMD_START_REQUEST_BES_AD, new CustomMessageTask.CustomRunnable<c>() { // from class: com.baidu.tieba.advert.sdk.b.2
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<c> customMessage) {
             if (customMessage != null) {
@@ -56,31 +56,31 @@ public class b {
     });
 
     public b() {
-        aEF();
+        aED();
     }
 
-    private void aEF() {
+    private void aED() {
         e.aC(TbadkCoreApplication.getInst()).newAdContext().setAdServerRequestingTimeout(1000);
     }
 
     public void registerTask() {
-        this.dlt.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.dlt);
+        this.dkC.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(this.dkC);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar) {
-        if (cVar != null && cVar.afF() != null && cVar.afF().getContext() != null) {
-            cVar.bUB = this.dls;
-            final com.baidu.tbadk.g.a afG = cVar.afG();
-            this.dlr = new WeakReference<>(cVar.afF());
+        if (cVar != null && cVar.afD() != null && cVar.afD().getContext() != null) {
+            cVar.bTK = this.dkB;
+            final com.baidu.tbadk.g.a afE = cVar.afE();
+            this.dkA = new WeakReference<>(cVar.afD());
             try {
-                new d(cVar.afF().getContext(), cVar.afF(), new com.baidu.mobads.e() { // from class: com.baidu.tieba.advert.sdk.b.3
+                new d(cVar.afD().getContext(), cVar.afD(), new com.baidu.mobads.e() { // from class: com.baidu.tieba.advert.sdk.b.3
                     @Override // com.baidu.mobads.e
-                    public void zt() {
+                    public void zu() {
                         int i;
-                        if (b.this.dlr.get() != null) {
-                            Context context = ((ViewGroup) b.this.dlr.get()).getContext();
+                        if (b.this.dkA.get() != null) {
+                            Context context = ((ViewGroup) b.this.dkA.get()).getContext();
                             int dimensionPixelOffset = context.getResources().getDimensionPixelOffset(R.dimen.ds60);
                             int equipmentWidth = l.getEquipmentWidth(context);
                             int equipmentHeight = l.getEquipmentHeight(context);
@@ -88,9 +88,9 @@ public class b {
                             int i3 = (i2 * 48) / 195;
                             int dimensionPixelOffset2 = context.getResources().getDimensionPixelOffset(R.dimen.ds144);
                             int dimensionPixelOffset3 = context.getResources().getDimensionPixelOffset(R.dimen.ds60);
-                            if (b.this.dlo.floatValue() > 0.0f) {
-                                dimensionPixelOffset = (int) (((equipmentHeight * b.this.dlo.floatValue()) / 100.0f) - (dimensionPixelOffset3 / 2));
-                                i = (int) (((equipmentHeight * b.this.dlo.floatValue()) / 100.0f) - (i3 / 2));
+                            if (b.this.dkx.floatValue() > 0.0f) {
+                                dimensionPixelOffset = (int) (((equipmentHeight * b.this.dkx.floatValue()) / 100.0f) - (dimensionPixelOffset3 / 2));
+                                i = (int) (((equipmentHeight * b.this.dkx.floatValue()) / 100.0f) - (i3 / 2));
                             } else {
                                 i = dimensionPixelOffset;
                             }
@@ -104,14 +104,14 @@ public class b {
                             gradientDrawable.setColor(color);
                             gradientDrawable.setCornerRadius(context.getResources().getDimension(R.dimen.ds45));
                             countDownTextView.setBackgroundDrawable(gradientDrawable);
-                            countDownTextView.aa(string, b.this.dlm);
+                            countDownTextView.aa(string, b.this.dkv);
                             countDownTextView.setTextColor(-1);
                             countDownTextView.setGravity(17);
                             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset3);
                             layoutParams.addRule(10);
                             layoutParams.addRule(11);
                             layoutParams.setMargins(0, dimensionPixelOffset, 45, 0);
-                            ((ViewGroup) b.this.dlr.get()).addView(countDownTextView, layoutParams);
+                            ((ViewGroup) b.this.dkA.get()).addView(countDownTextView, layoutParams);
                             countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.b.3.1
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view) {
@@ -124,73 +124,73 @@ public class b {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, "advertevent://ignore"));
                                 }
                             });
-                            if (b.this.dlp != -1) {
+                            if (b.this.dky != -1) {
                                 ImageView imageView = new ImageView(context);
                                 imageView.setBackgroundResource(R.drawable.bg_bes_splash_logo_white);
                                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(i2, i3);
                                 layoutParams2.addRule(10);
                                 layoutParams2.addRule(9);
                                 layoutParams2.setMargins(45, i, 0, 0);
-                                ((ViewGroup) b.this.dlr.get()).addView(imageView, layoutParams2);
+                                ((ViewGroup) b.this.dkA.get()).addView(imageView, layoutParams2);
                             }
                         }
-                        if (afG != null) {
-                            afG.n(b.this.dlq == RsplashType.VIDEO, 1 == b.this.dln);
-                        }
-                    }
-
-                    @Override // com.baidu.mobads.e
-                    public void zu() {
-                        if (afG != null) {
-                            afG.afD();
-                        }
-                    }
-
-                    @Override // com.baidu.mobads.e
-                    public void dy(String str) {
-                        if (afG != null) {
-                            afG.me(str);
+                        if (afE != null) {
+                            afE.n(b.this.dkz == RsplashType.VIDEO, 1 == b.this.dkw);
                         }
                     }
 
                     @Override // com.baidu.mobads.e
                     public void zv() {
-                        if (afG != null) {
-                            afG.o(b.this.dlq == RsplashType.VIDEO, 1 == b.this.dln);
+                        if (afE != null) {
+                            afE.afB();
+                        }
+                    }
+
+                    @Override // com.baidu.mobads.e
+                    public void dy(String str) {
+                        if (afE != null) {
+                            afE.me(str);
+                        }
+                    }
+
+                    @Override // com.baidu.mobads.e
+                    public void zw() {
+                        if (afE != null) {
+                            afE.o(b.this.dkz == RsplashType.VIDEO, 1 == b.this.dkw);
                         }
                     }
 
                     @Override // com.baidu.mobads.e
                     public void a(RsplashType rsplashType, int i) {
-                        b.this.dlq = rsplashType;
+                        b.this.dkz = rsplashType;
                         int i2 = i / 1000;
                         if (rsplashType != RsplashType.VIDEO) {
-                            b.this.dlm = 3;
+                            b.this.dkv = 3;
                             return;
                         }
                         if (i2 < 3 || i2 > 5) {
                             i2 = 5;
                         }
-                        b.this.dlm = i2;
+                        b.this.dkv = i2;
                     }
 
                     @Override // com.baidu.mobads.e
                     public void l(HashMap hashMap) {
-                        b.this.dln = ((Integer) hashMap.get(d.aAw)).intValue();
-                        b.this.dlo = (Float) hashMap.get(d.aAx);
-                        if (b.this.dlr != null) {
+                        b.this.dkw = ((Integer) hashMap.get(d.aAe)).intValue();
+                        b.this.dkx = (Float) hashMap.get(d.aAf);
+                        if (b.this.dkA != null) {
                             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-                            if (1 != b.this.dln) {
-                                layoutParams.width = l.getEquipmentWidth(((ViewGroup) b.this.dlr.get()).getContext());
-                                layoutParams.height = (int) (l.getEquipmentHeight(((ViewGroup) b.this.dlr.get()).getContext()) * 0.8125d);
+                            if (1 != b.this.dkw) {
+                                layoutParams.width = l.getEquipmentWidth(((ViewGroup) b.this.dkA.get()).getContext());
+                                layoutParams.height = (int) (l.getEquipmentHeight(((ViewGroup) b.this.dkA.get()).getContext()) * 0.8125d);
                             }
-                            ((ViewGroup) b.this.dlr.get()).setLayoutParams(layoutParams);
+                            ((ViewGroup) b.this.dkA.get()).setLayoutParams(layoutParams);
                         }
                     }
                 }, "4776976", true);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onLowMemory();
-                afG.me("oom");
+                afE.me("oom");
             }
         }
     }

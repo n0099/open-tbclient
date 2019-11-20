@@ -27,12 +27,12 @@ public class o extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public boolean ani() {
+    public boolean ang() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public boolean anj() {
+    public boolean anh() {
         return false;
     }
 
@@ -41,21 +41,21 @@ public class o extends a {
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
         String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.ImageView.a pY = com.baidu.tbadk.imageManager.c.avu().pY(str3);
+        com.baidu.adp.widget.ImageView.a pY = com.baidu.tbadk.imageManager.c.avs().pY(str3);
         if (pY == null) {
             Bitmap bitmap = am.getBitmap(com.baidu.adp.lib.g.b.toInt(str2, 0));
             if (bitmap == null) {
                 return null;
             }
             com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(bitmap, false, str2);
-            com.baidu.tbadk.imageManager.c.avu().c(str3, aVar);
+            com.baidu.tbadk.imageManager.c.avs().c(str3, aVar);
             return aVar;
         }
         return pY;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public int ank() {
+    public int ani() {
         return this.procType;
     }
 }

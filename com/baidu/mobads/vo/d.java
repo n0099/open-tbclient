@@ -163,7 +163,7 @@ public abstract class d implements IXAdRequestInfo {
             hashMap.put(IXAdRequestInfo.P_VER, "8.8079");
             hashMap.put("req_id", commonUtils.createRequestId(this.d, getApid()));
             hashMap.put("cssid", systemUtils.isWifiConnected(this.d).booleanValue() ? systemUtils.getWifiConnected(this.d) : "");
-            if (AdSettings.zm().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a())) {
+            if (AdSettings.zn().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a())) {
                 hashMap.put("rpt", String.valueOf(AdSettings.b.HTTPS_PROTOCOL_TYPE.a()));
             }
             hashMap.put(IXAdRequestInfo.APP_VERSION_NAME, "" + b(this.d));

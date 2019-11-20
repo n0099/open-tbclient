@@ -7,12 +7,12 @@ import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> kwq;
-    private final kotlin.jvm.a.b<T, T> kwr;
+    private final kotlin.jvm.a.b<T, T> kvA;
+    private final kotlin.jvm.a.a<T> kvz;
 
     /* loaded from: classes2.dex */
     public static final class a implements Iterator<T> {
-        private int kwo = -2;
+        private int kvx = -2;
         private T nextItem;
 
         @Override // java.util.Iterator
@@ -24,44 +24,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void cNi() {
+        private final void cNg() {
             T t;
-            if (this.kwo == -2) {
-                t = (T) b.this.kwq.invoke();
+            if (this.kvx == -2) {
+                t = (T) b.this.kvz.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.kwr;
+                kotlin.jvm.a.b bVar = b.this.kvA;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    p.cMY();
+                    p.cMW();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.kwo = this.nextItem == null ? 0 : 1;
+            this.kvx = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.kwo < 0) {
-                cNi();
+            if (this.kvx < 0) {
+                cNg();
             }
-            if (this.kwo == 0) {
+            if (this.kvx == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.kwo = -1;
+            this.kvx = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.kwo < 0) {
-                cNi();
+            if (this.kvx < 0) {
+                cNg();
             }
-            return this.kwo == 1;
+            return this.kvx == 1;
         }
     }
 
@@ -71,8 +71,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         p.i(aVar, "getInitialValue");
         p.i(bVar, "getNextValue");
-        this.kwq = aVar;
-        this.kwr = bVar;
+        this.kvz = aVar;
+        this.kvA = bVar;
     }
 
     @Override // kotlin.sequences.c

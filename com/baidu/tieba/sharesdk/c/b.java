@@ -36,22 +36,22 @@ public class b {
             TiebaStatic.log(anVar);
             return;
         }
-        Bundle ase = shareEntity.ase();
-        if (ase != null) {
-            int i3 = ase.getInt("obj_param1");
+        Bundle asc = shareEntity.asc();
+        if (asc != null) {
+            int i3 = asc.getInt("obj_param1");
             if (i3 != 0) {
                 anVar.O("obj_param1", i3);
                 if (i3 == 2) {
-                    anVar.bS("fid", ase.getString("fid"));
+                    anVar.bS("fid", asc.getString("fid"));
                 } else if (i3 == 3) {
-                    int i4 = ase.getInt("obj_type");
+                    int i4 = asc.getInt("obj_type");
                     if (i4 != 0) {
                         anVar.O("obj_type", i4);
                     }
-                    anVar.bS("tid", ase.getString("tid")).bS("fid", ase.getString("fid"));
+                    anVar.bS("tid", asc.getString("tid")).bS("fid", asc.getString("fid"));
                 }
             }
-            String string = ase.getString(TiebaInitialize.Params.OBJ_URL);
+            String string = asc.getString(TiebaInitialize.Params.OBJ_URL);
             if (!aq.isEmpty(string)) {
                 anVar.bS(TiebaInitialize.Params.OBJ_URL, string);
             }
@@ -86,11 +86,11 @@ public class b {
             TiebaStatic.log(anVar);
             return;
         }
-        Bundle ase = shareEntity.ase();
-        if (ase != null) {
-            anVar.bS("tid", ase.getString("tid"));
-            anVar.bS("uid", ase.getString("uid"));
-            anVar.bS("fid", ase.getString("fid"));
+        Bundle asc = shareEntity.asc();
+        if (asc != null) {
+            anVar.bS("tid", asc.getString("tid"));
+            anVar.bS("uid", asc.getString("uid"));
+            anVar.bS("fid", asc.getString("fid"));
         }
         TiebaStatic.log(anVar);
     }

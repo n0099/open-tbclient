@@ -24,9 +24,9 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes2.dex */
 public final class a {
-    private static String bQy = null;
+    private static String bPH = null;
     public static int INVALID_INDEX = -1;
-    public static int bpY = 1;
+    public static int bpG = 1;
 
     public static boolean lJ(String str) {
         return !TextUtils.isEmpty(str) && new File(str).exists();
@@ -620,7 +620,7 @@ public final class a {
         int lastIndexOf = str.lastIndexOf(File.separator);
         int length = str.length();
         if (lastIndexOf != INVALID_INDEX && length > lastIndexOf) {
-            return str.substring(lastIndexOf + bpY, length);
+            return str.substring(lastIndexOf + bpG, length);
         }
         return str;
     }

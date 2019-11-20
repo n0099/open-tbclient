@@ -10,9 +10,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends AlertDialog {
-    private TextView cfg;
-    private CircleView cfh;
-    private FrameLayout cfi;
+    private TextView cep;
+    private CircleView ceq;
+    private FrameLayout cer;
     private String mMessage;
     private TextView mTextView;
 
@@ -26,16 +26,16 @@ public class c extends AlertDialog {
         Window window = getWindow();
         if (window != null) {
             window.setContentView(R.layout.progress_dialog);
-            this.cfi = (FrameLayout) window.findViewById(R.id.frame_progress_dialog);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cfi.getLayoutParams();
+            this.cer = (FrameLayout) window.findViewById(R.id.frame_progress_dialog);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cer.getLayoutParams();
             layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
-            this.cfi.setLayoutParams(layoutParams);
+            this.cer.setLayoutParams(layoutParams);
             if (!StringUtils.isNull(this.mMessage)) {
-                this.cfg = (TextView) window.findViewById(R.id.text_progress_dialog_message);
-                this.cfg.setText(this.mMessage);
+                this.cep = (TextView) window.findViewById(R.id.text_progress_dialog_message);
+                this.cep.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
-            this.cfh = (CircleView) window.findViewById(R.id.circle_progress_dialog);
+            this.ceq = (CircleView) window.findViewById(R.id.circle_progress_dialog);
         }
     }
 
@@ -43,15 +43,15 @@ public class c extends AlertDialog {
         if (this.mTextView != null) {
             this.mTextView.setText(i + "%");
         }
-        if (this.cfh != null) {
-            this.cfh.setProgress(i);
+        if (this.ceq != null) {
+            this.ceq.setProgress(i);
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.cfg != null) {
-            this.cfg.setText(this.mMessage);
+        if (this.cep != null) {
+            this.cep.setText(this.mMessage);
         }
     }
 }

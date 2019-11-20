@@ -12,7 +12,7 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public final class e implements com.baidu.swan.apps.ak.b, d {
     private static Handler sHandler = new Handler(Looper.getMainLooper());
-    private final Map<c<?>, Set<a>> btb = new HashMap();
+    private final Map<c<?>, Set<a>> bsk = new HashMap();
 
     /* loaded from: classes2.dex */
     public interface a extends com.baidu.swan.apps.an.d.a<Set<c<?>>> {
@@ -20,11 +20,11 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
 
     /* loaded from: classes2.dex */
     private static class b {
-        private static final e btf = new e();
+        private static final e bso = new e();
     }
 
-    public static e TT() {
-        return b.btf;
+    public static e TR() {
+        return b.bso;
     }
 
     public e b(com.baidu.swan.apps.ak.a aVar) {
@@ -38,10 +38,10 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e a(c<?>... cVarArr) {
-        synchronized (this.btb) {
+        synchronized (this.bsk) {
             for (c<?> cVar : cVarArr) {
-                if (!this.btb.containsKey(cVar)) {
-                    this.btb.put(cVar, new HashSet());
+                if (!this.bsk.containsKey(cVar)) {
+                    this.bsk.put(cVar, new HashSet());
                 }
             }
         }
@@ -50,8 +50,8 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
 
     public e a(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.btb) {
-                HashSet keySet = k(cVarArr) ? this.btb.keySet() : h.J(cVarArr);
+            synchronized (this.bsk) {
+                HashSet keySet = k(cVarArr) ? this.bsk.keySet() : h.J(cVarArr);
                 for (c<?> cVar : keySet) {
                     if (cVar != null) {
                         a(cVar).add(aVar);
@@ -64,10 +64,10 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
     }
 
     private Set<a> a(@NonNull c<?> cVar) {
-        Set<a> set = this.btb.get(cVar);
+        Set<a> set = this.bsk.get(cVar);
         if (set == null) {
             HashSet hashSet = new HashSet();
-            this.btb.put(cVar, hashSet);
+            this.bsk.put(cVar, hashSet);
             return hashSet;
         }
         return set;
@@ -75,8 +75,8 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
 
     public e b(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.btb) {
-                for (c<?> cVar : k(cVarArr) ? this.btb.keySet() : h.J(cVarArr)) {
+            synchronized (this.bsk) {
+                for (c<?> cVar : k(cVarArr) ? this.bsk.keySet() : h.J(cVarArr)) {
                     if (cVar != null) {
                         a(cVar).remove(aVar);
                     }
@@ -98,7 +98,7 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
     protected e e(Set<c<?>> set) {
         if (!set.isEmpty()) {
             HashSet hashSet = new HashSet();
-            synchronized (this.btb) {
+            synchronized (this.bsk) {
                 for (c<?> cVar : set) {
                     hashSet.addAll(a(cVar));
                 }

@@ -15,14 +15,14 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private BaseActivity cGU;
-    private View.OnClickListener cpk;
+    private BaseActivity cGd;
+    private View.OnClickListener cot;
     private List<AccountData> mData = null;
-    private boolean dgN = false;
+    private boolean dfW = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.cGU = baseActivity;
-        this.cpk = onClickListener;
+        this.cGd = baseActivity;
+        this.cot = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -72,80 +72,80 @@ public class a extends BaseAdapter {
                     c0310a = (C0310a) view.getTag();
                     view3 = view;
                 } else if (getItemViewType(i) == 0) {
-                    view3 = LayoutInflater.from(this.cGU.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
+                    view3 = LayoutInflater.from(this.cGd.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
                     c0310a = new C0310a();
-                    c0310a.dgO = (TextView) view3.findViewById(R.id.account);
-                    c0310a.dgQ = (ImageView) view3.findViewById(R.id.active);
-                    c0310a.dgR = (TextView) view3.findViewById(R.id.delete);
-                    c0310a.dgR.setOnClickListener(this.cpk);
+                    c0310a.dfX = (TextView) view3.findViewById(R.id.account);
+                    c0310a.dfZ = (ImageView) view3.findViewById(R.id.active);
+                    c0310a.dga = (TextView) view3.findViewById(R.id.delete);
+                    c0310a.dga.setOnClickListener(this.cot);
                     view3.setTag(c0310a);
                 } else {
-                    view3 = LayoutInflater.from(this.cGU.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
+                    view3 = LayoutInflater.from(this.cGd.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
                     c0310a = new C0310a();
-                    c0310a.dgP = (TextView) view3.findViewById(R.id.add_text);
+                    c0310a.dfY = (TextView) view3.findViewById(R.id.add_text);
                     view3.setTag(c0310a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0310a.dgQ.setVisibility(8);
-                    c0310a.dgR.setVisibility(8);
-                    c0310a.dgR.setTag(accountData);
+                    c0310a.dfZ.setVisibility(8);
+                    c0310a.dga.setVisibility(8);
+                    c0310a.dga.setTag(accountData);
                     if (accountData != null) {
-                        c0310a.dgO.setText(accountData.getAccountNameShow());
+                        c0310a.dfX.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0310a.dgQ.setVisibility(0);
+                            c0310a.dfZ.setVisibility(0);
                         }
-                        if (this.dgN) {
-                            c0310a.dgR.setVisibility(0);
+                        if (this.dfW) {
+                            c0310a.dga.setVisibility(0);
                         }
                     }
                 }
-                this.cGU.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.cGU.getLayoutMode().onModeChanged(view3);
+                this.cGd.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.cGd.getLayoutMode().onModeChanged(view3);
                 return view3;
             } catch (Exception e) {
                 exc = e;
                 view2 = view;
                 try {
                     BdLog.detailException(exc);
-                    this.cGU.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                    this.cGU.getLayoutMode().onModeChanged(view2);
+                    this.cGd.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    this.cGd.getLayoutMode().onModeChanged(view2);
                     return view2;
                 } catch (Throwable th) {
                     view3 = view2;
                     th = th;
-                    this.cGU.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                    this.cGU.getLayoutMode().onModeChanged(view3);
+                    this.cGd.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    this.cGd.getLayoutMode().onModeChanged(view3);
                     throw th;
                 }
             } catch (Throwable th2) {
                 th = th2;
                 view3 = view;
-                this.cGU.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.cGU.getLayoutMode().onModeChanged(view3);
+                this.cGd.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.cGd.getLayoutMode().onModeChanged(view3);
                 throw th;
             }
         } catch (Exception e2) {
             view2 = view3;
             exc = e2;
             BdLog.detailException(exc);
-            this.cGU.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.cGU.getLayoutMode().onModeChanged(view2);
+            this.cGd.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.cGd.getLayoutMode().onModeChanged(view2);
             return view2;
         } catch (Throwable th3) {
             th = th3;
-            this.cGU.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.cGU.getLayoutMode().onModeChanged(view3);
+            this.cGd.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.cGd.getLayoutMode().onModeChanged(view3);
             throw th;
         }
     }
 
     public void gc(boolean z) {
-        this.dgN = z;
+        this.dfW = z;
     }
 
-    public boolean aDm() {
-        return this.dgN;
+    public boolean aDk() {
+        return this.dfW;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -164,10 +164,10 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     private class C0310a {
-        TextView dgO;
-        TextView dgP;
-        ImageView dgQ;
-        TextView dgR;
+        TextView dfX;
+        TextView dfY;
+        ImageView dfZ;
+        TextView dga;
 
         private C0310a() {
         }

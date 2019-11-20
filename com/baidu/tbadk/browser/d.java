@@ -35,7 +35,7 @@ import java.net.URLEncoder;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class d {
-    public static boolean bUI = true;
+    public static boolean bTR = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new CustomMessageListener(0) { // from class: com.baidu.tbadk.browser.d.1
@@ -47,7 +47,7 @@ public class d {
                 }
             }
         });
-        ba.amQ().a(new ba.c() { // from class: com.baidu.tbadk.browser.d.2
+        ba.amO().a(new ba.c() { // from class: com.baidu.tbadk.browser.d.2
             @Override // com.baidu.tbadk.core.util.ba.c
             public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, ba.d dVar, boolean z2) {
                 if (z2) {
@@ -58,13 +58,13 @@ public class d {
             }
         });
         com.baidu.adp.lib.b.d.ft().a(new com.baidu.adp.lib.b.b("switch_mbaidu_startup", 1, null));
+        afU();
+        afV();
         afW();
-        afX();
-        afY();
     }
 
-    private static void afW() {
-        ba.amQ().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.3
+    private static void afU() {
+        ba.amO().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 Bundle parserQuery;
@@ -243,8 +243,8 @@ public class d {
         return false;
     }
 
-    private static void afX() {
-        ba.amQ().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.6
+    private static void afV() {
+        ba.amO().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.6
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 PbActivityConfig createNormalCfg;
@@ -304,8 +304,8 @@ public class d {
         });
     }
 
-    private static void afY() {
-        ba.amQ().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.7
+    private static void afW() {
+        ba.amO().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.7
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

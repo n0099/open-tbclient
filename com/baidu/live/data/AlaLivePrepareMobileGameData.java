@@ -20,10 +20,10 @@ public class AlaLivePrepareMobileGameData extends com.baidu.live.tieba.b.a.a imp
             return new AlaLivePrepareMobileGameData[i];
         }
     };
-    public String PD;
-    public String PE;
-    public boolean PF;
-    public String Pz;
+    public String OZ;
+    public String Pa;
+    public String Pb;
+    public boolean Pc;
     public String gameId;
     public int screenDirection;
 
@@ -32,11 +32,11 @@ public class AlaLivePrepareMobileGameData extends com.baidu.live.tieba.b.a.a imp
 
     protected AlaLivePrepareMobileGameData(Parcel parcel) {
         this.gameId = parcel.readString();
-        this.Pz = parcel.readString();
-        this.PD = parcel.readString();
-        this.PE = parcel.readString();
+        this.OZ = parcel.readString();
+        this.Pa = parcel.readString();
+        this.Pb = parcel.readString();
         this.screenDirection = parcel.readInt();
-        this.PF = "1".equals(parcel.readString());
+        this.Pc = "1".equals(parcel.readString());
     }
 
     @Override // android.os.Parcelable
@@ -47,11 +47,11 @@ public class AlaLivePrepareMobileGameData extends com.baidu.live.tieba.b.a.a imp
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.gameId);
-        parcel.writeString(this.Pz);
-        parcel.writeString(this.PD);
-        parcel.writeString(this.PE);
+        parcel.writeString(this.OZ);
+        parcel.writeString(this.Pa);
+        parcel.writeString(this.Pb);
         parcel.writeInt(this.screenDirection);
-        parcel.writeString(this.PF ? "1" : "0");
+        parcel.writeString(this.Pc ? "1" : "0");
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class c {
-    private final ArrayList<a> aEC = new ArrayList<>();
+    private final ArrayList<a> aEk = new ArrayList<>();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -15,18 +15,18 @@ public final class c {
 
     /* loaded from: classes2.dex */
     private static class b {
-        public static final c aED = new c();
+        public static final c aEl = new c();
     }
 
-    public static c Cz() {
-        return b.aED;
+    public static c CA() {
+        return b.aEl;
     }
 
     public void a(a aVar) {
         if (aVar != null) {
             synchronized (c.class) {
-                if (!this.aEC.contains(aVar)) {
-                    this.aEC.add(aVar);
+                if (!this.aEk.contains(aVar)) {
+                    this.aEk.add(aVar);
                 }
             }
         }
@@ -35,8 +35,8 @@ public final class c {
     public void b(a aVar) {
         if (aVar != null) {
             synchronized (c.class) {
-                if (this.aEC.contains(aVar)) {
-                    this.aEC.remove(aVar);
+                if (this.aEk.contains(aVar)) {
+                    this.aEk.remove(aVar);
                 }
             }
         }
@@ -44,7 +44,7 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(Activity activity, int i, int i2, Intent intent) {
-        Object[] N = N(this.aEC);
+        Object[] N = N(this.aEk);
         if (N != null) {
             for (Object obj : N) {
                 ((a) obj).a(activity, i, i2, intent);

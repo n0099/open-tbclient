@@ -8,17 +8,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
-    private volatile b aPf;
+    private volatile b aON;
 
-    private b HC() {
-        if (this.aPf == null) {
+    private b HD() {
+        if (this.aON == null) {
             synchronized (SwanAppFavoriteProvider.class) {
-                if (this.aPf == null) {
-                    this.aPf = new b();
+                if (this.aON == null) {
+                    this.aON = new b();
                 }
             }
         }
-        return this.aPf;
+        return this.aON;
     }
 
     @Override // android.content.ContentProvider
@@ -29,28 +29,28 @@ public class SwanAppFavoriteProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return HC().query(uri, strArr, str, strArr2, str2);
+        return HD().query(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return HC().getType(uri);
+        return HD().getType(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return HC().insert(uri, contentValues);
+        return HD().insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return HC().delete(uri, str, strArr);
+        return HD().delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return HC().update(uri, contentValues, str, strArr);
+        return HD().update(uri, contentValues, str, strArr);
     }
 }

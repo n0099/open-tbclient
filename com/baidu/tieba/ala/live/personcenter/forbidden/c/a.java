@@ -12,11 +12,11 @@ import com.baidu.live.tbadk.core.view.TbListCommonPullView;
 import com.baidu.tieba.ala.live.personcenter.forbidden.c.b;
 /* loaded from: classes6.dex */
 public class a {
-    private com.baidu.live.g.b dQU;
-    private b dSj;
-    private c dSk;
+    private com.baidu.live.g.b dQd;
+    private b dRs;
+    private c dRt;
     public TbPageContext pageContext;
-    private CustomMessageListener dQV = new CustomMessageListener(2913051, true) { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.1
+    private CustomMessageListener dQe = new CustomMessageListener(2913051, true) { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -35,8 +35,8 @@ public class a {
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
                         bdAlertDialog2.dismiss();
-                        a.this.dQU.m(bVar.getUserId(), null, null);
-                        a.this.dSj.a(bVar);
+                        a.this.dQd.m(bVar.getUserId(), null, null);
+                        a.this.dRs.a(bVar);
                     }
                 });
                 bdAlertDialog.create(a.this.getPageContext());
@@ -44,47 +44,47 @@ public class a {
             }
         }
     };
-    private b.a dSl = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2
+    private b.a dRu = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2
         @Override // com.baidu.tieba.ala.live.personcenter.forbidden.c.b.a
         public void gI(boolean z) {
-            a.this.dSk.completePullRefresh();
-            a.this.dSk.hideNoDataView();
-            if (a.this.dSj.getUserList().size() == 0) {
-                a.this.dSk.aMr();
-                a.this.dSk.aLr();
-                a.this.dSk.showNoDataView();
+            a.this.dRt.completePullRefresh();
+            a.this.dRt.hideNoDataView();
+            if (a.this.dRs.getUserList().size() == 0) {
+                a.this.dRt.aMp();
+                a.this.dRt.aLp();
+                a.this.dRt.showNoDataView();
                 return;
             }
-            a.this.dSk.aJo();
-            a.this.dSk.aMq();
-            a.this.dSk.e(a.this.dSj.getUserList(), a.this.dSj.getTotalCount());
+            a.this.dRt.aJm();
+            a.this.dRt.aMo();
+            a.this.dRt.e(a.this.dRs.getUserList(), a.this.dRs.getTotalCount());
             if (z) {
-                a.this.dSk.aKW();
+                a.this.dRt.aKU();
             } else {
-                a.this.dSk.aLr();
+                a.this.dRt.aLp();
             }
         }
 
         @Override // com.baidu.tieba.ala.live.personcenter.forbidden.c.b.a
-        public void P(int i, String str) {
-            a.this.dSk.completePullRefresh();
-            a.this.dSk.hideNoDataView();
-            if (a.this.dSj.getUserList().size() > 0) {
-                if (a.this.dSj.hasMore()) {
-                    a.this.dSk.aKW();
+        public void O(int i, String str) {
+            a.this.dRt.completePullRefresh();
+            a.this.dRt.hideNoDataView();
+            if (a.this.dRs.getUserList().size() > 0) {
+                if (a.this.dRs.hasMore()) {
+                    a.this.dRt.aKU();
                 } else {
-                    a.this.dSk.aJk();
+                    a.this.dRt.aJi();
                 }
                 a.this.getPageContext().showToast(str, true);
                 return;
             }
-            a.this.dSk.aLr();
-            a.this.dSk.aMr();
-            a.this.dSk.a(a.i.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2.1
+            a.this.dRt.aLp();
+            a.this.dRt.aMp();
+            a.this.dRt.a(a.i.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.dSk.aJo();
-                    a.this.dSj.aMp();
+                    a.this.dRt.aJm();
+                    a.this.dRs.aMn();
                 }
             });
         }
@@ -100,30 +100,30 @@ public class a {
     }
 
     private void bv(View view) {
-        this.dSj = new b(getPageContext());
-        this.dSj.a(this.dSl);
-        this.dQU = new com.baidu.live.g.b(getPageContext());
-        this.dSk = new c(getPageContext(), view);
-        this.dSk.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.3
+        this.dRs = new b(getPageContext());
+        this.dRs.a(this.dRu);
+        this.dQd = new com.baidu.live.g.b(getPageContext());
+        this.dRt = new c(getPageContext(), view);
+        this.dRt.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.3
             @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
             public void onListPullRefresh(boolean z) {
-                a.this.dSj.aMp();
+                a.this.dRs.aMn();
             }
         });
-        this.dSk.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.4
+        this.dRt.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.4
             @Override // com.baidu.live.adp.widget.listview.BdListView.OnScrollToBottomListener
             public void onScrollToBottom() {
-                if (a.this.dSj.hasMore()) {
-                    a.this.dSj.aLG();
-                    a.this.dSk.aJl();
+                if (a.this.dRs.hasMore()) {
+                    a.this.dRs.aLE();
+                    a.this.dRt.aJj();
                 }
             }
         });
     }
 
     public void onCreate(Bundle bundle) {
-        getPageContext().registerListener(this.dQV);
-        this.dSj.aMp();
+        getPageContext().registerListener(this.dQe);
+        this.dRs.aMn();
     }
 
     public void onPause() {
@@ -142,8 +142,8 @@ public class a {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dSk != null) {
-            this.dSk.onChangeSkinType(i);
+        if (this.dRt != null) {
+            this.dRt.onChangeSkinType(i);
         }
     }
 }

@@ -7,111 +7,111 @@ import org.json.JSONObject;
 import tbclient.ActInfo;
 /* loaded from: classes.dex */
 public class b {
-    private int Ws;
-    private int bRf;
-    private int bWE;
-    private int bWF;
-    private int bWG;
-    private int bWH;
-    private boolean bWI;
-    private String bWJ;
-    private int bWK = 1;
-    private int bWL = 1;
-    private int bWM;
-    private bc bWN;
+    private int VZ;
+    private int bQo;
+    private int bVN;
+    private int bVO;
+    private int bVP;
+    private int bVQ;
+    private boolean bVR;
+    private String bVS;
+    private int bVT = 1;
+    private int bVU = 1;
+    private int bVV;
+    private bc bVW;
     private int status;
     private int total_num;
     private String url;
 
-    public int agM() {
-        return this.Ws;
+    public int agK() {
+        return this.VZ;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public int agN() {
-        return this.bWE;
+    public int agL() {
+        return this.bVN;
     }
 
-    public int agO() {
-        return this.bWF;
+    public int agM() {
+        return this.bVO;
     }
 
     public String getUrl() {
         return this.url;
     }
 
-    public int agP() {
+    public int agN() {
         return this.total_num;
     }
 
-    public boolean agQ() {
-        return this.bWI;
+    public boolean agO() {
+        return this.bVR;
     }
 
     public void a(ActInfo actInfo) {
         if (actInfo != null) {
-            this.Ws = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
+            this.VZ = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
             this.status = actInfo.status != null ? actInfo.status.intValue() : -1;
-            this.bWE = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
-            this.bWF = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
+            this.bVN = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
+            this.bVO = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
             this.url = actInfo.url;
             this.total_num = actInfo.total_num != null ? actInfo.total_num.intValue() : -1;
-            this.bRf = actInfo.activity_id.intValue();
-            this.bWG = actInfo.award_act_id.intValue();
-            this.bWH = actInfo.component_id.intValue();
-            this.bWI = actInfo.is_senior.booleanValue();
-            this.bWJ = actInfo.banner_img;
-            this.bWM = actInfo.show_total_num.intValue();
+            this.bQo = actInfo.activity_id.intValue();
+            this.bVP = actInfo.award_act_id.intValue();
+            this.bVQ = actInfo.component_id.intValue();
+            this.bVR = actInfo.is_senior.booleanValue();
+            this.bVS = actInfo.banner_img;
+            this.bVV = actInfo.show_total_num.intValue();
             String str = actInfo.banner_img_size;
             if (!com.baidu.tbadk.core.util.aq.isEmpty(str)) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.bWK = com.baidu.adp.lib.g.b.toInt(split[0], 1);
-                    this.bWL = com.baidu.adp.lib.g.b.toInt(split[1], 1);
+                    this.bVT = com.baidu.adp.lib.g.b.toInt(split[0], 1);
+                    this.bVU = com.baidu.adp.lib.g.b.toInt(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            if (this.bWK <= 0) {
-                this.bWK = 1;
+            if (this.bVT <= 0) {
+                this.bVT = 1;
             }
-            if (this.bWL <= 0) {
-                this.bWL = 1;
+            if (this.bVU <= 0) {
+                this.bVU = 1;
             }
-            this.bWN = new bc();
-            this.bWN.a(actInfo.lottery_senior);
+            this.bVW = new bc();
+            this.bVW.a(actInfo.lottery_senior);
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Ws = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+                this.VZ = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.status = jSONObject.optInt("status");
-                this.bWE = jSONObject.optInt("begin_time");
-                this.bWF = jSONObject.optInt("end_time");
+                this.bVN = jSONObject.optInt("begin_time");
+                this.bVO = jSONObject.optInt("end_time");
                 this.url = jSONObject.optString("url");
                 this.total_num = jSONObject.optInt("total_num");
-                this.bRf = jSONObject.optInt("activity_id");
-                this.bWG = jSONObject.optInt("award_act_id");
-                this.bWH = jSONObject.optInt("component_id");
-                this.bWI = jSONObject.optBoolean("is_senior");
-                this.bWJ = jSONObject.optString("banner_img");
-                this.bWM = jSONObject.optInt("show_total_num");
+                this.bQo = jSONObject.optInt("activity_id");
+                this.bVP = jSONObject.optInt("award_act_id");
+                this.bVQ = jSONObject.optInt("component_id");
+                this.bVR = jSONObject.optBoolean("is_senior");
+                this.bVS = jSONObject.optString("banner_img");
+                this.bVV = jSONObject.optInt("show_total_num");
                 String optString = jSONObject.optString("banner_img_size");
                 if (!com.baidu.tbadk.core.util.aq.isEmpty(optString)) {
                     String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.bWK = com.baidu.adp.lib.g.b.toInt(split[0], 1);
-                    this.bWL = com.baidu.adp.lib.g.b.toInt(split[1], 1);
+                    this.bVT = com.baidu.adp.lib.g.b.toInt(split[0], 1);
+                    this.bVU = com.baidu.adp.lib.g.b.toInt(split[1], 1);
                 }
-                if (this.bWK <= 0) {
-                    this.bWK = 1;
+                if (this.bVT <= 0) {
+                    this.bVT = 1;
                 }
-                if (this.bWL <= 0) {
-                    this.bWL = 1;
+                if (this.bVU <= 0) {
+                    this.bVU = 1;
                 }
             } catch (Exception e) {
                 BdLog.e(e.toString());

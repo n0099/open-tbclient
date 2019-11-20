@@ -12,8 +12,8 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes6.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0338a dIn;
-    private HttpMessageListener eti;
+    private InterfaceC0338a dHw;
+    private HttpMessageListener esq;
 
     /* renamed from: com.baidu.tieba.ala.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
@@ -23,18 +23,18 @@ public class a extends BdBaseModel {
 
     public a(TbPageContext tbPageContext, InterfaceC0338a interfaceC0338a) {
         super(tbPageContext);
-        this.eti = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.c.a.1
+        this.esq = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetChallengeHistoryListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.unique_id) {
-                    a.this.dIn.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                    a.this.dHw.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
                 }
             }
         };
-        this.dIn = interfaceC0338a;
+        this.dHw = interfaceC0338a;
         registerTask();
-        registerListener(this.eti);
+        registerListener(this.esq);
     }
 
     private void registerTask() {

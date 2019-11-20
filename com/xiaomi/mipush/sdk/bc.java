@@ -1,47 +1,32 @@
 package com.xiaomi.mipush.sdk;
-
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class bc implements ServiceConnection {
-    final /* synthetic */ az a;
+/* synthetic */ class bc {
+    static final /* synthetic */ int[] a = new int[bd.values().length];
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(az azVar) {
-        this.a = azVar;
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        List<Message> list;
-        List list2;
-        Messenger messenger;
-        synchronized (this.a) {
-            this.a.e = new Messenger(iBinder);
-            this.a.j = false;
-            list = this.a.i;
-            for (Message message : list) {
-                try {
-                    messenger = this.a.e;
-                    messenger.send(message);
-                } catch (RemoteException e) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e);
-                }
-            }
-            list2 = this.a.i;
-            list2.clear();
+    static {
+        try {
+            a[bd.DISABLE_PUSH.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
         }
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
-        this.a.e = null;
-        this.a.j = false;
+        try {
+            a[bd.ENABLE_PUSH.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
+        try {
+            a[bd.UPLOAD_HUAWEI_TOKEN.ordinal()] = 3;
+        } catch (NoSuchFieldError e3) {
+        }
+        try {
+            a[bd.UPLOAD_FCM_TOKEN.ordinal()] = 4;
+        } catch (NoSuchFieldError e4) {
+        }
+        try {
+            a[bd.UPLOAD_COS_TOKEN.ordinal()] = 5;
+        } catch (NoSuchFieldError e5) {
+        }
+        try {
+            a[bd.UPLOAD_FTOS_TOKEN.ordinal()] = 6;
+        } catch (NoSuchFieldError e6) {
+        }
     }
 }

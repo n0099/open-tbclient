@@ -12,12 +12,12 @@ import org.json.JSONObject;
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String kvn = "";
+    private String kuw = "";
     private String from = "";
-    private String kvo = "";
-    private String kvp = "";
-    private String kvq = "";
-    private String kvr = "";
+    private String kux = "";
+    private String kuy = "";
+    private String kuz = "";
+    private String kuA = "";
     private HashMap<String, String> extra = new HashMap<>();
 
     private String GW(String str) {
@@ -47,19 +47,19 @@ public class b implements Cloneable {
     }
 
     public String su(boolean z) {
-        return z ? GW(this.kvq) : this.kvq;
+        return z ? GW(this.kuz) : this.kuz;
     }
 
     public String sv(boolean z) {
-        return z ? GW(this.kvo) : this.kvo;
+        return z ? GW(this.kux) : this.kux;
     }
 
     public void GX(String str) {
-        this.kvo = str;
+        this.kux = str;
     }
 
     public String sw(boolean z) {
-        return z ? GW(this.kvp) : this.kvp;
+        return z ? GW(this.kuy) : this.kuy;
     }
 
     public String sx(boolean z) {
@@ -87,11 +87,11 @@ public class b implements Cloneable {
     }
 
     public String sz(boolean z) {
-        return z ? GW(this.kvn) : this.kvn;
+        return z ? GW(this.kuw) : this.kuw;
     }
 
-    public boolean cMz() {
-        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.kvo)) ? false : true;
+    public boolean cMx() {
+        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.kux)) ? false : true;
     }
 
     public Object clone() {

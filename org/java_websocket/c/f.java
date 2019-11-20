@@ -7,7 +7,7 @@ public interface f {
 
     boolean Hl(String str);
 
-    Iterator<String> cNV();
+    Iterator<String> cNT();
 
     byte[] getContent();
 }

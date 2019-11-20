@@ -12,8 +12,8 @@ import com.baidu.tbadk.t.ao;
 @CoordinatorLayout.DefaultBehavior(b.class)
 /* loaded from: classes4.dex */
 public class StickyAppBarLayout extends AppBarLayout {
-    private b gii;
-    private a gij;
+    private b ghq;
+    private a ghr;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -32,50 +32,50 @@ public class StickyAppBarLayout extends AppBarLayout {
 
     private void init() {
         if (ao.isOn()) {
-            btV();
+            btT();
         }
     }
 
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        btT();
+        btR();
     }
 
-    private void btT() {
+    private void btR() {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof b) {
-                this.gii = (b) behavior;
+                this.ghq = (b) behavior;
             }
         }
     }
 
-    public boolean btU() {
-        if (this.gii == null) {
-            btT();
+    public boolean btS() {
+        if (this.ghq == null) {
+            btR();
         }
-        if (this.gii != null) {
-            if (isSticky() && ao.isOn() && this.gii.btX() != null && this.gii.btX().getVisibility() == 0) {
-                btV();
+        if (this.ghq != null) {
+            if (isSticky() && ao.isOn() && this.ghq.btV() != null && this.ghq.btV().getVisibility() == 0) {
+                btT();
             }
-            this.gii.btW();
+            this.ghq.btU();
             return true;
         }
         return false;
     }
 
     public boolean isSticky() {
-        if (this.gii == null) {
-            btT();
+        if (this.ghq == null) {
+            btR();
         }
-        if (this.gii != null) {
-            return this.gii.isSticky();
+        if (this.ghq != null) {
+            return this.ghq.isSticky();
         }
         return false;
     }
 
-    private void btV() {
+    private void btT() {
         an anVar = new an("c13422");
         anVar.O("obj_type", 1);
         anVar.O("obj_locate", 1);
@@ -84,10 +84,10 @@ public class StickyAppBarLayout extends AppBarLayout {
     }
 
     public void setOnHeaderStickyListener(a aVar) {
-        this.gij = aVar;
+        this.ghr = aVar;
     }
 
     public a getOnHeaderStickyListener() {
-        return this.gij;
+        return this.ghr;
     }
 }

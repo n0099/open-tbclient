@@ -6,7 +6,7 @@ public interface j {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void sL();
+        void sM();
     }
 
     void a(com.baidu.live.data.i iVar, boolean z);
@@ -17,11 +17,11 @@ public interface j {
 
     void release();
 
-    View sJ();
+    View sK();
 
-    void sK();
+    void sL();
 
     void setOtherParams(String str);
 
-    void sj();
+    void sk();
 }

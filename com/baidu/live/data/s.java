@@ -11,8 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class s {
-    public String SH = "";
-    public String SJ;
+    public String Sn = "";
+    public String So;
     public long ala_id;
     public long anchor_live;
     public int change_sex;
@@ -70,7 +70,7 @@ public class s {
         if (jSONObject != null) {
             this.ala_id = jSONObject.optLong("ala_id");
             this.user_id = jSONObject.optString("user_id");
-            this.SH = jSONObject.optString("meta_key");
+            this.Sn = jSONObject.optString("meta_key");
             this.verify_info_status = jSONObject.optInt("verify_info_status");
             this.verify_video_status = jSONObject.optInt("verify_video_status");
             this.verify_type = jSONObject.optInt("verify_type");
@@ -83,7 +83,7 @@ public class s {
             if (StringUtils.isNull(this.portrait)) {
                 this.portrait = jSONObject.optString("portrait");
             }
-            this.SJ = jSONObject.optString("app_from");
+            this.So = jSONObject.optString("app_from");
             this.level_id = jSONObject.optInt("level_id");
             this.level_exp = jSONObject.optInt("level_exp");
             this.next_exp = jSONObject.optInt("next_exp");

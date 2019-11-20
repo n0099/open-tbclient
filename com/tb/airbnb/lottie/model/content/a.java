@@ -6,16 +6,16 @@ import com.tb.airbnb.lottie.model.a.m;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a implements b {
-    private final boolean gR;
-    private final m<PointF, PointF> kuc;
-    private final com.tb.airbnb.lottie.model.a.f kuj;
+    private final boolean gs;
+    private final m<PointF, PointF> ktl;
+    private final com.tb.airbnb.lottie.model.a.f kts;
     private final String name;
 
     private a(String str, m<PointF, PointF> mVar, com.tb.airbnb.lottie.model.a.f fVar, boolean z) {
         this.name = str;
-        this.kuc = mVar;
-        this.kuj = fVar;
-        this.gR = z;
+        this.ktl = mVar;
+        this.kts = fVar;
+        this.gs = z;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -37,15 +37,15 @@ public class a implements b {
         return this.name;
     }
 
-    public m<PointF, PointF> cLw() {
-        return this.kuc;
+    public m<PointF, PointF> cLu() {
+        return this.ktl;
     }
 
-    public com.tb.airbnb.lottie.model.a.f cLF() {
-        return this.kuj;
+    public com.tb.airbnb.lottie.model.a.f cLD() {
+        return this.kts;
     }
 
     public boolean isReversed() {
-        return this.gR;
+        return this.gs;
     }
 }

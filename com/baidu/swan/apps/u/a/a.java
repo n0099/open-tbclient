@@ -17,63 +17,63 @@ public class a implements com.baidu.swan.pms.b {
     }
 
     @Override // com.baidu.swan.pms.b
-    public String JQ() {
-        return com.baidu.swan.apps.u.a.Ju().BT();
-    }
-
-    @Override // com.baidu.swan.pms.b
     public String JR() {
-        return com.baidu.swan.apps.u.a.Jn().bf(AppRuntime.getAppContext());
+        return com.baidu.swan.apps.u.a.Jv().BU();
     }
 
     @Override // com.baidu.swan.pms.b
     public String JS() {
-        return com.baidu.swan.apps.u.a.Ju().getHostName();
+        return com.baidu.swan.apps.u.a.Jo().bf(AppRuntime.getAppContext());
     }
 
     @Override // com.baidu.swan.pms.b
     public String JT() {
-        return ac.getVersionName();
+        return com.baidu.swan.apps.u.a.Jv().getHostName();
     }
 
     @Override // com.baidu.swan.pms.b
     public String JU() {
-        return c.getVersion();
+        return ac.getVersionName();
     }
 
     @Override // com.baidu.swan.pms.b
     public String JV() {
-        return com.baidu.swan.apps.swancore.b.eR(0);
+        return c.getVersion();
     }
 
     @Override // com.baidu.swan.pms.b
     public String JW() {
-        ExtensionCore Hh = com.baidu.swan.apps.extcore.a.HR().Hh();
-        if (Hh != null) {
-            String str = Hh.aQF;
+        return com.baidu.swan.apps.swancore.b.eR(0);
+    }
+
+    @Override // com.baidu.swan.pms.b
+    public String JX() {
+        ExtensionCore Hi = com.baidu.swan.apps.extcore.a.HS().Hi();
+        if (Hi != null) {
+            String str = Hi.aQn;
             return TextUtils.isEmpty(str) ? "" : str;
         }
         return "";
     }
 
     @Override // com.baidu.swan.pms.b
-    public String JX() {
+    public String JY() {
         return com.baidu.swan.apps.swancore.b.eR(1);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String JY() {
+    public String JZ() {
         return "";
     }
 
     @Override // com.baidu.swan.pms.b
-    public CookieManager JZ() {
-        return com.baidu.swan.apps.u.a.JF().Kd();
+    public CookieManager Ka() {
+        return com.baidu.swan.apps.u.a.JG().Ke();
     }
 
     @Override // com.baidu.swan.pms.b
     public boolean A(String str, int i) {
-        return com.baidu.swan.apps.u.a.JO().l(str, i);
+        return com.baidu.swan.apps.u.a.JP().l(str, i);
     }
 
     @Override // com.baidu.swan.pms.b

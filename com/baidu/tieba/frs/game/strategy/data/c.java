@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    public int fGY;
-    public List<m> fGZ;
+    public int fGh;
+    public List<m> fGi;
     public boolean hasMore;
     public String key;
     public int labelId;
@@ -19,9 +19,9 @@ public class c {
         if (v.isEmpty(list)) {
             return 0;
         }
-        if (v.isEmpty(this.fGZ)) {
-            this.fGZ = new LinkedList();
-            this.fGZ.addAll(list);
+        if (v.isEmpty(this.fGi)) {
+            this.fGi = new LinkedList();
+            this.fGi.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             m mVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.fGZ.size()) {
+                if (i2 >= this.fGi.size()) {
                     z = false;
                     break;
                 }
-                m mVar2 = this.fGZ.get(i2);
+                m mVar2 = this.fGi.get(i2);
                 if (mVar != null && (mVar instanceof b) && mVar2 != null && (mVar2 instanceof b)) {
-                    bh agI = ((b) mVar).agI();
-                    bh agI2 = ((b) mVar2).agI();
-                    if (agI != null && agI2 != null && agI.getTid() != null && agI2.getTid() != null && agI.getTid().equals(agI2.getTid())) {
+                    bh agG = ((b) mVar).agG();
+                    bh agG2 = ((b) mVar2).agG();
+                    if (agG != null && agG2 != null && agG.getTid() != null && agG2.getTid() != null && agG.getTid().equals(agG2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            v.addAll(this.fGZ, 0, linkedList);
+            v.addAll(this.fGi, 0, linkedList);
         }
         return linkedList.size();
     }

@@ -4,13 +4,12 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static e qy;
-    private HashMap<String, a> qw = new HashMap<>();
-    private HashMap<String, b> qx = new HashMap<>();
+    private static e pY;
+    private HashMap<String, a> pW = new HashMap<>();
+    private HashMap<String, b> pX = new HashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -21,7 +20,7 @@ public class e {
                         aVar.F(false);
                         aVar.G(false);
                         aVar.O(0);
-                        aVar.j(System.currentTimeMillis());
+                        aVar.i(System.currentTimeMillis());
                         return;
                     }
                     return;
@@ -32,14 +31,14 @@ public class e {
     };
 
     public static e gd() {
-        if (qy == null) {
+        if (pY == null) {
             synchronized (e.class) {
-                if (qy == null) {
-                    qy = new e();
+                if (pY == null) {
+                    pY = new e();
                 }
             }
         }
-        return qy;
+        return pY;
     }
 
     public e() {
@@ -47,42 +46,42 @@ public class e {
         bVar.P(3000);
         bVar.Q(120000);
         bVar.R(500);
-        this.qx.put("net", bVar);
-        this.qx.put("op", bVar);
-        this.qx.put("stat", bVar);
-        this.qx.put("crash", bVar);
-        this.qx.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
+        this.pX.put("net", bVar);
+        this.pX.put("op", bVar);
+        this.pX.put("stat", bVar);
+        this.pX.put("crash", bVar);
+        this.pX.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
         b bVar2 = new b();
         bVar2.P(3000);
         bVar2.Q(120000);
         bVar2.R(1500);
-        this.qx.put(BdStatsConstant.OpSubType.FILE, bVar2);
-        this.qx.put(BdStatsConstant.OpSubType.DB, bVar2);
-        this.qx.put("img", bVar2);
-        this.qx.put("voice", bVar2);
-        this.qx.put(BdStatsConstant.StatsType.ERROR, bVar2);
+        this.pX.put(BdStatsConstant.OpSubType.FILE, bVar2);
+        this.pX.put(BdStatsConstant.OpSubType.DB, bVar2);
+        this.pX.put("img", bVar2);
+        this.pX.put("voice", bVar2);
+        this.pX.put(BdStatsConstant.StatsType.ERROR, bVar2);
         b bVar3 = new b();
         bVar3.P(3000);
         bVar3.Q(120000);
         bVar3.R(1500);
-        this.qx.put("dbg", bVar3);
+        this.pX.put("dbg", bVar3);
     }
 
     public synchronized boolean ao(String str) {
         a aVar;
         boolean z;
-        b bVar = this.qx.get(str);
+        b bVar = this.pX.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.qw.get(str);
+            a aVar2 = this.pW.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a();
                 aVar3.G(false);
                 aVar3.F(false);
-                aVar3.j(currentTimeMillis);
-                this.qw.put(str, aVar3);
+                aVar3.i(currentTimeMillis);
+                this.pW.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
@@ -102,13 +101,13 @@ public class e {
                     } else {
                         aVar.G(false);
                         aVar.O(0);
-                        aVar.j(currentTimeMillis);
+                        aVar.i(currentTimeMillis);
                     }
                 } else if (currentTimeMillis - aVar.gh() < bVar.gj()) {
                     aVar.G(true);
-                    aVar.i(currentTimeMillis);
+                    aVar.h(currentTimeMillis);
                 } else {
-                    aVar.j(currentTimeMillis);
+                    aVar.i(currentTimeMillis);
                 }
                 z = false;
             }
@@ -121,7 +120,7 @@ public class e {
         obtainMessage.what = 5;
         obtainMessage.obj = aVar;
         this.mHandler.removeMessages(5);
-        this.mHandler.sendMessageDelayed(obtainMessage, ReportUserInfoModel.TIME_INTERVAL);
+        this.mHandler.sendMessageDelayed(obtainMessage, 300000L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -129,30 +128,30 @@ public class e {
     public class a {
         private int mCount;
         private boolean mIsRunning;
-        private long qA;
-        private long qB;
-        private boolean qC;
+        private long qa;
+        private long qb;
+        private boolean qc;
 
         private a() {
             this.mIsRunning = false;
             this.mCount = 0;
-            this.qC = false;
+            this.qc = false;
         }
 
         public boolean ge() {
-            return this.qC;
+            return this.qc;
         }
 
         public void F(boolean z) {
-            this.qC = z;
+            this.qc = z;
         }
 
         public long gf() {
-            return this.qB;
+            return this.qb;
         }
 
-        public void i(long j) {
-            this.qB = j;
+        public void h(long j) {
+            this.qb = j;
         }
 
         public int gg() {
@@ -164,11 +163,11 @@ public class e {
         }
 
         public long gh() {
-            return this.qA;
+            return this.qa;
         }
 
-        public void j(long j) {
-            this.qA = j;
+        public void i(long j) {
+            this.qa = j;
         }
 
         public boolean gi() {
@@ -184,8 +183,8 @@ public class e {
     /* loaded from: classes.dex */
     public class b {
         private int mInterval;
-        private int qD;
-        private int qE;
+        private int qd;
+        private int qe;
 
         private b() {
         }
@@ -199,19 +198,19 @@ public class e {
         }
 
         public int gk() {
-            return this.qD;
+            return this.qd;
         }
 
         public void Q(int i) {
-            this.qD = i;
+            this.qd = i;
         }
 
         public int gl() {
-            return this.qE;
+            return this.qe;
         }
 
         public void R(int i) {
-            this.qE = i;
+            this.qe = i;
         }
     }
 }

@@ -54,7 +54,7 @@ public class AlaFrsLiveStatic {
                     if (data instanceof ac) {
                         ac acVar = (ac) data;
                         a aVar = new a(true);
-                        aVar.avz().type = 2;
+                        aVar.avx().type = 2;
                         aVar.setForumId(acVar.getForumId());
                         aVar.setForumName(acVar.getForumName());
                         aVar.setForumGameLabel(acVar.getForumGameLabel());
@@ -74,13 +74,13 @@ public class AlaFrsLiveStatic {
                     if (data instanceof ab) {
                         ab abVar = (ab) data;
                         a aVar = new a(true);
-                        aVar.avz().type = 9;
+                        aVar.avx().type = 9;
                         aVar.setForumId(abVar.getForumId());
                         aVar.setForumName(abVar.getForumName());
                         aVar.setForumGameLabel(abVar.getForumGameLabel());
                         aVar.setFromType(1);
                         aVar.ha(true);
-                        if (abVar.qM(9)) {
+                        if (abVar.qL(9)) {
                             abVar.b(aVar);
                         }
                     }
@@ -96,7 +96,7 @@ public class AlaFrsLiveStatic {
                     if (data instanceof ac) {
                         ac acVar = (ac) data;
                         a aVar = new a(false);
-                        aVar.avz().type = 1;
+                        aVar.avx().type = 1;
                         aVar.setForumId(acVar.getForumId());
                         aVar.setForumName(acVar.getForumName());
                         aVar.setForumGameLabel(acVar.getForumGameLabel());
@@ -116,7 +116,7 @@ public class AlaFrsLiveStatic {
                     if (data instanceof ac) {
                         ac acVar = (ac) data;
                         com.baidu.tieba.ala.gamefrslivetab.video.a aVar = new com.baidu.tieba.ala.gamefrslivetab.video.a();
-                        aVar.avz().type = 3;
+                        aVar.avx().type = 3;
                         aVar.setForumId(acVar.getForumId());
                         aVar.setForumName(acVar.getForumName());
                         aVar.hb(false);
@@ -134,12 +134,12 @@ public class AlaFrsLiveStatic {
                     if (data instanceof ab) {
                         ab abVar = (ab) data;
                         com.baidu.tieba.ala.gamefrslivetab.video.a aVar = new com.baidu.tieba.ala.gamefrslivetab.video.a();
-                        aVar.avz().type = 8;
-                        aVar.avz().textResId = R.string.ala_video;
+                        aVar.avx().type = 8;
+                        aVar.avx().textResId = R.string.ala_video;
                         aVar.setForumId(abVar.getForumId());
                         aVar.setForumName(abVar.getForumName());
                         aVar.hb(true);
-                        if (abVar.qM(8)) {
+                        if (abVar.qL(8)) {
                             abVar.b(aVar);
                         }
                     }

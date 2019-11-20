@@ -17,12 +17,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class MsgSettingItemView extends LinearLayout {
-    private TextView iWj;
-    private TbImageView iWk;
-    private TextView iWl;
-    private BdSwitchView iWm;
-    private View iWn;
-    private int iWo;
+    private TextView iVs;
+    private TbImageView iVt;
+    private TextView iVu;
+    private BdSwitchView iVv;
+    private View iVw;
+    private int iVx;
 
     public MsgSettingItemView(Context context) {
         super(context);
@@ -37,35 +37,35 @@ public class MsgSettingItemView extends LinearLayout {
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.msg_setting_item_view, (ViewGroup) this, true);
-        this.iWj = (TextView) findViewById(R.id.setting_text);
-        this.iWk = (TbImageView) findViewById(R.id.setting_tip_image);
-        this.iWl = (TextView) findViewById(R.id.setting_tip);
-        this.iWm = (BdSwitchView) findViewById(R.id.setting_switch);
-        l.addToParentArea(context, this.iWm, 10, 10, 10, 10);
-        this.iWn = findViewById(R.id.space_view);
-        this.iWn.setVisibility(0);
+        this.iVs = (TextView) findViewById(R.id.setting_text);
+        this.iVt = (TbImageView) findViewById(R.id.setting_tip_image);
+        this.iVu = (TextView) findViewById(R.id.setting_tip);
+        this.iVv = (BdSwitchView) findViewById(R.id.setting_switch);
+        l.addToParentArea(context, this.iVv, 10, 10, 10, 10);
+        this.iVw = findViewById(R.id.space_view);
+        this.iVw.setVisibility(0);
     }
 
     public void setTipImageResource(int i) {
-        this.iWo = i;
-        am.setImageResource(this.iWk, this.iWo);
-        this.iWk.setVisibility(0);
+        this.iVx = i;
+        am.setImageResource(this.iVt, this.iVx);
+        this.iVt.setVisibility(0);
     }
 
     public void setTipImageListener(View.OnClickListener onClickListener) {
-        this.iWk.setOnClickListener(onClickListener);
+        this.iVt.setOnClickListener(onClickListener);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.iWj.setText(str);
+        this.iVs.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.iWj.setText(i);
+            this.iVs.setText(i);
         }
     }
 
@@ -73,43 +73,43 @@ public class MsgSettingItemView extends LinearLayout {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.iWl.setVisibility(0);
-        this.iWl.setText(str);
+        this.iVu.setVisibility(0);
+        this.iVu.setText(str);
     }
 
     public void setTipText(int i) {
         if (i != 0) {
-            this.iWl.setVisibility(0);
-            this.iWl.setText(i);
+            this.iVu.setVisibility(0);
+            this.iVu.setText(i);
         }
     }
 
     public void turnOff() {
-        this.iWm.turnOff();
+        this.iVv.turnOff();
     }
 
     public void turnOn() {
-        this.iWm.turnOn();
+        this.iVv.turnOn();
     }
 
     public void turnOffNoCallback() {
-        this.iWm.turnOffNoCallback();
+        this.iVv.turnOffNoCallback();
     }
 
     public void turnOnNoCallback() {
-        this.iWm.turnOnNoCallback();
+        this.iVv.turnOnNoCallback();
     }
 
     public void setSwitchStateNoCallback(boolean z) {
         if (z) {
-            this.iWm.turnOnNoCallback();
+            this.iVv.turnOnNoCallback();
         } else {
-            this.iWm.turnOffNoCallback();
+            this.iVv.turnOffNoCallback();
         }
     }
 
     public boolean isOn() {
-        return this.iWm.isOn();
+        return this.iVv.isOn();
     }
 
     @Deprecated
@@ -117,26 +117,26 @@ public class MsgSettingItemView extends LinearLayout {
     }
 
     public BdSwitchView getSwitchView() {
-        return this.iWm;
+        return this.iVv;
     }
 
     public void setOnSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.iWm.setOnSwitchStateChangeListener(aVar);
+        this.iVv.setOnSwitchStateChangeListener(aVar);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         tbPageContext.getLayoutMode().setNightMode(i == 1);
         tbPageContext.getLayoutMode().onModeChanged(this);
-        this.iWm.setBackgroundRes(am.getBitmap(R.drawable.bg_switch_open), am.getBitmap(R.drawable.bg_switch_close), am.getBitmap(R.drawable.btn_handle));
-        if (this.iWo != 0) {
-            am.setImageResource(this.iWk, this.iWo);
+        this.iVv.setBackgroundRes(am.getBitmap(R.drawable.bg_switch_open), am.getBitmap(R.drawable.bg_switch_close), am.getBitmap(R.drawable.btn_handle));
+        if (this.iVx != 0) {
+            am.setImageResource(this.iVt, this.iVx);
         }
     }
 
     public void setSpaceView(int i) {
-        if (this.iWn != null) {
-            this.iWn.setVisibility(i);
+        if (this.iVw != null) {
+            this.iVw.setVisibility(i);
         }
     }
 }

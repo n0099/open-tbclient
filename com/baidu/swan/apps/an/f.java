@@ -9,12 +9,12 @@ public class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Nullable
-    public static File Uf() {
-        List<x.a> Ut = x.Ut();
-        if (Ut == null || Ut.size() <= 0) {
+    public static File Ud() {
+        List<x.a> Ur = x.Ur();
+        if (Ur == null || Ur.size() <= 0) {
             return null;
         }
-        File file = new File(Ut.get(0).mPath, "baidu/aiapps/debug/");
+        File file = new File(Ur.get(0).mPath, "baidu/aiapps/debug/");
         if (!file.exists()) {
             file.mkdirs();
         }

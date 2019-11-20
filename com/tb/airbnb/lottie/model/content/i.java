@@ -8,20 +8,20 @@ import com.tb.airbnb.lottie.model.a.d;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class i implements b {
-    private final Path.FillType gV;
-    private final boolean hv;
+    private final boolean gV;
+    private final Path.FillType gw;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.a ktX;
+    private final com.tb.airbnb.lottie.model.a.a ktg;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.d kuf;
+    private final com.tb.airbnb.lottie.model.a.d kto;
     private final String name;
 
     private i(String str, boolean z, Path.FillType fillType, @Nullable com.tb.airbnb.lottie.model.a.a aVar, @Nullable com.tb.airbnb.lottie.model.a.d dVar) {
         this.name = str;
-        this.hv = z;
-        this.gV = fillType;
-        this.ktX = aVar;
-        this.kuf = dVar;
+        this.gV = z;
+        this.gw = fillType;
+        this.ktg = aVar;
+        this.kto = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,17 +42,17 @@ public class i implements b {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.a cMb() {
-        return this.ktX;
+    public com.tb.airbnb.lottie.model.a.a cLZ() {
+        return this.ktg;
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.d cLz() {
-        return this.kuf;
+    public com.tb.airbnb.lottie.model.a.d cLx() {
+        return this.kto;
     }
 
     public Path.FillType cx() {
-        return this.gV;
+        return this.gw;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -61,6 +61,6 @@ public class i implements b {
     }
 
     public String toString() {
-        return "ShapeFill{color=" + (this.ktX == null ? "null" : Integer.toHexString(this.ktX.ca().intValue())) + ", fillEnabled=" + this.hv + ", opacity=" + (this.kuf == null ? "null" : this.kuf.ca()) + '}';
+        return "ShapeFill{color=" + (this.ktg == null ? "null" : Integer.toHexString(this.ktg.ca().intValue())) + ", fillEnabled=" + this.gV + ", opacity=" + (this.kto == null ? "null" : this.kto.ca()) + '}';
     }
 }

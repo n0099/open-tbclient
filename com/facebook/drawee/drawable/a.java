@@ -10,51 +10,51 @@ import android.graphics.drawable.Drawable;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a extends Drawable implements Drawable.Callback, o, p {
-    private p kdP;
-    private final Drawable[] kdR;
-    private final c[] kdS;
-    private final d kdQ = new d();
+    private p kcY;
+    private final Drawable[] kda;
+    private final c[] kdb;
+    private final d kcZ = new d();
     private final Rect mTmpRect = new Rect();
-    private boolean kdT = false;
-    private boolean kdU = false;
-    private boolean kdV = false;
+    private boolean kdc = false;
+    private boolean kdd = false;
+    private boolean kde = false;
 
     public a(Drawable[] drawableArr) {
         com.facebook.common.internal.g.checkNotNull(drawableArr);
-        this.kdR = drawableArr;
-        for (int i = 0; i < this.kdR.length; i++) {
-            e.a(this.kdR[i], this, this);
+        this.kda = drawableArr;
+        for (int i = 0; i < this.kda.length; i++) {
+            e.a(this.kda[i], this, this);
         }
-        this.kdS = new c[this.kdR.length];
+        this.kdb = new c[this.kda.length];
     }
 
-    public int cEo() {
-        return this.kdR.length;
+    public int cEm() {
+        return this.kda.length;
     }
 
     @Nullable
     public Drawable getDrawable(int i) {
         com.facebook.common.internal.g.checkArgument(i >= 0);
-        com.facebook.common.internal.g.checkArgument(i < this.kdR.length);
-        return this.kdR[i];
+        com.facebook.common.internal.g.checkArgument(i < this.kda.length);
+        return this.kda[i];
     }
 
     @Nullable
     public Drawable a(int i, @Nullable Drawable drawable) {
         com.facebook.common.internal.g.checkArgument(i >= 0);
-        com.facebook.common.internal.g.checkArgument(i < this.kdR.length);
-        Drawable drawable2 = this.kdR[i];
+        com.facebook.common.internal.g.checkArgument(i < this.kda.length);
+        Drawable drawable2 = this.kda[i];
         if (drawable != drawable2) {
-            if (drawable != null && this.kdV) {
+            if (drawable != null && this.kde) {
                 drawable.mutate();
             }
-            e.a(this.kdR[i], null, null);
+            e.a(this.kda[i], null, null);
             e.a(drawable, null, null);
-            e.a(drawable, this.kdQ);
+            e.a(drawable, this.kcZ);
             e.c(drawable, this);
             e.a(drawable, this, this);
-            this.kdU = false;
-            this.kdR[i] = drawable;
+            this.kdd = false;
+            this.kda[i] = drawable;
             invalidateSelf();
         }
         return drawable2;
@@ -63,8 +63,8 @@ public class a extends Drawable implements Drawable.Callback, o, p {
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
         int i = -1;
-        for (int i2 = 0; i2 < this.kdR.length; i2++) {
-            Drawable drawable = this.kdR[i2];
+        for (int i2 = 0; i2 < this.kda.length; i2++) {
+            Drawable drawable = this.kda[i2];
             if (drawable != null) {
                 i = Math.max(i, drawable.getIntrinsicWidth());
             }
@@ -78,8 +78,8 @@ public class a extends Drawable implements Drawable.Callback, o, p {
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
         int i = -1;
-        for (int i2 = 0; i2 < this.kdR.length; i2++) {
-            Drawable drawable = this.kdR[i2];
+        for (int i2 = 0; i2 < this.kda.length; i2++) {
+            Drawable drawable = this.kda[i2];
             if (drawable != null) {
                 i = Math.max(i, drawable.getIntrinsicHeight());
             }
@@ -92,8 +92,8 @@ public class a extends Drawable implements Drawable.Callback, o, p {
 
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
-        for (int i = 0; i < this.kdR.length; i++) {
-            Drawable drawable = this.kdR[i];
+        for (int i = 0; i < this.kda.length; i++) {
+            Drawable drawable = this.kda[i];
             if (drawable != null) {
                 drawable.setBounds(rect);
             }
@@ -102,22 +102,22 @@ public class a extends Drawable implements Drawable.Callback, o, p {
 
     @Override // android.graphics.drawable.Drawable
     public boolean isStateful() {
-        if (!this.kdU) {
-            this.kdT = false;
-            for (int i = 0; i < this.kdR.length; i++) {
-                Drawable drawable = this.kdR[i];
-                this.kdT = (drawable != null && drawable.isStateful()) | this.kdT;
+        if (!this.kdd) {
+            this.kdc = false;
+            for (int i = 0; i < this.kda.length; i++) {
+                Drawable drawable = this.kda[i];
+                this.kdc = (drawable != null && drawable.isStateful()) | this.kdc;
             }
-            this.kdU = true;
+            this.kdd = true;
         }
-        return this.kdT;
+        return this.kdc;
     }
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onStateChange(int[] iArr) {
         boolean z = false;
-        for (int i = 0; i < this.kdR.length; i++) {
-            Drawable drawable = this.kdR[i];
+        for (int i = 0; i < this.kda.length; i++) {
+            Drawable drawable = this.kda[i];
             if (drawable != null && drawable.setState(iArr)) {
                 z = true;
             }
@@ -128,8 +128,8 @@ public class a extends Drawable implements Drawable.Callback, o, p {
     @Override // android.graphics.drawable.Drawable
     protected boolean onLevelChange(int i) {
         boolean z = false;
-        for (int i2 = 0; i2 < this.kdR.length; i2++) {
-            Drawable drawable = this.kdR[i2];
+        for (int i2 = 0; i2 < this.kda.length; i2++) {
+            Drawable drawable = this.kda[i2];
             if (drawable != null && drawable.setLevel(i)) {
                 z = true;
             }
@@ -139,8 +139,8 @@ public class a extends Drawable implements Drawable.Callback, o, p {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        for (int i = 0; i < this.kdR.length; i++) {
-            Drawable drawable = this.kdR[i];
+        for (int i = 0; i < this.kda.length; i++) {
+            Drawable drawable = this.kda[i];
             if (drawable != null) {
                 drawable.draw(canvas);
             }
@@ -154,8 +154,8 @@ public class a extends Drawable implements Drawable.Callback, o, p {
         rect.right = 0;
         rect.bottom = 0;
         Rect rect2 = this.mTmpRect;
-        for (int i = 0; i < this.kdR.length; i++) {
-            Drawable drawable = this.kdR[i];
+        for (int i = 0; i < this.kda.length; i++) {
+            Drawable drawable = this.kda[i];
             if (drawable != null) {
                 drawable.getPadding(rect2);
                 rect.left = Math.max(rect.left, rect2.left);
@@ -169,24 +169,24 @@ public class a extends Drawable implements Drawable.Callback, o, p {
 
     @Override // android.graphics.drawable.Drawable
     public Drawable mutate() {
-        for (int i = 0; i < this.kdR.length; i++) {
-            Drawable drawable = this.kdR[i];
+        for (int i = 0; i < this.kda.length; i++) {
+            Drawable drawable = this.kda[i];
             if (drawable != null) {
                 drawable.mutate();
             }
         }
-        this.kdV = true;
+        this.kde = true;
         return this;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        if (this.kdR.length == 0) {
+        if (this.kda.length == 0) {
             return -2;
         }
         int i = -1;
-        for (int i2 = 1; i2 < this.kdR.length; i2++) {
-            Drawable drawable = this.kdR[i2];
+        for (int i2 = 1; i2 < this.kda.length; i2++) {
+            Drawable drawable = this.kda[i2];
             if (drawable != null) {
                 i = Drawable.resolveOpacity(i, drawable.getOpacity());
             }
@@ -196,9 +196,9 @@ public class a extends Drawable implements Drawable.Callback, o, p {
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.kdQ.setAlpha(i);
-        for (int i2 = 0; i2 < this.kdR.length; i2++) {
-            Drawable drawable = this.kdR[i2];
+        this.kcZ.setAlpha(i);
+        for (int i2 = 0; i2 < this.kda.length; i2++) {
+            Drawable drawable = this.kda[i2];
             if (drawable != null) {
                 drawable.setAlpha(i);
             }
@@ -207,9 +207,9 @@ public class a extends Drawable implements Drawable.Callback, o, p {
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.kdQ.setColorFilter(colorFilter);
-        for (int i = 0; i < this.kdR.length; i++) {
-            Drawable drawable = this.kdR[i];
+        this.kcZ.setColorFilter(colorFilter);
+        for (int i = 0; i < this.kda.length; i++) {
+            Drawable drawable = this.kda[i];
             if (drawable != null) {
                 drawable.setColorFilter(colorFilter);
             }
@@ -218,9 +218,9 @@ public class a extends Drawable implements Drawable.Callback, o, p {
 
     @Override // android.graphics.drawable.Drawable
     public void setDither(boolean z) {
-        this.kdQ.setDither(z);
-        for (int i = 0; i < this.kdR.length; i++) {
-            Drawable drawable = this.kdR[i];
+        this.kcZ.setDither(z);
+        for (int i = 0; i < this.kda.length; i++) {
+            Drawable drawable = this.kda[i];
             if (drawable != null) {
                 drawable.setDither(z);
             }
@@ -229,9 +229,9 @@ public class a extends Drawable implements Drawable.Callback, o, p {
 
     @Override // android.graphics.drawable.Drawable
     public void setFilterBitmap(boolean z) {
-        this.kdQ.setFilterBitmap(z);
-        for (int i = 0; i < this.kdR.length; i++) {
-            Drawable drawable = this.kdR[i];
+        this.kcZ.setFilterBitmap(z);
+        for (int i = 0; i < this.kda.length; i++) {
+            Drawable drawable = this.kda[i];
             if (drawable != null) {
                 drawable.setFilterBitmap(z);
             }
@@ -241,8 +241,8 @@ public class a extends Drawable implements Drawable.Callback, o, p {
     @Override // android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
         boolean visible = super.setVisible(z, z2);
-        for (int i = 0; i < this.kdR.length; i++) {
-            Drawable drawable = this.kdR[i];
+        for (int i = 0; i < this.kda.length; i++) {
+            Drawable drawable = this.kda[i];
             if (drawable != null) {
                 drawable.setVisible(z, z2);
             }
@@ -250,19 +250,19 @@ public class a extends Drawable implements Drawable.Callback, o, p {
         return visible;
     }
 
-    public c Ce(int i) {
+    public c Cd(int i) {
         com.facebook.common.internal.g.checkArgument(i >= 0);
-        com.facebook.common.internal.g.checkArgument(i < this.kdS.length);
-        if (this.kdS[i] == null) {
-            this.kdS[i] = Cf(i);
+        com.facebook.common.internal.g.checkArgument(i < this.kdb.length);
+        if (this.kdb[i] == null) {
+            this.kdb[i] = Ce(i);
         }
-        return this.kdS[i];
+        return this.kdb[i];
     }
 
-    private c Cf(final int i) {
+    private c Ce(final int i) {
         return new c() { // from class: com.facebook.drawee.drawable.a.1
             @Override // com.facebook.drawee.drawable.c
-            public Drawable f(Drawable drawable) {
+            public Drawable g(Drawable drawable) {
                 return a.this.a(i, drawable);
             }
 
@@ -290,13 +290,13 @@ public class a extends Drawable implements Drawable.Callback, o, p {
 
     @Override // com.facebook.drawee.drawable.o
     public void a(p pVar) {
-        this.kdP = pVar;
+        this.kcY = pVar;
     }
 
     @Override // com.facebook.drawee.drawable.p
     public void d(Matrix matrix) {
-        if (this.kdP != null) {
-            this.kdP.d(matrix);
+        if (this.kcY != null) {
+            this.kcY.d(matrix);
         } else {
             matrix.reset();
         }
@@ -304,8 +304,8 @@ public class a extends Drawable implements Drawable.Callback, o, p {
 
     @Override // com.facebook.drawee.drawable.p
     public void a(RectF rectF) {
-        if (this.kdP != null) {
-            this.kdP.a(rectF);
+        if (this.kcY != null) {
+            this.kcY.a(rectF);
         } else {
             rectF.set(getBounds());
         }
@@ -314,8 +314,8 @@ public class a extends Drawable implements Drawable.Callback, o, p {
     @Override // android.graphics.drawable.Drawable
     @TargetApi(21)
     public void setHotspot(float f, float f2) {
-        for (int i = 0; i < this.kdR.length; i++) {
-            Drawable drawable = this.kdR[i];
+        for (int i = 0; i < this.kda.length; i++) {
+            Drawable drawable = this.kda[i];
             if (drawable != null) {
                 drawable.setHotspot(f, f2);
             }

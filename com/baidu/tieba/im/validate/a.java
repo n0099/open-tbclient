@@ -8,30 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    List<ValidateItemData> TT = new ArrayList();
-    ValidateActivity gRt;
+    List<ValidateItemData> Ty = new ArrayList();
+    ValidateActivity gQC;
 
     public a(ValidateActivity validateActivity) {
-        this.gRt = validateActivity;
+        this.gQC = validateActivity;
     }
 
     public void destroy() {
-        this.gRt = null;
+        this.gQC = null;
     }
 
     public void setData(List<ValidateItemData> list) {
         if (list != null) {
-            this.TT.addAll(list);
+            this.Ty.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.TT == null) {
+        if (this.Ty == null) {
             return 0;
         }
-        return this.TT.size();
+        return this.Ty.size();
     }
 
     @Override // android.widget.Adapter
@@ -40,14 +40,14 @@ public class a extends BaseAdapter {
         if (view != null) {
             bVar = (b) view.getTag();
         }
-        b bVar2 = bVar == null ? new b(this.gRt) : bVar;
-        bVar2.f(this.TT.get(i));
+        b bVar2 = bVar == null ? new b(this.gQC) : bVar;
+        bVar2.f(this.Ty.get(i));
         return bVar2.getConvertView();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.TT.get(i);
+        return this.Ty.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,6 +56,6 @@ public class a extends BaseAdapter {
     }
 
     public List<ValidateItemData> getDatas() {
-        return this.TT;
+        return this.Ty;
     }
 }

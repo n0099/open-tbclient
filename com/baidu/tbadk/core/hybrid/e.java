@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b cgI = new a();
-    private static final b cgJ = new c();
-    private static final boolean cgK;
+    private static final b cfR = new a();
+    private static final b cfS = new c();
+    private static final boolean cfT;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -50,15 +50,15 @@ public class e {
     }
 
     public static void H(String str, String str2, String str3) {
-        if (cgK) {
-            cgI.H(str, str2, str3);
+        if (cfT) {
+            cfR.H(str, str2, str3);
         }
-        cgJ.H(str, str2, str3);
+        cfS.H(str, str2, str3);
     }
 
     public static void ns(String str) {
-        if (cgK) {
-            cgI.H(null, null, str);
+        if (cfT) {
+            cfR.H(null, null, str);
         }
     }
 
@@ -67,6 +67,6 @@ public class e {
     }
 
     static {
-        cgK = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        cfT = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

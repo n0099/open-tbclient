@@ -9,57 +9,57 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    private static volatile d dgu;
-    private ArrayList<Integer> dgq = new ArrayList<>();
-    private c dgr;
-    private a dgv;
-    private List<an> dgw;
+    private static volatile d dfD;
+    private c dfA;
+    private a dfE;
+    private List<an> dfF;
+    private ArrayList<Integer> dfz = new ArrayList<>();
 
-    public static d aDe() {
-        if (dgu == null) {
+    public static d aDc() {
+        if (dfD == null) {
             synchronized (c.class) {
-                if (dgu == null) {
-                    dgu = new d();
+                if (dfD == null) {
+                    dfD = new d();
                 }
             }
         }
-        return dgu;
+        return dfD;
     }
 
     private d() {
-        this.dgq.add(1);
-        this.dgq.add(2);
-        this.dgr = new c();
-        this.dgv = new a(this.dgr, this.dgq);
-        lD(com.baidu.tbadk.core.sharedPref.b.alR().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
+        this.dfz.add(1);
+        this.dfz.add(2);
+        this.dfA = new c();
+        this.dfE = new a(this.dfA, this.dfz);
+        lC(com.baidu.tbadk.core.sharedPref.b.alP().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
     }
 
     public int X(String str, int i) {
-        if (this.dgv == null) {
+        if (this.dfE == null) {
             return 0;
         }
-        return this.dgv.X(str, i);
+        return this.dfE.X(str, i);
     }
 
     public void rg(String str) {
-        if (this.dgv != null) {
-            this.dgv.rf(str);
+        if (this.dfE != null) {
+            this.dfE.rf(str);
         }
     }
 
     public void c(an anVar) {
         if (anVar != null) {
-            if (this.dgw == null) {
-                this.dgw = new ArrayList();
+            if (this.dfF == null) {
+                this.dfF = new ArrayList();
             }
-            this.dgw.add(anVar);
+            this.dfF.add(anVar);
         }
     }
 
     public void bO(String str, String str2) {
-        if (!v.isEmpty(this.dgw) && this.dgr != null && this.dgr.aDc()) {
+        if (!v.isEmpty(this.dfF) && this.dfA != null && this.dfA.aDa()) {
             int i = -1;
-            for (an anVar : this.dgw) {
+            for (an anVar : this.dfF) {
                 if (anVar != null) {
                     if (anVar.getPosition() == 0) {
                         a(str, str2, anVar);
@@ -70,12 +70,12 @@ public class d {
                     i = i;
                 }
             }
-            this.dgw.clear();
+            this.dfF.clear();
         }
     }
 
     public void a(String str, String str2, an anVar) {
-        if (anVar != null && this.dgr != null && this.dgr.aDc()) {
+        if (anVar != null && this.dfA != null && this.dfA.aDa()) {
             HashMap hashMap = new HashMap();
             List<Object> params = anVar.getParams();
             if (params != null) {
@@ -99,20 +99,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (aq.isEmpty(str) || this.dgr == null || !this.dgr.aDc()) {
+        if (aq.isEmpty(str) || this.dfA == null || !this.dfA.aDa()) {
             com.baidu.ubs.analytics.a.FV(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (aq.isEmpty(str) || this.dgr == null || !this.dgr.aDc()) {
+        if (aq.isEmpty(str) || this.dfA == null || !this.dfA.aDa()) {
             com.baidu.ubs.analytics.a.FW(str);
         }
     }
 
-    public void lD(int i) {
-        if (this.dgr != null) {
-            this.dgr.lD(i);
+    public void lC(int i) {
+        if (this.dfA != null) {
+            this.dfA.lC(i);
         }
     }
 }

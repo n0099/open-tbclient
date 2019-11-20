@@ -10,7 +10,7 @@ import com.baidu.live.k.a;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
 public class b {
-    private CustomMessageListener dFq = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.b.1
+    private CustomMessageListener dEz = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -23,7 +23,7 @@ public class b {
             }
         }
     };
-    private c dWi;
+    private c dVr;
     private final boolean mIsHost;
     private TbPageContext mTbPageContext;
     private String otherParams;
@@ -31,28 +31,28 @@ public class b {
     public b(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        MessageManager.getInstance().registerListener(this.dFq);
+        MessageManager.getInstance().registerListener(this.dEz);
     }
 
     public void b(ViewGroup viewGroup, i iVar) {
         if (viewGroup != null && this.mTbPageContext != null && iVar != null) {
-            this.dWi = new c(this.mTbPageContext);
-            aOb();
+            this.dVr = new c(this.mTbPageContext);
+            aNZ();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds24);
             layoutParams.addRule(3, a.g.ala_liveroom_hostheader);
             layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_ds34);
-            viewGroup.addView(this.dWi.getView(), layoutParams);
-            if (iVar.Ps != null) {
-                this.dWi.cf(iVar.Ps.alaId);
+            viewGroup.addView(this.dVr.getView(), layoutParams);
+            if (iVar.OR != null) {
+                this.dVr.ce(iVar.OR.alaId);
             }
         }
     }
 
-    public void aOb() {
-        if (this.dWi != null && this.dWi.getView() != null && this.dWi.getView().getParent() != null) {
-            ((ViewGroup) this.dWi.getView().getParent()).removeView(this.dWi.getView());
+    public void aNZ() {
+        if (this.dVr != null && this.dVr.getView() != null && this.dVr.getView().getParent() != null) {
+            ((ViewGroup) this.dVr.getView().getParent()).removeView(this.dVr.getView());
         }
     }
 }

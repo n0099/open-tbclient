@@ -13,73 +13,73 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.view.web.f;
 /* loaded from: classes6.dex */
 public class e {
-    private CustomMessageListener dUZ;
-    private d epc;
-    private PopupWindow.OnDismissListener epd;
+    private CustomMessageListener dUi;
+    private d eol;
+    private PopupWindow.OnDismissListener eom;
     private Context mContext;
 
     public e(Context context) {
         this.mContext = context;
-        aND();
+        aNB();
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.epc = new d(this.mContext);
-        this.epc.setOnDismissListener(this.epd);
-        this.epc.aNE().setBackgroundColor(tC(str));
+        this.eol = new d(this.mContext);
+        this.eol.setOnDismissListener(this.eom);
+        this.eol.aNC().setBackgroundColor(tC(str));
         f fVar = new f();
-        fVar.az(this.mContext).a(this.epc).a(this.epc.aNE().getSchemeCallback());
-        com.baidu.live.view.web.a[] wO = fVar.wO();
-        for (com.baidu.live.view.web.a aVar : wO) {
-            this.epc.aNE().addJavascriptInterface(aVar, aVar.getName());
+        fVar.az(this.mContext).a(this.eol).a(this.eol.aNC().getSchemeCallback());
+        com.baidu.live.view.web.a[] wP = fVar.wP();
+        for (com.baidu.live.view.web.a aVar : wP) {
+            this.eol.aNC().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.epc.tD(b(str, j, j2, j3));
+        this.eol.tD(b(str, j, j2, j3));
     }
 
     public void resume() {
-        if (this.epc != null && this.epc.isShowing() && this.epc.aNE() != null) {
-            this.epc.aNE().onResume();
+        if (this.eol != null && this.eol.isShowing() && this.eol.aNC() != null) {
+            this.eol.aNC().onResume();
         }
     }
 
     public void pause() {
-        if (this.epc != null && this.epc.isShowing() && this.epc.aNE() != null) {
-            this.epc.aNE().onPause();
+        if (this.eol != null && this.eol.isShowing() && this.eol.aNC() != null) {
+            this.eol.aNC().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.epc != null) {
-            this.epc.aNF();
+        if (this.eol != null) {
+            this.eol.aND();
         }
     }
 
     public void bw(int i) {
-        if (this.epc != null && this.epc.isShowing()) {
-            this.epc.bw(i);
+        if (this.eol != null && this.eol.isShowing()) {
+            this.eol.bw(i);
         }
     }
 
-    public void rs() {
+    public void rt() {
         dismiss();
     }
 
     public void release() {
-        rs();
-        MessageManager.getInstance().unRegisterListener(this.dUZ);
+        rt();
+        MessageManager.getInstance().unRegisterListener(this.dUi);
     }
 
-    private void aND() {
-        this.dUZ = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
+    private void aNB() {
+        this.dUi = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (e.this.epc != null && e.this.epc.isShowing()) {
-                    e.this.epc.dismiss();
+                if (e.this.eol != null && e.this.eol.isShowing()) {
+                    e.this.eol.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.dUZ);
+        MessageManager.getInstance().registerListener(this.dUi);
     }
 
     private int tC(String str) {
@@ -120,10 +120,10 @@ public class e {
     }
 
     public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
-        this.epd = onDismissListener;
+        this.eom = onDismissListener;
     }
 
-    public PopupWindow.OnDismissListener aWi() {
-        return this.epd;
+    public PopupWindow.OnDismissListener aWg() {
+        return this.eom;
     }
 }

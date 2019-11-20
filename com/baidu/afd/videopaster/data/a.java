@@ -8,36 +8,36 @@ import com.baidu.tieba.lego.card.b.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.lego.card.b.b {
-    public boolean BA;
-    public int BB;
-    public int BC;
-    private b.a BF;
-    public String Bt;
-    public String Bu;
-    public int Bv;
-    public String Bw;
-    public String Bx;
-    public String By;
-    public String Bz;
+    public String AT;
+    public String AU;
+    public int AV;
+    public String AW;
+    public String AX;
+    public String AY;
+    public String AZ;
+    public boolean Ba;
+    public int Bb;
+    public int Bc;
+    private b.a Bf;
     public String adid;
     public String extra;
     public String picUrl;
     public String tplName;
     public String videoUrl;
-    private int Bs = 3;
-    public ArrayList<String> BD = new ArrayList<>();
-    public ArrayList<String> BE = new ArrayList<>();
+    private int AR = 3;
+    public ArrayList<String> Bd = new ArrayList<>();
+    public ArrayList<String> Be = new ArrayList<>();
 
     public void as(int i) {
-        this.Bs = i;
+        this.AR = i;
     }
 
     public boolean isEmpty() {
-        return this.Bs == 2;
+        return this.AR == 2;
     }
 
     public int kG() {
-        return this.Bs;
+        return this.AR;
     }
 
     public boolean isValid() {
@@ -51,16 +51,16 @@ public class a implements com.baidu.tieba.lego.card.b.b {
     }
 
     public String kH() {
-        return StringUtils.isNull(this.By) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.By;
+        return StringUtils.isNull(this.AY) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.AY;
     }
 
     @Override // com.baidu.tieba.lego.card.b.b
     public b.a getParallelCharge() {
-        if (this.BF == null) {
-            this.BF = new b.a();
-            this.BF.heU = this.BD;
-            this.BF.heV = this.BE;
+        if (this.Bf == null) {
+            this.Bf = new b.a();
+            this.Bf.hed = this.Bd;
+            this.Bf.hee = this.Be;
         }
-        return this.BF;
+        return this.Bf;
     }
 }

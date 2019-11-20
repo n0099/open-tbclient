@@ -7,13 +7,13 @@ import android.text.TextUtils;
 import com.baidu.live.im.n;
 /* loaded from: classes6.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks Nw;
+    private static Application.ActivityLifecycleCallbacks MW;
 
     public static void b(Application application) {
-        if (Nw == null) {
-            Nw = new C0056a();
+        if (MW == null) {
+            MW = new C0056a();
         }
-        application.registerActivityLifecycleCallbacks(Nw);
+        application.registerActivityLifecycleCallbacks(MW);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -34,7 +34,7 @@ public class a {
     /* renamed from: com.baidu.live.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     private static class C0056a implements Application.ActivityLifecycleCallbacks {
-        private n Nx;
+        private n MX;
 
         private C0056a() {
         }
@@ -46,10 +46,10 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             if (a.p(activity)) {
-                if (this.Nx == null) {
-                    this.Nx = new n();
+                if (this.MX == null) {
+                    this.MX = new n();
                 }
-                this.Nx.init(String.valueOf(activity.hashCode()));
+                this.MX.init(String.valueOf(activity.hashCode()));
             }
         }
 
@@ -71,8 +71,8 @@ public class a {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
-            if (a.p(activity) && this.Nx != null) {
-                this.Nx.cI(String.valueOf(activity.hashCode()));
+            if (a.p(activity) && this.MX != null) {
+                this.MX.cI(String.valueOf(activity.hashCode()));
             }
         }
     }

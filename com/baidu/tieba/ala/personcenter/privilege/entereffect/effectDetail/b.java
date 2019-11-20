@@ -7,19 +7,19 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaConfig;
 /* loaded from: classes6.dex */
 public class b {
-    private a eBn;
-    private HttpMessageListener eBo = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.b.1
+    private a eAw;
+    private HttpMessageListener eAx = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AlaEnterEffectEditHttpResMessage) {
                 AlaEnterEffectEditHttpResMessage alaEnterEffectEditHttpResMessage = (AlaEnterEffectEditHttpResMessage) httpResponsedMessage;
                 if (alaEnterEffectEditHttpResMessage.getError() != 0) {
-                    if (b.this.eBn != null) {
-                        b.this.eBn.un(alaEnterEffectEditHttpResMessage.getErrorString());
+                    if (b.this.eAw != null) {
+                        b.this.eAw.un(alaEnterEffectEditHttpResMessage.getErrorString());
                     }
-                } else if ((alaEnterEffectEditHttpResMessage.getOrginalMessage() instanceof AlaEnterEffectEditHttpReqMessage) && b.this.eBn != null) {
-                    b.this.eBn.iu(((AlaEnterEffectEditHttpReqMessage) alaEnterEffectEditHttpResMessage.getOrginalMessage()).isSelected());
+                } else if ((alaEnterEffectEditHttpResMessage.getOrginalMessage() instanceof AlaEnterEffectEditHttpReqMessage) && b.this.eAw != null) {
+                    b.this.eAw.iu(((AlaEnterEffectEditHttpReqMessage) alaEnterEffectEditHttpResMessage.getOrginalMessage()).isSelected());
                 }
             }
         }
@@ -33,10 +33,10 @@ public class b {
     }
 
     public b(a aVar) {
-        this.eBn = aVar;
+        this.eAw = aVar;
         com.baidu.tieba.tbadkCore.a.a.b(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT, AlaConfig.ALA_UPDATE_ENTER_EFFECT, AlaEnterEffectEditHttpResMessage.class, true, true, true, true);
-        this.eBo.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.eBo);
+        this.eAx.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.eAx);
     }
 
     public void Y(String str, boolean z) {
@@ -44,6 +44,6 @@ public class b {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eBo);
+        MessageManager.getInstance().unRegisterListener(this.eAx);
     }
 }

@@ -10,9 +10,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class ReplyMeModel extends BdBaseModel {
-    private BdUniqueId gWw;
-    private a gWx;
-    private com.baidu.adp.framework.listener.c gWy;
+    private BdUniqueId gVF;
+    private a gVG;
+    private com.baidu.adp.framework.listener.c gVH;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,9 +27,9 @@ public class ReplyMeModel extends BdBaseModel {
 
     public ReplyMeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gWw = BdUniqueId.gen();
+        this.gVF = BdUniqueId.gen();
         this.mPageContext = tbPageContext;
-        bFQ();
+        bFO();
     }
 
     public void a(long j, int i, String str, String str2) {
@@ -42,8 +42,8 @@ public class ReplyMeModel extends BdBaseModel {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void bFQ() {
-        this.gWy = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_CHECK_POST) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
+    public void bFO() {
+        this.gVH = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_CHECK_POST) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -71,8 +71,8 @@ public class ReplyMeModel extends BdBaseModel {
                     j = ((CheckPostRequestMessage) checkPostResponseMessage.getOrginalMessage()).getTid();
                 }
                 if (postState == 1) {
-                    if (ReplyMeModel.this.gWx != null) {
-                        ReplyMeModel.this.gWx.a(forumId, quoteId, repostId, forumName, j);
+                    if (ReplyMeModel.this.gVG != null) {
+                        ReplyMeModel.this.gVG.a(forumId, quoteId, repostId, forumName, j);
                     }
                 } else if (postState == 0) {
                     ReplyMeModel.this.mPageContext.showToast(R.string.thread_delete_tip);
@@ -81,9 +81,9 @@ public class ReplyMeModel extends BdBaseModel {
                 }
             }
         };
-        this.gWy.setTag(this.mPageContext.getUniqueId());
-        this.gWy.setSelfListener(true);
-        this.mPageContext.registerListener(this.gWy);
+        this.gVH.setTag(this.mPageContext.getUniqueId());
+        this.gVH.setSelfListener(true);
+        this.mPageContext.registerListener(this.gVH);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -97,12 +97,12 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.gWx = aVar;
+        this.gVG = aVar;
     }
 
     public void onDestroy() {
-        if (this.gWy != null) {
-            MessageManager.getInstance().unRegisterListener(this.gWy);
+        if (this.gVH != null) {
+            MessageManager.getInstance().unRegisterListener(this.gVH);
         }
     }
 }

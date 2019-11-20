@@ -5,7 +5,7 @@ import android.util.Log;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class MergePaths implements b {
-    private final MergePathsMode kuw;
+    private final MergePathsMode ktF;
     private final String name;
 
     /* loaded from: classes6.dex */
@@ -37,15 +37,15 @@ public class MergePaths implements b {
 
     private MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.kuw = mergePathsMode;
+        this.ktF = mergePathsMode;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public MergePathsMode cLQ() {
-        return this.kuw;
+    public MergePathsMode cLO() {
+        return this.ktF;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -59,14 +59,14 @@ public class MergePaths implements b {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.kuw + '}';
+        return "MergePaths{mode=" + this.ktF + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class a {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static MergePaths cw(JSONObject jSONObject) {
+        public static MergePaths cx(JSONObject jSONObject) {
             return new MergePaths(jSONObject.optString("nm"), MergePathsMode.forId(jSONObject.optInt("mm", 1)));
         }
     }

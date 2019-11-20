@@ -4,7 +4,7 @@ import rx.d;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes2.dex */
 public class i<T, R> implements d.b<R, T> {
-    final Class<R> kAF;
+    final Class<R> kzO;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -12,11 +12,11 @@ public class i<T, R> implements d.b<R, T> {
     }
 
     public i(Class<R> cls) {
-        this.kAF = cls;
+        this.kzO = cls;
     }
 
     public rx.j<? super T> call(rx.j<? super R> jVar) {
-        a aVar = new a(jVar, this.kAF);
+        a aVar = new a(jVar, this.kzO);
         jVar.add(aVar);
         return aVar;
     }
@@ -26,19 +26,19 @@ public class i<T, R> implements d.b<R, T> {
     public static final class a<T, R> extends rx.j<T> {
         final rx.j<? super R> actual;
         boolean done;
-        final Class<R> kAF;
+        final Class<R> kzO;
 
         public a(rx.j<? super R> jVar, Class<R> cls) {
             this.actual = jVar;
-            this.kAF = cls;
+            this.kzO = cls;
         }
 
         @Override // rx.e
         public void onNext(T t) {
             try {
-                this.actual.onNext(this.kAF.cast(t));
+                this.actual.onNext(this.kzO.cast(t));
             } catch (Throwable th) {
-                rx.exceptions.a.J(th);
+                rx.exceptions.a.K(th);
                 unsubscribe();
                 onError(OnErrorThrowable.addValueAsLastCause(th, t));
             }

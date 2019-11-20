@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
-    private int fzU;
-    private int fzX;
+    private int fzd;
+    private int fzg;
     private Context mContext;
     private int mWidth;
 
@@ -38,9 +38,9 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         setOrientation(1);
         this.mContext = context;
-        this.fzX = l.getDimens(this.mContext, R.dimen.ds8);
+        this.fzg = l.getDimens(this.mContext, R.dimen.ds8);
         this.mWidth = l.getEquipmentWidth(this.mContext);
-        this.fzU = l.getEquipmentWidth(this.mContext) / 2;
+        this.fzd = l.getEquipmentWidth(this.mContext) / 2;
     }
 
     public void setData(ArrayList<String> arrayList) {
@@ -54,7 +54,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
             int i = 0;
             while (i < count) {
                 if (i % 2 == 0) {
-                    linearLayout = bWG();
+                    linearLayout = bWE();
                 } else {
                     if (linearLayout2 != null) {
                         b(linearLayout2, (String) v.getItem(arrayList, i - 1));
@@ -66,7 +66,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
                 linearLayout2 = linearLayout;
             }
             if (linearLayout2 != null && linearLayout2.getChildCount() == 0) {
-                this.fzU = this.mWidth;
+                this.fzd = this.mWidth;
                 b(linearLayout2, (String) v.getItem(arrayList, count - 1));
             }
         }
@@ -82,15 +82,15 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         textView.setTypeface(null, 1);
         textView.setMinLines(1);
         textView.setMaxLines(1);
-        textView.setWidth(this.fzU);
+        textView.setWidth(this.fzd);
         textView.setOnClickListener(this);
         linearLayout.addView(textView);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams.leftMargin = this.fzX;
-        layoutParams.rightMargin = this.fzX;
+        layoutParams.leftMargin = this.fzg;
+        layoutParams.rightMargin = this.fzg;
     }
 
-    private LinearLayout bWG() {
+    private LinearLayout bWE() {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         am.setBackgroundColor(linearLayout, R.color.transparent);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.mWidth, -2));

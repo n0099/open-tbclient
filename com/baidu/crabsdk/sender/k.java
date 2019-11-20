@@ -18,16 +18,16 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes3.dex */
 public final class k {
-    private static SharedPreferences KS = null;
-    private static ScheduledThreadPoolExecutor KT = new ScheduledThreadPoolExecutor(1);
+    private static SharedPreferences Ks = null;
+    private static ScheduledThreadPoolExecutor Kt = new ScheduledThreadPoolExecutor(1);
 
     private static long H(Context context, String str) {
         try {
-            if (KS == null && context != null) {
-                KS = context.getSharedPreferences("last_init_crab", 4);
+            if (Ks == null && context != null) {
+                Ks = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (KS != null) {
-                return KS.getLong(str, 0L);
+            if (Ks != null) {
+                return Ks.getLong(str, 0L);
             }
             return 0L;
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public final class k {
     }
 
     public static void a(Context context, Throwable th) {
-        KT.execute(new m(th, context));
+        Kt.execute(new m(th, context));
     }
 
     public static synchronized void a(boolean z, Context context) {
@@ -47,13 +47,13 @@ public final class k {
                 long currentTimeMillis = System.currentTimeMillis() - H(context, "time_upload_crash");
                 com.baidu.crabsdk.c.a.v("uploadCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
                 if (currentTimeMillis < 10000) {
-                    KT.schedule(oVar, 10L, TimeUnit.SECONDS);
+                    Kt.schedule(oVar, 10L, TimeUnit.SECONDS);
                 } else {
-                    KT.execute(oVar);
+                    Kt.execute(oVar);
                 }
                 e(context, "time_upload_crash");
             } else {
-                KT.execute(oVar);
+                Kt.execute(oVar);
             }
         }
     }
@@ -169,7 +169,7 @@ public final class k {
                         } else {
                             com.baidu.crabsdk.c.a.bw("not connected to server!");
                         }
-                        f.KN = true;
+                        f.Kn = true;
                     } else {
                         i.deleteFile(str2);
                         h.j(str2);
@@ -184,17 +184,17 @@ public final class k {
     }
 
     public static void c(Context context, Throwable th) {
-        KT.execute(new n(context, th));
+        Kt.execute(new n(context, th));
     }
 
     private static void e(Context context, String str) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            if (KS == null && context != null) {
-                KS = context.getSharedPreferences("last_init_crab", 4);
+            if (Ks == null && context != null) {
+                Ks = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (KS != null) {
-                KS.edit().putLong(str, System.currentTimeMillis()).commit();
+            if (Ks != null) {
+                Ks.edit().putLong(str, System.currentTimeMillis()).commit();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -207,9 +207,9 @@ public final class k {
         long currentTimeMillis = System.currentTimeMillis() - H(context, "time_upload_native");
         com.baidu.crabsdk.c.a.v("uploadNativeCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
         if (currentTimeMillis < 10000) {
-            KT.schedule(lVar, 10L, TimeUnit.SECONDS);
+            Kt.schedule(lVar, 10L, TimeUnit.SECONDS);
         } else {
-            KT.execute(lVar);
+            Kt.execute(lVar);
         }
         e(context, "time_upload_native");
     }
@@ -439,7 +439,7 @@ public final class k {
     }
 
     public static void n(Context context) {
-        KT.execute(new p(context));
+        Kt.execute(new p(context));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

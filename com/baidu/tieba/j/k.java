@@ -9,35 +9,35 @@ import com.baidu.tbadk.util.ac;
 /* loaded from: classes.dex */
 public class k {
     private static final String TAG = k.class.getName();
-    private long hxG;
-    private long hxH;
-    private long hxI;
-    private boolean hxJ;
-    private String hxK = "";
+    private long hwP;
+    private long hwQ;
+    private long hwR;
+    private boolean hwS;
+    private String hwT = "";
+
+    public void bMT() {
+        this.hwS = true;
+        this.hwP = SystemClock.elapsedRealtime();
+    }
+
+    public void bMU() {
+        this.hwQ = SystemClock.elapsedRealtime();
+    }
 
     public void bMV() {
-        this.hxJ = true;
-        this.hxG = SystemClock.elapsedRealtime();
-    }
-
-    public void bMW() {
-        this.hxH = SystemClock.elapsedRealtime();
-    }
-
-    public void bMX() {
-        this.hxI = SystemClock.elapsedRealtime();
+        this.hwR = SystemClock.elapsedRealtime();
     }
 
     public void a(String str, long j, long j2, com.baidu.tieba.play.a.a aVar) {
-        a(str, j, j2, this.hxK, aVar);
+        a(str, j, j2, this.hwT, aVar);
     }
 
     public void a(String str, long j, long j2, String str2, com.baidu.tieba.play.a.a aVar) {
-        if (this.hxJ) {
-            this.hxJ = false;
+        if (this.hwS) {
+            this.hwS = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j3 = this.hxH - this.hxG;
-            long j4 = elapsedRealtime - this.hxI;
+            long j3 = this.hwQ - this.hwP;
+            long j4 = elapsedRealtime - this.hwR;
             long j5 = j4 + j3;
             if (com.baidu.adp.lib.util.j.netType() == 2 || j3 <= 17500) {
                 an anVar = new an("c13171");
@@ -50,11 +50,11 @@ public class k {
                 anVar.O("ptype", com.baidu.adp.lib.util.j.netType());
                 anVar.bS("tid", str);
                 anVar.bS("cuid", TbadkCoreApplication.getInst().getCuid());
-                anVar.O("obj_id", ac.ko(Aa(str2)) ? 1 : 0);
+                anVar.O("obj_id", ac.kn(Aa(str2)) ? 1 : 0);
                 anVar.p("time_stamp", System.currentTimeMillis());
                 TiebaStatic.log(anVar);
                 if (aVar != null) {
-                    aVar.a(str2, j3, j4, j5, j2, j, str, ac.ko(Aa(str2)) ? 1 : 0);
+                    aVar.a(str2, j3, j4, j5, j2, j, str, ac.kn(Aa(str2)) ? 1 : 0);
                 }
             }
         }
@@ -77,6 +77,6 @@ public class k {
     }
 
     public void setPageTypeForPerfStat(String str) {
-        this.hxK = str;
+        this.hwT = str;
     }
 }

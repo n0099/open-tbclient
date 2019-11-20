@@ -6,24 +6,24 @@ import android.util.AttributeSet;
 import com.baidu.tieba.vr.player.framework.GLTextureView;
 /* loaded from: classes3.dex */
 public class CardGLTextureView extends GLTextureView {
-    private boolean Xd;
+    private boolean WK;
 
     public CardGLTextureView(Context context) {
         super(context);
-        this.Xd = false;
+        this.WK = false;
     }
 
     public CardGLTextureView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Xd = false;
+        this.WK = false;
     }
 
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        this.Xd = true;
+        this.WK = true;
         return super.onSurfaceTextureDestroyed(surfaceTexture);
     }
 
     public boolean isDestroyed() {
-        return this.Xd;
+        return this.WK;
     }
 }

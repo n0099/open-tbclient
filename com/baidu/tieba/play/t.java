@@ -7,83 +7,83 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 /* loaded from: classes.dex */
 public class t {
-    private static i iyv = null;
-    private static boolean iyw = true;
-    private static boolean iyx = true;
+    private static i ixE = null;
+    private static boolean ixF = true;
+    private static boolean ixG = true;
 
-    private static i ccJ() {
-        if (iyv == null) {
-            iyw = com.baidu.tbadk.core.sharedPref.b.alR().getBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true);
+    private static i ccH() {
+        if (ixE == null) {
+            ixF = com.baidu.tbadk.core.sharedPref.b.alP().getBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, i.class);
             if (runTask != null) {
-                iyv = (i) runTask.getData();
+                ixE = (i) runTask.getData();
             }
         }
-        return iyv;
+        return ixE;
     }
 
     public static String ar(String str, boolean z) {
         if (z) {
-            if (iyx && ccJ() != null) {
-                return ccJ().S(str, true);
+            if (ixG && ccH() != null) {
+                return ccH().S(str, true);
             }
             return str;
-        } else if (iyx && iyw && ccJ() != null) {
-            return ccJ().qX(str);
+        } else if (ixG && ixF && ccH() != null) {
+            return ccH().qX(str);
         } else {
             return str;
         }
     }
 
     public static String qY(String str) {
-        if (ccJ() != null) {
-            return ccJ().qY(str);
+        if (ccH() != null) {
+            return ccH().qY(str);
         }
         return null;
     }
 
     public static void d(Context context, String str, int i) {
-        if (ccJ() != null) {
-            ccJ().d(context, str, i);
+        if (ccH() != null) {
+            ccH().d(context, str, i);
         }
     }
 
     public static void an(Context context, String str) {
-        if (ccJ() != null) {
-            ccJ().an(context, str);
+        if (ccH() != null) {
+            ccH().an(context, str);
         }
     }
 
     public static void ao(Context context, String str) {
-        if (iyx && iyw && ccJ() != null) {
-            ccJ().ao(context, str);
+        if (ixG && ixF && ccH() != null) {
+            ccH().ao(context, str);
         }
     }
 
     public static void qZ(String str) {
-        if (iyx && iyw && ccJ() != null) {
-            ccJ().qZ(str);
+        if (ixG && ixF && ccH() != null) {
+            ccH().qZ(str);
         }
     }
 
     public static void clearCache(Context context) {
-        if (ccJ() != null) {
-            ccJ().clearCache(context);
+        if (ccH() != null) {
+            ccH().clearCache(context);
         }
     }
 
     public static String ra(String str) {
-        if (ccJ() != null) {
-            return ccJ().ra(str);
+        if (ccH() != null) {
+            return ccH().ra(str);
         }
         return null;
     }
 
     public static void pR(boolean z) {
-        iyw = z;
+        ixF = z;
     }
 
-    public static void ccK() {
-        iyx = com.baidu.adp.lib.b.d.ft().af("android_video_cache_open") == 1;
+    public static void ccI() {
+        ixG = com.baidu.adp.lib.b.d.ft().af("android_video_cache_open") == 1;
     }
 }

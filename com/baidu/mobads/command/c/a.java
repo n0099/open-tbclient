@@ -42,12 +42,12 @@ public class a extends b {
             xAdLandingPageExtraInfo.appsec = commonUtils.getAppSec(this.a);
             xAdLandingPageExtraInfo.title = this.c.getTitle();
             xAdLandingPageExtraInfo.lpShoubaiStyle = this.f;
-            Intent intent = new Intent(this.a, AppActivity.zq());
+            Intent intent = new Intent(this.a, AppActivity.zr());
             if (this.b.getActivity() != null) {
                 xAdLandingPageExtraInfo.isFullScreen = activityUtils.isFullScreen(this.b.getActivity()).booleanValue();
             }
             xAdLandingPageExtraInfo.orientation = this.a.getResources().getConfiguration().orientation;
-            if (AppActivity.zp()) {
+            if (AppActivity.zq()) {
                 intent.putExtra("EXTRA_DATA_STRING", com.baidu.mobads.b.a(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo));
                 intent.putExtra("EXTRA_DATA_STRING_COM", com.baidu.mobads.b.a(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo));
                 intent.putExtra("EXTRA_DATA_STRING_AD", com.baidu.mobads.b.a(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo()));
@@ -55,7 +55,7 @@ public class a extends b {
                 intent.putExtra("EXTRA_DATA", xAdLandingPageExtraInfo);
             }
             intent.addFlags(268435456);
-            if (!com.baidu.mobads.b.zr()) {
+            if (!com.baidu.mobads.b.zs()) {
                 this.a.startActivity(intent);
             }
         } catch (Exception e) {

@@ -16,33 +16,33 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes3.dex */
 public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int fuO;
-    protected static final int fuP;
-    protected static final int fuQ;
-    protected com.baidu.adp.widget.ListView.r fdE;
-    protected FrsViewData fuR;
-    protected d fuS;
-    protected int fuT;
-    protected f fuU;
-    private boolean fuV;
-    private boolean fuW;
-    protected com.baidu.tieba.card.ab fuX;
+    protected static final int ftX;
+    protected static final int ftY;
+    protected static final int ftZ;
+    protected com.baidu.adp.widget.ListView.r fcN;
+    protected FrsViewData fua;
+    protected d fub;
+    protected int fuc;
+    protected f fud;
+    private boolean fue;
+    private boolean fuf;
+    protected com.baidu.tieba.card.ab fug;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
     protected int mSkinType;
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        fuO = resources.getDimensionPixelSize(R.dimen.ds8);
-        fuP = resources.getDimensionPixelSize(R.dimen.ds16);
-        fuQ = resources.getDimensionPixelSize(R.dimen.ds1);
+        ftX = resources.getDimensionPixelSize(R.dimen.ds8);
+        ftY = resources.getDimensionPixelSize(R.dimen.ds16);
+        ftZ = resources.getDimensionPixelSize(R.dimen.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.fuW = false;
+        this.fuf = false;
         a(tbPageContext, bdUniqueId2);
     }
 
@@ -50,7 +50,7 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.fuW = false;
+        this.fuf = false;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
 
@@ -65,26 +65,26 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     public void release() {
         this.mContext = null;
         this.mPageContext = null;
-        this.fuS = null;
-        this.xJ = null;
-        this.xK = null;
-        if (this.fuU != null) {
-            this.fuU.destory();
-            this.fuU = null;
+        this.fub = null;
+        this.xj = null;
+        this.xk = null;
+        if (this.fud != null) {
+            this.fud.destory();
+            this.fud = null;
         }
     }
 
     public void a(com.baidu.adp.widget.ListView.r rVar) {
-        this.fdE = rVar;
+        this.fcN = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.fdE = (com.baidu.adp.widget.ListView.r) viewGroup;
+        this.fcN = (com.baidu.adp.widget.ListView.r) viewGroup;
         if (t instanceof bg) {
-            ((bg) t).cbq.hH(2);
+            ((bg) t).caz.hG(2);
             return null;
         }
         return null;
@@ -95,23 +95,23 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     }
 
     public void b(FrsViewData frsViewData) {
-        this.fuR = frsViewData;
+        this.fua = frsViewData;
     }
 
     public void a(d dVar) {
-        this.fuS = dVar;
+        this.fub = dVar;
     }
 
-    public void qk(int i) {
-        this.fuT = i;
+    public void qj(int i) {
+        this.fuc = i;
     }
 
     public void a(f fVar) {
-        this.fuU = fVar;
+        this.fud = fVar;
     }
 
-    public boolean bjE() {
-        return this.fuV;
+    public boolean bjC() {
+        return this.fue;
     }
 
     public View q(ViewGroup viewGroup, int i) {

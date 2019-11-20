@@ -9,9 +9,9 @@ public interface n {
         void dy(int i);
     }
 
-    com.baidu.swan.apps.scheme.actions.e.b Ke();
+    com.baidu.swan.apps.scheme.actions.e.b Kf();
 
-    void Kf();
+    void Kg();
 
     void a(String str, boolean z, boolean z2, a aVar);
 }

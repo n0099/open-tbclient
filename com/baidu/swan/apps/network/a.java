@@ -19,13 +19,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends z {
-    protected static final Set<String> aYq = com.facebook.common.internal.h.J("localhost", "127.0.0.1");
-    public static final Set<String> aYr = com.facebook.common.internal.h.J("REFERER", "USER-AGENT");
-    protected ConcurrentHashMap<String, Long> aYp;
+    protected static final Set<String> aXY = com.facebook.common.internal.h.J("localhost", "127.0.0.1");
+    public static final Set<String> aXZ = com.facebook.common.internal.h.J("REFERER", "USER-AGENT");
+    protected ConcurrentHashMap<String, Long> aXX;
 
     public a(com.baidu.swan.apps.scheme.j jVar, String str) {
         super(jVar, str);
-        this.aYp = new ConcurrentHashMap<>();
+        this.aXX = new ConcurrentHashMap<>();
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.z
@@ -39,7 +39,7 @@ public class a extends z {
             return 0L;
         }
         try {
-            j = this.aYp.get(str).longValue();
+            j = this.aXX.get(str).longValue();
         } catch (Exception e) {
             j = 0;
         }
@@ -47,20 +47,20 @@ public class a extends z {
     }
 
     public final void gm(String str) {
-        if (this.aYp != null && !TextUtils.isEmpty(str)) {
-            this.aYp.remove(str);
+        if (this.aXX != null && !TextUtils.isEmpty(str)) {
+            this.aXX.remove(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static HttpUrl gn(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if ((com.baidu.swan.apps.ae.b.QZ() == null ? null : com.baidu.swan.apps.ae.b.QZ().getActivity()) == null) {
+        if ((com.baidu.swan.apps.ae.b.Ra() == null ? null : com.baidu.swan.apps.ae.b.Ra().getActivity()) == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if ((DEBUG && com.baidu.swan.apps.ac.a.a.NZ()) || a(parse)) {
+        } else if ((DEBUG && com.baidu.swan.apps.ac.a.a.Oa()) || a(parse)) {
             return parse;
         } else {
             return null;
@@ -68,17 +68,17 @@ public class a extends z {
     }
 
     protected static boolean a(@Nullable HttpUrl httpUrl) {
-        boolean RH = com.baidu.swan.apps.af.a.b.RH();
-        if (!com.baidu.swan.apps.u.a.Jl().Bl()) {
-            RH = false;
+        boolean RJ = com.baidu.swan.apps.af.a.b.RJ();
+        if (!com.baidu.swan.apps.u.a.Jm().Bm()) {
+            RJ = false;
         }
         if (httpUrl != null) {
-            return (!RH || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aYq.contains(httpUrl.host().toLowerCase());
+            return (!RJ || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aXY.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
 
-    protected static HashMap<String, String> ag(@Nullable JSONObject jSONObject) {
+    protected static HashMap<String, String> ah(@Nullable JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() < 1) {
             return null;
         }
@@ -86,7 +86,7 @@ public class a extends z {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !aYr.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !aXZ.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (!TextUtils.isEmpty(optString)) {
                     hashMap.put(next, optString);
@@ -98,14 +98,14 @@ public class a extends z {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static HashMap<String, String> b(@Nullable JSONObject jSONObject, boolean z) {
-        HashMap<String, String> ag = ag(jSONObject);
+        HashMap<String, String> ah = ah(jSONObject);
         if (z) {
-            if (ag == null) {
-                ag = new HashMap<>();
+            if (ah == null) {
+                ah = new HashMap<>();
             }
-            ag.put("Referer", MK());
+            ah.put("Referer", ML());
         }
-        return ag;
+        return ah;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -128,9 +128,9 @@ public class a extends z {
         return jSONObject;
     }
 
-    public static String MK() {
-        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
-        return QZ != null ? String.format("https://smartapp.baidu.com/%s/%s/page-frame.html", QZ.getAppKey(), QZ.Rn()) : "";
+    public static String ML() {
+        com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
+        return Ra != null ? String.format("https://smartapp.baidu.com/%s/%s/page-frame.html", Ra.getAppKey(), Ra.Rp()) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

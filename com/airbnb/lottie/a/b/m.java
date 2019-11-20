@@ -4,22 +4,22 @@ import android.graphics.PointF;
 import java.util.Collections;
 /* loaded from: classes2.dex */
 public class m extends a<PointF, PointF> {
-    private final PointF fA;
-    private final a<Float, Float> fG;
-    private final a<Float, Float> fH;
+    private final PointF eX;
+    private final a<Float, Float> fe;
+    private final a<Float, Float> ff;
 
     public m(a<Float, Float> aVar, a<Float, Float> aVar2) {
         super(Collections.emptyList());
-        this.fA = new PointF();
-        this.fG = aVar;
-        this.fH = aVar2;
+        this.eX = new PointF();
+        this.fe = aVar;
+        this.ff = aVar2;
     }
 
     @Override // com.airbnb.lottie.a.b.a
     public void setProgress(float f) {
-        this.fG.setProgress(f);
-        this.fH.setProgress(f);
-        this.fA.set(this.fG.getValue().floatValue(), this.fH.getValue().floatValue());
+        this.fe.setProgress(f);
+        this.ff.setProgress(f);
+        this.eX.set(this.fe.getValue().floatValue(), this.ff.getValue().floatValue());
         int i = 0;
         while (true) {
             int i2 = i;
@@ -44,6 +44,6 @@ public class m extends a<PointF, PointF> {
     @Override // com.airbnb.lottie.a.b.a
     /* renamed from: e */
     public PointF a(com.airbnb.lottie.a.a<PointF> aVar, float f) {
-        return this.fA;
+        return this.eX;
     }
 }

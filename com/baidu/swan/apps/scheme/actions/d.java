@@ -32,8 +32,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends z {
-    private String blC;
-    private String blD;
+    private String blk;
+    private String bll;
     private String mCallback;
     private int mCount;
 
@@ -71,15 +71,15 @@ public class d extends z {
             com.baidu.swan.apps.console.c.e("chooseImage", "count format error");
             this.mCount = 9;
         }
-        this.blC = s(dP.optJSONArray("sizeType"));
-        this.blD = t(dP.optJSONArray("sourceType"));
-        com.baidu.swan.apps.console.c.i("chooseImage", "sizeType: " + this.blC + ",sourceType: " + this.blD);
-        if (TextUtils.equals(this.blD, "album")) {
-            com.baidu.swan.apps.u.a.Jx().a(context, this.mCount, new a() { // from class: com.baidu.swan.apps.scheme.actions.d.1
+        this.blk = s(dP.optJSONArray("sizeType"));
+        this.bll = t(dP.optJSONArray("sourceType"));
+        com.baidu.swan.apps.console.c.i("chooseImage", "sizeType: " + this.blk + ",sourceType: " + this.bll);
+        if (TextUtils.equals(this.bll, "album")) {
+            com.baidu.swan.apps.u.a.Jy().a(context, this.mCount, new a() { // from class: com.baidu.swan.apps.scheme.actions.d.1
                 @Override // com.baidu.swan.apps.scheme.actions.d.a
                 public void l(ArrayList<String> arrayList) {
                     if (arrayList != null && arrayList.size() > 0) {
-                        if (TextUtils.equals(d.this.blC, "compressed")) {
+                        if (TextUtils.equals(d.this.blk, "compressed")) {
                             d.this.b(unitedSchemeEntity, callbackHandler, bVar, arrayList);
                             return;
                         } else {
@@ -97,7 +97,7 @@ public class d extends z {
                 }
             });
         } else {
-            bVar.Rd().a(bVar.getActivity(), "mapp_camera", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.d.2
+            bVar.Rf().a(bVar.getActivity(), "mapp_camera", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.d.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
@@ -118,10 +118,10 @@ public class d extends z {
     /* JADX INFO: Access modifiers changed from: private */
     public void l(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.ae.b bVar) {
         com.baidu.swan.apps.console.c.i("chooseImage", "handleAuthorized start");
-        if (com.baidu.swan.apps.camera.a.CD().aO(context)) {
+        if (com.baidu.swan.apps.camera.a.CE().aO(context)) {
             m(context, unitedSchemeEntity, callbackHandler, bVar);
         } else {
-            com.baidu.swan.apps.w.e.LD().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.scheme.actions.d.3
+            com.baidu.swan.apps.w.e.LE().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.scheme.actions.d.3
                 @Override // com.baidu.swan.apps.ab.a.InterfaceC0152a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     boolean z = false;
@@ -178,7 +178,7 @@ public class d extends z {
                         if (i == -1) {
                             ArrayList arrayList = new ArrayList();
                             arrayList.add(c.getAbsolutePath());
-                            if (TextUtils.equals(d.this.blC, "compressed")) {
+                            if (TextUtils.equals(d.this.blk, "compressed")) {
                                 d.this.b(unitedSchemeEntity, callbackHandler, bVar, arrayList);
                                 return true;
                             }

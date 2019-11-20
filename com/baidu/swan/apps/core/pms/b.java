@@ -7,7 +7,7 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<com.baidu.swan.pms.model.e, Set<InterfaceC0182b>> aMB;
+    private HashMap<com.baidu.swan.pms.model.e, Set<InterfaceC0182b>> aMj;
 
     /* renamed from: com.baidu.swan.apps.core.pms.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -18,21 +18,21 @@ public class b {
     }
 
     private b() {
-        this.aMB = new HashMap<>();
+        this.aMj = new HashMap<>();
     }
 
     public synchronized void a(com.baidu.swan.pms.model.e eVar, PMSDownloadType pMSDownloadType) {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + eVar + " : " + pMSDownloadType);
         }
-        Set<InterfaceC0182b> set = this.aMB.get(eVar);
+        Set<InterfaceC0182b> set = this.aMj.get(eVar);
         if (set != null) {
             for (InterfaceC0182b interfaceC0182b : set) {
                 if (interfaceC0182b != null) {
                     interfaceC0182b.a(pMSDownloadType);
                 }
             }
-            this.aMB.remove(eVar);
+            this.aMj.remove(eVar);
         }
     }
 
@@ -40,14 +40,14 @@ public class b {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadError:" + eVar + " : " + pMSDownloadType);
         }
-        Set<InterfaceC0182b> set = this.aMB.get(eVar);
+        Set<InterfaceC0182b> set = this.aMj.get(eVar);
         if (set != null) {
             for (InterfaceC0182b interfaceC0182b : set) {
                 if (interfaceC0182b != null) {
                     interfaceC0182b.a(pMSDownloadType, aVar);
                 }
             }
-            this.aMB.remove(eVar);
+            this.aMj.remove(eVar);
         }
     }
 
@@ -56,23 +56,23 @@ public class b {
             Log.i("PMSDownloadRepeatSync", "registerResultListener:" + eVar);
         }
         if (eVar != null && interfaceC0182b != null) {
-            Set<InterfaceC0182b> set = this.aMB.get(eVar);
+            Set<InterfaceC0182b> set = this.aMj.get(eVar);
             if (set != null) {
                 set.add(interfaceC0182b);
             } else {
                 HashSet hashSet = new HashSet();
                 hashSet.add(interfaceC0182b);
-                this.aMB.put(eVar, hashSet);
+                this.aMj.put(eVar, hashSet);
             }
         }
     }
 
-    public static b Gg() {
-        return a.aMC;
+    public static b Gh() {
+        return a.aMk;
     }
 
     /* loaded from: classes2.dex */
     private static class a {
-        private static b aMC = new b();
+        private static b aMk = new b();
     }
 }

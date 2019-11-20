@@ -11,18 +11,18 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class q implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a> {
-    private boolean HY = true;
+    private boolean Hx = true;
 
     @Override // com.baidu.adp.lib.f.e
     public boolean fW() {
-        return com.baidu.tbadk.core.i.agq().isShowImages();
+        return com.baidu.tbadk.core.i.ago().isShowImages();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.avu().pY(str), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.avs().pY(str), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -47,7 +47,7 @@ public class q implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (aVar != null) {
             e eVar = new e();
             eVar.f(cVar);
-            aVar.pM = eVar;
+            aVar.pi = eVar;
         }
         if (com.baidu.adp.lib.Disk.d.eP().c(cVar)) {
             int i3 = 2000;
@@ -79,7 +79,7 @@ public class q implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             if (aVar != null) {
                 e eVar = new e();
                 eVar.f(cVar);
-                aVar.pM = eVar;
+                aVar.pi = eVar;
             }
         }
         return aVar2;
@@ -129,13 +129,13 @@ public class q implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
                 str3 = str.substring(0, lastIndexOf) + ".webp" + str.substring(lastIndexOf + 4, str.length());
                 iVar = new com.baidu.tbadk.core.util.a.i();
                 if (aVar != null) {
-                    aVar.pM = iVar;
+                    aVar.pi = iVar;
                 }
-                P = iVar.P(str3, this.HY);
-                if (P != null && !iVar.fK().pz) {
+                P = iVar.P(str3, this.Hx);
+                if (P != null && !iVar.fK().oT) {
                     return null;
                 }
-                com.baidu.tbadk.imageManager.c.avu().freePicCache(TbConfig.getPbImageSize() + P.length);
+                com.baidu.tbadk.imageManager.c.avs().freePicCache(TbConfig.getPbImageSize() + P.length);
                 return a(str3, str2, aVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(P), i, i2), !iVar.isGif || com.baidu.adp.lib.util.l.isGif(P), iVar, P);
             }
         }
@@ -143,10 +143,10 @@ public class q implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         iVar = new com.baidu.tbadk.core.util.a.i();
         if (aVar != null) {
         }
-        P = iVar.P(str3, this.HY);
+        P = iVar.P(str3, this.Hx);
         if (P != null) {
         }
-        com.baidu.tbadk.imageManager.c.avu().freePicCache(TbConfig.getPbImageSize() + P.length);
+        com.baidu.tbadk.imageManager.c.avs().freePicCache(TbConfig.getPbImageSize() + P.length);
         return a(str3, str2, aVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(P), i, i2), !iVar.isGif || com.baidu.adp.lib.util.l.isGif(P), iVar, P);
     }
 
@@ -160,13 +160,13 @@ public class q implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.ac(i);
             aVar.ad(i2);
-            com.baidu.tbadk.imageManager.c.avu().c(str, aVar);
+            com.baidu.tbadk.imageManager.c.avs().c(str, aVar);
         }
     }
 
     @Override // com.baidu.adp.lib.f.e
     public BdAsyncTaskParallel fX() {
-        return j.anm().fX();
+        return j.ank().fX();
     }
 
     @Override // com.baidu.adp.lib.f.e

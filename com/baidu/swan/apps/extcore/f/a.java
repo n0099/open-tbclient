@@ -14,12 +14,12 @@ import java.util.Locale;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean Ij() {
-        return f.SR().getBoolean("key_is_need_update_preset", false);
+    public static boolean Ik() {
+        return f.ST().getBoolean("key_is_need_update_preset", false);
     }
 
     public static void bA(boolean z) {
-        f.SR().putBoolean("key_is_need_update_preset", z);
+        f.ST().putBoolean("key_is_need_update_preset", z);
     }
 
     public static void a(File file, List<Long> list) {
@@ -78,7 +78,7 @@ public class a {
         return j;
     }
 
-    public static String X(long j) {
+    public static String W(long j) {
         StringBuilder sb = new StringBuilder();
         for (int i = 2; i >= 0; i--) {
             sb.append(String.format(Locale.US, "%d", Long.valueOf((j >> (i * 16)) & 65535)));
@@ -92,8 +92,8 @@ public class a {
         return sb.toString();
     }
 
-    public static boolean Ik() {
-        return DEBUG && com.baidu.swan.apps.ac.a.a.NX();
+    public static boolean Il() {
+        return DEBUG && com.baidu.swan.apps.ac.a.a.NY();
     }
 
     private static String[] fl(@Nullable String str) {

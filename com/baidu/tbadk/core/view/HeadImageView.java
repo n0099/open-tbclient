@@ -11,9 +11,9 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
-    private int coa;
-    private float cob;
-    private float coc;
+    private int cni;
+    private float cnj;
+    private float cnk;
     private String fid;
     private int height;
     private int iconMargin;
@@ -49,8 +49,8 @@ public class HeadImageView extends TbClipImageView {
         this.tid = null;
         this.mUrl = null;
         this.mDefaultId = R.drawable.transparent_bg;
-        this.mDefaultBgId = com.baidu.tbadk.util.e.Vl();
-        this.coa = R.drawable.pic_v_avatar;
+        this.mDefaultBgId = com.baidu.tbadk.util.e.Vj();
+        this.cni = R.drawable.pic_v_avatar;
         init();
     }
 
@@ -119,8 +119,8 @@ public class HeadImageView extends TbClipImageView {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.cQp != null && this.cQp.cLY) {
-            this.cQp.awI();
+        } else if (this.cPy != null && this.cPy.cLh) {
+            this.cPy.awG();
         }
     }
 
@@ -130,14 +130,14 @@ public class HeadImageView extends TbClipImageView {
         if (canvas != null) {
             if (this.mMaskColor != 0) {
                 this.mPaint.setColor(this.mMaskColor);
-                canvas.drawCircle(this.cob, this.coc, this.cob, this.mPaint);
+                canvas.drawCircle(this.cnj, this.cnk, this.cnj, this.mPaint);
             }
             updateVIcon(canvas);
         }
     }
 
     public void setGodIconResId(int i) {
-        this.coa = i;
+        this.cni = i;
     }
 
     public void setGodIconWidth(int i) {
@@ -180,7 +180,7 @@ public class HeadImageView extends TbClipImageView {
 
     public void updateVIcon(Canvas canvas) {
         Drawable drawable;
-        if (this.isShowV && this.mIconWidth > 0 && (drawable = am.getDrawable(this.coa)) != null) {
+        if (this.isShowV && this.mIconWidth > 0 && (drawable = am.getDrawable(this.cni)) != null) {
             drawable.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
             drawable.draw(canvas);
         }
@@ -192,7 +192,7 @@ public class HeadImageView extends TbClipImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = getWidth();
         this.height = getHeight();
-        this.cob = this.width / 2.0f;
-        this.coc = this.height / 2.0f;
+        this.cnj = this.width / 2.0f;
+        this.cnk = this.height / 2.0f;
     }
 }

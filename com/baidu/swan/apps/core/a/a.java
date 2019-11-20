@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.core.a;
 /* loaded from: classes2.dex */
 public final class a {
-    public static int DX() {
+    public static int DY() {
         return 3;
     }
 
-    public static int DY() {
+    public static int DZ() {
         return Integer.MAX_VALUE;
     }
 
@@ -18,6 +18,6 @@ public final class a {
     }
 
     public static boolean cS(int i) {
-        return i == DX();
+        return i == DY();
     }
 }

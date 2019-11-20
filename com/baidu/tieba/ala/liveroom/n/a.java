@@ -15,16 +15,16 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes6.dex */
 public class a extends Dialog implements View.OnClickListener {
-    private boolean ahd;
-    private String ahe;
-    private TextView bIS;
-    private TextView enm;
-    private TextView enn;
-    private TextView eno;
-    private View enp;
-    private View enq;
-    private PersonUserData enr;
-    private b ens;
+    private boolean agL;
+    private String agM;
+    private TextView bIb;
+    private b emA;
+    private TextView emu;
+    private TextView emv;
+    private TextView emw;
+    private View emx;
+    private View emy;
+    private PersonUserData emz;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -36,7 +36,7 @@ public class a extends Dialog implements View.OnClickListener {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void aVE();
+        void aVC();
 
         void onCancel();
 
@@ -65,113 +65,113 @@ public class a extends Dialog implements View.OnClickListener {
         resize();
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.enm = (TextView) findViewById(a.g.ala_person_forbid_this);
-        this.enp = findViewById(a.g.ala_person_forbid_this_divider);
-        this.enn = (TextView) findViewById(a.g.ala_person_forbid_forever);
-        this.enq = findViewById(a.g.ala_person_forbid_this_divider);
-        this.eno = (TextView) findViewById(a.g.ala_person_admin);
-        this.bIS = (TextView) findViewById(a.g.ala_person_manage_cancel);
-        this.enm.setOnClickListener(this);
-        this.enn.setOnClickListener(this);
-        this.eno.setOnClickListener(this);
-        this.bIS.setOnClickListener(this);
+        this.emu = (TextView) findViewById(a.g.ala_person_forbid_this);
+        this.emx = findViewById(a.g.ala_person_forbid_this_divider);
+        this.emv = (TextView) findViewById(a.g.ala_person_forbid_forever);
+        this.emy = findViewById(a.g.ala_person_forbid_this_divider);
+        this.emw = (TextView) findViewById(a.g.ala_person_admin);
+        this.bIb = (TextView) findViewById(a.g.ala_person_manage_cancel);
+        this.emu.setOnClickListener(this);
+        this.emv.setOnClickListener(this);
+        this.emw.setOnClickListener(this);
+        this.bIb.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         dismiss();
-        if (this.ens != null) {
-            if (view == this.enm) {
-                if (this.enr != null && this.enr.user_info != null) {
-                    if (aVy()) {
+        if (this.emA != null) {
+            if (view == this.emu) {
+                if (this.emz != null && this.emz.user_info != null) {
+                    if (aVw()) {
                         TiebaInitialize.log("c12271");
                         a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.1
                             @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
                             public void onConfirm() {
-                                if (a.this.enr != null && a.this.enr.user_info != null) {
-                                    a.this.enr.user_info.is_block = 0;
-                                    a.this.ens.tW(a.this.enr.user_info.user_id);
+                                if (a.this.emz != null && a.this.emz.user_info != null) {
+                                    a.this.emz.user_info.is_block = 0;
+                                    a.this.emA.tW(a.this.emz.user_info.user_id);
                                 }
                             }
-                        }, String.format(getContext().getResources().getString(a.i.ala_person_relieve_forbidden_confirm_tip), this.enr.user_info.getNameShow()));
+                        }, String.format(getContext().getResources().getString(a.i.ala_person_relieve_forbidden_confirm_tip), this.emz.user_info.getNameShow()));
                         return;
                     }
                     TiebaInitialize.log("c12267");
                     a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.2
                         @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
                         public void onConfirm() {
-                            if (a.this.enr != null && a.this.enr.user_info != null) {
-                                a.this.enr.user_info.is_block = 1;
-                                a.this.ens.tU(a.this.enr.user_info.user_id);
+                            if (a.this.emz != null && a.this.emz.user_info != null) {
+                                a.this.emz.user_info.is_block = 1;
+                                a.this.emA.tU(a.this.emz.user_info.user_id);
                             }
                         }
-                    }, String.format(getContext().getResources().getString(a.i.ala_person_forbid_this_confirm_tip), this.enr.user_info.getNameShow()));
+                    }, String.format(getContext().getResources().getString(a.i.ala_person_forbid_this_confirm_tip), this.emz.user_info.getNameShow()));
                 }
-            } else if (view == this.enn) {
-                if (this.enr != null && this.enr.user_info != null) {
-                    if (aVx()) {
+            } else if (view == this.emv) {
+                if (this.emz != null && this.emz.user_info != null) {
+                    if (aVv()) {
                         TiebaInitialize.log("c12271");
                         a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.3
                             @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
                             public void onConfirm() {
-                                if (a.this.enr != null && a.this.enr.user_info != null) {
-                                    a.this.enr.user_info.is_block = 0;
-                                    a.this.ens.tX(a.this.enr.user_info.user_id);
+                                if (a.this.emz != null && a.this.emz.user_info != null) {
+                                    a.this.emz.user_info.is_block = 0;
+                                    a.this.emA.tX(a.this.emz.user_info.user_id);
                                 }
                             }
-                        }, String.format(getContext().getResources().getString(a.i.ala_person_relieve_forbidden_confirm_tip), this.enr.user_info.getNameShow()));
+                        }, String.format(getContext().getResources().getString(a.i.ala_person_relieve_forbidden_confirm_tip), this.emz.user_info.getNameShow()));
                         return;
                     }
                     TiebaInitialize.log("c12268");
                     a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.4
                         @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
                         public void onConfirm() {
-                            if (a.this.enr != null && a.this.enr.user_info != null) {
-                                a.this.enr.user_info.is_block = 2;
-                                a.this.ens.tV(a.this.enr.user_info.user_id);
+                            if (a.this.emz != null && a.this.emz.user_info != null) {
+                                a.this.emz.user_info.is_block = 2;
+                                a.this.emA.tV(a.this.emz.user_info.user_id);
                             }
                         }
-                    }, String.format(getContext().getResources().getString(a.i.ala_person_forbid_forever_confirm_tip), this.enr.user_info.getNameShow()));
+                    }, String.format(getContext().getResources().getString(a.i.ala_person_forbid_forever_confirm_tip), this.emz.user_info.getNameShow()));
                 }
-            } else if (view == this.eno) {
-                if (this.enr != null && this.enr.login_user_info != null) {
-                    if (aVz()) {
+            } else if (view == this.emw) {
+                if (this.emz != null && this.emz.login_user_info != null) {
+                    if (aVx()) {
                         TiebaInitialize.log("c12270");
                         a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.5
                             @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
                             public void onConfirm() {
-                                if (a.this.enr != null && a.this.enr.login_user_info != null) {
-                                    a.this.enr.login_user_info.is_live_admin = 1;
-                                    a.this.ens.tY(a.this.enr.user_info.user_id);
+                                if (a.this.emz != null && a.this.emz.login_user_info != null) {
+                                    a.this.emz.login_user_info.is_live_admin = 1;
+                                    a.this.emA.tY(a.this.emz.user_info.user_id);
                                 }
                             }
-                        }, String.format(getContext().getResources().getString(a.i.ala_person_appoint_admin_confirm_tip), this.enr.user_info.getNameShow()));
-                    } else if (aVA()) {
+                        }, String.format(getContext().getResources().getString(a.i.ala_person_appoint_admin_confirm_tip), this.emz.user_info.getNameShow()));
+                    } else if (aVy()) {
                         TiebaInitialize.log("c12272");
                         a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.6
                             @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
                             public void onConfirm() {
-                                if (a.this.enr != null && a.this.enr.login_user_info != null) {
-                                    a.this.enr.login_user_info.is_live_admin = 0;
-                                    a.this.ens.tZ(a.this.enr.user_info.user_id);
+                                if (a.this.emz != null && a.this.emz.login_user_info != null) {
+                                    a.this.emz.login_user_info.is_live_admin = 0;
+                                    a.this.emA.tZ(a.this.emz.user_info.user_id);
                                 }
                             }
-                        }, String.format(getContext().getResources().getString(a.i.ala_person_fire_admin_confirm_tip), this.enr.user_info.getNameShow()));
-                    } else if (aVB()) {
+                        }, String.format(getContext().getResources().getString(a.i.ala_person_fire_admin_confirm_tip), this.emz.user_info.getNameShow()));
+                    } else if (aVz()) {
                         TiebaInitialize.log("c12269");
                         a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.7
                             @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
                             public void onConfirm() {
-                                if (a.this.enr != null && a.this.enr.login_user_info != null) {
-                                    a.this.enr.login_user_info.is_live_admin = 0;
-                                    a.this.ens.aVE();
+                                if (a.this.emz != null && a.this.emz.login_user_info != null) {
+                                    a.this.emz.login_user_info.is_live_admin = 0;
+                                    a.this.emA.aVC();
                                 }
                             }
                         }, getContext().getResources().getString(a.i.ala_person_resign_admin_confirm_tip));
                     }
                 }
-            } else if (view == this.bIS) {
-                this.ens.onCancel();
+            } else if (view == this.bIb) {
+                this.emA.onCancel();
             }
         }
     }
@@ -207,83 +207,83 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     public void b(PersonUserData personUserData, boolean z, String str) {
-        this.enr = personUserData;
-        this.ahd = z;
-        this.ahe = str;
-        if (aVC() || aVD()) {
+        this.emz = personUserData;
+        this.agL = z;
+        this.agM = str;
+        if (aVA() || aVB()) {
+            nX(8);
             nY(8);
-            nZ(8);
-        } else if (aVx()) {
-            nY(8);
-            this.enn.setText(a.i.ala_person_relieve_forbidden_forever);
-        } else if (aVy()) {
-            nY(0);
-            this.enm.setText(a.i.ala_person_relieve_forbidden_this);
-            this.enn.setText(a.i.ala_person_forbid_forever);
+        } else if (aVv()) {
+            nX(8);
+            this.emv.setText(a.i.ala_person_relieve_forbidden_forever);
+        } else if (aVw()) {
+            nX(0);
+            this.emu.setText(a.i.ala_person_relieve_forbidden_this);
+            this.emv.setText(a.i.ala_person_forbid_forever);
         } else {
-            nY(0);
-            this.enm.setText(a.i.ala_person_forbid_this);
-            this.enn.setText(a.i.ala_person_forbid_forever);
+            nX(0);
+            this.emu.setText(a.i.ala_person_forbid_this);
+            this.emv.setText(a.i.ala_person_forbid_forever);
         }
-        if (aVw()) {
-            this.eno.setVisibility(8);
-            this.enq.setVisibility(8);
-        } else if (aVA()) {
-            this.eno.setText(a.i.ala_person_fire_admin);
-        } else if (aVz()) {
-            this.eno.setText(a.i.ala_person_appoint_admin);
-        } else if (aVC() && aVB()) {
-            this.eno.setText(a.i.ala_person_resign_admin);
+        if (aVu()) {
+            this.emw.setVisibility(8);
+            this.emy.setVisibility(8);
+        } else if (aVy()) {
+            this.emw.setText(a.i.ala_person_fire_admin);
+        } else if (aVx()) {
+            this.emw.setText(a.i.ala_person_appoint_admin);
+        } else if (aVA() && aVz()) {
+            this.emw.setText(a.i.ala_person_resign_admin);
         } else {
-            this.eno.setVisibility(8);
-            this.enq.setVisibility(8);
+            this.emw.setVisibility(8);
+            this.emy.setVisibility(8);
         }
     }
 
     public void a(b bVar) {
-        this.ens = bVar;
+        this.emA = bVar;
+    }
+
+    private boolean aVu() {
+        return (this.emz == null || this.emz.user_info == null || this.emz.user_info.is_block <= 0) ? false : true;
+    }
+
+    private boolean aVv() {
+        return (this.emz == null || this.emz.user_info == null || this.emz.user_info.is_block != 2) ? false : true;
     }
 
     private boolean aVw() {
-        return (this.enr == null || this.enr.user_info == null || this.enr.user_info.is_block <= 0) ? false : true;
+        return (this.emz == null || this.emz.user_info == null || this.emz.user_info.is_block != 1) ? false : true;
     }
 
     private boolean aVx() {
-        return (this.enr == null || this.enr.user_info == null || this.enr.user_info.is_block != 2) ? false : true;
+        return this.emz != null && this.emz.user_info != null && this.agL && this.emz.user_info.is_live_admin == 0;
     }
 
     private boolean aVy() {
-        return (this.enr == null || this.enr.user_info == null || this.enr.user_info.is_block != 1) ? false : true;
+        return this.emz != null && this.emz.user_info != null && this.agL && this.emz.user_info.is_live_admin == 1;
     }
 
     private boolean aVz() {
-        return this.enr != null && this.enr.user_info != null && this.ahd && this.enr.user_info.is_live_admin == 0;
+        return (this.emz == null || this.emz.login_user_info == null || this.agL || this.emz.login_user_info.is_live_admin != 1) ? false : true;
     }
 
     private boolean aVA() {
-        return this.enr != null && this.enr.user_info != null && this.ahd && this.enr.user_info.is_live_admin == 1;
+        return (this.emz == null || this.emz.user_info == null || TextUtils.isEmpty(this.agM) || !this.agM.equals(this.emz.user_info.user_id)) ? false : true;
     }
 
     private boolean aVB() {
-        return (this.enr == null || this.enr.login_user_info == null || this.ahd || this.enr.login_user_info.is_live_admin != 1) ? false : true;
+        return (this.emz == null || this.emz.user_info == null || this.emz.user_info.is_live_admin != 1) ? false : true;
     }
 
-    private boolean aVC() {
-        return (this.enr == null || this.enr.user_info == null || TextUtils.isEmpty(this.ahe) || !this.ahe.equals(this.enr.user_info.user_id)) ? false : true;
-    }
-
-    private boolean aVD() {
-        return (this.enr == null || this.enr.user_info == null || this.enr.user_info.is_live_admin != 1) ? false : true;
+    private void nX(int i) {
+        this.emu.setVisibility(i);
+        this.emx.setVisibility(i);
     }
 
     private void nY(int i) {
-        this.enm.setVisibility(i);
-        this.enp.setVisibility(i);
-    }
-
-    private void nZ(int i) {
-        this.enn.setVisibility(i);
-        this.enq.setVisibility(i);
+        this.emv.setVisibility(i);
+        this.emy.setVisibility(i);
     }
 
     public void resize() {

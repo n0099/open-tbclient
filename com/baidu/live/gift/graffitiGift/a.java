@@ -11,91 +11,91 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class a {
-    private j XJ;
-    private b adb;
-    private AlaGiftGraffitiShowView adc;
+    private j Xr;
+    private b acJ;
+    private AlaGiftGraffitiShowView acK;
     private Context mContext;
-    private boolean acZ = false;
-    private boolean Xe = false;
-    private b.a ade = new b.a() { // from class: com.baidu.live.gift.graffitiGift.a.1
+    private boolean acH = false;
+    private boolean WL = false;
+    private b.a acL = new b.a() { // from class: com.baidu.live.gift.graffitiGift.a.1
         @Override // com.baidu.live.gift.graffitiGift.b.a
         public void onEnd() {
-            a.this.pV();
+            a.this.pW();
         }
     };
-    private ArrayList<d> ada = new ArrayList<>();
+    private ArrayList<d> acI = new ArrayList<>();
 
     public a(Context context, j jVar) {
         this.mContext = context;
-        this.XJ = jVar;
+        this.Xr = jVar;
         initView();
     }
 
     private void initView() {
-        this.adc = new AlaGiftGraffitiShowView(this.mContext);
-        this.adb = new b(this.adc, this.mContext);
-        this.adb.a(this.ade);
+        this.acK = new AlaGiftGraffitiShowView(this.mContext);
+        this.acJ = new b(this.acK, this.mContext);
+        this.acJ.a(this.acL);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(10);
-        this.adc.setLayoutParams(layoutParams);
-        this.XJ.J(this.adc);
+        this.acK.setLayoutParams(layoutParams);
+        this.Xr.J(this.acK);
     }
 
     public void px() {
-        this.acZ = false;
-        this.XJ.J(this.adc);
-        pV();
+        this.acH = false;
+        this.Xr.J(this.acK);
+        pW();
     }
 
     public void e(d dVar) {
         if (dVar != null && !StringUtils.isNull(dVar.userId) && !StringUtils.isNull(dVar.giftId)) {
             if (dVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.ada.add(0, dVar);
-            } else {
-                this.ada.add(dVar);
+                this.acI.add(0, dVar);
+            } else if (this.acI.size() < com.baidu.live.l.a.uB().ajF.Sa) {
+                this.acI.add(dVar);
             }
-            pV();
+            pW();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pV() {
-        if (!this.ada.isEmpty() && !this.acZ && this.adb.isReady()) {
-            d remove = this.ada.remove(0);
+    public void pW() {
+        if (!this.acI.isEmpty() && !this.acH && this.acJ.isReady()) {
+            d remove = this.acI.remove(0);
             if (remove != null) {
-                remove.z(System.currentTimeMillis());
+                remove.y(System.currentTimeMillis());
                 i(remove);
-                pV();
+                pW();
                 return;
             }
-            pV();
+            pW();
         }
     }
 
     private void i(d dVar) {
-        if ((UtilHelper.getRealScreenOrientation(this.mContext) != 2 || !this.Xe) && this.adb.isReady()) {
-            this.adb.j(dVar);
+        if ((UtilHelper.getRealScreenOrientation(this.mContext) != 2 || !this.WL) && this.acJ.isReady()) {
+            this.acJ.j(dVar);
         }
     }
 
     public void pw() {
-        this.acZ = true;
+        this.acH = true;
     }
 
     public void onDestroy() {
-        if (this.adb != null) {
-            this.adb.destory();
+        if (this.acJ != null) {
+            this.acJ.destory();
         }
-        this.acZ = false;
+        this.acH = false;
     }
 
-    public void ri() {
-        if (this.adb != null) {
-            this.adb.ri();
+    public void rj() {
+        if (this.acJ != null) {
+            this.acJ.rj();
         }
     }
 
     public void aj(boolean z) {
-        this.Xe = z;
+        this.WL = z;
     }
 }

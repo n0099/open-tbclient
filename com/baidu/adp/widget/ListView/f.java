@@ -11,18 +11,18 @@ public class f {
     int mDuration;
     private int mToPadding;
     View mView;
-    private com.baidu.adp.widget.b.a yn;
-    private c.a yo;
-    a yp;
+    private com.baidu.adp.widget.b.a xN;
+    private c.a xO;
+    a xP;
     private int mStep = 1;
     Handler mHandler = new Handler();
     Runnable endAnimationRun = new Runnable() { // from class: com.baidu.adp.widget.ListView.f.1
         @Override // java.lang.Runnable
         public void run() {
-            if (f.this.yp == null) {
+            if (f.this.xP == null) {
                 return;
             }
-            f.this.yp.endAnimation();
+            f.this.xP.endAnimation();
         }
     };
 
@@ -33,16 +33,16 @@ public class f {
         if (abs < this.mStep) {
             this.isReadyToStart = false;
         }
-        this.yp = new a(context);
+        this.xP = new a(context);
         this.mDuration = i3;
     }
 
     public void a(com.baidu.adp.widget.b.a aVar) {
-        this.yn = aVar;
+        this.xN = aVar;
     }
 
     public void a(c.a aVar) {
-        this.yo = aVar;
+        this.xO = aVar;
     }
 
     /* loaded from: classes.dex */
@@ -110,16 +110,16 @@ public class f {
             if (f.this.mView != null) {
                 f.this.mView.removeCallbacks(this);
             }
-            if (f.this.yn != null) {
-                f.this.yn.onOver();
+            if (f.this.xN != null) {
+                f.this.xN.onOver();
             }
         }
     }
 
     public void startAnimation(View view) {
-        if (this.isReadyToStart && this.yp != null) {
+        if (this.isReadyToStart && this.xP != null) {
             this.mView = view;
-            this.yp.startUsingDistance(Math.abs(this.mToPadding), this.mDuration);
+            this.xP.startUsingDistance(Math.abs(this.mToPadding), this.mDuration);
             this.mHandler.postDelayed(this.endAnimationRun, this.mDuration);
         }
     }
@@ -135,8 +135,8 @@ public class f {
             z = false;
         }
         this.mView.setPadding(this.mView.getPaddingLeft(), paddingTop, this.mView.getPaddingRight(), this.mView.getPaddingBottom());
-        if (this.yo != null) {
-            this.yo.a(null, this.mView.getPaddingLeft(), this.mView.getPaddingRight(), this.mView.getPaddingTop() - this.mToPadding, this.mView.getPaddingBottom());
+        if (this.xO != null) {
+            this.xO.a(null, this.mView.getPaddingLeft(), this.mView.getPaddingRight(), this.mView.getPaddingTop() - this.mToPadding, this.mView.getPaddingBottom());
         }
         return z;
     }

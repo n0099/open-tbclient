@@ -18,19 +18,19 @@ public final class a {
         String r;
         if (aVar != null && aVar2 != null) {
             e.au("postMessage", "dispatchJSEvent start.");
-            if (aVar.Ep()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.aPY);
+            if (aVar.Eq()) {
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.aPG);
                 r = "";
             } else {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                r = r(NotificationCompat.CATEGORY_EVENT, "type", aVar2.aPY);
+                r = r(NotificationCompat.CATEGORY_EVENT, "type", aVar2.aPG);
             }
             final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, r + aVar2.fe(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", a(aVar), NotificationCompat.CATEGORY_EVENT));
             e.au("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
                 Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);
             }
-            if (aVar.Ep()) {
+            if (aVar.Eq()) {
                 ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.m.a.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -54,7 +54,7 @@ public final class a {
     }
 
     private static String a(com.baidu.swan.apps.core.container.a aVar) {
-        if (aVar.Ep()) {
+        if (aVar.Eq()) {
             return "document";
         }
         return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;

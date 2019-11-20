@@ -4,8 +4,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.model.a.a.a {
-    public String aFu;
-    public String aFv;
+    public String aFc;
+    public String aFd;
 
     public c(String str) {
         super("cameraId", "camera");
@@ -19,7 +19,7 @@ public class c extends com.baidu.swan.apps.model.a.a.a {
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.aFu = jSONObject.optString("cameraId");
-        this.aFv = jSONObject.optString("quality");
+        this.aFc = jSONObject.optString("cameraId");
+        this.aFd = jSONObject.optString("quality");
     }
 }

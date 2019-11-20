@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 /* loaded from: classes2.dex */
 public class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final FileFilter baQ = new FileFilter() { // from class: com.baidu.swan.apps.process.b.1
+    private static final FileFilter bay = new FileFilter() { // from class: com.baidu.swan.apps.process.b.1
         @Override // java.io.FileFilter
         public boolean accept(File file) {
             String name = file.getName();
@@ -32,24 +32,24 @@ public class b {
     };
 
     public static float bq(Context context) {
-        float br = (br(context) + Og()) / 2.0f;
+        float br = (br(context) + Oh()) / 2.0f;
         if (DEBUG) {
             Log.d("SwanPerformanceEvaluation", "deviceLevel -> " + br);
         }
         return br;
     }
 
-    private static float Og() {
+    private static float Oh() {
         float f;
         float f2;
-        int Oj = Oj();
-        int Oh = Oh();
+        int Ok = Ok();
+        int Oi = Oi();
         if (DEBUG) {
-            Log.d("SwanPerformanceEvaluation", "cpu max freqKHz -> " + Oj);
-            Log.d("SwanPerformanceEvaluation", "cpu max cores -> " + Oh);
+            Log.d("SwanPerformanceEvaluation", "cpu max freqKHz -> " + Ok);
+            Log.d("SwanPerformanceEvaluation", "cpu max cores -> " + Oi);
         }
-        if (Oj != -1) {
-            float f3 = ((Oj / 1000.0f) - 1200.0f) / 1600.0f;
+        if (Ok != -1) {
+            float f3 = ((Ok / 1000.0f) - 1200.0f) / 1600.0f;
             if (f3 <= 0.0f) {
                 f3 = 0.0f;
             }
@@ -63,8 +63,8 @@ public class b {
         } else {
             f = 0.5f;
         }
-        if (Oh != -1) {
-            float f4 = ((Oh - 2) * 1.0f) / 6.0f;
+        if (Oi != -1) {
+            float f4 = ((Oi - 2) * 1.0f) / 6.0f;
             if (f4 <= 0.0f) {
                 f4 = 0.0f;
             }
@@ -96,7 +96,7 @@ public class b {
         return f3;
     }
 
-    public static int Oh() {
+    public static int Oi() {
         if (Build.VERSION.SDK_INT <= 10) {
             return 1;
         }
@@ -106,7 +106,7 @@ public class b {
                 gP = gP("/sys/devices/system/cpu/present");
             }
             if (gP == -1) {
-                return Oi();
+                return Oj();
             }
             return gP;
         } catch (NullPointerException | SecurityException e) {
@@ -149,16 +149,16 @@ public class b {
         return Integer.valueOf(str.substring(2)).intValue() + 1;
     }
 
-    private static int Oi() {
-        return new File("/sys/devices/system/cpu/").listFiles(baQ).length;
+    private static int Oj() {
+        return new File("/sys/devices/system/cpu/").listFiles(bay).length;
     }
 
-    public static int Oj() {
+    public static int Ok() {
         int i;
         try {
-            int Oh = Oh();
+            int Oi = Oi();
             i = -1;
-            for (int i2 = 0; i2 < Oh; i2++) {
+            for (int i2 = 0; i2 < Oi; i2++) {
                 File file = new File("/sys/devices/system/cpu/cpu" + i2 + "/cpufreq/cpuinfo_max_freq");
                 if (file.exists() && file.canRead()) {
                     byte[] bArr = new byte[128];

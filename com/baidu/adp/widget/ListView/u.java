@@ -17,7 +17,7 @@ public class u extends RecyclerView.Adapter<v.a> implements q<m> {
     private SparseArray<Integer> mViewTypes = new SparseArray<>();
     private List<m> mLists = new ArrayList();
     private RecyclerView mRecyclerView = null;
-    private int zq = -1;
+    private int yQ = -1;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -28,7 +28,7 @@ public class u extends RecyclerView.Adapter<v.a> implements q<m> {
         if (this.mRecyclerView == null) {
             this.mRecyclerView = (RecyclerView) viewGroup;
         }
-        m item = getItem(this.zq);
+        m item = getItem(this.yQ);
         if (this.mDelegateAdapters == null || (aVar = this.mDelegateAdapters.get(i)) == null) {
             return null;
         }
@@ -66,7 +66,7 @@ public class u extends RecyclerView.Adapter<v.a> implements q<m> {
         m item;
         BdUniqueId type;
         Integer num;
-        this.zq = i;
+        this.yQ = i;
         if (this.mDelegateAdapters == null || this.mDelegateAdapters.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.mViewTypes.get(type.getId())) == null) {
             return -1;
         }
@@ -110,7 +110,7 @@ public class u extends RecyclerView.Adapter<v.a> implements q<m> {
         }
     }
 
-    public void l(int i, int i2) {
+    public void j(int i, int i2) {
         if (i < this.mLists.size() && i2 < this.mLists.size() && i <= i2) {
             this.mLists.subList(i, i2 + 1).clear();
             notifyItemRangeRemoved(i, (i2 - i) + 1);

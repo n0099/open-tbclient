@@ -8,7 +8,7 @@ import com.baidu.tieba.R;
 public class b extends k {
     public b(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_location), 7, i);
-        this.cFR = R.drawable.btn_pb_add_pin;
-        this.cFY = new int[]{18};
+        this.cFa = R.drawable.btn_pb_add_pin;
+        this.cFh = new int[]{18};
     }
 }

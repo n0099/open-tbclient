@@ -7,14 +7,14 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class g {
     public String createTime;
-    public String dNX;
-    public String dNY;
-    public int dOc;
-    public long dOd;
-    public String dOe;
-    public String dOu;
-    public String dOv;
-    public int dOw;
+    public String dND;
+    public String dNE;
+    public int dNF;
+    public String dNg;
+    public String dNh;
+    public int dNl;
+    public long dNm;
+    public String dNn;
     public String description;
     public String id;
     public String liveId;
@@ -28,19 +28,19 @@ public class g {
                 this.id = jSONObject.optString("id");
                 String optString = jSONObject.optString("anchor_id");
                 if (!TextUtils.isEmpty(optString)) {
-                    this.dOu = EncryptionHelper.getDecryptUserId(optString);
+                    this.dND = EncryptionHelper.getDecryptUserId(optString);
                 }
-                this.dNX = jSONObject.optString("regiment_name");
-                this.dNY = jSONObject.optString("regiment_icon");
+                this.dNg = jSONObject.optString("regiment_name");
+                this.dNh = jSONObject.optString("regiment_icon");
                 this.description = jSONObject.optString("description");
                 this.score = jSONObject.optString("score");
                 this.status = jSONObject.optString("status");
                 this.createTime = jSONObject.optString("create_time");
-                this.dOv = jSONObject.optString("update_time");
-                this.dOw = jSONObject.optInt("member_counts");
-                this.dOe = jSONObject.optString("guard_club_portrait");
-                this.dOc = jSONObject.optInt("guard_level");
-                this.dOd = jSONObject.optLong("next_level_need_score");
+                this.dNE = jSONObject.optString("update_time");
+                this.dNF = jSONObject.optInt("member_counts");
+                this.dNn = jSONObject.optString("guard_club_portrait");
+                this.dNl = jSONObject.optInt("guard_level");
+                this.dNm = jSONObject.optLong("next_level_need_score");
                 this.liveStatus = jSONObject.optInt("live_status");
                 this.liveId = jSONObject.optString("live_id");
             } catch (Exception e) {

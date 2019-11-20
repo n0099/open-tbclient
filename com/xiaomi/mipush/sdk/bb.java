@@ -1,37 +1,47 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
-import android.database.ContentObserver;
-import android.os.Handler;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class bb extends ContentObserver {
-    final /* synthetic */ az a;
+public class bb implements ServiceConnection {
+    final /* synthetic */ ay a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bb(az azVar, Handler handler) {
-        super(handler);
-        this.a = azVar;
+    public bb(ay ayVar) {
+        this.a = ayVar;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        Context context;
-        Integer num;
-        Context context2;
-        Context context3;
-        az azVar = this.a;
-        context = this.a.c;
-        azVar.l = Integer.valueOf(com.xiaomi.push.service.az.a(context).b());
-        num = this.a.l;
-        if (num.intValue() != 0) {
-            context2 = this.a.c;
-            context2.getContentResolver().unregisterContentObserver(this);
-            context3 = this.a.c;
-            if (com.xiaomi.channel.commonutils.network.d.c(context3)) {
-                this.a.d();
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        List<Message> list;
+        List list2;
+        Messenger messenger;
+        synchronized (this.a) {
+            this.a.f49a = new Messenger(iBinder);
+            this.a.c = false;
+            list = this.a.f52a;
+            for (Message message : list) {
+                try {
+                    messenger = this.a.f49a;
+                    messenger.send(message);
+                } catch (RemoteException e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                }
             }
+            list2 = this.a.f52a;
+            list2.clear();
         }
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        this.a.f49a = null;
+        this.a.c = false;
     }
 }

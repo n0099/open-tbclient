@@ -27,12 +27,12 @@ public class b extends UnitedSchemeBaseInterceptor {
                 Log.d(TAG, "intercept: false, handler is null or not WebSafeHolder");
             }
         } else {
-            String Cs = ((e) callbackHandler).Cs();
-            if ("ai_apps_widget".equals(Cs)) {
+            String Ct = ((e) callbackHandler).Ct();
+            if ("ai_apps_widget".equals(Ct)) {
                 String n = n(unitedSchemeEntity);
                 z = com.baidu.swan.apps.af.a.b.hA(n) ? false : true;
                 str = n;
-            } else if ("ai_apps_ad_landing".equals(Cs)) {
+            } else if ("ai_apps_ad_landing".equals(Ct)) {
                 String n2 = n(unitedSchemeEntity);
                 z = com.baidu.swan.apps.af.a.b.hC(n2) ? false : true;
                 str = n2;

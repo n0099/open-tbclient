@@ -14,8 +14,8 @@ import java.nio.channels.FileChannel;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean BK() {
-        return com.baidu.swan.apps.u.a.Ju().BK();
+    public static boolean BL() {
+        return com.baidu.swan.apps.u.a.Jv().BL();
     }
 
     public static void c(File file, File file2) throws IOException {

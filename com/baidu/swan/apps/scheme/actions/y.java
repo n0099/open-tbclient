@@ -71,7 +71,7 @@ public class y extends z {
                 return true;
             }
         }
-        bVar.Rd().a((Activity) context, "mapp_i_share_update_linkurl", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
+        bVar.Rf().a((Activity) context, "mapp_i_share_update_linkurl", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
@@ -105,14 +105,14 @@ public class y extends z {
     private void a(@NonNull Context context, final CallbackHandler callbackHandler, final String str, JSONObject jSONObject) {
         jSONObject.remove("defaultPannel");
         jSONObject.remove("shareUrl");
-        com.baidu.swan.apps.u.a.Jj().a(context, jSONObject, new u.a() { // from class: com.baidu.swan.apps.scheme.actions.y.2
+        com.baidu.swan.apps.u.a.Jk().a(context, jSONObject, new u.a() { // from class: com.baidu.swan.apps.scheme.actions.y.2
             @Override // com.baidu.swan.apps.u.b.u.a
-            public void Kh() {
+            public void Ki() {
                 y.this.a(callbackHandler, str, true);
             }
 
             @Override // com.baidu.swan.apps.u.b.u.a
-            public void Ki() {
+            public void Kj() {
                 y.this.a(callbackHandler, str, false);
             }
         });

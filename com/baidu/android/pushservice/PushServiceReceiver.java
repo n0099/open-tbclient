@@ -13,7 +13,6 @@ import com.baidu.android.pushservice.i.k;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.xiaomi.mipush.sdk.Constants;
-import com.xiaomi.mipush.sdk.MIPushNotificationHelper4Hybrid;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
 /* loaded from: classes3.dex */
@@ -137,7 +136,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     final byte[] byteArrayExtra = intent.getByteArrayExtra("baidu_message_body");
                     final byte[] byteArrayExtra2 = intent.getByteArrayExtra("baidu_message_secur_info");
                     int intExtra = intent.getIntExtra("baidu_message_type", -1);
-                    final String stringExtra5 = intent.getStringExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID);
+                    final String stringExtra5 = intent.getStringExtra("message_id");
                     if (TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2) || byteArrayExtra == null || byteArrayExtra2 == null || intExtra == -1 || l.t(context, stringExtra5) || !com.baidu.android.pushservice.c.a.a(context, stringExtra5)) {
                         return;
                     }

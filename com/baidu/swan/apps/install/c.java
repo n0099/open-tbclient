@@ -13,17 +13,17 @@ import java.nio.channels.WritableByteChannel;
 /* loaded from: classes2.dex */
 public class c extends g.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final File aRW;
+    private final File aRE;
 
     public c(File file) {
         super("dump");
-        this.aRW = file;
+        this.aRE = file;
     }
 
     @Override // com.baidu.swan.apps.install.g.a
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
         com.baidu.swan.apps.v.c.a fF = com.baidu.swan.apps.v.c.a.fF(bundle.getString("launch_id"));
-        fF.KW().fI("DumpFileProcessor").dD(1);
+        fF.KX().fI("DumpFileProcessor").dD(1);
         try {
             try {
                 a((ReadableByteChannel) sourceChannel);
@@ -45,8 +45,8 @@ public class c extends g.a {
     }
 
     private void a(ReadableByteChannel readableByteChannel) throws IOException {
-        WritableByteChannel newChannel = Channels.newChannel(new FileOutputStream(this.aRW, false));
-        ByteBuffer allocate = ByteBuffer.allocate(com.baidu.swan.apps.core.pms.a.Gf());
+        WritableByteChannel newChannel = Channels.newChannel(new FileOutputStream(this.aRE, false));
+        ByteBuffer allocate = ByteBuffer.allocate(com.baidu.swan.apps.core.pms.a.Gg());
         while (readableByteChannel.read(allocate) != -1) {
             allocate.flip();
             newChannel.write(allocate);

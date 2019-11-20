@@ -15,34 +15,34 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes2.dex */
 public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baidu.swan.apps.extcore.b.a<T> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private CopyOnWriteArrayList<com.baidu.swan.apps.extcore.c.a> aQI;
+    private CopyOnWriteArrayList<com.baidu.swan.apps.extcore.c.a> aQq;
 
     public a(@NonNull T t) {
         super(t);
-        this.aQI = new CopyOnWriteArrayList<>();
+        this.aQq = new CopyOnWriteArrayList<>();
     }
 
-    public long If() {
-        return f.SR().getLong(this.aQi.Ib(), 0L);
+    public long Ig() {
+        return f.ST().getLong(this.aPQ.Ic(), 0L);
     }
 
-    public void W(long j) {
-        f.SR().putLong(this.aQi.Ib(), j);
+    public void V(long j) {
+        f.ST().putLong(this.aPQ.Ic(), j);
     }
 
     @Override // com.baidu.swan.apps.extcore.b.a
-    public File HT() {
-        return new File(super.HT(), "preset");
+    public File HU() {
+        return new File(super.HU(), "preset");
     }
 
     @NonNull
-    public ExtensionCore Ig() {
+    public ExtensionCore Ih() {
         ExtensionCore extensionCore = new ExtensionCore();
-        long If = If();
-        extensionCore.aQE = If;
-        extensionCore.aQF = com.baidu.swan.apps.extcore.f.a.X(If);
-        extensionCore.aQG = V(If).getPath();
-        extensionCore.aQD = 0;
+        long Ig = Ig();
+        extensionCore.aQm = Ig;
+        extensionCore.aQn = com.baidu.swan.apps.extcore.f.a.W(Ig);
+        extensionCore.aQo = U(Ig).getPath();
+        extensionCore.aQl = 0;
         return extensionCore;
     }
 
@@ -51,16 +51,16 @@ public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends
         if (DEBUG) {
             Log.d("ExtCore-PresetControl", "doUpdate: preset");
         }
-        if (TextUtils.isEmpty(aVar.aQH)) {
+        if (TextUtils.isEmpty(aVar.aQp)) {
             Log.e("ExtCore-PresetControl", "doUpdate: preset with null coreFilePath");
             return false;
         }
         long fk = com.baidu.swan.apps.extcore.f.a.fk(aVar.versionName);
-        if (com.baidu.swan.c.a.bB(aVar.aQH, V(fk).getPath())) {
+        if (com.baidu.swan.c.a.bB(aVar.aQp, U(fk).getPath())) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(Long.valueOf(fk));
-            com.baidu.swan.apps.extcore.f.a.a(HT(), arrayList);
-            W(fk);
+            com.baidu.swan.apps.extcore.f.a.a(HU(), arrayList);
+            V(fk);
             com.baidu.swan.apps.extcore.f.a.bA(false);
             return true;
         } else if (DEBUG) {
@@ -72,20 +72,20 @@ public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends
     }
 
     private boolean isNeedUpdate() {
-        if (!com.baidu.swan.apps.extcore.f.a.Ij()) {
+        if (!com.baidu.swan.apps.extcore.f.a.Ik()) {
             if (DEBUG) {
                 Log.d("ExtCore-PresetControl", "isNeedUpdate: false");
                 return false;
             }
             return false;
         }
-        b fg = b.fg(this.aQi.Ie());
-        long If = If();
-        long fk = com.baidu.swan.apps.extcore.f.a.fk(fg.aQF);
+        b fg = b.fg(this.aPQ.If());
+        long Ig = Ig();
+        long fk = com.baidu.swan.apps.extcore.f.a.fk(fg.aQn);
         if (DEBUG) {
-            Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + If + " newVer: " + fk);
+            Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + Ig + " newVer: " + fk);
         }
-        return If < fk;
+        return Ig < fk;
     }
 
     public void b(@Nullable com.baidu.swan.apps.extcore.c.a aVar) {
@@ -97,45 +97,45 @@ public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends
             c(aVar);
             return;
         }
-        if (this.aQI.isEmpty()) {
+        if (this.aQq.isEmpty()) {
             new Thread(new Runnable() { // from class: com.baidu.swan.apps.extcore.d.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (a.DEBUG) {
                         Log.d("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
                     }
-                    b fg = b.fg(a.this.aQi.Ie());
+                    b fg = b.fg(a.this.aPQ.If());
                     com.baidu.swan.apps.extcore.model.a aVar2 = new com.baidu.swan.apps.extcore.model.a();
-                    aVar2.versionName = fg.aQF;
-                    aVar2.aQH = a.this.aQi.Id();
+                    aVar2.versionName = fg.aQn;
+                    aVar2.aQp = a.this.aPQ.Ie();
                     a.this.b(aVar2);
-                    a.this.Ih();
+                    a.this.Ii();
                 }
             }, "updateExtensionCoreAsync").start();
         }
         if (aVar != null) {
-            this.aQI.add(aVar);
+            this.aQq.add(aVar);
         }
     }
 
-    public void HU() {
+    public void HV() {
         if (isNeedUpdate()) {
-            b fg = b.fg(this.aQi.Ie());
+            b fg = b.fg(this.aPQ.If());
             com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
-            aVar.versionName = fg.aQF;
-            aVar.aQH = this.aQi.Id();
+            aVar.versionName = fg.aQn;
+            aVar.aQp = this.aPQ.Ie();
             b(aVar);
-            Ih();
+            Ii();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ih() {
-        Iterator<com.baidu.swan.apps.extcore.c.a> it = this.aQI.iterator();
+    public void Ii() {
+        Iterator<com.baidu.swan.apps.extcore.c.a> it = this.aQq.iterator();
         while (it.hasNext()) {
             c(it.next());
         }
-        this.aQI.clear();
+        this.aQq.clear();
     }
 
     private void c(@Nullable final com.baidu.swan.apps.extcore.c.a aVar) {
@@ -143,7 +143,7 @@ public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends
             ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.extcore.d.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    aVar.AT();
+                    aVar.AU();
                 }
             });
         }

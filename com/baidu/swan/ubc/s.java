@@ -11,10 +11,10 @@ import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes2.dex */
 public class s {
-    private static volatile IRemoteUBCService bQo;
+    private static volatile IRemoteUBCService bPx;
 
-    public static final k adh() {
-        return com.baidu.swan.apps.z.b.Ne();
+    public static final k adf() {
+        return com.baidu.swan.apps.z.b.Nf();
     }
 
     public static final void onEvent(String str) {
@@ -34,38 +34,38 @@ public class s {
     }
 
     public static final void onEvent(String str, Map<String, String> map, int i) {
-        k adh = adh();
-        if (com.baidu.swan.b.d.adt()) {
-            o.acV().onEvent(str, map, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.zZ() && adh != null) {
-                adh.c(str, map, i);
+        k adf = adf();
+        if (com.baidu.swan.b.d.adr()) {
+            o.acT().onEvent(str, map, i);
+            if (com.baidu.pyramid.runtime.multiprocess.a.Aa() && adf != null) {
+                adf.c(str, map, i);
             }
-        } else if (adh != null) {
-            adh.c(str, map, i);
+        } else if (adf != null) {
+            adf.c(str, map, i);
         }
     }
 
     public static void onEvent(String str, String str2, int i) {
-        k adh = adh();
-        if (com.baidu.swan.b.d.adt()) {
-            o.acV().onEvent(str, str2, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.zZ() && adh != null) {
-                adh.c(str, str2, i);
+        k adf = adf();
+        if (com.baidu.swan.b.d.adr()) {
+            o.acT().onEvent(str, str2, i);
+            if (com.baidu.pyramid.runtime.multiprocess.a.Aa() && adf != null) {
+                adf.c(str, str2, i);
             }
-        } else if (adh != null) {
-            adh.c(str, str2, i);
+        } else if (adf != null) {
+            adf.c(str, str2, i);
         }
     }
 
     public static void onEvent(String str, JSONObject jSONObject, int i) {
-        k adh = adh();
-        if (com.baidu.swan.b.d.adt()) {
-            o.acV().onEvent(str, jSONObject, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.zZ() && adh != null) {
-                adh.c(str, jSONObject, i);
+        k adf = adf();
+        if (com.baidu.swan.b.d.adr()) {
+            o.acT().onEvent(str, jSONObject, i);
+            if (com.baidu.pyramid.runtime.multiprocess.a.Aa() && adf != null) {
+                adf.c(str, jSONObject, i);
             }
-        } else if (adh != null) {
-            adh.c(str, jSONObject, i);
+        } else if (adf != null) {
+            adf.c(str, jSONObject, i);
         }
     }
 
@@ -74,7 +74,7 @@ public class s {
     }
 
     public static Flow g(String str, String str2, int i) {
-        return o.acV().g(str, str2, i);
+        return o.acT().g(str, str2, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -83,20 +83,20 @@ public class s {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static IRemoteUBCService acX() throws RemoteException {
-        if (bQo == null) {
+    public static IRemoteUBCService acV() throws RemoteException {
+        if (bPx == null) {
             synchronized (s.class) {
-                if (bQo == null) {
+                if (bPx == null) {
                     IBinder k = IPCServiceManager.k("open_log", true);
                     if (k == null) {
                         throw new RemoteException("UBC get remote service empty !");
                     }
                     if (k != null) {
-                        bQo = IRemoteUBCService.Stub.asInterface(k);
+                        bPx = IRemoteUBCService.Stub.asInterface(k);
                     }
                 }
             }
         }
-        return bQo;
+        return bPx;
     }
 }

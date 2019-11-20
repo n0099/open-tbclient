@@ -40,13 +40,13 @@ public class VerticalTranslateLayout extends FrameLayout {
     private boolean mTopTapBack;
     private int mTopTranslate;
     private final int mTouchThreshold;
-    private e zA;
-    private c zB;
-    private f zC;
-    private TrackDirection zw;
-    private final a zx;
-    private final b zy;
-    private final g zz;
+    private TrackDirection yW;
+    private final a yX;
+    private final b yY;
+    private final g yZ;
+    private e za;
+    private c zb;
+    private f zc;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -96,9 +96,9 @@ public class VerticalTranslateLayout extends FrameLayout {
         this.mTopFrameForTap = new Rect();
         this.mBottomFrameForTap = new Rect();
         this.mOnOpenAnimationListener = new ArrayList();
-        this.zx = new a();
-        this.zy = new b();
-        this.zz = new g();
+        this.yX = new a();
+        this.yY = new b();
+        this.yZ = new g();
         this.mPositionState = 10004;
         Resources resources = getResources();
         this.mBackgroundPaint = new Paint();
@@ -117,15 +117,15 @@ public class VerticalTranslateLayout extends FrameLayout {
         if (string != null && string.length() > 0) {
             if (canTop() && canBottom() && com.baidu.live.adp.widget.VerticalTranslateLayout.VERTICAL.equals(string)) {
                 BdLog.d("VerticalTranslateLayout@parseTrack vertical");
-                this.zw = TrackDirection.vertical;
+                this.yW = TrackDirection.vertical;
             } else if (canBottom() && com.baidu.live.adp.widget.VerticalTranslateLayout.BOTTOM.equals(string)) {
                 BdLog.d("VerticalTranslateLayout@parseTrack bottom");
-                this.zw = TrackDirection.bottom;
+                this.yW = TrackDirection.bottom;
             } else if (canTop() && com.baidu.live.adp.widget.VerticalTranslateLayout.TOP.equals(string)) {
                 BdLog.d("VerticalTranslateLayout@parseTrack top");
-                this.zw = TrackDirection.top;
+                this.yW = TrackDirection.top;
             } else {
-                this.zw = TrackDirection.none;
+                this.yW = TrackDirection.none;
                 BdLog.d("VerticalTranslateLayout@parseTrack no direction");
             }
         }
@@ -195,15 +195,15 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     public void setTopAnimationListener(e eVar) {
-        this.zA = eVar;
+        this.za = eVar;
     }
 
     public void setBottomAnimationListener(c cVar) {
-        this.zB = cVar;
+        this.zb = cVar;
     }
 
     public void setVerticalTrackListener(f fVar) {
-        this.zC = fVar;
+        this.zc = fVar;
     }
 
     private boolean canTop() {
@@ -230,7 +230,7 @@ public class VerticalTranslateLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.zw == TrackDirection.none) {
+        if (this.yW == TrackDirection.none) {
             return false;
         }
         int action = motionEvent.getAction() & 255;
@@ -241,10 +241,10 @@ public class VerticalTranslateLayout extends FrameLayout {
                 case 0:
                     this.mLastDownX = x;
                     this.mLastDownY = y;
-                    this.zx.removeMessages(-100);
-                    this.zx.removeMessages(-104);
-                    this.zx.removeMessages(-101);
-                    this.zx.removeMessages(-105);
+                    this.yX.removeMessages(-100);
+                    this.yX.removeMessages(-104);
+                    this.yX.removeMessages(-101);
+                    this.yX.removeMessages(-105);
                     return false;
                 case 1:
                 default:
@@ -260,7 +260,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     private boolean prepareTracking(int i, int i2) {
-        return i >= this.mLastDownX - this.mTouchThreshold && i <= this.mLastDownX + this.mTouchThreshold && (i2 < this.mLastDownY - this.mTouchThreshold || i2 > this.mLastDownY + this.mTouchThreshold) && this.zz.prepareTracking(i2 - this.mLastDownY);
+        return i >= this.mLastDownX - this.mTouchThreshold && i <= this.mLastDownX + this.mTouchThreshold && (i2 < this.mLastDownY - this.mTouchThreshold || i2 > this.mLastDownY + this.mTouchThreshold) && this.yZ.prepareTracking(i2 - this.mLastDownY);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -275,15 +275,15 @@ public class VerticalTranslateLayout extends FrameLayout {
                 case 3:
                     BdLog.d("VerticalTranslateLayout@onTouchEvent up");
                     this.mLastMoveYBeenSet = false;
-                    if (this.zz.tracking) {
+                    if (this.yZ.tracking) {
                         BdLog.d("VerticalTranslateLayout@onTouchEvent tracking");
-                        this.zz.stopTracking();
-                        this.zz.fling();
+                        this.yZ.stopTracking();
+                        this.yZ.fling();
                         return true;
                     }
                     return true;
                 case 2:
-                    if (this.zz.tracking) {
+                    if (this.yZ.tracking) {
                         if (!this.mLastMoveYBeenSet) {
                             if (y > this.mLastDownY) {
                                 this.mLastMoveY = this.mLastDownY + this.mTouchThreshold;
@@ -293,9 +293,9 @@ public class VerticalTranslateLayout extends FrameLayout {
                                 this.mLastMoveYBeenSet = true;
                             }
                         }
-                        this.zz.move(this.mLastMoveY - y);
+                        this.yZ.move(this.mLastMoveY - y);
                         this.mLastMoveY = y;
-                        this.zz.velocityTracker.addMovement(motionEvent);
+                        this.yZ.velocityTracker.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -308,17 +308,17 @@ public class VerticalTranslateLayout extends FrameLayout {
                 if ((this.mPositionState != 10000 || !this.mTopFrameForTap.contains(x, y)) && (this.mPositionState != 10001 || !this.mBottomFrameForTap.contains(x, y))) {
                     return false;
                 }
-                if (!this.zz.tracking) {
+                if (!this.yZ.tracking) {
                     this.mLastMoveY = y;
-                    this.zz.prepareTracking(y);
+                    this.yZ.prepareTracking(y);
                     break;
                 }
                 break;
             case 1:
             case 3:
-                if (this.zz.tracking) {
-                    this.zz.stopTracking();
-                    this.zz.fling();
+                if (this.yZ.tracking) {
+                    this.yZ.stopTracking();
+                    this.yZ.fling();
                     return true;
                 }
                 return true;
@@ -327,10 +327,10 @@ public class VerticalTranslateLayout extends FrameLayout {
             default:
                 return true;
         }
-        if (this.zz.tracking) {
-            this.zz.move(this.mLastMoveY - y);
+        if (this.yZ.tracking) {
+            this.yZ.move(this.mLastMoveY - y);
             this.mLastMoveY = y;
-            this.zz.velocityTracker.addMovement(motionEvent);
+            this.yZ.velocityTracker.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -347,7 +347,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                 this.mBottomFrameForTap.set(i, (int) (i4 - this.mBottomOffset), i3, i4);
             }
         }
-        if (!this.zy.iAnimating && !this.zz.tracking) {
+        if (!this.yY.iAnimating && !this.yZ.tracking) {
             offset();
         }
     }
@@ -402,23 +402,23 @@ public class VerticalTranslateLayout extends FrameLayout {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (VerticalTranslateLayout.this.zy.iAnimating) {
+            if (VerticalTranslateLayout.this.yY.iAnimating) {
                 switch (message.what) {
                     case -105:
-                        VerticalTranslateLayout.this.zy.computeBottomOpenAnimation();
+                        VerticalTranslateLayout.this.yY.computeBottomOpenAnimation();
                         return;
                     case -104:
-                        VerticalTranslateLayout.this.zy.computeTopOpenAnimation();
+                        VerticalTranslateLayout.this.yY.computeTopOpenAnimation();
                         return;
                     case SapiErrorCode.INVALID_ARG /* -103 */:
                     case -102:
                     default:
                         return;
                     case -101:
-                        VerticalTranslateLayout.this.zy.computeBottomAnimation();
+                        VerticalTranslateLayout.this.yY.computeBottomAnimation();
                         return;
                     case -100:
-                        VerticalTranslateLayout.this.zy.computeTopAnimation();
+                        VerticalTranslateLayout.this.yY.computeTopAnimation();
                         return;
                 }
             }
@@ -440,7 +440,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         }
 
         boolean prepareTracking(int i) {
-            switch (VerticalTranslateLayout.this.zw) {
+            switch (VerticalTranslateLayout.this.yW) {
                 case top:
                     if (VerticalTranslateLayout.this.mPositionState != 10004 && VerticalTranslateLayout.this.mPositionState != 10000) {
                         return false;
@@ -452,8 +452,8 @@ public class VerticalTranslateLayout extends FrameLayout {
                     }
                     break;
                 case vertical:
-                    if (VerticalTranslateLayout.this.zC != null) {
-                        VerticalTranslateLayout.this.zC.onStartVerticalTrack(i);
+                    if (VerticalTranslateLayout.this.zc != null) {
+                        VerticalTranslateLayout.this.zc.onStartVerticalTrack(i);
                         break;
                     }
                     break;
@@ -470,7 +470,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         void move(int i) {
             if (this.tracking) {
                 int i2 = VerticalTranslateLayout.this.mTopTranslate - i;
-                switch (VerticalTranslateLayout.this.zw) {
+                switch (VerticalTranslateLayout.this.yW) {
                     case top:
                         BdLog.d("VerticalTranslateLayout@move top");
                         if (i2 > VerticalTranslateLayout.this.mTopOffset - VerticalTranslateLayout.this.mMeasuredHeight && i2 < 0) {
@@ -512,7 +512,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             } else {
                 max = Math.max(yVelocity, this.minVelocity);
             }
-            switch (VerticalTranslateLayout.this.zw) {
+            switch (VerticalTranslateLayout.this.yW) {
                 case top:
                     topFling(max);
                     break;
@@ -532,15 +532,15 @@ public class VerticalTranslateLayout extends FrameLayout {
             int i = VerticalTranslateLayout.this.mTopTranslate;
             if (i <= 0 && i >= VerticalTranslateLayout.this.mTopOffset - VerticalTranslateLayout.this.mMeasuredHeight) {
                 if (f < 0.0f) {
-                    VerticalTranslateLayout.this.zy.animateTop(f);
+                    VerticalTranslateLayout.this.yY.animateTop(f);
                 } else {
-                    VerticalTranslateLayout.this.zy.animateTopOpen(f);
+                    VerticalTranslateLayout.this.yY.animateTopOpen(f);
                 }
             } else if (i >= 0 && i <= VerticalTranslateLayout.this.mMeasuredHeight - VerticalTranslateLayout.this.mBottomOffset) {
                 if (f < 0.0f) {
-                    VerticalTranslateLayout.this.zy.animateBottomOpen(f);
+                    VerticalTranslateLayout.this.yY.animateBottomOpen(f);
                 } else {
-                    VerticalTranslateLayout.this.zy.animateBottom(f);
+                    VerticalTranslateLayout.this.yY.animateBottom(f);
                 }
             }
         }
@@ -548,18 +548,18 @@ public class VerticalTranslateLayout extends FrameLayout {
         private void topFling(float f) {
             BdLog.d("VerticalTranslateLayout@topFling");
             if (f < 0.0f) {
-                VerticalTranslateLayout.this.zy.animateTop(f);
+                VerticalTranslateLayout.this.yY.animateTop(f);
             } else {
-                VerticalTranslateLayout.this.zy.animateTopOpen(f);
+                VerticalTranslateLayout.this.yY.animateTopOpen(f);
             }
         }
 
         private void bottomFling(float f) {
             BdLog.d("VerticalTranslateLayout@bottomFling");
             if (f < 0.0f) {
-                VerticalTranslateLayout.this.zy.animateBottomOpen(f);
+                VerticalTranslateLayout.this.yY.animateBottomOpen(f);
             } else {
-                VerticalTranslateLayout.this.zy.animateBottom(f);
+                VerticalTranslateLayout.this.yY.animateBottom(f);
             }
         }
     }
@@ -590,7 +590,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         void computeTopAnimation() {
             compute();
             if (this.iAnimatingPosition <= this.iAnimationDistance) {
-                e eVar = VerticalTranslateLayout.this.zA;
+                e eVar = VerticalTranslateLayout.this.za;
                 if (eVar != null) {
                     eVar.onTopAnimationEnd();
                 }
@@ -601,13 +601,13 @@ public class VerticalTranslateLayout extends FrameLayout {
             }
             VerticalTranslateLayout.this.mTopTranslate = (int) (com.baidu.adp.widget.a.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.zx.sendEmptyMessageAtTime(-100, this.iCurrentAnimationTime);
+            VerticalTranslateLayout.this.yX.sendEmptyMessageAtTime(-100, this.iCurrentAnimationTime);
         }
 
         void computeBottomAnimation() {
             compute();
             if (this.iAnimatingPosition >= this.iAnimationDistance) {
-                c cVar = VerticalTranslateLayout.this.zB;
+                c cVar = VerticalTranslateLayout.this.zb;
                 if (cVar != null) {
                     cVar.onBottomAnimationEnd();
                 }
@@ -618,7 +618,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             }
             VerticalTranslateLayout.this.mTopTranslate = (int) (com.baidu.adp.widget.a.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.zx.sendEmptyMessageAtTime(-101, this.iCurrentAnimationTime);
+            VerticalTranslateLayout.this.yX.sendEmptyMessageAtTime(-101, this.iCurrentAnimationTime);
         }
 
         void computeTopOpenAnimation() {
@@ -636,7 +636,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             }
             VerticalTranslateLayout.this.mTopTranslate = (int) (com.baidu.adp.widget.a.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.zx.sendEmptyMessageAtTime(-104, this.iCurrentAnimationTime);
+            VerticalTranslateLayout.this.yX.sendEmptyMessageAtTime(-104, this.iCurrentAnimationTime);
         }
 
         void computeBottomOpenAnimation() {
@@ -654,7 +654,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             }
             VerticalTranslateLayout.this.mTopTranslate = (int) (com.baidu.adp.widget.a.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.zx.sendEmptyMessageAtTime(-105, this.iCurrentAnimationTime);
+            VerticalTranslateLayout.this.yX.sendEmptyMessageAtTime(-105, this.iCurrentAnimationTime);
         }
 
         void animateTopOpen(float f) {
@@ -671,10 +671,10 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.iAnimatingPosition = 0.0f;
             this.iAnimationDistance = 0 - VerticalTranslateLayout.this.mTopTranslate;
             this.iAnimationStart = VerticalTranslateLayout.this.mTopTranslate;
-            VerticalTranslateLayout.this.zx.removeMessages(-104);
+            VerticalTranslateLayout.this.yX.removeMessages(-104);
             BdLog.d("Animator@animateTopOpen " + this.iAnimationDistance);
             BdLog.d("Animator@animateTopOpen " + f);
-            VerticalTranslateLayout.this.zx.sendEmptyMessageAtTime(-104, this.iCurrentAnimationTime);
+            VerticalTranslateLayout.this.yX.sendEmptyMessageAtTime(-104, this.iCurrentAnimationTime);
         }
 
         void animateBottomOpen(float f) {
@@ -693,12 +693,12 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.iAnimationStart = VerticalTranslateLayout.this.mTopTranslate;
             BdLog.d("Animator@animateBottomOpen " + this.iAnimationDistance);
             BdLog.d("Animator@animateBottomOpen " + f);
-            VerticalTranslateLayout.this.zx.removeMessages(-105);
-            VerticalTranslateLayout.this.zx.sendEmptyMessageAtTime(-105, this.iCurrentAnimationTime);
+            VerticalTranslateLayout.this.yX.removeMessages(-105);
+            VerticalTranslateLayout.this.yX.sendEmptyMessageAtTime(-105, this.iCurrentAnimationTime);
         }
 
         void animateTop(float f) {
-            e eVar = VerticalTranslateLayout.this.zA;
+            e eVar = VerticalTranslateLayout.this.za;
             if (eVar != null) {
                 eVar.onLeftAnimationStart();
             }
@@ -712,12 +712,12 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.iAnimationStart = VerticalTranslateLayout.this.mTopTranslate;
             BdLog.d("Animator@animateTop " + this.iAnimationDistance);
             BdLog.d("Animator@animateTop " + f);
-            VerticalTranslateLayout.this.zx.removeMessages(-100);
-            VerticalTranslateLayout.this.zx.sendEmptyMessageAtTime(-100, this.iCurrentAnimationTime);
+            VerticalTranslateLayout.this.yX.removeMessages(-100);
+            VerticalTranslateLayout.this.yX.sendEmptyMessageAtTime(-100, this.iCurrentAnimationTime);
         }
 
         void animateBottom(float f) {
-            c cVar = VerticalTranslateLayout.this.zB;
+            c cVar = VerticalTranslateLayout.this.zb;
             if (cVar != null) {
                 cVar.onRightAnimationStart();
             }
@@ -731,8 +731,8 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.iAnimationStart = VerticalTranslateLayout.this.mTopTranslate;
             BdLog.d("Animator@animateBottom " + this.iAnimationDistance);
             BdLog.d("Animator@animateBottom " + f);
-            VerticalTranslateLayout.this.zx.removeMessages(-101);
-            VerticalTranslateLayout.this.zx.sendEmptyMessageAtTime(-101, this.iCurrentAnimationTime);
+            VerticalTranslateLayout.this.yX.removeMessages(-101);
+            VerticalTranslateLayout.this.yX.sendEmptyMessageAtTime(-101, this.iCurrentAnimationTime);
         }
     }
 }

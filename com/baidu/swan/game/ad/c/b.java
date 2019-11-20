@@ -60,17 +60,17 @@ public class b {
             return this;
         }
 
-        public a fP(int i) {
+        public a fO(int i) {
             this.d = z.S(i);
             return this;
         }
 
-        public a fQ(int i) {
+        public a fP(int i) {
             this.e = z.S(i);
             return this;
         }
 
-        public b VE() {
+        public b VC() {
             return new b(this);
         }
     }

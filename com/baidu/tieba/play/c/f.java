@@ -12,12 +12,12 @@ public class f {
         this.mList.add(new a(str, str2, str3));
     }
 
-    public String cdq() {
+    public String cdo() {
         JSONObject jSONObject = new JSONObject();
         try {
             int size = this.mList.size();
             for (int i = 0; i < size; i++) {
-                jSONObject.put(i + "", this.mList.get(i).cdr());
+                jSONObject.put(i + "", this.mList.get(i).cdp());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -28,21 +28,21 @@ public class f {
     /* loaded from: classes.dex */
     private static class a {
         public final String error;
-        public final String iBm;
+        public final String iAv;
         public final String uuid;
 
         public a(String str, String str2, String str3) {
             this.uuid = str;
             this.error = str2;
-            this.iBm = str3;
+            this.iAv = str3;
         }
 
-        public JSONObject cdr() {
+        public JSONObject cdp() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("uuid", this.uuid);
                 jSONObject.put(BdStatsConstant.StatsType.ERROR, this.error);
-                jSONObject.put("sub_error", this.iBm);
+                jSONObject.put("sub_error", this.iAv);
             } catch (Exception e) {
                 e.printStackTrace();
             }

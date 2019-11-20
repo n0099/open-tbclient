@@ -13,11 +13,11 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public final class t {
-    private static com.baidu.crabsdk.c.b<List> Kq = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
-    private static String Kr = "";
-    private static String JY = "";
-    private static int Ks = 0;
-    private static int Kt = 0;
+    private static com.baidu.crabsdk.c.b<List> JQ = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
+    private static String JR = "";
+    private static String Jy = "";
+    private static int JS = 0;
+    private static int JT = 0;
 
     private static WebView H(View view) {
         if (view instanceof ViewGroup) {
@@ -25,7 +25,7 @@ public final class t {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, Ks, Kt)))) {
+                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, JS, JT)))) {
                         continue;
                     } else if (childAt instanceof WebView) {
                         return (WebView) childAt;
@@ -42,7 +42,7 @@ public final class t {
     }
 
     public static String P() {
-        return Kq.size() > 0 ? new JSONArray((Collection) Kq).toString() : "";
+        return JQ.size() > 0 ? new JSONArray((Collection) JQ).toString() : "";
     }
 
     public static boolean ms() {
@@ -59,19 +59,19 @@ public final class t {
         if (activity == null) {
             return;
         }
-        if (Ks == 0 || Kt == 0) {
+        if (JS == 0 || JT == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            Kt = displayMetrics.heightPixels;
-            Ks = displayMetrics.widthPixels;
+            JT = displayMetrics.heightPixels;
+            JS = displayMetrics.widthPixels;
         }
         switch (motionEvent.getAction()) {
             case 0:
                 String name = activity.getClass().getName();
-                if (!name.equals(JY)) {
+                if (!name.equals(Jy)) {
                     com.baidu.crabsdk.c.a.v("***** !tempName.equals(activityName) *****");
-                    JY = name;
-                    Kq.clear();
+                    Jy = name;
+                    JQ.clear();
                 }
                 if (activity != null) {
                     try {
@@ -80,17 +80,17 @@ public final class t {
                             H = H(decorView);
                             if (H == null) {
                                 String url = H.getUrl();
-                                if (url.equals(Kr)) {
+                                if (url.equals(JR)) {
                                     return;
                                 }
                                 com.baidu.crabsdk.c.a.v("-------- !tempUrl.equals(mUrl) --------");
-                                Kr = url;
+                                JR = url;
                                 ArrayList arrayList = new ArrayList();
                                 arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                 arrayList.add(H.getTitle());
-                                arrayList.add(Kr);
-                                com.baidu.crabsdk.c.a.v("title:" + H.getTitle() + "; url:" + Kr);
-                                Kq.add(arrayList);
+                                arrayList.add(JR);
+                                com.baidu.crabsdk.c.a.v("title:" + H.getTitle() + "; url:" + JR);
+                                JQ.add(arrayList);
                                 com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + P());
                                 return;
                             }

@@ -179,10 +179,10 @@ public class e {
     }
 
     public static String v(ChatMessage chatMessage) {
-        return chatMessage == null ? "" : aq(chatMessage.getMsgType(), chatMessage.getContent());
+        return chatMessage == null ? "" : ap(chatMessage.getMsgType(), chatMessage.getContent());
     }
 
-    public static String aq(int i, String str) {
+    public static String ap(int i, String str) {
         int i2 = 0;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -470,7 +470,7 @@ public class e {
             return null;
         }
         com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
-        dVar.gET = split[0];
+        dVar.gEc = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

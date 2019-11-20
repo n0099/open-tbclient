@@ -23,9 +23,9 @@ public class d {
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(a.h.view_guardclub_im_entry, (ViewGroup) null);
         this.textView = (TextView) this.mView.findViewById(a.g.textView);
-        z aLz = m.aLx().aLz();
-        if (aLz != null && !TextUtils.isEmpty(aLz.TG)) {
-            this.textView.setText(aLz.TG);
+        z aLx = m.aLv().aLx();
+        if (aLx != null && !TextUtils.isEmpty(aLx.Tm)) {
+            this.textView.setText(aLx.Tm);
         }
         this.mView.setOnClickListener(onClickListener);
     }

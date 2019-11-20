@@ -1,16 +1,16 @@
 package com.baidu.live.data;
 /* loaded from: classes6.dex */
 public class u {
-    private int SK;
-    private int SL;
-    private int SM;
+    private int Sp;
+    private int Sq;
+    private int Sr;
     private int bgColor;
 
     public u(int i, int i2, int i3, int i4) {
         this.bgColor = i;
-        this.SK = i2;
-        this.SL = i3;
-        this.SM = i4;
+        this.Sp = i2;
+        this.Sq = i3;
+        this.Sr = i4;
     }
 
     public int getBgColor() {
@@ -18,14 +18,14 @@ public class u {
     }
 
     public int ov() {
-        return this.SK;
+        return this.Sp;
     }
 
     public int ow() {
-        return this.SL;
+        return this.Sq;
     }
 
     public int ox() {
-        return this.SM;
+        return this.Sr;
     }
 }

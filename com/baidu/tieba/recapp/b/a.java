@@ -29,9 +29,9 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.d dVar, b bVar) {
-        AdvertAppInfo baN = dVar.baN();
-        if (baN != null) {
-            com.baidu.tbadk.core.data.c.c(baN.advertAppContext, baN.bXp, baN.bXu.bXH == -1001);
+        AdvertAppInfo baL = dVar.baL();
+        if (baL != null) {
+            com.baidu.tbadk.core.data.c.c(baL.advertAppContext, baL.bWy, baL.bWD.bWQ == -1001);
         }
         return bVar.getView();
     }

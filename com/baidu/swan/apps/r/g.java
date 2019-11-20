@@ -24,35 +24,35 @@ public class g extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        EditText IT = c.IS().IT();
-        if (IT == null) {
+        EditText IU = c.IT().IU();
+        if (IU == null) {
             com.baidu.swan.apps.console.c.e("updateInput", "input组件不存在");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
             return false;
         }
         JSONObject dP = o.dP(unitedSchemeEntity.getParam("params"));
-        IT.removeTextChangedListener(c.IS().IW());
+        IU.removeTextChangedListener(c.IT().IX());
         if (dP.has("color")) {
             com.baidu.swan.apps.console.c.i("updateInput", "update color start");
             try {
-                IT.setTextColor(Color.parseColor(dP.optString("color")));
+                IU.setTextColor(Color.parseColor(dP.optString("color")));
             } catch (IllegalArgumentException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
                 com.baidu.swan.apps.console.c.e("updateInput", "color 解析错误");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                IT.addTextChangedListener(c.IS().IW());
+                IU.addTextChangedListener(c.IT().IX());
                 return false;
             }
         }
         if (dP.has("value")) {
             com.baidu.swan.apps.console.c.i("updateInput", "update text start");
             String optString = dP.optString("value");
-            if (!TextUtils.equals(optString, IT.getText())) {
-                IT.setText(optString);
+            if (!TextUtils.equals(optString, IU.getText())) {
+                IU.setText(optString);
                 try {
-                    IT.setSelection(optString.length());
+                    IU.setSelection(optString.length());
                 } catch (IndexOutOfBoundsException e2) {
                     if (DEBUG) {
                         e2.printStackTrace();
@@ -61,12 +61,12 @@ public class g extends z {
                 }
             }
         }
-        IT.addTextChangedListener(c.IS().IW());
-        b IV = c.IS().IV();
-        boolean Z = IV != null ? IV.Z(dP) : false;
+        IU.addTextChangedListener(c.IT().IX());
+        b IW = c.IT().IW();
+        boolean aa = IW != null ? IW.aa(dP) : false;
         com.baidu.swan.apps.console.c.i("updateInput", "update success");
-        if (Z) {
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, Z ? 0 : 1001);
+        if (aa) {
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, aa ? 0 : 1001);
         } else {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 1001);
         }

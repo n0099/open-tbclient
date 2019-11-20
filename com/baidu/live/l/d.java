@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d {
-    private long akZ;
-    private c.a ala;
-    private List<String> alb;
+    private long akH;
+    private c.a akI;
+    private List<String> akJ;
 
-    public static d uI() {
-        return a.alc;
+    public static d uJ() {
+        return a.akK;
     }
 
     public void c(long j, long j2, int i) {
@@ -25,36 +25,36 @@ public class d {
     }
 
     public void a(c.a aVar) {
-        if (this.alb != null) {
-            this.alb.clear();
+        if (this.akJ != null) {
+            this.akJ.clear();
         }
-        D(0L);
-        this.ala = aVar;
-        if (this.ala != null) {
-            List<String> list = aVar.Pq;
+        C(0L);
+        this.akI = aVar;
+        if (this.akI != null) {
+            List<String> list = aVar.OP;
             if (list != null && !list.isEmpty()) {
-                if (this.alb == null) {
-                    this.alb = new ArrayList();
+                if (this.akJ == null) {
+                    this.akJ = new ArrayList();
                 }
-                this.alb.addAll(list);
+                this.akJ.addAll(list);
             }
-            D(aVar.endTime - aVar.Pp);
+            C(aVar.endTime - aVar.OO);
         }
     }
 
     public double aF(boolean z) {
         double d;
-        if (this.ala == null) {
+        if (this.akI == null) {
             return 0.0d;
         }
         if (z) {
-            if (uJ()) {
-                d = Math.max(this.ala.Po, this.ala.Pn);
+            if (uK()) {
+                d = Math.max(this.akI.OM, this.akI.OL);
             } else {
-                d = this.ala.Pn;
+                d = this.akI.OL;
             }
         } else {
-            d = uJ() ? this.ala.Po : 0.0d;
+            d = uK() ? this.akI.OM : 0.0d;
         }
         if (d == 1.0d || d < 0.0d) {
             d = 0.0d;
@@ -62,31 +62,31 @@ public class d {
         return d;
     }
 
-    public boolean uJ() {
-        return this.akZ > 0;
+    public boolean uK() {
+        return this.akH > 0;
     }
 
-    public void uK() {
-        this.akZ = 0L;
+    public void uL() {
+        this.akH = 0L;
     }
 
-    public void D(long j) {
-        this.akZ = j;
+    public void C(long j) {
+        this.akH = j;
     }
 
     public boolean cO(String str) {
-        if (this.alb == null || this.alb.isEmpty()) {
+        if (this.akJ == null || this.akJ.isEmpty()) {
             return false;
         }
-        return this.alb.contains(str);
+        return this.akJ.contains(str);
     }
 
     public void release() {
-        this.akZ = 0L;
-        if (this.alb != null) {
-            this.alb.clear();
+        this.akH = 0L;
+        if (this.akJ != null) {
+            this.akJ.clear();
         }
-        this.ala = null;
+        this.akI = null;
     }
 
     private d() {
@@ -94,6 +94,6 @@ public class d {
 
     /* loaded from: classes6.dex */
     private static class a {
-        private static final d alc = new d();
+        private static final d akK = new d();
     }
 }

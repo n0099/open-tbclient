@@ -8,10 +8,10 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 /* loaded from: classes3.dex */
 public class a {
-    private TbPageContext cfl;
+    private TbPageContext ceu;
 
     public a(TbPageContext tbPageContext) {
-        this.cfl = tbPageContext;
+        this.ceu = tbPageContext;
         b bVar = new b(309641);
         bVar.setResponsedClass(CandidateSearchSocketResMsg.class);
         MessageManager.getInstance().registerTask(bVar);
@@ -20,11 +20,11 @@ public class a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void r(int i, long j) {
+    public void p(int i, long j) {
         CandidateSearchReqMsg candidateSearchReqMsg = new CandidateSearchReqMsg();
         candidateSearchReqMsg.applyId = i;
         candidateSearchReqMsg.fid = j;
-        candidateSearchReqMsg.setTag(this.cfl.getUniqueId());
+        candidateSearchReqMsg.setTag(this.ceu.getUniqueId());
         MessageManager.getInstance().sendMessage(candidateSearchReqMsg);
     }
 }

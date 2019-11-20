@@ -5,10 +5,10 @@ import com.baidu.tieba.ala.liveroom.data.g;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
-    private g elq;
+    private g ekz;
 
-    public g aUG() {
-        return this.elq;
+    public g aUE() {
+        return this.ekz;
     }
 
     public AlaUpdateLiveTbResponseMessage() {
@@ -19,10 +19,10 @@ public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.elq = new g();
-            this.elq.parseJson(jSONObject);
-            setError(this.elq.mErrorCode);
-            setErrorString(this.elq.mErrorMsg);
+            this.ekz = new g();
+            this.ekz.parseJson(jSONObject);
+            setError(this.ekz.mErrorCode);
+            setErrorString(this.ekz.mErrorMsg);
         }
     }
 }

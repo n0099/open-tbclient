@@ -18,12 +18,12 @@ import java.util.List;
 @SuppressLint({"UseSparseArrays"})
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter implements View.OnClickListener {
-    private static SparseArray<Integer> dkh = new SparseArray<>();
-    private static HashMap<C0316a, Integer> dki = new HashMap<>();
-    private static HashMap<C0316a, Integer> dkj = new HashMap<>();
+    private static SparseArray<Integer> djq = new SparseArray<>();
+    private static HashMap<C0316a, Integer> djr = new HashMap<>();
+    private static HashMap<C0316a, Integer> djs = new HashMap<>();
     private List<com.baidu.tieba.im.data.a> data;
-    private NewFriendsActivity dkg;
-    private b dkk;
+    private NewFriendsActivity djp;
+    private b djt;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -31,40 +31,40 @@ public class a extends BaseAdapter implements View.OnClickListener {
     }
 
     static {
-        dkh.put(0, Integer.valueOf((int) R.string.add));
-        dkh.put(4, Integer.valueOf((int) R.string.added));
-        dkh.put(1, Integer.valueOf((int) R.string.pass));
-        dkh.put(2, Integer.valueOf((int) R.string.passed));
-        dkh.put(3, Integer.valueOf((int) R.string.waiting));
-        dki.put(new C0316a(false), Integer.valueOf((int) R.drawable.btn_pass));
-        dki.put(new C0316a(true), Integer.valueOf((int) R.drawable.btn_all_blue));
-        dkj.put(new C0316a(false), Integer.valueOf((int) R.color.btn_pass_text_color));
-        dkj.put(new C0316a(true), Integer.valueOf((int) R.color.btn_agree_text_color));
+        djq.put(0, Integer.valueOf((int) R.string.add));
+        djq.put(4, Integer.valueOf((int) R.string.added));
+        djq.put(1, Integer.valueOf((int) R.string.pass));
+        djq.put(2, Integer.valueOf((int) R.string.passed));
+        djq.put(3, Integer.valueOf((int) R.string.waiting));
+        djr.put(new C0316a(false), Integer.valueOf((int) R.drawable.btn_pass));
+        djr.put(new C0316a(true), Integer.valueOf((int) R.drawable.btn_all_blue));
+        djs.put(new C0316a(false), Integer.valueOf((int) R.color.btn_pass_text_color));
+        djs.put(new C0316a(true), Integer.valueOf((int) R.color.btn_agree_text_color));
     }
 
     /* renamed from: com.baidu.tieba.addresslist.im.newFriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private static class C0316a {
-        private boolean dkl;
+        private boolean dju;
 
         public C0316a(boolean z) {
-            this.dkl = z;
+            this.dju = z;
         }
 
         public int hashCode() {
-            return (this.dkl ? 1231 : 1237) + 31;
+            return (this.dju ? 1231 : 1237) + 31;
         }
 
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;
             }
-            return obj != null && getClass() == obj.getClass() && this.dkl == ((C0316a) obj).dkl;
+            return obj != null && getClass() == obj.getClass() && this.dju == ((C0316a) obj).dju;
         }
     }
 
     public a(NewFriendsActivity newFriendsActivity) {
-        this.dkg = newFriendsActivity;
+        this.djp = newFriendsActivity;
     }
 
     @Override // android.widget.Adapter
@@ -77,7 +77,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lI */
+    /* renamed from: lH */
     public com.baidu.tieba.im.data.a getItem(int i) {
         return this.data.get(i);
     }
@@ -95,25 +95,25 @@ public class a extends BaseAdapter implements View.OnClickListener {
         } else {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.add_new_friend_list_item, (ViewGroup) null);
             cVar = new c();
-            cVar.dkm = (HeadImageView) view.findViewById(R.id.friend_icon);
-            cVar.dkn = (TextView) view.findViewById(R.id.friend_name);
-            cVar.dko = (TextView) view.findViewById(R.id.friend_info);
-            cVar.dkp = (TextView) view.findViewById(R.id.friend_add_btn);
+            cVar.djv = (HeadImageView) view.findViewById(R.id.friend_icon);
+            cVar.djw = (TextView) view.findViewById(R.id.friend_name);
+            cVar.djx = (TextView) view.findViewById(R.id.friend_info);
+            cVar.djy = (TextView) view.findViewById(R.id.friend_add_btn);
             view.setTag(cVar);
         }
         com.baidu.tieba.im.data.a item = getItem(i);
         cVar.c(item);
-        cVar.dkp.setTag(Integer.valueOf(i));
-        cVar.dkp.setOnClickListener(this);
-        this.dkg.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.dkg.getLayoutMode().onModeChanged(view);
-        Integer num = dki.get(new C0316a(item.getStatus() == 1));
+        cVar.djy.setTag(Integer.valueOf(i));
+        cVar.djy.setOnClickListener(this);
+        this.djp.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.djp.getLayoutMode().onModeChanged(view);
+        Integer num = djr.get(new C0316a(item.getStatus() == 1));
         if (num != null) {
-            am.setBackgroundResource(cVar.dkp, num.intValue());
+            am.setBackgroundResource(cVar.djy, num.intValue());
         }
-        Integer num2 = dkj.get(new C0316a(item.getStatus() == 1));
+        Integer num2 = djs.get(new C0316a(item.getStatus() == 1));
         if (num2 != null) {
-            am.setViewTextColor(cVar.dkp, num2.intValue(), 1);
+            am.setViewTextColor(cVar.djy, num2.intValue(), 1);
         }
         return view;
     }
@@ -144,9 +144,9 @@ public class a extends BaseAdapter implements View.OnClickListener {
             this.data = new ArrayList();
         }
         if (aVar != null && aVar.getId() != 0) {
-            int bI = bI(aVar.getId());
-            if (bI != -1) {
-                this.data.remove(bI);
+            int bH = bH(aVar.getId());
+            if (bH != -1) {
+                this.data.remove(bH);
                 this.data.add(0, aVar);
                 return;
             }
@@ -154,7 +154,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    private int bI(long j) {
+    private int bH(long j) {
         if (this.data != null) {
             int size = this.data.size();
             for (int i = 0; i < size; i++) {
@@ -168,38 +168,38 @@ public class a extends BaseAdapter implements View.OnClickListener {
 
     /* loaded from: classes3.dex */
     private static class c {
-        HeadImageView dkm;
-        TextView dkn;
-        TextView dko;
-        TextView dkp;
+        HeadImageView djv;
+        TextView djw;
+        TextView djx;
+        TextView djy;
 
         private c() {
         }
 
         public void c(com.baidu.tieba.im.data.a aVar) {
-            this.dkm.startLoad(aVar.getPortrait(), 12, false);
-            this.dkn.setText(aVar.getName());
+            this.djv.startLoad(aVar.getPortrait(), 12, false);
+            this.djw.setText(aVar.getName());
             if (!TextUtils.isEmpty(aVar.getContent())) {
-                this.dko.setText(aVar.getContent());
+                this.djx.setText(aVar.getContent());
             } else {
-                this.dko.setText("");
+                this.djx.setText("");
             }
             int status = aVar.getStatus();
-            this.dkp.setText(((Integer) a.dkh.get(status)).intValue());
-            this.dkp.setEnabled(status == 0 || status == 1);
+            this.djy.setText(((Integer) a.djq.get(status)).intValue());
+            this.djy.setEnabled(status == 0 || status == 1);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.dkk != null) {
+        if (this.djt != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            this.dkk.a(id, intValue, view, getItem(intValue));
+            this.djt.a(id, intValue, view, getItem(intValue));
         }
     }
 
     public void a(b bVar) {
-        this.dkk = bVar;
+        this.djt = bVar;
     }
 }

@@ -18,24 +18,24 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class b implements INetWork {
-    private c hkM;
-    private DownLoadCallback hkN;
+    private c hjV;
+    private DownLoadCallback hjW;
     private int readTimeout = 0;
     private int connectTimeout = 0;
     private int retryCount = 0;
-    private final Handler aBp = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.livesdk.g.b.1
+    private final Handler aAX = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.livesdk.g.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 18:
-                    if (b.this.hkN != null) {
-                        b.this.hkN.onFileUpdateProgress(message.obj, message.arg1, message.arg2);
+                    if (b.this.hjW != null) {
+                        b.this.hjW.onFileUpdateProgress(message.obj, message.arg1, message.arg2);
                         break;
                     }
                     break;
                 case 19:
-                    if (b.this.hkN != null) {
-                        b.this.hkN.onFileDownloaded(message.obj, message.arg1);
+                    if (b.this.hjW != null) {
+                        b.this.hjW.onFileDownloaded(message.obj, message.arg1);
                         break;
                     }
                     break;
@@ -43,16 +43,16 @@ public class b implements INetWork {
             super.handleMessage(message);
         }
     };
-    private e lJ = new e();
+    private e lh = new e();
 
     @Override // com.baidu.live.adp.lib.network.http.interfaces.INetWork
     public void setUrl(String str) {
-        this.lJ.fJ().setUrl(str);
+        this.lh.fJ().setUrl(str);
     }
 
     @Override // com.baidu.live.adp.lib.network.http.interfaces.INetWork
     public void setHeaderData(HashMap<String, String> hashMap) {
-        this.lJ.fJ().j(hashMap);
+        this.lh.fJ().j(hashMap);
     }
 
     @Override // com.baidu.live.adp.lib.network.http.interfaces.INetWork
@@ -72,37 +72,37 @@ public class b implements INetWork {
 
     @Override // com.baidu.live.adp.lib.network.http.interfaces.INetWork
     public void cancel() {
-        if (this.hkM != null) {
-            this.hkM.cancel();
+        if (this.hjV != null) {
+            this.hjV.cancel();
         }
     }
 
     @Override // com.baidu.live.adp.lib.network.http.interfaces.INetWork
     public NetResponse post(List<Map.Entry<String, Object>> list) {
-        this.lJ.fJ().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.lJ.fJ().i(list);
-        this.hkM = new c(this.lJ);
-        this.hkM.e(this.retryCount, this.readTimeout, this.connectTimeout);
-        return a(this.lJ.fK());
+        this.lh.fJ().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.lh.fJ().i(list);
+        this.hjV = new c(this.lh);
+        this.hjV.e(this.retryCount, this.readTimeout, this.connectTimeout);
+        return a(this.lh.fK());
     }
 
     @Override // com.baidu.live.adp.lib.network.http.interfaces.INetWork
     public NetResponse get(List<Map.Entry<String, Object>> list) {
-        this.lJ.fJ().setMethod(HttpMessageTask.HTTP_METHOD.GET);
-        this.lJ.fJ().i(list);
-        this.hkM = new c(this.lJ);
-        this.hkM.c(this.retryCount, this.readTimeout, this.connectTimeout);
-        return a(this.lJ.fK());
+        this.lh.fJ().setMethod(HttpMessageTask.HTTP_METHOD.GET);
+        this.lh.fJ().i(list);
+        this.hjV = new c(this.lh);
+        this.hjV.c(this.retryCount, this.readTimeout, this.connectTimeout);
+        return a(this.lh.fK());
     }
 
     @Override // com.baidu.live.adp.lib.network.http.interfaces.INetWork
     public NetResponse download(final Object obj, String str, DownLoadCallback downLoadCallback) {
-        this.hkN = downLoadCallback;
-        this.hkM = new c(this.lJ);
-        this.aBp.sendMessage(Message.obtain(this.aBp, 19, this.hkM.a(str, new h() { // from class: com.baidu.tieba.livesdk.g.b.2
+        this.hjW = downLoadCallback;
+        this.hjV = new c(this.lh);
+        this.aAX.sendMessage(Message.obtain(this.aAX, 19, this.hjV.a(str, new h() { // from class: com.baidu.tieba.livesdk.g.b.2
             @Override // com.baidu.adp.lib.network.http.h
-            public void j(int i, int i2) {
-                b.this.aBp.sendMessage(Message.obtain(b.this.aBp, 18, i, i2, obj));
+            public void h(int i, int i2) {
+                b.this.aAX.sendMessage(Message.obtain(b.this.aAX, 18, i, i2, obj));
             }
         }, this.retryCount, -1, this.readTimeout, this.connectTimeout, true, true) ? 0 : -1, 0, obj));
         return null;
@@ -113,14 +113,14 @@ public class b implements INetWork {
             return null;
         }
         NetResponse netResponse = new NetResponse();
-        netResponse.responseCode = this.lJ.fK().responseCode;
-        netResponse.netErrorCode = this.lJ.fK().mNetErrorCode;
-        netResponse.headers = this.lJ.fK().pA;
-        netResponse.contentEncoding = this.lJ.fK().contentEncoding;
-        netResponse.contentLength = this.lJ.fK().contentLength;
-        netResponse.contentType = this.lJ.fK().contentType;
-        netResponse.downSize = this.lJ.fK().downSize;
-        netResponse.retBytes = this.lJ.fK().retBytes;
+        netResponse.responseCode = this.lh.fK().responseCode;
+        netResponse.netErrorCode = this.lh.fK().mNetErrorCode;
+        netResponse.headers = this.lh.fK().oU;
+        netResponse.contentEncoding = this.lh.fK().contentEncoding;
+        netResponse.contentLength = this.lh.fK().contentLength;
+        netResponse.contentType = this.lh.fK().contentType;
+        netResponse.downSize = this.lh.fK().downSize;
+        netResponse.retBytes = this.lh.fK().retBytes;
         if (netResponse.retBytes != null && netResponse.retBytes.length > 0) {
             try {
                 netResponse.decodedResponseStr = new String(netResponse.retBytes, "utf-8");

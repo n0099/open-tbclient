@@ -4,10 +4,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f {
-    private int cWY;
-    private String cWZ;
-    private int cXa;
-    private int cXb;
+    private int cWh;
+    private String cWi;
+    private int cWj;
+    private int cWk;
     private int duration;
     private int height;
     private String thumbUrl;
@@ -20,11 +20,11 @@ public class f {
             this.thumbUrl = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.cWY = pbContent.e_type.intValue();
-            this.cWZ = pbContent.text;
+            this.cWh = pbContent.e_type.intValue();
+            this.cWi = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.cXa = pbContent.count.intValue();
-            this.cXb = pbContent.origin_size.intValue();
+            this.cWj = pbContent.count.intValue();
+            this.cWk = pbContent.origin_size.intValue();
         }
     }
 
@@ -44,12 +44,12 @@ public class f {
         return this.height;
     }
 
-    public String azW() {
-        return this.cWZ;
+    public String azU() {
+        return this.cWi;
     }
 
-    public boolean azX() {
-        return this.cWY == 15;
+    public boolean azV() {
+        return this.cWh == 15;
     }
 
     public boolean isAvaliable() {
@@ -61,6 +61,6 @@ public class f {
     }
 
     public int getFileSize() {
-        return this.cXb;
+        return this.cWk;
     }
 }

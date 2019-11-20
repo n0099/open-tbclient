@@ -80,11 +80,11 @@ public class b {
         return jSONObject.toString();
     }
 
-    public boolean aEG() {
+    public boolean aEE() {
         return (System.currentTimeMillis() / 1000 >= this.startShowTime && System.currentTimeMillis() / 1000 <= this.endShowTime) || (this.startShowTime == 0 && this.endShowTime == 0);
     }
 
-    public boolean aEH() {
+    public boolean aEF() {
         return !TextUtils.isEmpty(this.videoLocalPath);
     }
 }

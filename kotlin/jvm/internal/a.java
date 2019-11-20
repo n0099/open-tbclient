@@ -4,22 +4,22 @@ import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 final class a extends kotlin.collections.k {
     private int index;
-    private final boolean[] kvQ;
+    private final boolean[] kuZ;
 
     public a(boolean[] zArr) {
         p.i(zArr, "array");
-        this.kvQ = zArr;
+        this.kuZ = zArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.kvQ.length;
+        return this.index < this.kuZ.length;
     }
 
     @Override // kotlin.collections.k
-    public boolean cME() {
+    public boolean cMC() {
         try {
-            boolean[] zArr = this.kvQ;
+            boolean[] zArr = this.kuZ;
             int i = this.index;
             this.index = i + 1;
             return zArr[i];

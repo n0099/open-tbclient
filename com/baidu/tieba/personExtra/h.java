@@ -17,7 +17,7 @@ import java.util.List;
 import tbclient.SmartApp;
 /* loaded from: classes6.dex */
 public class h extends RecyclerView.Adapter<a> {
-    private View.OnLongClickListener ipY;
+    private View.OnLongClickListener iph;
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
@@ -50,10 +50,10 @@ public class h extends RecyclerView.Adapter<a> {
     }
 
     public void d(View.OnLongClickListener onLongClickListener) {
-        this.ipY = onLongClickListener;
+        this.iph = onLongClickListener;
     }
 
-    private SmartApp xx(int i) {
+    private SmartApp xw(int i) {
         return (SmartApp) v.getItem(this.mDataList, i);
     }
 
@@ -75,11 +75,11 @@ public class h extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        SmartApp xx;
-        if (aVar != null && (xx = xx(i)) != null) {
-            aVar.c(xx);
+        SmartApp xw;
+        if (aVar != null && (xw = xw(i)) != null) {
+            aVar.c(xw);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.ipY);
+            aVar.setOnLongClickListener(this.iph);
             aVar.onChangeSkinType();
         }
     }
@@ -91,25 +91,25 @@ public class h extends RecyclerView.Adapter<a> {
 
     /* loaded from: classes6.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView gXZ;
-        private SmartApp ipZ;
+        private HeadImageView gXi;
+        private SmartApp ipi;
         private TextView mName;
         private View mRootView;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
-            this.gXZ = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.gXZ.setIsRound(true);
-            this.gXZ.setBg(new ColorDrawable(am.getColor(R.color.cp_bg_line_c)));
+            this.gXi = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.gXi.setIsRound(true);
+            this.gXi.setBg(new ColorDrawable(am.getColor(R.color.cp_bg_line_c)));
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void c(SmartApp smartApp) {
-            this.ipZ = smartApp;
+            this.ipi = smartApp;
             this.mRootView.setTag(smartApp);
             if (!aq.isEmpty(smartApp.avatar)) {
-                this.gXZ.startLoad(smartApp.avatar, 10, false, false);
+                this.gXi.startLoad(smartApp.avatar, 10, false, false);
             }
             if (!aq.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);

@@ -20,10 +20,10 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public static final int FIRST_PN = 1;
     public static final int SORT_TYPE_HOT = 1;
     public static final int SORT_TYPE_NEW = 2;
-    private HttpMessageListener dDQ;
-    private int dGm;
-    private boolean dJq;
-    private a dJr;
+    private HttpMessageListener dCZ;
+    private int dFv;
+    private a dIA;
+    private boolean dIz;
     private String forumGameLabel;
     private String forumId;
     private boolean hasMore;
@@ -35,7 +35,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void P(int i, String str);
+        void O(int i, String str);
 
         void gI(boolean z);
     }
@@ -45,9 +45,9 @@ public class AlaFrsLiveModel extends BdBaseModel {
         this.pn = 1;
         this.ps = 30;
         this.sortType = 1;
-        this.dGm = 1;
-        this.dJq = false;
-        this.dDQ = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_FRS_GAME, true) { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveModel.1
+        this.dFv = 1;
+        this.dIz = false;
+        this.dCZ = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_FRS_GAME, true) { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -56,8 +56,8 @@ public class AlaFrsLiveModel extends BdBaseModel {
                     if (httpResponsedMessage.getOrginalMessage() instanceof AlaGameFrsLiveThreadsRequestMessage) {
                         AlaGameFrsLiveThreadsRequestMessage alaGameFrsLiveThreadsRequestMessage = (AlaGameFrsLiveThreadsRequestMessage) httpResponsedMessage.getOrginalMessage();
                         if (httpResponsedMessage.hasError()) {
-                            if (AlaFrsLiveModel.this.dJr != null) {
-                                AlaFrsLiveModel.this.dJr.P(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                            if (AlaFrsLiveModel.this.dIA != null) {
+                                AlaFrsLiveModel.this.dIA.O(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                                 return;
                             }
                             return;
@@ -66,8 +66,8 @@ public class AlaFrsLiveModel extends BdBaseModel {
                         if (AlaFrsLiveModel.this.mDatas == null) {
                             AlaFrsLiveModel.this.mDatas = new ArrayList();
                         }
-                        if (AlaFrsLiveModel.this.pn != 1 || v.getCount(liveList) != 0 || AlaFrsLiveModel.this.dGm != 2) {
-                            AlaFrsLiveModel.this.dJq = false;
+                        if (AlaFrsLiveModel.this.pn != 1 || v.getCount(liveList) != 0 || AlaFrsLiveModel.this.dFv != 2) {
+                            AlaFrsLiveModel.this.dIz = false;
                             AlaFrsLiveModel.this.hasMore = alaGameFrsLiveThreadsRespMessage.hasMore();
                             AlaFrsLiveModel.this.pn = alaGameFrsLiveThreadsRequestMessage.getPn();
                             AlaFrsLiveModel.this.liveCount = alaGameFrsLiveThreadsRespMessage.getLiveCount();
@@ -88,16 +88,16 @@ public class AlaFrsLiveModel extends BdBaseModel {
                                 AlaFrsLiveModel.this.mDatas.clear();
                                 AlaFrsLiveModel.this.mDatas.addAll(recommandList);
                             }
-                            AlaFrsLiveModel.this.dJq = true;
+                            AlaFrsLiveModel.this.dIz = true;
                         }
-                        if (AlaFrsLiveModel.this.dJr != null) {
-                            AlaFrsLiveModel.this.dJr.gI(AlaFrsLiveModel.this.hasMore);
+                        if (AlaFrsLiveModel.this.dIA != null) {
+                            AlaFrsLiveModel.this.dIA.gI(AlaFrsLiveModel.this.hasMore);
                         }
                     }
                 }
             }
         };
-        registerListener(this.dDQ);
+        registerListener(this.dCZ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -108,7 +108,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         LinkedList linkedList = new LinkedList();
         linkedList.addAll(list);
         for (m mVar : list2) {
-            if (mVar != null && (mVar instanceof com.baidu.tieba.ala.frsgamelive.b.c) && (bhVar = ((com.baidu.tieba.ala.frsgamelive.b.c) mVar).cbq) != null && bhVar.getThreadType() == 49) {
+            if (mVar != null && (mVar instanceof com.baidu.tieba.ala.frsgamelive.b.c) && (bhVar = ((com.baidu.tieba.ala.frsgamelive.b.c) mVar).caz) != null && bhVar.getThreadType() == 49) {
                 String tid = bhVar.getTid();
                 if (!TextUtils.isEmpty(tid)) {
                     Iterator<m> it = list.iterator();
@@ -118,7 +118,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                             break;
                         }
                         m next = it.next();
-                        if (next != null && (next instanceof com.baidu.tieba.ala.frsgamelive.b.c) && (bhVar2 = ((com.baidu.tieba.ala.frsgamelive.b.c) next).cbq) != null && tid.equals(bhVar2.getTid())) {
+                        if (next != null && (next instanceof com.baidu.tieba.ala.frsgamelive.b.c) && (bhVar2 = ((com.baidu.tieba.ala.frsgamelive.b.c) next).caz) != null && tid.equals(bhVar2.getTid())) {
                             z = true;
                             break;
                         }
@@ -143,7 +143,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         sendMessage(alaGameFrsLiveThreadsRequestMessage);
     }
 
-    public boolean aKp() {
+    public boolean aKn() {
         if (!this.hasMore) {
             return false;
         }
@@ -181,7 +181,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     }
 
     public void setFromType(int i) {
-        this.dGm = i;
+        this.dFv = i;
     }
 
     public int getSortType() {
@@ -189,7 +189,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.dJr = aVar;
+        this.dIA = aVar;
     }
 
     public List<m> getData() {
@@ -206,8 +206,8 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return this.liveCount;
     }
 
-    public boolean aKX() {
-        return this.dJq;
+    public boolean aKV() {
+        return this.dIz;
     }
 
     public boolean hasMore() {

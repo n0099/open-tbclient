@@ -4,21 +4,21 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a {
-        private static b cDe = new b();
+        private static b cCn = new b();
     }
 
-    public static b atc() {
-        return a.cDe;
+    public static b ata() {
+        return a.cCn;
     }
 
     private b() {
     }
 
-    public void atd() {
+    public void atb() {
         pl("kLCSError=1");
     }
 
-    public void jB(int i) {
+    public void jA(int i) {
         pl("kNetStatus=" + i);
     }
 

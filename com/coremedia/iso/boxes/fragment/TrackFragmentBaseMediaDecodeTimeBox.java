@@ -11,9 +11,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
     public static final String TYPE = "tfdt";
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_2 = null;
     private long baseMediaDecodeTime;
 
     static {
@@ -62,7 +62,7 @@ public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
     }
 
     public void setBaseMediaDecodeTime(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.en(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.em(j)));
         this.baseMediaDecodeTime = j;
     }
 

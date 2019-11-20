@@ -5,28 +5,28 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ALAGroupHttpResponseMessage extends JsonHttpResponsedMessage {
-    private boolean ahL;
-    private List<com.baidu.live.im.data.a> ahM;
+    private boolean aht;
+    private List<com.baidu.live.im.data.a> ahu;
     private long mGroupId;
 
     public ALAGroupHttpResponseMessage() {
         super(1021012);
     }
 
-    public boolean tp() {
-        return this.ahL;
+    public boolean tq() {
+        return this.aht;
     }
 
     public void aA(boolean z) {
-        this.ahL = z;
+        this.aht = z;
     }
 
-    public List<com.baidu.live.im.data.a> tq() {
-        return this.ahM;
+    public List<com.baidu.live.im.data.a> tr() {
+        return this.ahu;
     }
 
     public void I(List<com.baidu.live.im.data.a> list) {
-        this.ahM = list;
+        this.ahu = list;
     }
 
     public long getGroupId() {

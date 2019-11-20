@@ -16,12 +16,12 @@ import android.text.style.ReplacementSpan;
 import com.baidu.live.k.a;
 /* loaded from: classes6.dex */
 public class a extends ReplacementSpan {
-    private Resources ajk;
-    private float ajl;
-    private float ajm;
-    private Paint ajn;
-    private Paint ajo;
-    private float ajp;
+    private Resources aiS;
+    private float aiT;
+    private float aiU;
+    private Paint aiV;
+    private Paint aiW;
+    private float aiX;
     private String mText;
     private int mTextSize;
 
@@ -31,54 +31,54 @@ public class a extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        return (int) this.ajl;
+        return (int) this.aiT;
     }
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-        float f2 = (((fontMetrics.descent - fontMetrics.ascent) - this.ajm) * 0.5f) + i4 + fontMetrics.ascent;
-        this.ajn.setShader(new LinearGradient(f, 0.0f, f + this.ajl, 0.0f, Color.parseColor("#FFFED33B"), Color.parseColor("#FFFEAF01"), Shader.TileMode.CLAMP));
-        canvas.drawRoundRect(new RectF(f, f2, this.ajl + f, this.ajm + f2), this.ajp, this.ajp, this.ajn);
-        Paint.FontMetrics fontMetrics2 = this.ajo.getFontMetrics();
-        canvas.drawText(this.mText, (this.ajl * 0.5f) + f, (((this.ajm - (fontMetrics2.bottom - fontMetrics2.top)) * 0.5f) + f2) - fontMetrics2.top, this.ajo);
+        float f2 = (((fontMetrics.descent - fontMetrics.ascent) - this.aiU) * 0.5f) + i4 + fontMetrics.ascent;
+        this.aiV.setShader(new LinearGradient(f, 0.0f, f + this.aiT, 0.0f, Color.parseColor("#FFFED33B"), Color.parseColor("#FFFEAF01"), Shader.TileMode.CLAMP));
+        canvas.drawRoundRect(new RectF(f, f2, this.aiT + f, this.aiU + f2), this.aiX, this.aiX, this.aiV);
+        Paint.FontMetrics fontMetrics2 = this.aiW.getFontMetrics();
+        canvas.drawText(this.mText, (this.aiT * 0.5f) + f, (((this.aiU - (fontMetrics2.bottom - fontMetrics2.top)) * 0.5f) + f2) - fontMetrics2.top, this.aiW);
     }
 
     private void init(Context context, String str) {
-        this.ajk = context.getResources();
-        this.mTextSize = this.ajk.getDimensionPixelSize(a.e.sdk_fontsize24);
+        this.aiS = context.getResources();
+        this.mTextSize = this.aiS.getDimensionPixelSize(a.e.sdk_fontsize24);
         this.mText = str;
-        tU();
+        tV();
         lj();
-        this.ajp = this.ajk.getDimensionPixelOffset(a.e.sdk_ds6);
+        this.aiX = this.aiS.getDimensionPixelOffset(a.e.sdk_ds6);
     }
 
-    private void tU() {
+    private void tV() {
         Rect rect = new Rect();
         Paint paint = new Paint();
         paint.setTextSize(this.mTextSize);
         paint.getTextBounds(this.mText, 0, this.mText.length(), rect);
-        this.ajl = rect.width() + (this.ajk.getDimensionPixelOffset(a.e.sdk_ds6) * 2);
-        this.ajm = rect.height() + (this.ajk.getDimensionPixelOffset(a.e.sdk_ds4) * 2);
+        this.aiT = rect.width() + (this.aiS.getDimensionPixelOffset(a.e.sdk_ds6) * 2);
+        this.aiU = rect.height() + (this.aiS.getDimensionPixelOffset(a.e.sdk_ds4) * 2);
     }
 
     private void lj() {
-        tV();
         tW();
-    }
-
-    private void tV() {
-        this.ajn = new Paint();
-        this.ajn.setAntiAlias(true);
-        this.ajn.setStyle(Paint.Style.FILL);
+        tX();
     }
 
     private void tW() {
-        this.ajo = new TextPaint();
-        this.ajo.setAntiAlias(true);
-        this.ajo.setColor(Color.parseColor("#FFFFFFFF"));
-        this.ajo.setFakeBoldText(true);
-        this.ajo.setTextSize(this.mTextSize);
-        this.ajo.setTextAlign(Paint.Align.CENTER);
+        this.aiV = new Paint();
+        this.aiV.setAntiAlias(true);
+        this.aiV.setStyle(Paint.Style.FILL);
+    }
+
+    private void tX() {
+        this.aiW = new TextPaint();
+        this.aiW.setAntiAlias(true);
+        this.aiW.setColor(Color.parseColor("#FFFFFFFF"));
+        this.aiW.setFakeBoldText(true);
+        this.aiW.setTextSize(this.mTextSize);
+        this.aiW.setTextAlign(Paint.Align.CENTER);
     }
 }

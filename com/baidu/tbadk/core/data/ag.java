@@ -7,19 +7,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag {
-    private ArrayList<String> bZO;
-    private int bZP = 0;
-    private UserData bZN = new UserData();
+    private ArrayList<String> bYX;
+    private int bYY = 0;
+    private UserData bYW = new UserData();
     private AntiData anti = new AntiData();
 
     public ag() {
-        this.bZO = null;
-        this.bZO = new ArrayList<>();
-        hv(0);
+        this.bYX = null;
+        this.bYX = new ArrayList<>();
+        hu(0);
     }
 
     public UserData getUser() {
-        return this.bZN;
+        return this.bYW;
     }
 
     public AntiData getAnti() {
@@ -36,21 +36,21 @@ public class ag {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.bZN.parserJson(jSONObject.optJSONObject("user"));
+            this.bYW.parserJson(jSONObject.optJSONObject("user"));
             this.anti.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.bZO.add(optJSONArray.optString(i, null));
+                    this.bYX.add(optJSONArray.optString(i, null));
                 }
             }
-            hv(jSONObject.optInt("retrytime"));
+            hu(jSONObject.optInt("retrytime"));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void hv(int i) {
-        this.bZP = i;
+    public void hu(int i) {
+        this.bYY = i;
     }
 }

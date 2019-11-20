@@ -64,7 +64,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     String str = new String(bArr);
-                    l<String> nl = a.akN().nl("tb.my_pages");
+                    l<String> nl = a.akL().nl("tb.my_pages");
                     if (nl != null) {
                         nl.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + map.get("id"), str, 604800000L);
                     }

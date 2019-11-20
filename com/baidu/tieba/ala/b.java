@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b implements e {
-    private int Qc = 1;
+    private int Pw = 1;
     private List<com.baidu.live.liveroom.c.d> mDataList;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -17,7 +17,7 @@ public class b implements e {
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public View sr() {
+    public View ss() {
         return this.mRootView;
     }
 
@@ -30,15 +30,15 @@ public class b implements e {
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public String ss() {
-        if (this.Qc == 1) {
-            return com.baidu.live.l.a.uA().ajX.Rl;
+    public String st() {
+        if (this.Pw == 1) {
+            return com.baidu.live.l.a.uB().ajF.QK;
         }
         return null;
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public short st() {
+    public short su() {
         return (short) 5;
     }
 

@@ -19,8 +19,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 /* loaded from: classes4.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private MessageRedDotView gSZ;
-    private CustomMessageListener gTa;
+    private MessageRedDotView gSi;
+    private CustomMessageListener gSj;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -28,7 +28,7 @@ public class ImMessageCenterDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c avy() {
+    public c avw() {
         c cVar = new c();
         cVar.frag = new MessageCenterFragment();
         cVar.type = 3;
@@ -40,15 +40,15 @@ public class ImMessageCenterDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator cB(Context context) {
-        this.cKb = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.gSZ = new MessageRedDotView(context);
+        this.cJk = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+        this.gSi = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.cKv = this.cKb;
-        aVar.view = this.gSZ;
+        aVar.cJE = this.cJk;
+        aVar.view = this.gSi;
         aVar.isRight = true;
-        this.cKb.b("msg", aVar);
-        this.gSZ.setVisibility(4);
-        return this.cKb;
+        this.cJk.b("msg", aVar);
+        this.gSi.setVisibility(4);
+        return this.cJk;
     }
 
     static {
@@ -67,7 +67,7 @@ public class ImMessageCenterDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        this.gTa = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+        this.gSj = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -92,24 +92,24 @@ public class ImMessageCenterDelegateStatic extends b {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.gTa);
+        MessageManager.getInstance().registerListener(this.gSj);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m(boolean z, int i) {
-        if (this.gSZ != null) {
+        if (this.gSi != null) {
             if (z) {
-                this.gSZ.refresh(i);
-                this.gSZ.setVisibility(0);
+                this.gSi.refresh(i);
+                this.gSi.setVisibility(0);
                 return;
             }
-            this.gSZ.setVisibility(8);
+            this.gSi.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.gTa);
+        MessageManager.getInstance().unRegisterListener(this.gSj);
     }
 }

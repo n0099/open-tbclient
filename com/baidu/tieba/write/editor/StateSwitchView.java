@@ -9,21 +9,21 @@ import com.baidu.tieba.c.d;
 import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 /* loaded from: classes3.dex */
 public class StateSwitchView extends EditorInfoView {
-    private boolean cfm;
-    private int coE;
-    private d hUJ;
-    private String jQe;
-    private String jQf;
-    private int jQg;
-    private int jQh;
-    private com.baidu.tbadk.core.util.f.a jQi;
-    private com.baidu.tbadk.core.util.f.a jQj;
+    private boolean cev;
+    private int cnN;
+    private d hTS;
+    private String jPn;
+    private String jPo;
+    private int jPp;
+    private int jPq;
+    private com.baidu.tbadk.core.util.f.a jPr;
+    private com.baidu.tbadk.core.util.f.a jPs;
     private int mSkinType;
     private int mState;
 
     public StateSwitchView(Context context) {
         super(context);
-        this.cfm = false;
+        this.cev = false;
         this.mSkinType = 3;
         init();
     }
@@ -36,7 +36,7 @@ public class StateSwitchView extends EditorInfoView {
     private void initUI() {
         int dimension = (int) getResources().getDimension(R.dimen.ds26);
         setPadding(dimension, 0, dimension, 0);
-        aUu();
+        aUs();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -44,21 +44,21 @@ public class StateSwitchView extends EditorInfoView {
         this.mState = 0;
     }
 
-    public void aHJ() {
+    public void aHH() {
         if (this.mState == 0) {
             this.mState = 1;
         } else {
             this.mState = 0;
         }
-        aUu();
-        cyu();
+        aUs();
+        cys();
     }
 
-    private void aUu() {
+    private void aUs() {
         if (this.mState == 1) {
-            setText(this.jQf);
+            setText(this.jPo);
         } else {
-            setText(this.jQe);
+            setText(this.jPn);
         }
     }
 
@@ -66,41 +66,41 @@ public class StateSwitchView extends EditorInfoView {
         if (i == 0 || i == 1) {
             this.mState = i;
         }
-        aUu();
-        cyu();
+        aUs();
+        cys();
     }
 
     public void setStateString(String str, String str2) {
-        this.jQe = str;
-        this.jQf = str2;
-        aUu();
+        this.jPn = str;
+        this.jPo = str2;
+        aUs();
     }
 
     public void setLeftStateDrawable(int i, int i2) {
-        this.jQg = i;
-        this.jQh = i2;
-        this.cfm = false;
-        cyu();
+        this.jPp = i;
+        this.jPq = i2;
+        this.cev = false;
+        cys();
     }
 
     public void setLeftStateDrawable(com.baidu.tbadk.core.util.f.a aVar, com.baidu.tbadk.core.util.f.a aVar2) {
         if (aVar != null && aVar2 != null) {
-            this.cfm = true;
-            this.jQi = aVar;
-            this.jQj = aVar2;
-            cyu();
+            this.cev = true;
+            this.jPr = aVar;
+            this.jPs = aVar2;
+            cys();
         }
     }
 
-    private void cyu() {
+    private void cys() {
         Drawable drawable;
         Drawable drawable2;
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds48);
         if (this.mState == 1) {
-            if (this.cfm && this.jQj != null) {
-                drawable2 = this.jQj.getDrawable();
+            if (this.cev && this.jPs != null) {
+                drawable2 = this.jPs.getDrawable();
             } else {
-                drawable2 = this.jQh > 0 ? am.getDrawable(this.jQh) : null;
+                drawable2 = this.jPq > 0 ? am.getDrawable(this.jPq) : null;
             }
             if (drawable2 != null) {
                 drawable2.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
@@ -108,10 +108,10 @@ public class StateSwitchView extends EditorInfoView {
                 setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.ds8));
             }
         } else if (this.mState == 0) {
-            if (this.cfm && this.jQi != null) {
-                drawable = this.jQi.getDrawable();
+            if (this.cev && this.jPr != null) {
+                drawable = this.jPr.getDrawable();
             } else {
-                drawable = this.jQh > 0 ? am.getDrawable(this.jQg) : null;
+                drawable = this.jPq > 0 ? am.getDrawable(this.jPp) : null;
             }
             if (drawable != null) {
                 drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
@@ -126,15 +126,15 @@ public class StateSwitchView extends EditorInfoView {
     }
 
     public void hideTip() {
-        if (this.hUJ != null) {
-            this.hUJ.uP();
+        if (this.hTS != null) {
+            this.hTS.uQ();
         }
     }
 
     public void setBackgroundId(int i) {
-        this.coE = i;
-        if (this.coE > 0) {
-            am.setBackgroundResource(this, this.coE);
+        this.cnN = i;
+        if (this.cnN > 0) {
+            am.setBackgroundResource(this, this.cnN);
         }
     }
 
@@ -143,10 +143,10 @@ public class StateSwitchView extends EditorInfoView {
         super.onChangeSkinType(i);
         if (this.mSkinType != i) {
             am.setViewTextColor(this, (int) R.color.cp_cont_f);
-            if (this.coE > 0) {
-                am.setBackgroundResource(this, this.coE);
+            if (this.cnN > 0) {
+                am.setBackgroundResource(this, this.cnN);
             }
-            cyu();
+            cys();
             this.mSkinType = i;
         }
     }

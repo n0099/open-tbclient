@@ -31,7 +31,7 @@ public class d extends z {
             return false;
         } else {
             int optInt = c.optInt("useExtension");
-            if (!com.baidu.swan.apps.extcore.debug.b.HY().exists()) {
+            if (!com.baidu.swan.apps.extcore.debug.b.HZ().exists()) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, context.getResources().getString(a.h.aiapps_debug_no_extension_core));
                 return false;
             }

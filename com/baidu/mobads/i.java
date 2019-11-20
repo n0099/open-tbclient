@@ -3,15 +3,11 @@ package com.baidu.mobads;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 class i implements e {
-    final /* synthetic */ d aAE;
+    final /* synthetic */ d aAm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar) {
-        this.aAE = dVar;
-    }
-
-    @Override // com.baidu.mobads.e
-    public void zt() {
+        this.aAm = dVar;
     }
 
     @Override // com.baidu.mobads.e
@@ -19,11 +15,15 @@ class i implements e {
     }
 
     @Override // com.baidu.mobads.e
+    public void zv() {
+    }
+
+    @Override // com.baidu.mobads.e
     public void dy(String str) {
     }
 
     @Override // com.baidu.mobads.e
-    public void zv() {
+    public void zw() {
     }
 
     @Override // com.baidu.mobads.e

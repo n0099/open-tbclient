@@ -4,54 +4,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    final int kEg;
-    Object[] kEh;
-    Object[] kEi;
-    int kEj;
+    final int kDp;
+    Object[] kDq;
+    Object[] kDr;
+    int kDs;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.kEh = new Object[this.kEg + 1];
-            this.kEi = this.kEh;
-            this.kEh[0] = obj;
-            this.kEj = 1;
+            this.kDq = new Object[this.kDp + 1];
+            this.kDr = this.kDq;
+            this.kDq[0] = obj;
+            this.kDs = 1;
             this.size = 1;
-        } else if (this.kEj == this.kEg) {
-            Object[] objArr = new Object[this.kEg + 1];
+        } else if (this.kDs == this.kDp) {
+            Object[] objArr = new Object[this.kDp + 1];
             objArr[0] = obj;
-            this.kEi[this.kEg] = objArr;
-            this.kEi = objArr;
-            this.kEj = 1;
+            this.kDr[this.kDp] = objArr;
+            this.kDr = objArr;
+            this.kDs = 1;
             this.size++;
         } else {
-            this.kEi[this.kEj] = obj;
-            this.kEj++;
+            this.kDr[this.kDs] = obj;
+            this.kDs++;
             this.size++;
         }
     }
 
-    public Object[] cOX() {
-        return this.kEh;
+    public Object[] cOV() {
+        return this.kDq;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> cOY() {
-        int i = this.kEg;
+    List<Object> cOW() {
+        int i = this.kDp;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] cOX = cOX();
+        Object[] cOV = cOV();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(cOX[i4]);
+            arrayList.add(cOV[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                cOX = (Object[]) cOX[i];
+                cOV = (Object[]) cOV[i];
                 i4 = 0;
             }
         }
@@ -59,6 +59,6 @@ public class c {
     }
 
     public String toString() {
-        return cOY().toString();
+        return cOW().toString();
     }
 }

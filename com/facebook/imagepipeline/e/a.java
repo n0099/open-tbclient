@@ -10,18 +10,18 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public abstract class a<T> extends AbstractDataSource<T> {
-    private final com.facebook.imagepipeline.g.b kil;
-    private final an kjE;
+    private final com.facebook.imagepipeline.g.b kht;
+    private final an kiN;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(ai<T> aiVar, an anVar, com.facebook.imagepipeline.g.b bVar) {
-        this.kjE = anVar;
-        this.kil = bVar;
-        this.kil.a(anVar.cIH(), this.kjE.cEb(), this.kjE.getId(), this.kjE.cIK());
-        aiVar.a(cHA(), anVar);
+        this.kiN = anVar;
+        this.kht = bVar;
+        this.kht.a(anVar.cIF(), this.kiN.cDZ(), this.kiN.getId(), this.kiN.cII());
+        aiVar.a(cHy(), anVar);
     }
 
-    private j<T> cHA() {
+    private j<T> cHy() {
         return new com.facebook.imagepipeline.producers.b<T>() { // from class: com.facebook.imagepipeline.e.a.1
             @Override // com.facebook.imagepipeline.producers.b
             protected void e(@Nullable T t, boolean z) {
@@ -29,13 +29,13 @@ public abstract class a<T> extends AbstractDataSource<T> {
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void z(Throwable th) {
-                a.this.z(th);
+            protected void A(Throwable th) {
+                a.this.A(th);
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void cHB() {
-                a.this.cHB();
+            protected void cHz() {
+                a.this.cHz();
             }
 
             @Override // com.facebook.imagepipeline.producers.b
@@ -48,30 +48,30 @@ public abstract class a<T> extends AbstractDataSource<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void e(@Nullable T t, boolean z) {
         if (super.b(t, z) && z) {
-            this.kil.a(this.kjE.cIH(), this.kjE.getId(), this.kjE.cIK());
+            this.kht.a(this.kiN.cIF(), this.kiN.getId(), this.kiN.cII());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void z(Throwable th) {
-        if (super.s(th)) {
-            this.kil.a(this.kjE.cIH(), this.kjE.getId(), th, this.kjE.cIK());
+    public void A(Throwable th) {
+        if (super.t(th)) {
+            this.kht.a(this.kiN.cIF(), this.kiN.getId(), th, this.kiN.cII());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void cHB() {
+    public synchronized void cHz() {
         g.checkState(isClosed());
     }
 
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-    public boolean FH() {
-        if (!super.FH()) {
+    public boolean FI() {
+        if (!super.FI()) {
             return false;
         }
         if (!super.isFinished()) {
-            this.kil.GG(this.kjE.getId());
-            this.kjE.cancel();
+            this.kht.GG(this.kiN.getId());
+            this.kiN.cancel();
         }
         return true;
     }

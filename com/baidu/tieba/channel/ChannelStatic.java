@@ -34,35 +34,35 @@ import com.baidu.tieba.channel.model.ChannelHomeModel;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class ChannelStatic {
-    private static HttpMessageListener eRv = new HttpMessageListener(1003311) { // from class: com.baidu.tieba.channel.ChannelStatic.1
+    private static HttpMessageListener eQE = new HttpMessageListener(1003311) { // from class: com.baidu.tieba.channel.ChannelStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelFollowHttpResponseMessage)) {
                 a.C0281a c0281a = (a.C0281a) httpResponsedMessage.getOrginalMessage().getExtra();
-                c0281a.bWz = httpResponsedMessage;
+                c0281a.bVI = httpResponsedMessage;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, c0281a));
             }
         }
     };
-    private static HttpMessageListener eRw = new HttpMessageListener(1003309) { // from class: com.baidu.tieba.channel.ChannelStatic.2
+    private static HttpMessageListener eQF = new HttpMessageListener(1003309) { // from class: com.baidu.tieba.channel.ChannelStatic.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelUnFollowHttpResponseMessage)) {
                 a.c cVar = (a.c) httpResponsedMessage.getOrginalMessage().getExtra();
-                cVar.bWz = httpResponsedMessage;
+                cVar.bVI = httpResponsedMessage;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, cVar));
             }
         }
     };
-    private static HttpMessageListener eRx = new HttpMessageListener(1003310) { // from class: com.baidu.tieba.channel.ChannelStatic.3
+    private static HttpMessageListener eQG = new HttpMessageListener(1003310) { // from class: com.baidu.tieba.channel.ChannelStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelUpdatePushHttpResponseMessage)) {
                 a.b bVar = (a.b) httpResponsedMessage.getOrginalMessage().getExtra();
-                bVar.bWz = httpResponsedMessage;
+                bVar.bVI = httpResponsedMessage;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, bVar));
             }
         }
@@ -93,9 +93,9 @@ public class ChannelStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        aMJ();
-        bba();
-        ba.amQ().a(UrlSchemaHelper.SCHEMA_TYPE_GOTO_CHANNEL_HOME, new ba.b() { // from class: com.baidu.tieba.channel.ChannelStatic.5
+        aMH();
+        baY();
+        ba.amO().a(UrlSchemaHelper.SCHEMA_TYPE_GOTO_CHANNEL_HOME, new ba.b() { // from class: com.baidu.tieba.channel.ChannelStatic.5
             @Override // com.baidu.tbadk.core.util.ba.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null && map != null && map.size() > 0) {
@@ -112,15 +112,15 @@ public class ChannelStatic {
         });
     }
 
-    private static void aMJ() {
+    private static void aMH() {
         c.a(1003311, TbConfig.CMD_CHANNEL_FOLLOW, ChannelFollowHttpResponseMessage.class);
         c.a(1003309, TbConfig.CMD_CHANNEL_UNFOLLOW, ChannelUnFollowHttpResponseMessage.class);
         c.a(1003310, TbConfig.CMD_CHANNEL_UPDATE_PUSH, ChannelUpdatePushHttpResponseMessage.class);
     }
 
-    private static void bba() {
-        MessageManager.getInstance().registerListener(eRv);
-        MessageManager.getInstance().registerListener(eRw);
-        MessageManager.getInstance().registerListener(eRx);
+    private static void baY() {
+        MessageManager.getInstance().registerListener(eQE);
+        MessageManager.getInstance().registerListener(eQF);
+        MessageManager.getInstance().registerListener(eQG);
     }
 }

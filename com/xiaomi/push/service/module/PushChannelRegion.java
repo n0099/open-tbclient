@@ -5,5 +5,6 @@ public enum PushChannelRegion {
     China,
     Global,
     Europe,
-    Russia
+    Russia,
+    India
 }

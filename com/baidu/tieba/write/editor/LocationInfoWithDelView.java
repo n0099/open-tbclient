@@ -14,16 +14,16 @@ import com.baidu.tbadk.editortools.editorinfotool.LocationInfoView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class LocationInfoWithDelView extends LinearLayout implements View.OnClickListener {
-    private ImageView fel;
-    private LocationInfoView jPZ;
-    private a jQa;
+    private ImageView fdu;
+    private LocationInfoView jPi;
+    private a jPj;
     private int mSkinType;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void cys();
+        void cyq();
 
-        void cyt();
+        void cyr();
     }
 
     public LocationInfoWithDelView(Context context) {
@@ -42,24 +42,24 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
         setPadding(dimensionPixelSize, 0, 0, 0);
         setGravity(16);
         setOnClickListener(this);
-        this.jPZ = new LocationInfoView(getContext());
-        this.jPZ.setMaxEms(4);
-        this.jPZ.setPadding(0, 0, 0, 0);
-        addView(this.jPZ, new LinearLayout.LayoutParams(-2, -2));
-        this.fel = new ImageView(getContext());
-        this.fel.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fel.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
-        addView(this.fel, new LinearLayout.LayoutParams(dimensionPixelSize * 3, dimensionPixelSize));
-        this.fel.setOnClickListener(this);
+        this.jPi = new LocationInfoView(getContext());
+        this.jPi.setMaxEms(4);
+        this.jPi.setPadding(0, 0, 0, 0);
+        addView(this.jPi, new LinearLayout.LayoutParams(-2, -2));
+        this.fdu = new ImageView(getContext());
+        this.fdu.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fdu.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
+        addView(this.fdu, new LinearLayout.LayoutParams(dimensionPixelSize * 3, dimensionPixelSize));
+        this.fdu.setOnClickListener(this);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         hide();
     }
 
     public void onChangeSkinType(int i) {
-        this.jPZ.onChangeSkinType(i);
+        this.jPi.onChangeSkinType(i);
         if (this.mSkinType != i) {
             am.e(this, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds26), R.color.cp_bg_line_j, R.color.cp_bg_line_j_alpha50);
-            SvgManager.amN().a(this.fel, R.drawable.icon_pure_close12_n_svg, R.color.cp_cont_f, null);
+            SvgManager.amL().a(this.fdu, R.drawable.icon_pure_close12_n_svg, R.color.cp_cont_f, null);
             this.mSkinType = i;
         }
     }
@@ -70,7 +70,7 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
                 int indexOf = str.indexOf("·");
                 str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
             }
-            this.jPZ.setState(i, str);
+            this.jPi.setState(i, str);
             setVisibility(0);
             return;
         }
@@ -82,16 +82,16 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
     }
 
     public void setLocationClickListener(a aVar) {
-        this.jQa = aVar;
+        this.jPj = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jQa != null) {
-            if (view == this.fel) {
-                this.jQa.cyt();
+        if (this.jPj != null) {
+            if (view == this.fdu) {
+                this.jPj.cyr();
             } else if (view == this) {
-                this.jQa.cys();
+                this.jPj.cyq();
             }
         }
     }

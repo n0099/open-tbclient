@@ -10,7 +10,7 @@ public class b extends com.baidu.adp.widget.ListView.a<f, c.a> {
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), f.dxX);
+        super(tbPageContext.getPageActivity(), f.dxg);
         this.mPageContext = tbPageContext;
     }
 
@@ -31,7 +31,7 @@ public class b extends com.baidu.adp.widget.ListView.a<f, c.a> {
         if (aVar == null || fVar == null) {
             return null;
         }
-        aVar.dDd.a(fVar);
+        aVar.dCm.a(fVar);
         return aVar.getView();
     }
 }

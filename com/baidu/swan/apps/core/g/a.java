@@ -3,7 +3,7 @@ package com.baidu.swan.apps.core.g;
 import android.app.Activity;
 /* loaded from: classes2.dex */
 public interface a {
-    com.baidu.swan.apps.core.container.a FY();
+    com.baidu.swan.apps.core.container.a FZ();
 
     void a(com.baidu.swan.apps.core.c cVar);
 

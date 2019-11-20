@@ -10,26 +10,26 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class e {
-    private static final Class<?> jZN = e.class;
-    private final com.facebook.cache.disk.h kgJ;
-    private final com.facebook.common.memory.j kgK;
-    private final Executor kgL;
-    private final Executor kgM;
-    private final ab kgN = ab.cFM();
-    private final o kgO;
-    private final com.facebook.common.memory.g kgu;
+    private static final Class<?> jYW = e.class;
+    private final com.facebook.common.memory.g kfD;
+    private final com.facebook.cache.disk.h kfS;
+    private final com.facebook.common.memory.j kfT;
+    private final Executor kfU;
+    private final Executor kfV;
+    private final ab kfW = ab.cFK();
+    private final o kfX;
 
     public e(com.facebook.cache.disk.h hVar, com.facebook.common.memory.g gVar, com.facebook.common.memory.j jVar, Executor executor, Executor executor2, o oVar) {
-        this.kgJ = hVar;
-        this.kgu = gVar;
-        this.kgK = jVar;
-        this.kgL = executor;
-        this.kgM = executor2;
-        this.kgO = oVar;
+        this.kfS = hVar;
+        this.kfD = gVar;
+        this.kfT = jVar;
+        this.kfU = executor;
+        this.kfV = executor2;
+        this.kfX = oVar;
     }
 
     public boolean i(com.facebook.cache.common.b bVar) {
-        return this.kgN.r(bVar) || this.kgJ.e(bVar);
+        return this.kfW.r(bVar) || this.kfS.e(bVar);
     }
 
     public bolts.g<Boolean> j(com.facebook.cache.common.b bVar) {
@@ -41,35 +41,35 @@ public class e {
             return bolts.g.a(new Callable<Boolean>() { // from class: com.facebook.imagepipeline.c.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: cFs */
+                /* renamed from: cFq */
                 public Boolean call() throws Exception {
                     return Boolean.valueOf(e.this.l(bVar));
                 }
-            }, this.kgL);
+            }, this.kfU);
         } catch (Exception e) {
-            com.facebook.common.c.a.a(jZN, e, "Failed to schedule disk-cache read for %s", bVar.cBY());
-            return bolts.g.f(e);
+            com.facebook.common.c.a.a(jYW, e, "Failed to schedule disk-cache read for %s", bVar.cBW());
+            return bolts.g.e(e);
         }
     }
 
     public bolts.g<com.facebook.imagepipeline.f.d> a(com.facebook.cache.common.b bVar, AtomicBoolean atomicBoolean) {
-        com.facebook.imagepipeline.f.d q = this.kgN.q(bVar);
+        com.facebook.imagepipeline.f.d q = this.kfW.q(bVar);
         return q != null ? b(bVar, q) : b(bVar, atomicBoolean);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean l(com.facebook.cache.common.b bVar) {
-        com.facebook.imagepipeline.f.d q = this.kgN.q(bVar);
+        com.facebook.imagepipeline.f.d q = this.kfW.q(bVar);
         if (q != null) {
             q.close();
-            com.facebook.common.c.a.a(jZN, "Found image for %s in staging area", bVar.cBY());
-            this.kgO.p(bVar);
+            com.facebook.common.c.a.a(jYW, "Found image for %s in staging area", bVar.cBW());
+            this.kfX.p(bVar);
             return true;
         }
-        com.facebook.common.c.a.a(jZN, "Did not find image for %s in staging area", bVar.cBY());
-        this.kgO.cFG();
+        com.facebook.common.c.a.a(jYW, "Did not find image for %s in staging area", bVar.cBW());
+        this.kfX.cFE();
         try {
-            return this.kgJ.f(bVar);
+            return this.kfS.f(bVar);
         } catch (Exception e) {
             return false;
         }
@@ -80,17 +80,17 @@ public class e {
             return bolts.g.a(new Callable<com.facebook.imagepipeline.f.d>() { // from class: com.facebook.imagepipeline.c.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: cFt */
+                /* renamed from: cFr */
                 public com.facebook.imagepipeline.f.d call() throws Exception {
                     if (!atomicBoolean.get()) {
-                        com.facebook.imagepipeline.f.d q = e.this.kgN.q(bVar);
+                        com.facebook.imagepipeline.f.d q = e.this.kfW.q(bVar);
                         if (q != null) {
-                            com.facebook.common.c.a.a(e.jZN, "Found image for %s in staging area", bVar.cBY());
-                            e.this.kgO.p(bVar);
+                            com.facebook.common.c.a.a(e.jYW, "Found image for %s in staging area", bVar.cBW());
+                            e.this.kfX.p(bVar);
                             q.t(bVar);
                         } else {
-                            com.facebook.common.c.a.a(e.jZN, "Did not find image for %s in staging area", bVar.cBY());
-                            e.this.kgO.cFG();
+                            com.facebook.common.c.a.a(e.jYW, "Did not find image for %s in staging area", bVar.cBW());
+                            e.this.kfX.cFE();
                             try {
                                 com.facebook.common.references.a c = com.facebook.common.references.a.c(e.this.m(bVar));
                                 q = new com.facebook.imagepipeline.f.d(c);
@@ -101,7 +101,7 @@ public class e {
                             }
                         }
                         if (Thread.interrupted()) {
-                            com.facebook.common.c.a.c(e.jZN, "Host thread was interrupted, decreasing reference count");
+                            com.facebook.common.c.a.c(e.jYW, "Host thread was interrupted, decreasing reference count");
                             if (q != null) {
                                 q.close();
                             }
@@ -111,81 +111,81 @@ public class e {
                     }
                     throw new CancellationException();
                 }
-            }, this.kgL);
+            }, this.kfU);
         } catch (Exception e) {
-            com.facebook.common.c.a.a(jZN, e, "Failed to schedule disk-cache read for %s", bVar.cBY());
-            return bolts.g.f(e);
+            com.facebook.common.c.a.a(jYW, e, "Failed to schedule disk-cache read for %s", bVar.cBW());
+            return bolts.g.e(e);
         }
     }
 
     public void a(final com.facebook.cache.common.b bVar, com.facebook.imagepipeline.f.d dVar) {
         com.facebook.common.internal.g.checkNotNull(bVar);
         com.facebook.common.internal.g.checkArgument(com.facebook.imagepipeline.f.d.f(dVar));
-        this.kgN.a(bVar, dVar);
+        this.kfW.a(bVar, dVar);
         dVar.t(bVar);
         final com.facebook.imagepipeline.f.d b = com.facebook.imagepipeline.f.d.b(dVar);
         try {
-            this.kgM.execute(new Runnable() { // from class: com.facebook.imagepipeline.c.e.3
+            this.kfV.execute(new Runnable() { // from class: com.facebook.imagepipeline.c.e.3
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
                         e.this.c(bVar, b);
                     } finally {
-                        e.this.kgN.d(bVar, b);
+                        e.this.kfW.d(bVar, b);
                         com.facebook.imagepipeline.f.d.e(b);
                     }
                 }
             });
         } catch (Exception e) {
-            com.facebook.common.c.a.a(jZN, e, "Failed to schedule disk-cache write for %s", bVar.cBY());
-            this.kgN.d(bVar, dVar);
+            com.facebook.common.c.a.a(jYW, e, "Failed to schedule disk-cache write for %s", bVar.cBW());
+            this.kfW.d(bVar, dVar);
             com.facebook.imagepipeline.f.d.e(b);
         }
     }
 
     private bolts.g<com.facebook.imagepipeline.f.d> b(com.facebook.cache.common.b bVar, com.facebook.imagepipeline.f.d dVar) {
-        com.facebook.common.c.a.a(jZN, "Found image for %s in staging area", bVar.cBY());
-        this.kgO.p(bVar);
+        com.facebook.common.c.a.a(jYW, "Found image for %s in staging area", bVar.cBW());
+        this.kfX.p(bVar);
         return bolts.g.g(dVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public PooledByteBuffer m(com.facebook.cache.common.b bVar) throws IOException {
         try {
-            com.facebook.common.c.a.a(jZN, "Disk cache read for %s", bVar.cBY());
-            com.facebook.a.a d = this.kgJ.d(bVar);
+            com.facebook.common.c.a.a(jYW, "Disk cache read for %s", bVar.cBW());
+            com.facebook.a.a d = this.kfS.d(bVar);
             if (d == null) {
-                com.facebook.common.c.a.a(jZN, "Disk cache miss for %s", bVar.cBY());
-                this.kgO.cFI();
+                com.facebook.common.c.a.a(jYW, "Disk cache miss for %s", bVar.cBW());
+                this.kfX.cFG();
                 return null;
             }
-            com.facebook.common.c.a.a(jZN, "Found entry in disk cache for %s", bVar.cBY());
-            this.kgO.cFH();
-            InputStream cBX = d.cBX();
-            PooledByteBuffer b = this.kgu.b(cBX, (int) d.size());
-            cBX.close();
-            com.facebook.common.c.a.a(jZN, "Successful read from disk cache for %s", bVar.cBY());
+            com.facebook.common.c.a.a(jYW, "Found entry in disk cache for %s", bVar.cBW());
+            this.kfX.cFF();
+            InputStream cBV = d.cBV();
+            PooledByteBuffer b = this.kfD.b(cBV, (int) d.size());
+            cBV.close();
+            com.facebook.common.c.a.a(jYW, "Successful read from disk cache for %s", bVar.cBW());
             return b;
         } catch (IOException e) {
-            com.facebook.common.c.a.a(jZN, e, "Exception reading from cache for %s", bVar.cBY());
-            this.kgO.cFJ();
+            com.facebook.common.c.a.a(jYW, e, "Exception reading from cache for %s", bVar.cBW());
+            this.kfX.cFH();
             throw e;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.facebook.cache.common.b bVar, final com.facebook.imagepipeline.f.d dVar) {
-        com.facebook.common.c.a.a(jZN, "About to write to disk-cache for key %s", bVar.cBY());
+        com.facebook.common.c.a.a(jYW, "About to write to disk-cache for key %s", bVar.cBW());
         try {
-            this.kgJ.a(bVar, new com.facebook.cache.common.h() { // from class: com.facebook.imagepipeline.c.e.4
+            this.kfS.a(bVar, new com.facebook.cache.common.h() { // from class: com.facebook.imagepipeline.c.e.4
                 @Override // com.facebook.cache.common.h
                 public void write(OutputStream outputStream) throws IOException {
-                    e.this.kgK.e(dVar.getInputStream(), outputStream);
+                    e.this.kfT.e(dVar.getInputStream(), outputStream);
                 }
             });
-            com.facebook.common.c.a.a(jZN, "Successful disk-cache write for key %s", bVar.cBY());
+            com.facebook.common.c.a.a(jYW, "Successful disk-cache write for key %s", bVar.cBW());
         } catch (IOException e) {
-            com.facebook.common.c.a.a(jZN, e, "Failed to write to disk-cache for key %s", bVar.cBY());
+            com.facebook.common.c.a.a(jYW, e, "Failed to write to disk-cache for key %s", bVar.cBW());
         }
     }
 }

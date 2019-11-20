@@ -18,35 +18,35 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class MovieHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mvhd";
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_20 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_21 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_22 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_23 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_24 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_25 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_26 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_27 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_28 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_20 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_21 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_22 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_23 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_24 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_25 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_26 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_27 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_28 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_9 = null;
     private Date creationTime;
     private int currentTime;
     private long duration;
@@ -249,12 +249,12 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setTimescale(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.en(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.em(j)));
         this.timescale = j;
     }
 
     public void setDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.en(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.em(j)));
         this.duration = j;
         if (j >= IjkMediaMeta.AV_CH_WIDE_RIGHT) {
             setVersion(1);
@@ -277,7 +277,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setNextTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.en(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.em(j)));
         this.nextTrackId = j;
     }
 
@@ -287,7 +287,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setPreviewTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.Dl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.Dk(i)));
         this.previewTime = i;
     }
 
@@ -297,7 +297,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setPreviewDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_20, this, this, org.aspectj.a.a.a.Dl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_20, this, this, org.aspectj.a.a.a.Dk(i)));
         this.previewDuration = i;
     }
 
@@ -307,7 +307,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setPosterTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_22, this, this, org.aspectj.a.a.a.Dl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_22, this, this, org.aspectj.a.a.a.Dk(i)));
         this.posterTime = i;
     }
 
@@ -317,7 +317,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setSelectionTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_24, this, this, org.aspectj.a.a.a.Dl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_24, this, this, org.aspectj.a.a.a.Dk(i)));
         this.selectionTime = i;
     }
 
@@ -327,7 +327,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setSelectionDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.Dl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.Dk(i)));
         this.selectionDuration = i;
     }
 
@@ -337,7 +337,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setCurrentTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.Dl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.Dk(i)));
         this.currentTime = i;
     }
 }

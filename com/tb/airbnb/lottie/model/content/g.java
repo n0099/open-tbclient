@@ -8,32 +8,32 @@ import com.tb.airbnb.lottie.model.a.l;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class g implements b {
-    private final com.tb.airbnb.lottie.model.a.b kuD;
-    private final com.tb.airbnb.lottie.model.a.b kuE;
-    private final l kuF;
+    private final com.tb.airbnb.lottie.model.a.b ktM;
+    private final com.tb.airbnb.lottie.model.a.b ktN;
+    private final l ktO;
     private final String name;
 
     g(String str, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, l lVar) {
         this.name = str;
-        this.kuD = bVar;
-        this.kuE = bVar2;
-        this.kuF = lVar;
+        this.ktM = bVar;
+        this.ktN = bVar2;
+        this.ktO = lVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLY() {
-        return this.kuD;
+    public com.tb.airbnb.lottie.model.a.b cLW() {
+        return this.ktM;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLZ() {
-        return this.kuE;
+    public com.tb.airbnb.lottie.model.a.b cLX() {
+        return this.ktN;
     }
 
-    public l cMa() {
-        return this.kuF;
+    public l cLY() {
+        return this.ktO;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b

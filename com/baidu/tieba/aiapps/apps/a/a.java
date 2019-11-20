@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private b dml;
+    private b dlu;
     private List<com.baidu.swan.apps.a.c> mListeners;
     public static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
@@ -22,11 +22,11 @@ public class a {
     /* renamed from: com.baidu.tieba.aiapps.apps.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public static class C0319a {
-        private static final a dmn = new a();
+        private static final a dlw = new a();
     }
 
-    public static a aFo() {
-        return C0319a.dmn;
+    public static a aFm() {
+        return C0319a.dlw;
     }
 
     public void init(Context context) {
@@ -36,13 +36,13 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cU(Context context) {
-        if (this.dml == null) {
-            this.dml = new b();
-            this.dml.dmo = com.baidu.swan.apps.storage.b.f.SR().getString("bd_box_avatar_url", "");
-            this.dml.bduss = com.baidu.swan.apps.storage.b.f.SR().getString("bd_box_bduss", "");
-            this.dml.dmp = com.baidu.swan.apps.storage.b.f.SR().getString("bd_box_ptoken", "");
-            this.dml.uid = com.baidu.swan.apps.storage.b.f.SR().getString("bd_box_uid", "");
-            this.dml.displayName = com.baidu.swan.apps.storage.b.f.SR().getString("bd_box_display_name", "");
+        if (this.dlu == null) {
+            this.dlu = new b();
+            this.dlu.dlx = com.baidu.swan.apps.storage.b.f.ST().getString("bd_box_avatar_url", "");
+            this.dlu.bduss = com.baidu.swan.apps.storage.b.f.ST().getString("bd_box_bduss", "");
+            this.dlu.dly = com.baidu.swan.apps.storage.b.f.ST().getString("bd_box_ptoken", "");
+            this.dlu.uid = com.baidu.swan.apps.storage.b.f.ST().getString("bd_box_uid", "");
+            this.dlu.displayName = com.baidu.swan.apps.storage.b.f.ST().getString("bd_box_display_name", "");
         }
     }
 

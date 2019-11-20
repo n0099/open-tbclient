@@ -10,42 +10,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> agQ;
-    private c dwN;
-    private d dwO;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b dwP;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a dwQ;
+    private List<com.baidu.adp.widget.ListView.a> agy;
+    private c dvW;
+    private d dvX;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b dvY;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a dvZ;
     private Context mContext;
     private TbPageContext mPageContext;
-    private BdTypeRecyclerView zj;
+    private BdTypeRecyclerView yJ;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.zj = bdTypeRecyclerView;
-        sX();
+        this.yJ = bdTypeRecyclerView;
+        sY();
     }
 
-    private void sX() {
-        this.agQ = new ArrayList();
-        this.dwN = new c(this.mPageContext);
-        this.dwO = new d(this.mPageContext);
-        this.dwP = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.dwQ = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.agQ.add(this.dwN);
-        this.agQ.add(this.dwO);
-        this.agQ.add(this.dwP);
-        this.agQ.add(this.dwQ);
-        this.zj.addAdapters(this.agQ);
+    private void sY() {
+        this.agy = new ArrayList();
+        this.dvW = new c(this.mPageContext);
+        this.dvX = new d(this.mPageContext);
+        this.dvY = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.dvZ = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.agy.add(this.dvW);
+        this.agy.add(this.dvX);
+        this.agy.add(this.dvY);
+        this.agy.add(this.dvZ);
+        this.yJ.addAdapters(this.agy);
     }
 
     public void setData(List<m> list) {
-        this.zj.setData(list);
+        this.yJ.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.zj != null) {
-            this.zj.getListAdapter().notifyDataSetChanged();
+        if (this.yJ != null) {
+            this.yJ.getListAdapter().notifyDataSetChanged();
         }
     }
 }

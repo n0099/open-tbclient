@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String jwp;
-    private a jwq;
+    private String jvy;
+    private a jvz;
 
     /* loaded from: classes.dex */
     public interface a {
+        void bGF();
+
+        void bGG();
+
         void bGH();
-
-        void bGI();
-
-        void bGJ();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.jwp = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.jwq = aVar;
+        this.jvy = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.jvz = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,9 +33,9 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.jwp);
-            xVar.amr().amR().mIsNeedAddCommenParam = false;
-            xVar.amr().amR().mIsUseCurrentBDUSS = false;
+            x xVar = new x(this.jvy);
+            xVar.amp().amP().mIsNeedAddCommenParam = false;
+            xVar.amp().amP().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(xVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.jwq != null && num != null) {
+        if (this.jvz != null && num != null) {
             if (num.intValue() == -1) {
-                this.jwq.onError(null);
+                this.jvz.onError(null);
             } else if (num.intValue() == 1) {
-                this.jwq.bGH();
+                this.jvz.bGF();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.jwq.bGI();
+                this.jvz.bGG();
             } else {
-                this.jwq.bGJ();
+                this.jvz.bGH();
             }
         }
     }

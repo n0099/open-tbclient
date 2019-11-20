@@ -22,57 +22,57 @@ import com.baidu.tieba.frs.ae;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class AlaLiveTabFragment extends BaseFragment implements ae {
-    private com.baidu.tieba.ala.alasquare.live_tab.view.a dwR;
-    private AlaLiveTabModel dwS;
-    private AlaLiveUserNotifyController dwT;
-    private AlaLiveUserNotifyManager.AlaLiveNotifyListener dwU;
-    private h.c dwV = new h.c() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.1
+    private com.baidu.tieba.ala.alasquare.live_tab.view.a dwa;
+    private AlaLiveTabModel dwb;
+    private AlaLiveUserNotifyController dwc;
+    private AlaLiveUserNotifyManager.AlaLiveNotifyListener dwd;
+    private h.c dwe = new h.c() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.1
         @Override // com.baidu.tbadk.core.view.h.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                AlaLiveTabFragment.this.dwS.refresh();
+                AlaLiveTabFragment.this.dwb.refresh();
             } else {
-                AlaLiveTabFragment.this.dwR.aJH();
+                AlaLiveTabFragment.this.dwa.aJF();
             }
         }
     };
-    private BdListView.e dwW = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.2
+    private BdListView.e dwf = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.2
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (!l.isNetOk()) {
-                AlaLiveTabFragment.this.dwR.hideLoadingView();
+                AlaLiveTabFragment.this.dwa.hideLoadingView();
             } else {
-                AlaLiveTabFragment.this.dwS.aIW();
+                AlaLiveTabFragment.this.dwb.aIU();
             }
         }
     };
-    private AlaLiveTabModel.a dwX = new AlaLiveTabModel.a() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.3
+    private AlaLiveTabModel.a dwg = new AlaLiveTabModel.a() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.3
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabModel.a
         public void a(boolean z, boolean z2, List<m> list) {
             if (!z2) {
-                AlaLiveTabFragment.this.dwR.hideLoadingView();
+                AlaLiveTabFragment.this.dwa.hideLoadingView();
             } else if (z) {
-                AlaLiveTabFragment.this.dwR.aJl();
+                AlaLiveTabFragment.this.dwa.aJj();
             } else {
-                AlaLiveTabFragment.this.dwR.aJk();
+                AlaLiveTabFragment.this.dwa.aJi();
             }
-            AlaLiveTabFragment.this.aJo();
-            AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.dwR.aJG());
-            AlaLiveTabFragment.this.dwR.aJH();
-            AlaLiveTabFragment.this.dwR.setData(list);
+            AlaLiveTabFragment.this.aJm();
+            AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.dwa.aJE());
+            AlaLiveTabFragment.this.dwa.aJF();
+            AlaLiveTabFragment.this.dwa.setData(list);
             if (!v.isEmpty(list) && list.size() == 1 && (list.get(0) instanceof g)) {
-                AlaLiveTabFragment.this.dwR.aJJ();
+                AlaLiveTabFragment.this.dwa.aJH();
             }
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabModel.a
         public void d(int i, String str, boolean z) {
-            AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.dwR.aJG());
-            AlaLiveTabFragment.this.dwR.aJH();
+            AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.dwa.aJE());
+            AlaLiveTabFragment.this.dwa.aJF();
             if (z) {
                 AlaLiveTabFragment.this.showToast(R.string.data_load_error);
             } else {
-                AlaLiveTabFragment.this.aJn();
+                AlaLiveTabFragment.this.aJl();
             }
         }
     };
@@ -80,51 +80,51 @@ public class AlaLiveTabFragment extends BaseFragment implements ae {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.dwR == null) {
-            this.dwR = new com.baidu.tieba.ala.alasquare.live_tab.view.a(getPageContext());
+        if (this.dwa == null) {
+            this.dwa = new com.baidu.tieba.ala.alasquare.live_tab.view.a(getPageContext());
         }
-        if (this.dwS == null) {
-            this.dwS = new AlaLiveTabModel(getPageContext(), this.dwX);
+        if (this.dwb == null) {
+            this.dwb = new AlaLiveTabModel(getPageContext(), this.dwg);
         }
-        if (this.dwT == null) {
-            this.dwT = new AlaLiveUserNotifyController(getPageContext());
+        if (this.dwc == null) {
+            this.dwc = new AlaLiveUserNotifyController(getPageContext());
         }
-        this.dwU = new AlaLiveUserNotifyManager.AlaLiveNotifyListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.4
+        this.dwd = new AlaLiveUserNotifyManager.AlaLiveNotifyListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.4
             @Override // com.baidu.ala.notify.AlaLiveUserNotifyManager.AlaLiveNotifyListener
             public void onCallBack() {
                 if (AlaLiveTabFragment.this.isPrimary()) {
-                    AlaLiveTabFragment.this.dwT.showNextNotifyDialog(0, AlaLiveUserNotifyManager.getInstance().getNotifyDataList());
+                    AlaLiveTabFragment.this.dwc.showNextNotifyDialog(0, AlaLiveUserNotifyManager.getInstance().getNotifyDataList());
                 }
             }
         };
-        AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.dwU);
+        AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.dwd);
         init();
     }
 
     private void init() {
-        this.dwR.init();
-        this.dwR.setListPullRefreshListener(this.dwV);
-        this.dwR.a(this.dwW);
-        this.dwS.init();
+        this.dwa.init();
+        this.dwa.setListPullRefreshListener(this.dwe);
+        this.dwa.a(this.dwf);
+        this.dwb.init();
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        ViewGroup aJG = this.dwR.aJG();
-        if (aJG.getParent() instanceof ViewGroup) {
-            ((ViewGroup) aJG.getParent()).removeView(aJG);
+        ViewGroup aJE = this.dwa.aJE();
+        if (aJE.getParent() instanceof ViewGroup) {
+            ((ViewGroup) aJE.getParent()).removeView(aJE);
         }
-        return aJG;
+        return aJE;
     }
 
-    public void aJn() {
+    public void aJl() {
         if (this.mRefreshView == null) {
             this.mRefreshView = new com.baidu.tbadk.m.h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (j.isNetworkAvailableForImmediately() && AlaLiveTabFragment.this.dwS != null) {
-                        AlaLiveTabFragment.this.showLoadingView(AlaLiveTabFragment.this.dwR.aJG());
-                        AlaLiveTabFragment.this.dwS.refresh();
+                    if (j.isNetworkAvailableForImmediately() && AlaLiveTabFragment.this.dwb != null) {
+                        AlaLiveTabFragment.this.showLoadingView(AlaLiveTabFragment.this.dwa.aJE());
+                        AlaLiveTabFragment.this.dwb.refresh();
                         AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
                     }
                 }
@@ -133,16 +133,16 @@ public class AlaLiveTabFragment extends BaseFragment implements ae {
         this.mRefreshView.showRefreshButton();
         this.mRefreshView.setSubText(null);
         this.mRefreshView.setTitle(j.isNetWorkAvailable() ? getResources().getString(R.string.load_error_new_tip) : getResources().getString(R.string.recommend_pb_no_net_text));
-        this.mRefreshView.ka(j.isNetWorkAvailable() ? R.drawable.new_pic_emotion_08 : R.drawable.new_pic_emotion_09);
-        this.dwR.mh(8);
-        this.mRefreshView.kc(0);
-        this.mRefreshView.attachView(this.dwR.aJG(), false);
+        this.mRefreshView.jZ(j.isNetWorkAvailable() ? R.drawable.new_pic_emotion_08 : R.drawable.new_pic_emotion_09);
+        this.dwa.mg(8);
+        this.mRefreshView.kb(0);
+        this.mRefreshView.attachView(this.dwa.aJE(), false);
     }
 
-    public void aJo() {
-        this.dwR.mh(0);
+    public void aJm() {
+        this.dwa.mg(0);
         if (this.mRefreshView != null) {
-            this.mRefreshView.dettachView(this.dwR.aJG());
+            this.mRefreshView.dettachView(this.dwa.aJE());
             this.mRefreshView = null;
         }
     }
@@ -150,21 +150,21 @@ public class AlaLiveTabFragment extends BaseFragment implements ae {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        showLoadingView(this.dwR.aJG());
-        this.dwS.refresh();
+        showLoadingView(this.dwa.aJE());
+        this.dwb.refresh();
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void vU() {
-        this.dwR.reload();
+    public void vV() {
+        this.dwa.reload();
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aJp() {
+    public void aJn() {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aJq() {
+    public void aJo() {
     }
 
     @Override // com.baidu.tieba.frs.ae
@@ -179,20 +179,20 @@ public class AlaLiveTabFragment extends BaseFragment implements ae {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.dwR.aJI();
+            this.dwa.aJG();
             AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
         }
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void anO() {
+    public void anM() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.dwR != null) {
-            this.dwR.onChangeSkinType();
+        if (this.dwa != null) {
+            this.dwa.onChangeSkinType();
         }
         if (this.mRefreshView != null) {
             this.mRefreshView.onChangeSkinType();
@@ -206,17 +206,17 @@ public class AlaLiveTabFragment extends BaseFragment implements ae {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.dwR != null) {
-            this.dwR.setListPullRefreshListener(null);
-            this.dwR.a((BdListView.e) null);
-            this.dwR.destroy();
+        if (this.dwa != null) {
+            this.dwa.setListPullRefreshListener(null);
+            this.dwa.a((BdListView.e) null);
+            this.dwa.destroy();
         }
-        if (this.dwS != null) {
-            this.dwS.onDestroy();
+        if (this.dwb != null) {
+            this.dwb.onDestroy();
         }
-        if (this.dwT != null) {
-            this.dwT.onDestroy();
+        if (this.dwc != null) {
+            this.dwc.onDestroy();
         }
-        AlaLiveUserNotifyManager.getInstance().removeNotifyListener(this.dwU);
+        AlaLiveUserNotifyManager.getInstance().removeNotifyListener(this.dwd);
     }
 }

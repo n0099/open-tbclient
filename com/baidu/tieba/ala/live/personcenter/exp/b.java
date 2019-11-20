@@ -11,39 +11,39 @@ import com.baidu.live.view.ALALevelView;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class b extends BaseAdapter {
-    private ArrayList<c> dRt = new ArrayList<>();
-    private AlaPersonCenterExpActivity dRu;
+    private ArrayList<c> dQC = new ArrayList<>();
+    private AlaPersonCenterExpActivity dQD;
     private Context mContext;
     private int mSkinType;
 
     public b(AlaPersonCenterExpActivity alaPersonCenterExpActivity) {
-        this.dRu = alaPersonCenterExpActivity;
+        this.dQD = alaPersonCenterExpActivity;
         this.mContext = alaPersonCenterExpActivity.getPageContext().getPageActivity();
     }
 
-    public void mV(int i) {
+    public void mU(int i) {
         this.mSkinType = i;
     }
 
     public void N(ArrayList<c> arrayList) {
-        this.dRt.clear();
-        this.dRt.addAll(arrayList);
+        this.dQC.clear();
+        this.dQC.addAll(arrayList);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dRt == null) {
+        if (this.dQC == null) {
             return 1;
         }
-        return this.dRt.size() + 1;
+        return this.dQC.size() + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.dRt.size())) {
+        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.dQC.size())) {
             return null;
         }
-        return this.dRt.get(i - 1);
+        return this.dQC.get(i - 1);
     }
 
     @Override // android.widget.Adapter
@@ -77,7 +77,7 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_header, viewGroup, false);
         }
-        this.dRu.getLayoutMode().onModeChanged(view);
+        this.dQD.getLayoutMode().onModeChanged(view);
         return view;
     }
 
@@ -93,28 +93,28 @@ public class b extends BaseAdapter {
         }
         c cVar = (c) getItem(i);
         if (cVar != null) {
-            aVar.U(cVar.level, cVar.dRy);
+            aVar.T(cVar.level, cVar.dQH);
         }
-        this.dRu.getLayoutMode().onModeChanged(view);
+        this.dQD.getLayoutMode().onModeChanged(view);
         if (this.mSkinType == 1) {
-            aVar.dRv.d(a.d.sdk_cp_cont_g, 0.7f);
+            aVar.dQE.d(a.d.sdk_cp_cont_g, 0.7f);
         }
         return view;
     }
 
     /* loaded from: classes6.dex */
     public class a {
-        private ALALevelView dRv;
-        private TextView dRw;
+        private ALALevelView dQE;
+        private TextView dQF;
 
         public a(View view) {
-            this.dRv = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
-            this.dRw = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
+            this.dQE = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
+            this.dQF = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
         }
 
-        public void U(int i, String str) {
-            this.dRv.setupLevelIcon(i);
-            this.dRw.setText(str);
+        public void T(int i, String str) {
+            this.dQE.setupLevelIcon(i);
+            this.dQF.setText(str);
         }
     }
 

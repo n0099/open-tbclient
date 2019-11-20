@@ -7,5 +7,5 @@ public interface a {
 
     void login();
 
-    b wU();
+    b wV();
 }

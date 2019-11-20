@@ -22,7 +22,7 @@ public class a {
     /* loaded from: classes.dex */
     public static class C0024a {
         public String mErrMsg;
-        public boolean xe;
+        public boolean wE;
     }
 
     public static C0024a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
@@ -276,7 +276,7 @@ public class a {
 
     private static C0024a a(boolean z, Throwable th) {
         C0024a c0024a = new C0024a();
-        c0024a.xe = z;
+        c0024a.wE = z;
         c0024a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0024a;
     }

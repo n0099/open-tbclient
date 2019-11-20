@@ -38,7 +38,6 @@ import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.tieba.model.ReportUserInfoModel;
 import com.coloros.mcssdk.PushManager;
 import com.coloros.mcssdk.callback.PushCallback;
 import com.vivo.push.IPushActionListener;
@@ -1473,7 +1472,7 @@ public final class l {
     }
 
     public static void e(Context context) {
-        a(context, (long) ReportUserInfoModel.TIME_INTERVAL);
+        a(context, 300000L);
     }
 
     public static void e(Context context, String str, String str2) {

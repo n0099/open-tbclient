@@ -7,13 +7,13 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
 class k implements Runnable {
-    final /* synthetic */ j aAF;
-    final /* synthetic */ IOAdEvent azY;
+    final /* synthetic */ j aAn;
+    final /* synthetic */ IOAdEvent azH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar, IOAdEvent iOAdEvent) {
-        this.aAF = jVar;
-        this.azY = iOAdEvent;
+        this.aAn = jVar;
+        this.azH = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -27,39 +27,39 @@ class k implements Runnable {
         e eVar5;
         e eVar6;
         e eVar7;
-        if (IXAdEvent.AD_LOADED.equals(this.azY.getType())) {
-            XAdSDKFoundationFacade.getInstance().getAdLogger().i(this.azY);
-            HashMap hashMap = (HashMap) this.azY.getData();
+        if (IXAdEvent.AD_LOADED.equals(this.azH.getType())) {
+            XAdSDKFoundationFacade.getInstance().getAdLogger().i(this.azH);
+            HashMap hashMap = (HashMap) this.azH.getData();
             if (hashMap != null) {
-                eVar7 = this.aAF.aAE.aAy;
+                eVar7 = this.aAn.aAm.aAg;
                 eVar7.l(hashMap);
             }
-        } else if (IXAdEvent.AD_STARTED.equals(this.azY.getType())) {
-            eVar6 = this.aAF.aAE.aAy;
-            eVar6.zt();
-        } else if ("AdUserClick".equals(this.azY.getType())) {
-            eVar5 = this.aAF.aAE.aAy;
-            eVar5.zv();
-        } else if (IXAdEvent.AD_STOPPED.equals(this.azY.getType())) {
-            aVar2 = this.aAF.aAE.a;
+        } else if (IXAdEvent.AD_STARTED.equals(this.azH.getType())) {
+            eVar6 = this.aAn.aAm.aAg;
+            eVar6.zu();
+        } else if ("AdUserClick".equals(this.azH.getType())) {
+            eVar5 = this.aAn.aAm.aAg;
+            eVar5.zw();
+        } else if (IXAdEvent.AD_STOPPED.equals(this.azH.getType())) {
+            aVar2 = this.aAn.aAm.a;
             aVar2.removeAllListeners();
-            eVar4 = this.aAF.aAE.aAy;
-            eVar4.zu();
-        } else if (IXAdEvent.AD_ERROR.equals(this.azY.getType())) {
-            aVar = this.aAF.aAE.a;
+            eVar4 = this.aAn.aAm.aAg;
+            eVar4.zv();
+        } else if (IXAdEvent.AD_ERROR.equals(this.azH.getType())) {
+            aVar = this.aAn.aAm.a;
             aVar.removeAllListeners();
-            eVar3 = this.aAF.aAE.aAy;
-            eVar3.dy(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.azY.getData()));
-        } else if ("AdTypeReady".equals(this.azY.getType())) {
+            eVar3 = this.aAn.aAm.aAg;
+            eVar3.dy(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.azH.getData()));
+        } else if ("AdTypeReady".equals(this.azH.getType())) {
             try {
-                Map<String, Object> data = this.azY.getData();
+                Map<String, Object> data = this.azH.getData();
                 if (data != null && data.containsKey(com.baidu.mobads.a.a.s)) {
                     RsplashType rsplashType = (RsplashType) data.get(com.baidu.mobads.a.a.s);
                     if (rsplashType != RsplashType.VIDEO) {
-                        eVar2 = this.aAF.aAE.aAy;
+                        eVar2 = this.aAn.aAm.aAg;
                         eVar2.a(rsplashType, 0);
                     } else {
-                        eVar = this.aAF.aAE.aAy;
+                        eVar = this.aAn.aAm.aAg;
                         eVar.a(rsplashType, ((Integer) data.get(com.baidu.mobads.a.a.t)).intValue());
                     }
                 }

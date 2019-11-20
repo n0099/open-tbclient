@@ -17,38 +17,38 @@ import com.baidu.swan.menu.f;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class PopupWindow {
-    private static final int[] bKw = {16842922};
-    private boolean bFP;
-    private boolean bJW;
-    private View bJX;
-    private int bJY;
-    private int bJZ;
-    private int bKA;
-    private boolean bKa;
-    private boolean bKb;
-    private int bKc;
-    private boolean bKd;
-    private boolean bKe;
-    private boolean bKf;
-    private boolean bKg;
-    private boolean bKh;
-    private View.OnTouchListener bKi;
-    private int bKj;
-    private int bKk;
-    private int bKl;
-    private int bKm;
-    private int[] bKn;
-    private int[] bKo;
-    private Drawable bKp;
-    private Drawable bKq;
-    private boolean bKr;
-    private int bKs;
-    private a bKt;
-    private boolean bKu;
-    private int bKv;
-    private WeakReference<View> bKx;
-    private ViewTreeObserver.OnScrollChangedListener bKy;
-    private int bKz;
+    private static final int[] bJF = {16842922};
+    private boolean bEY;
+    private boolean bJA;
+    private int bJB;
+    private a bJC;
+    private boolean bJD;
+    private int bJE;
+    private WeakReference<View> bJG;
+    private ViewTreeObserver.OnScrollChangedListener bJH;
+    private int bJI;
+    private int bJJ;
+    private boolean bJf;
+    private View bJg;
+    private int bJh;
+    private int bJi;
+    private boolean bJj;
+    private boolean bJk;
+    private int bJl;
+    private boolean bJm;
+    private boolean bJn;
+    private boolean bJo;
+    private boolean bJp;
+    private boolean bJq;
+    private View.OnTouchListener bJr;
+    private int bJs;
+    private int bJt;
+    private int bJu;
+    private int bJv;
+    private int[] bJw;
+    private int[] bJx;
+    private Drawable bJy;
+    private Drawable bJz;
     private Drawable mBackground;
     private View mContentView;
     private Context mContext;
@@ -79,32 +79,32 @@ public class PopupWindow {
     }
 
     public PopupWindow(Context context, AttributeSet attributeSet, int i, int i2) {
-        this.bJY = 0;
-        this.bJZ = 1;
-        this.bKa = true;
+        this.bJh = 0;
+        this.bJi = 1;
+        this.bJj = true;
         this.mOutsideTouchable = false;
-        this.bKb = true;
-        this.bKc = -1;
-        this.bKf = true;
-        this.bKg = false;
-        this.bKn = new int[2];
-        this.bKo = new int[2];
+        this.bJk = true;
+        this.bJl = -1;
+        this.bJo = true;
+        this.bJp = false;
+        this.bJw = new int[2];
+        this.bJx = new int[2];
         this.mTempRect = new Rect();
-        this.bKs = 1000;
-        this.bKu = false;
-        this.bKv = -1;
-        this.bKy = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.swan.menu.PopupWindow.1
+        this.bJB = 1000;
+        this.bJD = false;
+        this.bJE = -1;
+        this.bJH = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.swan.menu.PopupWindow.1
             @Override // android.view.ViewTreeObserver.OnScrollChangedListener
             public void onScrollChanged() {
                 View view;
-                if (PopupWindow.this.bKx != null) {
-                    view = (View) PopupWindow.this.bKx.get();
+                if (PopupWindow.this.bJG != null) {
+                    view = (View) PopupWindow.this.bJG.get();
                 } else {
                     view = null;
                 }
-                if (view != null && PopupWindow.this.bJX != null) {
-                    WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) PopupWindow.this.bJX.getLayoutParams();
-                    PopupWindow.this.dy(PopupWindow.this.a(view, layoutParams, PopupWindow.this.bKz, PopupWindow.this.bKA));
+                if (view != null && PopupWindow.this.bJg != null) {
+                    WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) PopupWindow.this.bJg.getLayoutParams();
+                    PopupWindow.this.dy(PopupWindow.this.a(view, layoutParams, PopupWindow.this.bJI, PopupWindow.this.bJJ));
                     PopupWindow.this.a(layoutParams.x, layoutParams.y, -1, -1, true);
                 }
             }
@@ -114,7 +114,7 @@ public class PopupWindow {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, f.h.PopupWindow, i, i2);
         this.mBackground = obtainStyledAttributes.getDrawable(f.h.PopupWindow_popupBackground);
         int resourceId = obtainStyledAttributes.getResourceId(f.h.PopupWindow_popupAnimationStyle, -1);
-        this.bKv = resourceId == 16973824 ? -1 : resourceId;
+        this.bJE = resourceId == 16973824 ? -1 : resourceId;
         obtainStyledAttributes.recycle();
     }
 
@@ -127,32 +127,32 @@ public class PopupWindow {
     }
 
     public PopupWindow(View view, int i, int i2, boolean z) {
-        this.bJY = 0;
-        this.bJZ = 1;
-        this.bKa = true;
+        this.bJh = 0;
+        this.bJi = 1;
+        this.bJj = true;
         this.mOutsideTouchable = false;
-        this.bKb = true;
-        this.bKc = -1;
-        this.bKf = true;
-        this.bKg = false;
-        this.bKn = new int[2];
-        this.bKo = new int[2];
+        this.bJk = true;
+        this.bJl = -1;
+        this.bJo = true;
+        this.bJp = false;
+        this.bJw = new int[2];
+        this.bJx = new int[2];
         this.mTempRect = new Rect();
-        this.bKs = 1000;
-        this.bKu = false;
-        this.bKv = -1;
-        this.bKy = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.swan.menu.PopupWindow.1
+        this.bJB = 1000;
+        this.bJD = false;
+        this.bJE = -1;
+        this.bJH = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.swan.menu.PopupWindow.1
             @Override // android.view.ViewTreeObserver.OnScrollChangedListener
             public void onScrollChanged() {
                 View view2;
-                if (PopupWindow.this.bKx != null) {
-                    view2 = (View) PopupWindow.this.bKx.get();
+                if (PopupWindow.this.bJG != null) {
+                    view2 = (View) PopupWindow.this.bJG.get();
                 } else {
                     view2 = null;
                 }
-                if (view2 != null && PopupWindow.this.bJX != null) {
-                    WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) PopupWindow.this.bJX.getLayoutParams();
-                    PopupWindow.this.dy(PopupWindow.this.a(view2, layoutParams, PopupWindow.this.bKz, PopupWindow.this.bKA));
+                if (view2 != null && PopupWindow.this.bJg != null) {
+                    WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) PopupWindow.this.bJg.getLayoutParams();
+                    PopupWindow.this.dy(PopupWindow.this.a(view2, layoutParams, PopupWindow.this.bJI, PopupWindow.this.bJJ));
                     PopupWindow.this.a(layoutParams.x, layoutParams.y, -1, -1, true);
                 }
             }
@@ -172,7 +172,7 @@ public class PopupWindow {
     }
 
     public void setAnimationStyle(int i) {
-        this.bKv = i;
+        this.bJE = i;
     }
 
     public View getContentView() {
@@ -196,7 +196,7 @@ public class PopupWindow {
     }
 
     public void setSoftInputMode(int i) {
-        this.bJZ = i;
+        this.bJi = i;
     }
 
     public void dw(boolean z) {
@@ -204,11 +204,11 @@ public class PopupWindow {
     }
 
     public void dx(boolean z) {
-        this.bKb = z;
+        this.bJk = z;
     }
 
-    public boolean aay() {
-        return (this.bKc >= 0 || this.mContext == null) ? this.bKc == 1 : this.mContext.getApplicationInfo().targetSdkVersion >= 11;
+    public boolean aaw() {
+        return (this.bJl >= 0 || this.mContext == null) ? this.bJl == 1 : this.mContext.getApplicationInfo().targetSdkVersion >= 11;
     }
 
     public void setHeight(int i) {
@@ -220,7 +220,7 @@ public class PopupWindow {
     }
 
     public boolean isShowing() {
-        return this.bFP;
+        return this.bEY;
     }
 
     public void a(View view, int i, int i2, int i3) {
@@ -229,11 +229,11 @@ public class PopupWindow {
 
     public void a(IBinder iBinder, int i, int i2, int i3) {
         if (iBinder != null && !isShowing() && this.mContentView != null) {
-            aaA();
-            this.bFP = true;
-            this.bJW = false;
+            aay();
+            this.bEY = true;
+            this.bJf = false;
             WindowManager.LayoutParams d = d(iBinder);
-            d.windowAnimations = aaz();
+            d.windowAnimations = aax();
             a(d);
             if (i == 0) {
                 i = 51;
@@ -243,12 +243,12 @@ public class PopupWindow {
             d.y = i3;
             if (this.mHeightMode < 0) {
                 int i4 = this.mHeightMode;
-                this.bKk = i4;
+                this.bJt = i4;
                 d.height = i4;
             }
             if (this.mWidthMode < 0) {
                 int i5 = this.mWidthMode;
-                this.bKj = i5;
+                this.bJs = i5;
                 d.width = i5;
             }
             b(d);
@@ -262,41 +262,41 @@ public class PopupWindow {
     public void b(View view, int i, int i2) {
         if (!isShowing() && this.mContentView != null) {
             c(view, i, i2);
-            this.bFP = true;
-            this.bJW = true;
+            this.bEY = true;
+            this.bJf = true;
             WindowManager.LayoutParams d = d(view.getWindowToken());
             a(d);
             dy(a(view, d, i, i2));
             if (this.mHeightMode < 0) {
                 int i3 = this.mHeightMode;
-                this.bKk = i3;
+                this.bJt = i3;
                 d.height = i3;
             }
             if (this.mWidthMode < 0) {
                 int i4 = this.mWidthMode;
-                this.bKj = i4;
+                this.bJs = i4;
                 d.width = i4;
             }
-            d.windowAnimations = aaz();
+            d.windowAnimations = aax();
             b(d);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dy(boolean z) {
-        if (z != this.bKr) {
-            this.bKr = z;
+        if (z != this.bJA) {
+            this.bJA = z;
             if (this.mBackground != null) {
-                if (this.bKp != null) {
-                    if (this.bKr) {
-                        this.bJX.setBackgroundDrawable(this.bKp);
+                if (this.bJy != null) {
+                    if (this.bJA) {
+                        this.bJg.setBackgroundDrawable(this.bJy);
                         return;
                     } else {
-                        this.bJX.setBackgroundDrawable(this.bKq);
+                        this.bJg.setBackgroundDrawable(this.bJz);
                         return;
                     }
                 }
-                this.bJX.refreshDrawableState();
+                this.bJg.refreshDrawableState();
             }
         }
     }
@@ -315,120 +315,120 @@ public class PopupWindow {
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, i);
             bVar.setBackgroundDrawable(this.mBackground);
             bVar.addView(this.mContentView, layoutParams3);
-            this.bJX = bVar;
+            this.bJg = bVar;
         } else {
-            this.bJX = this.mContentView;
+            this.bJg = this.mContentView;
         }
-        this.bKl = layoutParams.width;
-        this.bKm = layoutParams.height;
+        this.bJu = layoutParams.width;
+        this.bJv = layoutParams.height;
     }
 
     private void b(WindowManager.LayoutParams layoutParams) {
         if (this.mContext != null) {
             layoutParams.packageName = this.mContext.getPackageName();
         }
-        this.mWindowManager.addView(this.bJX, layoutParams);
+        this.mWindowManager.addView(this.bJg, layoutParams);
     }
 
     private WindowManager.LayoutParams d(IBinder iBinder) {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.gravity = 51;
         int i = this.mWidth;
-        this.bKj = i;
+        this.bJs = i;
         layoutParams.width = i;
         int i2 = this.mHeight;
-        this.bKk = i2;
+        this.bJt = i2;
         layoutParams.height = i2;
         if (this.mBackground != null) {
             layoutParams.format = this.mBackground.getOpacity();
         } else {
             layoutParams.format = -3;
         }
-        layoutParams.flags = gs(layoutParams.flags);
-        layoutParams.type = this.bKs;
+        layoutParams.flags = gr(layoutParams.flags);
+        layoutParams.type = this.bJB;
         layoutParams.token = iBinder;
-        layoutParams.softInputMode = this.bJZ;
+        layoutParams.softInputMode = this.bJi;
         layoutParams.setTitle("PopupWindow:" + Integer.toHexString(hashCode()));
         return layoutParams;
     }
 
-    private int gs(int i) {
+    private int gr(int i) {
         int i2 = (-8815129) & i;
-        if (this.bKu) {
+        if (this.bJD) {
             i2 |= 32768;
         }
         if (!this.mFocusable) {
             i2 |= 8;
-            if (this.bJY == 1) {
+            if (this.bJh == 1) {
                 i2 |= 131072;
             }
-        } else if (this.bJY == 2) {
+        } else if (this.bJh == 2) {
             i2 |= 131072;
         }
-        if (!this.bKa) {
+        if (!this.bJj) {
             i2 |= 16;
         }
         if (this.mOutsideTouchable) {
             i2 |= 262144;
         }
-        if (!this.bKb) {
+        if (!this.bJk) {
             i2 |= 512;
         }
-        if (aay()) {
+        if (aaw()) {
             i2 |= 8388608;
         }
-        if (this.bKd) {
+        if (this.bJm) {
             i2 |= 256;
         }
-        if (this.bKg) {
+        if (this.bJp) {
             i2 |= 65536;
         }
-        if (this.bKh) {
+        if (this.bJq) {
             return i2 | 32;
         }
         return i2;
     }
 
-    private int aaz() {
-        if (this.bKv == -1) {
-            if (this.bJW) {
-                return this.bKr ? f.g.PopupWindow_DropDownUp : f.g.PopupWindow_DropDownDown;
+    private int aax() {
+        if (this.bJE == -1) {
+            if (this.bJf) {
+                return this.bJA ? f.g.PopupWindow_DropDownUp : f.g.PopupWindow_DropDownDown;
             }
             return 0;
         }
-        return this.bKv;
+        return this.bJE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(View view, WindowManager.LayoutParams layoutParams, int i, int i2) {
         int height = view.getHeight();
-        view.getLocationInWindow(this.bKn);
-        layoutParams.x = this.bKn[0] + i;
-        layoutParams.y = this.bKn[1] + height + i2;
+        view.getLocationInWindow(this.bJw);
+        layoutParams.x = this.bJw[0] + i;
+        layoutParams.y = this.bJw[1] + height + i2;
         layoutParams.gravity = 51;
-        view.getLocationOnScreen(this.bKo);
+        view.getLocationOnScreen(this.bJx);
         Rect rect = new Rect();
         view.getWindowVisibleDisplayFrame(rect);
         View rootView = view.getRootView();
-        if (height + this.bKo[1] + i2 + this.bKm > rect.bottom || (layoutParams.x + this.bKl) - rootView.getWidth() > 0) {
-            if (this.bKf) {
+        if (height + this.bJx[1] + i2 + this.bJv > rect.bottom || (layoutParams.x + this.bJu) - rootView.getWidth() > 0) {
+            if (this.bJo) {
                 int scrollX = view.getScrollX();
                 int scrollY = view.getScrollY();
-                view.requestRectangleOnScreen(new Rect(scrollX, scrollY, this.bKl + scrollX + i, this.bKm + scrollY + view.getHeight() + i2), true);
+                view.requestRectangleOnScreen(new Rect(scrollX, scrollY, this.bJu + scrollX + i, this.bJv + scrollY + view.getHeight() + i2), true);
             }
-            view.getLocationInWindow(this.bKn);
-            layoutParams.x = this.bKn[0] + i;
-            layoutParams.y = this.bKn[1] + view.getHeight() + i2;
-            view.getLocationOnScreen(this.bKo);
-            r0 = ((rect.bottom - this.bKo[1]) - view.getHeight()) - i2 < (this.bKo[1] - i2) - rect.top;
+            view.getLocationInWindow(this.bJw);
+            layoutParams.x = this.bJw[0] + i;
+            layoutParams.y = this.bJw[1] + view.getHeight() + i2;
+            view.getLocationOnScreen(this.bJx);
+            r0 = ((rect.bottom - this.bJx[1]) - view.getHeight()) - i2 < (this.bJx[1] - i2) - rect.top;
             if (r0) {
                 layoutParams.gravity = 83;
-                layoutParams.y = (rootView.getHeight() - this.bKn[1]) + i2;
+                layoutParams.y = (rootView.getHeight() - this.bJw[1]) + i2;
             } else {
-                layoutParams.y = this.bKn[1] + view.getHeight() + i2;
+                layoutParams.y = this.bJw[1] + view.getHeight() + i2;
             }
         }
-        if (this.bKe) {
+        if (this.bJn) {
             int i3 = rect.right - rect.left;
             int i4 = layoutParams.x + layoutParams.width;
             if (i4 > i3) {
@@ -439,7 +439,7 @@ public class PopupWindow {
                 layoutParams.width = Math.min(layoutParams.width, i3);
             }
             if (r0) {
-                int i5 = (this.bKo[1] + i2) - this.bKm;
+                int i5 = (this.bJx[1] + i2) - this.bJv;
                 if (i5 < 0) {
                     layoutParams.y = i5 + layoutParams.y;
                 }
@@ -453,33 +453,33 @@ public class PopupWindow {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, IGET]}, finally: {[IGET, IGET, IGET, INVOKE, IF, IPUT, IGET, IGET, CHECK_CAST, IGET, INVOKE, IGET, INVOKE, IF, IPUT, IGET, IF, IGET, INSTANCE_OF, IGET, INVOKE, IF, IPUT, IGET, IF] complete} */
     public void dismiss() {
-        if (isShowing() && this.bJX != null) {
-            this.bFP = false;
-            aaA();
+        if (isShowing() && this.bJg != null) {
+            this.bEY = false;
+            aay();
             try {
-                this.mWindowManager.removeView(this.bJX);
-                if (this.bJX != this.mContentView && (this.bJX instanceof ViewGroup)) {
-                    ((ViewGroup) this.bJX).removeView(this.mContentView);
+                this.mWindowManager.removeView(this.bJg);
+                if (this.bJg != this.mContentView && (this.bJg instanceof ViewGroup)) {
+                    ((ViewGroup) this.bJg).removeView(this.mContentView);
                 }
-                this.bJX = null;
-                if (this.bKt != null) {
-                    this.bKt.onDismiss();
+                this.bJg = null;
+                if (this.bJC != null) {
+                    this.bJC.onDismiss();
                 }
             } catch (IllegalArgumentException e) {
-                if (this.bJX != this.mContentView && (this.bJX instanceof ViewGroup)) {
-                    ((ViewGroup) this.bJX).removeView(this.mContentView);
+                if (this.bJg != this.mContentView && (this.bJg instanceof ViewGroup)) {
+                    ((ViewGroup) this.bJg).removeView(this.mContentView);
                 }
-                this.bJX = null;
-                if (this.bKt != null) {
-                    this.bKt.onDismiss();
+                this.bJg = null;
+                if (this.bJC != null) {
+                    this.bJC.onDismiss();
                 }
             } catch (Throwable th) {
-                if (this.bJX != this.mContentView && (this.bJX instanceof ViewGroup)) {
-                    ((ViewGroup) this.bJX).removeView(this.mContentView);
+                if (this.bJg != this.mContentView && (this.bJg instanceof ViewGroup)) {
+                    ((ViewGroup) this.bJg).removeView(this.mContentView);
                 }
-                this.bJX = null;
-                if (this.bKt != null) {
-                    this.bKt.onDismiss();
+                this.bJg = null;
+                if (this.bJC != null) {
+                    this.bJC.onDismiss();
                 }
                 throw th;
             }
@@ -487,27 +487,27 @@ public class PopupWindow {
     }
 
     public void a(a aVar) {
-        this.bKt = aVar;
+        this.bJC = aVar;
     }
 
     public void update() {
         boolean z = true;
         if (isShowing() && this.mContentView != null) {
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.bJX.getLayoutParams();
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.bJg.getLayoutParams();
             boolean z2 = false;
-            int aaz = aaz();
-            if (aaz != layoutParams.windowAnimations) {
-                layoutParams.windowAnimations = aaz;
+            int aax = aax();
+            if (aax != layoutParams.windowAnimations) {
+                layoutParams.windowAnimations = aax;
                 z2 = true;
             }
-            int gs = gs(layoutParams.flags);
-            if (gs != layoutParams.flags) {
-                layoutParams.flags = gs;
+            int gr = gr(layoutParams.flags);
+            if (gr != layoutParams.flags) {
+                layoutParams.flags = gr;
             } else {
                 z = z2;
             }
             if (z) {
-                this.mWindowManager.updateViewLayout(this.bJX, layoutParams);
+                this.mWindowManager.updateViewLayout(this.bJg, layoutParams);
             }
         }
     }
@@ -515,24 +515,24 @@ public class PopupWindow {
     public void a(int i, int i2, int i3, int i4, boolean z) {
         boolean z2 = true;
         if (i3 != -1) {
-            this.bKj = i3;
+            this.bJs = i3;
             setWidth(i3);
         }
         if (i4 != -1) {
-            this.bKk = i4;
+            this.bJt = i4;
             setHeight(i4);
         }
         if (isShowing() && this.mContentView != null) {
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.bJX.getLayoutParams();
-            int i5 = this.mWidthMode < 0 ? this.mWidthMode : this.bKj;
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.bJg.getLayoutParams();
+            int i5 = this.mWidthMode < 0 ? this.mWidthMode : this.bJs;
             if (i3 != -1 && layoutParams.width != i5) {
-                this.bKj = i5;
+                this.bJs = i5;
                 layoutParams.width = i5;
                 z = true;
             }
-            int i6 = this.mHeightMode < 0 ? this.mHeightMode : this.bKk;
+            int i6 = this.mHeightMode < 0 ? this.mHeightMode : this.bJt;
             if (i4 != -1 && layoutParams.height != i6) {
-                this.bKk = i6;
+                this.bJt = i6;
                 layoutParams.height = i6;
                 z = true;
             }
@@ -544,41 +544,41 @@ public class PopupWindow {
                 layoutParams.y = i2;
                 z = true;
             }
-            int aaz = aaz();
-            if (aaz != layoutParams.windowAnimations) {
-                layoutParams.windowAnimations = aaz;
+            int aax = aax();
+            if (aax != layoutParams.windowAnimations) {
+                layoutParams.windowAnimations = aax;
                 z = true;
             }
-            int gs = gs(layoutParams.flags);
-            if (gs != layoutParams.flags) {
-                layoutParams.flags = gs;
+            int gr = gr(layoutParams.flags);
+            if (gr != layoutParams.flags) {
+                layoutParams.flags = gr;
             } else {
                 z2 = z;
             }
             if (z2) {
-                this.mWindowManager.updateViewLayout(this.bJX, layoutParams);
+                this.mWindowManager.updateViewLayout(this.bJg, layoutParams);
             }
         }
     }
 
-    private void aaA() {
-        WeakReference<View> weakReference = this.bKx;
+    private void aay() {
+        WeakReference<View> weakReference = this.bJG;
         View view = weakReference != null ? weakReference.get() : null;
         if (view != null) {
-            view.getViewTreeObserver().removeOnScrollChangedListener(this.bKy);
+            view.getViewTreeObserver().removeOnScrollChangedListener(this.bJH);
         }
-        this.bKx = null;
+        this.bJG = null;
     }
 
     private void c(View view, int i, int i2) {
-        aaA();
-        this.bKx = new WeakReference<>(view);
+        aay();
+        this.bJG = new WeakReference<>(view);
         ViewTreeObserver viewTreeObserver = view.getViewTreeObserver();
         if (viewTreeObserver != null) {
-            viewTreeObserver.addOnScrollChangedListener(this.bKy);
+            viewTreeObserver.addOnScrollChangedListener(this.bJH);
         }
-        this.bKz = i;
-        this.bKA = i2;
+        this.bJI = i;
+        this.bJJ = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -590,9 +590,9 @@ public class PopupWindow {
 
         @Override // android.view.ViewGroup, android.view.View
         protected int[] onCreateDrawableState(int i) {
-            if (PopupWindow.this.bKr) {
+            if (PopupWindow.this.bJA) {
                 int[] onCreateDrawableState = super.onCreateDrawableState(i + 1);
-                View.mergeDrawableStates(onCreateDrawableState, PopupWindow.bKw);
+                View.mergeDrawableStates(onCreateDrawableState, PopupWindow.bJF);
                 return onCreateDrawableState;
             }
             return super.onCreateDrawableState(i);
@@ -624,7 +624,7 @@ public class PopupWindow {
 
         @Override // android.view.ViewGroup, android.view.View
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-            if (PopupWindow.this.bKi == null || !PopupWindow.this.bKi.onTouch(this, motionEvent)) {
+            if (PopupWindow.this.bJr == null || !PopupWindow.this.bJr.onTouch(this, motionEvent)) {
                 return super.dispatchTouchEvent(motionEvent);
             }
             return true;

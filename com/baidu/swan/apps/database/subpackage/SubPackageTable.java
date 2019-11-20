@@ -19,9 +19,9 @@ public class SubPackageTable {
         public static final String TABLE_NAME = "ai_app_sub_package_data";
     }
 
-    public static void z(SQLiteDatabase sQLiteDatabase) {
+    public static void y(SQLiteDatabase sQLiteDatabase) {
         try {
-            sQLiteDatabase.execSQL(Hv());
+            sQLiteDatabase.execSQL(Hw());
             if (DEBUG) {
                 Log.e("SubPackageTable", "创建分包信息表");
             }
@@ -33,7 +33,7 @@ public class SubPackageTable {
         }
     }
 
-    public static String Hv() {
+    public static String Hw() {
         return "CREATE TABLE ai_app_sub_package_data (" + Table._id + " INTEGER PRIMARY KEY AUTOINCREMENT," + Table.app_id + " TEXT," + Table.version + " TEXT," + Table.package_name + " TEXT," + Table.is_exist + " INTEGER," + Table.aps_package_name + " TEXT,UNIQUE (" + Table.app_id + Constants.ACCEPT_TIME_SEPARATOR_SP + Table.package_name + "));";
     }
 }

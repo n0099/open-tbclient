@@ -32,7 +32,7 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.u.a.Jq().a(bVar.getActivity(), new a() { // from class: com.baidu.swan.apps.g.b.1
+        com.baidu.swan.apps.u.a.Jr().a(bVar.getActivity(), new a() { // from class: com.baidu.swan.apps.g.b.1
             @Override // com.baidu.swan.apps.g.a
             public void onSuccess(String str, String str2, String str3) {
                 try {

@@ -5,27 +5,27 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a bsB;
-    private HashMap<String, b> bS = new HashMap<>();
+    private static volatile a brK;
+    private HashMap<String, b> br = new HashMap<>();
 
     private a() {
     }
 
-    public static a TI() {
-        if (bsB == null) {
+    public static a TG() {
+        if (brK == null) {
             synchronized (a.class) {
-                if (bsB == null) {
-                    bsB = new a();
+                if (brK == null) {
+                    brK = new a();
                 }
             }
         }
-        return bsB;
+        return brK;
     }
 
     private b iE(String str) {
         c.d("TextAreaBaseParser", "createTextAreaSecondaryParser slaveId:" + str);
         b bVar = new b();
-        this.bS.put(str, bVar);
+        this.br.put(str, bVar);
         return bVar;
     }
 
@@ -40,11 +40,11 @@ public class a {
 
     public b iG(String str) {
         c.d("TextAreaBaseParser", "getTextAreaSecondaryParser slaveId:" + str);
-        return this.bS.get(str);
+        return this.br.get(str);
     }
 
     public void iH(String str) {
         c.d("TextAreaBaseParser", "destroyTextAreaSecondaryParser slaveId:" + str);
-        this.bS.remove(str);
+        this.br.remove(str);
     }
 }

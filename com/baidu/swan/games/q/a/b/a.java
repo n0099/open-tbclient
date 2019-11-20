@@ -3,30 +3,30 @@ package com.baidu.swan.games.q.a.b;
 import com.baidu.swan.menu.g;
 /* loaded from: classes2.dex */
 public class a {
-    private g bDZ;
-    private boolean bEa = true;
+    private g bDi;
+    private boolean bDj = true;
 
     private void dk(boolean z) {
-        this.bEa = z;
-        if (this.bDZ != null) {
+        this.bDj = z;
+        if (this.bDi != null) {
             if (z) {
-                this.bDZ.S(4, 1);
+                this.bDi.Q(4, 1);
             } else {
-                this.bDZ.gt(4);
+                this.bDi.gs(4);
             }
         }
     }
 
     public void a(g gVar) {
-        this.bDZ = gVar;
-        dk(this.bEa);
+        this.bDi = gVar;
+        dk(this.bDj);
     }
 
-    public void XV() {
+    public void XT() {
         dk(true);
     }
 
-    public void XW() {
+    public void XU() {
         dk(false);
     }
 }

@@ -18,16 +18,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d implements u {
-    u.a dsS;
-    private CustomMessageListener dsT = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
+    u.a dsa;
+    private CustomMessageListener dsb = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.dsS != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.dsa != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.dsS.Kh();
+                    d.this.dsa.Ki();
                 } else {
-                    d.this.dsS.Ki();
+                    d.this.dsa.Kj();
                 }
             }
         }
@@ -35,13 +35,13 @@ public class d implements u {
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.dsT);
+        MessageManager.getInstance().registerListener(this.dsb);
     }
 
     @Override // com.baidu.swan.apps.u.b.u
     public void a(Context context, JSONObject jSONObject, final u.a aVar) {
         if (context instanceof Activity) {
-            this.dsS = aVar;
+            this.dsa = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");
@@ -66,9 +66,9 @@ public class d implements u {
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.isOk()) {
                         if (delegateResult.mResult.getBoolean("share_result")) {
-                            aVar.Kh();
-                        } else {
                             aVar.Ki();
+                        } else {
+                            aVar.Kj();
                         }
                     }
                 }

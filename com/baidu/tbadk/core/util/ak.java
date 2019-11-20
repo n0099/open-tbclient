@@ -7,59 +7,59 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ak {
-    private static String ckb;
-    private static String ckc;
+    private static String cjk;
+    private static String cjl;
 
-    public static boolean Uq() {
-        return amF();
+    public static boolean Uo() {
+        return amD();
     }
 
-    public static boolean amF() {
+    public static boolean amD() {
         return check("EMUI") && Build.VERSION.SDK_INT >= 24;
     }
 
     public static boolean check(String str) {
-        if (ckb != null) {
-            return ckb.equals(str);
+        if (cjk != null) {
+            return cjk.equals(str);
         }
         String hk = hk("ro.miui.ui.version.name");
-        ckc = hk;
+        cjl = hk;
         if (!TextUtils.isEmpty(hk)) {
-            ckb = "MIUI";
+            cjk = "MIUI";
         } else {
             String hk2 = hk("ro.build.version.emui");
-            ckc = hk2;
+            cjl = hk2;
             if (!TextUtils.isEmpty(hk2)) {
-                ckb = "EMUI";
+                cjk = "EMUI";
             } else {
                 String hk3 = hk("ro.build.version.opporom");
-                ckc = hk3;
+                cjl = hk3;
                 if (!TextUtils.isEmpty(hk3)) {
-                    ckb = "OPPO";
+                    cjk = "OPPO";
                 } else {
                     String hk4 = hk("ro.vivo.os.version");
-                    ckc = hk4;
+                    cjl = hk4;
                     if (!TextUtils.isEmpty(hk4)) {
-                        ckb = "VIVO";
+                        cjk = "VIVO";
                     } else {
                         String hk5 = hk("ro.smartisan.version");
-                        ckc = hk5;
+                        cjl = hk5;
                         if (!TextUtils.isEmpty(hk5)) {
-                            ckb = "SMARTISAN";
+                            cjk = "SMARTISAN";
                         } else {
-                            ckc = Build.DISPLAY;
-                            if (ckc.toUpperCase().contains("FLYME")) {
-                                ckb = "FLYME";
+                            cjl = Build.DISPLAY;
+                            if (cjl.toUpperCase().contains("FLYME")) {
+                                cjk = "FLYME";
                             } else {
-                                ckc = "unknown";
-                                ckb = Build.MANUFACTURER.toUpperCase();
+                                cjl = "unknown";
+                                cjk = Build.MANUFACTURER.toUpperCase();
                             }
                         }
                     }
                 }
             }
         }
-        return ckb.equals(str);
+        return cjk.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [91=4] */

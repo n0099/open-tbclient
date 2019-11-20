@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b {
-    private String bLZ;
-    private ArrayList<String> jMP;
+    private String bLi;
+    private ArrayList<String> jLY;
 
     public void k(EditText editText) {
         Editable text;
@@ -32,10 +32,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.isEmpty(this.jMP)) {
+        if (spannable != null && !v.isEmpty(this.jLY)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.jMP.iterator();
+                Iterator<String> it = this.jLY.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -84,7 +84,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.isEmpty(cxy())) {
+        if (v.isEmpty(cxw())) {
             return false;
         }
         return l(editText) || l(editText2);
@@ -107,18 +107,18 @@ public class b {
     }
 
     public void aM(ArrayList<String> arrayList) {
-        this.jMP = arrayList;
+        this.jLY = arrayList;
     }
 
-    public ArrayList<String> cxy() {
-        return this.jMP;
+    public ArrayList<String> cxw() {
+        return this.jLY;
     }
 
     public void Fv(String str) {
-        this.bLZ = str;
+        this.bLi = str;
     }
 
-    public String cxC() {
-        return this.bLZ;
+    public String cxA() {
+        return this.bLi;
     }
 }

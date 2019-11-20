@@ -4,13 +4,13 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class b {
     private String mName;
-    private int of;
-    private a oi;
-    private int oh = 0;
-    private String[] ol = null;
-    private int og = 0;
-    private String[] om = null;
-    private boolean on = false;
+    private int nG;
+    private a nJ;
+    private int nI = 0;
+    private String[] nL = null;
+    private int nH = 0;
+    private String[] nM = null;
+    private boolean nN = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,36 +19,36 @@ public class b {
 
     public b(String str, int i, a aVar) {
         this.mName = null;
-        this.oi = null;
-        this.of = 0;
+        this.nJ = null;
+        this.nG = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.oi = aVar;
-        this.of = i;
+        this.nJ = aVar;
+        this.nG = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.oh = i;
-        this.ol = strArr;
-        this.og = i2;
+        this.nI = i;
+        this.nL = strArr;
+        this.nH = i2;
     }
 
     public void z(boolean z) {
-        this.on = z;
+        this.nN = z;
     }
 
     public boolean fo() {
-        return this.on;
+        return this.nN;
     }
 
     public void g(String[] strArr) {
-        this.om = strArr;
+        this.nM = strArr;
     }
 
     public String[] fm() {
-        return this.om;
+        return this.nM;
     }
 
     public String getName() {
@@ -56,24 +56,24 @@ public class b {
     }
 
     public int fl() {
-        return this.oh;
+        return this.nI;
     }
 
     public String[] fp() {
-        return this.ol;
+        return this.nL;
     }
 
     public int fk() {
-        return this.og;
+        return this.nH;
     }
 
     public int fj() {
-        return this.of;
+        return this.nG;
     }
 
     public void f(int i, boolean z) {
-        if (this.oi != null) {
-            this.oi.a(this.mName, i, z);
+        if (this.nJ != null) {
+            this.nJ.a(this.mName, i, z);
         }
     }
 }

@@ -6,9 +6,9 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
     public int downSize;
-    public Map<String, List<String>> pA;
+    public Map<String, List<String>> oU;
     public byte[] retBytes;
-    public volatile boolean pz = false;
+    public volatile boolean oT = false;
     public int responseCode = -1;
     public int mNetErrorCode = -1;
     public String contentEncoding = "";
@@ -22,7 +22,7 @@ public class g {
             this.contentEncoding = httpURLConnection.getContentEncoding();
             this.contentType = httpURLConnection.getContentType();
             this.contentLength = httpURLConnection.getContentLength() + "";
-            this.pA = httpURLConnection.getHeaderFields();
+            this.oU = httpURLConnection.getHeaderFields();
         }
     }
 

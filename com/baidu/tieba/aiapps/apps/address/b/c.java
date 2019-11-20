@@ -13,59 +13,59 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c dnz;
-    private boolean bes;
-    private List<d> dnw = new ArrayList();
-    private Map<d, List<d>> dnx = new HashMap();
-    private Map<d, List<d>> dny = new HashMap();
+    private static volatile c dmH;
+    private boolean bdZ;
+    private List<d> dmE = new ArrayList();
+    private Map<d, List<d>> dmF = new HashMap();
+    private Map<d, List<d>> dmG = new HashMap();
 
-    public static c aFK() {
-        if (dnz == null) {
+    public static c aFI() {
+        if (dmH == null) {
             synchronized (c.class) {
-                if (dnz == null) {
-                    dnz = new c();
+                if (dmH == null) {
+                    dmH = new c();
                 }
             }
         }
-        return dnz;
+        return dmH;
     }
 
     public void initData() {
-        L(aFP());
-        this.bes = true;
+        L(aFN());
+        this.bdZ = true;
     }
 
-    public boolean aFL() {
-        return this.bes;
+    public boolean aFJ() {
+        return this.bdZ;
     }
 
-    public List<d> aFM() {
-        return this.dnw;
+    public List<d> aFK() {
+        return this.dmE;
     }
 
-    public Map<d, List<d>> aFN() {
-        return this.dnx;
+    public Map<d, List<d>> aFL() {
+        return this.dmF;
     }
 
-    public Map<d, List<d>> aFO() {
-        return this.dny;
+    public Map<d, List<d>> aFM() {
+        return this.dmG;
     }
 
     private void L(JSONArray jSONArray) {
-        d bD;
+        d bE;
         if (jSONArray != null && jSONArray.length() > 0) {
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < jSONArray.length()) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                    if (optJSONObject != null && (bD = d.bD(optJSONObject)) != null) {
-                        this.dnw.add(bD);
-                        if (bD.aFT()) {
-                            this.dnx.put(bD, bD.MT);
-                            for (d dVar : bD.MT) {
-                                if (dVar.aFT()) {
-                                    this.dny.put(dVar, dVar.MT);
+                    if (optJSONObject != null && (bE = d.bE(optJSONObject)) != null) {
+                        this.dmE.add(bE);
+                        if (bE.aFR()) {
+                            this.dmF.put(bE, bE.Ms);
+                            for (d dVar : bE.Ms) {
+                                if (dVar.aFR()) {
+                                    this.dmG.put(dVar, dVar.Ms);
                                 }
                             }
                         }
@@ -78,7 +78,7 @@ public class c {
         }
     }
 
-    private JSONArray aFP() {
+    private JSONArray aFN() {
         JSONArray jSONArray;
         Exception e;
         InputStream open;

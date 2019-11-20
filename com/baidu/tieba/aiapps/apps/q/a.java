@@ -39,13 +39,13 @@ public class a implements m {
         if (DEBUG) {
             Log.d("UploadManager", sh);
         }
-        httpPost.setEntity(bG(jSONObject));
+        httpPost.setEntity(bH(jSONObject));
         httpPost.setHeader("Content-type", URLEncodedUtils.CONTENT_TYPE);
         b bVar = new b();
-        String bH = bH(jSONObject);
+        String bI = bI(jSONObject);
         try {
             try {
-                return b(bVar.executeSafely(httpPost), bH);
+                return b(bVar.executeSafely(httpPost), bI);
             } catch (Exception e) {
                 if (DEBUG) {
                     Log.d("UploadManager", "requestToServer e:" + e.getMessage());
@@ -54,8 +54,8 @@ public class a implements m {
                     JSONObject jSONObject2 = new JSONObject();
                     try {
                         jSONObject2.put("type", "sendFail");
-                        if (!TextUtils.isEmpty(bH)) {
-                            jSONObject2.put("md5", bH);
+                        if (!TextUtils.isEmpty(bI)) {
+                            jSONObject2.put("md5", bI);
                         }
                         jSONObject2.put("exception", Log.getStackTraceString(e));
                     } catch (JSONException e2) {
@@ -71,13 +71,13 @@ public class a implements m {
         }
     }
 
-    private AbstractHttpEntity bG(JSONObject jSONObject) {
+    private AbstractHttpEntity bH(JSONObject jSONObject) {
         UrlEncodedFormEntity urlEncodedFormEntity;
         ArrayList arrayList = new ArrayList();
-        byte[] y = c.y(jSONObject.toString().getBytes());
-        y[0] = 117;
-        y[1] = 123;
-        arrayList.add(new BasicNameValuePair("data", Base64.encodeToString(y, 0)));
+        byte[] x = c.x(jSONObject.toString().getBytes());
+        x[0] = 117;
+        x[1] = 123;
+        arrayList.add(new BasicNameValuePair("data", Base64.encodeToString(x, 0)));
         try {
             urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, "utf-8");
             try {
@@ -251,7 +251,7 @@ public class a implements m {
         return z;
     }
 
-    private String bH(JSONObject jSONObject) {
+    private String bI(JSONObject jSONObject) {
         if (jSONObject == null || !jSONObject.has("metadata")) {
             return "";
         }

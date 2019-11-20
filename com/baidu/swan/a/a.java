@@ -10,10 +10,10 @@ public class a extends d {
     /* renamed from: com.baidu.swan.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static final class C0150a {
-        private static final a bwI = new a();
+        private static final a bvR = new a();
     }
 
-    public static a Vx() {
-        return C0150a.bwI;
+    public static a Vv() {
+        return C0150a.bvR;
     }
 }

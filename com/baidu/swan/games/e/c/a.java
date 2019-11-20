@@ -3,5 +3,5 @@ package com.baidu.swan.games.e.c;
 public interface a {
     void aX(String str, String str2);
 
-    void x(int i, String str);
+    void w(int i, String str);
 }

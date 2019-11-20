@@ -31,9 +31,9 @@ public class c {
     private Resources contextRes;
     private Resources pluginRes;
     private boolean isNightMode = false;
-    private boolean bVL = false;
+    private boolean bUU = false;
     Map<String, b> viewModeInfos = new HashMap();
-    public boolean bVM = false;
+    public boolean bUV = false;
 
     public void initModeInfos(String str, Context context, AttributeSet attributeSet) {
         int[] resID;
@@ -295,7 +295,7 @@ public class c {
     }
 
     private Drawable getDrawable(boolean z, int i, int i2) {
-        if (this.bVL) {
+        if (this.bUU) {
             try {
                 return this.contextRes.getDrawable(i);
             } catch (Throwable th) {
@@ -303,7 +303,7 @@ public class c {
             }
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.bVM && skinType == 4)) {
+        if (skinType == 2 || (!this.bUV && skinType == 4)) {
             return am.getDrawable(i);
         }
         if (!z) {
@@ -338,11 +338,11 @@ public class c {
     }
 
     private int getColor(boolean z, int i, int i2) {
-        if (this.bVL) {
+        if (this.bUU) {
             return this.contextRes.getColor(i);
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.bVM && skinType == 4)) {
+        if (skinType == 2 || (!this.bUV && skinType == 4)) {
             return am.getColor(i);
         }
         if (!z) {
@@ -363,11 +363,11 @@ public class c {
     }
 
     private ColorStateList getColorList(boolean z, int i, int i2) {
-        if (this.bVL) {
+        if (this.bUU) {
             return this.contextRes.getColorStateList(i);
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.bVM && skinType == 4)) {
+        if (skinType == 2 || (!this.bUV && skinType == 4)) {
             return am.getColorList(i);
         }
         if (!z) {
@@ -392,7 +392,7 @@ public class c {
     }
 
     public void dV(boolean z) {
-        this.bVL = z;
+        this.bUU = z;
     }
 
     public void setPluginRes(Resources resources) {

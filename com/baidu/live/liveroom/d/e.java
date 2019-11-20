@@ -3,34 +3,34 @@ package com.baidu.live.liveroom.d;
 import android.content.Context;
 /* loaded from: classes6.dex */
 public class e {
-    private static volatile e ajJ = null;
-    private b ajK;
+    private static volatile e ajr = null;
+    private b ajs;
 
     private e() {
     }
 
-    public static e uh() {
-        if (ajJ == null) {
+    public static e ui() {
+        if (ajr == null) {
             synchronized (e.class) {
-                if (ajJ == null) {
-                    ajJ = new e();
+                if (ajr == null) {
+                    ajr = new e();
                 }
             }
         }
-        return ajJ;
+        return ajr;
     }
 
     public void a(b bVar) {
-        this.ajK = bVar;
+        this.ajs = bVar;
     }
 
-    public boolean ui() {
-        return this.ajK != null;
+    public boolean uj() {
+        return this.ajs != null;
     }
 
     public a as(Context context) {
-        if (this.ajK != null) {
-            return this.ajK.ar(context);
+        if (this.ajs != null) {
+            return this.ajs.ar(context);
         }
         return null;
     }

@@ -8,29 +8,29 @@ import android.view.animation.DecelerateInterpolator;
 import com.baidu.adp.lib.util.e;
 /* loaded from: classes.dex */
 public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
-    private float bdr;
-    private int cSR;
-    private int cSS;
-    private float cST;
-    private ValueAnimator cSU;
+    private float bcZ;
+    private int cSa;
+    private int cSb;
+    private float cSc;
+    private ValueAnimator cSd;
     private float mRatio;
     private int mScreenWidth;
 
     public FlexibleHorizontalScrollView(Context context) {
         super(context);
-        this.cSR = 150;
-        this.cST = 0.0f;
+        this.cSa = 150;
+        this.cSc = 0.0f;
     }
 
     public FlexibleHorizontalScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cSR = 150;
-        this.cST = 0.0f;
+        this.cSa = 150;
+        this.cSc = 0.0f;
     }
 
     @Override // android.view.View
     protected boolean overScrollBy(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z) {
-        this.cSS = i5;
+        this.cSb = i5;
         return super.overScrollBy(i, i2, i3, i4, i5, i6, i7, i8, z);
     }
 
@@ -39,57 +39,57 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         int i = 0;
         int scrollX = getScrollX();
         float x = getX();
-        if (scrollX > 0 && scrollX < this.cSS && x == 0.0f) {
+        if (scrollX > 0 && scrollX < this.cSb && x == 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction() & 255;
-        int i2 = this.cSR;
-        ayH();
+        int i2 = this.cSa;
+        ayF();
         switch (action) {
             case 0:
-                if (this.cSU.isRunning()) {
-                    this.cSU.cancel();
+                if (this.cSd.isRunning()) {
+                    this.cSd.cancel();
                 }
-                this.bdr = motionEvent.getRawX();
+                this.bcZ = motionEvent.getRawX();
                 break;
             case 1:
             case 3:
                 if (x != 0.0f) {
-                    this.cST = 0.0f;
-                    this.bdr = 0.0f;
-                    this.cSU.setFloatValues(x, 0.0f);
-                    this.cSU.start();
+                    this.cSc = 0.0f;
+                    this.bcZ = 0.0f;
+                    this.cSd.setFloatValues(x, 0.0f);
+                    this.cSd.start();
                     return true;
                 }
                 break;
             case 2:
-                float rawX = motionEvent.getRawX() - this.bdr;
+                float rawX = motionEvent.getRawX() - this.bcZ;
                 if (Math.abs(rawX) > 50.0f && x == 0.0f) {
-                    this.bdr = motionEvent.getRawX();
+                    this.bcZ = motionEvent.getRawX();
                     return true;
                 }
-                if (this.cST * rawX < 0.0f) {
-                    this.cST += rawX;
+                if (this.cSc * rawX < 0.0f) {
+                    this.cSc += rawX;
                 } else {
-                    this.cST += rawX * this.mRatio;
+                    this.cSc += rawX * this.mRatio;
                 }
-                this.bdr = motionEvent.getRawX();
+                this.bcZ = motionEvent.getRawX();
                 if (scrollX == 0) {
                     i = 1;
-                } else if (scrollX == this.cSS) {
+                } else if (scrollX == this.cSb) {
                     i = -1;
                 }
                 if (i != 0) {
-                    if (i * this.cST > i2) {
-                        this.cST = i * i2;
-                        this.bdr = motionEvent.getRawX();
-                    } else if (i * this.cST < 0.0f) {
-                        this.cST = 0.0f;
-                        this.bdr = motionEvent.getRawX();
+                    if (i * this.cSc > i2) {
+                        this.cSc = i * i2;
+                        this.bcZ = motionEvent.getRawX();
+                    } else if (i * this.cSc < 0.0f) {
+                        this.cSc = 0.0f;
+                        this.bcZ = motionEvent.getRawX();
                         setX(0.0f);
                         return super.onTouchEvent(motionEvent);
                     }
-                    setX(this.cST);
+                    setX(this.cSc);
                     return true;
                 }
                 break;
@@ -97,12 +97,12 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         return super.onTouchEvent(motionEvent);
     }
 
-    private void ayH() {
-        if (this.cSU == null) {
-            this.cSU = new ValueAnimator();
-            this.cSU.setDuration(200L);
-            this.cSU.setInterpolator(new DecelerateInterpolator());
-            this.cSU.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollView.1
+    private void ayF() {
+        if (this.cSd == null) {
+            this.cSd = new ValueAnimator();
+            this.cSd.setDuration(200L);
+            this.cSd.setInterpolator(new DecelerateInterpolator());
+            this.cSd.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollView.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     FlexibleHorizontalScrollView.this.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
@@ -112,14 +112,14 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         if (this.mScreenWidth == 0) {
             setOverScrollMode(2);
             this.mScreenWidth = e.getEquipmentWidth(getContext());
-            this.mRatio = (1.0f * this.cSR) / this.mScreenWidth;
+            this.mRatio = (1.0f * this.cSa) / this.mScreenWidth;
         }
     }
 
     public void setMaxOverScrollDistance(int i) {
         if (i > 0) {
-            this.cSR = i;
-            this.mRatio = (1.0f * this.cSR) / this.mScreenWidth;
+            this.cSa = i;
+            this.mRatio = (1.0f * this.cSa) / this.mScreenWidth;
         }
     }
 }

@@ -69,11 +69,11 @@ public interface g {
 
     void a(i iVar);
 
-    int aCe();
+    int aCc();
 
-    boolean aCf();
+    boolean aCd();
 
-    void axM();
+    void axK();
 
     void forceUseSystemMediaPlayer(boolean z);
 

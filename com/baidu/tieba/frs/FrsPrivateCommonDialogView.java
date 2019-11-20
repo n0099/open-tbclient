@@ -17,15 +17,15 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FrsPrivateCommonDialogView extends LinearLayout {
-    private TextView aqv;
-    private TbImageView cmP;
+    private TextView aqd;
+    private TbImageView clX;
     private Context context;
-    private TextView fab;
-    private TextView fys;
-    private RelativeLayout fyt;
-    private TextView fyu;
-    private TextView fyv;
-    private TextView fyw;
+    private TextView eZk;
+    private TextView fxB;
+    private RelativeLayout fxC;
+    private TextView fxD;
+    private TextView fxE;
+    private TextView fxF;
     private LinearLayout mRootView;
 
     public FrsPrivateCommonDialogView(Context context) {
@@ -35,69 +35,69 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
     }
 
     public boolean b(PrivateForumPopInfoData privateForumPopInfoData) {
-        if (privateForumPopInfoData == null || privateForumPopInfoData.ahJ() == null) {
+        if (privateForumPopInfoData == null || privateForumPopInfoData.ahH() == null) {
             return false;
         }
-        String str = privateForumPopInfoData.ahJ() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + privateForumPopInfoData.ahM();
-        if (com.baidu.tbadk.core.sharedPref.b.alR().getBoolean(str, false)) {
+        String str = privateForumPopInfoData.ahH() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + privateForumPopInfoData.ahK();
+        if (com.baidu.tbadk.core.sharedPref.b.alP().getBoolean(str, false)) {
             return false;
         }
-        com.baidu.tbadk.core.sharedPref.b.alR().putBoolean(str, true);
-        if (privateForumPopInfoData.ahJ().equals("task_complete")) {
-            this.fyt.setVisibility(0);
-            this.fys.setVisibility(8);
+        com.baidu.tbadk.core.sharedPref.b.alP().putBoolean(str, true);
+        if (privateForumPopInfoData.ahH().equals("task_complete")) {
+            this.fxC.setVisibility(0);
+            this.fxB.setVisibility(8);
         } else {
-            this.fyt.setVisibility(8);
-            this.fys.setVisibility(0);
+            this.fxC.setVisibility(8);
+            this.fxB.setVisibility(0);
         }
-        if (privateForumPopInfoData.ahJ().equals("create_success")) {
-            this.aqv.setVisibility(0);
-            this.aqv.setText(R.string.frs_private_create_title);
-            this.fys.setText(R.string.frs_private_create_button);
-            com.baidu.tbadk.core.util.am.setImageResource(this.cmP, R.drawable.pic_frs_private_create_success);
-        } else if (privateForumPopInfoData.ahJ().equals("left_time")) {
-            this.aqv.setVisibility(8);
-            this.fys.setText(R.string.frs_private_create_button);
-            com.baidu.tbadk.core.util.am.setImageResource(this.cmP, R.drawable.pic_frs_private_target_remind);
-        } else if (privateForumPopInfoData.ahJ().equals("clear_forum")) {
-            this.aqv.setVisibility(8);
-            this.fys.setText(R.string.frs_private_fail_button);
-            com.baidu.tbadk.core.util.am.setImageResource(this.cmP, R.drawable.pic_frs_private_target_fail);
-        } else if (!privateForumPopInfoData.ahJ().equals("task_complete")) {
+        if (privateForumPopInfoData.ahH().equals("create_success")) {
+            this.aqd.setVisibility(0);
+            this.aqd.setText(R.string.frs_private_create_title);
+            this.fxB.setText(R.string.frs_private_create_button);
+            com.baidu.tbadk.core.util.am.setImageResource(this.clX, R.drawable.pic_frs_private_create_success);
+        } else if (privateForumPopInfoData.ahH().equals("left_time")) {
+            this.aqd.setVisibility(8);
+            this.fxB.setText(R.string.frs_private_create_button);
+            com.baidu.tbadk.core.util.am.setImageResource(this.clX, R.drawable.pic_frs_private_target_remind);
+        } else if (privateForumPopInfoData.ahH().equals("clear_forum")) {
+            this.aqd.setVisibility(8);
+            this.fxB.setText(R.string.frs_private_fail_button);
+            com.baidu.tbadk.core.util.am.setImageResource(this.clX, R.drawable.pic_frs_private_target_fail);
+        } else if (!privateForumPopInfoData.ahH().equals("task_complete")) {
             return false;
         } else {
-            this.aqv.setVisibility(0);
-            this.aqv.setText(R.string.frs_private_success_title);
-            com.baidu.tbadk.core.util.am.setImageResource(this.cmP, R.drawable.pic_frs_private_target_success);
+            this.aqd.setVisibility(0);
+            this.aqd.setText(R.string.frs_private_success_title);
+            com.baidu.tbadk.core.util.am.setImageResource(this.clX, R.drawable.pic_frs_private_target_success);
         }
-        this.fab.setText(privateForumPopInfoData.ahK());
+        this.eZk.setText(privateForumPopInfoData.ahI());
         return true;
     }
 
     public void setConfirmButton(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.fys.setOnClickListener(onClickListener);
+            this.fxB.setOnClickListener(onClickListener);
         }
     }
 
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_private_common_dialog, this);
         this.mRootView = (LinearLayout) findViewById(R.id.frs_private_common);
-        this.cmP = (TbImageView) this.mRootView.findViewById(R.id.frs_private_common_image);
-        this.aqv = (TextView) this.mRootView.findViewById(R.id.frs_private_common_title);
-        this.fab = (TextView) this.mRootView.findViewById(R.id.frs_private_common_hint);
-        this.fys = (TextView) this.mRootView.findViewById(R.id.frs_private_common_button);
-        this.fyt = (RelativeLayout) this.mRootView.findViewById(R.id.frs_private_common_tips);
-        this.fyu = (TextView) this.mRootView.findViewById(R.id.frs_private_center_tip);
-        this.fyv = (TextView) this.mRootView.findViewById(R.id.frs_private_left_tip);
-        this.fyw = (TextView) this.mRootView.findViewById(R.id.frs_private_right_tip);
-        setImageAttribute(this.cmP);
-        setTextAttribute(Arrays.asList(this.fyu, this.fyv, this.fyw));
+        this.clX = (TbImageView) this.mRootView.findViewById(R.id.frs_private_common_image);
+        this.aqd = (TextView) this.mRootView.findViewById(R.id.frs_private_common_title);
+        this.eZk = (TextView) this.mRootView.findViewById(R.id.frs_private_common_hint);
+        this.fxB = (TextView) this.mRootView.findViewById(R.id.frs_private_common_button);
+        this.fxC = (RelativeLayout) this.mRootView.findViewById(R.id.frs_private_common_tips);
+        this.fxD = (TextView) this.mRootView.findViewById(R.id.frs_private_center_tip);
+        this.fxE = (TextView) this.mRootView.findViewById(R.id.frs_private_left_tip);
+        this.fxF = (TextView) this.mRootView.findViewById(R.id.frs_private_right_tip);
+        setImageAttribute(this.clX);
+        setTextAttribute(Arrays.asList(this.fxD, this.fxE, this.fxF));
         com.baidu.tbadk.core.util.am.setBackgroundResource(this.mRootView, R.drawable.bg_frs_private_dialog);
-        com.baidu.tbadk.core.util.am.setViewTextColor(this.aqv, (int) R.color.cp_cont_b);
-        com.baidu.tbadk.core.util.am.setViewTextColor(this.fab, (int) R.color.cp_cont_j);
-        com.baidu.tbadk.core.util.am.d(this.fys, R.drawable.btn_frs_private_n, R.drawable.btn_frs_private_s);
-        com.baidu.tbadk.core.util.am.setViewTextColor(this.fys, (int) R.color.cp_cont_a);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.aqd, (int) R.color.cp_cont_b);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.eZk, (int) R.color.cp_cont_j);
+        com.baidu.tbadk.core.util.am.d(this.fxB, R.drawable.btn_frs_private_n, R.drawable.btn_frs_private_s);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.fxB, (int) R.color.cp_cont_a);
     }
 
     private void setTextAttribute(List<TextView> list) {
@@ -118,7 +118,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         } else {
             equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.context) - (dimens * 2);
         }
-        ViewGroup.LayoutParams layoutParams = this.cmP.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.clX.getLayoutParams();
         layoutParams.width = equipmentWidth;
         layoutParams.height = (equipmentWidth * 21) / 38;
         tbImageView.setLayoutParams(layoutParams);

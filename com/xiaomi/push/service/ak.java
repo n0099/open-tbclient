@@ -1,98 +1,244 @@
 package com.xiaomi.push.service;
 
-import android.os.Process;
 import android.text.TextUtils;
-import com.xiaomi.network.Host;
-import com.xiaomi.push.protobuf.a;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.net.Socket;
-import java.util.List;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.coremedia.iso.boxes.AuthorBox;
+import com.xiaomi.push.cq;
+import com.xiaomi.push.cu;
+import com.xiaomi.push.dd;
+import com.xiaomi.push.ee;
+import com.xiaomi.push.fb;
+import com.xiaomi.push.ff;
+import com.xiaomi.push.fn;
+import com.xiaomi.push.ga;
+import com.xiaomi.push.gb;
+import com.xiaomi.push.gc;
+import com.xiaomi.push.gd;
+import com.xiaomi.push.gr;
+import com.xiaomi.push.ha;
+import com.xiaomi.push.service.al;
+import java.util.Date;
 /* loaded from: classes3.dex */
 public class ak {
-    private static final Pattern a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
-    private static long b = 0;
-    private static ThreadPoolExecutor c = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, new LinkedBlockingQueue());
+    private XMPushService a;
 
-    public static void a() {
-        a.C0598a d;
-        long currentTimeMillis = System.currentTimeMillis();
-        if ((c.getActiveCount() <= 0 || currentTimeMillis - b >= 1800000) && com.xiaomi.stats.f.a().c() && (d = bh.a().d()) != null && d.m() > 0) {
-            b = currentTimeMillis;
-            a(d.l(), true);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ak(XMPushService xMPushService) {
+        this.a = xMPushService;
     }
 
-    public static void a(List<String> list, boolean z) {
-        c.execute(new al(list, z));
-    }
-
-    public static void b() {
-        String c2 = c("/proc/self/net/tcp");
-        if (!TextUtils.isEmpty(c2)) {
-            com.xiaomi.channel.commonutils.logger.b.a("dump tcp for uid = " + Process.myUid());
-            com.xiaomi.channel.commonutils.logger.b.a(c2);
-        }
-        String c3 = c("/proc/self/net/tcp6");
-        if (TextUtils.isEmpty(c3)) {
+    private void a(ga gaVar) {
+        String c = gaVar.c();
+        if (TextUtils.isEmpty(c)) {
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.a("dump tcp6 for uid = " + Process.myUid());
-        com.xiaomi.channel.commonutils.logger.b.a(c3);
+        String[] split = c.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+        cq a = cu.a().a(fn.a(), false);
+        if (a == null || split.length <= 0) {
+            return;
+        }
+        a.a(split);
+        this.a.a(20, (Exception) null);
+        this.a.a(true);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static boolean b(String str) {
-        long currentTimeMillis = System.currentTimeMillis();
+    private void b(gd gdVar) {
+        al.b a;
+        String l = gdVar.l();
+        String k = gdVar.k();
+        if (TextUtils.isEmpty(l) || TextUtils.isEmpty(k) || (a = al.a().a(k, l)) == null) {
+            return;
+        }
+        gr.a(this.a, a.f860a, gr.a(gdVar.m288a()), true, true, System.currentTimeMillis());
+    }
+
+    private void c(ff ffVar) {
+        al.b a;
+        String g = ffVar.g();
+        String num = Integer.toString(ffVar.a());
+        if (TextUtils.isEmpty(g) || TextUtils.isEmpty(num) || (a = al.a().a(num, g)) == null) {
+            return;
+        }
+        gr.a(this.a, a.f860a, ffVar.c(), true, true, System.currentTimeMillis());
+    }
+
+    public void a(ff ffVar) {
+        if (5 != ffVar.a()) {
+            c(ffVar);
+        }
         try {
-            com.xiaomi.channel.commonutils.logger.b.a("ConnectivityTest: begin to connect to " + str);
-            Socket socket = new Socket();
-            socket.connect(Host.b(str, 5222), 5000);
-            socket.setTcpNoDelay(true);
-            com.xiaomi.channel.commonutils.logger.b.a("ConnectivityTest: connect to " + str + " in " + (System.currentTimeMillis() - currentTimeMillis));
-            socket.close();
-            return true;
-        } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.d("ConnectivityTest: could not connect to:" + str + " exception: " + th.getClass().getSimpleName() + " description: " + th.getMessage());
-            return false;
+            b(ffVar);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a("handle Blob chid = " + ffVar.a() + " cmd = " + ffVar.m252a() + " packetid = " + ffVar.e() + " failure ", e);
         }
     }
 
-    private static String c(String str) {
-        BufferedReader bufferedReader;
-        Throwable th;
-        String str2 = null;
-        try {
-            bufferedReader = new BufferedReader(new FileReader(new File(str)));
-            try {
-                StringBuilder sb = new StringBuilder();
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    sb.append("\n");
-                    sb.append(readLine);
+    public void a(gd gdVar) {
+        if (!"5".equals(gdVar.k())) {
+            b(gdVar);
+        }
+        String k = gdVar.k();
+        if (TextUtils.isEmpty(k)) {
+            k = "1";
+            gdVar.l("1");
+        }
+        if (k.equals("0")) {
+            com.xiaomi.channel.commonutils.logger.b.m30a("Received wrong packet with chid = 0 : " + gdVar.m288a());
+        }
+        if (gdVar instanceof gb) {
+            ga a = gdVar.a("kick");
+            if (a != null) {
+                String l = gdVar.l();
+                String a2 = a.a("type");
+                String a3 = a.a(TiebaInitialize.LogFields.REASON);
+                com.xiaomi.channel.commonutils.logger.b.m30a("kicked by server, chid=" + k + " res=" + al.b.a(l) + " type=" + a2 + " reason=" + a3);
+                if (!"wait".equals(a2)) {
+                    this.a.a(k, l, 3, a3, a2);
+                    al.a().m499a(k, l);
+                    return;
                 }
-                str2 = sb.toString();
-            } catch (Exception e) {
-            } catch (Throwable th2) {
-                th = th2;
-                com.xiaomi.channel.commonutils.file.b.a(bufferedReader);
-                throw th;
+                al.b a4 = al.a().a(k, l);
+                if (a4 != null) {
+                    this.a.a(a4);
+                    a4.a(al.c.unbind, 3, 0, a3, a2);
+                    return;
+                }
+                return;
             }
-        } catch (Exception e2) {
-            bufferedReader = null;
-        } catch (Throwable th3) {
-            bufferedReader = null;
-            th = th3;
+        } else if (gdVar instanceof gc) {
+            gc gcVar = (gc) gdVar;
+            if ("redir".equals(gcVar.b())) {
+                ga a5 = gcVar.a("hosts");
+                if (a5 != null) {
+                    a(a5);
+                    return;
+                }
+                return;
+            }
         }
-        com.xiaomi.channel.commonutils.file.b.a(bufferedReader);
-        return str2;
+        this.a.b().a(this.a, k, gdVar);
+    }
+
+    public void b(ff ffVar) {
+        String m252a = ffVar.m252a();
+        switch (ffVar.a()) {
+            case 0:
+                if ("PING".equals(m252a)) {
+                    byte[] m256a = ffVar.m256a();
+                    if (m256a != null && m256a.length > 0) {
+                        ee.j a = ee.j.a(m256a);
+                        if (a.b()) {
+                            ba.a().a(a.a());
+                        }
+                    }
+                    if (!"com.xiaomi.xmsf".equals(this.a.getPackageName())) {
+                        this.a.m484a();
+                    }
+                    if ("1".equals(ffVar.e())) {
+                        com.xiaomi.channel.commonutils.logger.b.m30a("received a server ping");
+                    } else {
+                        ha.b();
+                    }
+                    this.a.m487b();
+                    return;
+                } else if (!"SYNC".equals(m252a)) {
+                    if ("NOTIFY".equals(ffVar.m252a())) {
+                        ee.h a2 = ee.h.a(ffVar.m256a());
+                        com.xiaomi.channel.commonutils.logger.b.m30a("notify by server err = " + a2.c() + " desc = " + a2.a());
+                        return;
+                    }
+                    return;
+                } else if ("CONF".equals(ffVar.m258b())) {
+                    ba.a().a(ee.b.a(ffVar.m256a()));
+                    return;
+                } else if (TextUtils.equals("U", ffVar.m258b())) {
+                    ee.k a3 = ee.k.a(ffVar.m256a());
+                    dd.a(this.a).a(a3.a(), a3.b(), new Date(a3.a()), new Date(a3.b()), a3.c() * 1024, a3.e());
+                    ff ffVar2 = new ff();
+                    ffVar2.a(0);
+                    ffVar2.a(ffVar.m252a(), "UCA");
+                    ffVar2.a(ffVar.e());
+                    this.a.a(new aw(this.a, ffVar2));
+                    return;
+                } else if (TextUtils.equals("P", ffVar.m258b())) {
+                    ee.i a4 = ee.i.a(ffVar.m256a());
+                    ff ffVar3 = new ff();
+                    ffVar3.a(0);
+                    ffVar3.a(ffVar.m252a(), "PCA");
+                    ffVar3.a(ffVar.e());
+                    ee.i iVar = new ee.i();
+                    if (a4.a()) {
+                        iVar.a(a4.a());
+                    }
+                    ffVar3.a(iVar.a(), (String) null);
+                    this.a.a(new aw(this.a, ffVar3));
+                    com.xiaomi.channel.commonutils.logger.b.m30a("ACK msgP: id = " + ffVar.e());
+                    return;
+                } else {
+                    return;
+                }
+            default:
+                String num = Integer.toString(ffVar.a());
+                if ("SECMSG".equals(ffVar.m252a())) {
+                    if (ffVar.m255a()) {
+                        com.xiaomi.channel.commonutils.logger.b.m30a("Recv SECMSG errCode = " + ffVar.b() + " errStr = " + ffVar.m259c());
+                        return;
+                    } else {
+                        this.a.b().a(this.a, num, ffVar);
+                        return;
+                    }
+                } else if (!"BIND".equals(m252a)) {
+                    if ("KICK".equals(m252a)) {
+                        ee.g a5 = ee.g.a(ffVar.m256a());
+                        String g = ffVar.g();
+                        String a6 = a5.a();
+                        String b = a5.b();
+                        com.xiaomi.channel.commonutils.logger.b.m30a("kicked by server, chid=" + num + " res= " + al.b.a(g) + " type=" + a6 + " reason=" + b);
+                        if (!"wait".equals(a6)) {
+                            this.a.a(num, g, 3, b, a6);
+                            al.a().m499a(num, g);
+                            return;
+                        }
+                        al.b a7 = al.a().a(num, g);
+                        if (a7 != null) {
+                            this.a.a(a7);
+                            a7.a(al.c.unbind, 3, 0, b, a6);
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                } else {
+                    ee.d a8 = ee.d.a(ffVar.m256a());
+                    String g2 = ffVar.g();
+                    al.b a9 = al.a().a(num, g2);
+                    if (a9 != null) {
+                        if (a8.a()) {
+                            com.xiaomi.channel.commonutils.logger.b.m30a("SMACK: channel bind succeeded, chid=" + ffVar.a());
+                            a9.a(al.c.binded, 1, 0, (String) null, (String) null);
+                            return;
+                        }
+                        String a10 = a8.a();
+                        if (AuthorBox.TYPE.equals(a10)) {
+                            if ("invalid-sig".equals(a8.b())) {
+                                com.xiaomi.channel.commonutils.logger.b.m30a("SMACK: bind error invalid-sig token = " + a9.c + " sec = " + a9.h);
+                                ha.a(0, fb.BIND_INVALID_SIG.a(), 1, null, 0);
+                            }
+                            a9.a(al.c.unbind, 1, 5, a8.b(), a10);
+                            al.a().m499a(num, g2);
+                        } else if ("cancel".equals(a10)) {
+                            a9.a(al.c.unbind, 1, 7, a8.b(), a10);
+                            al.a().m499a(num, g2);
+                        } else if ("wait".equals(a10)) {
+                            this.a.a(a9);
+                            a9.a(al.c.unbind, 1, 7, a8.b(), a10);
+                        }
+                        com.xiaomi.channel.commonutils.logger.b.m30a("SMACK: channel bind failed, chid=" + num + " reason=" + a8.b());
+                        return;
+                    }
+                    return;
+                }
+        }
     }
 }

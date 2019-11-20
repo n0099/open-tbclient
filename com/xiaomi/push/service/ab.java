@@ -1,35 +1,42 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import com.xiaomi.push.service.XMPushService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.SharedPreferences;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
 /* loaded from: classes3.dex */
-public final class ab extends XMPushService.i {
-    final /* synthetic */ XMPushService b;
-    final /* synthetic */ com.xiaomi.xmpush.thrift.af c;
+public class ab {
+    private static Object a = new Object();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(int i, XMPushService xMPushService, com.xiaomi.xmpush.thrift.af afVar) {
-        super(i);
-        this.b = xMPushService;
-        this.c = afVar;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    private static Map<String, Queue<String>> f840a = new HashMap();
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        try {
-            com.xiaomi.xmpush.thrift.af a = x.a((Context) this.b, this.c);
-            a.m().a("miui_message_unrecognized", "1");
-            af.a(this.b, a);
-        } catch (com.xiaomi.smack.l e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.b.a(10, e);
+    public static boolean a(XMPushService xMPushService, String str, String str2) {
+        synchronized (a) {
+            SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
+            Queue<String> queue = f840a.get(str);
+            if (queue == null) {
+                String[] split = sharedPreferences.getString(str, "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                queue = new LinkedList<>();
+                for (String str3 : split) {
+                    queue.add(str3);
+                }
+                f840a.put(str, queue);
+            }
+            if (queue.contains(str2)) {
+                return true;
+            }
+            queue.add(str2);
+            if (queue.size() > 25) {
+                queue.poll();
+            }
+            String a2 = com.xiaomi.push.ay.a(queue, Constants.ACCEPT_TIME_SEPARATOR_SP);
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putString(str, a2);
+            edit.commit();
+            return false;
         }
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String b() {
-        return "send ack message for unrecognized new miui message.";
     }
 }

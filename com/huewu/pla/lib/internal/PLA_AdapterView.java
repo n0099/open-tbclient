@@ -151,12 +151,12 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes6.dex */
     public static class a implements ContextMenu.ContextMenuInfo {
-        public View amH;
+        public View amp;
         public long id;
         public int position;
 
         public a(View view, int i, long j) {
-            this.amH = view;
+            this.amp = view;
             this.position = i;
             this.id = j;
         }
@@ -327,7 +327,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes6.dex */
     class b extends DataSetObserver {
-        private Parcelable amI = null;
+        private Parcelable amq = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -339,9 +339,9 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
             PLA_AdapterView.this.mDataChanged = true;
             PLA_AdapterView.this.mOldItemCount = PLA_AdapterView.this.mItemCount;
             PLA_AdapterView.this.mItemCount = PLA_AdapterView.this.getAdapter().getCount();
-            if (PLA_AdapterView.this.getAdapter().hasStableIds() && this.amI != null && PLA_AdapterView.this.mOldItemCount == 0 && PLA_AdapterView.this.mItemCount > 0) {
-                PLA_AdapterView.this.onRestoreInstanceState(this.amI);
-                this.amI = null;
+            if (PLA_AdapterView.this.getAdapter().hasStableIds() && this.amq != null && PLA_AdapterView.this.mOldItemCount == 0 && PLA_AdapterView.this.mItemCount > 0) {
+                PLA_AdapterView.this.onRestoreInstanceState(this.amq);
+                this.amq = null;
             } else {
                 PLA_AdapterView.this.rememberSyncState();
             }
@@ -353,7 +353,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
             com.huewu.pla.lib.a.GS("data changed by onInvalidated()");
             PLA_AdapterView.this.mDataChanged = true;
             if (PLA_AdapterView.this.getAdapter().hasStableIds()) {
-                this.amI = PLA_AdapterView.this.onSaveInstanceState();
+                this.amq = PLA_AdapterView.this.onSaveInstanceState();
             }
             PLA_AdapterView.this.mOldItemCount = PLA_AdapterView.this.mItemCount;
             PLA_AdapterView.this.mItemCount = 0;

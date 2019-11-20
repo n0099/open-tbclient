@@ -11,7 +11,7 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
-    private long ays = 0;
+    private long aya = 0;
 
     @Override // com.baidu.mario.b.b.b
     public /* bridge */ /* synthetic */ void a(c cVar) {
@@ -29,11 +29,6 @@ public class a extends b {
     }
 
     @Override // com.baidu.mario.b.b.b
-    public /* bridge */ /* synthetic */ void yI() {
-        super.yI();
-    }
-
-    @Override // com.baidu.mario.b.b.b
     public /* bridge */ /* synthetic */ void yJ() {
         super.yJ();
     }
@@ -44,8 +39,13 @@ public class a extends b {
     }
 
     @Override // com.baidu.mario.b.b.b
-    public /* bridge */ /* synthetic */ long yg() {
-        return super.yg();
+    public /* bridge */ /* synthetic */ void yL() {
+        super.yL();
+    }
+
+    @Override // com.baidu.mario.b.b.b
+    public /* bridge */ /* synthetic */ long yh() {
+        return super.yh();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x0065  */
@@ -56,56 +56,56 @@ public class a extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.ayv = eVar;
+            this.ayd = eVar;
             MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.yU());
+            mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.yV());
             mediaFormat.setInteger("aac-profile", 2);
-            mediaFormat.setInteger("sample-rate", dVar.yX());
-            mediaFormat.setInteger("channel-count", dVar.yV());
-            mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.yW());
-            mediaFormat.setInteger("max-input-size", dVar.yY());
+            mediaFormat.setInteger("sample-rate", dVar.yY());
+            mediaFormat.setInteger("channel-count", dVar.yW());
+            mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.yX());
+            mediaFormat.setInteger("max-input-size", dVar.yZ());
             try {
-                this.mEncoder = MediaCodec.createEncoderByType(dVar.yU());
+                this.mEncoder = MediaCodec.createEncoderByType(dVar.yV());
                 this.mEncoder.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-                if (!dVar.yO()) {
-                    this.ayx = true;
+                if (!dVar.yP()) {
+                    this.ayf = true;
                 } else {
-                    this.ayx = false;
+                    this.ayf = false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.ayw == null) {
-                this.ayw.ba(z);
+            if (this.aye == null) {
+                this.aye.ba(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.ayw == null) {
+        if (this.aye == null) {
         }
     }
 
     @Override // com.baidu.mario.b.b.b
-    protected void yH() {
-        if (this.ayy == 0) {
-            this.ayy = this.mBufferInfo.presentationTimeUs;
+    protected void yI() {
+        if (this.ayg == 0) {
+            this.ayg = this.mBufferInfo.presentationTimeUs;
         }
-        this.mBufferInfo.presentationTimeUs -= this.ayy;
-        if (this.mBufferInfo.presentationTimeUs < this.ays) {
+        this.mBufferInfo.presentationTimeUs -= this.ayg;
+        if (this.mBufferInfo.presentationTimeUs < this.aya) {
             MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-            long j = this.ays + 10000;
-            this.ays = j;
+            long j = this.aya + 10000;
+            this.aya = j;
             bufferInfo.presentationTimeUs = j;
         }
-        if (this.mBufferInfo.presentationTimeUs > ayz + 500000) {
-            if (ayz > this.ays) {
-                this.mBufferInfo.presentationTimeUs = ayz + 5000;
+        if (this.mBufferInfo.presentationTimeUs > ayh + 500000) {
+            if (ayh > this.aya) {
+                this.mBufferInfo.presentationTimeUs = ayh + 5000;
             } else {
-                this.mBufferInfo.presentationTimeUs = this.ays + 5000;
+                this.mBufferInfo.presentationTimeUs = this.aya + 5000;
             }
         }
-        this.ays = this.mBufferInfo.presentationTimeUs;
+        this.aya = this.mBufferInfo.presentationTimeUs;
         Log.d(TAG, "syncTimestamp mAudioEncoder = " + this.mBufferInfo.size + "|" + this.mBufferInfo.presentationTimeUs);
     }
 }

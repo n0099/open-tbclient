@@ -4,11 +4,11 @@ import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public class h extends e {
     public String appId;
-    public boolean bMe;
-    public String ud;
+    public boolean bLn;
+    public String pkgName;
 
     @Override // com.baidu.swan.pms.model.e
-    public boolean abh() {
-        return super.abh() && !TextUtils.isEmpty(this.ud);
+    public boolean abf() {
+        return super.abf() && !TextUtils.isEmpty(this.pkgName);
     }
 }

@@ -11,11 +11,11 @@ public interface a {
     public interface InterfaceC0080a {
         void g(String str, boolean z);
 
-        boolean sF();
-
-        void sH();
+        boolean sG();
 
         void sI();
+
+        void sJ();
     }
 
     void a(List<String> list, Map<String, Integer> map);
@@ -34,9 +34,9 @@ public interface a {
 
     void show();
 
-    boolean tE();
-
     boolean tF();
 
-    void tG();
+    boolean tG();
+
+    void tH();
 }

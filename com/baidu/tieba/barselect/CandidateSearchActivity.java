@@ -34,27 +34,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CandidateSearchActivity extends BaseActivity {
-    private List<com.baidu.tieba.barselect.data.a> bZG;
-    private ImageView dKQ;
-    private BdRecyclerView eFU;
-    private b eFV;
-    private com.baidu.tieba.barselect.model.a eFW;
-    private View eFX;
-    private EditText eFY;
-    private ImageView eFZ;
-    private TextView eGa;
+    private List<com.baidu.tieba.barselect.data.a> bYP;
+    private ImageView dJZ;
+    private BdRecyclerView eFd;
+    private b eFe;
+    private com.baidu.tieba.barselect.model.a eFf;
+    private View eFg;
+    private EditText eFh;
+    private ImageView eFi;
+    private TextView eFj;
     private String mForumId;
     private NavigationBar mNavigationBar;
     private View mNoDataView;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() != CandidateSearchActivity.this.eGa.getId()) {
-                if (view.getId() == CandidateSearchActivity.this.eFZ.getId()) {
-                    CandidateSearchActivity.this.eFY.setText("");
-                    CandidateSearchActivity.this.eFU.setVisibility(0);
+            if (view.getId() != CandidateSearchActivity.this.eFj.getId()) {
+                if (view.getId() == CandidateSearchActivity.this.eFi.getId()) {
+                    CandidateSearchActivity.this.eFh.setText("");
+                    CandidateSearchActivity.this.eFd.setVisibility(0);
                     CandidateSearchActivity.this.mNoDataView.setVisibility(8);
-                    CandidateSearchActivity.this.eFV.setData(new ArrayList());
+                    CandidateSearchActivity.this.eFe.setData(new ArrayList());
                     return;
                 }
                 return;
@@ -62,7 +62,7 @@ public class CandidateSearchActivity extends BaseActivity {
             CandidateSearchActivity.this.finish();
         }
     };
-    private com.baidu.adp.framework.listener.a eGb = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CANDIDATE_SEARCH, 309641) { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.2
+    private com.baidu.adp.framework.listener.a eFk = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CANDIDATE_SEARCH, 309641) { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -73,22 +73,22 @@ public class CandidateSearchActivity extends BaseActivity {
                     aVar = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
                 }
                 if (responsedMessage.getError() != 0 || aVar == null) {
-                    CandidateSearchActivity.this.eFU.setVisibility(8);
+                    CandidateSearchActivity.this.eFd.setVisibility(8);
                     CandidateSearchActivity.this.mNoDataView.setVisibility(0);
                     return;
                 }
-                CandidateSearchActivity.this.eFU.setVisibility(0);
+                CandidateSearchActivity.this.eFd.setVisibility(0);
                 CandidateSearchActivity.this.mNoDataView.setVisibility(8);
-                if (CandidateSearchActivity.this.eFY.getText() != null) {
-                    aVar.eGu = CandidateSearchActivity.this.eFY.getText().toString();
+                if (CandidateSearchActivity.this.eFh.getText() != null) {
+                    aVar.eFD = CandidateSearchActivity.this.eFh.getText().toString();
                 }
-                if (CandidateSearchActivity.this.bZG != null) {
-                    CandidateSearchActivity.this.bZG.clear();
+                if (CandidateSearchActivity.this.bYP != null) {
+                    CandidateSearchActivity.this.bYP.clear();
                 } else {
-                    CandidateSearchActivity.this.bZG = new ArrayList();
+                    CandidateSearchActivity.this.bYP = new ArrayList();
                 }
-                CandidateSearchActivity.this.bZG.add(aVar);
-                CandidateSearchActivity.this.eFV.setData(CandidateSearchActivity.this.bZG);
+                CandidateSearchActivity.this.bYP.add(aVar);
+                CandidateSearchActivity.this.eFe.setData(CandidateSearchActivity.this.bYP);
             }
         }
     };
@@ -96,15 +96,15 @@ public class CandidateSearchActivity extends BaseActivity {
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
             if (i == 3) {
-                if (CandidateSearchActivity.this.eFY.getText() != null && !TextUtils.isEmpty(CandidateSearchActivity.this.eFY.getText().toString()) && !TextUtils.isEmpty(CandidateSearchActivity.this.mForumId)) {
-                    CandidateSearchActivity.this.eFW.r(com.baidu.adp.lib.g.b.toInt(CandidateSearchActivity.this.eFY.getText().toString(), 0), com.baidu.adp.lib.g.b.toLong(CandidateSearchActivity.this.mForumId, 0L));
+                if (CandidateSearchActivity.this.eFh.getText() != null && !TextUtils.isEmpty(CandidateSearchActivity.this.eFh.getText().toString()) && !TextUtils.isEmpty(CandidateSearchActivity.this.mForumId)) {
+                    CandidateSearchActivity.this.eFf.p(com.baidu.adp.lib.g.b.toInt(CandidateSearchActivity.this.eFh.getText().toString(), 0), com.baidu.adp.lib.g.b.toLong(CandidateSearchActivity.this.mForumId, 0L));
                 }
                 return true;
             }
             return false;
         }
     };
-    private HttpMessageListener eGc = new HttpMessageListener(CmdConfigHttp.CMD_BAR_VOTE) { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.4
+    private HttpMessageListener eFl = new HttpMessageListener(CmdConfigHttp.CMD_BAR_VOTE) { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -112,9 +112,9 @@ public class CandidateSearchActivity extends BaseActivity {
                 int error = httpResponsedMessage.getError();
                 if (error == 0) {
                     l.showToast(TbadkCoreApplication.getInst(), (int) R.string.bar_manager_vote_success);
-                    if (CandidateSearchActivity.this.bZG != null) {
-                        for (com.baidu.tieba.barselect.data.a aVar : CandidateSearchActivity.this.bZG) {
-                            aVar.eGv = true;
+                    if (CandidateSearchActivity.this.bYP != null) {
+                        for (com.baidu.tieba.barselect.data.a aVar : CandidateSearchActivity.this.bYP) {
+                            aVar.eFE = true;
                         }
                     }
                 } else if (error == 3250023) {
@@ -150,12 +150,12 @@ public class CandidateSearchActivity extends BaseActivity {
             CandidateSearchActivity.this.iy(!StringUtils.isNull(editable.toString()));
         }
     };
-    private Runnable eGd = new Runnable() { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.6
+    private Runnable eFm = new Runnable() { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.6
         @Override // java.lang.Runnable
         public void run() {
-            if (CandidateSearchActivity.this.eFY != null) {
-                CandidateSearchActivity.this.eFY.requestFocus();
-                l.showSoftKeyPad(CandidateSearchActivity.this, CandidateSearchActivity.this.eFY);
+            if (CandidateSearchActivity.this.eFh != null) {
+                CandidateSearchActivity.this.eFh.requestFocus();
+                l.showSoftKeyPad(CandidateSearchActivity.this, CandidateSearchActivity.this.eFh);
             }
         }
     };
@@ -168,36 +168,36 @@ public class CandidateSearchActivity extends BaseActivity {
         if (getIntent() != null) {
             this.mForumId = getIntent().getStringExtra("forum_id");
         }
-        aJx();
-        this.eFU = (BdRecyclerView) findViewById(R.id.recycler_view);
-        this.eFU.setLayoutManager(new LinearLayoutManager(this));
+        aJv();
+        this.eFd = (BdRecyclerView) findViewById(R.id.recycler_view);
+        this.eFd.setLayoutManager(new LinearLayoutManager(this));
         this.mNoDataView = findViewById(R.id.text_no_data);
-        this.eFV = new b();
-        this.eFU.setAdapter(this.eFV);
-        registerListener(this.eGb);
-        registerListener(this.eGc);
-        this.eFW = new com.baidu.tieba.barselect.model.a(getPageContext());
-        com.baidu.adp.lib.g.e.fZ().postDelayed(this.eGd, 100L);
+        this.eFe = new b();
+        this.eFd.setAdapter(this.eFe);
+        registerListener(this.eFk);
+        registerListener(this.eFl);
+        this.eFf = new com.baidu.tieba.barselect.model.a(getPageContext());
+        com.baidu.adp.lib.g.e.fZ().postDelayed(this.eFm, 100L);
     }
 
-    private void aJx() {
+    private void aJv() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
         this.mNavigationBar.showBottomLine();
-        this.eFX = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.candidate_search_navigation_view, (View.OnClickListener) null);
-        this.dKQ = (ImageView) this.eFX.findViewById(R.id.search_bar_icon);
-        this.eFY = (EditText) this.eFX.findViewById(R.id.home_et_search);
-        this.eFZ = (ImageView) this.eFX.findViewById(R.id.home_bt_search_del);
-        this.eFZ.setOnClickListener(this.mOnClickListener);
-        this.eGa = (TextView) this.eFX.findViewById(R.id.home_bt_search_cancel_s);
+        this.eFg = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.candidate_search_navigation_view, (View.OnClickListener) null);
+        this.dJZ = (ImageView) this.eFg.findViewById(R.id.search_bar_icon);
+        this.eFh = (EditText) this.eFg.findViewById(R.id.home_et_search);
+        this.eFi = (ImageView) this.eFg.findViewById(R.id.home_bt_search_del);
+        this.eFi.setOnClickListener(this.mOnClickListener);
+        this.eFj = (TextView) this.eFg.findViewById(R.id.home_bt_search_cancel_s);
         iy(false);
-        this.eGa.setText(getString(R.string.cancel));
-        this.eGa.setOnClickListener(this.mOnClickListener);
-        this.eFY.setOnEditorActionListener(this.mOnEditorActionListener);
-        this.eFY.addTextChangedListener(this.mTextWatcher);
+        this.eFj.setText(getString(R.string.cancel));
+        this.eFj.setOnClickListener(this.mOnClickListener);
+        this.eFh.setOnEditorActionListener(this.mOnEditorActionListener);
+        this.eFh.addTextChangedListener(this.mTextWatcher);
     }
 
     public void iy(boolean z) {
-        this.eFZ.setVisibility(z ? 0 : 8);
+        this.eFi.setVisibility(z ? 0 : 8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -206,17 +206,17 @@ public class CandidateSearchActivity extends BaseActivity {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         am.setViewTextColor(this.mNoDataView, (int) R.color.cp_cont_d);
-        SvgManager.amN().a(this.dKQ, R.drawable.icon_pure_topbar_search_n_svg, R.color.cp_cont_d, null);
-        this.eFY.setHintTextColor(am.getColor(R.color.cp_cont_e));
-        am.setNavbarTitleColor(this.eFY, R.color.cp_cont_b, R.color.s_navbar_title_color);
-        SvgManager.amN().a(this.eFZ, R.drawable.icon_pure_search_empty_n_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        am.setViewTextColor(this.eGa, R.color.cp_link_tip_a, 1);
+        SvgManager.amL().a(this.dJZ, R.drawable.icon_pure_topbar_search_n_svg, R.color.cp_cont_d, null);
+        this.eFh.setHintTextColor(am.getColor(R.color.cp_cont_e));
+        am.setNavbarTitleColor(this.eFh, R.color.cp_cont_b, R.color.s_navbar_title_color);
+        SvgManager.amL().a(this.eFi, R.drawable.icon_pure_search_empty_n_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        am.setViewTextColor(this.eFj, R.color.cp_link_tip_a, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.eGd);
+        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.eFm);
     }
 }

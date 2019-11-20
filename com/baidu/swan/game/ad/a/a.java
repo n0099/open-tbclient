@@ -28,7 +28,7 @@ public class a implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fN */
+        /* renamed from: fM */
         public a[] newArray(int i) {
             return new a[i];
         }
@@ -42,13 +42,13 @@ public class a implements Parcelable {
     private long G;
     private String a;
     private String b;
-    private Set<String> bwP;
-    private Set<String> bwQ;
-    private Set<String> bwR;
-    private Set<String> bwS;
-    private Set<String> bwT;
-    private Set<String> bwU;
-    private JSONObject bwV;
+    private Set<String> bvY;
+    private Set<String> bvZ;
+    private Set<String> bwa;
+    private Set<String> bwb;
+    private Set<String> bwc;
+    private Set<String> bwd;
+    private JSONObject bwe;
     private Set<String> c;
     private String d;
     private String e;
@@ -74,13 +74,13 @@ public class a implements Parcelable {
         this.c = new HashSet();
         this.m = 0;
         this.n = 0;
-        this.bwP = new HashSet();
-        this.bwQ = new HashSet();
-        this.bwR = new HashSet();
-        this.bwS = new HashSet();
-        this.bwT = new HashSet();
-        this.bwU = new HashSet();
-        this.bwV = jSONObject;
+        this.bvY = new HashSet();
+        this.bvZ = new HashSet();
+        this.bwa = new HashSet();
+        this.bwb = new HashSet();
+        this.bwc = new HashSet();
+        this.bwd = new HashSet();
+        this.bwe = jSONObject;
         try {
             this.G = System.currentTimeMillis();
             this.a = jSONObject.optString("qk", "");
@@ -161,12 +161,12 @@ public class a implements Parcelable {
         this.c = new HashSet();
         this.m = 0;
         this.n = 0;
-        this.bwP = new HashSet();
-        this.bwQ = new HashSet();
-        this.bwR = new HashSet();
-        this.bwS = new HashSet();
-        this.bwT = new HashSet();
-        this.bwU = new HashSet();
+        this.bvY = new HashSet();
+        this.bvZ = new HashSet();
+        this.bwa = new HashSet();
+        this.bwb = new HashSet();
+        this.bwc = new HashSet();
+        this.bwd = new HashSet();
         this.a = parcel.readString();
         this.b = parcel.readString();
         this.d = parcel.readString();
@@ -271,58 +271,58 @@ public class a implements Parcelable {
     }
 
     public List<String> l() {
-        return new ArrayList(this.bwP);
+        return new ArrayList(this.bvY);
     }
 
-    public List<String> Vz() {
-        return new ArrayList(this.bwQ);
+    public List<String> Vx() {
+        return new ArrayList(this.bvZ);
     }
 
-    public List<String> VA() {
-        return new ArrayList(this.bwR);
+    public List<String> Vy() {
+        return new ArrayList(this.bwa);
     }
 
     public List<String> o() {
-        return new ArrayList(this.bwS);
+        return new ArrayList(this.bwb);
     }
 
     public List<String> p() {
-        return new ArrayList(this.bwT);
+        return new ArrayList(this.bwc);
     }
 
     private void a(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bwP.add(str);
+            this.bvY.add(str);
         }
     }
 
     private void b(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bwQ.add(str);
+            this.bvZ.add(str);
         }
     }
 
     private void c(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bwR.add(str);
+            this.bwa.add(str);
         }
     }
 
     private void d(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bwS.add(str);
+            this.bwb.add(str);
         }
     }
 
     private void e(String str) {
         if (str != null && !str.equals("")) {
-            this.bwT.add(str);
+            this.bwc.add(str);
         }
     }
 
     private void f(String str) {
         if (str != null && !str.equals("")) {
-            this.bwU.add(str);
+            this.bwd.add(str);
         }
     }
 }

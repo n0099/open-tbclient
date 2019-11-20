@@ -7,16 +7,16 @@ public class c {
     public String mCuid;
     public String mNetType;
     public String mUid;
-    public String qj;
-    public String ql;
-    public String qm;
-    public String qn;
-    public String qo;
-    public String qp;
-    public String qq;
-    public String qr;
-    public String qs;
-    public String qt;
-    public String qu;
-    public String qv;
+    public String pK;
+    public String pL;
+    public String pM;
+    public String pN;
+    public String pO;
+    public String pP;
+    public String pQ;
+    public String pR;
+    public String pS;
+    public String pT;
+    public String pU;
+    public String pV;
 }

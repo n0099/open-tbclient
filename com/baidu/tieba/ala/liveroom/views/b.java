@@ -9,19 +9,19 @@ import com.baidu.live.tbadk.core.util.StatisticItem;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 /* loaded from: classes6.dex */
 public class b {
-    private int arR = 3;
-    private a epR;
-    private RadioButton epS;
-    private RadioButton epT;
-    private RadioButton epU;
-    private RadioButton epV;
-    private RadioGroup epW;
+    private int arz = 3;
+    private a epa;
+    private RadioButton epb;
+    private RadioButton epc;
+    private RadioButton epd;
+    private RadioButton epe;
+    private RadioGroup epf;
     private Context mContext;
     private View mView;
 
     /* loaded from: classes6.dex */
     public interface a {
-        void nN(int i);
+        void nM(int i);
     }
 
     public b(Context context, int i) {
@@ -32,40 +32,40 @@ public class b {
 
     private void init() {
         this.mView = View.inflate(this.mContext, a.h.ala_liveroom_host_beauty_layout, null);
-        this.epW = (RadioGroup) this.mView.findViewById(a.g.ala_live_beauty_group);
-        this.epW.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.b.1
+        this.epf = (RadioGroup) this.mView.findViewById(a.g.ala_live_beauty_group);
+        this.epf.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.b.1
             @Override // android.widget.RadioGroup.OnCheckedChangeListener
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (i == a.g.ala_live_beauty_close) {
                     TiebaInitialize.log(new StatisticItem("c11985"));
-                    b.this.arR = 0;
+                    b.this.arz = 0;
                 } else if (i == a.g.ala_live_beauty_low) {
                     TiebaInitialize.log(new StatisticItem("c11986"));
-                    b.this.arR = 1;
+                    b.this.arz = 1;
                 } else if (i == a.g.ala_live_beauty_mid) {
                     TiebaInitialize.log(new StatisticItem("c11987"));
-                    b.this.arR = 3;
+                    b.this.arz = 3;
                 } else if (i == a.g.ala_live_beauty_high) {
                     TiebaInitialize.log(new StatisticItem("c11988"));
-                    b.this.arR = 5;
+                    b.this.arz = 5;
                 }
-                if (b.this.epR != null) {
-                    b.this.epR.nN(b.this.arR);
+                if (b.this.epa != null) {
+                    b.this.epa.nM(b.this.arz);
                 }
             }
         });
-        this.epS = (RadioButton) this.mView.findViewById(a.g.ala_live_beauty_close);
-        this.epT = (RadioButton) this.mView.findViewById(a.g.ala_live_beauty_low);
-        this.epU = (RadioButton) this.mView.findViewById(a.g.ala_live_beauty_mid);
-        this.epV = (RadioButton) this.mView.findViewById(a.g.ala_live_beauty_high);
-        if (this.arR == 0) {
-            this.epS.setChecked(true);
-        } else if (this.arR == 1) {
-            this.epT.setChecked(true);
-        } else if (this.arR == 5) {
-            this.epV.setChecked(true);
+        this.epb = (RadioButton) this.mView.findViewById(a.g.ala_live_beauty_close);
+        this.epc = (RadioButton) this.mView.findViewById(a.g.ala_live_beauty_low);
+        this.epd = (RadioButton) this.mView.findViewById(a.g.ala_live_beauty_mid);
+        this.epe = (RadioButton) this.mView.findViewById(a.g.ala_live_beauty_high);
+        if (this.arz == 0) {
+            this.epb.setChecked(true);
+        } else if (this.arz == 1) {
+            this.epc.setChecked(true);
+        } else if (this.arz == 5) {
+            this.epe.setChecked(true);
         } else {
-            this.epU.setChecked(true);
+            this.epd.setChecked(true);
         }
     }
 
@@ -75,15 +75,15 @@ public class b {
 
     private void setBeautyLevel(int i) {
         if (i < 0) {
-            this.arR = 0;
+            this.arz = 0;
         } else if (i > 5) {
-            this.arR = 5;
+            this.arz = 5;
         } else {
-            this.arR = i;
+            this.arz = i;
         }
     }
 
     public void a(a aVar) {
-        this.epR = aVar;
+        this.epa = aVar;
     }
 }

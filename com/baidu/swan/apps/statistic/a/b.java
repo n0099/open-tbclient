@@ -5,20 +5,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends f {
-    public String bpr = "";
+    public String boZ = "";
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        com.baidu.swan.apps.ae.b FD;
-        if (this.bpu == null) {
-            this.bpu = new JSONObject();
+        com.baidu.swan.apps.ae.b FE;
+        if (this.bpc == null) {
+            this.bpc = new JSONObject();
         }
-        if (TextUtils.isEmpty(this.bpr) && (FD = com.baidu.swan.apps.w.e.LD().FD()) != null) {
-            com.baidu.swan.apps.v.b.b AJ = FD.AJ();
-            this.bpr = AJ != null ? AJ.KE() : "";
+        if (TextUtils.isEmpty(this.boZ) && (FE = com.baidu.swan.apps.w.e.LE().FE()) != null) {
+            com.baidu.swan.apps.v.b.b AK = FE.AK();
+            this.boZ = AK != null ? AK.KF() : "";
         }
         try {
-            this.bpu.put("source", this.bpr);
+            this.bpc.put("source", this.boZ);
         } catch (JSONException e) {
             e.printStackTrace();
         }

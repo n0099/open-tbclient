@@ -26,10 +26,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class a {
     private View bdDialog_divider_line;
-    private b ceY;
-    private b ceZ;
-    private b cfa;
-    private Button cfb;
+    private b ceh;
+    private b cei;
+    private b cej;
+    private Button cek;
     private View dividerWithButton;
     protected final Activity mActivity;
     private DialogInterface.OnCancelListener mCancelListenr;
@@ -51,7 +51,7 @@ public class a {
     private boolean isMessageShowCenter = false;
     private boolean isTitleShowCenter = false;
     private int mButtonTextColor = -1;
-    private int ceX = -1;
+    private int ceg = -1;
     private int dialogSize = 0;
     private boolean mDialogCreated = false;
     private boolean cancelableFlag = true;
@@ -68,7 +68,7 @@ public class a {
         return this;
     }
 
-    public a hT(int i) {
+    public a hS(int i) {
         nm(this.mActivity.getResources().getString(i));
         return this;
     }
@@ -95,24 +95,24 @@ public class a {
 
     public a a(String str, b bVar) {
         this.mPositiveButtonTip = str;
-        this.ceY = bVar;
+        this.ceh = bVar;
         return this;
     }
 
     public a b(String str, b bVar) {
         this.mNegativeButtonTip = str;
-        this.ceZ = bVar;
+        this.cei = bVar;
         return this;
     }
 
     public a a(b bVar) {
         if (bVar != null) {
-            this.cfa = bVar;
+            this.cej = bVar;
         }
         return this;
     }
 
-    public a hU(int i) {
+    public a hT(int i) {
         if (this.mActivity != null) {
             this.mMessage = this.mActivity.getResources().getString(i);
         }
@@ -122,7 +122,7 @@ public class a {
     public a a(int i, b bVar) {
         if (this.mActivity != null) {
             this.mPositiveButtonTip = this.mActivity.getResources().getString(i);
-            this.ceY = bVar;
+            this.ceh = bVar;
         }
         return this;
     }
@@ -130,7 +130,7 @@ public class a {
     public a b(int i, b bVar) {
         if (this.mActivity != null) {
             this.mNegativeButtonTip = this.mActivity.getResources().getString(i);
-            this.ceZ = bVar;
+            this.cei = bVar;
         }
         return this;
     }
@@ -151,7 +151,7 @@ public class a {
         this.mRealView = (ViewGroup) this.mRootView.findViewById(R.id.real_view);
     }
 
-    public a hV(int i) {
+    public a hU(int i) {
         if (isAutoNight()) {
             this.mButtonTextColor = am.getColor(i);
         } else {
@@ -160,16 +160,16 @@ public class a {
         return this;
     }
 
-    public a hW(int i) {
+    public a hV(int i) {
         if (isAutoNight()) {
-            this.ceX = am.getColor(i);
+            this.ceg = am.getColor(i);
         } else {
-            this.ceX = this.mActivity.getResources().getColor(i);
+            this.ceg = this.mActivity.getResources().getColor(i);
         }
         return this;
     }
 
-    public a hX(int i) {
+    public a hW(int i) {
         this.dialogSize = i;
         return this;
     }
@@ -184,7 +184,7 @@ public class a {
             this.noButton = (TextView) this.mRootView.findViewById(R.id.no);
             this.dividerWithButton = this.mRootView.findViewById(R.id.divider_yes_no_button);
             this.bdDialog_divider_line = this.mRootView.findViewById(R.id.bdDialog_divider_line);
-            this.cfb = (Button) this.mRootView.findViewById(R.id.close_btn);
+            this.cek = (Button) this.mRootView.findViewById(R.id.close_btn);
             if (this.mContentView != null) {
                 linearLayout.removeAllViews();
                 if (this.mContentView.getParent() != null) {
@@ -210,10 +210,10 @@ public class a {
                 }
             }
             c(eVar);
-            if (this.cfa != null) {
-                this.cfb.setVisibility(0);
-                this.cfb.setOnClickListener(new View$OnClickListenerC0282a(this, this.cfa));
-                am.setBackgroundResource(this.cfb, R.drawable.icon_popup_close_n, isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0);
+            if (this.cej != null) {
+                this.cek.setVisibility(0);
+                this.cek.setOnClickListener(new View$OnClickListenerC0282a(this, this.cej));
+                am.setBackgroundResource(this.cek, R.drawable.icon_popup_close_n, isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0);
             }
             if (this.mButtonTextColor != -1) {
                 if (this.yesButton != null) {
@@ -223,16 +223,16 @@ public class a {
                     this.noButton.setTextColor(this.mButtonTextColor);
                 }
             }
-            if (this.ceX != -1 && this.noButton != null) {
-                this.noButton.setTextColor(this.ceX);
+            if (this.ceg != -1 && this.noButton != null) {
+                this.noButton.setTextColor(this.ceg);
             }
             if (TextUtils.isEmpty(this.mPositiveButtonTip) || this.yesButton == null) {
                 z = false;
             } else {
                 this.yesButton.setText(this.mPositiveButtonTip);
                 this.yesButton.setTag(this.yesTag);
-                if (this.ceY != null) {
-                    this.yesButton.setOnClickListener(new View$OnClickListenerC0282a(this, this.ceY));
+                if (this.ceh != null) {
+                    this.yesButton.setOnClickListener(new View$OnClickListenerC0282a(this, this.ceh));
                 }
                 z = true;
             }
@@ -240,8 +240,8 @@ public class a {
                 z2 = false;
             } else {
                 this.noButton.setText(this.mNegativeButtonTip);
-                if (this.ceZ != null) {
-                    this.noButton.setOnClickListener(new View$OnClickListenerC0282a(this, this.ceZ));
+                if (this.cei != null) {
+                    this.noButton.setOnClickListener(new View$OnClickListenerC0282a(this, this.cei));
                 }
             }
             mouldButtons(z, z2);
@@ -444,7 +444,7 @@ public class a {
         }
     }
 
-    public a akO() {
+    public a akM() {
         return ei(true);
     }
 
@@ -458,18 +458,18 @@ public class a {
     /* renamed from: com.baidu.tbadk.core.dialog.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class View$OnClickListenerC0282a implements View.OnClickListener {
-        private final a Do;
-        private final b cfd;
+        private final a CM;
+        private final b cem;
 
         public View$OnClickListenerC0282a(a aVar, b bVar) {
-            this.Do = aVar;
-            this.cfd = bVar;
+            this.CM = aVar;
+            this.cem = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.cfd != null) {
-                this.cfd.onClick(this.Do);
+            if (this.cem != null) {
+                this.cem.onClick(this.CM);
             }
         }
     }

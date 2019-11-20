@@ -13,13 +13,13 @@ import com.baidu.live.utils.h;
 /* loaded from: classes6.dex */
 public class b {
     private long count;
-    private com.baidu.tieba.ala.liveroom.operation.b dXm;
-    private TextView dYM;
-    private ImageView dYN;
+    private com.baidu.tieba.ala.liveroom.operation.b dWv;
+    private TextView dXV;
+    private ImageView dXW;
     private boolean isHost;
     private Context mContext;
     private View mView = null;
-    private boolean dYO = true;
+    private boolean dXX = true;
 
     public b(Context context, boolean z) {
         this.isHost = false;
@@ -32,26 +32,26 @@ public class b {
         this.mView = View.inflate(this.mContext, a.h.ala_liveroom_audience_count_layout, null);
         this.mView.setMinimumWidth(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds90));
         this.mView.setId(a.g.ala_liveroom_audience_count_layout);
-        this.dYM = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
-        this.dYN = (ImageView) this.mView.findViewById(a.g.close_imageView);
+        this.dXV = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
+        this.dXW = (ImageView) this.mView.findViewById(a.g.close_imageView);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
-            this.dYN.setVisibility(0);
-            this.dYN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
+            this.dXW.setVisibility(0);
+            this.dXW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.dXm != null) {
-                        b.this.dXm.n(view, 8);
+                    if (b.this.dWv != null) {
+                        b.this.dWv.n(view, 8);
                     }
                 }
             });
         } else {
-            this.dYN.setVisibility(8);
+            this.dXW.setVisibility(8);
         }
-        this.dYM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.2
+        this.dXV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.dXm != null) {
-                    b.this.dXm.n(view, 14);
+                if (b.this.dWv != null) {
+                    b.this.dWv.n(view, 14);
                 }
             }
         });
@@ -61,7 +61,7 @@ public class b {
         if (this.mView.getParent() != null) {
             ((ViewGroup) this.mView.getParent()).removeView(this.mView);
         }
-        bV(j);
+        bU(j);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds72));
         layoutParams.addRule(11);
         layoutParams.addRule(8, i);
@@ -70,7 +70,7 @@ public class b {
     }
 
     public void setVisible(int i) {
-        if (this.dYO) {
+        if (this.dXX) {
             this.mView.setVisibility(i);
         } else {
             this.mView.setVisibility(8);
@@ -79,18 +79,18 @@ public class b {
 
     public void hF(boolean z) {
         if (z) {
-            this.dYN.setVisibility(0);
+            this.dXW.setVisibility(0);
         } else {
-            this.dYN.setVisibility(8);
+            this.dXW.setVisibility(8);
         }
     }
 
-    public void bV(long j) {
+    public void bU(long j) {
         if (j < 0) {
             j = 0;
         }
         this.count = j;
-        this.dYM.setText(h.numFormatOverWanNaForAudienceNum(j));
+        this.dXV.setText(h.numFormatOverWanNaForAudienceNum(j));
     }
 
     public long getCount() {
@@ -98,12 +98,12 @@ public class b {
     }
 
     public void a(com.baidu.tieba.ala.liveroom.operation.b bVar) {
-        this.dXm = bVar;
+        this.dWv = bVar;
     }
 
     public void hG(boolean z) {
-        if (this.dYM != null) {
-            this.dYM.setEnabled(z);
+        if (this.dXV != null) {
+            this.dXV.setEnabled(z);
         }
     }
 }

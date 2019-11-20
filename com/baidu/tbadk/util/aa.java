@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class aa {
-    public static TextView cPs;
+    public static TextView cOB;
 
     public static int getCharLength(char c) {
         if (isCharacter(c)) {
@@ -171,10 +171,10 @@ public class aa {
 
     public static Pair<Integer, Integer> p(String str, int i, int i2) {
         try {
-            if (cPs == null) {
-                cPs = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (cOB == null) {
+                cOB = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = cPs;
+            TextView textView = cOB;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }

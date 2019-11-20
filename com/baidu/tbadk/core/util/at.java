@@ -11,7 +11,7 @@ public class at {
         public static int LOCATE_SIGN = 5;
         public static int LOCATE_CHAT = 6;
         public static int LOCATE_LIKE_BAR = 7;
-        public static int cks = 8;
-        public static int ckt = 9;
+        public static int cjB = 8;
+        public static int cjC = 9;
     }
 }

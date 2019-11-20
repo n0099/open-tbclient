@@ -40,37 +40,37 @@ import org.json.JSONArray;
 import tbclient.DeleteThreadInfo;
 /* loaded from: classes3.dex */
 public class ac extends com.baidu.tbadk.core.dialog.i {
-    private boolean cqZ;
-    private bh cry;
-    private com.baidu.tbadk.core.dialog.a eNL;
-    private ForumManageModel eNS;
-    private final com.baidu.adp.base.d eNW;
-    private final com.baidu.tbadk.core.dialog.k ePi;
-    private com.baidu.tbadk.core.dialog.a ePj;
-    private Dialog ePk;
-    private final List<com.baidu.tbadk.core.dialog.g> ePl;
-    private String ePm;
-    private String ePn;
-    private List<BlueCheckRadioButton> ePo;
-    final CompoundButton.OnCheckedChangeListener ePp;
-    private final k.c ePq;
+    private bh cqG;
+    private boolean cqi;
+    private com.baidu.tbadk.core.dialog.a eMU;
+    private ForumManageModel eNb;
+    private final com.baidu.adp.base.d eNf;
+    private final com.baidu.tbadk.core.dialog.k eOr;
+    private com.baidu.tbadk.core.dialog.a eOs;
+    private Dialog eOt;
+    private final List<com.baidu.tbadk.core.dialog.g> eOu;
+    private String eOv;
+    private String eOw;
+    private List<BlueCheckRadioButton> eOx;
+    final CompoundButton.OnCheckedChangeListener eOy;
+    private final k.c eOz;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public ac(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
-        this.ePm = "0";
-        this.ePn = this.ePm;
-        this.cqZ = false;
-        this.ePp = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.card.ac.6
+        this.eOv = "0";
+        this.eOw = this.eOv;
+        this.cqi = false;
+        this.eOy = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.card.ac.6
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z2) {
                 if (z2 && (compoundButton.getTag() instanceof String)) {
-                    ac.this.ePn = (String) compoundButton.getTag();
-                    if (ac.this.ePo != null) {
-                        for (BlueCheckRadioButton blueCheckRadioButton : ac.this.ePo) {
+                    ac.this.eOw = (String) compoundButton.getTag();
+                    if (ac.this.eOx != null) {
+                        for (BlueCheckRadioButton blueCheckRadioButton : ac.this.eOx) {
                             String str = (String) blueCheckRadioButton.getTag();
-                            if (str != null && ac.this.ePn != null && !str.equals(ac.this.ePn)) {
+                            if (str != null && ac.this.eOw != null && !str.equals(ac.this.eOw)) {
                                 blueCheckRadioButton.setChecked(false);
                             }
                         }
@@ -78,27 +78,27 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                 }
             }
         };
-        this.eNW = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.card.ac.7
+        this.eNf = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.card.ac.7
             @Override // com.baidu.adp.base.d
             public void callback(Object obj) {
-                if (obj != null && ac.this.eNS != null) {
-                    switch (ac.this.eNS.getLoadDataMode()) {
+                if (obj != null && ac.this.eNb != null) {
+                    switch (ac.this.eNb.getLoadDataMode()) {
                         case 0:
                             ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                            if (bVar == null || bVar.feZ != 0) {
+                            if (bVar == null || bVar.fei != 0) {
                                 com.baidu.adp.lib.util.l.showToast(ac.this.mContext, ac.this.getString(R.string.delete_fail, new Object[0]));
                                 return;
-                            } else if (bVar.tf) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_DELETE_THREAD, ac.this.cry.getId()));
+                            } else if (bVar.sF) {
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_DELETE_THREAD, ac.this.cqG.getId()));
                                 com.baidu.adp.lib.util.l.showToast(ac.this.mContext, (int) R.string.delete_success);
                                 return;
                             } else {
-                                String string = !TextUtils.isEmpty(bVar.jkX) ? bVar.jkX : ac.this.getString(R.string.delete_fail, new Object[0]);
+                                String string = !TextUtils.isEmpty(bVar.jkg) ? bVar.jkg : ac.this.getString(R.string.delete_fail, new Object[0]);
                                 if (bVar.mErrCode == 1211066) {
-                                    if (ac.this.ePj == null) {
-                                        ac.this.ePj = new com.baidu.tbadk.core.dialog.a(ac.this.mPageContext.getPageActivity());
-                                        ac.this.ePj.nn(string);
-                                        ac.this.ePj.a(R.string.dialog_known, new a.b() { // from class: com.baidu.tieba.card.ac.7.1
+                                    if (ac.this.eOs == null) {
+                                        ac.this.eOs = new com.baidu.tbadk.core.dialog.a(ac.this.mPageContext.getPageActivity());
+                                        ac.this.eOs.nn(string);
+                                        ac.this.eOs.a(R.string.dialog_known, new a.b() { // from class: com.baidu.tieba.card.ac.7.1
                                             @Override // com.baidu.tbadk.core.dialog.a.b
                                             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                                                 if (aVar != null) {
@@ -106,10 +106,10 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                                                 }
                                             }
                                         });
-                                        ac.this.ePj.eg(true);
-                                        ac.this.ePj.b(ac.this.mPageContext);
+                                        ac.this.eOs.eg(true);
+                                        ac.this.eOs.b(ac.this.mPageContext);
                                     }
-                                    ac.this.ePj.akO();
+                                    ac.this.eOs.akM();
                                     return;
                                 }
                                 com.baidu.adp.lib.util.l.showToast(ac.this.mContext, string);
@@ -120,26 +120,26 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                             if (dVar == null) {
                                 com.baidu.adp.lib.util.l.showToast(ac.this.mContext, ac.this.getString(R.string.mute_fail, new Object[0]));
                                 return;
-                            } else if (dVar.tf) {
-                                com.baidu.adp.lib.util.l.showToast(ac.this.mContext, !TextUtils.isEmpty(dVar.jkX) ? dVar.jkX : ac.this.getString(R.string.mute_success, new Object[0]));
+                            } else if (dVar.sF) {
+                                com.baidu.adp.lib.util.l.showToast(ac.this.mContext, !TextUtils.isEmpty(dVar.jkg) ? dVar.jkg : ac.this.getString(R.string.mute_success, new Object[0]));
                                 return;
                             } else {
-                                com.baidu.adp.lib.util.l.showToast(ac.this.mContext, !TextUtils.isEmpty(dVar.jkX) ? dVar.jkX : ac.this.getString(R.string.mute_fail, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(ac.this.mContext, !TextUtils.isEmpty(dVar.jkg) ? dVar.jkg : ac.this.getString(R.string.mute_fail, new Object[0]));
                                 return;
                             }
                         case 2:
                         case 3:
                         case 4:
                         case 5:
-                            ac.this.a(ac.this.eNS.getLoadDataMode(), (ForumManageModel.g) obj);
+                            ac.this.a(ac.this.eNb.getLoadDataMode(), (ForumManageModel.g) obj);
                             return;
                         case 6:
                             ForumManageModel.g gVar = (ForumManageModel.g) obj;
-                            if (gVar == null || !gVar.tf) {
+                            if (gVar == null || !gVar.sF) {
                                 com.baidu.adp.lib.util.l.showToast(ac.this.mContext, ac.this.getString(R.string.operation_failed, new Object[0]));
                                 return;
                             } else {
-                                ac.this.R(gVar.jla);
+                                ac.this.R(gVar.jkj);
                                 return;
                             }
                         default:
@@ -148,7 +148,7 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                 }
             }
         };
-        this.ePq = new k.c() { // from class: com.baidu.tieba.card.ac.8
+        this.eOz = new k.c() { // from class: com.baidu.tieba.card.ac.8
             @Override // com.baidu.tbadk.core.dialog.k.c
             public void a(com.baidu.tbadk.core.dialog.k kVar, int i, View view) {
                 ac.this.dismiss();
@@ -157,70 +157,70 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                     return;
                 }
                 if (i == 1) {
-                    if (ac.this.cry != null && ac.this.cry.aiG() != null) {
-                        if (UtilHelper.isCurrentAccount(ac.this.cry.aiG().getUserId())) {
-                            ac.this.baB();
+                    if (ac.this.cqG != null && ac.this.cqG.aiE() != null) {
+                        if (UtilHelper.isCurrentAccount(ac.this.cqG.aiE().getUserId())) {
+                            ac.this.baz();
                         } else {
-                            ac.this.oN(1);
+                            ac.this.oM(1);
                         }
                     }
                 } else if (i == 2) {
-                    ac.this.baC();
+                    ac.this.baA();
                 } else if (i == 3) {
-                    ac.this.baD();
+                    ac.this.baB();
                 } else if (i == 4) {
-                    ac.this.aa(ac.this.ePm, true);
+                    ac.this.aa(ac.this.eOv, true);
                 } else if (i == 5) {
-                    ac.this.baE();
+                    ac.this.baC();
                 }
-                ac.this.oO(i);
+                ac.this.oN(i);
             }
         };
         this.mPageContext = tbPageContext;
         this.mContext = this.mPageContext.getPageActivity();
-        this.ePl = new ArrayList();
-        this.ePi = new com.baidu.tbadk.core.dialog.k(this.mContext);
-        this.ePi.setTitleText(getString(R.string.thread_manager, new Object[0]));
-        this.ePi.a(this.ePq);
-        this.eNS = new ForumManageModel(this.mPageContext);
-        this.eNS.setLoadDataCallBack(this.eNW);
-        this.cqZ = z;
-        a(this.ePi);
+        this.eOu = new ArrayList();
+        this.eOr = new com.baidu.tbadk.core.dialog.k(this.mContext);
+        this.eOr.setTitleText(getString(R.string.thread_manager, new Object[0]));
+        this.eOr.a(this.eOz);
+        this.eNb = new ForumManageModel(this.mPageContext);
+        this.eNb.setLoadDataCallBack(this.eNf);
+        this.cqi = z;
+        a(this.eOr);
     }
 
     public void onChangeSkinType() {
-        if (this.ePi != null) {
-            this.ePi.onChangeSkinType();
+        if (this.eOr != null) {
+            this.eOr.onChangeSkinType();
         }
-        if (this.eNL != null) {
-            com.baidu.tbadk.s.a.a(this.mPageContext, this.eNL.getRealView());
+        if (this.eMU != null) {
+            com.baidu.tbadk.s.a.a(this.mPageContext, this.eMU.getRealView());
         }
-        if (this.ePj != null) {
-            com.baidu.tbadk.s.a.a(this.mPageContext, this.ePj.getRealView());
+        if (this.eOs != null) {
+            com.baidu.tbadk.s.a.a(this.mPageContext, this.eOs.getRealView());
         }
     }
 
     private void nw() {
-        if (this.cry != null && this.ePl != null && this.ePi != null) {
-            this.ePl.clear();
-            if (!com.baidu.tieba.frs.g.bjD()) {
-                this.ePl.add(new com.baidu.tbadk.core.dialog.g(1, getString(R.string.delete_page, new Object[0]), this.ePi));
+        if (this.cqG != null && this.eOu != null && this.eOr != null) {
+            this.eOu.clear();
+            if (!com.baidu.tieba.frs.g.bjB()) {
+                this.eOu.add(new com.baidu.tbadk.core.dialog.g(1, getString(R.string.delete_page, new Object[0]), this.eOr));
                 String str = "";
-                if (this.cry.aiG() != null) {
-                    str = this.cry.aiG().getUserId();
+                if (this.cqG.aiE() != null) {
+                    str = this.cqG.aiE().getUserId();
                 }
                 if (!UtilHelper.isCurrentAccount(str)) {
-                    this.ePl.add(new com.baidu.tbadk.core.dialog.g(2, getString(R.string.thread_forbid, new Object[0]), this.ePi));
+                    this.eOu.add(new com.baidu.tbadk.core.dialog.g(2, getString(R.string.thread_forbid, new Object[0]), this.eOr));
                 }
             }
-            if (com.baidu.tieba.frs.g.bjC() || com.baidu.tieba.frs.g.bjD()) {
-                this.ePl.add(new com.baidu.tbadk.core.dialog.g(3, getString(this.cry.aiB() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.ePi));
-                this.ePl.add(new com.baidu.tbadk.core.dialog.g(4, getString(this.cry.aiC() == 1 ? R.string.cancel_good : R.string.commit_good, new Object[0]), this.ePi));
+            if (com.baidu.tieba.frs.g.bjA() || com.baidu.tieba.frs.g.bjB()) {
+                this.eOu.add(new com.baidu.tbadk.core.dialog.g(3, getString(this.cqG.aiz() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.eOr));
+                this.eOu.add(new com.baidu.tbadk.core.dialog.g(4, getString(this.cqG.aiA() == 1 ? R.string.cancel_good : R.string.commit_good, new Object[0]), this.eOr));
             }
-            if (!com.baidu.tieba.frs.g.bjD() && com.baidu.tieba.frs.a.biW().bjb() && this.cqZ && !com.baidu.tieba.frs.a.biW().bja()) {
-                this.ePl.add(new com.baidu.tbadk.core.dialog.g(5, getString(R.string.multi_delete, new Object[0]), this.ePi));
+            if (!com.baidu.tieba.frs.g.bjB() && com.baidu.tieba.frs.a.biU().biZ() && this.cqi && !com.baidu.tieba.frs.a.biU().biY()) {
+                this.eOu.add(new com.baidu.tbadk.core.dialog.g(5, getString(R.string.multi_delete, new Object[0]), this.eOr));
             }
-            this.ePi.at(this.ePl);
+            this.eOr.at(this.eOu);
         }
     }
 
@@ -233,29 +233,29 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
     }
 
     public void setData(bh bhVar) {
-        this.cry = bhVar;
+        this.cqG = bhVar;
         nw();
     }
 
+    public void bax() {
+        if (this.eMU != null && this.eMU.isShowing()) {
+            this.eMU.dismiss();
+        }
+    }
+
+    public void bay() {
+        if (this.eOt != null && this.eOt.isShowing()) {
+            this.eOt.dismiss();
+        }
+    }
+
     public void baz() {
-        if (this.eNL != null && this.eNL.isShowing()) {
-            this.eNL.dismiss();
-        }
-    }
-
-    public void baA() {
-        if (this.ePk != null && this.ePk.isShowing()) {
-            this.ePk.dismiss();
-        }
-    }
-
-    public void baB() {
-        baz();
+        bax();
         if (this.mPageContext != null) {
-            if (this.eNL == null) {
-                this.eNL = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-                this.eNL.hU(R.string.del_thread_confirm);
-                this.eNL.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.card.ac.1
+            if (this.eMU == null) {
+                this.eMU = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
+                this.eMU.hT(R.string.del_thread_confirm);
+                this.eMU.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.card.ac.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         if (aVar != null) {
@@ -268,7 +268,7 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                         }
                     }
                 });
-                this.eNL.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.card.ac.2
+                this.eMU.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.card.ac.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         if (aVar != null) {
@@ -276,20 +276,20 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                         }
                     }
                 });
-                this.eNL.eg(true);
-                this.eNL.b(this.mPageContext);
+                this.eMU.eg(true);
+                this.eMU.b(this.mPageContext);
             }
-            this.eNL.akO();
+            this.eMU.akM();
         }
     }
 
-    public void oN(int i) {
+    public void oM(int i) {
         if (this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null) {
             com.baidu.tieba.NEGFeedBack.e eVar = new com.baidu.tieba.NEGFeedBack.e(this.mPageContext, this.mPageContext.getPageActivity().getWindow().getDecorView());
-            AntiData biZ = com.baidu.tieba.frs.a.biW().biZ();
+            AntiData biX = com.baidu.tieba.frs.a.biU().biX();
             SparseArray<String> sparseArray = new SparseArray<>();
-            if (biZ != null && biZ.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = biZ.getDelThreadInfoList();
+            if (biX != null && biX.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = biX.getDelThreadInfoList();
                 for (int i2 = 0; i2 < delThreadInfoList.size(); i2++) {
                     if (!TextUtils.isEmpty(delThreadInfoList.get(i2).text_info)) {
                         sparseArray.put(delThreadInfoList.get(i2).text_id, delThreadInfoList.get(i2).text_info);
@@ -297,15 +297,15 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                 }
             }
             JSONArray jSONArray = new JSONArray();
-            List<bh> biY = com.baidu.tieba.frs.a.biW().biY();
-            for (int i3 = 0; i3 < biY.size(); i3++) {
-                jSONArray.put(biY.get(i3).getTid());
+            List<bh> biW = com.baidu.tieba.frs.a.biU().biW();
+            for (int i3 = 0; i3 < biW.size(); i3++) {
+                jSONArray.put(biW.get(i3).getTid());
             }
             aj ajVar = new aj();
             ajVar.setFeedBackReasonMap(sparseArray);
-            ajVar.hw(i);
+            ajVar.hv(i);
             ajVar.F(jSONArray);
-            ajVar.setFid(com.baidu.tieba.frs.a.biW().getForumId());
+            ajVar.setFid(com.baidu.tieba.frs.a.biU().getForumId());
             eVar.setData(ajVar);
             eVar.setDefaultReasonArray(new String[]{getContext().getString(R.string.delete_thread_reason_1), getContext().getString(R.string.delete_thread_reason_2), getContext().getString(R.string.delete_thread_reason_3), getContext().getString(R.string.delete_thread_reason_4), getContext().getString(R.string.delete_thread_reason_5)});
             eVar.qE("1");
@@ -324,44 +324,44 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void R(ArrayList<com.baidu.tbadk.core.data.ac> arrayList) {
-        if (this.ePk == null) {
+        if (this.eOt == null) {
             View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.commit_good, (ViewGroup) null);
-            this.ePk = new Dialog(this.mContext, R.style.common_alert_dialog);
-            this.ePk.setCanceledOnTouchOutside(true);
-            this.ePk.setCancelable(true);
-            this.ePk.setContentView(inflate);
-            WindowManager.LayoutParams attributes = this.ePk.getWindow().getAttributes();
+            this.eOt = new Dialog(this.mContext, R.style.common_alert_dialog);
+            this.eOt.setCanceledOnTouchOutside(true);
+            this.eOt.setCancelable(true);
+            this.eOt.setContentView(inflate);
+            WindowManager.LayoutParams attributes = this.eOt.getWindow().getAttributes();
             attributes.width = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds540);
-            this.ePk.getWindow().setAttributes(attributes);
+            this.eOt.getWindow().setAttributes(attributes);
             inflate.findViewById(R.id.dialog_button_cancel).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.ac.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.baidu.adp.lib.g.g.b(ac.this.ePk, ac.this.mPageContext);
+                    com.baidu.adp.lib.g.g.b(ac.this.eOt, ac.this.mPageContext);
                 }
             });
             inflate.findViewById(R.id.dialog_button_ok).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.ac.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.baidu.adp.lib.g.g.b(ac.this.ePk, ac.this.mPageContext);
-                    ac.this.aa(ac.this.ePn, false);
+                    com.baidu.adp.lib.g.g.b(ac.this.eOt, ac.this.mPageContext);
+                    ac.this.aa(ac.this.eOw, false);
                 }
             });
         }
-        com.baidu.tbadk.s.a.a(this.mPageContext, this.ePk.findViewById(R.id.commit_good_layout));
-        LinearLayout linearLayout = (LinearLayout) this.ePk.findViewById(R.id.good_class_group);
+        com.baidu.tbadk.s.a.a(this.mPageContext, this.eOt.findViewById(R.id.commit_good_layout));
+        LinearLayout linearLayout = (LinearLayout) this.eOt.findViewById(R.id.good_class_group);
         linearLayout.removeAllViews();
-        this.ePo = new ArrayList();
-        BlueCheckRadioButton cx = cx(this.ePm, getString(R.string.thread_good_class, new Object[0]));
+        this.eOx = new ArrayList();
+        BlueCheckRadioButton cx = cx(this.eOv, getString(R.string.thread_good_class, new Object[0]));
         cx.setChecked(true);
         linearLayout.addView(cx);
-        this.ePo.add(cx);
+        this.eOx.add(cx);
         if (arrayList != null) {
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.tbadk.core.data.ac acVar = arrayList.get(i);
-                if (acVar != null && !TextUtils.isEmpty(acVar.ahi()) && acVar.ahj() > 0) {
-                    BlueCheckRadioButton cx2 = cx(String.valueOf(acVar.ahj()), acVar.ahi());
-                    this.ePo.add(cx2);
+                if (acVar != null && !TextUtils.isEmpty(acVar.ahg()) && acVar.ahh() > 0) {
+                    BlueCheckRadioButton cx2 = cx(String.valueOf(acVar.ahh()), acVar.ahg());
+                    this.eOx.add(cx2);
                     View view = new View(this.mContext);
                     view.setLayoutParams(new LinearLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds1)));
                     linearLayout.addView(view);
@@ -369,7 +369,7 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                     am.setBackgroundColor(view, R.color.cp_bg_line_c);
                 }
             }
-            ScrollView scrollView = (ScrollView) this.ePk.findViewById(R.id.good_scroll);
+            ScrollView scrollView = (ScrollView) this.eOt.findViewById(R.id.good_scroll);
             ViewGroup.LayoutParams layoutParams = scrollView.getLayoutParams();
             switch (arrayList.size()) {
                 case 0:
@@ -387,13 +387,13 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
             scrollView.removeAllViews();
             scrollView.addView(linearLayout);
         }
-        com.baidu.adp.lib.g.g.a(this.ePk, this.mPageContext);
+        com.baidu.adp.lib.g.g.a(this.eOt, this.mPageContext);
     }
 
     private BlueCheckRadioButton cx(String str, String str2) {
         BlueCheckRadioButton blueCheckRadioButton = new BlueCheckRadioButton(this.mContext);
         RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds100));
-        blueCheckRadioButton.setOnCheckedChangeListener(this.ePp);
+        blueCheckRadioButton.setOnCheckedChangeListener(this.eOy);
         blueCheckRadioButton.setTag(str);
         blueCheckRadioButton.setText(str2);
         blueCheckRadioButton.setLayoutParams(layoutParams);
@@ -403,26 +403,26 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, ForumManageModel.g gVar) {
         String string;
-        if (this.cry != null && gVar != null && gVar.tf) {
+        if (this.cqG != null && gVar != null && gVar.sF) {
             String str = "";
             if (i == 2) {
-                this.cry.hL(1);
-                str = ao(gVar.jkX, R.string.operation_success);
+                this.cqG.hK(1);
+                str = ao(gVar.jkg, R.string.operation_success);
             } else if (i == 3) {
-                this.cry.hL(0);
-                str = ao(gVar.jkX, R.string.operation_success);
+                this.cqG.hK(0);
+                str = ao(gVar.jkg, R.string.operation_success);
             } else if (i == 4) {
-                this.cry.hK(1);
-                str = ao(gVar.jkX, R.string.top_success);
+                this.cqG.hJ(1);
+                str = ao(gVar.jkg, R.string.top_success);
             } else if (i == 5) {
-                this.cry.hK(0);
-                str = ao(gVar.jkX, R.string.operation_success);
+                this.cqG.hJ(0);
+                str = ao(gVar.jkg, R.string.operation_success);
             }
             ForumManageModel.e eVar = new ForumManageModel.e();
-            eVar.threadId = this.cry.getId();
-            eVar.forumName = this.cry.aiL();
-            eVar.forumId = String.valueOf(this.cry.getFid());
-            eVar.jkY = i;
+            eVar.threadId = this.cqG.getId();
+            eVar.forumName = this.cqG.aiJ();
+            eVar.forumId = String.valueOf(this.cqG.getFid());
+            eVar.jkh = i;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_THREAD_MANAGE, eVar));
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.operation_success, new Object[0]);
@@ -430,8 +430,8 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
             com.baidu.adp.lib.util.l.showToast(this.mContext, str);
             return;
         }
-        if (gVar != null && !TextUtils.isEmpty(gVar.jkX)) {
-            string = gVar.jkX;
+        if (gVar != null && !TextUtils.isEmpty(gVar.jkg)) {
+            string = gVar.jkg;
         } else {
             string = getString(R.string.operation_failed, new Object[0]);
         }
@@ -446,7 +446,7 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oO(int i) {
+    public void oN(int i) {
         int i2 = 1;
         if (i != 1) {
             if (i == 2) {
@@ -461,73 +461,73 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void baC() {
-        if (this.mContext != null && this.cry != null && this.cry.aiG() != null) {
-            String userId = this.cry.aiG().getUserId();
-            String userName = this.cry.aiG().getUserName();
-            String name_show = this.cry.aiG().getName_show();
-            String id = this.cry.getId();
-            String aiL = this.cry.aiL();
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(this.mContext, String.valueOf(this.cry.getFid()), aiL, id, userId, userName, name_show, null, this.cry.aiG().getPortrait())));
+    public void baA() {
+        if (this.mContext != null && this.cqG != null && this.cqG.aiE() != null) {
+            String userId = this.cqG.aiE().getUserId();
+            String userName = this.cqG.aiE().getUserName();
+            String name_show = this.cqG.aiE().getName_show();
+            String id = this.cqG.getId();
+            String aiJ = this.cqG.aiJ();
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(this.mContext, String.valueOf(this.cqG.getFid()), aiJ, id, userId, userName, name_show, null, this.cqG.aiE().getPortrait())));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void O(JSONArray jSONArray) {
-        if (this.eNS != null && this.cry != null && this.cry.aiG() != null) {
-            String userId = this.cry.aiG().getUserId();
-            String id = this.cry.getId();
-            String aiL = this.cry.aiL();
-            String valueOf = String.valueOf(this.cry.getFid());
+        if (this.eNb != null && this.cqG != null && this.cqG.aiE() != null) {
+            String userId = this.cqG.aiE().getUserId();
+            String id = this.cqG.getId();
+            String aiJ = this.cqG.aiJ();
+            String valueOf = String.valueOf(this.cqG.getFid());
             boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
             if (jSONArray != null) {
-                this.eNS.DU(aq.G(jSONArray));
+                this.eNb.DU(aq.G(jSONArray));
             }
-            this.eNS.a(valueOf, aiL, id, null, 0, 1, isCurrentAccount);
+            this.eNb.a(valueOf, aiJ, id, null, 0, 1, isCurrentAccount);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aa(String str, boolean z) {
         int i;
-        if (this.cry != null && this.eNS != null) {
-            if (this.cry.aiC() == 1) {
+        if (this.cqG != null && this.eNb != null) {
+            if (this.cqG.aiA() == 1) {
                 i = 3;
             } else if (z) {
                 i = 6;
             } else {
                 i = 2;
             }
-            String id = this.cry.getId();
-            String aiL = this.cry.aiL();
-            this.eNS.a(String.valueOf(this.cry.getFid()), aiL, id, i, str);
+            String id = this.cqG.getId();
+            String aiJ = this.cqG.aiJ();
+            this.eNb.b(String.valueOf(this.cqG.getFid()), aiJ, id, i, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void baD() {
+    public void baB() {
         int i;
-        if (this.cry != null && this.eNS != null) {
-            if (this.cry.aiB() == 1) {
+        if (this.cqG != null && this.eNb != null) {
+            if (this.cqG.aiz() == 1) {
                 i = 5;
             } else {
                 i = 4;
             }
-            String id = this.cry.getId();
-            String aiL = this.cry.aiL();
-            this.eNS.a(String.valueOf(this.cry.getFid()), aiL, id, i, null);
+            String id = this.cqG.getId();
+            String aiJ = this.cqG.aiJ();
+            this.eNb.b(String.valueOf(this.cqG.getFid()), aiJ, id, i, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void baE() {
-        com.baidu.tieba.frs.a.biW().G(true, false);
+    public void baC() {
+        com.baidu.tieba.frs.a.biU().G(true, false);
         TiebaStatic.log(new an("c13125").bS("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     public void dismissAllDialog() {
-        baz();
-        baA();
+        bax();
+        bay();
         dismiss();
     }
 

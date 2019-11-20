@@ -12,13 +12,13 @@ import com.baidu.tbadk.coreExtra.relationship.c;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class AssortView extends View {
-    private a dlf;
+    private a dko;
     private Paint mPaint;
     private int mPosition;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void aEa();
+        void aDY();
 
         void rD(String str);
     }
@@ -46,7 +46,7 @@ public class AssortView extends View {
     }
 
     public void setOnTouchListener(a aVar) {
-        this.dlf = aVar;
+        this.dko = aVar;
     }
 
     @Override // android.view.View
@@ -55,14 +55,14 @@ public class AssortView extends View {
         int height = getHeight();
         int width = getWidth();
         float f = (float) (width / 48.0d);
-        int length = height / c.cyo.length;
-        int length2 = c.cyo.length;
+        int length = height / c.cxx.length;
+        int length2 = c.cxx.length;
         for (int i = 0; i < length2; i++) {
             this.mPaint.setAntiAlias(true);
             this.mPaint.setTypeface(Typeface.DEFAULT_BOLD);
             this.mPaint.setColor(am.getColor(R.color.cp_cont_c));
             this.mPaint.setTextSize(26.0f * f);
-            canvas.drawText(c.cyo[i], (width / 2.0f) - (this.mPaint.measureText(c.cyo[i]) / 2.0f), (length * i) + length, this.mPaint);
+            canvas.drawText(c.cxx[i], (width / 2.0f) - (this.mPaint.measureText(c.cxx[i]) / 2.0f), (length * i) + length, this.mPaint);
             this.mPaint.reset();
         }
     }
@@ -75,27 +75,27 @@ public class AssortView extends View {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         super.onTouchEvent(motionEvent);
-        int y = (int) ((motionEvent.getY() / getHeight()) * c.cyo.length);
-        if (y >= 0 && y < c.cyo.length) {
+        int y = (int) ((motionEvent.getY() / getHeight()) * c.cxx.length);
+        if (y >= 0 && y < c.cxx.length) {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mPosition = y;
-                    if (this.dlf != null) {
-                        this.dlf.rD(c.cyo[this.mPosition]);
+                    if (this.dko != null) {
+                        this.dko.rD(c.cxx[this.mPosition]);
                         return true;
                     }
                     return true;
                 case 1:
-                    if (this.dlf != null) {
-                        this.dlf.aEa();
+                    if (this.dko != null) {
+                        this.dko.aDY();
                     }
                     this.mPosition = -1;
                     return true;
                 case 2:
                     if (this.mPosition != y) {
                         this.mPosition = y;
-                        if (this.dlf != null) {
-                            this.dlf.rD(c.cyo[this.mPosition]);
+                        if (this.dko != null) {
+                            this.dko.rD(c.cxx[this.mPosition]);
                             return true;
                         }
                         return true;
@@ -106,8 +106,8 @@ public class AssortView extends View {
             }
         }
         this.mPosition = -1;
-        if (this.dlf != null) {
-            this.dlf.aEa();
+        if (this.dko != null) {
+            this.dko.aDY();
             return true;
         }
         return true;

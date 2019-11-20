@@ -8,8 +8,8 @@ import java.util.List;
 public class f extends b<com.baidu.swan.pms.model.f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: n */
-    public com.baidu.swan.pms.model.f k(Cursor cursor) {
+    /* renamed from: k */
+    public com.baidu.swan.pms.model.f h(Cursor cursor) {
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             com.baidu.swan.pms.model.f fVar = new com.baidu.swan.pms.model.f();
             if (a(cursor, fVar)) {
@@ -20,7 +20,7 @@ public class f extends b<com.baidu.swan.pms.model.f> {
     }
 
     @Override // com.baidu.swan.pms.database.a.b
-    public List<com.baidu.swan.pms.model.f> i(Cursor cursor) {
+    public List<com.baidu.swan.pms.model.f> f(Cursor cursor) {
         ArrayList arrayList = new ArrayList();
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             do {
@@ -39,7 +39,7 @@ public class f extends b<com.baidu.swan.pms.model.f> {
     /* renamed from: f */
     public ContentValues S(com.baidu.swan.pms.model.f fVar) {
         ContentValues g = super.g(fVar);
-        g.put("pkg_type", Integer.valueOf(fVar.bMb));
+        g.put("pkg_type", Integer.valueOf(fVar.bLk));
         return g;
     }
 }

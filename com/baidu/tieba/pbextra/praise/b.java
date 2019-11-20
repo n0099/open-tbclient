@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b {
-    private View dng;
-    private HeadImageView ijr;
-    private TextView ijs;
-    private TextView ijt;
-    private ImageView iju;
+    private View dmp;
+    private HeadImageView iiA;
+    private TextView iiB;
+    private TextView iiC;
+    private ImageView iiD;
 
     public static b b(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.dng = null;
-        this.ijr = null;
-        this.ijs = null;
-        this.ijt = null;
-        this.iju = null;
-        this.dng = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.ijr = (HeadImageView) this.dng.findViewById(R.id.zan_list_item_head);
-        this.ijs = (TextView) this.dng.findViewById(R.id.zan_list_item_name);
-        this.ijt = (TextView) this.dng.findViewById(R.id.zan_list_item_time);
-        this.iju = (ImageView) this.dng.findViewById(R.id.zan_list_item_line_bottom);
-        this.iju.setVisibility(0);
-        this.dng.setTag(this);
+        this.dmp = null;
+        this.iiA = null;
+        this.iiB = null;
+        this.iiC = null;
+        this.iiD = null;
+        this.dmp = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.iiA = (HeadImageView) this.dmp.findViewById(R.id.zan_list_item_head);
+        this.iiB = (TextView) this.dmp.findViewById(R.id.zan_list_item_name);
+        this.iiC = (TextView) this.dmp.findViewById(R.id.zan_list_item_time);
+        this.iiD = (ImageView) this.dmp.findViewById(R.id.zan_list_item_line_bottom);
+        this.iiD.setVisibility(0);
+        this.dmp.setTag(this);
     }
 
     public View getView() {
-        return this.dng;
+        return this.dmp;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.ijs.setText(str);
-        this.ijr.setImageDrawable(null);
-        this.ijt.setText(aq.getFormatTime(j));
-        this.ijr.startLoad(str2, 28, false);
+        this.iiB.setText(str);
+        this.iiA.setImageDrawable(null);
+        this.iiC.setText(aq.getFormatTime(j));
+        this.iiA.startLoad(str2, 28, false);
     }
 }

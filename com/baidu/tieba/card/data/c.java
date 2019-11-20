@@ -13,68 +13,68 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
-    public bh cbq;
-    private String din;
-    private String ePM;
-    private int ePN;
-    private String ePO;
-    private String ePP;
-    public int ePR;
+    public bh caz;
+    private String dhw;
+    private String eOV;
+    private int eOW;
+    private String eOX;
+    private String eOY;
+    public int ePa;
     private String mSource;
     public String tid;
     public int objType = 1;
     public SparseArray<String> feedBackReasonMap = null;
-    private Integer ePQ = 0;
-    public int cbr = 0;
-    public int cbs = 0;
+    private Integer eOZ = 0;
+    public int caA = 0;
+    public int caB = 0;
 
     public void setWeight(String str) {
-        this.ePM = str;
+        this.eOV = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void oP(int i) {
-        this.ePN = i;
+    public void oO(int i) {
+        this.eOW = i;
     }
 
     public void uB(String str) {
-        this.ePO = str;
+        this.eOX = str;
     }
 
-    public int baG() {
-        return this.ePN;
+    public int baE() {
+        return this.eOW;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String agL() {
-        return this.mSource + "#" + this.ePN + "#" + this.ePO;
+    public String agJ() {
+        return this.mSource + "#" + this.eOW + "#" + this.eOX;
     }
 
     public String getWeight() {
-        return this.ePM;
+        return this.eOV;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String baH() {
-        return this.ePO;
+    public String baF() {
+        return this.eOX;
     }
 
-    public String baI() {
-        return this.ePP;
+    public String baG() {
+        return this.eOY;
     }
 
     public void uC(String str) {
-        this.ePP = str;
+        this.eOY = str;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bh agI() {
+    public bh agG() {
         return null;
     }
 
@@ -83,19 +83,19 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
     }
 
     public void setExtra(String str) {
-        this.din = str;
+        this.dhw = str;
     }
 
     public String getExtra() {
-        return this.din;
+        return this.dhw;
     }
 
-    public Integer baJ() {
-        return this.ePQ;
+    public Integer baH() {
+        return this.eOZ;
     }
 
     public void d(Integer num) {
-        this.ePQ = num;
+        this.eOZ = num;
     }
 
     public an uD(String str) {
@@ -103,36 +103,36 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
     }
 
     public an ab(String str, boolean z) {
-        bh agI = agI();
-        if (agI == null || str.length() == 0) {
+        bh agG = agG();
+        if (agG == null || str.length() == 0) {
             return null;
         }
-        an bS = new an(str).bS("fid", String.valueOf(agI.getFid())).bS("tid", String.valueOf(agI.getTid())).bS("obj_id", getExtra()).bS("obj_param1", getWeight()).O(TiebaInitialize.Params.OBJ_PARAM2, 1).bS("obj_source", getSource()).O("obj_locate", baG()).bS("uid", TbadkCoreApplication.getCurrentAccount()).bS(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.ban());
+        an bS = new an(str).bS("fid", String.valueOf(agG.getFid())).bS("tid", String.valueOf(agG.getTid())).bS("obj_id", getExtra()).bS("obj_param1", getWeight()).O(TiebaInitialize.Params.OBJ_PARAM2, 1).bS("obj_source", getSource()).O("obj_locate", baE()).bS("uid", TbadkCoreApplication.getCurrentAccount()).bS(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.bal());
         if (!z) {
-            bS.O("obj_type", baK());
+            bS.O("obj_type", baI());
         } else {
-            if (agI.cea > 0) {
+            if (agG.cdj > 0) {
                 bS.O("midpageflag", 1);
             } else {
                 bS.O("midpageflag", 0);
             }
-            bS.bS(TiebaInitialize.Params.AB_TAG, baH());
-            bS.O("is_vertical", baJ().intValue());
+            bS.bS(TiebaInitialize.Params.AB_TAG, baF());
+            bS.O("is_vertical", baH().intValue());
         }
-        if (agI.akd() != null && agI.akd().cor() != null && agI.akd().cor().azh() != null && agI.akd().cor().azh().size() > 0) {
-            bS.O(TiebaInitialize.Params.OBJ_TO, agI.akd().jiV ? 2 : 1);
+        if (agG.akb() != null && agG.akb().cop() != null && agG.akb().cop().azf() != null && agG.akb().cop().azf().size() > 0) {
+            bS.O(TiebaInitialize.Params.OBJ_TO, agG.akb().jie ? 2 : 1);
         }
         return bS;
     }
 
     public an ap(String str, int i) {
-        bh agI = agI();
-        if (agI == null) {
+        bh agG = agG();
+        if (agG == null) {
             return null;
         }
-        an bS = new an(str).bS("fid", String.valueOf(agI.getFid())).bS("tid", String.valueOf(agI.getTid())).O("obj_id", U(agI)).O(TiebaInitialize.Params.OBJ_PARAM2, 1).bS("obj_param1", getWeight()).bS("obj_source", getSource()).O("obj_locate", baG()).bS("obj_name", baH()).bS("uid", TbadkCoreApplication.getCurrentAccount()).bS(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.ban());
+        an bS = new an(str).bS("fid", String.valueOf(agG.getFid())).bS("tid", String.valueOf(agG.getTid())).O("obj_id", U(agG)).O(TiebaInitialize.Params.OBJ_PARAM2, 1).bS("obj_param1", getWeight()).bS("obj_source", getSource()).O("obj_locate", baE()).bS("obj_name", baF()).bS("uid", TbadkCoreApplication.getCurrentAccount()).bS(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.bal());
         if (i == 0) {
-            bS.O("obj_type", baK());
+            bS.O("obj_type", baI());
         } else {
             bS.O("obj_type", i);
         }
@@ -140,18 +140,18 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return bS;
     }
 
-    private int baK() {
+    private int baI() {
         int i;
         int i2 = 0;
-        bh agI = agI();
-        if (agI == null) {
+        bh agG = agG();
+        if (agG == null) {
             return 0;
         }
-        ArrayList<MediaData> aiQ = agI.aiQ();
-        if (aiQ == null) {
+        ArrayList<MediaData> aiO = agG.aiO();
+        if (aiO == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = aiQ.iterator();
+            Iterator<MediaData> it = aiO.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -169,41 +169,41 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        bh agI = agI();
-        if (agI != null) {
-            return agI.getImages();
+        bh agG = agG();
+        if (agG != null) {
+            return agG.getImages();
         }
         return null;
     }
 
     private int U(bh bhVar) {
-        if (bhVar.ajP() == null || bhVar.ajP().channelId <= 0) {
+        if (bhVar.ajN() == null || bhVar.ajN().channelId <= 0) {
             return 0;
         }
-        return (int) bhVar.ajP().channelId;
+        return (int) bhVar.ajN().channelId;
     }
 
-    public void oQ(int i) {
-        this.ePR = i;
+    public void oP(int i) {
+        this.ePa = i;
     }
 
-    public boolean baL() {
-        return this.ePR == 1;
+    public boolean baJ() {
+        return this.ePa == 1;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public aj agK() {
-        if (agI() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
+    public aj agI() {
+        if (agG() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
             return null;
         }
         aj ajVar = new aj();
-        ajVar.setTid(agI().getTid());
-        ajVar.setFid(agI().getFid());
+        ajVar.setTid(agG().getTid());
+        ajVar.setFid(agG().getFid());
         ajVar.setFeedBackReasonMap(this.feedBackReasonMap);
-        ajVar.weight = this.ePM;
+        ajVar.weight = this.eOV;
         ajVar.source = this.mSource;
-        ajVar.extra = this.din;
-        ajVar.threadType = agI().threadType;
+        ajVar.extra = this.dhw;
+        ajVar.threadType = agG().threadType;
         return ajVar;
     }
 }

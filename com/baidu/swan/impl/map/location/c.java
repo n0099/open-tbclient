@@ -8,48 +8,48 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class c extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private b bHV;
-    private TextView bIj;
-    private View bIk;
-    private g bIl;
-    private e bIm;
-    private TextView bcx;
+    private b bHe;
+    private TextView bHs;
+    private View bHt;
+    private g bHu;
+    private e bHv;
+    private TextView bcf;
 
     public c(View view, b bVar, e eVar) {
         super(view);
         init(view);
-        this.bHV = bVar;
-        this.bIm = eVar;
+        this.bHe = bVar;
+        this.bHv = eVar;
     }
 
     private void init(View view) {
-        this.bIj = (TextView) view.findViewById(R.id.main_title);
-        this.bcx = (TextView) view.findViewById(R.id.sub_title);
-        this.bIk = view.findViewById(R.id.select);
-        this.bIk.setVisibility(8);
+        this.bHs = (TextView) view.findViewById(R.id.main_title);
+        this.bcf = (TextView) view.findViewById(R.id.sub_title);
+        this.bHt = view.findViewById(R.id.select);
+        this.bHt.setVisibility(8);
         this.itemView.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bHV.ZU();
-        this.bIl.isSelected = true;
-        this.bHV.notifyDataSetChanged();
-        if (this.bIm != null) {
-            this.bIm.a(this.bIl);
+        this.bHe.ZS();
+        this.bHu.isSelected = true;
+        this.bHe.notifyDataSetChanged();
+        if (this.bHv != null) {
+            this.bHv.a(this.bHu);
         }
     }
 
     public void a(g gVar, String str, boolean z) {
         if (gVar != null) {
-            this.bIl = gVar;
-            this.bIj.setText(z ? bs(gVar.bIq.name, str) : gVar.bIq.name);
-            this.bcx.setVisibility(0);
-            this.bcx.setText(gVar.bIq.address);
-            if (gVar.bIr || TextUtils.isEmpty(gVar.bIq.address)) {
-                this.bcx.setVisibility(8);
+            this.bHu = gVar;
+            this.bHs.setText(z ? bs(gVar.bHz.name, str) : gVar.bHz.name);
+            this.bcf.setVisibility(0);
+            this.bcf.setText(gVar.bHz.address);
+            if (gVar.bHA || TextUtils.isEmpty(gVar.bHz.address)) {
+                this.bcf.setVisibility(8);
             }
-            this.bIk.setVisibility(gVar.isSelected ? 0 : 8);
+            this.bHt.setVisibility(gVar.isSelected ? 0 : 8);
         }
     }
 

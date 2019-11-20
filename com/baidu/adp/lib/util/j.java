@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 public class j {
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
     private static boolean mSupportWap = true;
-    private static j rF;
+    private static j rf;
     private long mNetChangedTime;
     private NetworkInfo curNetworkInfo = null;
     private boolean isWifi = true;
@@ -29,7 +29,7 @@ public class j {
     private String mProxyHost = null;
     private int mProxyPort = -1;
     private boolean isOpenNetChangedMessage = true;
-    private Runnable rG = new Runnable() { // from class: com.baidu.adp.lib.util.j.1
+    private Runnable rg = new Runnable() { // from class: com.baidu.adp.lib.util.j.1
         @Override // java.lang.Runnable
         public void run() {
             try {
@@ -43,7 +43,7 @@ public class j {
                     networkState.mlastChangedTime = netChangedTime;
                     long currentTimeMillis = System.currentTimeMillis();
                     networkState.mCurChangedTime = currentTimeMillis;
-                    j.n(currentTimeMillis);
+                    j.m(currentTimeMillis);
                     MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
                 }
             } catch (Exception e) {
@@ -62,7 +62,7 @@ public class j {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        rF = null;
+        rf = null;
     }
 
     private void getCurNetState() {
@@ -258,10 +258,10 @@ public class j {
     public static synchronized j gY() {
         j jVar;
         synchronized (j.class) {
-            if (rF == null) {
-                rF = new j();
+            if (rf == null) {
+                rf = new j();
             }
-            jVar = rF;
+            jVar = rf;
         }
         return jVar;
     }
@@ -273,7 +273,7 @@ public class j {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            AsyncService.INSTANCE.sendRunnable(j.gY().rG);
+            AsyncService.INSTANCE.sendRunnable(j.gY().rg);
         }
     }
 
@@ -294,7 +294,7 @@ public class j {
         return gY().isOpenNetChangedMessage();
     }
 
-    public static void n(long j) {
+    public static void m(long j) {
         gY().setNetworkChangedTime(j);
     }
 

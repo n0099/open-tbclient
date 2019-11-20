@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes2.dex */
 public final class Notification<T> {
-    private static final Notification<Void> kyw = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind kyu;
-    private final Throwable kyv;
+    private static final Notification<Void> kxF = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind kxD;
+    private final Throwable kxE;
     private final T value;
 
     /* loaded from: classes2.dex */
@@ -17,22 +17,22 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnNext, t, null);
     }
 
-    public static <T> Notification<T> G(Throwable th) {
+    public static <T> Notification<T> H(Throwable th) {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> cOb() {
-        return (Notification<T>) kyw;
+    public static <T> Notification<T> cNZ() {
+        return (Notification<T>) kxF;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.kyv = th;
-        this.kyu = kind;
+        this.kxE = th;
+        this.kxD = kind;
     }
 
-    public Throwable cOc() {
-        return this.kyv;
+    public Throwable cOa() {
+        return this.kxE;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return cOh() && this.value != null;
+        return cOf() && this.value != null;
+    }
+
+    public boolean cOb() {
+        return cOd() && this.kxE != null;
+    }
+
+    public Kind cOc() {
+        return this.kxD;
     }
 
     public boolean cOd() {
-        return cOf() && this.kyv != null;
+        return cOc() == Kind.OnError;
     }
 
-    public Kind cOe() {
-        return this.kyu;
+    public boolean cOe() {
+        return cOc() == Kind.OnCompleted;
     }
 
     public boolean cOf() {
-        return cOe() == Kind.OnError;
-    }
-
-    public boolean cOg() {
-        return cOe() == Kind.OnCompleted;
-    }
-
-    public boolean cOh() {
-        return cOe() == Kind.OnNext;
+        return cOc() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(cOe());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(cOc());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (cOd()) {
-            append.append(' ').append(cOc().getMessage());
+        if (cOb()) {
+            append.append(' ').append(cOa().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = cOe().hashCode();
+        int hashCode = cOc().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (cOd()) {
-            return (hashCode * 31) + cOc().hashCode();
+        if (cOb()) {
+            return (hashCode * 31) + cOa().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.cOe() != cOe() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.kyv != notification.kyv && (this.kyv == null || !this.kyv.equals(notification.kyv))))) {
+            if (notification.cOc() != cOc() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.kxE != notification.kxE && (this.kxE == null || !this.kxE.equals(notification.kxE))))) {
                 z = false;
             }
             return z;

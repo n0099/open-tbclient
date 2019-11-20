@@ -4,64 +4,64 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes5.dex */
 public class h implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId gHj = BdUniqueId.gen();
-    private Object HC;
-    private NoDataViewFactory.ImgType gHk;
-    private String gHl;
-    private String gHm;
-    private String gHn;
-    private int gHo;
+    public static final BdUniqueId gGs = BdUniqueId.gen();
+    private Object Hc;
+    private NoDataViewFactory.ImgType gGt;
+    private String gGu;
+    private String gGv;
+    private String gGw;
+    private int gGx;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gHj;
+        return gGs;
     }
 
-    public String bAY() {
-        return this.gHl;
+    public String bAW() {
+        return this.gGu;
     }
 
     public void xT(String str) {
-        this.gHl = str;
+        this.gGu = str;
     }
 
-    public String bAZ() {
-        return this.gHm;
+    public String bAX() {
+        return this.gGv;
     }
 
     public void xU(String str) {
-        this.gHm = str;
+        this.gGv = str;
     }
 
-    public String bBa() {
-        return this.gHn;
+    public String bAY() {
+        return this.gGw;
     }
 
     public void xV(String str) {
-        this.gHn = str;
+        this.gGw = str;
     }
 
-    public int bBb() {
-        return this.gHo;
+    public int bAZ() {
+        return this.gGx;
     }
 
-    public void ug(int i) {
-        this.gHo = i;
+    public void uf(int i) {
+        this.gGx = i;
     }
 
     public Object mb() {
-        return this.HC;
+        return this.Hc;
     }
 
     public void setExtraData(Object obj) {
-        this.HC = obj;
+        this.Hc = obj;
     }
 
-    public NoDataViewFactory.ImgType bBc() {
-        return this.gHk;
+    public NoDataViewFactory.ImgType bBa() {
+        return this.gGt;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.gHk = imgType;
+        this.gGt = imgType;
     }
 }

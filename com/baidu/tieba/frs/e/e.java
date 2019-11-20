@@ -1,57 +1,57 @@
 package com.baidu.tieba.frs.e;
 /* loaded from: classes.dex */
 public class e {
-    private boolean fDB;
-    private boolean fRV;
-    private boolean fRW;
+    private boolean fCK;
+    private boolean fRe;
+    private boolean fRf;
 
     public e(String str) {
         if (str == null || !str.matches("\\d{1}_\\d{1}.*")) {
-            this.fDB = false;
-            this.fRV = true;
+            this.fCK = false;
+            this.fRe = true;
             return;
         }
-        this.fDB = str.substring(0, 1).contains("1");
-        this.fRV = str.substring(2, 3).contains("1");
+        this.fCK = str.substring(0, 1).contains("1");
+        this.fRe = str.substring(2, 3).contains("1");
         if (str.length() >= 5) {
-            this.fRW = str.substring(4, 5).contains("1");
+            this.fRf = str.substring(4, 5).contains("1");
         }
     }
 
     public e(boolean z, boolean z2) {
-        this.fDB = z;
-        this.fRV = z2;
+        this.fCK = z;
+        this.fRe = z2;
     }
 
     public String toString() {
         Object[] objArr = new Object[3];
-        objArr[0] = Integer.valueOf(this.fDB ? 1 : 0);
-        objArr[1] = Integer.valueOf(this.fRV ? 1 : 0);
-        objArr[2] = Integer.valueOf(this.fRW ? 1 : 0);
+        objArr[0] = Integer.valueOf(this.fCK ? 1 : 0);
+        objArr[1] = Integer.valueOf(this.fRe ? 1 : 0);
+        objArr[2] = Integer.valueOf(this.fRf ? 1 : 0);
         return String.format("%s_%s_%s", objArr);
     }
 
-    public boolean bpX() {
-        return this.fDB;
+    public boolean bpV() {
+        return this.fCK;
     }
 
     public void kC(boolean z) {
-        this.fDB = z;
+        this.fCK = z;
     }
 
-    public boolean bpY() {
-        return this.fRV;
+    public boolean bpW() {
+        return this.fRe;
     }
 
     public void kD(boolean z) {
-        this.fRV = z;
+        this.fRe = z;
     }
 
     public void kE(boolean z) {
-        this.fRW = z;
+        this.fRf = z;
     }
 
-    public boolean bpZ() {
-        return this.fRW;
+    public boolean bpX() {
+        return this.fRf;
     }
 }

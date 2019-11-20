@@ -93,7 +93,7 @@ public class a extends z {
                     z = false;
                     break;
                 } else {
-                    com.baidu.swan.apps.aj.d.b.a.Tp().a(activity, f);
+                    com.baidu.swan.apps.aj.d.b.a.Tn().a(activity, f);
                     jSONObject = null;
                     z = true;
                     break;
@@ -102,7 +102,7 @@ public class a extends z {
             case 1:
                 jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("value", String.valueOf(com.baidu.swan.apps.aj.d.b.a.Tp().M(activity)));
+                    jSONObject.put("value", String.valueOf(com.baidu.swan.apps.aj.d.b.a.Tn().M(activity)));
                     z = true;
                     break;
                 } catch (JSONException e2) {
@@ -117,7 +117,7 @@ public class a extends z {
                     return false;
                 }
                 try {
-                    com.baidu.swan.apps.aj.d.b.a.Tp().f(activity, optParamsAsJo.getBoolean("keepScreenOn"));
+                    com.baidu.swan.apps.aj.d.b.a.Tn().f(activity, optParamsAsJo.getBoolean("keepScreenOn"));
                     jSONObject = null;
                     z = true;
                     break;

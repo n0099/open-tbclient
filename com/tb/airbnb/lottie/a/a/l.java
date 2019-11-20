@@ -9,19 +9,19 @@ import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class l implements k, a.InterfaceC0577a {
-    private boolean eI;
+    private boolean ei;
     @Nullable
-    private q ksW;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> ksZ;
-    private final PolystarShape.Type ktg;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> kth;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> kti;
+    private q ksf;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> ksi;
+    private final PolystarShape.Type ksp;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> ksq;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> ksr;
     @Nullable
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> ktj;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> ktk;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> kss;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> kst;
     @Nullable
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> ktl;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> ktm;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> ksu;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> ksv;
     private final com.tb.airbnb.lottie.f lottieDrawable;
     private final String name;
     private final Path path = new Path();
@@ -29,36 +29,36 @@ public class l implements k, a.InterfaceC0577a {
     public l(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, PolystarShape polystarShape) {
         this.lottieDrawable = fVar;
         this.name = polystarShape.getName();
-        this.ktg = polystarShape.cLR();
-        this.kth = polystarShape.cLS().cLn();
-        this.ksZ = polystarShape.cLw().cLn();
-        this.kti = polystarShape.cLy().cLn();
-        this.ktk = polystarShape.cLU().cLn();
-        this.ktm = polystarShape.cLW().cLn();
-        if (this.ktg == PolystarShape.Type.Star) {
-            this.ktj = polystarShape.cLT().cLn();
-            this.ktl = polystarShape.cLV().cLn();
+        this.ksp = polystarShape.cLP();
+        this.ksq = polystarShape.cLQ().cLl();
+        this.ksi = polystarShape.cLu().cLl();
+        this.ksr = polystarShape.cLw().cLl();
+        this.kst = polystarShape.cLS().cLl();
+        this.ksv = polystarShape.cLU().cLl();
+        if (this.ksp == PolystarShape.Type.Star) {
+            this.kss = polystarShape.cLR().cLl();
+            this.ksu = polystarShape.cLT().cLl();
         } else {
-            this.ktj = null;
-            this.ktl = null;
+            this.kss = null;
+            this.ksu = null;
         }
-        aVar.a(this.kth);
-        aVar.a(this.ksZ);
-        aVar.a(this.kti);
-        aVar.a(this.ktk);
-        aVar.a(this.ktm);
-        if (this.ktg == PolystarShape.Type.Star) {
-            aVar.a(this.ktj);
-            aVar.a(this.ktl);
+        aVar.a(this.ksq);
+        aVar.a(this.ksi);
+        aVar.a(this.ksr);
+        aVar.a(this.kst);
+        aVar.a(this.ksv);
+        if (this.ksp == PolystarShape.Type.Star) {
+            aVar.a(this.kss);
+            aVar.a(this.ksu);
         }
-        this.kth.b(this);
-        this.ksZ.b(this);
-        this.kti.b(this);
-        this.ktk.b(this);
-        this.ktm.b(this);
-        if (this.ktg == PolystarShape.Type.Star) {
-            this.ktk.b(this);
-            this.ktm.b(this);
+        this.ksq.b(this);
+        this.ksi.b(this);
+        this.ksr.b(this);
+        this.kst.b(this);
+        this.ksv.b(this);
+        if (this.ksp == PolystarShape.Type.Star) {
+            this.kst.b(this);
+            this.ksv.b(this);
         }
     }
 
@@ -68,7 +68,7 @@ public class l implements k, a.InterfaceC0577a {
     }
 
     private void invalidate() {
-        this.eI = false;
+        this.ei = false;
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -79,9 +79,9 @@ public class l implements k, a.InterfaceC0577a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof q) && ((q) bVar).cLf() == ShapeTrimPath.Type.Simultaneously) {
-                    this.ksW = (q) bVar;
-                    this.ksW.a(this);
+                if ((bVar instanceof q) && ((q) bVar).cLd() == ShapeTrimPath.Type.Simultaneously) {
+                    this.ksf = (q) bVar;
+                    this.ksf.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -92,11 +92,11 @@ public class l implements k, a.InterfaceC0577a {
 
     @Override // com.tb.airbnb.lottie.a.a.k
     public Path bw() {
-        if (this.eI) {
+        if (this.ei) {
             return this.path;
         }
         this.path.reset();
-        switch (this.ktg) {
+        switch (this.ksp) {
             case Star:
                 bB();
                 break;
@@ -105,8 +105,8 @@ public class l implements k, a.InterfaceC0577a {
                 break;
         }
         this.path.close();
-        com.tb.airbnb.lottie.c.f.a(this.path, this.ksW);
-        this.eI = true;
+        com.tb.airbnb.lottie.c.f.a(this.path, this.ksf);
+        this.ei = true;
         return this.path;
     }
 
@@ -124,22 +124,22 @@ public class l implements k, a.InterfaceC0577a {
         float f3;
         float f4;
         float f5;
-        float floatValue = this.kth.getValue().floatValue();
-        double radians = Math.toRadians((this.kti == null ? 0.0d : this.kti.getValue().floatValue()) - 90.0d);
+        float floatValue = this.ksq.getValue().floatValue();
+        double radians = Math.toRadians((this.ksr == null ? 0.0d : this.ksr.getValue().floatValue()) - 90.0d);
         float f6 = (float) (6.283185307179586d / floatValue);
         float f7 = f6 / 2.0f;
         float f8 = floatValue - ((int) floatValue);
         double d2 = f8 != 0.0f ? radians + ((1.0f - f8) * f7) : radians;
-        float floatValue2 = this.ktk.getValue().floatValue();
-        float floatValue3 = this.ktj.getValue().floatValue();
-        if (this.ktl == null) {
+        float floatValue2 = this.kst.getValue().floatValue();
+        float floatValue3 = this.kss.getValue().floatValue();
+        if (this.ksu == null) {
             f = 0.0f;
         } else {
-            f = this.ktl.getValue().floatValue() / 100.0f;
+            f = this.ksu.getValue().floatValue() / 100.0f;
         }
         float f9 = 0.0f;
-        if (this.ktm != null) {
-            f9 = this.ktm.getValue().floatValue() / 100.0f;
+        if (this.ksv != null) {
+            f9 = this.ksv.getValue().floatValue() / 100.0f;
         }
         if (f8 != 0.0f) {
             float f10 = floatValue3 + ((floatValue2 - floatValue3) * f8);
@@ -212,7 +212,7 @@ public class l implements k, a.InterfaceC0577a {
                 f11 = sin2;
                 f12 = cos2;
             } else {
-                PointF value = this.ksZ.getValue();
+                PointF value = this.ksi.getValue();
                 this.path.offset(value.x, value.y);
                 this.path.close();
                 return;
@@ -221,11 +221,11 @@ public class l implements k, a.InterfaceC0577a {
     }
 
     private void bC() {
-        int floor = (int) Math.floor(this.kth.getValue().floatValue());
-        double radians = Math.toRadians((this.kti == null ? 0.0d : this.kti.getValue().floatValue()) - 90.0d);
+        int floor = (int) Math.floor(this.ksq.getValue().floatValue());
+        double radians = Math.toRadians((this.ksr == null ? 0.0d : this.ksr.getValue().floatValue()) - 90.0d);
         float f = (float) (6.283185307179586d / floor);
-        float floatValue = this.ktm.getValue().floatValue() / 100.0f;
-        float floatValue2 = this.ktk.getValue().floatValue();
+        float floatValue = this.ksv.getValue().floatValue() / 100.0f;
+        float floatValue2 = this.kst.getValue().floatValue();
         float cos = (float) (floatValue2 * Math.cos(radians));
         float sin = (float) (floatValue2 * Math.sin(radians));
         this.path.moveTo(cos, sin);
@@ -252,7 +252,7 @@ public class l implements k, a.InterfaceC0577a {
                 d = d2 + f;
                 i = i2 + 1;
             } else {
-                PointF value = this.ksZ.getValue();
+                PointF value = this.ksi.getValue();
                 this.path.offset(value.x, value.y);
                 this.path.close();
                 return;

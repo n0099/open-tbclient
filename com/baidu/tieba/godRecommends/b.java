@@ -24,9 +24,9 @@ import java.util.List;
 import tbclient.MFollow.MFollowResult;
 /* loaded from: classes6.dex */
 public class b implements com.baidu.tbadk.k.b {
-    private GodRecommendModel gbM;
-    private MultiAttentionModel gbN;
-    private d gbO;
+    private GodRecommendModel gaV;
+    private MultiAttentionModel gaW;
+    private d gaX;
     private TbPageContext<?> mPageContext;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.godRecommends.b.1
         @Override // android.view.View.OnClickListener
@@ -36,23 +36,23 @@ public class b implements com.baidu.tbadk.k.b {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(metaData.getPortrait());
                 TiebaStatic.log(new an("c12525").bS("obj_id", metaData.getUserId()).bS("obj_locate", "2"));
-                b.this.gbN.m(arrayList, false);
+                b.this.gaW.m(arrayList, false);
             }
         }
     };
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.godRecommends.b.2
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            MetaData sB = b.this.gbO.sB(i);
-            if (sB != null) {
-                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), String.valueOf(sB.getUserId()), sB.getUserName());
-                TiebaStatic.log(new an("c12525").bS("obj_id", sB.getUserId()).bS("obj_locate", "1"));
+            MetaData sA = b.this.gaX.sA(i);
+            if (sA != null) {
+                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), String.valueOf(sA.getUserId()), sA.getUserName());
+                TiebaStatic.log(new an("c12525").bS("obj_id", sA.getUserId()).bS("obj_locate", "1"));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, personInfoActivityConfig));
             }
-            b.this.gbO.aAm();
+            b.this.gaX.aAk();
         }
     };
-    private d.a gbP = new d.a() { // from class: com.baidu.tieba.godRecommends.b.3
+    private d.a gaY = new d.a() { // from class: com.baidu.tieba.godRecommends.b.3
         @Override // com.baidu.tieba.godRecommends.d.a
         public void cG(List<MetaData> list) {
             ArrayList arrayList = new ArrayList();
@@ -60,14 +60,14 @@ public class b implements com.baidu.tbadk.k.b {
                 arrayList.add(metaData.getPortrait());
                 TiebaStatic.log(new an("c12525").bS("obj_id", metaData.getUserId()).bS("obj_locate", "2"));
             }
-            b.this.gbN.m(arrayList, true);
+            b.this.gaW.m(arrayList, true);
         }
     };
-    private com.baidu.adp.framework.listener.a gbQ = new com.baidu.adp.framework.listener.a(1003375, CmdConfigSocket.CMD_GET_GOD_RECOMMEND) { // from class: com.baidu.tieba.godRecommends.b.4
+    private com.baidu.adp.framework.listener.a gaZ = new com.baidu.adp.framework.listener.a(1003375, CmdConfigSocket.CMD_GET_GOD_RECOMMEND) { // from class: com.baidu.tieba.godRecommends.b.4
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if ((responsedMessage instanceof GodRecommendHttpResponseMessage) || (responsedMessage instanceof GodRecommendSocketMessage)) {
-                b.this.gbM.bsr();
+                b.this.gaV.bsp();
                 if (responsedMessage.getError() == 0) {
                     c cVar = null;
                     if (responsedMessage instanceof GodRecommendHttpResponseMessage) {
@@ -75,18 +75,18 @@ public class b implements com.baidu.tbadk.k.b {
                     } else if (responsedMessage instanceof GodRecommendSocketMessage) {
                         cVar = ((GodRecommendSocketMessage) responsedMessage).getGodRecommendData();
                     }
-                    b.this.gbO.a(cVar);
+                    b.this.gaX.a(cVar);
                 }
             }
         }
     };
-    private com.baidu.adp.framework.listener.a gbR = new com.baidu.adp.framework.listener.a(1003105, CmdConfigSocket.MULTI_ATTENTION_SOCKET_CMD) { // from class: com.baidu.tieba.godRecommends.b.5
+    private com.baidu.adp.framework.listener.a gba = new com.baidu.adp.framework.listener.a(1003105, CmdConfigSocket.MULTI_ATTENTION_SOCKET_CMD) { // from class: com.baidu.tieba.godRecommends.b.5
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             List<MFollowResult> followResults;
             boolean isAttentionAll;
             if ((responsedMessage instanceof MultiAttentionHttpResponseMessage) || (responsedMessage instanceof MultiAttentionSocketResponseMessage)) {
-                b.this.gbN.bsr();
+                b.this.gaW.bsp();
                 if (responsedMessage.getError() != 0) {
                     l.showToast(b.this.mPageContext.getPageActivity(), responsedMessage.getErrorString());
                     return;
@@ -100,27 +100,27 @@ public class b implements com.baidu.tbadk.k.b {
                     followResults = multiAttentionSocketResponseMessage.getFollowResults();
                     isAttentionAll = multiAttentionSocketResponseMessage.isAttentionAll();
                 }
-                b.this.gbO.n(followResults, isAttentionAll);
+                b.this.gaX.n(followResults, isAttentionAll);
             }
         }
     };
 
     public b(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.gbM = new GodRecommendModel(tbPageContext);
-        this.gbN = new MultiAttentionModel(tbPageContext);
-        this.gbO = new d(tbPageContext);
-        this.gbO.a(this.gbP);
-        this.gbO.setOnClickListener(this.mOnClickListener);
-        this.gbO.setOnItemClickListener(this.mOnItemClickListener);
-        bss();
+        this.gaV = new GodRecommendModel(tbPageContext);
+        this.gaW = new MultiAttentionModel(tbPageContext);
+        this.gaX = new d(tbPageContext);
+        this.gaX.a(this.gaY);
+        this.gaX.setOnClickListener(this.mOnClickListener);
+        this.gaX.setOnItemClickListener(this.mOnItemClickListener);
+        bsq();
     }
 
-    private void bss() {
-        this.mPageContext.registerListener(this.gbQ);
-        this.mPageContext.registerListener(this.gbR);
-        a(this.gbQ.getHttpMessageListener(), this.gbQ.getSocketMessageListener());
-        a(this.gbR.getHttpMessageListener(), this.gbR.getSocketMessageListener());
+    private void bsq() {
+        this.mPageContext.registerListener(this.gaZ);
+        this.mPageContext.registerListener(this.gba);
+        a(this.gaZ.getHttpMessageListener(), this.gaZ.getSocketMessageListener());
+        a(this.gba.getHttpMessageListener(), this.gba.getSocketMessageListener());
     }
 
     private void a(HttpMessageListener httpMessageListener, com.baidu.adp.framework.listener.c cVar) {
@@ -134,19 +134,19 @@ public class b implements com.baidu.tbadk.k.b {
 
     @Override // com.baidu.tbadk.k.b
     public void pT(String str) {
-        this.gbM.wL(str);
+        this.gaV.wL(str);
     }
 
     @Override // com.baidu.tbadk.k.b
     public void destory() {
-        if (this.gbM != null) {
-            this.gbM.destory();
+        if (this.gaV != null) {
+            this.gaV.destory();
         }
-        if (this.gbN != null) {
-            this.gbN.destory();
+        if (this.gaW != null) {
+            this.gaW.destory();
         }
-        if (this.gbO != null) {
-            this.gbO.aAm();
+        if (this.gaX != null) {
+            this.gaX.aAk();
         }
     }
 }

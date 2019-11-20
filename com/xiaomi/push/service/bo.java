@@ -1,34 +1,29 @@
 package com.xiaomi.push.service;
 
+import android.database.ContentObserver;
+import android.os.Handler;
 import com.xiaomi.push.service.XMPushService;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class bo extends XMPushService.i {
-    final /* synthetic */ String b;
-    final /* synthetic */ byte[] c;
-    final /* synthetic */ XMPushService d;
+class bo extends ContentObserver {
+    final /* synthetic */ XMPushService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bo(XMPushService xMPushService, int i, String str, byte[] bArr) {
-        super(i);
-        this.d = xMPushService;
-        this.b = str;
-        this.c = bArr;
+    public bo(XMPushService xMPushService, Handler handler) {
+        super(handler);
+        this.a = xMPushService;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        try {
-            af.a(this.d, this.b, this.c);
-        } catch (com.xiaomi.smack.l e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.d.a(10, e);
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        boolean m479f;
+        super.onChange(z);
+        m479f = this.a.m479f();
+        com.xiaomi.channel.commonutils.logger.b.m30a("ExtremePowerMode:" + m479f);
+        if (m479f) {
+            this.a.a(new XMPushService.f(23, null));
+        } else {
+            this.a.a(true);
         }
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String b() {
-        return "send mi push message";
     }
 }

@@ -9,165 +9,165 @@ import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private com.baidu.mario.a.e awE;
-    private com.baidu.mario.gldraw2d.params.c awT;
-    private int axA;
-    private b axB;
-    private com.baidu.mario.a.a.a axC;
-    private com.baidu.mario.a.a.b axD;
-    private long axs;
-    private long axt;
-    private long axu;
-    private com.baidu.mario.b.b.d axy;
-    private boolean axz;
+    private com.baidu.mario.gldraw2d.params.c awB;
+    private com.baidu.mario.a.e awm;
+    private long axa;
+    private long axb;
+    private long axc;
+    private com.baidu.mario.b.b.d axg;
+    private boolean axh;
+    private int axi;
+    private b axj;
+    private com.baidu.mario.a.a.a axk;
+    private com.baidu.mario.a.a.b axl;
     private Context mAppContext;
-    private int axq = 120000;
+    private int awY = 120000;
     private int mTextureId = -1;
-    private boolean axr = false;
-    private boolean axv = false;
+    private boolean awZ = false;
+    private boolean axd = false;
     private boolean mIsLandscape = false;
-    private int DF = 0;
-    private int DG = 0;
-    private c axw = c.yf();
-    private d axx = new d() { // from class: com.baidu.mario.b.a.1
+    private int De = 0;
+    private int Df = 0;
+    private c axe = c.yg();
+    private d axf = new d() { // from class: com.baidu.mario.b.a.1
         @Override // com.baidu.mario.b.d
         public void onRecorderStart(boolean z) {
-            if (a.this.axB != null) {
-                a.this.axB.onStart();
+            if (a.this.axj != null) {
+                a.this.axj.onStart();
             }
         }
 
         @Override // com.baidu.mario.b.d
-        public void O(long j) {
-            a.this.axu = j;
-            if (j > a.this.axq && a.this.axz) {
+        public void N(long j) {
+            a.this.axc = j;
+            if (j > a.this.awY && a.this.axh) {
                 a.this.stopRecord();
             }
         }
 
         @Override // com.baidu.mario.b.d
         public void onRecorderComplete(boolean z, String str) {
-            Log.i(a.TAG, "on RecorderComplete record time :" + a.this.axu);
-            if (a.this.axB != null) {
-                a.this.axB.l((int) a.this.axu, str);
+            Log.i(a.TAG, "on RecorderComplete record time :" + a.this.axc);
+            if (a.this.axj != null) {
+                a.this.axj.l((int) a.this.axc, str);
             }
         }
 
         @Override // com.baidu.mario.b.d
         public void onRecorderError(int i) {
             Log.i(a.TAG, "onRecorderError:" + i);
-            if (a.this.axB != null) {
-                a.this.axB.onError(i);
+            if (a.this.axj != null) {
+                a.this.axj.onError(i);
             }
         }
     };
 
     public a(Context context) {
         this.mAppContext = context;
-        a(new com.baidu.mario.b.b.d(), this.axx);
+        a(new com.baidu.mario.b.b.d(), this.axf);
     }
 
     public void setGameRecordCallback(b bVar) {
-        this.axB = bVar;
+        this.axj = bVar;
     }
 
     public void a(boolean z, EGLContext eGLContext, int i, int i2, Context context) {
         if (eGLContext != null) {
             this.mAppContext = context;
             Log.i(TAG, "onContextChanged:" + eGLContext + "; w:" + i + "; h:" + i2 + "; isFlip:" + z);
-            if (this.awT == null) {
-                this.awT = new com.baidu.mario.gldraw2d.params.c(eGLContext, 0, true);
+            if (this.awB == null) {
+                this.awB = new com.baidu.mario.gldraw2d.params.c(eGLContext, 0, true);
             } else {
-                this.awT.b(eGLContext);
+                this.awB.b(eGLContext);
             }
-            this.awT.xR().setWidth(i);
-            this.awT.xR().setHeight(i2);
+            this.awB.xS().setWidth(i);
+            this.awB.xS().setHeight(i2);
             if (z) {
-                this.awT.xT().a(MirrorType.VERTICALLY);
+                this.awB.xU().a(MirrorType.VERTICALLY);
             }
-            this.DF = i;
-            this.DG = i2;
-            this.axy.setVideoWidth(i);
-            this.axy.setVideoHeight(i2);
+            this.De = i;
+            this.Df = i2;
+            this.axg.setVideoWidth(i);
+            this.axg.setVideoHeight(i2);
         }
     }
 
     public void cx(int i) {
-        if (this.awT != null) {
+        if (this.awB != null) {
             if (this.mTextureId != i) {
                 com.baidu.mario.gldraw2d.d.d dVar = new com.baidu.mario.gldraw2d.d.d();
                 dVar.setId(i);
-                this.awT.c(dVar);
-                if (this.axw != null) {
-                    this.axw.b(this.awT);
+                this.awB.c(dVar);
+                if (this.axe != null) {
+                    this.axe.b(this.awB);
                 }
                 this.mTextureId = i;
             }
-            e(this.mTextureId, System.nanoTime());
+            c(this.mTextureId, System.nanoTime());
         }
     }
 
-    private void e(int i, long j) {
-        if (this.axz && this.axy != null) {
-            switch (this.axA) {
+    private void c(int i, long j) {
+        if (this.axh && this.axg != null) {
+            switch (this.axi) {
                 case 0:
-                    yd();
-                    if (this.axw != null) {
-                        this.axw.a(this.mAppContext, this.axy, this.axx);
+                    ye();
+                    if (this.axe != null) {
+                        this.axe.a(this.mAppContext, this.axg, this.axf);
                     }
-                    this.axA = 1;
+                    this.axi = 1;
                     break;
                 case 1:
                     break;
                 case 2:
-                    this.awT.xQ().setId(i);
-                    if (this.axw != null) {
-                        this.axw.c(this.awT);
+                    this.awB.xR().setId(i);
+                    if (this.axe != null) {
+                        this.axe.c(this.awB);
                     }
-                    this.axA = 1;
+                    this.axi = 1;
                     break;
                 default:
-                    throw new RuntimeException("unknown status " + this.axA);
+                    throw new RuntimeException("unknown status " + this.axi);
             }
         }
-        if (this.axw != null && !this.axr) {
-            this.axw.P(j - this.axs);
+        if (this.axe != null && !this.awZ) {
+            this.axe.O(j - this.axa);
         }
     }
 
-    public long ya() {
-        return this.axu;
-    }
-
-    public void yb() {
-        if (!this.axr) {
-            this.axv = true;
-            pauseRecord();
-            return;
-        }
-        this.axv = false;
+    public long yb() {
+        return this.axc;
     }
 
     public void yc() {
-        if (this.axr && this.axv) {
+        if (!this.awZ) {
+            this.axd = true;
+            pauseRecord();
+            return;
+        }
+        this.axd = false;
+    }
+
+    public void yd() {
+        if (this.awZ && this.axd) {
             resumeRecord();
         }
-        this.axv = false;
+        this.axd = false;
     }
 
     public void startRecord(boolean z, int i, String str, boolean z2) {
-        if (!this.axz) {
+        if (!this.axh) {
             Log.i(TAG, "startRecored");
             this.mIsLandscape = z2;
-            this.axy.dq(str);
-            this.axy.bh(z);
-            this.axy.S(i * 1000);
-            this.axy.setVideoWidth(this.DF);
-            this.axy.setVideoHeight(this.DG);
+            this.axg.dq(str);
+            this.axg.bh(z);
+            this.axg.R(i * 1000);
+            this.axg.setVideoWidth(this.De);
+            this.axg.setVideoHeight(this.Df);
             if (i > 0 && i < 120) {
-                this.axq = i * 1000;
+                this.awY = i * 1000;
             } else {
-                this.axq = 120000;
+                this.awY = 120000;
             }
             c((com.baidu.mario.a.e) null);
         }
@@ -175,53 +175,53 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aY(boolean z) {
-        this.axz = true;
-        this.axs = 0L;
-        this.axu = 0L;
+        this.axh = true;
+        this.axa = 0L;
+        this.axc = 0L;
     }
 
     private void c(com.baidu.mario.a.e eVar) {
-        if (this.axD == null) {
-            ye();
+        if (this.axl == null) {
+            yf();
         }
         if (eVar == null) {
             Log.i(TAG, "audioParams is null,start to create AudioPams");
-            this.awE = new com.baidu.mario.a.e();
+            this.awm = new com.baidu.mario.a.e();
         } else {
-            this.awE = eVar;
+            this.awm = eVar;
         }
-        this.axC = com.baidu.mario.a.a.a.xs();
-        this.axC.a(this.awE, this.axD);
+        this.axk = com.baidu.mario.a.a.a.xt();
+        this.axk.a(this.awm, this.axl);
     }
 
     public void pauseRecord() {
-        if (this.axr) {
+        if (this.awZ) {
             Log.i(TAG, "pauseRecord cmd has executed, please run resumeRecord!");
-        } else if (this.axz) {
-            this.axr = true;
+        } else if (this.axh) {
+            this.awZ = true;
             Log.i(TAG, "pauseRecord");
-            this.axt = System.nanoTime();
-            this.axs = 0L;
-            if (this.axw != null) {
-                this.axw.yi();
-                this.axs = (this.axt - (this.axu * 1000000)) - this.axw.yg();
-                if (this.axs < 0) {
-                    this.axs = 0L;
+            this.axb = System.nanoTime();
+            this.axa = 0L;
+            if (this.axe != null) {
+                this.axe.yj();
+                this.axa = (this.axb - (this.axc * 1000000)) - this.axe.yh();
+                if (this.axa < 0) {
+                    this.axa = 0L;
                 }
             }
-            if (this.axB != null) {
-                this.axB.onPause();
+            if (this.axj != null) {
+                this.axj.onPause();
             }
         }
     }
 
     public void resumeRecord() {
-        if (this.axr) {
-            this.axs += System.nanoTime() - this.axt;
-            Log.i(TAG, "resumeRecord time dur:" + this.axs);
-            this.axr = false;
-            if (this.axB != null) {
-                this.axB.onResume();
+        if (this.awZ) {
+            this.axa += System.nanoTime() - this.axb;
+            Log.i(TAG, "resumeRecord time dur:" + this.axa);
+            this.awZ = false;
+            if (this.axj != null) {
+                this.axj.onResume();
             }
         }
     }
@@ -229,34 +229,34 @@ public class a {
     public void stopRecord() {
         Log.i(TAG, "stopRecored");
         resumeRecord();
-        this.axz = false;
-        switch (this.axA) {
+        this.axh = false;
+        switch (this.axi) {
             case 0:
                 return;
             case 1:
             case 2:
-                this.axA = 0;
-                if (this.axw != null) {
-                    this.axw.yj();
+                this.axi = 0;
+                if (this.axe != null) {
+                    this.axe.yk();
                 }
-                if (this.axC != null) {
-                    this.axC.a(this.axD);
+                if (this.axk != null) {
+                    this.axk.a(this.axl);
                     return;
                 }
                 return;
             default:
-                throw new RuntimeException("unknown status " + this.axA);
+                throw new RuntimeException("unknown status " + this.axi);
         }
     }
 
-    private void yd() {
-        if (this.axy != null && this.awT != null) {
-            int videoHeight = this.axy.getVideoHeight();
-            int videoWidth = this.axy.getVideoWidth();
+    private void ye() {
+        if (this.axg != null && this.awB != null) {
+            int videoHeight = this.axg.getVideoHeight();
+            int videoWidth = this.axg.getVideoWidth();
             if (videoHeight > videoWidth) {
-                videoHeight = (this.axy.getVideoWidth() * this.awT.xR().getHeight()) / this.awT.xR().getWidth();
+                videoHeight = (this.axg.getVideoWidth() * this.awB.xS().getHeight()) / this.awB.xS().getWidth();
             } else {
-                videoWidth = (this.axy.getVideoHeight() * this.awT.xR().getHeight()) / this.awT.xR().getWidth();
+                videoWidth = (this.axg.getVideoHeight() * this.awB.xS().getHeight()) / this.awB.xS().getWidth();
             }
             if (videoHeight > 1920) {
                 videoHeight /= 2;
@@ -282,44 +282,44 @@ public class a {
                 videoWidth = videoHeight;
                 videoHeight = i;
             }
-            this.axy.setVideoWidth(videoHeight);
-            this.axy.setVideoHeight(videoWidth);
+            this.axg.setVideoWidth(videoHeight);
+            this.axg.setVideoHeight(videoWidth);
         }
     }
 
     public void a(com.baidu.mario.b.b.d dVar) {
-        this.axy = dVar;
+        this.axg = dVar;
     }
 
     public void a(com.baidu.mario.b.b.d dVar, d dVar2) {
         a(dVar);
-        this.axx = dVar2;
+        this.axf = dVar2;
     }
 
-    private void ye() {
-        if (this.axD == null) {
-            this.axD = new C0099a(this);
+    private void yf() {
+        if (this.axl == null) {
+            this.axl = new C0099a(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ByteBuffer byteBuffer, int i, long j) {
-        if (this.axw != null && this.axz && byteBuffer != null && i > 0 && !this.axr) {
-            this.axw.onAudioFrameAvailable(byteBuffer, i, j - this.axs);
+        if (this.axe != null && this.axh && byteBuffer != null && i > 0 && !this.awZ) {
+            this.axe.onAudioFrameAvailable(byteBuffer, i, j - this.axa);
         }
     }
 
     public void release() {
-        if (this.axC != null) {
-            this.axC.release();
-            this.axC = null;
+        if (this.axk != null) {
+            this.axk.release();
+            this.axk = null;
         }
-        if (this.axw != null) {
-            this.axw.onDestroy();
-            this.axw = null;
+        if (this.axe != null) {
+            this.axe.onDestroy();
+            this.axe = null;
         }
-        if (this.axx != null) {
-            this.axx = null;
+        if (this.axf != null) {
+            this.axf = null;
         }
     }
 
@@ -327,25 +327,25 @@ public class a {
     /* renamed from: com.baidu.mario.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0099a implements com.baidu.mario.a.a.b {
-        private WeakReference<a> axF;
+        private WeakReference<a> axn;
 
         public C0099a(a aVar) {
-            this.axF = new WeakReference<>(aVar);
-            Log.i(a.TAG, "gameRecorderRef is:" + this.axF.get());
+            this.axn = new WeakReference<>(aVar);
+            Log.i(a.TAG, "gameRecorderRef is:" + this.axn.get());
         }
 
         @Override // com.baidu.mario.a.a.b
         public void a(boolean z, com.baidu.mario.a.e eVar) {
-            if (this.axF.get() != null) {
-                this.axF.get().aY(z);
+            if (this.axn.get() != null) {
+                this.axn.get().aY(z);
                 Log.i(a.TAG, "onAudioStart");
             }
         }
 
         @Override // com.baidu.mario.a.a.b
         public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j) {
-            if (this.axF.get() != null) {
-                this.axF.get().c(byteBuffer, i, j);
+            if (this.axn.get() != null) {
+                this.axn.get().c(byteBuffer, i, j);
             }
         }
 

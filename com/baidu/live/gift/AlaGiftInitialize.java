@@ -30,7 +30,7 @@ public class AlaGiftInitialize {
         oU();
         oV();
         TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.b.e.class, AlaGiftTabActivity.class);
-        com.baidu.live.gift.b.b.rc();
+        com.baidu.live.gift.b.b.rd();
     }
 
     private static void oT() {

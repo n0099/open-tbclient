@@ -11,10 +11,10 @@ import com.baidu.tieba.ala.tasklist.AlaTaskListActivity;
 public class AlaFreeGiftTaskInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.b.d.class, AlaTaskListActivity.class);
-        aIE();
+        aIC();
     }
 
-    private static void aIE() {
+    private static void aIC() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913034, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaFreeGiftTaskInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.m.b> run(CustomMessage<Context> customMessage) {

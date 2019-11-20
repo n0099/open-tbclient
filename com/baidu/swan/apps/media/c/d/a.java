@@ -18,15 +18,15 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private ByteBuffer[] aWI;
-    private ByteBuffer[] aWJ;
+    private ByteBuffer[] aWq;
+    private ByteBuffer[] aWr;
     private MediaCodec.BufferInfo mBufferInfo;
     private int mChannel;
     private String mFormat;
     private MediaCodec mMediaCodec;
     private int mSampleRate;
-    private long aWL = 0;
-    private ByteArrayOutputStream aWK = new ByteArrayOutputStream();
+    private long aWt = 0;
+    private ByteArrayOutputStream aWs = new ByteArrayOutputStream();
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public a(String str, int i, int i2, int i3) {
@@ -81,8 +81,8 @@ public class a {
                         this.mMediaCodec = MediaCodec.createByCodecName(fZ.getName());
                         this.mMediaCodec.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
                         this.mMediaCodec.start();
-                        this.aWI = this.mMediaCodec.getInputBuffers();
-                        this.aWJ = this.mMediaCodec.getOutputBuffers();
+                        this.aWq = this.mMediaCodec.getInputBuffers();
+                        this.aWr = this.mMediaCodec.getOutputBuffers();
                         this.mBufferInfo = new MediaCodec.BufferInfo();
                         return;
                     }
@@ -154,7 +154,7 @@ public class a {
         return null;
     }
 
-    private long ab(long j) {
+    private long aa(long j) {
         if (this.mSampleRate == 0) {
             return 0L;
         }
@@ -214,37 +214,37 @@ public class a {
             }
             int dequeueInputBuffer = this.mMediaCodec.dequeueInputBuffer(-1L);
             if (dequeueInputBuffer >= 0) {
-                ByteBuffer byteBuffer = this.aWI[dequeueInputBuffer];
+                ByteBuffer byteBuffer = this.aWq[dequeueInputBuffer];
                 byteBuffer.clear();
                 byteBuffer.put(bArr);
                 byteBuffer.limit(bArr.length);
-                this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, ab(this.aWL), 0);
-                this.aWL++;
+                this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, aa(this.aWt), 0);
+                this.aWt++;
             }
             int dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
             while (dequeueOutputBuffer >= 0) {
                 int i = this.mBufferInfo.size;
-                ByteBuffer byteBuffer2 = this.aWJ[dequeueOutputBuffer];
+                ByteBuffer byteBuffer2 = this.aWr[dequeueOutputBuffer];
                 byteBuffer2.position(this.mBufferInfo.offset);
                 byteBuffer2.limit(this.mBufferInfo.offset + i);
                 byte[] i2 = i(i, 1, this.mSampleRate, this.mChannel);
                 byteBuffer2.get(i2, 7, i);
                 byteBuffer2.position(this.mBufferInfo.offset);
                 try {
-                    this.aWK.write(i2);
+                    this.aWs.write(i2);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 this.mMediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
                 dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
             }
-            bArr = this.aWK.toByteArray();
+            bArr = this.aWs.toByteArray();
             try {
-                this.aWK.flush();
+                this.aWs.flush();
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            this.aWK.reset();
+            this.aWs.reset();
         }
         return bArr;
     }

@@ -20,20 +20,20 @@ import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
 /* loaded from: classes4.dex */
 public class b {
-    private a gXr;
-    private ArrayList<m> gXs;
+    private a gWA;
+    private ArrayList<m> gWB;
     public boolean hasMore;
     private BdUniqueId uniqueId;
-    private boolean gXp = false;
-    private long gXq = 0;
-    private com.baidu.adp.framework.listener.a gXt = new com.baidu.adp.framework.listener.a(1002211, CmdConfigSocket.CMD_AGREE_ME) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
+    private boolean gWy = false;
+    private long gWz = 0;
+    private com.baidu.adp.framework.listener.a gWC = new com.baidu.adp.framework.listener.a(1002211, CmdConfigSocket.CMD_AGREE_ME) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z = false;
             if (responsedMessage != null) {
                 if (responsedMessage.hasError()) {
-                    if (b.this.gXr != null) {
-                        b.this.gXr.onFailed(responsedMessage.getErrorString());
+                    if (b.this.gWA != null) {
+                        b.this.gWA.onFailed(responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -69,26 +69,26 @@ public class b {
     public b(TbPageContext tbPageContext, a aVar) {
         if (tbPageContext != null) {
             this.uniqueId = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.gXt);
-            this.gXr = aVar;
+            tbPageContext.registerListener(this.gWC);
+            this.gWA = aVar;
         }
     }
 
-    public void bsV() {
-        agA();
-        agz();
+    public void bsT() {
+        agy();
+        agx();
     }
 
-    public void bmA() {
-        this.gXq = 0L;
-        agz();
+    public void bmy() {
+        this.gWz = 0L;
+        agx();
     }
 
-    public void aIW() {
-        agz();
+    public void aIU() {
+        agx();
     }
 
-    private void agA() {
+    private void agy() {
         new BdAsyncTask<Void, Void, ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a>>() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -97,7 +97,7 @@ public class b {
             public ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> doInBackground(Void... voidArr) {
                 byte[] bArr;
                 ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList = new ArrayList<>();
-                l<byte[]> bJ = com.baidu.tbadk.core.d.a.akN().bJ("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
+                l<byte[]> bJ = com.baidu.tbadk.core.d.a.akL().bJ("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
                 if (bJ != null && (bArr = bJ.get("agree_me_cache_key")) != null) {
                     try {
                         AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
@@ -130,50 +130,50 @@ public class b {
         }.execute(new Void[0]);
     }
 
-    private void agz() {
+    private void agx() {
         AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
-        agreeMeRequestMessage.id = this.gXq;
+        agreeMeRequestMessage.id = this.gWz;
         agreeMeRequestMessage.setTag(this.uniqueId);
         MessageManager.getInstance().sendMessage(agreeMeRequestMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void o(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList) {
-        if (!this.gXp) {
-            if (v.isEmpty(this.gXs)) {
-                this.gXs = new ArrayList<>();
+        if (!this.gWy) {
+            if (v.isEmpty(this.gWB)) {
+                this.gWB = new ArrayList<>();
             } else {
-                this.gXs.clear();
+                this.gWB.clear();
             }
-            this.gXs.addAll(arrayList);
-            m mVar = (m) v.getItem(this.gXs, this.gXs.size() - 1);
+            this.gWB.addAll(arrayList);
+            m mVar = (m) v.getItem(this.gWB, this.gWB.size() - 1);
             if (mVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
-                this.gXq = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
+                this.gWz = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
             }
-            if (this.gXr != null && !v.isEmpty(this.gXs)) {
-                this.gXr.aa(this.gXs);
+            if (this.gWA != null && !v.isEmpty(this.gWB)) {
+                this.gWA.aa(this.gWB);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList, boolean z) {
-        this.gXp = true;
-        if (v.isEmpty(this.gXs)) {
-            this.gXs = new ArrayList<>();
+        this.gWy = true;
+        if (v.isEmpty(this.gWB)) {
+            this.gWB = new ArrayList<>();
         }
         if (!z) {
-            this.gXs.addAll(arrayList);
+            this.gWB.addAll(arrayList);
         } else {
-            this.gXs.clear();
-            this.gXs.addAll(0, arrayList);
+            this.gWB.clear();
+            this.gWB.addAll(0, arrayList);
         }
-        m mVar = (m) v.getItem(this.gXs, this.gXs.size() - 1);
+        m mVar = (m) v.getItem(this.gWB, this.gWB.size() - 1);
         if (mVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
-            this.gXq = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
+            this.gWz = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
         }
-        if (this.gXr != null) {
-            this.gXr.aa(this.gXs);
+        if (this.gWA != null) {
+            this.gWA.aa(this.gWB);
         }
     }
 }

@@ -38,7 +38,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.c cVar, v.a aVar) {
         if ((aVar.getView() instanceof TextView) && cVar != null) {
             TextView textView = (TextView) aVar.getView();
-            textView.setText(cVar.btk());
+            textView.setText(cVar.bti());
             am.setViewTextColor(textView, (int) R.color.cp_cont_j);
             am.setBackgroundColor(textView, R.color.cp_bg_line_e);
         }

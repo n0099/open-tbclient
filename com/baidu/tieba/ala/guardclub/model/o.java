@@ -15,7 +15,7 @@ public class o extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("scene_from", com.baidu.live.utils.o.wt());
+        addParam("scene_from", com.baidu.live.utils.o.wu());
         addParam("guard_club_id", this.id);
         addParam("client_type", 2);
     }

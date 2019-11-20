@@ -17,26 +17,26 @@ import com.baidu.tieba.card.n;
 /* loaded from: classes4.dex */
 public class a {
     public static void a(com.baidu.tbadk.core.data.a aVar, Context context, int i, boolean z) {
-        if (aVar != null && aVar.agI() != null && context != null) {
-            bh agI = aVar.agI();
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(agI, null, ImageViewerConfig.FROM_GAME_VIDEO, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(agI.getFid()));
+        if (aVar != null && aVar.agG() != null && context != null) {
+            bh agG = aVar.agG();
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(agG, null, ImageViewerConfig.FROM_GAME_VIDEO, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(agG.getFid()));
             createFromThreadCfg.setFrom(PbActivityConfig.KEY_FROM_GAME_VIDEO);
-            createFromThreadCfg.setForumName(agI.aiL());
+            createFromThreadCfg.setForumName(agG.aiJ());
             createFromThreadCfg.setStartFrom(i);
-            if (aVar.agL() != null) {
-                createFromThreadCfg.addLocateParam(aVar.agL());
+            if (aVar.agJ() != null) {
+                createFromThreadCfg.addLocateParam(aVar.agJ());
             }
             createFromThreadCfg.setVideo_source(ImageViewerConfig.FROM_GAME_VIDEO);
             createFromThreadCfg.setJumpGodReply(z);
-            n.uz(agI.getTid());
+            n.uz(agG.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
 
     public static void a(c cVar, int i) {
         an ab;
-        if (cVar != null && cVar.agI() != null && (ab = cVar.ab("c13496", true)) != null) {
+        if (cVar != null && cVar.agG() != null && (ab = cVar.ab("c13496", true)) != null) {
             ab.O("obj_type", i);
             TiebaStatic.log(ab);
         }
@@ -44,7 +44,7 @@ public class a {
 
     public static void b(c cVar, int i) {
         an ab;
-        if (cVar != null && cVar.agI() != null && l.V(cVar.cbq) && (ab = cVar.ab("c13494", true)) != null) {
+        if (cVar != null && cVar.agG() != null && l.V(cVar.caz) && (ab = cVar.ab("c13494", true)) != null) {
             ab.O("obj_type", i);
             TiebaStatic.log(ab);
         }
@@ -52,7 +52,7 @@ public class a {
 
     public static void c(c cVar, int i) {
         an ab;
-        if (cVar != null && l.V(cVar.cbq) && (ab = cVar.ab("c13495", true)) != null) {
+        if (cVar != null && l.V(cVar.caz) && (ab = cVar.ab("c13495", true)) != null) {
             ab.O("obj_type", i);
             TiebaStatic.log(ab);
         }
@@ -61,11 +61,11 @@ public class a {
     public static void d(c cVar, int i) {
         an ab;
         if (cVar != null && (ab = cVar.ab("c13488", true)) != null) {
-            if (cVar.agI() != null) {
-                bh agI = cVar.agI();
-                ab.O("obj_name", agI.akd() != null && (agI.akd().cor() != null || agI.akd().azr() != null) ? 1 : 0);
-                if (agI.aiG() != null) {
-                    ab.O(TiebaInitialize.Params.AB_TYPE, agI.aiG().hadConcerned() ? 1 : 0);
+            if (cVar.agG() != null) {
+                bh agG = cVar.agG();
+                ab.O("obj_name", agG.akb() != null && (agG.akb().cop() != null || agG.akb().azp() != null) ? 1 : 0);
+                if (agG.aiE() != null) {
+                    ab.O(TiebaInitialize.Params.AB_TYPE, agG.aiE().hadConcerned() ? 1 : 0);
                 }
             }
             ab.O("obj_type", i);

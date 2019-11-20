@@ -12,50 +12,50 @@ import com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 /* loaded from: classes6.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.data.e dZB = new com.baidu.tieba.ala.liveroom.data.e();
-    private com.baidu.tieba.ala.liveroom.data.d ejR;
-    private AlaMasterLiveRoomOpearator elb;
-    private b elc;
-    private a ele;
+    private com.baidu.tieba.ala.liveroom.data.e dYK = new com.baidu.tieba.ala.liveroom.data.e();
+    private com.baidu.tieba.ala.liveroom.data.d eja;
+    private AlaMasterLiveRoomOpearator ekk;
+    private b ekl;
+    private a ekn;
 
     public d(TbPageContext tbPageContext, AlaLiveRecorder alaLiveRecorder, AlaLiveView alaLiveView, ViewGroup viewGroup, com.baidu.live.tieba.e.b bVar) {
-        this.dZB.pageContext = tbPageContext;
-        this.dZB.efV = alaLiveRecorder;
-        this.dZB.efD = alaLiveView;
-        this.dZB.Bg = viewGroup;
-        this.dZB.efY = bVar;
-        this.dZB.efW = this;
-        this.dZB.efX = new AlaLiveRecorderPerfData();
-        this.elb = new AlaMasterLiveRoomOpearator(this.dZB);
+        this.dYK.pageContext = tbPageContext;
+        this.dYK.efe = alaLiveRecorder;
+        this.dYK.eeM = alaLiveView;
+        this.dYK.AE = viewGroup;
+        this.dYK.efh = bVar;
+        this.dYK.eff = this;
+        this.dYK.efg = new AlaLiveRecorderPerfData();
+        this.ekk = new AlaMasterLiveRoomOpearator(this.dYK);
     }
 
     public void a(com.baidu.tieba.ala.liveroom.m.c cVar) {
-        this.dZB.efC = cVar;
+        this.dYK.eeL = cVar;
     }
 
     public void a(b bVar) {
-        this.elc = bVar;
-        if (this.ele != null) {
-            this.ele.a(bVar);
+        this.ekl = bVar;
+        if (this.ekn != null) {
+            this.ekn.a(bVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(short s, Object obj) {
-        if (s == 1 && this.elb != null) {
+        if (s == 1 && this.ekk != null) {
             f fVar = null;
             if (obj instanceof f) {
                 fVar = (f) obj;
             }
-            int a = this.elb.a(fVar);
+            int a = this.ekk.a(fVar);
             if (a == 1 || a == 2) {
-                this.dZB.nx(a);
+                this.dYK.nw(a);
             } else {
                 return;
             }
         }
-        if (this.ele != null) {
-            this.ele.a(s, obj);
+        if (this.ekn != null) {
+            this.ekn.a(s, obj);
         }
     }
 
@@ -64,204 +64,204 @@ public class d {
     }
 
     public void c(com.baidu.tieba.ala.liveroom.data.d dVar) {
-        this.ejR = dVar;
-        if (this.ele != null) {
-            this.ele.c(dVar);
+        this.eja = dVar;
+        if (this.ekn != null) {
+            this.ekn.c(dVar);
         }
     }
 
-    public void ac(int i, String str) {
-        if (this.ele != null) {
-            this.ele.ac(i, str);
+    public void ab(int i, String str) {
+        if (this.ekn != null) {
+            this.ekn.ab(i, str);
         }
     }
 
     public void c(g gVar) {
-        if (this.ele != null) {
-            this.ele.c(gVar);
+        if (this.ekn != null) {
+            this.ekn.c(gVar);
         }
     }
 
-    public void ad(int i, String str) {
-        if (this.ele != null) {
-            this.ele.ad(i, str);
+    public void ac(int i, String str) {
+        if (this.ekn != null) {
+            this.ekn.ac(i, str);
         }
     }
 
-    public void g(short s) {
-        if (this.ele != null) {
-            this.ele.g(s);
+    public void f(short s) {
+        if (this.ekn != null) {
+            this.ekn.f(s);
         }
     }
 
-    public void aUw() {
-        if (this.ele != null) {
-            this.ele.aUw();
+    public void aUu() {
+        if (this.ekn != null) {
+            this.ekn.aUu();
         }
     }
 
-    public void aUx() {
-        if (this.ele != null) {
-            this.ele.aUx();
+    public void aUv() {
+        if (this.ekn != null) {
+            this.ekn.aUv();
         }
-        if (this.elb != null) {
-            this.elb.onResume();
+        if (this.ekk != null) {
+            this.ekk.onResume();
         }
     }
 
     public void onPause() {
-        if (this.ele != null) {
-            this.ele.onPause();
+        if (this.ekn != null) {
+            this.ekn.onPause();
         }
     }
 
-    public boolean aUy() {
-        if (this.ele != null) {
-            return this.ele.aUy();
+    public boolean aUw() {
+        if (this.ekn != null) {
+            return this.ekn.aUw();
         }
         return false;
     }
 
-    public void aUz() {
-        if (this.ele != null) {
-            this.ele.aUz();
+    public void aUx() {
+        if (this.ekn != null) {
+            this.ekn.aUx();
         }
     }
 
-    public void nT(int i) {
-        if (i == 1 && !(this.ele instanceof c)) {
-            this.ele = new c(this.dZB);
-        } else if (i == 2 && !(this.ele instanceof e)) {
-            this.ele = new e(this.dZB);
+    public void nS(int i) {
+        if (i == 1 && !(this.ekn instanceof c)) {
+            this.ekn = new c(this.dYK);
+        } else if (i == 2 && !(this.ekn instanceof e)) {
+            this.ekn = new e(this.dYK);
         } else {
             return;
         }
-        this.ele.S(this.elb);
-        this.ele.a(this.elc);
+        this.ekn.S(this.ekk);
+        this.ekn.a(this.ekl);
     }
 
     public void E(int i, int i2, int i3) {
-        if (this.elb != null) {
-            this.elb.E(i, i2, i3);
+        if (this.ekk != null) {
+            this.ekk.E(i, i2, i3);
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.elb != null) {
-            this.elb.onKeyboardVisibilityChanged(z);
+        if (this.ekk != null) {
+            this.ekk.onKeyboardVisibilityChanged(z);
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.elb != null) {
-            this.elb.onActivityResult(i, i2, intent);
+        if (this.ekk != null) {
+            this.ekk.onActivityResult(i, i2, intent);
         }
     }
 
-    public AlaLiveRecorderPerfData aUB() {
-        return this.dZB.efX;
+    public AlaLiveRecorderPerfData aUz() {
+        return this.dYK.efg;
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.elb != null) {
-            return this.elb.onKeyDown(i, keyEvent);
+        if (this.ekk != null) {
+            return this.ekk.onKeyDown(i, keyEvent);
         }
         return false;
     }
 
     public void streamStateReceived(int i, boolean z, int i2, boolean z2) {
-        if (this.elb != null) {
-            this.elb.streamStateReceived(i, z, i2, z2);
+        if (this.ekk != null) {
+            this.ekk.streamStateReceived(i, z, i2, z2);
         }
     }
 
-    public void aTO() {
-        if (this.elb != null) {
-            this.elb.aTO();
+    public void aTM() {
+        if (this.ekk != null) {
+            this.ekk.aTM();
         }
     }
 
-    public void aUa() {
-        if (this.elb != null) {
-            this.elb.aUa();
+    public void aTY() {
+        if (this.ekk != null) {
+            this.ekk.aTY();
         }
     }
 
-    public void aRJ() {
-        if (this.elb != null) {
-            this.elb.aRJ();
+    public void aRH() {
+        if (this.ekk != null) {
+            this.ekk.aRH();
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.d aUC() {
-        return this.ejR;
+    public com.baidu.tieba.ala.liveroom.data.d aUA() {
+        return this.eja;
     }
 
-    public boolean aUA() {
-        if (this.ele != null) {
-            return this.ele.aUA();
+    public boolean aUy() {
+        if (this.ekn != null) {
+            return this.ekn.aUy();
         }
         return false;
     }
 
-    public int aRL() {
-        if (this.dZB != null) {
-            return this.dZB.aRL();
+    public int aRJ() {
+        if (this.dYK != null) {
+            return this.dYK.aRJ();
         }
         return 0;
     }
 
     public void onDestroy() {
-        if (this.elb != null) {
-            this.elb.onDestroy();
+        if (this.ekk != null) {
+            this.ekk.onDestroy();
         }
     }
 
-    public void d(short s) {
-        if (this.elc != null) {
-            this.elc.d(s);
+    public void c(short s) {
+        if (this.ekl != null) {
+            this.ekl.c(s);
+        }
+    }
+
+    public void aRK() {
+        if (this.ekl != null) {
+            this.ekl.aRK();
+        }
+    }
+
+    public void aRL() {
+        if (this.ekl != null) {
+            this.ekl.aRL();
         }
     }
 
     public void aRM() {
-        if (this.elc != null) {
-            this.elc.aRM();
+        if (this.ekl != null) {
+            this.ekl.aRM();
         }
     }
 
     public void aRN() {
-        if (this.elc != null) {
-            this.elc.aRN();
+        if (this.ekl != null) {
+            this.ekl.aRN();
         }
     }
 
     public void aRO() {
-        if (this.elc != null) {
-            this.elc.aRO();
-        }
-    }
-
-    public void aRP() {
-        if (this.elc != null) {
-            this.elc.aRP();
-        }
-    }
-
-    public void aRQ() {
-        if (this.elc != null) {
-            this.elc.aRQ();
+        if (this.ekl != null) {
+            this.ekl.aRO();
         }
     }
 
     public void onRtcConnected(int i) {
-        if (this.elb != null) {
-            this.elb.onRtcConnected(i);
+        if (this.ekk != null) {
+            this.ekk.onRtcConnected(i);
         }
     }
 
     public void onPKPlayerFirstFrame() {
-        if (this.elb != null) {
-            this.elb.onPKPlayerFirstFrame();
+        if (this.ekk != null) {
+            this.ekk.onPKPlayerFirstFrame();
         }
     }
 }

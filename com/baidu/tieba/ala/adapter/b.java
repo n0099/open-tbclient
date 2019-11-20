@@ -11,50 +11,50 @@ import com.baidu.tieba.ala.view.e;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class b extends BaseAdapter {
-    private long duD;
-    private String duF;
-    private boolean duG;
-    private ArrayList<c> dve;
+    private long dtM;
+    private String dtO;
+    private boolean dtP;
+    private ArrayList<c> dun;
     private Context mContext;
 
     public b(Context context, String str, long j, boolean z) {
         this.mContext = context;
-        this.duF = str;
-        this.duD = j;
-        this.duG = z;
+        this.dtO = str;
+        this.dtM = j;
+        this.dtP = z;
     }
 
     public void setData(ArrayList<c> arrayList) {
-        if (this.dve == null) {
-            this.dve = new ArrayList<>();
+        if (this.dun == null) {
+            this.dun = new ArrayList<>();
         } else {
-            this.dve.clear();
+            this.dun.clear();
         }
         if (arrayList != null) {
-            this.dve.addAll(arrayList);
+            this.dun.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dve == null) {
+        if (this.dun == null) {
             return 0;
         }
-        return this.dve.size();
+        return this.dun.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.dve == null) {
+        if (this.dun == null) {
             return null;
         }
-        return this.dve.get(i);
+        return this.dun.get(i);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        return this.dve == null || this.dve.size() == 0;
+        return this.dun == null || this.dun.size() == 0;
     }
 
     @Override // android.widget.Adapter
@@ -68,14 +68,14 @@ public class b extends BaseAdapter {
         View view2;
         if (view == null) {
             view2 = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_list_item_view, (ViewGroup) null);
-            e eVar2 = new e(this.mContext, view2, this.duF, this.duD, this.duG);
+            e eVar2 = new e(this.mContext, view2, this.dtO, this.dtM, this.dtP);
             view2.setTag(eVar2);
             eVar = eVar2;
         } else {
             eVar = (e) view.getTag();
             view2 = view;
         }
-        eVar.a(this.dve.get(i), i);
+        eVar.a(this.dun.get(i), i);
         return view2;
     }
 }

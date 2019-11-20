@@ -16,14 +16,14 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
 /* loaded from: classes2.dex */
 public class BigBgHeaderLoadingLayout extends LoadingLayout {
-    private RelativeLayout bdZ;
-    private ImageView bea;
-    private TextView beb;
-    private TextView bec;
-    private TextView bed;
-    private Animation bee;
-    private Animation bef;
-    private ImageView beh;
+    private RelativeLayout bdH;
+    private ImageView bdI;
+    private TextView bdJ;
+    private TextView bdK;
+    private TextView bdL;
+    private Animation bdM;
+    private Animation bdN;
+    private ImageView bdO;
     private ProgressBar mProgressBar;
 
     public BigBgHeaderLoadingLayout(Context context) {
@@ -37,30 +37,30 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     }
 
     private void init(Context context) {
-        this.bdZ = (RelativeLayout) findViewById(a.f.pull_to_refresh_header_content);
-        this.bea = (ImageView) findViewById(a.f.pull_to_refresh_header_arrow);
-        this.beb = (TextView) findViewById(a.f.pull_to_refresh_header_hint_textview);
+        this.bdH = (RelativeLayout) findViewById(a.f.pull_to_refresh_header_content);
+        this.bdI = (ImageView) findViewById(a.f.pull_to_refresh_header_arrow);
+        this.bdJ = (TextView) findViewById(a.f.pull_to_refresh_header_hint_textview);
         this.mProgressBar = (ProgressBar) findViewById(a.f.pull_to_refresh_header_progressbar);
-        this.bec = (TextView) findViewById(a.f.pull_to_refresh_header_time);
-        this.bed = (TextView) findViewById(a.f.pull_to_refresh_last_update_time_text);
-        this.beh = (ImageView) findViewById(a.f.pull_to_refresh_header_background);
-        this.bee = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
-        this.bee.setDuration(120L);
-        this.bee.setFillAfter(true);
-        this.bef = new RotateAnimation(-180.0f, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.bef.setDuration(120L);
-        this.bef.setFillAfter(true);
+        this.bdK = (TextView) findViewById(a.f.pull_to_refresh_header_time);
+        this.bdL = (TextView) findViewById(a.f.pull_to_refresh_last_update_time_text);
+        this.bdO = (ImageView) findViewById(a.f.pull_to_refresh_header_background);
+        this.bdM = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
+        this.bdM.setDuration(120L);
+        this.bdM.setFillAfter(true);
+        this.bdN = new RotateAnimation(-180.0f, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.bdN.setDuration(120L);
+        this.bdN.setFillAfter(true);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void setLastUpdatedLabel(CharSequence charSequence) {
-        this.bed.setVisibility(TextUtils.isEmpty(charSequence) ? 4 : 0);
-        this.bec.setText(charSequence);
+        this.bdL.setVisibility(TextUtils.isEmpty(charSequence) ? 4 : 0);
+        this.bdK.setText(charSequence);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        return this.bdZ != null ? this.bdZ.getHeight() : (int) getResources().getDimension(a.d.aiapps_picture_pull_to_refresh_height_height);
+        return this.bdH != null ? this.bdH.getHeight() : (int) getResources().getDimension(a.d.aiapps_picture_pull_to_refresh_height_height);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -71,53 +71,53 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void a(ILoadingLayout.State state, ILoadingLayout.State state2) {
-        this.bea.setVisibility(0);
+        this.bdI.setVisibility(0);
         this.mProgressBar.setVisibility(4);
         super.a(state, state2);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onReset() {
-        this.bea.clearAnimation();
-        this.beb.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
+        this.bdI.clearAnimation();
+        this.bdJ.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onPullToRefresh() {
         if (ILoadingLayout.State.RELEASE_TO_REFRESH == getPreState()) {
-            this.bea.clearAnimation();
-            this.bea.startAnimation(this.bef);
+            this.bdI.clearAnimation();
+            this.bdI.startAnimation(this.bdN);
         }
-        this.beb.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
+        this.bdJ.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onReleaseToRefresh() {
-        this.bea.clearAnimation();
-        this.bea.startAnimation(this.bee);
-        this.beb.setText(a.h.aiapps_pull_to_refresh_header_hint_ready);
+        this.bdI.clearAnimation();
+        this.bdI.startAnimation(this.bdM);
+        this.bdJ.setText(a.h.aiapps_pull_to_refresh_header_hint_ready);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onRefreshing() {
-        this.bea.clearAnimation();
-        this.bea.setVisibility(4);
+        this.bdI.clearAnimation();
+        this.bdI.setVisibility(4);
         this.mProgressBar.setVisibility(0);
-        this.beb.setText(a.h.aiapps_pull_to_refresh_header_updateing);
+        this.bdJ.setText(a.h.aiapps_pull_to_refresh_header_updateing);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void setHeaderBigBackground(int i) {
-        if (this.beh != null) {
-            this.beh.setBackgroundResource(i);
+        if (this.bdO != null) {
+            this.bdO.setBackgroundResource(i);
         }
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void onPull(float f) {
         float f2 = 0.8f;
-        if (this.beh != null) {
+        if (this.bdO != null) {
             float f3 = f - 0.3f;
             if (f3 < 0.0f) {
                 f3 = 0.0f;
@@ -128,9 +128,9 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
             if (f4 >= 0.8f) {
                 f2 = f4 > 1.0f ? 1.0f : f4;
             }
-            this.beh.setAlpha(f3);
-            this.beh.setScaleX(f2);
-            this.beh.setScaleY(f2);
+            this.bdO.setAlpha(f3);
+            this.bdO.setScaleX(f2);
+            this.bdO.setScaleY(f2);
             super.onPull(f);
         }
     }

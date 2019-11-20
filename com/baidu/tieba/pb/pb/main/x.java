@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class x {
-    public int hSv;
+    public int hRE;
 
     public x(PbModel pbModel, BaseActivity baseActivity) {
     }
@@ -29,7 +29,7 @@ public class x {
         }
         Map<String, String> paramPair = ba.getParamPair(str);
         if (paramPair != null) {
-            this.hSv = 5;
+            this.hRE = 5;
             com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c10320");
             anVar.bS("obj_locate", paramPair.get("obj_locate"));
             anVar.O("obj_type", 1);

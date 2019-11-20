@@ -9,8 +9,8 @@ import android.widget.TextView;
 import com.baidu.live.k.a;
 /* loaded from: classes6.dex */
 public class AlaRankListEntryItemView extends LinearLayout implements com.baidu.live.h.b {
-    private TextView eDR;
-    private TextView eDS;
+    private TextView eDa;
+    private TextView eDb;
 
     public AlaRankListEntryItemView(Context context) {
         super(context);
@@ -29,30 +29,30 @@ public class AlaRankListEntryItemView extends LinearLayout implements com.baidu.
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_rank_list_entry_item_layout, this);
-        this.eDR = (TextView) findViewById(a.g.ala_rank_list_type);
-        this.eDS = (TextView) findViewById(a.g.ala_rank_list_level);
+        this.eDa = (TextView) findViewById(a.g.ala_rank_list_type);
+        this.eDb = (TextView) findViewById(a.g.ala_rank_list_level);
     }
 
     public void setRankListName(String str) {
-        this.eDR.setText(str);
+        this.eDa.setText(str);
     }
 
     public void setRankListLevel(String str) {
-        this.eDS.setText(str);
+        this.eDb.setText(str);
     }
 
     public void setRankListLevelVisible(boolean z) {
-        this.eDS.setVisibility(z ? 0 : 8);
+        this.eDb.setVisibility(z ? 0 : 8);
     }
 
     @Override // com.baidu.live.h.b
     public TextView getRankNameView() {
-        return this.eDR;
+        return this.eDa;
     }
 
     @Override // com.baidu.live.h.b
     public TextView getRankLevelView() {
-        return this.eDS;
+        return this.eDb;
     }
 
     @Override // com.baidu.live.h.b

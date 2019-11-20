@@ -8,25 +8,25 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e implements i.a {
-    private final c Fj;
-    private final BDHttpDns Fk;
-    private final BDHttpDns.CachePolicy Fl;
-    private final i Fm;
+    private final c EI;
+    private final BDHttpDns EJ;
+    private final BDHttpDns.CachePolicy EK;
+    private final i EL;
 
     public e(Context context) {
-        this.Fk = BDHttpDns.ag(context);
-        this.Fj = this.Fk.lu();
-        this.Fl = this.Fk.lw();
-        this.Fm = this.Fk.lx();
+        this.EJ = BDHttpDns.ag(context);
+        this.EI = this.EJ.lu();
+        this.EK = this.EJ.lw();
+        this.EL = this.EJ.lx();
     }
 
     @Override // com.baidu.bdhttpdns.i.a
     public void a(int i, i.d dVar, Map<String, i.e> map, String str) {
         switch (i) {
             case -1:
-                if (dVar.equals(i.d.DNLIST_HOSTS) && this.Fl == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                if (dVar.equals(i.d.DNLIST_HOSTS) && this.EK == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
                     for (String str2 : str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-                        this.Fj.b(str2);
+                        this.EI.b(str2);
                     }
                     break;
                 }
@@ -40,9 +40,9 @@ public class e implements i.a {
                         aVar.a(value.b());
                         aVar.b(System.currentTimeMillis() / 1000);
                         aVar.a(value.a());
-                        this.Fj.a(key, aVar);
-                    } else if (this.Fl == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                        this.Fj.b(key);
+                        this.EI.a(key, aVar);
+                    } else if (this.EK == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                        this.EI.b(key);
                     }
                 }
                 break;
@@ -50,10 +50,10 @@ public class e implements i.a {
                 f.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
                 break;
         }
-        if (this.Fk.e() <= 0 || this.Fm.f()) {
+        if (this.EJ.e() <= 0 || this.EL.f()) {
             return;
         }
-        this.Fm.b(true);
+        this.EL.b(true);
         f.a("preResolve has finished", new Object[0]);
     }
 }

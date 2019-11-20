@@ -7,13 +7,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class k {
-    private long CJ;
-    private boolean bPA = false;
-    private JSONArray bPD;
-    private int bPx;
-    private JSONObject bPy;
-    private String bPz;
-    private long baF;
+    private long Cj;
+    private int bOG;
+    private JSONObject bOH;
+    private String bOI;
+    private boolean bOJ = false;
+    private JSONArray bOM;
+    private long ban;
     private String mCategory;
     private String mContent;
     private String mId;
@@ -25,15 +25,15 @@ public class k {
 
     public k(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.bPx = i;
+        this.bOG = i;
         this.mContent = str2;
         this.mOption = i2;
     }
 
     public k(String str, int i, JSONObject jSONObject, int i2) {
         this.mId = str;
-        this.bPx = i;
-        this.bPy = jSONObject;
+        this.bOG = i;
+        this.bOH = jSONObject;
         this.mOption = i2;
     }
 
@@ -45,12 +45,12 @@ public class k {
         this.mId = str;
     }
 
-    public int acJ() {
-        return this.bPx;
+    public int acH() {
+        return this.bOG;
     }
 
-    public void gY(int i) {
-        this.bPx = i;
+    public void gX(int i) {
+        this.bOG = i;
     }
 
     public String getContent() {
@@ -61,27 +61,27 @@ public class k {
         this.mContent = str;
     }
 
-    public JSONObject acL() {
-        return this.bPy;
+    public JSONObject acJ() {
+        return this.bOH;
     }
 
-    public long acP() {
-        return this.CJ;
+    public long acN() {
+        return this.Cj;
     }
 
-    public void aB(long j) {
-        this.CJ = j;
+    public void aA(long j) {
+        this.Cj = j;
     }
 
     public long getEndTime() {
-        return this.baF;
+        return this.ban;
     }
 
     public void setEndTime(long j) {
-        this.baF = j;
+        this.ban = j;
     }
 
-    public String acQ() {
+    public String acO() {
         return this.mState;
     }
 
@@ -93,8 +93,8 @@ public class k {
         return this.mOption;
     }
 
-    public String acK() {
-        return this.bPz;
+    public String acI() {
+        return this.bOI;
     }
 
     public String getCategory() {
@@ -105,35 +105,35 @@ public class k {
         this.mCategory = str;
     }
 
-    public boolean acG() {
-        return this.bPA;
+    public boolean acE() {
+        return this.bOJ;
     }
 
     public void dI(boolean z) {
-        this.bPA = z;
+        this.bOJ = z;
     }
 
     public void lA(String str) {
-        this.bPz = str;
+        this.bOI = str;
     }
 
-    public void acN() {
-        if (e.cAV().ls(this.mId)) {
-            this.bPz = UBC.getUBCContext().Nc();
+    public void acL() {
+        if (e.cAT().ls(this.mId)) {
+            this.bOI = UBC.getUBCContext().Nd();
         }
     }
 
     public void lB(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.bPD = new JSONArray(str);
+                this.bOM = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public JSONArray acR() {
-        return this.bPD;
+    public JSONArray acP() {
+        return this.bOM;
     }
 }

@@ -35,7 +35,7 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        bVar.Rd().a((Activity) context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.n.a.1
+        bVar.Rf().a((Activity) context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.n.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
@@ -56,20 +56,20 @@ public class a extends z {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, String str, CallbackHandler callbackHandler) {
         Context appContext = AppRuntime.getAppContext();
-        String bf = com.baidu.swan.apps.u.a.Jn().bf(appContext);
-        String UH = ac.UH();
+        String bf = com.baidu.swan.apps.u.a.Jo().bf(appContext);
+        String UF = ac.UF();
         String db = com.baidu.tieba.aiapps.apps.a.c.db(context);
-        String be = com.baidu.swan.apps.u.a.Jn().be(appContext);
-        String cookie = com.baidu.swan.apps.u.a.JF().Kd().getCookie(".baidu.com");
+        String be = com.baidu.swan.apps.u.a.Jo().be(appContext);
+        String cookie = com.baidu.swan.apps.u.a.JG().Ke().getCookie(".baidu.com");
         String cn = cn(cookie, "BAIDUID");
         String cn2 = cn(cookie, "H_WISE_SIDS");
         if (DEBUG) {
-            Log.d("GetSysInfoAction", "cuid = " + bf + ", imei = " + UH + ", zid = " + db + ", uid = " + be + ", baiDuId = " + cn + ", sid = " + cn2);
+            Log.d("GetSysInfoAction", "cuid = " + bf + ", imei = " + UF + ", zid = " + db + ", uid = " + be + ", baiDuId = " + cn + ", sid = " + cn2);
         }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("cuid", bf);
-            jSONObject.put("imei", UH);
+            jSONObject.put("imei", UF);
             jSONObject.put("zid", db);
             jSONObject.put("uid", be);
             jSONObject.put("baidu_id", cn);

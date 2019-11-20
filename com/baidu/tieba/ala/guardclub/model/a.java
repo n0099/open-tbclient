@@ -7,9 +7,9 @@ import org.json.JSONObject;
 public class a {
     public String id;
     public String date = "";
-    public int dNW = 0;
+    public int dNf = 0;
 
-    public static a bJ(JSONObject jSONObject) {
+    public static a bK(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -20,7 +20,7 @@ public class a {
         a aVar = new a();
         aVar.id = optString;
         aVar.date = jSONObject.optString("date");
-        aVar.dNW = jSONObject.optInt("times");
+        aVar.dNf = jSONObject.optInt("times");
         return aVar;
     }
 
@@ -29,7 +29,7 @@ public class a {
         try {
             jSONObject.put("id", this.id);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.dNW);
+            jSONObject.put("times", this.dNf);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

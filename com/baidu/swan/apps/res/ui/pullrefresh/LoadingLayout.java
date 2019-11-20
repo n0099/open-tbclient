@@ -9,9 +9,9 @@ import android.widget.FrameLayout;
 import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
 /* loaded from: classes2.dex */
 public abstract class LoadingLayout extends FrameLayout implements ILoadingLayout {
-    private ILoadingLayout.State beA;
-    private ILoadingLayout.State beB;
-    private View bez;
+    private View bef;
+    private ILoadingLayout.State beh;
+    private ILoadingLayout.State bei;
 
     protected abstract View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet);
 
@@ -27,27 +27,27 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
     public LoadingLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.beA = ILoadingLayout.State.NONE;
-        this.beB = ILoadingLayout.State.NONE;
+        this.beh = ILoadingLayout.State.NONE;
+        this.bei = ILoadingLayout.State.NONE;
         init(context, attributeSet);
     }
 
     protected void init(Context context, AttributeSet attributeSet) {
-        this.bez = a(context, this, attributeSet);
-        if (this.bez == null) {
+        this.bef = a(context, this, attributeSet);
+        if (this.bef == null) {
             throw new NullPointerException("Loading view can not be null.");
         }
         int i = -2;
-        ViewGroup.LayoutParams layoutParams = this.bez.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bef.getLayoutParams();
         if (layoutParams != null) {
             i = layoutParams.height;
         }
-        addView(this.bez, new FrameLayout.LayoutParams(-1, i));
+        addView(this.bef, new FrameLayout.LayoutParams(-1, i));
     }
 
     public void show(boolean z) {
         ViewGroup.LayoutParams layoutParams;
-        if (z != (getVisibility() == 0) && (layoutParams = this.bez.getLayoutParams()) != null) {
+        if (z != (getVisibility() == 0) && (layoutParams = this.bef.getLayoutParams()) != null) {
             if (z) {
                 layoutParams.height = -2;
             } else {
@@ -74,27 +74,27 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     }
 
     public void setHeaderBackgroundColor(int i) {
-        if (this.bez != null) {
-            this.bez.setBackgroundColor(i);
+        if (this.bef != null) {
+            this.bef.setBackgroundColor(i);
         }
     }
 
     public void setHeaderBackgroundResource(int i) {
-        if (this.bez != null) {
-            this.bez.setBackgroundColor(getResources().getColor(i));
+        if (this.bef != null) {
+            this.bef.setBackgroundColor(getResources().getColor(i));
         }
     }
 
     public void setState(ILoadingLayout.State state) {
-        if (this.beA != state) {
-            this.beB = this.beA;
-            this.beA = state;
-            a(state, this.beB);
+        if (this.beh != state) {
+            this.bei = this.beh;
+            this.beh = state;
+            a(state, this.bei);
         }
     }
 
     public ILoadingLayout.State getState() {
-        return this.beA;
+        return this.beh;
     }
 
     public void onPull(float f) {
@@ -102,7 +102,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ILoadingLayout.State getPreState() {
-        return this.beB;
+        return this.bei;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -124,7 +124,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
                 onNoMoreData();
                 return;
             case RELEASE_TO_LONG_REFRESH:
-                Pk();
+                Pl();
                 return;
             default:
                 return;
@@ -138,7 +138,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Pk() {
+    public void Pl() {
     }
 
     protected void onReleaseToRefresh() {

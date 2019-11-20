@@ -1,7 +1,7 @@
 package com.baidu.live.data;
 /* loaded from: classes6.dex */
 public class j {
-    public boolean PW;
+    public boolean Pr;
     public String groupId;
     public String liveId;
     public int tabType;

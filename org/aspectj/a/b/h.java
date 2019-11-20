@@ -5,46 +5,46 @@ import com.baidu.live.adp.lib.util.BdFileHelper;
 import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
 class h {
-    static h kxj = new h();
-    static h kxk;
-    static h kxl;
-    boolean kxa = true;
-    boolean kxb = true;
-    boolean kxc = false;
-    boolean kxd = false;
-    boolean kxe = false;
-    boolean kxf = true;
-    boolean kxg = true;
-    boolean kxh = true;
-    int kxi;
+    static h kws = new h();
+    static h kwt;
+    static h kwu;
+    boolean kwj = true;
+    boolean kwk = true;
+    boolean kwl = false;
+    boolean kwm = false;
+    boolean kwn = false;
+    boolean kwo = true;
+    boolean kwp = true;
+    boolean kwq = true;
+    int kwr;
 
     h() {
     }
 
     static {
-        kxj.kxa = true;
-        kxj.kxb = false;
-        kxj.kxc = false;
-        kxj.kxd = false;
-        kxj.kxe = true;
-        kxj.kxf = false;
-        kxj.kxg = false;
-        kxj.kxi = 0;
-        kxk = new h();
-        kxk.kxa = true;
-        kxk.kxb = true;
-        kxk.kxc = false;
-        kxk.kxd = false;
-        kxk.kxe = false;
-        kxj.kxi = 1;
-        kxl = new h();
-        kxl.kxa = false;
-        kxl.kxb = true;
-        kxl.kxc = false;
-        kxl.kxd = true;
-        kxl.kxe = false;
-        kxl.kxh = false;
-        kxl.kxi = 2;
+        kws.kwj = true;
+        kws.kwk = false;
+        kws.kwl = false;
+        kws.kwm = false;
+        kws.kwn = true;
+        kws.kwo = false;
+        kws.kwp = false;
+        kws.kwr = 0;
+        kwt = new h();
+        kwt.kwj = true;
+        kwt.kwk = true;
+        kwt.kwl = false;
+        kwt.kwm = false;
+        kwt.kwn = false;
+        kws.kwr = 1;
+        kwu = new h();
+        kwu.kwj = false;
+        kwu.kwk = true;
+        kwu.kwl = false;
+        kwu.kwm = true;
+        kwu.kwn = false;
+        kwu.kwq = false;
+        kwu.kwr = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -54,8 +54,8 @@ class h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Dq(int i) {
-        if (this.kxd) {
+    public String Dp(int i) {
+        if (this.kwm) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(HanziToPinyin.Token.SEPARATOR).toString();
         }
@@ -82,11 +82,11 @@ class h {
     }
 
     public String E(Class cls) {
-        return b(cls, cls.getName(), this.kxa);
+        return b(cls, cls.getName(), this.kwj);
     }
 
     public String h(Class cls, String str) {
-        return b(cls, str, this.kxe);
+        return b(cls, str, this.kwn);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -100,7 +100,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.kxb) {
+            if (!this.kwk) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -116,7 +116,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.kxc && clsArr != null && clsArr.length != 0) {
+        if (this.kwl && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

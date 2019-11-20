@@ -18,18 +18,18 @@ import android.widget.TextView;
 import com.baidu.swan.apps.an.z;
 /* loaded from: classes2.dex */
 public class DrawableCenterTextView extends TextView {
-    private GradientDrawable bcQ;
-    private Paint bcR;
-    private Pair<Object, Object> bcS;
-    private Object bcT;
-    private Object bcU;
-    private int bcV;
-    private boolean bcW;
-    private boolean bcX;
-    private boolean bcY;
-    private boolean bcZ;
-    private float bda;
-    private boolean bdb;
+    private Pair<Object, Object> bcA;
+    private Object bcB;
+    private Object bcC;
+    private int bcD;
+    private boolean bcE;
+    private boolean bcF;
+    private boolean bcG;
+    private boolean bcH;
+    private float bcI;
+    private boolean bcJ;
+    private GradientDrawable bcy;
+    private Paint bcz;
     private float mCornerRadius;
     private Path mRoundPath;
 
@@ -39,13 +39,13 @@ public class DrawableCenterTextView extends TextView {
 
     public DrawableCenterTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bcQ = new GradientDrawable();
-        this.bcR = null;
+        this.bcy = new GradientDrawable();
+        this.bcz = null;
         this.mRoundPath = new Path();
-        this.bcS = null;
-        this.bcZ = false;
+        this.bcA = null;
+        this.bcH = false;
         this.mCornerRadius = -1.0f;
-        this.bda = 0.0f;
+        this.bcI = 0.0f;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -129,39 +129,39 @@ public class DrawableCenterTextView extends TextView {
     }
 
     private void l(Canvas canvas) {
-        if (OV()) {
+        if (OW()) {
             if (this.mCornerRadius >= 0.0f) {
-                this.bcQ.setCornerRadius(this.mCornerRadius);
+                this.bcy.setCornerRadius(this.mCornerRadius);
             } else {
-                this.bcQ.setCornerRadius(4.0f);
+                this.bcy.setCornerRadius(4.0f);
             }
-            if (this.bcX) {
+            if (this.bcF) {
                 int dip2px = z.dip2px(getContext(), 0.5f);
-                if (this.bcT instanceof String) {
-                    this.bcQ.setStroke(dip2px, Color.parseColor(this.bcT.toString()));
-                } else if (this.bcT instanceof Integer) {
-                    this.bcQ.setStroke(dip2px, getResources().getColor(Integer.valueOf(this.bcT.toString()).intValue()));
+                if (this.bcB instanceof String) {
+                    this.bcy.setStroke(dip2px, Color.parseColor(this.bcB.toString()));
+                } else if (this.bcB instanceof Integer) {
+                    this.bcy.setStroke(dip2px, getResources().getColor(Integer.valueOf(this.bcB.toString()).intValue()));
                 }
             }
-            if (this.bcZ) {
-                if (this.bcS.second instanceof String) {
-                    this.bcQ.setColor(Color.parseColor(this.bcS.second.toString()));
-                } else if (this.bcS.second instanceof Integer) {
-                    this.bcQ.setColor(getResources().getColor(Integer.valueOf(this.bcS.second.toString()).intValue()));
+            if (this.bcH) {
+                if (this.bcA.second instanceof String) {
+                    this.bcy.setColor(Color.parseColor(this.bcA.second.toString()));
+                } else if (this.bcA.second instanceof Integer) {
+                    this.bcy.setColor(getResources().getColor(Integer.valueOf(this.bcA.second.toString()).intValue()));
                 }
-            } else if (this.bcS.first instanceof String) {
-                this.bcQ.setColor(Color.parseColor(this.bcS.first.toString()));
-            } else if (this.bcS.first instanceof Integer) {
-                this.bcQ.setColor(getResources().getColor(Integer.valueOf(this.bcS.first.toString()).intValue()));
+            } else if (this.bcA.first instanceof String) {
+                this.bcy.setColor(Color.parseColor(this.bcA.first.toString()));
+            } else if (this.bcA.first instanceof Integer) {
+                this.bcy.setColor(getResources().getColor(Integer.valueOf(this.bcA.first.toString()).intValue()));
             }
             canvas.save();
-            if (this.bdb) {
-                OT();
+            if (this.bcJ) {
+                OU();
             } else {
-                this.bcQ.setBounds(0, 0, getWidth(), getHeight());
+                this.bcy.setBounds(0, 0, getWidth(), getHeight());
             }
-            this.bcQ.draw(canvas);
-            if (this.bcY) {
+            this.bcy.draw(canvas);
+            if (this.bcG) {
                 m(canvas);
             }
             canvas.restore();
@@ -175,12 +175,12 @@ public class DrawableCenterTextView extends TextView {
         float height2 = getHeight();
         Paint paint = new Paint();
         paint.setStrokeWidth(z.dip2px(getContext(), 0.5f));
-        if (this.bcU instanceof String) {
-            paint.setColor(Color.parseColor(this.bcU.toString()));
-        } else if (this.bcU instanceof Integer) {
-            paint.setColor(getResources().getColor(Integer.valueOf(this.bcU.toString()).intValue()));
+        if (this.bcC instanceof String) {
+            paint.setColor(Color.parseColor(this.bcC.toString()));
+        } else if (this.bcC instanceof Integer) {
+            paint.setColor(getResources().getColor(Integer.valueOf(this.bcC.toString()).intValue()));
         }
-        switch (this.bcV) {
+        switch (this.bcD) {
             case 0:
                 width = 0.0f;
                 height = 0.0f;
@@ -208,44 +208,44 @@ public class DrawableCenterTextView extends TextView {
     }
 
     public void setAnimationPercent(float f) {
-        if (this.bda != f) {
-            this.bda = f;
+        if (this.bcI != f) {
+            this.bcI = f;
             postInvalidate();
         }
     }
 
     public void setAnimationModeActive(boolean z) {
-        this.bdb = z;
+        this.bcJ = z;
     }
 
-    private void OT() {
-        if (this.bcQ != null) {
+    private void OU() {
+        if (this.bcy != null) {
             int[] iArr = {getWidth(), getHeight()};
-            if (this.bdb) {
-                iArr[0] = (int) (getWidth() * this.bda);
+            if (this.bcJ) {
+                iArr[0] = (int) (getWidth() * this.bcI);
                 iArr[1] = getHeight();
             }
             int width = getWidth() / 2;
-            this.bcQ.setBounds(width - (iArr[0] / 2), 0, (iArr[0] / 2) + width, getHeight());
+            this.bcy.setBounds(width - (iArr[0] / 2), 0, (iArr[0] / 2) + width, getHeight());
         }
     }
 
     @Override // android.widget.TextView
     public void setShadowLayer(float f, float f2, float f3, int i) {
-        OU();
+        OV();
         RectF rectF = new RectF(f, f, f, f);
         rectF.offset(f2, f3);
         setPadding(rectF.left < 0.0f ? 0 : (int) (rectF.left + 0.5f), rectF.top < 0.0f ? 0 : (int) (rectF.top + 0.5f), rectF.right < 0.0f ? 0 : (int) (rectF.right + 0.5f), rectF.bottom >= 0.0f ? (int) (rectF.bottom + 0.5f) : 0);
-        this.bcR.setShadowLayer(f, f2, f3, i);
+        this.bcz.setShadowLayer(f, f2, f3, i);
     }
 
-    private void OU() {
-        if (this.bcR == null) {
-            this.bcR = new Paint();
-            this.bcR.setColor(0);
-            this.bcR.setStyle(Paint.Style.STROKE);
-            this.bcR.setAntiAlias(true);
-            this.bcR.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+    private void OV() {
+        if (this.bcz == null) {
+            this.bcz = new Paint();
+            this.bcz.setColor(0);
+            this.bcz.setStyle(Paint.Style.STROKE);
+            this.bcz.setAntiAlias(true);
+            this.bcz.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         }
     }
 
@@ -279,30 +279,30 @@ public class DrawableCenterTextView extends TextView {
         this.mCornerRadius = i;
     }
 
-    private boolean OV() {
-        return this.bcW && this.bcS != null;
+    private boolean OW() {
+        return this.bcE && this.bcA != null;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (OV()) {
-                    this.bcZ = true;
+                if (OW()) {
+                    this.bcH = true;
                     invalidate();
                     break;
                 }
                 break;
             case 1:
-                if (OV()) {
-                    this.bcZ = false;
+                if (OW()) {
+                    this.bcH = false;
                     invalidate();
                     break;
                 }
                 break;
             case 3:
-                if (OV()) {
-                    this.bcZ = false;
+                if (OW()) {
+                    this.bcH = false;
                     invalidate();
                     break;
                 }

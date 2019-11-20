@@ -10,16 +10,16 @@ import javax.annotation.concurrent.GuardedBy;
 public abstract class AbstractDataSource<T> implements b<T> {
     @GuardedBy("this")
     @Nullable
-    private T baW = null;
+    private T baE = null;
     @GuardedBy("this")
-    private Throwable kce = null;
+    private Throwable kbn = null;
     @GuardedBy("this")
     private float mProgress = 0.0f;
     @GuardedBy("this")
-    private boolean sO = false;
+    private boolean sm = false;
     @GuardedBy("this")
-    private DataSourceStatus kcd = DataSourceStatus.IN_PROGRESS;
-    private final ConcurrentLinkedQueue<Pair<d<T>, Executor>> kcf = new ConcurrentLinkedQueue<>();
+    private DataSourceStatus kbm = DataSourceStatus.IN_PROGRESS;
+    private final ConcurrentLinkedQueue<Pair<d<T>, Executor>> kbo = new ConcurrentLinkedQueue<>();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
@@ -30,33 +30,33 @@ public abstract class AbstractDataSource<T> implements b<T> {
     }
 
     public synchronized boolean isClosed() {
-        return this.sO;
+        return this.sm;
     }
 
     @Override // com.facebook.datasource.b
     public synchronized boolean isFinished() {
-        return this.kcd != DataSourceStatus.IN_PROGRESS;
+        return this.kbm != DataSourceStatus.IN_PROGRESS;
     }
 
     @Override // com.facebook.datasource.b
-    public synchronized boolean cDm() {
-        return this.baW != null;
+    public synchronized boolean cDk() {
+        return this.baE != null;
     }
 
     @Override // com.facebook.datasource.b
     @Nullable
     public synchronized T getResult() {
-        return this.baW;
+        return this.baE;
     }
 
-    public synchronized boolean cDn() {
-        return this.kcd == DataSourceStatus.FAILURE;
+    public synchronized boolean cDl() {
+        return this.kbm == DataSourceStatus.FAILURE;
     }
 
     @Override // com.facebook.datasource.b
     @Nullable
-    public synchronized Throwable cDo() {
-        return this.kce;
+    public synchronized Throwable cDm() {
+        return this.kbn;
     }
 
     @Override // com.facebook.datasource.b
@@ -65,23 +65,23 @@ public abstract class AbstractDataSource<T> implements b<T> {
     }
 
     @Override // com.facebook.datasource.b
-    public boolean FH() {
+    public boolean FI() {
         boolean z = true;
         synchronized (this) {
-            if (this.sO) {
+            if (this.sm) {
                 z = false;
             } else {
-                this.sO = true;
-                T t = this.baW;
-                this.baW = null;
+                this.sm = true;
+                T t = this.baE;
+                this.baE = null;
                 if (t != null) {
                     aB((AbstractDataSource<T>) t);
                 }
                 if (!isFinished()) {
-                    cDp();
+                    cDn();
                 }
                 synchronized (this) {
-                    this.kcf.clear();
+                    this.kbo.clear();
                 }
             }
         }
@@ -96,25 +96,25 @@ public abstract class AbstractDataSource<T> implements b<T> {
         com.facebook.common.internal.g.checkNotNull(dVar);
         com.facebook.common.internal.g.checkNotNull(executor);
         synchronized (this) {
-            if (!this.sO) {
-                if (this.kcd == DataSourceStatus.IN_PROGRESS) {
-                    this.kcf.add(Pair.create(dVar, executor));
+            if (!this.sm) {
+                if (this.kbm == DataSourceStatus.IN_PROGRESS) {
+                    this.kbo.add(Pair.create(dVar, executor));
                 }
-                boolean z = cDm() || isFinished() || cDq();
+                boolean z = cDk() || isFinished() || cDo();
                 if (z) {
-                    a(dVar, executor, cDn(), cDq());
+                    a(dVar, executor, cDl(), cDo());
                 }
             }
         }
     }
 
-    private void cDp() {
-        boolean cDn = cDn();
-        boolean cDq = cDq();
-        Iterator<Pair<d<T>, Executor>> it = this.kcf.iterator();
+    private void cDn() {
+        boolean cDl = cDl();
+        boolean cDo = cDo();
+        Iterator<Pair<d<T>, Executor>> it = this.kbo.iterator();
         while (it.hasNext()) {
             Pair<d<T>, Executor> next = it.next();
-            a((d) next.first, (Executor) next.second, cDn, cDq);
+            a((d) next.first, (Executor) next.second, cDl, cDo);
         }
     }
 
@@ -133,7 +133,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
         });
     }
 
-    private synchronized boolean cDq() {
+    private synchronized boolean cDo() {
         boolean z;
         if (isClosed()) {
             z = isFinished() ? false : true;
@@ -145,25 +145,25 @@ public abstract class AbstractDataSource<T> implements b<T> {
     public boolean b(@Nullable T t, boolean z) {
         boolean c = c(t, z);
         if (c) {
-            cDp();
+            cDn();
         }
         return c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean s(Throwable th) {
-        boolean t = t(th);
-        if (t) {
-            cDp();
+    public boolean t(Throwable th) {
+        boolean u = u(th);
+        if (u) {
+            cDn();
         }
-        return t;
+        return u;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean aB(float f) {
         boolean aC = aC(f);
         if (aC) {
-            cDr();
+            cDp();
         }
         return aC;
     }
@@ -180,20 +180,20 @@ public abstract class AbstractDataSource<T> implements b<T> {
             try {
                 synchronized (this) {
                     try {
-                        if (this.sO || this.kcd != DataSourceStatus.IN_PROGRESS) {
+                        if (this.sm || this.kbm != DataSourceStatus.IN_PROGRESS) {
                             z2 = false;
                             if (t != null) {
                                 aB((AbstractDataSource<T>) t);
                             }
                         } else {
                             if (z) {
-                                this.kcd = DataSourceStatus.SUCCESS;
+                                this.kbm = DataSourceStatus.SUCCESS;
                                 this.mProgress = 1.0f;
                             }
-                            if (this.baW != t) {
-                                T t3 = this.baW;
+                            if (this.baE != t) {
+                                T t3 = this.baE;
                                 try {
-                                    this.baW = t;
+                                    this.baE = t;
                                     t2 = t3;
                                 } catch (Throwable th) {
                                     th = th;
@@ -234,13 +234,13 @@ public abstract class AbstractDataSource<T> implements b<T> {
         }
     }
 
-    private synchronized boolean t(Throwable th) {
+    private synchronized boolean u(Throwable th) {
         boolean z;
-        if (this.sO || this.kcd != DataSourceStatus.IN_PROGRESS) {
+        if (this.sm || this.kbm != DataSourceStatus.IN_PROGRESS) {
             z = false;
         } else {
-            this.kcd = DataSourceStatus.FAILURE;
-            this.kce = th;
+            this.kbm = DataSourceStatus.FAILURE;
+            this.kbn = th;
             z = true;
         }
         return z;
@@ -249,7 +249,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
     private synchronized boolean aC(float f) {
         boolean z = false;
         synchronized (this) {
-            if (!this.sO && this.kcd == DataSourceStatus.IN_PROGRESS && f >= this.mProgress) {
+            if (!this.sm && this.kbm == DataSourceStatus.IN_PROGRESS && f >= this.mProgress) {
                 this.mProgress = f;
                 z = true;
             }
@@ -257,8 +257,8 @@ public abstract class AbstractDataSource<T> implements b<T> {
         return z;
     }
 
-    protected void cDr() {
-        Iterator<Pair<d<T>, Executor>> it = this.kcf.iterator();
+    protected void cDp() {
+        Iterator<Pair<d<T>, Executor>> it = this.kbo.iterator();
         while (it.hasNext()) {
             Pair<d<T>, Executor> next = it.next();
             final d dVar = (d) next.first;

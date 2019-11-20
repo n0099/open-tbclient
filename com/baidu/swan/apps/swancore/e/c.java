@@ -3,56 +3,56 @@ package com.baidu.swan.apps.swancore.e;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c {
-    public String bqA;
-    public boolean bqx;
-    public boolean bqy;
+    public boolean bqf;
+    public boolean bqg;
     @Nullable
-    public com.baidu.swan.apps.v.b.c bqz;
+    public com.baidu.swan.apps.v.b.c bqh;
+    public String bqi;
 
     private c() {
-        this.bqx = false;
-        this.bqy = false;
-        this.bqz = null;
-        this.bqA = "";
+        this.bqf = false;
+        this.bqg = false;
+        this.bqh = null;
+        this.bqi = "";
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        private boolean bqx = false;
-        private boolean bqy = false;
+        private boolean bqf = false;
+        private boolean bqg = false;
         @Nullable
-        private com.baidu.swan.apps.v.b.c bqz = null;
-        private String bqA = "";
+        private com.baidu.swan.apps.v.b.c bqh = null;
+        private String bqi = "";
 
-        public static a Te() {
+        public static a Tg() {
             return new a();
         }
 
         public a cR(boolean z) {
-            this.bqx = z;
+            this.bqf = z;
             return this;
         }
 
         public a ix(String str) {
-            this.bqA = str;
+            this.bqi = str;
             return this;
         }
 
-        public c Tf() {
+        public c Th() {
             c cVar = new c();
-            cVar.bqx = this.bqx;
-            cVar.bqy = this.bqy;
-            cVar.bqz = this.bqz;
-            cVar.bqA = this.bqA;
+            cVar.bqf = this.bqf;
+            cVar.bqg = this.bqg;
+            cVar.bqh = this.bqh;
+            cVar.bqi = this.bqi;
             return cVar;
         }
 
-        public c Tg() {
-            this.bqx = false;
-            this.bqy = false;
-            this.bqz = null;
-            this.bqA = "";
-            return Tf();
+        public c Ti() {
+            this.bqf = false;
+            this.bqg = false;
+            this.bqh = null;
+            this.bqi = "";
+            return Th();
         }
     }
 }

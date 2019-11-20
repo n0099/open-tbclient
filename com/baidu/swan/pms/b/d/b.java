@@ -1,37 +1,37 @@
 package com.baidu.swan.pms.b.d;
 /* loaded from: classes2.dex */
 public class b extends e {
-    private String bMS;
-    private int bMT;
-    private String bMU;
-    private long bMV;
-    private String bMW;
+    private String bMb;
+    private int bMc;
+    private String bMd;
+    private long bMe;
+    private String bMf;
     private String mPath;
 
     public b(String str, int i) {
         super(i);
-        this.bMT = -1;
-        this.bMV = -1L;
-        this.bMS = str;
+        this.bMc = -1;
+        this.bMe = -1L;
+        this.bMb = str;
     }
 
     public b la(String str) {
-        this.bMU = str;
+        this.bMd = str;
         return this;
     }
 
-    public b gH(int i) {
-        this.bMT = i;
+    public b gG(int i) {
+        this.bMc = i;
         return this;
     }
 
-    public b aA(long j) {
-        this.bMV = j;
+    public b az(long j) {
+        this.bMe = j;
         return this;
     }
 
     public b lb(String str) {
-        this.bMW = str;
+        this.bMf = str;
         return this;
     }
 
@@ -41,23 +41,23 @@ public class b extends e {
     }
 
     public String getBundleId() {
-        return this.bMS;
+        return this.bMb;
     }
 
-    public int abD() {
-        return this.bMT;
+    public int abB() {
+        return this.bMc;
     }
 
-    public long abE() {
-        return this.bMV;
+    public long abC() {
+        return this.bMe;
     }
 
-    public String abF() {
-        return this.bMU;
+    public String abD() {
+        return this.bMd;
     }
 
-    public String abG() {
-        return this.bMW;
+    public String abE() {
+        return this.bMf;
     }
 
     public String getPath() {

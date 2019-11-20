@@ -4,14 +4,14 @@ import java.util.List;
 import tbclient.ManagerElection;
 /* loaded from: classes4.dex */
 public class g {
-    private boolean eGH;
-    private int hJA;
-    private List<String> hJB;
-    private String hJC;
-    private boolean hJD;
-    private int hJE;
-    private int hJy;
-    private int hJz;
+    private boolean eFQ;
+    private int hIH;
+    private int hII;
+    private int hIJ;
+    private List<String> hIK;
+    private String hIL;
+    private boolean hIM;
+    private int hIN;
     private int status;
 
     public static g a(ManagerElection managerElection) {
@@ -19,15 +19,15 @@ public class g {
             return null;
         }
         g gVar = new g();
-        gVar.hJz = managerElection.begin_vote_time.intValue();
-        gVar.eGH = managerElection.can_vote.intValue() == 1;
-        gVar.hJy = managerElection.vote_num.intValue();
-        gVar.hJA = managerElection.election_id.intValue();
-        gVar.hJD = managerElection.is_show_distribute.intValue() == 1;
-        gVar.hJE = managerElection.remainder_time.intValue();
+        gVar.hII = managerElection.begin_vote_time.intValue();
+        gVar.eFQ = managerElection.can_vote.intValue() == 1;
+        gVar.hIH = managerElection.vote_num.intValue();
+        gVar.hIJ = managerElection.election_id.intValue();
+        gVar.hIM = managerElection.is_show_distribute.intValue() == 1;
+        gVar.hIN = managerElection.remainder_time.intValue();
         gVar.status = managerElection.status.intValue();
-        gVar.hJC = managerElection.tail_text;
-        gVar.hJB = managerElection.vote_condition;
+        gVar.hIL = managerElection.tail_text;
+        gVar.hIK = managerElection.vote_condition;
         return gVar;
     }
 
@@ -35,39 +35,39 @@ public class g {
         return this.status;
     }
 
-    public boolean bRa() {
-        return this.hJD;
+    public boolean bQY() {
+        return this.hIM;
     }
 
-    public int bRb() {
-        return this.hJE;
+    public int bQZ() {
+        return this.hIN;
     }
 
-    public int bRc() {
-        return this.hJy;
+    public int bRa() {
+        return this.hIH;
     }
 
-    public List<String> bRd() {
-        return this.hJB;
+    public List<String> bRb() {
+        return this.hIK;
     }
 
-    public String bRe() {
-        return this.hJC;
+    public String bRc() {
+        return this.hIL;
     }
 
-    public boolean aZv() {
-        return this.eGH;
+    public boolean aZt() {
+        return this.eFQ;
     }
 
     public void iA(boolean z) {
-        this.eGH = z;
+        this.eFQ = z;
     }
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public void wo(int i) {
-        this.hJy = i;
+    public void wn(int i) {
+        this.hIH = i;
     }
 }

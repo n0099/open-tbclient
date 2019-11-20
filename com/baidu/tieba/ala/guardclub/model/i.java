@@ -22,7 +22,7 @@ public class i extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("scene_from", com.baidu.live.utils.o.wt());
+        addParam("scene_from", com.baidu.live.utils.o.wu());
         addParam("ps", this.ps);
         addParam(Config.PACKAGE_NAME, this.pn);
     }

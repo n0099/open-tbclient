@@ -50,14 +50,14 @@ public class a extends z {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.j.a.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bitmap Uu = com.baidu.swan.apps.an.z.Uu();
-                if (Uu == null) {
+                final Bitmap Us = com.baidu.swan.apps.an.z.Us();
+                if (Us == null) {
                     a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
                 } else {
                     com.baidu.swan.apps.an.j.a(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.j.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(Uu, unitedSchemeEntity, callbackHandler, bVar);
+                            a.this.a(Us, unitedSchemeEntity, callbackHandler, bVar);
                         }
                     }, "savescreenshot");
                 }

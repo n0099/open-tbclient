@@ -3,9 +3,7 @@ package com.baidu.swan.apps.b.b;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public interface c {
-    boolean Bb();
-
-    int Bc();
+    boolean Bc();
 
     int Bd();
 
@@ -13,21 +11,21 @@ public interface c {
 
     int Bf();
 
-    boolean Bg();
+    int Bg();
 
     boolean Bh();
 
-    JSONObject Bi();
+    boolean Bi();
 
-    boolean Bj();
+    JSONObject Bj();
 
     boolean Bk();
 
     boolean Bl();
 
-    String Bm();
+    boolean Bm();
 
-    boolean Bn();
+    String Bn();
 
     boolean Bo();
 
@@ -45,9 +43,11 @@ public interface c {
 
     boolean Bv();
 
-    String Bw();
+    boolean Bw();
 
-    boolean Bx();
+    String Bx();
+
+    boolean By();
 
     String X(String str, String str2);
 

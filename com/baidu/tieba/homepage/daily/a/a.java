@@ -9,44 +9,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> agQ;
-    private r fdE;
-    private e gfG;
-    private d gfH;
-    private c gfI;
-    private b gfJ;
-    private f gfK;
+    private List<com.baidu.adp.widget.ListView.a> agy;
+    private r fcN;
+    private e geP;
+    private d geQ;
+    private c geR;
+    private b geS;
+    private f geT;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.fdE = rVar;
-        sX();
-        this.fdE.addAdapters(this.agQ);
+        this.fcN = rVar;
+        sY();
+        this.fcN.addAdapters(this.agy);
     }
 
-    private void sX() {
-        this.agQ = new ArrayList();
-        this.gfG = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.gfY);
-        this.gfH = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.gfU);
-        this.gfI = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.gfS);
-        this.gfJ = new b(this.mPageContext, bh.cbu);
-        this.gfK = new f(this.mPageContext, bh.cbI);
-        this.agQ.add(this.gfG);
-        this.agQ.add(this.gfH);
-        this.agQ.add(this.gfI);
-        this.agQ.add(this.gfJ);
-        this.agQ.add(this.gfK);
+    private void sY() {
+        this.agy = new ArrayList();
+        this.geP = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.gfh);
+        this.geQ = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.gfd);
+        this.geR = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.gfb);
+        this.geS = new b(this.mPageContext, bh.caD);
+        this.geT = new f(this.mPageContext, bh.caR);
+        this.agy.add(this.geP);
+        this.agy.add(this.geQ);
+        this.agy.add(this.geR);
+        this.agy.add(this.geS);
+        this.agy.add(this.geT);
     }
 
     public void notifyDataSetChanged() {
-        if (this.fdE != null) {
-            this.fdE.getListAdapter().notifyDataSetChanged();
+        if (this.fcN != null) {
+            this.fcN.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.fdE.setData(list);
+        this.fcN.setData(list);
     }
 
     public void onChangeSkinType(int i) {
@@ -54,7 +54,7 @@ public class a {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.agQ) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.agy) {
             aVar.setPageId(bdUniqueId);
         }
     }

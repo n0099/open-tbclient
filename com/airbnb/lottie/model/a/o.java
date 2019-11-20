@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class o<V, O> implements m<V, O> {
-    final V fI;
-    final List<com.airbnb.lottie.a.a<V>> fu;
+    final List<com.airbnb.lottie.a.a<V>> eR;
+    final V fg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(V v) {
@@ -15,8 +15,8 @@ public abstract class o<V, O> implements m<V, O> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(List<com.airbnb.lottie.a.a<V>> list, V v) {
-        this.fu = list;
-        this.fI = v;
+        this.eR = list;
+        this.fg = v;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: V */
@@ -26,18 +26,18 @@ public abstract class o<V, O> implements m<V, O> {
     }
 
     public boolean hasAnimation() {
-        return !this.fu.isEmpty();
+        return !this.eR.isEmpty();
     }
 
     public O ca() {
-        return k(this.fI);
+        return k(this.fg);
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("parseInitialValue=").append(this.fI);
-        if (!this.fu.isEmpty()) {
-            sb.append(", values=").append(Arrays.toString(this.fu.toArray()));
+        sb.append("parseInitialValue=").append(this.fg);
+        if (!this.eR.isEmpty()) {
+            sb.append(", values=").append(Arrays.toString(this.eR.toArray()));
         }
         return sb.toString();
     }

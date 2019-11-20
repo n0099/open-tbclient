@@ -11,29 +11,29 @@ import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 /* loaded from: classes6.dex */
 public class LinearGradientTextView extends TextView {
-    private LinearGradient apn;
-    private Rect ars;
-    private int art;
-    private int aru;
+    private LinearGradient aoV;
+    private Rect ara;
+    private int arb;
+    private int arc;
     private Paint mPaint;
     private int mViewWidth;
 
     public LinearGradientTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mViewWidth = 0;
-        this.ars = new Rect();
+        this.ara = new Rect();
     }
 
     @Override // android.widget.TextView
     public void setTextColor(int i) {
-        this.art = i;
-        this.aru = i;
+        this.arb = i;
+        this.arc = i;
         super.setTextColor(i);
     }
 
     public void setGradientColor(int i, int i2) {
-        this.art = i;
-        this.aru = i2;
+        this.arb = i;
+        this.arc = i2;
         invalidate();
     }
 
@@ -42,9 +42,9 @@ public class LinearGradientTextView extends TextView {
         this.mViewWidth = getMeasuredWidth();
         this.mPaint = getPaint();
         String charSequence = getText().toString();
-        this.mPaint.getTextBounds(charSequence, 0, charSequence.length(), this.ars);
-        this.apn = new LinearGradient(0.0f, 0.0f, this.mViewWidth, 0.0f, new int[]{this.art, this.aru}, (float[]) null, Shader.TileMode.REPEAT);
-        this.mPaint.setShader(this.apn);
-        canvas.drawText(charSequence, (getMeasuredWidth() / 2) - (this.ars.width() / 2), ((getMeasuredHeight() / 2) + (this.ars.height() / 2)) - BdUtilHelper.dip2px(getContext(), 1.0f), this.mPaint);
+        this.mPaint.getTextBounds(charSequence, 0, charSequence.length(), this.ara);
+        this.aoV = new LinearGradient(0.0f, 0.0f, this.mViewWidth, 0.0f, new int[]{this.arb, this.arc}, (float[]) null, Shader.TileMode.REPEAT);
+        this.mPaint.setShader(this.aoV);
+        canvas.drawText(charSequence, (getMeasuredWidth() / 2) - (this.ara.width() / 2), ((getMeasuredHeight() / 2) + (this.ara.height() / 2)) - BdUtilHelper.dip2px(getContext(), 1.0f), this.mPaint);
     }
 }

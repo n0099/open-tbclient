@@ -5,12 +5,12 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class AlaZMQueryResultHttpResponseMessage extends JsonHttpResponsedMessage {
-    private int akd;
+    private int ajL;
     private String mMsg;
 
     public AlaZMQueryResultHttpResponseMessage() {
         super(1021063);
-        this.akd = 0;
+        this.ajL = 0;
         this.mMsg = null;
     }
 
@@ -18,7 +18,7 @@ public class AlaZMQueryResultHttpResponseMessage extends JsonHttpResponsedMessag
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.akd = jSONObject.optInt("result");
+            this.ajL = jSONObject.optInt("result");
             this.mMsg = jSONObject.optString(TiebaInitialize.LogFields.REASON);
         }
     }

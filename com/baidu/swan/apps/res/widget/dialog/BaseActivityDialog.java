@@ -26,20 +26,20 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private SwanAppScrollView bcL;
-    private TextView bhA;
-    private TextView bhB;
-    private TextView bhC;
-    private View bhD;
-    private View bhE;
-    private View bhF;
-    private FrameLayout bhG;
-    private RelativeLayout bhH;
-    private a bhI;
-    private LinearLayout bhJ;
-    private int bhK;
-    private TextView bhy;
-    private LinearLayout bhz;
+    private SwanAppScrollView bct;
+    private TextView bhg;
+    private LinearLayout bhh;
+    private TextView bhi;
+    private TextView bhj;
+    private TextView bhk;
+    private View bhl;
+    private View bhm;
+    private View bhn;
+    private FrameLayout bho;
+    private RelativeLayout bhp;
+    private a bhq;
+    private LinearLayout bhr;
+    private int bhs;
     private ImageView mIcon;
     private TextView mTitle;
 
@@ -49,28 +49,28 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         super.onCreate(bundle);
         setContentView(a.g.aiapps_alert_dialog);
         getWindow().setLayout(-1, -1);
-        this.bhI = a.hg(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
-        if (this.bhI == null) {
+        this.bhq = a.hg(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
+        if (this.bhq == null) {
             if (DEBUG) {
                 Log.e("BaseActivityDialog", "The builder for dialog activity can NOT be null.");
             }
             finish();
             return;
         }
-        EventBusWrapper.register(this.bhI, a.b.class, new rx.functions.b<a.b>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.1
+        EventBusWrapper.register(this.bhq, a.b.class, new rx.functions.b<a.b>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: a */
             public void call(a.b bVar) {
-                BaseActivityDialog.this.bhI.onEvent(bVar);
+                BaseActivityDialog.this.bhq.onEvent(bVar);
             }
         });
-        EventBusWrapper.register(this.bhI, a.C0211a.class, new rx.functions.b<a.C0211a>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.2
+        EventBusWrapper.register(this.bhq, a.C0211a.class, new rx.functions.b<a.C0211a>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: a */
             public void call(a.C0211a c0211a) {
-                if (c0211a.tag == BaseActivityDialog.this.bhI.mTag) {
+                if (c0211a.tag == BaseActivityDialog.this.bhq.mTag) {
                     BaseActivityDialog.this.dismiss();
                 }
             }
@@ -89,7 +89,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     @Override // android.content.DialogInterface
     public void cancel() {
         DialogInterface.OnCancelListener onCancelListener;
-        if (this.bhI != null && (onCancelListener = this.bhI.bhX) != null) {
+        if (this.bhq != null && (onCancelListener = this.bhq.bhF) != null) {
             onCancelListener.onCancel(this);
         }
         finish();
@@ -109,7 +109,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     protected void onDismiss() {
         DialogInterface.OnDismissListener onDismissListener;
-        if (this.bhI != null && (onDismissListener = this.bhI.bhY) != null) {
+        if (this.bhq != null && (onDismissListener = this.bhq.bhG) != null) {
             onDismissListener.onDismiss(this);
         }
     }
@@ -119,61 +119,61 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     protected void initViews() {
         this.mTitle = (TextView) findViewById(a.f.dialog_title);
-        this.bhy = (TextView) findViewById(a.f.dialog_message);
-        this.bhz = (LinearLayout) findViewById(a.f.dialog_message_content);
-        this.bhA = (TextView) findViewById(a.f.positive_button);
-        this.bhB = (TextView) findViewById(a.f.negative_button);
-        this.bhC = (TextView) findViewById(a.f.neutral_button);
-        this.bhE = findViewById(a.f.divider3);
-        this.bhF = findViewById(a.f.divider4);
-        this.bhG = (FrameLayout) findViewById(a.f.dialog_custom_content);
+        this.bhg = (TextView) findViewById(a.f.dialog_message);
+        this.bhh = (LinearLayout) findViewById(a.f.dialog_message_content);
+        this.bhi = (TextView) findViewById(a.f.positive_button);
+        this.bhj = (TextView) findViewById(a.f.negative_button);
+        this.bhk = (TextView) findViewById(a.f.neutral_button);
+        this.bhm = findViewById(a.f.divider3);
+        this.bhn = findViewById(a.f.divider4);
+        this.bho = (FrameLayout) findViewById(a.f.dialog_custom_content);
         this.mIcon = (ImageView) findViewById(a.f.dialog_icon);
-        this.bhH = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
-        this.bhD = findViewById(a.f.divider2);
-        this.bcL = (SwanAppScrollView) findViewById(a.f.message_scrollview);
-        this.bhJ = (LinearLayout) findViewById(a.f.btn_panel);
-        this.bhK = getResources().getDimensionPixelSize(a.d.aiapps_dialog_btns_height);
-        if (this.bhI.bia > 0) {
-            this.bcL.getLayoutParams().height = this.bhI.bia;
+        this.bhp = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
+        this.bhl = findViewById(a.f.divider2);
+        this.bct = (SwanAppScrollView) findViewById(a.f.message_scrollview);
+        this.bhr = (LinearLayout) findViewById(a.f.btn_panel);
+        this.bhs = getResources().getDimensionPixelSize(a.d.aiapps_dialog_btns_height);
+        if (this.bhq.bhI > 0) {
+            this.bct.getLayoutParams().height = this.bhq.bhI;
         }
-        if (com.baidu.swan.apps.an.a.TZ() || com.baidu.swan.apps.an.a.TY()) {
-            int dimensionPixelSize = this.bhy.getResources().getDimensionPixelSize(a.d.aiapps_dialog_text_padding);
-            this.bhy.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
+        if (com.baidu.swan.apps.an.a.TX() || com.baidu.swan.apps.an.a.TW()) {
+            int dimensionPixelSize = this.bhg.getResources().getDimensionPixelSize(a.d.aiapps_dialog_text_padding);
+            this.bhg.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
         }
     }
 
     protected void setupViews() {
-        if (this.bhI != null) {
-            a aVar = this.bhI;
+        if (this.bhq != null) {
+            a aVar = this.bhq;
             setTitle(aVar.title);
-            setIcon(aVar.bhS);
+            setIcon(aVar.bhA);
             setMessage(aVar.message);
             setView(aVar.contentView);
-            cn(aVar.bhT);
-            em(aVar.bhU);
-            hc(aVar.bhQ);
-            hd(aVar.bhR);
-            co(aVar.bib);
+            cn(aVar.bhB);
+            em(aVar.bhC);
+            hc(aVar.bhy);
+            hd(aVar.bhz);
+            co(aVar.bhJ);
         }
     }
 
-    public TextView Ql() {
+    public TextView Qm() {
         int i;
         TextView textView;
-        if (this.bhA == null || this.bhA.getVisibility() != 0) {
+        if (this.bhi == null || this.bhi.getVisibility() != 0) {
             i = 0;
             textView = null;
         } else {
-            textView = this.bhA;
+            textView = this.bhi;
             i = 1;
         }
-        if (this.bhB != null && this.bhB.getVisibility() == 0) {
+        if (this.bhj != null && this.bhj.getVisibility() == 0) {
             i++;
-            textView = this.bhB;
+            textView = this.bhj;
         }
-        if (this.bhC != null && this.bhC.getVisibility() == 0) {
+        if (this.bhk != null && this.bhk.getVisibility() == 0) {
             i++;
-            textView = this.bhC;
+            textView = this.bhk;
         }
         if (i != 1) {
             return null;
@@ -186,21 +186,21 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         int color = resources.getColor(a.c.aiapps_dialog_title_text_color);
         int color2 = resources.getColor(a.c.aiapps_box_dialog_message_text_color);
         int color3 = resources.getColor(a.c.aiapps_dialog_gray);
-        this.bhH.setBackground(resources.getDrawable(a.e.aiapps_dialog_bg_white));
+        this.bhp.setBackground(resources.getDrawable(a.e.aiapps_dialog_bg_white));
         this.mTitle.setTextColor(color);
-        this.bhy.setTextColor(color2);
-        this.bhA.setTextColor(color);
-        this.bhB.setTextColor(color);
-        this.bhC.setTextColor(color);
-        this.bhD.setBackgroundColor(color3);
-        this.bhE.setBackgroundColor(color3);
-        this.bhF.setBackgroundColor(color3);
-        this.bhA.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_right_selector));
-        this.bhB.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_left_selector));
-        this.bhC.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_selector));
-        TextView Ql = Ql();
-        if (Ql != null) {
-            Ql.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
+        this.bhg.setTextColor(color2);
+        this.bhi.setTextColor(color);
+        this.bhj.setTextColor(color);
+        this.bhk.setTextColor(color);
+        this.bhl.setBackgroundColor(color3);
+        this.bhm.setBackgroundColor(color3);
+        this.bhn.setBackgroundColor(color3);
+        this.bhi.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_right_selector));
+        this.bhj.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_left_selector));
+        this.bhk.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_selector));
+        TextView Qm = Qm();
+        if (Qm != null) {
+            Qm.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
         }
     }
 
@@ -214,37 +214,37 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     protected void setMessage(CharSequence charSequence) {
-        this.bhy.setText(charSequence);
-        this.bhz.setVisibility(!TextUtils.isEmpty(charSequence) ? 0 : 8);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.bhK);
+        this.bhg.setText(charSequence);
+        this.bhh.setVisibility(!TextUtils.isEmpty(charSequence) ? 0 : 8);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.bhs);
         layoutParams.addRule(3, a.f.dialog_message_content);
-        this.bhJ.setLayoutParams(layoutParams);
+        this.bhr.setLayoutParams(layoutParams);
     }
 
     protected void setView(View view) {
-        if (this.bhG != null) {
-            this.bhG.removeAllViews();
+        if (this.bho != null) {
+            this.bho.removeAllViews();
             if (view != null) {
-                this.bhG.addView(view);
-                this.bhz.setVisibility(8);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.bhK);
+                this.bho.addView(view);
+                this.bhh.setVisibility(8);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.bhs);
                 layoutParams.addRule(3, a.f.dialog_customPanel);
-                this.bhJ.setLayoutParams(layoutParams);
+                this.bhr.setLayoutParams(layoutParams);
             }
         }
     }
 
     protected void cn(boolean z) {
-        this.bhA.setEnabled(z);
+        this.bhi.setEnabled(z);
     }
 
     protected void em(int i) {
-        this.bhA.setTextColor(i);
+        this.bhi.setTextColor(i);
     }
 
     protected void hc(String str) {
-        this.bhA.setText(str);
-        this.bhA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.3
+        this.bhi.setText(str);
+        this.bhi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BaseActivityDialog.this.el(-1);
@@ -253,22 +253,22 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             }
         });
         if (TextUtils.isEmpty(str)) {
-            this.bhA.setVisibility(8);
-            if (this.bhB.getVisibility() == 0) {
-                this.bhE.setVisibility(8);
+            this.bhi.setVisibility(8);
+            if (this.bhj.getVisibility() == 0) {
+                this.bhm.setVisibility(8);
                 return;
             }
             return;
         }
-        this.bhA.setVisibility(0);
-        if (this.bhB.getVisibility() == 0) {
-            this.bhE.setVisibility(0);
+        this.bhi.setVisibility(0);
+        if (this.bhj.getVisibility() == 0) {
+            this.bhm.setVisibility(0);
         }
     }
 
     protected void hd(String str) {
-        this.bhB.setText(str);
-        this.bhB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.4
+        this.bhj.setText(str);
+        this.bhj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BaseActivityDialog.this.el(-2);
@@ -277,53 +277,53 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             }
         });
         if (TextUtils.isEmpty(str)) {
-            this.bhB.setVisibility(8);
-            if (this.bhA.getVisibility() == 0) {
-                this.bhE.setVisibility(8);
+            this.bhj.setVisibility(8);
+            if (this.bhi.getVisibility() == 0) {
+                this.bhm.setVisibility(8);
                 return;
             }
             return;
         }
-        this.bhB.setVisibility(0);
-        if (this.bhA.getVisibility() == 0) {
-            this.bhE.setVisibility(0);
+        this.bhj.setVisibility(0);
+        if (this.bhi.getVisibility() == 0) {
+            this.bhm.setVisibility(0);
         }
     }
 
     protected void co(boolean z) {
         if (z) {
-            this.bhJ.setVisibility(8);
-            this.bhD.setVisibility(8);
+            this.bhr.setVisibility(8);
+            this.bhl.setVisibility(8);
         }
     }
 
     private void release() {
-        if (this.bhI != null) {
-            EventBusWrapper.unregister(this.bhI);
-            this.bhI.release();
-            this.bhI = null;
+        if (this.bhq != null) {
+            EventBusWrapper.unregister(this.bhq);
+            this.bhq.release();
+            this.bhq = null;
         }
         setView(null);
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        public static final int bhM = a.h.aiapps_dialog_negative_title_cancel;
-        public static final int bhN = a.h.aiapps_dialog_positive_title_ok;
-        private static HashMap<String, a> bhO = new HashMap<>();
-        private static ArrayList bhP = new ArrayList();
-        private String bhQ;
-        private String bhR;
-        private Drawable bhS;
-        private boolean bhT;
-        private int bhU;
-        private DialogInterface.OnClickListener bhV;
-        private DialogInterface.OnClickListener bhW;
-        private DialogInterface.OnCancelListener bhX;
-        private DialogInterface.OnDismissListener bhY;
-        private Class<? extends Activity> bhZ;
-        private int bia;
-        private boolean bib;
+        public static final int bhu = a.h.aiapps_dialog_negative_title_cancel;
+        public static final int bhv = a.h.aiapps_dialog_positive_title_ok;
+        private static HashMap<String, a> bhw = new HashMap<>();
+        private static ArrayList bhx = new ArrayList();
+        private Drawable bhA;
+        private boolean bhB;
+        private int bhC;
+        private DialogInterface.OnClickListener bhD;
+        private DialogInterface.OnClickListener bhE;
+        private DialogInterface.OnCancelListener bhF;
+        private DialogInterface.OnDismissListener bhG;
+        private Class<? extends Activity> bhH;
+        private int bhI;
+        private boolean bhJ;
+        private String bhy;
+        private String bhz;
         private View contentView;
         private Bundle extras;
         private String from;
@@ -337,10 +337,10 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public a(Class<? extends Activity> cls) {
-            this.bhT = true;
-            this.bia = -1;
+            this.bhB = true;
+            this.bhI = -1;
             this.mContext = AppRuntime.getAppContext();
-            this.bhZ = cls;
+            this.bhH = cls;
         }
 
         public a en(int i) {
@@ -362,24 +362,24 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public a a(String str, DialogInterface.OnClickListener onClickListener) {
-            this.bhQ = str;
-            this.bhV = onClickListener;
+            this.bhy = str;
+            this.bhD = onClickListener;
             return this;
         }
 
         public a a(DialogInterface.OnDismissListener onDismissListener) {
-            this.bhY = onDismissListener;
+            this.bhG = onDismissListener;
             return this;
         }
 
         void release() {
-            bhP.remove(this.mTag);
-            this.bhV = null;
-            this.bhW = null;
-            this.bhX = null;
-            this.bhY = null;
+            bhx.remove(this.mTag);
+            this.bhD = null;
+            this.bhE = null;
+            this.bhF = null;
+            this.bhG = null;
             this.contentView = null;
-            this.bhS = null;
+            this.bhA = null;
         }
 
         public void show() {
@@ -391,10 +391,10 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 @Override // java.lang.Runnable
                 public void run() {
                     Context appContext = AppRuntime.getAppContext();
-                    if (a.this.bhZ == null) {
-                        a.this.bhZ = BaseActivityDialog.class;
+                    if (a.this.bhH == null) {
+                        a.this.bhH = BaseActivityDialog.class;
                     }
-                    Intent intent = new Intent(appContext, a.this.bhZ);
+                    Intent intent = new Intent(appContext, a.this.bhH);
                     intent.putExtra("BOX_ACTIVITY_DIALOG_NIGHT_MODE", z);
                     String valueOf = String.valueOf(intent.hashCode());
                     intent.putExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER", valueOf);
@@ -414,8 +414,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         static a hg(String str) {
             a remove;
             if (!TextUtils.isEmpty(str)) {
-                synchronized (bhO) {
-                    remove = bhO.remove(str);
+                synchronized (bhw) {
+                    remove = bhw.remove(str);
                 }
                 return remove;
             }
@@ -424,8 +424,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
         static void a(String str, a aVar) {
             if (!TextUtils.isEmpty(str) && aVar != null) {
-                synchronized (bhO) {
-                    bhO.put(str, aVar);
+                synchronized (bhw) {
+                    bhw.put(str, aVar);
                 }
             }
         }
@@ -433,30 +433,30 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public void onEvent(b bVar) {
             if (bVar != null) {
                 DialogInterface.OnClickListener onClickListener = null;
-                switch (bVar.bih) {
+                switch (bVar.bhN) {
                     case -2:
-                        onClickListener = this.bhW;
+                        onClickListener = this.bhE;
                         break;
                     case -1:
-                        onClickListener = this.bhV;
+                        onClickListener = this.bhD;
                         break;
                 }
                 if (onClickListener == null) {
                     return;
                 }
-                onClickListener.onClick(bVar.bif, bVar.bih);
+                onClickListener.onClick(bVar.bhM, bVar.bhN);
             }
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes2.dex */
         public static class b {
-            private DialogInterface bif;
-            private int bih;
+            private DialogInterface bhM;
+            private int bhN;
 
             public b(DialogInterface dialogInterface, int i) {
-                this.bif = dialogInterface;
-                this.bih = i;
+                this.bhM = dialogInterface;
+                this.bhN = i;
             }
         }
 
@@ -470,7 +470,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources Kb = com.baidu.swan.apps.u.a.JD().Kb();
-        return Kb != null ? Kb : super.getResources();
+        Resources Kc = com.baidu.swan.apps.u.a.JE().Kc();
+        return Kc != null ? Kc : super.getResources();
     }
 }

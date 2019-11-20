@@ -1,10 +1,15 @@
 package com.xiaomi.mipush.sdk;
+
+import com.baidu.mapapi.UIMsg;
 /* loaded from: classes3.dex */
 public class Constants {
     public static final String ACCEPT_TIME_SEPARATOR_SERVER = "-";
     public static final String ACCEPT_TIME_SEPARATOR_SP = ",";
     public static final String APP_ID = "app_id";
+    public static final long ASSEMBLE_PUSH_NETWORK_INTERVAL = 300000;
     public static final String ASSEMBLE_PUSH_REG_INFO = "RegInfo";
+    public static final int[] ASSEMBLE_PUSH_RETRY_DELAY = {2000, UIMsg.m_AppUI.MSG_APP_SAVESCREEN, 8000};
+    public static final int ASSEMBLE_PUSH_RETRY_INTERVAL = 2000;
     public static final String ASSEMBLE_PUSH_TOKEN = "token";
     public static final String COLON_SEPARATOR = ":";
     public static final String EXTRA_KEY_ACCEPT_TIME = "accept_time";
@@ -28,10 +33,8 @@ public class Constants {
     public static final String EXTRA_KEY_TOKEN = "token";
     public static final String EXTRA_KEY_TOPICS = "topics";
     public static final String EXTRA_KEY_TOPICS_MD5 = "topics_md5";
-    public static final String EXTRA_KEY_XMSF_GEO_IS_WORK = "xmsf_geo_is_work";
     public static final String EXTRA_VALUE_HYBRID_MESSAGE = "hybrid_message";
     public static final String EXTRA_VALUE_PLATFORM_MESSAGE = "platform_message";
-    public static final String GEO_NEED_REFRESHED = "geo_need_refresh";
     public static final String HUAWEI_HMS_CLIENT_APPID = "com.huawei.hms.client.appid";
     public static final String HYBRID_DEBUG_PACKAGE_NAME = "com.miui.hybrid.loader";
     public static final String HYBRID_PACKAGE_NAME = "com.miui.hybrid";
@@ -43,6 +46,6 @@ public class Constants {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static int a() {
-        return com.xiaomi.channel.commonutils.misc.a.c();
+        return com.xiaomi.push.ab.a();
     }
 }

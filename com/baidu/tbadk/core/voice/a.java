@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String aox() {
+    public static String aov() {
         return q.guid();
     }
 

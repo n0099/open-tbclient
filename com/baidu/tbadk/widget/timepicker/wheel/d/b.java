@@ -5,23 +5,23 @@ import android.os.Message;
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 /* loaded from: classes3.dex */
 public final class b extends Handler {
-    private final WheelView cZY;
+    private final WheelView cZh;
 
     public b(WheelView wheelView) {
-        this.cZY = wheelView;
+        this.cZh = wheelView;
     }
 
     @Override // android.os.Handler
     public final void handleMessage(Message message) {
         switch (message.what) {
             case 1000:
-                this.cZY.invalidate();
+                this.cZh.invalidate();
                 return;
             case 2000:
-                this.cZY.a(WheelView.ACTION.FLING);
+                this.cZh.a(WheelView.ACTION.FLING);
                 return;
             case 3000:
-                this.cZY.aAG();
+                this.cZh.aAE();
                 return;
             default:
                 return;

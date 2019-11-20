@@ -16,8 +16,8 @@ public class c extends HttpMessage {
     }
 
     public void setParams() {
-        String wt = o.wt();
+        String wu = o.wu();
         addParam("live_id", this.liveId);
-        addParam("scene_from", wt);
+        addParam("scene_from", wu);
     }
 }

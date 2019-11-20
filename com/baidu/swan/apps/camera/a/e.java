@@ -26,7 +26,7 @@ public class e extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "parse json model is null");
             return false;
         }
-        final CameraPreview dT = com.baidu.swan.apps.camera.a.CD().dT(bVar2.aXH);
+        final CameraPreview dT = com.baidu.swan.apps.camera.a.CE().dT(bVar2.aXp);
         if (dT == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera view is null");
@@ -36,7 +36,7 @@ public class e extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera stop record cache path is empty");
             return false;
         } else {
-            bVar.Rd().a((Activity) context, "mapp_record", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.camera.a.e.1
+            bVar.Rf().a((Activity) context, "mapp_record", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.camera.a.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
@@ -56,12 +56,12 @@ public class e extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.ae.b bVar, final com.baidu.swan.apps.camera.d.b bVar2, final CameraPreview cameraPreview) {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "handleAuthorized start");
-        if (com.baidu.swan.apps.camera.a.CD().aO(context) && com.baidu.swan.apps.camera.a.CD().aP(context)) {
+        if (com.baidu.swan.apps.camera.a.CE().aO(context) && com.baidu.swan.apps.camera.a.CE().aP(context)) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "has authorize");
             a(unitedSchemeEntity, callbackHandler, bVar, cameraPreview, bVar2);
             return;
         }
-        com.baidu.swan.apps.w.e.LD().a(1, new String[]{"android.permission.CAMERA", "android.permission.RECORD_AUDIO"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.camera.a.e.2
+        com.baidu.swan.apps.w.e.LE().a(1, new String[]{"android.permission.CAMERA", "android.permission.RECORD_AUDIO"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.camera.a.e.2
             @Override // com.baidu.swan.apps.ab.a.InterfaceC0152a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
@@ -98,17 +98,17 @@ public class e extends a {
         boolean z;
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "stop record start");
         try {
-            z = cameraPreview.CK();
+            z = cameraPreview.CL();
         } catch (Exception e2) {
             e = e2;
             z = false;
         }
         try {
-            com.baidu.swan.apps.camera.a.CD().CE();
+            com.baidu.swan.apps.camera.a.CE().CF();
         } catch (Exception e3) {
             e = e3;
-            cameraPreview.CN();
-            com.baidu.swan.apps.camera.a.CD().f(bVar2.aXH, bVar2.aFu, false);
+            cameraPreview.CO();
+            com.baidu.swan.apps.camera.a.CE().f(bVar2.aXp, bVar2.aFc, false);
             if (DEBUG) {
                 e.printStackTrace();
             }
@@ -118,7 +118,7 @@ public class e extends a {
             if (!z) {
             }
             a(unitedSchemeEntity, callbackHandler, false);
-            cameraPreview.CN();
+            cameraPreview.CO();
             com.baidu.swan.apps.console.c.i("SwanAppCamera", "stop record end");
         }
         String videoPath2 = cameraPreview.getVideoPath();
@@ -131,7 +131,7 @@ public class e extends a {
         } else {
             a(unitedSchemeEntity, callbackHandler, false);
         }
-        cameraPreview.CN();
+        cameraPreview.CO();
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "stop record end");
     }
 

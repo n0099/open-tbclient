@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
 public class a implements com.baidu.live.challenge.f {
     public a() {
-        d.aPY();
+        d.aPW();
     }
 
     @Override // com.baidu.live.challenge.f

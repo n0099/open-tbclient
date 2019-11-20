@@ -5,24 +5,24 @@ import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes2.dex */
 public class a {
-    private int bAN;
-    private int bAO;
+    private int bzW;
+    private int bzX;
     @V8JavascriptField
     public JsArrayBuffer data;
 
     public a() {
-        this.bAN = 0;
-        int i = this.bAN;
-        this.bAN = i + 1;
-        this.bAO = i;
+        this.bzW = 0;
+        int i = this.bzW;
+        this.bzW = i + 1;
+        this.bzX = i;
     }
 
     @JavascriptInterface
     public int jsObjectID() {
-        return this.bAO;
+        return this.bzX;
     }
 
     public String toString() {
-        return "ArrayBufferCallBack" + this.bAO;
+        return "ArrayBufferCallBack" + this.bzX;
     }
 }

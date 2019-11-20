@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.entelechy.b;
 public interface c {
     void K(boolean z, boolean z2);
 
-    boolean bni();
+    boolean bng();
 
-    void bnj();
+    void bnh();
 
-    void bnk();
+    void bni();
 
     void kp(boolean z);
 

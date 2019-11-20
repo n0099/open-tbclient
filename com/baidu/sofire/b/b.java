@@ -9,7 +9,6 @@ import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
-import com.baidu.tieba.model.ReportUserInfoModel;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
@@ -73,7 +72,7 @@ public final class b {
                     j = 180000;
                     break;
                 case 2:
-                    j = ReportUserInfoModel.TIME_INTERVAL;
+                    j = 300000;
                     break;
             }
             long currentTimeMillis = j + System.currentTimeMillis();

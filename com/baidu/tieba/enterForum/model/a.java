@@ -4,27 +4,27 @@ import android.content.Context;
 import android.view.WindowManager;
 /* loaded from: classes4.dex */
 public class a {
-    private static a fcS;
-    private boolean bci;
+    private static a fcb;
+    private boolean bbQ;
     private int mStatusBarHeight;
     private WindowManager mWindowManager;
 
-    public static a beJ() {
-        if (fcS == null) {
+    public static a beH() {
+        if (fcb == null) {
             synchronized (a.class) {
-                if (fcS == null) {
-                    fcS = new a();
+                if (fcb == null) {
+                    fcb = new a();
                 }
             }
         }
-        return fcS;
+        return fcb;
     }
 
     private a() {
     }
 
     public void k(Context context, int i) {
-        this.bci = true;
+        this.bbQ = true;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
         }
@@ -33,7 +33,7 @@ public class a {
     }
 
     public void destroy() {
-        this.bci = false;
-        fcS = null;
+        this.bbQ = false;
+        fcb = null;
     }
 }

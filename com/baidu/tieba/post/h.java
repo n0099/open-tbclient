@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class h {
-    private com.baidu.tbadk.m.h dxB;
-    BdTypeListView iCF;
-    private d iCs;
+    private com.baidu.tbadk.m.h dwK;
+    private d iBB;
+    BdTypeListView iBO;
     private Context mContext;
     private View mRootView;
     NoDataView mNoDataView = null;
-    private View.OnClickListener gIR = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
+    private View.OnClickListener gIa = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                if (h.this.dxB != null) {
-                    h.this.dxB.dettachView(h.this.mRootView);
-                    h.this.dxB = null;
+                if (h.this.dwK != null) {
+                    h.this.dwK.dettachView(h.this.mRootView);
+                    h.this.dwK = null;
                 }
-                if (h.this.iCs != null) {
-                    h.this.iCs.cdx();
+                if (h.this.iBB != null) {
+                    h.this.iBB.cdv();
                 }
             }
         }
     };
 
-    public BdTypeListView cdJ() {
-        return this.iCF;
+    public BdTypeListView cdH() {
+        return this.iBO;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context, View view) {
         this.mContext = context;
         this.mRootView = view;
-        this.iCF = (BdTypeListView) view.findViewById(R.id.list);
+        this.iBO = (BdTypeListView) view.findViewById(R.id.list);
     }
 
-    public d cdK() {
-        return this.iCs;
+    public d cdI() {
+        return this.iBB;
     }
 
     public void b(d dVar) {
-        this.iCs = dVar;
+        this.iBB = dVar;
     }
 
     public void aj(String str, boolean z) {
-        f.a(this.dxB, this.gIR, this.mContext, this.mRootView, str, z);
-        this.iCF.setVisibility(8);
+        f.a(this.dwK, this.gIa, this.mContext, this.mRootView, str, z);
+        this.iBO.setVisibility(8);
     }
 }

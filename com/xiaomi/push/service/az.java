@@ -1,46 +1,47 @@
 package com.xiaomi.push.service;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Build;
-import android.provider.Settings;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class az {
-    private static az a;
-    private Context b;
-    private int c = 0;
+public class az implements ServiceConnection {
+    final /* synthetic */ ax a;
 
-    private az(Context context) {
-        this.b = context.getApplicationContext();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public az(ax axVar) {
+        this.a = axVar;
     }
 
-    public static az a(Context context) {
-        if (a == null) {
-            a = new az(context);
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        List<Message> list;
+        List list2;
+        Messenger messenger;
+        synchronized (this.a) {
+            this.a.b = new Messenger(iBinder);
+            this.a.f881b = false;
+            list = this.a.f879a;
+            for (Message message : list) {
+                try {
+                    messenger = this.a.b;
+                    messenger.send(message);
+                } catch (RemoteException e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                }
+            }
+            list2 = this.a.f879a;
+            list2.clear();
         }
-        return a;
     }
 
-    public boolean a() {
-        return com.xiaomi.channel.commonutils.misc.a.a.contains("xmsf") || com.xiaomi.channel.commonutils.misc.a.a.contains("xiaomi") || com.xiaomi.channel.commonutils.misc.a.a.contains("miui");
-    }
-
-    @SuppressLint({"NewApi"})
-    public int b() {
-        if (this.c != 0) {
-            return this.c;
-        }
-        if (Build.VERSION.SDK_INT >= 17) {
-            this.c = Settings.Global.getInt(this.b.getContentResolver(), "device_provisioned", 0);
-            return this.c;
-        }
-        this.c = Settings.Secure.getInt(this.b.getContentResolver(), "device_provisioned", 0);
-        return this.c;
-    }
-
-    @SuppressLint({"NewApi"})
-    public Uri c() {
-        return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned");
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        this.a.b = null;
+        this.a.f881b = false;
     }
 }

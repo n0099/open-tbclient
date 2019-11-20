@@ -6,25 +6,25 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static b aJT;
-    private boolean aJU = false;
-    private boolean aJV = false;
+    private static b aJB;
+    private boolean aJC = false;
+    private boolean aJD = false;
     private boolean mIsCanceled = false;
-    private boolean aJW = false;
-    private boolean aJX = false;
-    private int aJY = 3000;
-    private HashMap<String, Long> aJZ = new HashMap<>();
-    private boolean aKa = false;
+    private boolean aJE = false;
+    private boolean aJF = false;
+    private int aJG = 3000;
+    private HashMap<String, Long> aJH = new HashMap<>();
+    private boolean aJI = false;
 
-    public static b El() {
-        if (aJT == null) {
+    public static b Em() {
+        if (aJB == null) {
             synchronized (b.class) {
-                if (aJT == null) {
-                    aJT = new b();
+                if (aJB == null) {
+                    aJB = new b();
                 }
             }
         }
-        return aJT;
+        return aJB;
     }
 
     private b() {
@@ -35,12 +35,12 @@ public final class b {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.aJZ == null || !this.aJZ.containsKey(str) || currentTimeMillis - this.aJZ.get(str).longValue() > 18000000) {
+        if (this.aJH == null || !this.aJH.containsKey(str) || currentTimeMillis - this.aJH.get(str).longValue() > 18000000) {
             if (DEBUG) {
-                if (this.aJZ == null || !this.aJZ.containsKey(str)) {
+                if (this.aJH == null || !this.aJH.containsKey(str)) {
                     Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
                 } else {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.aJZ.get(str) + " ，id = " + str);
+                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.aJH.get(str) + " ，id = " + str);
                 }
             }
             return false;
@@ -51,7 +51,7 @@ public final class b {
         return true;
     }
 
-    public boolean Em() {
-        return this.aJV;
+    public boolean En() {
+        return this.aJD;
     }
 }

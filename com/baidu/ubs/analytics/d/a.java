@@ -3,10 +3,10 @@ package com.baidu.ubs.analytics.d;
 import android.os.Environment;
 /* loaded from: classes3.dex */
 public final class a {
-    private static final String jYG = Environment.getExternalStorageDirectory().getPath();
-    static final String jYH = jYG + "/baidu/ab/crash/";
-    static final String jYI = jYG + "/baidu/ab/sdklog/";
-    public static final String jYJ = jYG + "/baidu/ab/sdkupdata/" + cBD() + "/";
+    private static final String jXP = Environment.getExternalStorageDirectory().getPath();
+    static final String jXQ = jXP + "/baidu/ab/crash/";
+    static final String jXR = jXP + "/baidu/ab/sdklog/";
+    public static final String jXS = jXP + "/baidu/ab/sdkupdata/" + cBB() + "/";
     private static int aU = EnumC0553a.aV;
 
     /* JADX WARN: $VALUES field not found */
@@ -16,11 +16,11 @@ public final class a {
     public static final class EnumC0553a {
         public static final int aV = 1;
         public static final int aW = 2;
-        private static final /* synthetic */ int[] jYK = {aV, aW};
+        private static final /* synthetic */ int[] jXT = {aV, aW};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean cBC() {
+    public static boolean cBA() {
         return aU == EnumC0553a.aV;
     }
 
@@ -28,7 +28,7 @@ public final class a {
         return "0.4.0";
     }
 
-    private static int cBD() {
+    private static int cBB() {
         try {
             String[] split = "0.4.0".split("\\.");
             if (split.length > 2) {

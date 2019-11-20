@@ -82,7 +82,7 @@ public final class CompositeException extends RuntimeException {
                 if (!hashSet.contains(th)) {
                     hashSet.add(th);
                     RuntimeException runtimeException = th;
-                    for (Throwable th2 : H(th)) {
+                    for (Throwable th2 : I(th)) {
                         if (hashSet.contains(th2)) {
                             runtimeException = new RuntimeException("Duplicate found in causal chain so cropping to prevent loop ...");
                         } else {
@@ -93,7 +93,7 @@ public final class CompositeException extends RuntimeException {
                         compositeExceptionCausalChain2.initCause(runtimeException);
                     } catch (Throwable th3) {
                     }
-                    compositeExceptionCausalChain2 = I(compositeExceptionCausalChain2);
+                    compositeExceptionCausalChain2 = J(compositeExceptionCausalChain2);
                 }
             }
             this.cause = compositeExceptionCausalChain;
@@ -131,7 +131,7 @@ public final class CompositeException extends RuntimeException {
                 a(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.cOt()) {
+                synchronized (aVar.cOr()) {
                     aVar.bj(sb.toString());
                 }
                 return;
@@ -155,7 +155,7 @@ public final class CompositeException extends RuntimeException {
     public static abstract class a {
         abstract void bj(Object obj);
 
-        abstract Object cOt();
+        abstract Object cOr();
 
         a() {
         }
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b extends a {
-        private final PrintStream kyQ;
+        private final PrintStream kxZ;
 
         b(PrintStream printStream) {
-            this.kyQ = printStream;
+            this.kxZ = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object cOt() {
-            return this.kyQ;
+        Object cOr() {
+            return this.kxZ;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void bj(Object obj) {
-            this.kyQ.println(obj);
+            this.kxZ.println(obj);
         }
     }
 
     /* loaded from: classes2.dex */
     static final class c extends a {
-        private final PrintWriter kyR;
+        private final PrintWriter kya;
 
         c(PrintWriter printWriter) {
-            this.kyR = printWriter;
+            this.kya = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object cOt() {
-            return this.kyR;
+        Object cOr() {
+            return this.kya;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void bj(Object obj) {
-            this.kyR.println(obj);
+            this.kya.println(obj);
         }
     }
 
@@ -214,7 +214,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    private List<Throwable> H(Throwable th) {
+    private List<Throwable> I(Throwable th) {
         ArrayList arrayList = new ArrayList();
         Throwable cause = th.getCause();
         if (cause == null || cause == th) {
@@ -231,7 +231,7 @@ public final class CompositeException extends RuntimeException {
         return arrayList;
     }
 
-    private Throwable I(Throwable th) {
+    private Throwable J(Throwable th) {
         Throwable cause = th.getCause();
         if (cause == null || cause == th) {
             return th;

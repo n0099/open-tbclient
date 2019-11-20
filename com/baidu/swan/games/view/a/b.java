@@ -11,11 +11,11 @@ public class b {
         f fVar = new f();
         fVar.mType = str;
         fVar.mValue = str2;
-        if (com.baidu.swan.apps.ae.b.QZ() != null && com.baidu.swan.apps.ae.b.QZ().AJ() != null) {
-            com.baidu.swan.apps.v.b.b AJ = com.baidu.swan.apps.ae.b.QZ().AJ();
-            fVar.mFrom = e.eL(AJ.KO());
-            fVar.mAppId = AJ.getAppId();
-            fVar.mSource = AJ.KE();
+        if (com.baidu.swan.apps.ae.b.Ra() != null && com.baidu.swan.apps.ae.b.Ra().AK() != null) {
+            com.baidu.swan.apps.v.b.b AK = com.baidu.swan.apps.ae.b.Ra().AK();
+            fVar.mFrom = e.eL(AK.KP());
+            fVar.mAppId = AK.getAppId();
+            fVar.mSource = AK.KF();
         }
         e.a("916", fVar);
     }
@@ -24,30 +24,30 @@ public class b {
         f fVar = new f();
         fVar.mType = str;
         fVar.mValue = "show";
-        if (com.baidu.swan.apps.ae.b.QZ() != null && com.baidu.swan.apps.ae.b.QZ().AJ() != null) {
-            com.baidu.swan.apps.v.b.b AJ = com.baidu.swan.apps.ae.b.QZ().AJ();
-            fVar.mFrom = e.eL(AJ.KO());
-            fVar.mAppId = AJ.getAppId();
-            fVar.mSource = AJ.KE();
+        if (com.baidu.swan.apps.ae.b.Ra() != null && com.baidu.swan.apps.ae.b.Ra().AK() != null) {
+            com.baidu.swan.apps.v.b.b AK = com.baidu.swan.apps.ae.b.Ra().AK();
+            fVar.mFrom = e.eL(AK.KP());
+            fVar.mAppId = AK.getAppId();
+            fVar.mSource = AK.KF();
         }
-        fVar.h("early", Yu() ? "0" : "1");
+        fVar.h("early", Ys() ? "0" : "1");
         e.a("916", fVar);
     }
 
-    private static boolean Yu() {
-        return Yv() > 0 && com.baidu.swan.games.glsurface.a.b.Xf() && System.currentTimeMillis() - Yv() > 6000;
+    private static boolean Ys() {
+        return Yt() > 0 && com.baidu.swan.games.glsurface.a.b.Xd() && System.currentTimeMillis() - Yt() > 6000;
     }
 
-    private static long Yv() {
-        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
-        if (QZ == null) {
+    private static long Yt() {
+        com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
+        if (Ra == null) {
             return 0L;
         }
-        Activity activity = QZ.getActivity();
+        Activity activity = Ra.getActivity();
         if (activity instanceof SwanAppActivity) {
-            d AC = ((SwanAppActivity) activity).AC();
-            if (AC instanceof com.baidu.swan.games.g.a) {
-                return ((com.baidu.swan.games.g.a) AC).WV();
+            d AD = ((SwanAppActivity) activity).AD();
+            if (AD instanceof com.baidu.swan.games.g.a) {
+                return ((com.baidu.swan.games.g.a) AD).WT();
             }
             return 0L;
         }

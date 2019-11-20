@@ -1,10 +1,10 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class v extends k {
-    private static v cOg = new v();
+    private static v cNp = new v();
 
-    public static boolean axj() {
-        return cOg.isOn();
+    public static boolean axh() {
+        return cNp.isOn();
     }
 
     @Override // com.baidu.tbadk.t.k, com.baidu.adp.lib.b.a

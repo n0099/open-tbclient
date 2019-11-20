@@ -12,19 +12,19 @@ import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public abstract class g extends b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected com.baidu.swan.apps.b.c.f aLC;
-    protected com.baidu.swan.apps.b.c.d aLD;
+    protected com.baidu.swan.apps.b.c.f aLk;
+    protected com.baidu.swan.apps.b.c.d aLl;
     protected String mParams;
     private String mUrl;
 
-    protected abstract com.baidu.swan.apps.core.f.c CA();
+    protected abstract com.baidu.swan.apps.core.f.c CB();
 
-    protected abstract com.baidu.swan.apps.b.c.f Cm();
+    protected abstract com.baidu.swan.apps.b.c.f Cn();
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        EW();
+        EX();
         if (DEBUG) {
             Log.d("SwanAppWebViewFragment", "onCreate() : " + this);
         }
@@ -35,20 +35,20 @@ public abstract class g extends b {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         U(inflate);
-        this.aLC = Cm();
-        this.aLC.a(CA());
-        this.aLD = this.aLC.Cr();
-        this.aLC.loadUrl(this.mUrl);
+        this.aLk = Cn();
+        this.aLk.a(CB());
+        this.aLl = this.aLk.Cs();
+        this.aLk.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.aLC.a(frameLayout, this.aLD.Cq());
+        this.aLk.a(frameLayout, this.aLl.Cr());
         a(frameLayout);
-        return a(EI() ? Y(inflate) : inflate, this);
+        return a(EJ() ? Y(inflate) : inflate, this);
     }
 
     protected void a(FrameLayout frameLayout) {
     }
 
-    private void EW() {
+    private void EX() {
         Bundle arguments = getArguments();
         if (arguments != null) {
             this.mUrl = arguments.getString("url");
@@ -103,60 +103,60 @@ public abstract class g extends b {
     }
 
     public static boolean b(@NonNull String str, com.baidu.swan.apps.model.b bVar) {
-        e AH = com.baidu.swan.apps.w.e.LD().AH();
-        if (AH == null) {
+        e AI = com.baidu.swan.apps.w.e.LE().AI();
+        if (AI == null) {
             com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "open page failed");
             return false;
         }
         com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "open page url=" + bVar.mBaseUrl);
-        AH.Fu().H(e.aLl, e.aLn).a(str, bVar).FC();
+        AI.Fv().F(e.aKT, e.aKV).a(str, bVar).FD();
         return true;
     }
 
-    public static boolean FH() {
-        e AH = com.baidu.swan.apps.w.e.LD().AH();
-        if (AH == null) {
+    public static boolean FI() {
+        e AI = com.baidu.swan.apps.w.e.LE().AI();
+        if (AI == null) {
             com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "close page failed");
             return false;
         }
         com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "page closed! ");
-        AH.Fu().H(e.aLn, e.aLm).Fy().commit();
+        AI.Fv().F(e.aKV, e.aKU).Fz().commit();
         return true;
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.aLC != null) {
-            this.aLC.destroy();
-            this.aLC = null;
+        if (this.aLk != null) {
+            this.aLk.destroy();
+            this.aLk = null;
         }
         super.onDestroy();
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected void Eu() {
-        this.aLC.Co();
-        Et();
-        this.aKz.a(com.baidu.swan.apps.u.a.JD().Kc(), ER(), ES());
+    protected void Ev() {
+        this.aLk.Cp();
+        Eu();
+        this.aKh.a(com.baidu.swan.apps.u.a.JE().Kd(), ES(), ET());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.b
-    public boolean Ev() {
+    public boolean Ew() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    public boolean Cn() {
-        if (this.aLD == null || !this.aLD.canGoBack()) {
+    public boolean Co() {
+        if (this.aLl == null || !this.aLl.canGoBack()) {
             return false;
         }
-        this.aLD.goBack();
+        this.aLl.goBack();
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected void Et() {
+    protected void Eu() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -165,8 +165,8 @@ public abstract class g extends b {
         super.U(view);
         cY(-1);
         cZ(ViewCompat.MEASURED_STATE_MASK);
-        this.aKy.setTitle("");
-        this.aKy.setRightZoneVisibility(true);
+        this.aKg.setTitle("");
+        this.aKg.setRightZoneVisibility(true);
         bv(true);
     }
 }

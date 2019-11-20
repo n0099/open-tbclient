@@ -10,20 +10,20 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private final List<AlaTopTipView> eoU;
-    private final AlaTopTipView.a eoV;
-    private b eoW;
+    private final List<AlaTopTipView> eod;
+    private final AlaTopTipView.a eoe;
+    private b eof;
 
     public a(TbPageContext tbPageContext, b bVar) {
         super(tbPageContext);
-        this.eoU = new LinkedList();
-        this.eoV = new AlaTopTipView.a() { // from class: com.baidu.tieba.ala.liveroom.tippop.a.1
+        this.eod = new LinkedList();
+        this.eoe = new AlaTopTipView.a() { // from class: com.baidu.tieba.ala.liveroom.tippop.a.1
             @Override // com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.a
             public void bz(View view) {
-                a.this.eoU.remove(view);
+                a.this.eod.remove(view);
             }
         };
-        this.eoW = bVar;
+        this.eof = bVar;
     }
 
     public void a(ViewGroup viewGroup, String str, int i, boolean z) {
@@ -34,40 +34,40 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             }
             alaTopTipView.setType(i);
             alaTopTipView.setText(str);
-            alaTopTipView.setOnTipCompletedCallback(this.eoV);
+            alaTopTipView.setOnTipCompletedCallback(this.eoe);
             alaTopTipView.l(viewGroup, 0);
-            this.eoU.add(alaTopTipView);
+            this.eod.add(alaTopTipView);
         }
     }
 
     public void a(ViewGroup viewGroup, String str, int i) {
         if (viewGroup != null && !StringUtils.isNull(str)) {
-            if (i != 1 || this.eoW == null || this.eoW.na(9)) {
+            if (i != 1 || this.eof == null || this.eof.mZ(9)) {
                 AlaTopTipView alaTopTipView = new AlaTopTipView(viewGroup.getContext());
                 alaTopTipView.setType(i);
                 alaTopTipView.setText(str);
-                alaTopTipView.setOnTipCompletedCallback(this.eoV);
+                alaTopTipView.setOnTipCompletedCallback(this.eoe);
                 alaTopTipView.l(viewGroup, 0);
-                this.eoU.add(alaTopTipView);
+                this.eod.add(alaTopTipView);
             }
         }
     }
 
-    public void aWf() {
-        if (!this.eoU.isEmpty()) {
-            for (AlaTopTipView alaTopTipView : this.eoU) {
+    public void aWd() {
+        if (!this.eod.isEmpty()) {
+            for (AlaTopTipView alaTopTipView : this.eod) {
                 if (alaTopTipView != null) {
-                    alaTopTipView.aWf();
+                    alaTopTipView.aWd();
                 }
             }
         }
     }
 
-    public boolean oa(int i) {
-        if (this.eoU.isEmpty()) {
+    public boolean nZ(int i) {
+        if (this.eod.isEmpty()) {
             return false;
         }
-        for (AlaTopTipView alaTopTipView : this.eoU) {
+        for (AlaTopTipView alaTopTipView : this.eod) {
             if (alaTopTipView.getType() == i) {
                 return true;
             }
@@ -75,8 +75,8 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         return false;
     }
 
-    public void ob(int i) {
-        for (AlaTopTipView alaTopTipView : this.eoU) {
+    public void oa(int i) {
+        for (AlaTopTipView alaTopTipView : this.eod) {
             if (alaTopTipView.getType() == i) {
                 alaTopTipView.cd(true);
             }
@@ -86,17 +86,17 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     @Override // com.baidu.tieba.ala.liveroom.a
     public void nA() {
         super.nA();
-        for (AlaTopTipView alaTopTipView : this.eoU) {
+        for (AlaTopTipView alaTopTipView : this.eod) {
             alaTopTipView.cd(false);
         }
-        this.eoU.clear();
+        this.eod.clear();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        for (AlaTopTipView alaTopTipView : this.eoU) {
+        for (AlaTopTipView alaTopTipView : this.eod) {
             alaTopTipView.cd(false);
         }
-        this.eoU.clear();
+        this.eod.clear();
     }
 }

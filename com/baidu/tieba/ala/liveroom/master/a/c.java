@@ -18,61 +18,61 @@ public class c extends a {
         super.a(s, obj);
         switch (s) {
             case 1:
-                this.dZB.efV.startRecord();
-                this.dZB.efW.a((short) 2, null);
+                this.dYK.efe.startRecord();
+                this.dYK.eff.a((short) 2, null);
                 return;
             case 2:
             default:
                 return;
             case 3:
                 if (i == 7 || i == 5) {
-                    this.dZB.efW.a((short) 5, null);
+                    this.dYK.eff.a((short) 5, null);
                     return;
                 } else {
-                    this.dZB.efW.a((short) 2, null);
+                    this.dYK.eff.a((short) 2, null);
                     return;
                 }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aUv() {
-        if (this.dZB != null && this.dZB.efW != null && this.mCurrentState != 4) {
-            this.dZB.efW.a((short) 4, this.ejR);
+    public void aUt() {
+        if (this.dYK != null && this.dYK.eff != null && this.mCurrentState != 4) {
+            this.dYK.eff.a((short) 4, this.eja);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void ac(int i, String str) {
+    public void ab(int i, String str) {
         if (i == 0) {
-            this.dZB.efW.a((short) 3, null);
-        } else if (this.elb != null) {
-            this.elb.onError(i, str);
+            this.dYK.eff.a((short) 3, null);
+        } else if (this.ekk != null) {
+            this.ekk.onError(i, str);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void g(short s) {
-        super.g(s);
+    public void f(short s) {
+        super.f(s);
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aUw() {
-        super.aUw();
-        if (TbadkCoreApplication.getInst().getResumeNum() <= 0 && this.dZB != null && this.dZB.efV != null) {
-            this.dZB.efV.enterBackground();
+    public void aUu() {
+        super.aUu();
+        if (TbadkCoreApplication.getInst().getResumeNum() <= 0 && this.dYK != null && this.dYK.efe != null) {
+            this.dYK.efe.enterBackground();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aUx() {
-        super.aUx();
+    public void aUv() {
+        super.aUv();
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.a.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.dZB != null && c.this.dZB.efV != null) {
-                    c.this.dZB.efV.enterForeground();
+                if (c.this.dYK != null && c.this.dYK.efe != null) {
+                    c.this.dYK.efe.enterForeground();
                 }
             }
         });

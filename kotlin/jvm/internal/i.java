@@ -7,7 +7,7 @@ import kotlin.collections.y;
 import kotlin.collections.z;
 /* loaded from: classes2.dex */
 public final class i {
-    public static final kotlin.collections.l T(byte[] bArr) {
+    public static final kotlin.collections.l S(byte[] bArr) {
         p.i(bArr, "array");
         return new b(bArr);
     }

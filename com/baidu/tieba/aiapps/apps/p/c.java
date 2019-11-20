@@ -7,8 +7,8 @@ public class c extends com.baidu.swan.apps.u.b.b {
     }
 
     @Override // com.baidu.swan.apps.u.b.b
-    public boolean Kc() {
-        return a.Kc();
+    public boolean Kd() {
+        return a.Kd();
     }
 
     @Override // com.baidu.swan.apps.u.b.b

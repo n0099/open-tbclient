@@ -90,11 +90,11 @@ public class i {
         bundle.putString("eventType", str);
         SwanAppMessengerService serviceObject = SwanAppMessengerService.getServiceObject();
         if (serviceObject != null) {
-            a.b gV = com.baidu.swan.apps.process.messaging.service.a.Ov().gV(str2);
+            a.b gV = com.baidu.swan.apps.process.messaging.service.a.Ow().gV(str2);
             if (DEBUG) {
                 Log.d("SwanAppPkgUpdateManager", "appId: " + str2 + ", client: " + gV);
             }
-            if (gV != null && gV.bbv && gV.bbr.isSwanAppProcess()) {
+            if (gV != null && gV.bbd && gV.baZ.isSwanAppProcess()) {
                 serviceObject.sendMessageToClient(gV, 107, bundle);
                 return;
             }
@@ -120,11 +120,11 @@ public class i {
             }
             hashMap.put("data", jSONObject.toString());
             com.baidu.swan.apps.m.a.b bVar = new com.baidu.swan.apps.m.a.b("updateStatusChange", hashMap);
-            SwanAppActivity Lp = com.baidu.swan.apps.w.e.LD().Lp();
-            if (Lp != null && Lp.AB() == 1) {
-                com.baidu.swan.games.u.a.Yn().J(string, bundle.getBoolean("hasUpdate"));
+            SwanAppActivity Lq = com.baidu.swan.apps.w.e.LE().Lq();
+            if (Lq != null && Lq.AC() == 1) {
+                com.baidu.swan.games.u.a.Yl().J(string, bundle.getBoolean("hasUpdate"));
             } else {
-                com.baidu.swan.apps.w.e.LD().a(bVar);
+                com.baidu.swan.apps.w.e.LE().a(bVar);
             }
         }
     }
@@ -142,10 +142,10 @@ public class i {
     public static boolean b(com.baidu.swan.apps.database.a aVar, boolean z) {
         boolean z2 = false;
         if (aVar != null && aVar.isValid()) {
-            SwanAppDbControl aZ = SwanAppDbControl.aZ(com.baidu.swan.apps.u.a.Ji());
-            if (z || aVar.Hr()) {
-                if (aVar.aOT <= 0) {
-                    aVar.aOT = 432000L;
+            SwanAppDbControl aZ = SwanAppDbControl.aZ(com.baidu.swan.apps.u.a.Jj());
+            if (z || aVar.Hs()) {
+                if (aVar.aOB <= 0) {
+                    aVar.aOB = 432000L;
                 }
                 aVar.createTime = System.currentTimeMillis();
                 z2 = aZ.e(aVar, true);

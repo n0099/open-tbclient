@@ -1,73 +1,42 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.channels.FileLock;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes3.dex */
-public final class bl implements Runnable {
-    final /* synthetic */ Context a;
-    final /* synthetic */ com.xiaomi.xmpush.thrift.f b;
+class bl extends Handler {
+    final /* synthetic */ XMPushService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(Context context, com.xiaomi.xmpush.thrift.f fVar) {
-        this.a = context;
-        this.b = fVar;
+    public bl(XMPushService xMPushService) {
+        this.a = xMPushService;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        RandomAccessFile randomAccessFile;
-        FileLock fileLock = null;
-        synchronized (bk.a) {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        String str;
+        super.handleMessage(message);
+        if (message != null) {
             try {
+                switch (message.what) {
+                    case 17:
+                        if (message.obj != null) {
+                            this.a.onStart((Intent) message.obj, XMPushService.a);
+                            break;
+                        }
+                        break;
+                    case 18:
+                        Message obtain = Message.obtain((Handler) null, 0);
+                        obtain.what = 18;
+                        Bundle bundle = new Bundle();
+                        str = this.a.f822a;
+                        bundle.putString("xmsf_region", str);
+                        obtain.setData(bundle);
+                        message.replyTo.send(obtain);
+                        break;
+                }
             } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                File file = new File(this.a.getFilesDir(), "tiny_data.lock");
-                com.xiaomi.channel.commonutils.file.b.c(file);
-                randomAccessFile = new RandomAccessFile(file, "rw");
-                try {
-                    fileLock = randomAccessFile.getChannel().lock();
-                    bk.c(this.a, this.b);
-                    if (fileLock != null && fileLock.isValid()) {
-                        try {
-                            fileLock.release();
-                        } catch (IOException e) {
-                            com.xiaomi.channel.commonutils.logger.b.a(e);
-                        }
-                    }
-                    com.xiaomi.channel.commonutils.file.b.a(randomAccessFile);
-                } catch (Exception e2) {
-                    e = e2;
-                    com.xiaomi.channel.commonutils.logger.b.a(e);
-                    if (fileLock != null && fileLock.isValid()) {
-                        try {
-                            fileLock.release();
-                        } catch (IOException e3) {
-                            com.xiaomi.channel.commonutils.logger.b.a(e3);
-                        }
-                    }
-                    com.xiaomi.channel.commonutils.file.b.a(randomAccessFile);
-                }
-            } catch (Exception e4) {
-                e = e4;
-                randomAccessFile = null;
-            } catch (Throwable th2) {
-                th = th2;
-                randomAccessFile = null;
-                if (fileLock != null && fileLock.isValid()) {
-                    try {
-                        fileLock.release();
-                    } catch (IOException e5) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e5);
-                    }
-                }
-                com.xiaomi.channel.commonutils.file.b.a(randomAccessFile);
-                throw th;
             }
         }
     }

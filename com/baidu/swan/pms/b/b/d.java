@@ -12,9 +12,9 @@ public class d extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.d> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.b.d
-    /* renamed from: bf */
-    public com.baidu.swan.pms.b.c.d bb(JSONObject jSONObject) {
-        return com.baidu.swan.pms.e.d.bi(jSONObject);
+    /* renamed from: bg */
+    public com.baidu.swan.pms.b.c.d bc(JSONObject jSONObject) {
+        return com.baidu.swan.pms.e.d.bj(jSONObject);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,17 +22,17 @@ public class d extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.d> {
     @Override // com.baidu.swan.pms.b.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a T(com.baidu.swan.pms.b.c.d dVar) {
-        this.bMk.Gm();
-        com.baidu.swan.pms.d.a.f(this.bMl.getCategory(), dVar.aOT);
+        this.bLt.Gn();
+        com.baidu.swan.pms.d.a.d(this.bLu.getCategory(), dVar.aOB);
         com.baidu.swan.pms.e.e eVar = new com.baidu.swan.pms.e.e();
-        a(dVar.bMO, eVar);
-        a(dVar.bMQ, eVar);
-        if (eVar.abN() == 0) {
-            this.bMk.Gi();
+        a(dVar.bLX, eVar);
+        a(dVar.bLZ, eVar);
+        if (eVar.abL() == 0) {
+            this.bLt.Gj();
             return null;
         }
-        this.bMk.a(eVar);
-        com.baidu.swan.pms.b.a.a.a(dVar, this.bMk);
+        this.bLt.a(eVar);
+        com.baidu.swan.pms.b.a.a.a(dVar, this.bLt);
         return null;
     }
 
@@ -44,14 +44,14 @@ public class d extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.d> {
         if (dVar == null) {
             return false;
         }
-        if (dVar.bMO == null || dVar.bMO.abh()) {
-            return dVar.bMQ == null || dVar.bMQ.abh();
+        if (dVar.bLX == null || dVar.bLX.abf()) {
+            return dVar.bLZ == null || dVar.bLZ.abf();
         }
         return false;
     }
 
     @Override // com.baidu.swan.pms.b.d
-    protected String abj() {
+    protected String abh() {
         return "updatecore";
     }
 }

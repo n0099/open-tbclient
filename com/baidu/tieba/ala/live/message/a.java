@@ -28,8 +28,8 @@ public class a extends HttpMessage {
         av avVar = new av();
         avVar.props_id = JavaTypesHelper.toInt(str, 0);
         avVar.new_props_id = str;
-        avVar.Vu = i3;
-        avVar.Vv = i4;
+        avVar.Vb = i3;
+        avVar.Vc = i4;
         avVar.wars_name = "";
         avVar.wars_item = "";
         addParam("wares", avVar.toJson());

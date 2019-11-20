@@ -9,9 +9,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class EventPollingHttpResponseMessage extends JsonHttpResponsedMessage {
-    public long Pp;
-    public int ake;
-    public List<x> akf;
+    public long OO;
+    public int ajM;
+    public List<x> ajN;
     public long liveId;
 
     public EventPollingHttpResponseMessage() {
@@ -22,7 +22,7 @@ public class EventPollingHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.akf = new ArrayList();
+            this.ajN = new ArrayList();
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null && getError() == 0) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("list");
@@ -30,11 +30,11 @@ public class EventPollingHttpResponseMessage extends JsonHttpResponsedMessage {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     x xVar = new x();
                     xVar.parseJson(jSONObject2);
-                    this.akf.add(xVar);
+                    this.ajN.add(xVar);
                 }
-                this.ake = optJSONObject.optInt("polling_interval");
+                this.ajM = optJSONObject.optInt("polling_interval");
                 this.liveId = optJSONObject.optLong("live_id");
-                this.Pp = optJSONObject.optLong("current_time");
+                this.OO = optJSONObject.optLong("current_time");
             }
         }
     }

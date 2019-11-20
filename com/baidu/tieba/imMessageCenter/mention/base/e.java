@@ -10,52 +10,52 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e {
-    private List<com.baidu.adp.widget.ListView.a> agQ = new LinkedList();
-    private ArrayList<m> eYW;
-    private b gXN;
-    private b gXO;
-    private b gXP;
-    private b gXQ;
-    private b gXR;
-    private BdTypeRecyclerView zj;
+    private List<com.baidu.adp.widget.ListView.a> agy = new LinkedList();
+    private ArrayList<m> eYf;
+    private b gWW;
+    private b gWX;
+    private b gWY;
+    private b gWZ;
+    private b gXa;
+    private BdTypeRecyclerView yJ;
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.zj = bdTypeRecyclerView;
+            this.yJ = bdTypeRecyclerView;
             r(tbPageContext);
         }
     }
 
     private void r(TbPageContext tbPageContext) {
-        this.gXN = new b(tbPageContext, a.gXv);
-        this.gXO = new b(tbPageContext, a.gXw);
-        this.gXP = new b(tbPageContext, a.gXz);
-        this.gXQ = new b(tbPageContext, a.gXy);
-        this.gXR = new b(tbPageContext, a.gXx);
-        this.agQ.add(this.gXN);
-        this.agQ.add(this.gXO);
-        this.agQ.add(this.gXP);
-        this.agQ.add(this.gXQ);
-        this.agQ.add(this.gXR);
-        this.zj.addAdapters(this.agQ);
+        this.gWW = new b(tbPageContext, a.gWE);
+        this.gWX = new b(tbPageContext, a.gWF);
+        this.gWY = new b(tbPageContext, a.gWI);
+        this.gWZ = new b(tbPageContext, a.gWH);
+        this.gXa = new b(tbPageContext, a.gWG);
+        this.agy.add(this.gWW);
+        this.agy.add(this.gWX);
+        this.agy.add(this.gWY);
+        this.agy.add(this.gWZ);
+        this.agy.add(this.gXa);
+        this.yJ.addAdapters(this.agy);
     }
 
     public void onDestory() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.agQ) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.agy) {
         }
     }
 
     public void setData(ArrayList<m> arrayList) {
-        this.zj.setData(arrayList);
-        this.eYW = arrayList;
+        this.yJ.setData(arrayList);
+        this.eYf = arrayList;
     }
 
     public void notifyDataSetChanged() {
-        this.zj.getAdapter().notifyDataSetChanged();
+        this.yJ.getAdapter().notifyDataSetChanged();
     }
 
     public void e(s sVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.agQ) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.agy) {
             if (aVar != null) {
                 aVar.a(sVar);
             }
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void a(ab abVar) {
-        this.gXR.a(abVar);
-        this.gXQ.a(abVar);
-        this.gXP.a(abVar);
+        this.gXa.a(abVar);
+        this.gWZ.a(abVar);
+        this.gWY.a(abVar);
     }
 }

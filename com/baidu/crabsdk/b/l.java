@@ -12,21 +12,21 @@ import java.io.FileReader;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public final class l {
-    private static ActivityManager Kg;
+    private static ActivityManager JG;
     private static Context mContext;
 
     public static String A() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (Kg == null) {
+        if (JG == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            Kg.getMemoryInfo(memoryInfo2);
-            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : "no").append("\navailMem: ").append(com.baidu.crabsdk.c.c.q(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.q(memoryInfo2.threshold)).append("\n");
-            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = Kg.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
-                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.q(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.q(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.q(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
+            JG.getMemoryInfo(memoryInfo2);
+            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : "no").append("\navailMem: ").append(com.baidu.crabsdk.c.c.p(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.p(memoryInfo2.threshold)).append("\n");
+            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = JG.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("getMemInfo error!!!", e);
@@ -37,7 +37,7 @@ public final class l {
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            Kg = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            JG = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 

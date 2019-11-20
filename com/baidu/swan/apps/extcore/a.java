@@ -12,17 +12,17 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 /* loaded from: classes2.dex */
 public class a extends b<com.baidu.swan.apps.extcore.d.a.a, com.baidu.swan.apps.extcore.e.a.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a aQf;
+    private static volatile a aPN;
 
-    public static a HR() {
-        if (aQf == null) {
+    public static a HS() {
+        if (aPN == null) {
             synchronized (a.class) {
-                if (aQf == null) {
-                    aQf = new a();
+                if (aPN == null) {
+                    aPN = new a();
                 }
             }
         }
-        return aQf;
+        return aPN;
     }
 
     private a() {
@@ -30,9 +30,9 @@ public class a extends b<com.baidu.swan.apps.extcore.d.a.a, com.baidu.swan.apps.
     }
 
     @Nullable
-    public ExtensionCore Hh() {
+    public ExtensionCore Hi() {
         if (ProcessUtils.isMainProcess()) {
-            return HV();
+            return HW();
         }
         Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0188a.class, null).mResult;
         bundle.setClassLoader(ExtensionCore.class.getClassLoader());
@@ -50,17 +50,17 @@ public class a extends b<com.baidu.swan.apps.extcore.d.a.a, com.baidu.swan.apps.
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             Bundle bundle2 = new Bundle();
-            bundle2.putParcelable("aiapps_extension_core", HS());
+            bundle2.putParcelable("aiapps_extension_core", HT());
             return bundle2;
         }
 
-        private ExtensionCore HS() {
-            ExtensionCore HV = a.HR().HV();
-            if (!HV.isAvailable()) {
-                a.HR().HU();
-                return a.HR().HV();
+        private ExtensionCore HT() {
+            ExtensionCore HW = a.HS().HW();
+            if (!HW.isAvailable()) {
+                a.HS().HV();
+                return a.HS().HW();
             }
-            return HV;
+            return HW;
         }
     }
 }

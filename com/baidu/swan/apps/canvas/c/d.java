@@ -5,21 +5,21 @@ import com.baidu.swan.apps.an.z;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends a {
-    public String aGu;
-    public float aGv;
-    public boolean aGw;
-    public boolean aGx;
+    public String aGc;
+    public float aGd;
+    public boolean aGe;
+    public boolean aGf;
     public boolean mItalic;
     public String mText;
 
     public d(String str) {
         super(str);
         String[] split;
-        this.aGu = "sans-serif";
-        this.aGv = z.S(10.0f);
-        this.aGw = false;
+        this.aGc = "sans-serif";
+        this.aGd = z.S(10.0f);
+        this.aGe = false;
         this.mItalic = false;
-        this.aGx = true;
+        this.aGf = true;
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.mText = jSONObject.optString("text");
@@ -31,9 +31,9 @@ public class d extends a {
                     } else if (str2.contains("oblique")) {
                         this.mItalic = true;
                     } else if (str2.contains("bold")) {
-                        this.aGw = true;
+                        this.aGe = true;
                     } else if (str2.contains("normal")) {
-                        this.aGx = true;
+                        this.aGf = true;
                     } else if (Character.isDigit(str2.charAt(0))) {
                         int length = str2.length();
                         int i = 0;
@@ -47,9 +47,9 @@ public class d extends a {
                                 i++;
                             }
                         }
-                        this.aGv = z.S(Float.parseFloat(str2.substring(0, i)));
+                        this.aGd = z.S(Float.parseFloat(str2.substring(0, i)));
                     } else {
-                        this.aGu = str2;
+                        this.aGc = str2;
                     }
                 }
             }

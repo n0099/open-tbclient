@@ -9,11 +9,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    public List<d> MT = new ArrayList();
+    public List<d> Ms = new ArrayList();
     public String code;
     public String name;
 
-    public static d bD(JSONObject jSONObject) {
+    public static d bE(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -23,9 +23,9 @@ public class d {
         JSONArray optJSONArray = jSONObject.optJSONArray("children");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                d bD = bD(optJSONArray.optJSONObject(i));
-                if (bD != null) {
-                    dVar.MT.add(bD);
+                d bE = bE(optJSONArray.optJSONObject(i));
+                if (bE != null) {
+                    dVar.Ms.add(bE);
                 }
             }
         }
@@ -47,8 +47,8 @@ public class d {
         }
     }
 
-    public boolean aFT() {
-        return this.MT.size() > 0;
+    public boolean aFR() {
+        return this.Ms.size() > 0;
     }
 
     public static String bb(List<d> list) {

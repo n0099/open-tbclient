@@ -18,12 +18,12 @@ public abstract class z extends c<com.baidu.swan.apps.scheme.j> {
         super(jVar, str);
     }
 
-    public com.baidu.swan.apps.ae.b FD() {
-        return com.baidu.swan.apps.ae.b.QZ();
+    public com.baidu.swan.apps.ae.b FE() {
+        return com.baidu.swan.apps.ae.b.Ra();
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        return TextUtils.equals(this.name, str) ? a(context, unitedSchemeEntity, callbackHandler, FD()) : a(context, unitedSchemeEntity, callbackHandler, str, FD());
+        return TextUtils.equals(this.name, str) ? a(context, unitedSchemeEntity, callbackHandler, FE()) : a(context, unitedSchemeEntity, callbackHandler, str, FE());
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar) {

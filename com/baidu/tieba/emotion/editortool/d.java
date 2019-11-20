@@ -7,33 +7,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static d eZD = new d();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> eZE;
+    private static d eYM = new d();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> eYN;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized d bdw() {
+    public static synchronized d bdu() {
         d dVar;
         synchronized (d.class) {
-            dVar = eZD;
+            dVar = eYM;
         }
         return dVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.eZE;
+        return this.eYN;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0294a interfaceC0294a) {
-        if (this.eZE == null || this.eZE.isEmpty()) {
-            this.eZE = new LinkedList<>();
-            if (TbFaceManager.avt().aum() > 0) {
+        if (this.eYN == null || this.eYN.isEmpty()) {
+            this.eYN = new LinkedList<>();
+            if (TbFaceManager.avr().auk() > 0) {
                 c cVar = new c();
-                this.eZE.add(cVar);
+                this.eYN.add(cVar);
                 if (interfaceC0294a != null) {
                     interfaceC0294a.a(cVar);
                     return;
@@ -42,7 +42,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.eZE.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.eYN.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0294a != null) {
@@ -56,6 +56,6 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.eZE == null || this.eZE.size() == 0;
+        return this.eYN == null || this.eYN.size() == 0;
     }
 }

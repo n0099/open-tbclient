@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c {
-    public static <K, V> Map<K, V> zO() {
+    public static <K, V> Map<K, V> zP() {
         if (Build.VERSION.SDK_INT >= 19) {
             return new ArrayMap();
         }

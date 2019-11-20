@@ -14,8 +14,8 @@ public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String cmS;
-        public int ePN;
+        public String cma;
+        public int eOW;
         public String mPid;
     }
 
@@ -56,37 +56,37 @@ public class a {
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0520a {
-        private final boolean bZF;
-        private final an hdp;
-        private final String jjJ;
-        private final String jjK;
-        private final String jjL;
+        private final boolean bYO;
+        private final an hcy;
+        private final String jiS;
+        private final String jiT;
+        private final String jiU;
         private final String key;
         private final String page;
 
         private C0520a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.jjJ = str2;
+            this.jiS = str2;
             this.page = str3;
-            this.jjK = str4;
-            this.jjL = str5;
-            this.bZF = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.hdp = coI();
+            this.jiT = str4;
+            this.jiU = str5;
+            this.bYO = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.hcy = coG();
         }
 
-        private an coI() {
+        private an coG() {
             an anVar = new an(this.key);
-            if (!StringUtils.isNull(this.jjJ)) {
-                anVar = anVar.bS("line", this.jjJ);
+            if (!StringUtils.isNull(this.jiS)) {
+                anVar = anVar.bS("line", this.jiS);
             }
             if (!StringUtils.isNull(this.page)) {
                 anVar = anVar.bS("page", this.page);
             }
-            if (!StringUtils.isNull(this.jjK)) {
-                anVar = anVar.bS("locate", this.jjK);
+            if (!StringUtils.isNull(this.jiT)) {
+                anVar = anVar.bS("locate", this.jiT);
             }
-            if (!StringUtils.isNull(this.jjL)) {
-                return anVar.bS("task", this.jjL);
+            if (!StringUtils.isNull(this.jiU)) {
+                return anVar.bS("task", this.jiU);
             }
             return anVar;
         }
@@ -94,34 +94,34 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public an l(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.hdp.bS("action_type", str);
+                this.hcy.bS("action_type", str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.hdp.bS("obj_id", str2);
+                this.hcy.bS("obj_id", str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.hdp.bS("fid", str3);
+                this.hcy.bS("fid", str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.hdp.bS("fname", str4);
+                this.hcy.bS("fname", str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.hdp.bS("tid", str5);
+                this.hcy.bS("tid", str5);
             }
-            this.hdp.O("obj_cpid", 0).O("obj_good_id", 0).bS("obj_throw_type", "BY_POST").bS("client_type", "MOBILE_APP").bS("user_timestamp", String.valueOf(System.currentTimeMillis())).bS("os", "android").bS(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE).bS("log_ver", "1.1");
-            return this.hdp;
+            this.hcy.O("obj_cpid", 0).O("obj_good_id", 0).bS("obj_throw_type", "BY_POST").bS("client_type", "MOBILE_APP").bS("user_timestamp", String.valueOf(System.currentTimeMillis())).bS("os", "android").bS(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE).bS("log_ver", "1.1");
+            return this.hcy;
         }
 
         public C0520a ea(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.hdp.bS(str, str2);
+                this.hcy.bS(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.hdp);
-            if (!this.bZF) {
+            TiebaStatic.log(this.hcy);
+            if (!this.bYO) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }
@@ -130,7 +130,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.hdp.delete(str);
+            this.hcy.delete(str);
         }
     }
 }

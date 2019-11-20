@@ -80,14 +80,14 @@ public final class TbSingleton {
     };
 
     private TbSingleton() {
-        setProfileGameCenterKey(b.alR().getString("profile_swan_app_key", ""));
-        setHomePageStyleAbTest(b.alR().getInt("index_activity_abtest_switch_json", 0));
-        setMissionEntranceIcon(b.alR().getString("index_activity_abtest_icon_url", ""));
-        setMissionEntranceUrl(b.alR().getString("index_activity_abtest_url", ""));
-        setShowPersonCenterLiteGame(b.alR().getBoolean("person_center_show_lite_game", true));
-        setIsPbFold(b.alR().getBoolean("pb_fold_small_flow_json", false));
-        setVideoEnterMiddlePage(b.alR().getInt("key_video_play_type", VIDEO_ENTER_TYPE_JUMP_VIDEO_MIDDLE_PAGE));
-        setUbsSampleId(b.alR().getString("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), ""));
+        setProfileGameCenterKey(b.alP().getString("profile_swan_app_key", ""));
+        setHomePageStyleAbTest(b.alP().getInt("index_activity_abtest_switch_json", 0));
+        setMissionEntranceIcon(b.alP().getString("index_activity_abtest_icon_url", ""));
+        setMissionEntranceUrl(b.alP().getString("index_activity_abtest_url", ""));
+        setShowPersonCenterLiteGame(b.alP().getBoolean("person_center_show_lite_game", true));
+        setIsPbFold(b.alP().getBoolean("pb_fold_small_flow_json", false));
+        setVideoEnterMiddlePage(b.alP().getInt("key_video_play_type", VIDEO_ENTER_TYPE_JUMP_VIDEO_MIDDLE_PAGE));
+        setUbsSampleId(b.alP().getString("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), ""));
         initBenchmarkData();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.HEADSET_PLUG");
@@ -197,7 +197,7 @@ public final class TbSingleton {
 
     public long getLastResumeTime() {
         if (this.lastResumeTime == 0) {
-            this.lastResumeTime = b.alR().getLong("last_resume_time", 0L);
+            this.lastResumeTime = b.alP().getLong("last_resume_time", 0L);
         }
         return this.lastResumeTime;
     }
@@ -282,9 +282,9 @@ public final class TbSingleton {
             setAnimAvgFpsCount("anim_switch_slide", 0);
             return;
         }
-        this.mEnableBenchmark = b.alR().getBoolean("enable_benchmark", true);
-        this.mCpuThreshold = b.alR().getInt("cpu_flops_dura_threshold", Integer.MAX_VALUE);
-        this.mAnimFpsSyncThreshold = b.alR().getInt("anim_avg_fps_threshold", 0);
+        this.mEnableBenchmark = b.alP().getBoolean("enable_benchmark", true);
+        this.mCpuThreshold = b.alP().getInt("cpu_flops_dura_threshold", Integer.MAX_VALUE);
+        this.mAnimFpsSyncThreshold = b.alP().getInt("anim_avg_fps_threshold", 0);
     }
 
     public boolean isAnimFpsComputed(String str) {
@@ -295,12 +295,12 @@ public final class TbSingleton {
         if (aq.isEmpty(str)) {
             return -1;
         }
-        return b.alR().getInt(str, -1);
+        return b.alP().getInt(str, -1);
     }
 
     public void setAnimComputedFps(String str, int i) {
         if (!aq.isEmpty(str)) {
-            b.alR().putInt(str, i);
+            b.alP().putInt(str, i);
             if ("anim_switch_slide".equals(str) && !isAnimEnable(str)) {
                 setSlideAnimLocalSwitch(false);
             }
@@ -311,12 +311,12 @@ public final class TbSingleton {
         if (aq.isEmpty(str)) {
             return 0;
         }
-        return Integer.valueOf(b.alR().getInt(str + "_anim_benchmark_avg_suffix", 0));
+        return Integer.valueOf(b.alP().getInt(str + "_anim_benchmark_avg_suffix", 0));
     }
 
     public void setAnimAvgFps(String str, int i) {
         if (!aq.isEmpty(str) && i >= 0) {
-            b.alR().putInt(str + "_anim_benchmark_avg_suffix", i);
+            b.alP().putInt(str + "_anim_benchmark_avg_suffix", i);
         }
     }
 
@@ -324,33 +324,33 @@ public final class TbSingleton {
         if (aq.isEmpty(str)) {
             return 0;
         }
-        return Integer.valueOf(b.alR().getInt(str + "_anim_benchmark_times_suffix", 0));
+        return Integer.valueOf(b.alP().getInt(str + "_anim_benchmark_times_suffix", 0));
     }
 
     public void setAnimAvgFpsCount(String str, int i) {
         if (!aq.isEmpty(str) && i >= 0) {
-            b.alR().putInt(str + "_anim_benchmark_times_suffix", i);
+            b.alP().putInt(str + "_anim_benchmark_times_suffix", i);
         }
     }
 
     public void setSlideAnimLocalSwitch(boolean z) {
-        b.alR().putBoolean("local_slide_animation__switch", z);
+        b.alP().putBoolean("local_slide_animation__switch", z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156674, Boolean.valueOf(z)));
     }
 
     public boolean isSlideAnimLocalSwitchOn() {
-        return b.alR().getBoolean("local_slide_animation__switch", false);
+        return b.alP().getBoolean("local_slide_animation__switch", false);
     }
 
     public boolean isSlideAnimEnable() {
-        boolean z = b.alR().getInt("slide_local_switch_is_clicked", 0) == 1;
-        boolean z2 = b.alR().getInt("sync_slide_animation__switch", 0) == 1;
+        boolean z = b.alP().getInt("slide_local_switch_is_clicked", 0) == 1;
+        boolean z2 = b.alP().getInt("sync_slide_animation__switch", 0) == 1;
         boolean isSlideAnimLocalSwitchOn = isSlideAnimLocalSwitchOn();
         if (z) {
             return isSlideAnimLocalSwitchOn;
         }
         if (z2 != isSlideAnimLocalSwitchOn) {
-            b.alR().putBoolean("local_slide_animation__switch", z2);
+            b.alP().putBoolean("local_slide_animation__switch", z2);
             return z2;
         }
         return z2;
@@ -368,7 +368,7 @@ public final class TbSingleton {
 
     public int getCpuFlopsDuration() {
         if (this.mCpuFlopsDur < 0) {
-            this.mCpuFlopsDur = b.alR().getInt("cpu_flops_dura", 0);
+            this.mCpuFlopsDur = b.alP().getInt("cpu_flops_dura", 0);
         }
         return this.mCpuFlopsDur;
     }
@@ -376,13 +376,13 @@ public final class TbSingleton {
     public void setCpuFlopsDuration(int i) {
         if (i >= 0) {
             this.mCpuFlopsDur = i;
-            b.alR().putInt("cpu_flops_dura", i);
+            b.alP().putInt("cpu_flops_dura", i);
         }
     }
 
     public void setEnableBenchmark(boolean z) {
         this.mEnableBenchmark = z;
-        b.alR().putBoolean("enable_benchmark", z);
+        b.alP().putBoolean("enable_benchmark", z);
     }
 
     public boolean isEnableBenchmark() {
@@ -391,12 +391,12 @@ public final class TbSingleton {
 
     public void setCpuThreshold(int i) {
         this.mCpuThreshold = i;
-        b.alR().putInt("cpu_flops_dura_threshold", i);
+        b.alP().putInt("cpu_flops_dura_threshold", i);
     }
 
     public void setAnimAverageFpsThreshold(int i) {
         this.mAnimFpsSyncThreshold = i;
-        b.alR().putInt("anim_avg_fps_threshold", i);
+        b.alP().putInt("anim_avg_fps_threshold", i);
     }
 
     public int getCpuFlopsDurationSyncThreshold() {

@@ -7,24 +7,24 @@ import org.json.JSONObject;
 public class b implements com.baidu.swan.apps.model.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = b.class.getSimpleName();
-    public g aUB;
+    public String aUh = "";
+    public boolean aUi = false;
+    public g aUj;
     public String id;
-    public String aUz = "";
-    public boolean aUA = false;
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null && jSONObject.has("position") && jSONObject.has("iconPath")) {
             this.id = jSONObject.optString("controlId");
-            this.aUB = new g();
-            this.aUB.parseFromJson(jSONObject.optJSONObject("position"));
-            this.aUz = jSONObject.optString("iconPath");
-            this.aUA = jSONObject.optBoolean("clickable");
+            this.aUj = new g();
+            this.aUj.parseFromJson(jSONObject.optJSONObject("position"));
+            this.aUh = jSONObject.optString("iconPath");
+            this.aUi = jSONObject.optBoolean("clickable");
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (this.aUB == null || !this.aUB.isValid() || TextUtils.isEmpty(this.aUz)) ? false : true;
+        return (this.aUj == null || !this.aUj.isValid() || TextUtils.isEmpty(this.aUh)) ? false : true;
     }
 }

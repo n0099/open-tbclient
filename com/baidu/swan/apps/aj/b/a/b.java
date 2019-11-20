@@ -48,7 +48,7 @@ public abstract class b extends z {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("level", c0156a.level <= 100 ? c0156a.level : 100);
-            jSONObject.put("isCharging", c0156a.bqM);
+            jSONObject.put("isCharging", c0156a.bqu);
             return jSONObject;
         } catch (JSONException e) {
             return null;

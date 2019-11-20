@@ -48,8 +48,8 @@ public class SwipeBackLayout extends FrameLayout {
     private VelocityTracker mVelocityTracker;
     private int mViewWidth;
     private float mXVelocity;
-    private boolean zu;
-    private b zv;
+    private boolean yU;
+    private b yV;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -75,7 +75,7 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsTouchModeMargin = false;
         this.mAlphaBgColor = 0;
         this.mColorRect = new Rect();
-        this.zu = false;
+        this.yU = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -90,7 +90,7 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsTouchModeMargin = false;
         this.mAlphaBgColor = 0;
         this.mColorRect = new Rect();
-        this.zu = false;
+        this.yU = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -105,7 +105,7 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsTouchModeMargin = false;
         this.mAlphaBgColor = 0;
         this.mColorRect = new Rect();
-        this.zu = false;
+        this.yU = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -192,8 +192,8 @@ public class SwipeBackLayout extends FrameLayout {
 
     private boolean l(MotionEvent motionEvent) {
         int action = motionEvent.getAction() & 255;
-        if ((action == 1 || action == 3) && this.zu) {
-            this.zu = false;
+        if ((action == 1 || action == 3) && this.yU) {
+            this.yU = false;
             this.mIsSwipeBackEnabled = true;
             return true;
         }
@@ -269,8 +269,8 @@ public class SwipeBackLayout extends FrameLayout {
                         scrollOrigin();
                         this.mIsFinish = false;
                     }
-                    if (this.zv != null) {
-                        this.zv.onSlidingEnd(this.mIsFinish);
+                    if (this.yV != null) {
+                        this.yV.onSlidingEnd(this.mIsFinish);
                         return true;
                     }
                     return true;
@@ -282,8 +282,8 @@ public class SwipeBackLayout extends FrameLayout {
                     scrollOrigin();
                     this.mIsFinish = false;
                 }
-                if (this.zv != null) {
-                    this.zv.onSlidingEnd(this.mIsFinish);
+                if (this.yV != null) {
+                    this.yV.onSlidingEnd(this.mIsFinish);
                     break;
                 }
                 break;
@@ -326,8 +326,8 @@ public class SwipeBackLayout extends FrameLayout {
             float abs2 = Math.abs(y - this.mLastMotionY);
             if (f > 0.0f && abs > this.mMoveDistance && abs > abs2) {
                 this.mIsSilding = true;
-                if (this.zv != null) {
-                    this.zv.onSlidingStart();
+                if (this.yV != null) {
+                    this.yV.onSlidingStart();
                 }
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -426,7 +426,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void disableSwipeJustOnce() {
-        this.zu = true;
+        this.yU = true;
         this.mIsSwipeBackEnabled = false;
     }
 
@@ -464,6 +464,6 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void setOnSlidingStateChangeListener(b bVar) {
-        this.zv = bVar;
+        this.yV = bVar;
     }
 }

@@ -5,9 +5,9 @@ import org.json.JSONObject;
 public class d {
     public JSONObject data;
     public String errMsg;
-    public int vx;
+    public int uW;
 
     public boolean isSuccess() {
-        return this.vx == 0;
+        return this.uW == 0;
     }
 }

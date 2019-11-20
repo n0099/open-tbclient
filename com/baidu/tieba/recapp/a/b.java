@@ -8,27 +8,27 @@ import com.baidu.tbadk.b.f;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class b implements e {
-    private final HashMap<String, f> hdE;
+    private final HashMap<String, f> hcN;
 
     private b() {
-        this.hdE = new HashMap<>();
+        this.hcN = new HashMap<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0505b {
-        private static b iIc = new b();
+        private static b iHl = new b();
     }
 
-    public static b cfM() {
-        return C0505b.iIc;
+    public static b cfK() {
+        return C0505b.iHl;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
         if (str != null) {
             a Cy = a.Cy(str);
-            f fVar = this.hdE.get(Cy.getKey());
+            f fVar = this.hcN.get(Cy.getKey());
             if (fVar != null && Cy.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
                     Cy.getParams().putAll(hashMap);
@@ -39,7 +39,7 @@ public class b implements e {
     }
 
     public void a(String str, f fVar) {
-        this.hdE.put(str, fVar);
+        this.hcN.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.b.a aVar) {
@@ -48,12 +48,12 @@ public class b implements e {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private boolean bZF;
-        HashMap<String, String> hdF;
+        private boolean bYO;
+        HashMap<String, String> hcO;
         String key;
 
         public boolean isValid() {
-            return this.bZF;
+            return this.bYO;
         }
 
         public String getKey() {
@@ -61,23 +61,23 @@ public class b implements e {
         }
 
         public HashMap<String, String> getParams() {
-            return this.hdF;
+            return this.hcO;
         }
 
         private a(String str) {
-            this.bZF = false;
+            this.bYO = false;
             Uri parse = Uri.parse(str);
-            this.bZF = TextUtils.isEmpty(parse.getScheme()) ? false : true;
-            if (this.bZF) {
+            this.bYO = TextUtils.isEmpty(parse.getScheme()) ? false : true;
+            if (this.bYO) {
                 this.key = parse.getAuthority() + parse.getPath();
-                this.hdF = new HashMap<>();
+                this.hcO = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.hdF.put(str2, parse.getQueryParameter(str2));
+                    this.hcO.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
             this.key = "";
-            this.hdF = new HashMap<>();
+            this.hcO = new HashMap<>();
         }
 
         public static a Cy(String str) {

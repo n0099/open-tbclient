@@ -7,9 +7,9 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class CountDownTextView extends TextView {
-    private int aKK;
-    private final Runnable dlT;
-    private b jmK;
+    private int aKs;
+    private final Runnable dlc;
+    private b jlS;
     private Handler mHandler;
     private String mText;
 
@@ -20,81 +20,81 @@ public class CountDownTextView extends TextView {
 
     /* loaded from: classes3.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> dll;
+        private final WeakReference<CountDownTextView> dku;
 
         private a(CountDownTextView countDownTextView) {
-            this.dll = new WeakReference<>(countDownTextView);
+            this.dku = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.dll.get();
+            CountDownTextView countDownTextView = this.dku.get();
             if (countDownTextView != null) {
-                countDownTextView.lJ(1);
+                countDownTextView.lI(1);
             }
         }
     }
 
     public CountDownTextView(Context context) {
         super(context);
-        this.aKK = 0;
+        this.aKs = 0;
         this.mText = "";
-        this.jmK = null;
+        this.jlS = null;
         this.mHandler = new Handler();
-        this.dlT = new a();
+        this.dlc = new a();
     }
 
     public void setTimeoutListener(b bVar) {
-        this.jmK = bVar;
+        this.jlS = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        lJ(0);
+        lI(0);
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        aEU();
+        aES();
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i == 0) {
-            lJ(0);
+            lI(0);
         } else {
-            aEU();
+            aES();
         }
     }
 
     public void aa(String str, int i) {
         this.mText = str;
         if (i > 0) {
-            this.aKK = i;
+            this.aKs = i;
         }
     }
 
-    private void aEU() {
+    private void aES() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lJ(int i) {
-        this.aKK -= i;
-        if (this.aKK == 0) {
-            if (this.jmK != null) {
-                this.jmK.bp(this);
+    public void lI(int i) {
+        this.aKs -= i;
+        if (this.aKs == 0) {
+            if (this.jlS != null) {
+                this.jlS.bp(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
         }
-        if (this.aKK > 0) {
-            setText(String.format("%s %s", this.mText, Integer.valueOf(this.aKK)));
+        if (this.aKs > 0) {
+            setText(String.format("%s %s", this.mText, Integer.valueOf(this.aKs)));
         }
-        this.mHandler.removeCallbacks(this.dlT);
-        this.mHandler.postDelayed(this.dlT, 1000L);
+        this.mHandler.removeCallbacks(this.dlc);
+        this.mHandler.postDelayed(this.dlc, 1000L);
     }
 }

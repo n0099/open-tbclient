@@ -7,41 +7,41 @@ import java.io.UnsupportedEncodingException;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class c {
-    public static final boolean kbT;
-    public static final boolean kbU;
-    public static final boolean kbV;
-    public static b kbW;
-    private static boolean kbX;
-    private static final byte[] kbY;
-    private static final byte[] kbZ;
-    private static final byte[] kca;
-    private static final byte[] kcb;
-    private static final byte[] kcc;
+    public static final boolean kbc;
+    public static final boolean kbd;
+    public static final boolean kbe;
+    public static b kbf;
+    private static boolean kbg;
+    private static final byte[] kbh;
+    private static final byte[] kbi;
+    private static final byte[] kbj;
+    private static final byte[] kbk;
+    private static final byte[] kbl;
 
     static {
-        kbT = Build.VERSION.SDK_INT <= 17;
-        kbU = Build.VERSION.SDK_INT >= 14;
-        kbV = cDl();
-        kbW = null;
-        kbX = false;
-        kbY = GC("RIFF");
-        kbZ = GC("WEBP");
-        kca = GC("VP8 ");
-        kcb = GC("VP8L");
-        kcc = GC("VP8X");
+        kbc = Build.VERSION.SDK_INT <= 17;
+        kbd = Build.VERSION.SDK_INT >= 14;
+        kbe = cDj();
+        kbf = null;
+        kbg = false;
+        kbh = GC("RIFF");
+        kbi = GC("WEBP");
+        kbj = GC("VP8 ");
+        kbk = GC("VP8L");
+        kbl = GC("VP8X");
     }
 
-    public static b cDk() {
+    public static b cDi() {
         b bVar;
-        if (kbX) {
-            return kbW;
+        if (kbg) {
+            return kbf;
         }
         try {
             bVar = (b) Class.forName("com.facebook.webpsupport.WebpBitmapFactoryImpl").newInstance();
         } catch (Throwable th) {
             bVar = null;
         }
-        kbX = true;
+        kbg = true;
         return bVar;
     }
 
@@ -53,7 +53,7 @@ public class c {
         }
     }
 
-    private static boolean cDl() {
+    private static boolean cDj() {
         if (Build.VERSION.SDK_INT < 17) {
             return false;
         }
@@ -70,27 +70,27 @@ public class c {
     }
 
     public static boolean h(byte[] bArr, int i) {
-        return c(bArr, i + 12, kcc) && ((bArr[i + 20] & 2) == 2);
+        return c(bArr, i + 12, kbl) && ((bArr[i + 20] & 2) == 2);
     }
 
     public static boolean i(byte[] bArr, int i) {
-        return c(bArr, i + 12, kca);
+        return c(bArr, i + 12, kbj);
     }
 
     public static boolean j(byte[] bArr, int i) {
-        return c(bArr, i + 12, kcb);
+        return c(bArr, i + 12, kbk);
     }
 
-    public static boolean l(byte[] bArr, int i, int i2) {
-        return i2 >= 21 && c(bArr, i + 12, kcc);
+    public static boolean j(byte[] bArr, int i, int i2) {
+        return i2 >= 21 && c(bArr, i + 12, kbl);
     }
 
     public static boolean k(byte[] bArr, int i) {
-        return c(bArr, i + 12, kcc) && ((bArr[i + 20] & 16) == 16);
+        return c(bArr, i + 12, kbl) && ((bArr[i + 20] & 16) == 16);
     }
 
-    public static boolean m(byte[] bArr, int i, int i2) {
-        return i2 >= 20 && c(bArr, i, kbY) && c(bArr, i + 8, kbZ);
+    public static boolean k(byte[] bArr, int i, int i2) {
+        return i2 >= 20 && c(bArr, i, kbh) && c(bArr, i + 8, kbi);
     }
 
     private static boolean c(byte[] bArr, int i, byte[] bArr2) {

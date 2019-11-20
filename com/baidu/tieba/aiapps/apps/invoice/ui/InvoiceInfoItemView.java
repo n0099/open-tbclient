@@ -13,12 +13,12 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private String bMh;
-    private View deR;
-    private TextView dpo;
-    private EditText dpp;
-    private String dpq;
-    private boolean dpr;
+    private String bLq;
+    private View ddZ;
+    private boolean doA;
+    private TextView dox;
+    private EditText doy;
+    private String doz;
     private Context mContext;
     private RelativeLayout mRootView;
 
@@ -40,77 +40,77 @@ public class InvoiceInfoItemView extends RelativeLayout {
         inflate(context, R.layout.invoice_info_item_view, this);
         this.mRootView = (RelativeLayout) findViewById(R.id.item_root_view);
         this.mRootView.setBackground(getResources().getDrawable(R.color.invoice_edit_view_bg));
-        this.dpo = (TextView) findViewById(R.id.invoice_info_desc);
-        this.dpp = (EditText) findViewById(R.id.invoice_info_content);
-        this.deR = findViewById(R.id.divider_line);
-        this.dpo.setTextColor(getResources().getColor(R.color.invoice_info_desc));
-        this.dpp.setTextColor(getResources().getColor(R.color.invoice_info_content));
-        this.dpp.setHintTextColor(getResources().getColor(R.color.invoice_info_content_hint));
-        this.deR.setBackground(getResources().getDrawable(R.color.invoice_info_item_divider_line));
+        this.dox = (TextView) findViewById(R.id.invoice_info_desc);
+        this.doy = (EditText) findViewById(R.id.invoice_info_content);
+        this.ddZ = findViewById(R.id.divider_line);
+        this.dox.setTextColor(getResources().getColor(R.color.invoice_info_desc));
+        this.doy.setTextColor(getResources().getColor(R.color.invoice_info_content));
+        this.doy.setHintTextColor(getResources().getColor(R.color.invoice_info_content_hint));
+        this.ddZ.setBackground(getResources().getDrawable(R.color.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.dpr = aVar.dpr;
-            this.dpo.setText(aVar.mDesc);
-            this.dpp.setHint(aVar.dpt);
-            if (!aVar.dpu) {
-                this.dpp.setSingleLine();
+            this.doA = aVar.doA;
+            this.dox.setText(aVar.mDesc);
+            this.doy.setHint(aVar.doC);
+            if (!aVar.doD) {
+                this.doy.setSingleLine();
             } else {
-                aVar.dps |= 131072;
+                aVar.doB |= 131072;
             }
-            this.dpp.setInputType(aVar.dps);
-            if (!TextUtils.isEmpty(aVar.dpv)) {
-                this.dpp.setKeyListener(DigitsKeyListener.getInstance(aVar.dpv));
+            this.doy.setInputType(aVar.doB);
+            if (!TextUtils.isEmpty(aVar.doE)) {
+                this.doy.setKeyListener(DigitsKeyListener.getInstance(aVar.doE));
             }
-            this.dpq = aVar.dpq;
-            this.bMh = aVar.bMh;
+            this.doz = aVar.doz;
+            this.bLq = aVar.bLq;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.dpp != null) {
-            return this.dpp.getText().toString().trim();
+        if (this.doy != null) {
+            return this.doy.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.dpp != null) {
-            this.dpp.setText(charSequence);
+        if (this.doy != null) {
+            this.doy.setText(charSequence);
         }
     }
 
-    public boolean aGJ() {
-        return this.dpr;
+    public boolean aGH() {
+        return this.doA;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.dpp != null && textWatcher != null) {
-            this.dpp.addTextChangedListener(textWatcher);
+        if (this.doy != null && textWatcher != null) {
+            this.doy.addTextChangedListener(textWatcher);
         }
     }
 
     public void e(TextWatcher textWatcher) {
-        if (this.dpp != null) {
-            this.dpp.removeTextChangedListener(textWatcher);
+        if (this.doy != null) {
+            this.doy.removeTextChangedListener(textWatcher);
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private String bMh;
-        private String dpq;
-        private boolean dpr = false;
-        private int dps = 1;
-        private String dpt;
-        private boolean dpu;
-        private String dpv;
+        private String bLq;
+        private boolean doA = false;
+        private int doB = 1;
+        private String doC;
+        private boolean doD;
+        private String doE;
+        private String doz;
         private String mDesc;
 
         public a gm(boolean z) {
-            this.dpr = z;
+            this.doA = z;
             return this;
         }
 
@@ -119,33 +119,33 @@ public class InvoiceInfoItemView extends RelativeLayout {
             return this;
         }
 
-        public a lR(int i) {
-            this.dps = i;
+        public a lQ(int i) {
+            this.doB = i;
             return this;
         }
 
         public a sl(String str) {
-            this.dpt = str;
+            this.doC = str;
             return this;
         }
 
         public a sm(String str) {
-            this.dpq = str;
+            this.doz = str;
             return this;
         }
 
         public a sn(String str) {
-            this.bMh = str;
+            this.bLq = str;
             return this;
         }
 
         public a gn(boolean z) {
-            this.dpu = z;
+            this.doD = z;
             return this;
         }
 
         public a so(String str) {
-            this.dpv = str;
+            this.doE = str;
             return this;
         }
     }

@@ -5,11 +5,11 @@ import tbclient.Myrecord;
 /* loaded from: classes3.dex */
 public class d {
     private String apply_declaration;
-    private boolean eGA = false;
-    private int eGw;
-    private int eGx;
-    private int eGy;
-    private int eGz;
+    private int eFF;
+    private int eFG;
+    private int eFH;
+    private int eFI;
+    private boolean eFJ = false;
     private String nickname;
     private String portrait;
     private int post_num;
@@ -18,16 +18,16 @@ public class d {
     private long tid;
     private long uid;
 
+    public int aZh() {
+        return this.eFI;
+    }
+
+    public int aZi() {
+        return this.eFF;
+    }
+
     public int aZj() {
-        return this.eGz;
-    }
-
-    public int aZk() {
-        return this.eGw;
-    }
-
-    public int aZl() {
-        return this.eGx;
+        return this.eFG;
     }
 
     public int getPost_num() {
@@ -46,11 +46,11 @@ public class d {
         return this.uid;
     }
 
-    public int aZm() {
-        return this.eGy;
+    public int aZk() {
+        return this.eFH;
     }
 
-    public String aZn() {
+    public String aZl() {
         return this.apply_declaration;
     }
 
@@ -66,8 +66,8 @@ public class d {
         return this.tid;
     }
 
-    public boolean aZo() {
-        return this.eGA;
+    public boolean aZm() {
+        return this.eFJ;
     }
 
     public static d a(ElectionList electionList) {
@@ -75,16 +75,16 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.oz(electionList.vote_num.intValue());
+        dVar.oy(electionList.vote_num.intValue());
         dVar.uu(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
-        dVar.ox(electionList.forum_level.intValue());
+        dVar.ow(electionList.forum_level.intValue());
         dVar.ut(electionList.apply_declaration);
-        dVar.oy(electionList.rank.intValue());
-        dVar.ow(electionList.apply_id.intValue());
+        dVar.ox(electionList.rank.intValue());
+        dVar.ov(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
         dVar.setThread_num(electionList.thread_num.intValue());
-        dVar.ov(electionList.agree_num.intValue());
+        dVar.ou(electionList.agree_num.intValue());
         dVar.setUid(electionList.uid.longValue());
         dVar.setTid(electionList.tid.longValue());
         dVar.iz(electionList.is_cheat.intValue() == 1);
@@ -96,35 +96,35 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.oz(myrecord.vote_num.intValue());
+        dVar.oy(myrecord.vote_num.intValue());
         dVar.uu(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
-        dVar.ox(myrecord.forum_level.intValue());
+        dVar.ow(myrecord.forum_level.intValue());
         dVar.ut(myrecord.apply_declaration);
-        dVar.oy(myrecord.rank.intValue());
-        dVar.ow(myrecord.apply_id.intValue());
+        dVar.ox(myrecord.rank.intValue());
+        dVar.ov(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
         dVar.setThread_num(myrecord.thread_num.intValue());
-        dVar.ov(myrecord.agree_num.intValue());
+        dVar.ou(myrecord.agree_num.intValue());
         dVar.setUid(myrecord.uid.longValue());
         dVar.setTid(myrecord.tid.longValue());
         return dVar;
     }
 
-    public void ov(int i) {
-        this.eGz = i;
+    public void ou(int i) {
+        this.eFI = i;
     }
 
-    public void ow(int i) {
-        this.eGw = i;
+    public void ov(int i) {
+        this.eFF = i;
     }
 
     public void ut(String str) {
         this.apply_declaration = str;
     }
 
-    public void ox(int i) {
-        this.eGx = i;
+    public void ow(int i) {
+        this.eFG = i;
     }
 
     public void uu(String str) {
@@ -139,7 +139,7 @@ public class d {
         this.post_num = i;
     }
 
-    public void oy(int i) {
+    public void ox(int i) {
         this.rank = i;
     }
 
@@ -151,12 +151,12 @@ public class d {
         this.uid = j;
     }
 
-    public void oz(int i) {
-        this.eGy = i;
+    public void oy(int i) {
+        this.eFH = i;
     }
 
     public void iz(boolean z) {
-        this.eGA = z;
+        this.eFJ = z;
     }
 
     public void setTid(long j) {

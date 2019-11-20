@@ -12,15 +12,15 @@ import javax.annotation.concurrent.ThreadSafe;
 @TargetApi(21)
 /* loaded from: classes2.dex */
 public class a implements e {
-    private static final byte[] kkU = {-1, -39};
-    private final com.facebook.imagepipeline.memory.c kgr;
-    final Pools.SynchronizedPool<ByteBuffer> kkT;
+    private static final byte[] kkd = {-1, -39};
+    private final com.facebook.imagepipeline.memory.c kfA;
+    final Pools.SynchronizedPool<ByteBuffer> kkc;
 
     public a(com.facebook.imagepipeline.memory.c cVar, int i, Pools.SynchronizedPool synchronizedPool) {
-        this.kgr = cVar;
-        this.kkT = synchronizedPool;
+        this.kfA = cVar;
+        this.kkc = synchronizedPool;
         for (int i2 = 0; i2 < i; i2++) {
-            this.kkT.release(ByteBuffer.allocate(16384));
+            this.kkc.release(ByteBuffer.allocate(16384));
         }
     }
 
@@ -40,12 +40,12 @@ public class a implements e {
 
     @Override // com.facebook.imagepipeline.h.e
     public com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.f.d dVar, Bitmap.Config config, int i) {
-        boolean Cv = dVar.Cv(i);
+        boolean Cu = dVar.Cu(i);
         BitmapFactory.Options b = b(dVar, config);
         InputStream inputStream = dVar.getInputStream();
         g.checkNotNull(inputStream);
         InputStream aVar = dVar.getSize() > i ? new com.facebook.common.f.a(inputStream, i) : inputStream;
-        InputStream bVar = !Cv ? new com.facebook.common.f.b(aVar, kkU) : aVar;
+        InputStream bVar = !Cu ? new com.facebook.common.f.b(aVar, kkd) : aVar;
         boolean z = b.inPreferredConfig != Bitmap.Config.ARGB_8888;
         try {
             return a(bVar, b);
@@ -59,29 +59,29 @@ public class a implements e {
 
     protected com.facebook.common.references.a<Bitmap> a(InputStream inputStream, BitmapFactory.Options options) {
         g.checkNotNull(inputStream);
-        Bitmap bitmap = this.kgr.get(com.facebook.d.a.a(options.outWidth, options.outHeight, options.inPreferredConfig));
+        Bitmap bitmap = this.kfA.get(com.facebook.d.a.a(options.outWidth, options.outHeight, options.inPreferredConfig));
         if (bitmap == null) {
             throw new NullPointerException("BitmapPool.get returned null");
         }
         options.inBitmap = bitmap;
-        ByteBuffer acquire = this.kkT.acquire();
+        ByteBuffer acquire = this.kkc.acquire();
         ByteBuffer allocate = acquire == null ? ByteBuffer.allocate(16384) : acquire;
         try {
             try {
                 options.inTempStorage = allocate.array();
                 Bitmap decodeStream = BitmapFactory.decodeStream(inputStream, null, options);
                 if (bitmap != decodeStream) {
-                    this.kgr.release(bitmap);
+                    this.kfA.release(bitmap);
                     decodeStream.recycle();
                     throw new IllegalStateException();
                 }
-                return com.facebook.common.references.a.a(decodeStream, this.kgr);
+                return com.facebook.common.references.a.a(decodeStream, this.kfA);
             } catch (RuntimeException e) {
-                this.kgr.release(bitmap);
+                this.kfA.release(bitmap);
                 throw e;
             }
         } finally {
-            this.kkT.release(allocate);
+            this.kkc.release(allocate);
         }
     }
 

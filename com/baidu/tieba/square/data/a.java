@@ -8,15 +8,15 @@ import org.json.JSONObject;
 public abstract class a {
     private int errorCode;
     private String errorMsg;
-    private Date jbG;
+    private Date jaP;
 
-    protected abstract void cp(JSONObject jSONObject) throws Exception;
+    protected abstract void cq(JSONObject jSONObject) throws Exception;
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
-    public boolean cmw() {
+    public boolean cmu() {
         return this.errorMsg != null;
     }
 
@@ -54,9 +54,9 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.jbG = new Date(optLong * 1000);
+                this.jaP = new Date(optLong * 1000);
             }
-            cp(jSONObject);
+            cq(jSONObject);
         } catch (Exception e) {
             setErrorMsg("网络不稳定，请稍后再试");
             e.printStackTrace();

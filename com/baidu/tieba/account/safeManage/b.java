@@ -10,9 +10,9 @@ import com.baidu.tieba.R;
 import tbclient.SimpleUser;
 /* loaded from: classes4.dex */
 public class b {
-    private LinearLayout dhm;
-    private TbSettingTextTipView dhn;
-    private TbSettingTextTipView dho;
+    private LinearLayout dgv;
+    private TbSettingTextTipView dgw;
+    private TbSettingTextTipView dgx;
     private BaseActivity mActivity;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
@@ -20,28 +20,28 @@ public class b {
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mActivity = baseActivity;
         this.mOnClickListener = onClickListener;
-        asD();
+        asB();
     }
 
-    private void asD() {
+    private void asB() {
         this.mRootLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.dhm = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
-        this.dhn = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
-        this.dho = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.dhn.asF();
-        this.dho.asF();
-        this.dhn.setOnClickListener(this.mOnClickListener);
-        this.dho.setOnClickListener(this.mOnClickListener);
+        this.dgv = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
+        this.dgw = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
+        this.dgx = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
+        this.dgw.asD();
+        this.dgx.asD();
+        this.dgw.setOnClickListener(this.mOnClickListener);
+        this.dgx.setOnClickListener(this.mOnClickListener);
     }
 
-    public void jA(int i) {
+    public void jz(int i) {
         this.mActivity.getLayoutMode().setNightMode(i == 1);
         this.mActivity.getLayoutMode().onModeChanged(this.mRootLayout);
     }
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.dho.setTip(simpleUser.block_msg);
+            this.dgx.setTip(simpleUser.block_msg);
         }
     }
 

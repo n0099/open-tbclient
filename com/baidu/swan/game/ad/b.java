@@ -17,11 +17,11 @@ import com.baidu.swan.game.ad.component.AdImageVIew;
 /* loaded from: classes2.dex */
 public class b {
     public Context a;
-    private com.baidu.swan.game.ad.a.a bwJ;
-    private AdImageVIew bwK;
-    private AdImageVIew bwL;
-    private Button bwM;
-    private a.c bwN;
+    private com.baidu.swan.game.ad.a.a bvS;
+    private AdImageVIew bvT;
+    private AdImageVIew bvU;
+    private Button bvV;
+    private a.c bvW;
     private View c;
     private LinearLayout d;
     private int e;
@@ -34,15 +34,15 @@ public class b {
     private View.OnClickListener p = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.bwN != null) {
-                b.this.bwN.b();
+            if (b.this.bvW != null) {
+                b.this.bvW.b();
             }
         }
     };
 
     public b(Context context, com.baidu.swan.game.ad.a.a aVar) {
         this.a = context;
-        this.bwJ = aVar;
+        this.bvS = aVar;
         d();
     }
 
@@ -51,24 +51,24 @@ public class b {
         this.c = LayoutInflater.from(this.a).inflate(a.e.ng_game_banner_ad, (ViewGroup) null);
         this.d = (LinearLayout) this.c.findViewById(a.d.banner_view);
         this.j = (RelativeLayout) this.c.findViewById(a.d.banner_ad_left);
-        this.bwK = (AdImageVIew) this.c.findViewById(a.d.banner_w_pic);
-        this.bwK.setImageUrl(this.bwJ.c());
-        this.bwL = (AdImageVIew) this.c.findViewById(a.d.ad_text);
-        this.bwL.setImageUrl("https://cpro.baidustatic.com/cpro/ui/noexpire/css/2.1.4/img/mob-adIcon_2x.png");
+        this.bvT = (AdImageVIew) this.c.findViewById(a.d.banner_w_pic);
+        this.bvT.setImageUrl(this.bvS.c());
+        this.bvU = (AdImageVIew) this.c.findViewById(a.d.ad_text);
+        this.bvU.setImageUrl("https://cpro.baidustatic.com/cpro/ui/noexpire/css/2.1.4/img/mob-adIcon_2x.png");
         this.i = (RelativeLayout) this.c.findViewById(a.d.banner_ad_right);
         this.k = (RelativeLayout) this.c.findViewById(a.d.banner_right_bottom);
         this.l = (TextView) this.c.findViewById(a.d.banner_title);
-        this.l.setText(this.bwJ.a());
+        this.l.setText(this.bvS.a());
         this.m = (TextView) this.c.findViewById(a.d.banner_app_name);
-        this.m.setText(this.bwJ.h());
-        this.bwM = (Button) this.c.findViewById(a.d.banner_ad_act);
-        if (this.bwJ.g() == 1) {
-            this.bwM.setText(resources.getString(a.f.see_detail));
+        this.m.setText(this.bvS.h());
+        this.bvV = (Button) this.c.findViewById(a.d.banner_ad_act);
+        if (this.bvS.g() == 1) {
+            this.bvV.setText(resources.getString(a.f.see_detail));
         }
-        if (this.bwJ.g() == 2) {
-            this.bwM.setText(resources.getString(a.f.down_immediately));
+        if (this.bvS.g() == 2) {
+            this.bvV.setText(resources.getString(a.f.down_immediately));
         }
-        this.bwM.setOnClickListener(this.p);
+        this.bvV.setOnClickListener(this.p);
         this.d.setOnClickListener(this.p);
         this.c.setVisibility(4);
     }
@@ -88,7 +88,7 @@ public class b {
         layoutParams.addRule(12);
         layoutParams.addRule(9);
         layoutParams.setMarginStart(0);
-        this.bwL.setLayoutParams(layoutParams);
+        this.bvU.setLayoutParams(layoutParams);
         int i3 = this.e - i2;
         this.i.setLayoutParams(new LinearLayout.LayoutParams(i3, this.f));
         int i4 = (int) (i3 * com.baidu.swan.game.ad.e.d.h);
@@ -116,8 +116,8 @@ public class b {
         RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams((int) (i3 * com.baidu.swan.game.ad.e.d.j), i5);
         layoutParams5.addRule(12);
         layoutParams5.addRule(11);
-        this.bwM.setTextSize(0, i6);
-        this.bwM.setLayoutParams(layoutParams5);
+        this.bvV.setTextSize(0, i6);
+        this.bvV.setLayoutParams(layoutParams5);
     }
 
     public void b() {
@@ -134,6 +134,6 @@ public class b {
     }
 
     public void a(a.c cVar) {
-        this.bwN = cVar;
+        this.bvW = cVar;
     }
 }

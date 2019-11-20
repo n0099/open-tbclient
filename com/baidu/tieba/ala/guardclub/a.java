@@ -18,18 +18,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private static a dKW = null;
+    private static a dKf = null;
     private long currLiveId;
 
-    public static a aLg() {
-        if (dKW == null) {
+    public static a aLe() {
+        if (dKf == null) {
             synchronized (a.class) {
-                if (dKW == null) {
-                    dKW = new a();
+                if (dKf == null) {
+                    dKf = new a();
                 }
             }
         }
-        return dKW;
+        return dKf;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x004c  */
@@ -44,11 +44,11 @@ public class a {
         JSONArray jSONArray;
         int i;
         Map<String, Object> process;
-        z aLz = m.aLx().aLz();
-        if (aLz != null) {
+        z aLx = m.aLv().aLx();
+        if (aLx != null) {
             this.currLiveId = j;
-            int i2 = aLz.TH;
-            int i3 = aLz.TI;
+            int i2 = aLx.Tn;
+            int i3 = aLx.To;
             String b = com.baidu.live.utils.i.b(new Date());
             String string = com.baidu.live.c.np().getString("guardclub_im_entry_show_trace", "");
             if (!TextUtils.isEmpty(string)) {
@@ -85,7 +85,7 @@ public class a {
                         }
                     }
                     this.currLiveId = j;
-                    int i5 = aLz.TJ;
+                    int i5 = aLx.Tp;
                     boolean z = false;
                     HashMap hashMap = new HashMap();
                     hashMap.put("test_guardClub_im_entry", false);
@@ -93,7 +93,7 @@ public class a {
                     if (process.containsKey("test_guardClub_im_entry")) {
                         z = ((Boolean) process.get("test_guardClub_im_entry")).booleanValue();
                     }
-                    LiveTimerManager.getInstance().addLiveTimerTask(bZ(j), j, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.guardclub.a.1
+                    LiveTimerManager.getInstance().addLiveTimerTask(bY(j), j, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.guardclub.a.1
                         @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                         public void onComplete(boolean z2) {
                             if (j == a.this.currLiveId) {
@@ -120,7 +120,7 @@ public class a {
             if (i3 >= 0) {
             }
             this.currLiveId = j;
-            int i52 = aLz.TJ;
+            int i52 = aLx.Tp;
             boolean z2 = false;
             HashMap hashMap2 = new HashMap();
             hashMap2.put("test_guardClub_im_entry", false);
@@ -129,7 +129,7 @@ public class a {
             }
             if (!z2) {
             }
-            LiveTimerManager.getInstance().addLiveTimerTask(bZ(j), j, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.guardclub.a.1
+            LiveTimerManager.getInstance().addLiveTimerTask(bY(j), j, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.guardclub.a.1
                 @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                 public void onComplete(boolean z22) {
                     if (j == a.this.currLiveId) {
@@ -144,15 +144,15 @@ public class a {
         }
     }
 
-    public void aLh() {
+    public void aLf() {
         int i;
         JSONArray jSONArray;
         int i2 = 0;
         try {
-            z aLz = m.aLx().aLz();
-            if (aLz != null) {
-                i = aLz.TH;
-                i2 = aLz.TI;
+            z aLx = m.aLv().aLx();
+            if (aLx != null) {
+                i = aLx.Tn;
+                i2 = aLx.To;
             } else {
                 i = 0;
             }
@@ -174,7 +174,7 @@ public class a {
         }
     }
 
-    public static String bZ(long j) {
+    public static String bY(long j) {
         return "guardClub_im_" + j;
     }
 }

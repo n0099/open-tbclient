@@ -8,18 +8,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes4.dex */
 public class a extends PopupWindow {
-    private TbPageContext cfl;
-    private InterfaceC0426a giS;
+    private TbPageContext ceu;
+    private InterfaceC0426a gia;
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public interface InterfaceC0426a {
-        void buf();
+        void bud();
     }
 
     public a(TbPageContext tbPageContext, View view, int i, int i2) {
         super(view, i, i2);
-        this.cfl = tbPageContext;
+        this.ceu = tbPageContext;
     }
 
     @Override // android.widget.PopupWindow
@@ -27,7 +27,7 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bb.getScreenFullSize(this.cfl.getPageActivity())[1] - rect.bottom);
+            setHeight(bb.getScreenFullSize(this.ceu.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view);
     }
@@ -37,25 +37,25 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bb.getScreenFullSize(this.cfl.getPageActivity())[1] - rect.bottom);
+            setHeight(bb.getScreenFullSize(this.ceu.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view, i, i2);
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        if (this.giS != null) {
-            this.giS.buf();
+        if (this.gia != null) {
+            this.gia.bud();
         } else {
             super.dismiss();
         }
     }
 
-    public void aNF() {
+    public void aND() {
         super.dismiss();
     }
 
     public void a(InterfaceC0426a interfaceC0426a) {
-        this.giS = interfaceC0426a;
+        this.gia = interfaceC0426a;
     }
 }

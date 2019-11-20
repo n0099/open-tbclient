@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State kvv = State.NotReady;
-    private T kvw;
+    private State kuE = State.NotReady;
+    private T kuF;
 
-    protected abstract void cMC();
+    protected abstract void cMA();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -16,14 +16,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.f(this.kvv, State.Failed)) {
-            switch (this.kvv) {
+        if (!kotlin.jvm.internal.p.f(this.kuE, State.Failed)) {
+            switch (this.kuE) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return cMB();
+                    return cMz();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -32,26 +32,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.kvv = State.NotReady;
-            return this.kvw;
+            this.kuE = State.NotReady;
+            return this.kuF;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean cMB() {
-        this.kvv = State.Failed;
-        cMC();
-        return kotlin.jvm.internal.p.f(this.kvv, State.Ready);
+    private final boolean cMz() {
+        this.kuE = State.Failed;
+        cMA();
+        return kotlin.jvm.internal.p.f(this.kuE, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void bc(T t) {
-        this.kvw = t;
-        this.kvv = State.Ready;
+        this.kuF = t;
+        this.kuE = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.kvv = State.Done;
+        this.kuE = State.Done;
     }
 }

@@ -11,22 +11,22 @@ import com.baidu.live.tbadk.statics.AlaStaticsManager;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 /* loaded from: classes6.dex */
 public class b {
-    private i aaB;
-    private View.OnClickListener czV = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.q.b.2
+    private i aaj;
+    private View.OnClickListener cze = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.q.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.eoa != null && view == b.this.eoa.getView()) {
+            if (b.this.eni != null && view == b.this.eni.getView()) {
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.RENAME_CLICK);
                 alaStaticItem.addParams("other_params", b.this.otherParams);
                 AlaStaticsManager.getInst().onStatic(alaStaticItem);
-                if (a.aVQ().aVR() != null) {
-                    a.aVQ().aVR().ua("fetchUserInfo");
+                if (a.aVO().aVP() != null) {
+                    a.aVO().aVP().ua("fetchUserInfo");
                 }
             }
         }
     };
-    private ViewGroup dYV;
-    protected c eoa;
+    private ViewGroup dYe;
+    protected c eni;
     protected TbPageContext mTbPageContext;
     private String otherParams;
 
@@ -42,17 +42,17 @@ public class b {
         if (viewGroup == null) {
             return false;
         }
-        this.aaB = iVar;
-        if (this.eoa == null) {
-            this.eoa = new c(getPageContext(), iVar.PN, this.czV);
+        this.aaj = iVar;
+        if (this.eni == null) {
+            this.eni = new c(getPageContext(), iVar.Pj, this.cze);
         }
-        if (this.dYV != null && this.dYV.indexOfChild(this.eoa.getView()) > 0) {
-            this.dYV.removeView(this.eoa.getView());
+        if (this.dYe != null && this.dYe.indexOfChild(this.eni.getView()) > 0) {
+            this.dYe.removeView(this.eni.getView());
         }
-        this.dYV = viewGroup;
-        this.eoa.getView().setId(a.g.guide_rename_view);
-        this.eoa.getView().setVisibility(0);
-        aVT();
+        this.dYe = viewGroup;
+        this.eni.getView().setId(a.g.guide_rename_view);
+        this.eni.getView().setVisibility(0);
+        aVR();
         return true;
     }
 
@@ -60,8 +60,8 @@ public class b {
         this.otherParams = str;
     }
 
-    private void aVT() {
-        a.aVQ().a(new e() { // from class: com.baidu.tieba.ala.liveroom.q.b.1
+    private void aVR() {
+        a.aVO().a(new e() { // from class: com.baidu.tieba.ala.liveroom.q.b.1
         });
     }
 
@@ -71,13 +71,13 @@ public class b {
             layoutParams.addRule(12);
             layoutParams.setMargins(getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18), 0, getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds180), 0);
             layoutParams.bottomMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_tbds130) + getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18);
-            viewGroup.addView(this.eoa.getView(), layoutParams);
+            viewGroup.addView(this.eni.getView(), layoutParams);
         }
     }
 
-    public void aVU() {
-        if (this.dYV != null && this.dYV.indexOfChild(this.eoa.getView()) > 0) {
-            this.dYV.removeView(this.eoa.getView());
+    public void aVS() {
+        if (this.dYe != null && this.dYe.indexOfChild(this.eni.getView()) > 0) {
+            this.dYe.removeView(this.eni.getView());
         }
     }
 }

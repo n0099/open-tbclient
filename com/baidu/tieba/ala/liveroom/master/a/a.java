@@ -4,22 +4,22 @@ import com.baidu.tieba.ala.liveroom.data.g;
 import com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator;
 /* loaded from: classes6.dex */
 public abstract class a {
-    protected com.baidu.tieba.ala.liveroom.data.e dZB;
-    protected com.baidu.tieba.ala.liveroom.data.d ejR;
-    protected AlaMasterLiveRoomOpearator elb;
-    protected b elc;
+    protected com.baidu.tieba.ala.liveroom.data.e dYK;
+    protected com.baidu.tieba.ala.liveroom.data.d eja;
+    protected AlaMasterLiveRoomOpearator ekk;
+    protected b ekl;
     protected int mCurrentState;
 
-    public abstract void aUv();
+    public abstract void aUt();
 
-    public abstract void ac(int i, String str);
+    public abstract void ab(int i, String str);
 
     public a(com.baidu.tieba.ala.liveroom.data.e eVar) {
-        this.dZB = eVar;
+        this.dYK = eVar;
     }
 
     public void S(AlaMasterLiveRoomOpearator alaMasterLiveRoomOpearator) {
-        this.elb = alaMasterLiveRoomOpearator;
+        this.ekk = alaMasterLiveRoomOpearator;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,46 +27,46 @@ public abstract class a {
         this.mCurrentState = s;
         switch (s) {
             case 2:
-                if (this.elb != null) {
-                    this.elb.aTp();
+                if (this.ekk != null) {
+                    this.ekk.aTn();
                     return;
                 }
                 return;
             case 3:
-                if (this.elb != null) {
-                    this.elb.aTq();
+                if (this.ekk != null) {
+                    this.ekk.aTo();
                     return;
                 }
                 return;
             case 4:
-                if (this.elb != null) {
+                if (this.ekk != null) {
                     com.baidu.tieba.ala.liveroom.data.d dVar = obj instanceof com.baidu.tieba.ala.liveroom.data.d ? (com.baidu.tieba.ala.liveroom.data.d) obj : null;
-                    this.elb.d(dVar);
-                    if (this.elc != null) {
-                        this.elc.b(dVar);
+                    this.ekk.d(dVar);
+                    if (this.ekl != null) {
+                        this.ekl.b(dVar);
                     }
-                    if (dVar != null && dVar.efP) {
-                        this.dZB.efW.a((short) 5, null);
+                    if (dVar != null && dVar.eeY) {
+                        this.dYK.eff.a((short) 5, null);
                         return;
                     }
                     return;
                 }
                 return;
             case 5:
-                if (this.elb != null) {
-                    this.elb.b(obj instanceof g ? (g) obj : null);
+                if (this.ekk != null) {
+                    this.ekk.b(obj instanceof g ? (g) obj : null);
                     return;
                 }
                 return;
             case 6:
-                if (this.elb != null) {
-                    this.elb.aTu();
+                if (this.ekk != null) {
+                    this.ekk.aTs();
                     return;
                 }
                 return;
             case 7:
-                if (this.elb != null) {
-                    this.elb.aTv();
+                if (this.ekk != null) {
+                    this.ekk.aTt();
                     return;
                 }
                 return;
@@ -75,8 +75,8 @@ public abstract class a {
                 if (obj instanceof Short) {
                     s2 = ((Short) obj).shortValue();
                 }
-                if (this.elb != null) {
-                    this.elb.e(s2);
+                if (this.ekk != null) {
+                    this.ekk.d(s2);
                     return;
                 }
                 return;
@@ -86,64 +86,64 @@ public abstract class a {
     }
 
     public void c(com.baidu.tieba.ala.liveroom.data.d dVar) {
-        this.ejR = dVar;
-        aUv();
+        this.eja = dVar;
+        aUt();
     }
 
     public void c(g gVar) {
-        if (this.dZB != null && this.dZB.efW != null) {
-            this.dZB.efW.a((short) 5, gVar);
+        if (this.dYK != null && this.dYK.eff != null) {
+            this.dYK.eff.a((short) 5, gVar);
         }
     }
 
-    public void ad(int i, String str) {
-        if (this.elb != null) {
-            this.elb.onError(i, str);
+    public void ac(int i, String str) {
+        if (this.ekk != null) {
+            this.ekk.onError(i, str);
         }
     }
 
-    public void g(short s) {
-        if (this.dZB != null && this.dZB.efW != null) {
-            this.dZB.efW.a((short) 8, Short.valueOf(s));
+    public void f(short s) {
+        if (this.dYK != null && this.dYK.eff != null) {
+            this.dYK.eff.a((short) 8, Short.valueOf(s));
         }
     }
 
-    public void aUw() {
-        if (this.elb != null) {
-            this.elb.aTy();
+    public void aUu() {
+        if (this.ekk != null) {
+            this.ekk.aTw();
         }
     }
 
-    public void aUx() {
-        if (this.elb != null) {
-            this.elb.aTz();
+    public void aUv() {
+        if (this.ekk != null) {
+            this.ekk.aTx();
         }
     }
 
     public void onPause() {
-        if (this.elb != null) {
-            this.elb.onPause();
+        if (this.ekk != null) {
+            this.ekk.onPause();
         }
     }
 
-    public boolean aUy() {
-        if (this.elb != null) {
-            return this.elb.aTw();
+    public boolean aUw() {
+        if (this.ekk != null) {
+            return this.ekk.aTu();
         }
         return false;
     }
 
-    public void aUz() {
-        if (this.elb != null) {
-            this.elb.aTx();
+    public void aUx() {
+        if (this.ekk != null) {
+            this.ekk.aTv();
         }
     }
 
-    public boolean aUA() {
+    public boolean aUy() {
         return this.mCurrentState == 5;
     }
 
     public void a(b bVar) {
-        this.elc = bVar;
+        this.ekl = bVar;
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.live.gift.a;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class a {
-    private String WS;
-    private boolean WT;
-    private ArrayList<Integer> aaM;
+    private boolean WA;
+    private String Wz;
+    private ArrayList<Integer> aau;
     private int categoryId;
 
     public void setCategoryId(int i) {
@@ -13,26 +13,26 @@ public class a {
     }
 
     public void setCategoryName(String str) {
-        this.WS = str;
+        this.Wz = str;
     }
 
     public void g(ArrayList<Integer> arrayList) {
-        this.aaM = arrayList;
+        this.aau = arrayList;
     }
 
     public String getCategoryName() {
-        return this.WS;
+        return this.Wz;
     }
 
     public int getCategoryId() {
         return this.categoryId;
     }
 
-    public ArrayList<Integer> qB() {
-        return this.aaM;
+    public ArrayList<Integer> qC() {
+        return this.aau;
     }
 
     public void ah(boolean z) {
-        this.WT = z;
+        this.WA = z;
     }
 }

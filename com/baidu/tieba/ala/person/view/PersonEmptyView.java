@@ -11,9 +11,9 @@ import com.baidu.live.k.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes6.dex */
 public class PersonEmptyView extends LinearLayout {
-    private ImageView dGv;
-    private TextView dGw;
-    private TextView dGx;
+    private ImageView dFE;
+    private TextView dFF;
+    private TextView dFG;
 
     public PersonEmptyView(Context context) {
         super(context);
@@ -33,33 +33,33 @@ public class PersonEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_person_empty_view, this);
-        this.dGv = (ImageView) findViewById(a.g.empty_image);
+        this.dFE = (ImageView) findViewById(a.g.empty_image);
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            ViewGroup.LayoutParams layoutParams = this.dGv.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.dFE.getLayoutParams();
             layoutParams.height = (int) getContext().getResources().getDimension(a.e.sdk_ds250);
             layoutParams.width = (int) getContext().getResources().getDimension(a.e.sdk_ds334);
-            this.dGv.setPadding(0, (int) getContext().getResources().getDimension(a.e.sdk_ds64), 0, 0);
-            this.dGv.setLayoutParams(layoutParams);
+            this.dFE.setPadding(0, (int) getContext().getResources().getDimension(a.e.sdk_ds64), 0, 0);
+            this.dFE.setLayoutParams(layoutParams);
         }
-        this.dGw = (TextView) findViewById(a.g.empty_text);
-        this.dGx = (TextView) findViewById(a.g.empty_sub_text);
+        this.dFF = (TextView) findViewById(a.g.empty_text);
+        this.dFG = (TextView) findViewById(a.g.empty_sub_text);
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.dGv.setImageResource(i);
+            this.dFE.setImageResource(i);
         } else {
-            this.dGv.setVisibility(8);
+            this.dFE.setVisibility(8);
         }
         if (i2 != -1) {
-            this.dGw.setText(i2);
+            this.dFF.setText(i2);
         } else {
-            this.dGw.setVisibility(8);
+            this.dFF.setVisibility(8);
         }
         if (i3 != -1) {
-            this.dGx.setText(i3);
+            this.dFG.setText(i3);
         } else {
-            this.dGx.setVisibility(8);
+            this.dFG.setVisibility(8);
         }
     }
 }

@@ -10,27 +10,27 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static final Map<String, b> vr = new HashMap();
-    private static final Object vs = new Object();
-    private static DateFormat vt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
+    private static final Map<String, b> uQ = new HashMap();
+    private static final Object uR = new Object();
+    private static DateFormat uS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
     private long startTime;
     private String type;
-    private LinkedList<a> vu = new LinkedList<>();
+    private LinkedList<a> uT = new LinkedList<>();
 
     private static b aJ(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "Default";
         }
-        if (!vr.containsKey(str)) {
-            synchronized (vs) {
-                if (!vr.containsKey(str)) {
+        if (!uQ.containsKey(str)) {
+            synchronized (uR) {
+                if (!uQ.containsKey(str)) {
                     b bVar = new b(str);
-                    vr.put(str, bVar);
+                    uQ.put(str, bVar);
                     return bVar;
                 }
             }
         }
-        return vr.get(str);
+        return uQ.get(str);
     }
 
     public static b iy() {
@@ -48,7 +48,7 @@ public class b {
     public void trace(String str, String str2) {
         iz();
         iA();
-        this.vu.add(new a(str, str2));
+        this.uT.add(new a(str, str2));
     }
 
     private void iz() {
@@ -58,18 +58,18 @@ public class b {
     }
 
     private void iA() {
-        while (this.vu.size() >= 70) {
-            this.vu.poll();
+        while (this.uT.size() >= 70) {
+            this.uT.poll();
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("trace_" + this.type + "{begin@" + vt.format(new Date(this.startTime)) + "->");
-        for (int i = 0; i < this.vu.size(); i++) {
-            a aVar = this.vu.get(i);
-            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.vv, vt.format(new Date(aVar.time))));
-            if (i < this.vu.size() - 1) {
+        sb.append("trace_" + this.type + "{begin@" + uS.format(new Date(this.startTime)) + "->");
+        for (int i = 0; i < this.uT.size(); i++) {
+            a aVar = this.uT.get(i);
+            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.uU, uS.format(new Date(aVar.time))));
+            if (i < this.uT.size() - 1) {
                 sb.append("->");
             }
         }
@@ -82,11 +82,11 @@ public class b {
     public static class a {
         private String method;
         private long time;
-        private String vv;
+        private String uU;
 
         a(String str, String str2, long j) {
             this.method = str;
-            this.vv = str2;
+            this.uU = str2;
             this.time = j;
         }
 

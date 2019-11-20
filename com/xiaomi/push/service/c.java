@@ -1,33 +1,37 @@
 package com.xiaomi.push.service;
 
+import com.xiaomi.push.ff;
+import com.xiaomi.push.fx;
 import com.xiaomi.push.service.XMPushService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class c extends XMPushService.i {
-    private XMPushService b;
-    private com.xiaomi.slim.b[] c;
+    private XMPushService a;
 
-    public c(XMPushService xMPushService, com.xiaomi.slim.b[] bVarArr) {
+    /* renamed from: a  reason: collision with other field name */
+    private ff[] f903a;
+
+    public c(XMPushService xMPushService, ff[] ffVarArr) {
         super(4);
-        this.b = null;
-        this.b = xMPushService;
-        this.c = bVarArr;
+        this.a = null;
+        this.a = xMPushService;
+        this.f903a = ffVarArr;
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "batch send message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            if (this.c != null) {
-                this.b.a(this.c);
+            if (this.f903a != null) {
+                this.a.a(this.f903a);
             }
-        } catch (com.xiaomi.smack.l e) {
+        } catch (fx e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.b.a(10, e);
+            this.a.a(10, e);
         }
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String b() {
-        return "batch send message.";
     }
 }

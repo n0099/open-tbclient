@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes6.dex */
 public class f extends BdBaseModel<AlaGuardianListActivity> {
-    private a dSI;
-    private AlaGuardianListActivity dSK;
-    public HttpMessageListener dSd;
+    private a dRR;
+    private AlaGuardianListActivity dRT;
+    public HttpMessageListener dRm;
     private String mUserId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +26,7 @@ public class f extends BdBaseModel<AlaGuardianListActivity> {
 
     public f(AlaGuardianListActivity alaGuardianListActivity, a aVar) {
         super(alaGuardianListActivity.getPageContext());
-        this.dSd = new HttpMessageListener(1021024) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.f.1
+        this.dRm = new HttpMessageListener(1021024) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -35,35 +35,35 @@ public class f extends BdBaseModel<AlaGuardianListActivity> {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     int error = httpResponsedMessage.getError();
                     if (statusCode != 200 || error != 0) {
-                        if (f.this.dSI != null) {
+                        if (f.this.dRR != null) {
                             if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                                errorString = f.this.dSK.getResources().getString(a.i.sdk_neterror);
+                                errorString = f.this.dRT.getResources().getString(a.i.sdk_neterror);
                             } else {
                                 errorString = httpResponsedMessage.getErrorString();
                             }
-                            f.this.dSI.tr(errorString);
+                            f.this.dRR.tr(errorString);
                             return;
                         }
                         return;
                     }
                     AlaGuardianListHttpResponseMessage alaGuardianListHttpResponseMessage = (AlaGuardianListHttpResponseMessage) httpResponsedMessage;
-                    if (f.this.dSI != null) {
-                        f.this.dSI.b(alaGuardianListHttpResponseMessage.aMI());
+                    if (f.this.dRR != null) {
+                        f.this.dRR.b(alaGuardianListHttpResponseMessage.aMG());
                     }
                 }
             }
         };
-        this.dSK = alaGuardianListActivity;
-        this.dSI = aVar;
-        aMJ();
-        registerListener(this.dSd);
+        this.dRT = alaGuardianListActivity;
+        this.dRR = aVar;
+        aMH();
+        registerListener(this.dRm);
     }
 
     public void tt(String str) {
         this.mUserId = str;
     }
 
-    private void aMJ() {
+    private void aMH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021024, TbConfig.SERVER_ADDRESS + "ala/relation/getGuardianShipList");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -74,20 +74,20 @@ public class f extends BdBaseModel<AlaGuardianListActivity> {
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean loadData() {
-        aMK();
+        aMI();
         return false;
     }
 
-    private void aMK() {
+    private void aMI() {
         HttpMessage httpMessage = new HttpMessage(1021024);
-        httpMessage.setTag(this.dSK.getUniqueId());
+        httpMessage.setTag(this.dRT.getUniqueId());
         httpMessage.addParam("benefit_userid", this.mUserId);
         sendMessage(httpMessage);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.dSd);
+        MessageManager.getInstance().unRegisterListener(this.dRm);
         return false;
     }
 

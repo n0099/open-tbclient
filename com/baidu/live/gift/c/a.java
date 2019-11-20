@@ -11,28 +11,28 @@ import com.baidu.live.utils.o;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 /* loaded from: classes6.dex */
 public class a implements c {
-    private c.a adu;
-    private HttpMessageListener adv;
-    private HttpMessageListener adw;
+    private c.a adb;
+    private HttpMessageListener adc;
+    private HttpMessageListener ade;
 
     public a() {
         registerListener();
     }
 
     public void a(c.a aVar) {
-        this.adu = aVar;
+        this.adb = aVar;
     }
 
-    public void ro() {
+    public void rp() {
         HttpMessage httpMessage = new HttpMessage(1021150);
-        httpMessage.addParam("scene_from", o.wu());
+        httpMessage.addParam("scene_from", o.wv());
         httpMessage.addParam("platform", "2");
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void a(String str, String str2, String str3, String str4, int i, int i2, String str5) {
         HttpMessage httpMessage = new HttpMessage(1021151);
-        httpMessage.addParam("scene_from", o.wu());
+        httpMessage.addParam("scene_from", o.wv());
         httpMessage.addParam(LegoListActivityConfig.ITEM_ID, str);
         httpMessage.addParam("item_type", str2);
         httpMessage.addParam("platform", "2");
@@ -45,49 +45,49 @@ public class a implements c {
     }
 
     public void release() {
-        this.adu = null;
+        this.adb = null;
         unregisterListener();
     }
 
     private void registerListener() {
-        rp();
         rq();
+        rr();
     }
 
     private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.adv);
-        MessageManager.getInstance().unRegisterListener(this.adw);
+        MessageManager.getInstance().unRegisterListener(this.adc);
+        MessageManager.getInstance().unRegisterListener(this.ade);
     }
 
-    private void rp() {
-        this.adv = new HttpMessageListener(1021150) { // from class: com.baidu.live.gift.c.a.1
+    private void rq() {
+        this.adc = new HttpMessageListener(1021150) { // from class: com.baidu.live.gift.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof GiftPackageListHttpResponsedMessage) {
                     GiftPackageListHttpResponsedMessage giftPackageListHttpResponsedMessage = (GiftPackageListHttpResponsedMessage) httpResponsedMessage;
-                    if (a.this.adu != null) {
-                        a.this.adu.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.qX(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.qY());
+                    if (a.this.adb != null) {
+                        a.this.adb.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.qY(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.qZ());
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.adv);
+        MessageManager.getInstance().registerListener(this.adc);
     }
 
-    private void rq() {
-        this.adw = new HttpMessageListener(1021151) { // from class: com.baidu.live.gift.c.a.2
+    private void rr() {
+        this.ade = new HttpMessageListener(1021151) { // from class: com.baidu.live.gift.c.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof GiftPackageConsumeHttpResponsedMessage) {
                     GiftPackageConsumeHttpResponsedMessage giftPackageConsumeHttpResponsedMessage = (GiftPackageConsumeHttpResponsedMessage) httpResponsedMessage;
-                    if (a.this.adu != null) {
-                        a.this.adu.a(!giftPackageConsumeHttpResponsedMessage.hasError() && giftPackageConsumeHttpResponsedMessage.getError() == 0, giftPackageConsumeHttpResponsedMessage.getError(), giftPackageConsumeHttpResponsedMessage.getErrorString(), giftPackageConsumeHttpResponsedMessage.adp, giftPackageConsumeHttpResponsedMessage.adq);
+                    if (a.this.adb != null) {
+                        a.this.adb.a(!giftPackageConsumeHttpResponsedMessage.hasError() && giftPackageConsumeHttpResponsedMessage.getError() == 0, giftPackageConsumeHttpResponsedMessage.getError(), giftPackageConsumeHttpResponsedMessage.getErrorString(), giftPackageConsumeHttpResponsedMessage.acW, giftPackageConsumeHttpResponsedMessage.acX);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.adw);
+        MessageManager.getInstance().registerListener(this.ade);
     }
 }

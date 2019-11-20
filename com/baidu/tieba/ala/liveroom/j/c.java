@@ -11,23 +11,23 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ViewHelper;
 /* loaded from: classes6.dex */
 public class c {
-    private ViewGroup dYV;
-    protected d egY;
+    private ViewGroup dYe;
+    protected d egh;
     protected TbPageContext mTbPageContext;
     public String otherParams;
-    private String dLK = "";
-    private View.OnClickListener czV = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.j.c.2
+    private String dKT = "";
+    private View.OnClickListener cze = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.j.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.dYV != null && c.this.dYV.indexOfChild(c.this.egY.getView()) >= 0) {
-                c.this.dYV.removeView(c.this.egY.getView());
+            if (c.this.dYe != null && c.this.dYe.indexOfChild(c.this.egh.getView()) >= 0) {
+                c.this.dYe.removeView(c.this.egh.getView());
             }
             if (ViewHelper.checkUpIsLogin(c.this.mTbPageContext.getPageActivity())) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913106, c.this.dLK));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913106, c.this.dKT));
             }
         }
     };
-    CustomMessageListener dFq = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.j.c.3
+    CustomMessageListener dEz = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.j.c.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -45,7 +45,7 @@ public class c {
     public c(TbPageContext tbPageContext, String str) {
         this.mTbPageContext = tbPageContext;
         this.otherParams = str;
-        MessageManager.getInstance().registerListener(this.dFq);
+        MessageManager.getInstance().registerListener(this.dEz);
     }
 
     private TbPageContext getPageContext() {
@@ -56,31 +56,31 @@ public class c {
         if (viewGroup == null) {
             return false;
         }
-        if (this.egY == null) {
-            this.egY = new d(getPageContext(), this.czV);
+        if (this.egh == null) {
+            this.egh = new d(getPageContext(), this.cze);
         }
-        if (this.dYV != null && this.dYV.indexOfChild(this.egY.getView()) >= 0) {
-            this.dYV.removeView(this.egY.getView());
+        if (this.dYe != null && this.dYe.indexOfChild(this.egh.getView()) >= 0) {
+            this.dYe.removeView(this.egh.getView());
         }
-        this.dYV = viewGroup;
+        this.dYe = viewGroup;
         return true;
     }
 
     public View getView() {
-        if (this.egY == null) {
+        if (this.egh == null) {
             return null;
         }
-        return this.egY.getView();
+        return this.egh.getView();
     }
 
     public void c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isPopupWindowUnabled()) && ac(viewGroup)) {
-            this.dYV.addView(this.egY.getView(), layoutParams);
+            this.dYe.addView(this.egh.getView(), layoutParams);
             this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.j.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this.dYV != null && c.this.dYV.indexOfChild(c.this.egY.getView()) >= 0) {
-                        c.this.dYV.removeView(c.this.egY.getView());
+                    if (c.this.dYe != null && c.this.dYe.indexOfChild(c.this.egh.getView()) >= 0) {
+                        c.this.dYe.removeView(c.this.egh.getView());
                     }
                 }
             }, 10000L);
@@ -89,6 +89,6 @@ public class c {
 
     public void onDestroy() {
         this.handler.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.dFq);
+        MessageManager.getInstance().unRegisterListener(this.dEz);
     }
 }

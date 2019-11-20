@@ -10,7 +10,7 @@ public interface h {
 
     void onKeyboardVisibilityChanged(boolean z);
 
-    void sC();
+    void sD();
 
     void setMsgData(List<com.baidu.live.im.data.a> list);
 

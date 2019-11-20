@@ -133,7 +133,7 @@ public class d {
 
     public static void zN(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.hxb + g.a.hwS + str));
+            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.hwk + g.a.hwb + str));
         }
     }
 }

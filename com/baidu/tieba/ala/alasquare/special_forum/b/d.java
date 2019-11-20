@@ -12,82 +12,82 @@ import com.baidu.tbadk.util.ac;
 import com.baidu.tieba.ala.alasquare.live.toplivecard.b;
 /* loaded from: classes6.dex */
 public class d extends a {
-    private final int dwq;
-    private com.baidu.tieba.ala.alasquare.live.toplivecard.b dwr;
-    private com.baidu.tieba.ala.alasquare.live.b.c dws;
-    private Runnable dwt;
+    private com.baidu.tieba.ala.alasquare.live.toplivecard.b dvA;
+    private com.baidu.tieba.ala.alasquare.live.b.c dvB;
+    private Runnable dvC;
+    private final int dvz;
     private boolean mIsBackground;
-    private CustomMessageListener wh;
+    private CustomMessageListener vG;
 
     public d(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.dwq = 1000;
+        this.dvz = 1000;
         this.mIsBackground = false;
-        this.wh = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.d.1
+        this.vG = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 d.this.startPlay();
             }
         };
-        this.dwt = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.d.3
+        this.dvC = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.d.3
             @Override // java.lang.Runnable
             public void run() {
-                d.this.aKn();
+                d.this.aKl();
             }
         };
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void init() {
-        this.dwr = new com.baidu.tieba.ala.alasquare.live.toplivecard.b(this.mTbPageContext, true);
-        MessageManager.getInstance().registerListener(this.wh);
-        this.dwr.a(new b.a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.d.2
+        this.dvA = new com.baidu.tieba.ala.alasquare.live.toplivecard.b(this.mTbPageContext, true);
+        MessageManager.getInstance().registerListener(this.vG);
+        this.dvA.a(new b.a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.d.2
             @Override // com.baidu.tieba.ala.alasquare.live.toplivecard.b.a
             public void J(bh bhVar) {
                 if (bhVar != null) {
-                    com.baidu.tieba.ala.alasquare.c.a.aJO().c("c12909", d.this.dDt.dBW, 1, bhVar.getId());
+                    com.baidu.tieba.ala.alasquare.c.a.aJM().c("c12909", d.this.dCC.dBf, 1, bhVar.getId());
                 }
             }
 
             @Override // com.baidu.tieba.ala.alasquare.live.toplivecard.b.a
             public void K(bh bhVar) {
                 if (bhVar != null) {
-                    com.baidu.tieba.ala.alasquare.c.a.aJO().c("c12910", d.this.dDt.dBW, 1, bhVar.getId());
+                    com.baidu.tieba.ala.alasquare.c.a.aJM().c("c12910", d.this.dCC.dBf, 1, bhVar.getId());
                 }
             }
         });
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void aKm() {
-        super.aKm();
-        if (this.dwr != null) {
-            this.dwr.aJe();
+    public void aKk() {
+        super.aKk();
+        if (this.dvA != null) {
+            this.dvA.aJc();
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public View getContentView() {
-        return this.dwr.getView();
+        return this.dvA.getView();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
         super.a(aVar);
-        aKo();
-        if (this.dwr != null) {
-            this.dwr.a(this.dws);
+        aKm();
+        if (this.dvA != null) {
+            this.dvA.a(this.dvB);
         }
-        if (this.dws != null && this.dws.cry != null) {
-            com.baidu.tieba.ala.alasquare.c.a.aJO().c("c12908", this.dDt.dBW, 1, this.dws.cry.getId());
+        if (this.dvB != null && this.dvB.cqG != null) {
+            com.baidu.tieba.ala.alasquare.c.a.aJM().c("c12908", this.dCC.dBf, 1, this.dvB.cqG.getId());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKn() {
-        if (this.dws != null && this.dws.cry != null && this.dws.cry.aiZ() != null && this.dwr != null) {
-            this.dwr.startPlay(this.dws.cry.aiZ().hls_url);
+    public void aKl() {
+        if (this.dvB != null && this.dvB.cqG != null && this.dvB.cqG.aiX() != null && this.dvA != null) {
+            this.dvA.startPlay(this.dvB.cqG.aiX().hls_url);
         }
     }
 
@@ -104,26 +104,26 @@ public class d extends a {
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void startPlay() {
         if (!this.mIsBackground) {
-            if (ac.ko(1)) {
-                com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.dwt);
-                com.baidu.adp.lib.g.e.fZ().postDelayed(this.dwt, 1000L);
-            } else if (this.dwr != null) {
-                this.dwr.aJf();
+            if (ac.kn(1)) {
+                com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.dvC);
+                com.baidu.adp.lib.g.e.fZ().postDelayed(this.dvC, 1000L);
+            } else if (this.dvA != null) {
+                this.dvA.aJd();
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void stopPlay() {
-        if (this.dwr != null) {
-            this.dwr.aJf();
+        if (this.dvA != null) {
+            this.dvA.aJd();
         }
-        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.dwt);
+        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.dvC);
     }
 
-    private void aKo() {
-        this.dws = new com.baidu.tieba.ala.alasquare.live.b.c();
-        this.dws.cry = this.dDt.dbM.get(0);
+    private void aKm() {
+        this.dvB = new com.baidu.tieba.ala.alasquare.live.b.c();
+        this.dvB.cqG = this.dCC.daV.get(0);
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
@@ -136,20 +136,20 @@ public class d extends a {
         if (aVar == null) {
             return false;
         }
-        return (1 != aVar.dBV || v.isEmpty(aVar.dbM) || aVar.dbM.get(0) == null || aVar.dbM.get(0).aiZ() == null) ? false : true;
+        return (1 != aVar.dBe || v.isEmpty(aVar.daV) || aVar.daV.get(0) == null || aVar.daV.get(0).aiX() == null) ? false : true;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void onChangeSkinType(int i) {
-        this.dwr.onChangeSkinType();
+        this.dvA.onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.wh);
-        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.dwt);
-        if (this.dwr != null) {
-            this.dwr.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.vG);
+        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.dvC);
+        if (this.dvA != null) {
+            this.dvA.onDestroy();
         }
     }
 }

@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c cJM = new c();
+    private static c cIV = new c();
     private final HashMap<String, Class<? extends b>> imageActions = new HashMap<>();
 
-    public static c avw() {
-        return cJM;
+    public static c avu() {
+        return cIV;
     }
 
     private c() {

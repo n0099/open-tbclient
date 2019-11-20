@@ -12,29 +12,29 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b byA;
+    private static volatile b bxJ;
     private HandlerThread mAudioThread;
     private Handler mHandler;
-    private HashMap<String, Long> byC = new HashMap<>();
-    private String byD = f.VR();
-    private com.baidu.swan.games.audio.a.b byB = new com.baidu.swan.games.audio.a.b(this.byD);
+    private HashMap<String, Long> bxL = new HashMap<>();
+    private String bxM = f.VP();
+    private com.baidu.swan.games.audio.a.b bxK = new com.baidu.swan.games.audio.a.b(this.bxM);
 
     private b() {
-        VY();
+        VW();
     }
 
-    public static b VX() {
-        if (byA == null) {
+    public static b VV() {
+        if (bxJ == null) {
             synchronized (AudioManager.class) {
-                if (byA == null) {
-                    byA = new b();
+                if (bxJ == null) {
+                    bxJ = new b();
                 }
             }
         }
-        return byA;
+        return bxJ;
     }
 
-    private void VY() {
+    private void VW() {
         if (this.mAudioThread == null) {
             this.mAudioThread = new HandlerThread("audio_thread");
             this.mAudioThread.start();
@@ -42,16 +42,16 @@ public class b {
         }
     }
 
-    public Handler VZ() {
+    public Handler VX() {
         return this.mHandler;
     }
 
     public void a(String str, com.baidu.swan.games.audio.a.a aVar) {
-        this.byB.a(str, aVar);
+        this.bxK.a(str, aVar);
     }
 
     public String jx(String str) throws MalformedURLException {
-        return this.byD + f.jt(str);
+        return this.bxM + f.jt(str);
     }
 
     public synchronized c B(String str, boolean z) {
@@ -61,14 +61,14 @@ public class b {
         return new a();
     }
 
-    public static boolean Wa() {
-        ArrayList<com.baidu.swan.apps.media.a> LO = com.baidu.swan.apps.media.b.LO();
-        if (LO != null && LO.size() > 0) {
-            int size = LO.size();
+    public static boolean VY() {
+        ArrayList<com.baidu.swan.apps.media.a> LP = com.baidu.swan.apps.media.b.LP();
+        if (LP != null && LP.size() > 0) {
+            int size = LP.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    com.baidu.swan.apps.media.a aVar = LO.get(i);
-                    if ((aVar instanceof AudioPlayer) && !((AudioPlayer) aVar).VL().isPaused()) {
+                    com.baidu.swan.apps.media.a aVar = LP.get(i);
+                    if ((aVar instanceof AudioPlayer) && !((AudioPlayer) aVar).VJ().isPaused()) {
                         return true;
                     }
                 } catch (Exception e) {

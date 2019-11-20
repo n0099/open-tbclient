@@ -6,12 +6,12 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes5.dex */
 public class VideoAdView extends RelativeLayout {
-    private IOAdEventListener aAA;
-    private f aAB;
+    private IOAdEventListener aAi;
+    private f aAj;
 
     public VideoAdView(Context context) {
         super(context);
-        this.aAA = new m(this);
+        this.aAi = new m(this);
     }
 
     /* loaded from: classes5.dex */
@@ -58,6 +58,6 @@ public class VideoAdView extends RelativeLayout {
     }
 
     public void setListener(f fVar) {
-        this.aAB = fVar;
+        this.aAj = fVar;
     }
 }

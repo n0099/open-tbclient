@@ -29,7 +29,7 @@ public class a implements f {
                     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
                     public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
                         if (i == -1) {
-                            bVar.P(o.dP(intent2.getStringExtra("data")));
+                            bVar.Q(o.dP(intent2.getStringExtra("data")));
                         } else if (i == 0) {
                             bVar.cL(1);
                         } else {

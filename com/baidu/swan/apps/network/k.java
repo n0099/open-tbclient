@@ -8,8 +8,8 @@ import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class k {
-    public static final a aYV = new a(null);
-    private Set<String> aYU;
+    public static final a aYD = new a(null);
+    private Set<String> aYC;
 
     /* loaded from: classes2.dex */
     public static final class a {
@@ -23,10 +23,10 @@ public final class k {
 
     public final void a(WebSocketTask webSocketTask) {
         p.i(webSocketTask, "task");
-        if (this.aYU == null) {
-            this.aYU = new LinkedHashSet();
+        if (this.aYC == null) {
+            this.aYC = new LinkedHashSet();
         }
-        Set<String> set = this.aYU;
+        Set<String> set = this.aYC;
         if (set != null) {
             set.add(webSocketTask.getTaskId());
         }
@@ -34,7 +34,7 @@ public final class k {
 
     public final void gt(String str) {
         p.i(str, "taskId");
-        Set<String> set = this.aYU;
+        Set<String> set = this.aYC;
         if (set != null) {
             set.remove(str);
         }
@@ -43,7 +43,7 @@ public final class k {
     public final void release() {
         try {
             try {
-                Set<String> set = this.aYU;
+                Set<String> set = this.aYC;
                 if (set != null) {
                     for (String str : set) {
                         try {
@@ -54,7 +54,7 @@ public final class k {
                     }
                 }
                 try {
-                    Set<String> set2 = this.aYU;
+                    Set<String> set2 = this.aYC;
                     if (set2 != null) {
                         set2.clear();
                     }
@@ -66,7 +66,7 @@ public final class k {
             }
         } finally {
             try {
-                Set<String> set3 = this.aYU;
+                Set<String> set3 = this.aYC;
                 if (set3 != null) {
                     set3.clear();
                 }
@@ -76,8 +76,8 @@ public final class k {
         }
     }
 
-    public final boolean MQ() {
-        Set<String> set = this.aYU;
+    public final boolean MR() {
+        Set<String> set = this.aYC;
         return (set != null ? set.size() : 0) < 5;
     }
 }

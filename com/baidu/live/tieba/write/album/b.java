@@ -19,21 +19,21 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b extends BaseAdapter {
-    private AlbumActivity apI;
-    private String apU;
-    private int apV;
+    private String apC;
+    private int apD;
+    private AlbumActivity apq;
     private LayoutInflater mLayoutInflater;
     private List<AlbumData> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.apI = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.apI.getPageContext().getPageActivity());
-        this.apV = BdUtilHelper.getEquipmentWidth(this.apI.getPageContext().getPageActivity()) / 2;
+        this.apq = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.apq.getPageContext().getPageActivity());
+        this.apD = BdUtilHelper.getEquipmentWidth(this.apq.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<AlbumData> list, String str) {
         this.mList = list;
-        this.apU = str;
+        this.apC = str;
     }
 
     @Override // android.widget.Adapter
@@ -61,11 +61,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(a.h.sdk_ph_album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.apW = (TbImageView) view.findViewById(a.g.item_head);
-            aVar.apX = (TextView) view.findViewById(a.g.item_name);
-            aVar.apY = (ImageView) view.findViewById(a.g.item_arrow);
-            aVar.apW.setGifIconSupport(false);
-            aVar.apW.setLongIconSupport(false);
+            aVar.apE = (TbImageView) view.findViewById(a.g.item_head);
+            aVar.apF = (TextView) view.findViewById(a.g.item_name);
+            aVar.apG = (ImageView) view.findViewById(a.g.item_arrow);
+            aVar.apE.setGifIconSupport(false);
+            aVar.apE.setLongIconSupport(false);
             view.setTag(aVar);
         }
         AlbumData item = getItem(i);
@@ -74,24 +74,24 @@ public class b extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.apX.setText(BdUtilHelper.getTextOmit(aVar.apX.getPaint(), item.getName(), this.apV) + "(" + item.getCount() + ")");
+                aVar.apF.setText(BdUtilHelper.getTextOmit(aVar.apF.getPaint(), item.getName(), this.apD) + "(" + item.getCount() + ")");
             } else {
-                aVar.apX.setText("");
+                aVar.apF.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.apU)) {
-                SkinManager.setImageResource(aVar.apY, a.f.sdk_ph_icon_list_select_ok_n);
-                aVar.apY.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.apC)) {
+                SkinManager.setImageResource(aVar.apG, a.f.sdk_ph_icon_list_select_ok_n);
+                aVar.apG.setVisibility(0);
             } else {
-                aVar.apY.setVisibility(8);
+                aVar.apG.setVisibility(8);
             }
             MediaFileInfo mediaFileInfo = item.getMediaFileInfo();
             if (mediaFileInfo instanceof VideoFileInfo) {
-                aVar.apW.startLoad(TbImageView.getUrlWithResizeTag(((VideoFileInfo) mediaFileInfo).videoPath, 200, 200), 37, false);
+                aVar.apE.startLoad(TbImageView.getUrlWithResizeTag(((VideoFileInfo) mediaFileInfo).videoPath, 200, 200), 37, false);
             } else if (mediaFileInfo instanceof ImageFileInfo) {
-                aVar.apW.startLoad(TbImageView.getUrlWithResizeTag(((ImageFileInfo) mediaFileInfo).getFilePath(), 200, 200), 35, false);
+                aVar.apE.startLoad(TbImageView.getUrlWithResizeTag(((ImageFileInfo) mediaFileInfo).getFilePath(), 200, 200), 35, false);
             }
-            SkinManager.setViewTextColor(aVar.apX, a.d.sdk_cp_cont_b);
+            SkinManager.setViewTextColor(aVar.apF, a.d.sdk_cp_cont_b);
             SkinManager.setBackgroundResource(view, a.f.sdk_ph_addresslist_item_bg);
         }
         return view;
@@ -99,9 +99,9 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes6.dex */
     private class a {
-        TbImageView apW;
-        TextView apX;
-        ImageView apY;
+        TbImageView apE;
+        TextView apF;
+        ImageView apG;
 
         private a() {
         }

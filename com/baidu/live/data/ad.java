@@ -9,13 +9,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ad extends BaseData {
-    public String TS;
-    public List<a> TT;
-    public String TU;
-    public String TV;
-    public String TW;
-    public String TX;
-    public String TY;
+    public String TA;
+    public String TB;
+    public String TC;
+    public String TD;
+    public String Tx;
+    public List<a> Ty;
+    public String Tz;
     public String text;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -23,27 +23,27 @@ public class ad extends BaseData {
         int length;
         if (jSONObject != null) {
             this.text = jSONObject.optString("text");
-            this.TS = jSONObject.optString(Config.EVENT_HEAT_POINT);
+            this.Tx = jSONObject.optString(Config.EVENT_HEAT_POINT);
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             if (optJSONArray != null && (length = optJSONArray.length()) != 0) {
-                this.TT = new ArrayList();
+                this.Ty = new ArrayList();
                 for (int i = 0; i < length; i++) {
-                    this.TT.add(new a(optJSONArray.optJSONObject(i)));
+                    this.Ty.add(new a(optJSONArray.optJSONObject(i)));
                 }
-                this.TU = jSONObject.optString("text_color");
-                if (!TextUtils.isEmpty(this.TU) && this.TU.charAt(0) != '#') {
-                    this.TU = '#' + this.TU;
+                this.Tz = jSONObject.optString("text_color");
+                if (!TextUtils.isEmpty(this.Tz) && this.Tz.charAt(0) != '#') {
+                    this.Tz = '#' + this.Tz;
                 }
-                this.TV = jSONObject.optString("value_color");
-                if (!TextUtils.isEmpty(this.TV) && this.TV.charAt(0) != '#') {
-                    this.TV = '#' + this.TV;
+                this.TA = jSONObject.optString("value_color");
+                if (!TextUtils.isEmpty(this.TA) && this.TA.charAt(0) != '#') {
+                    this.TA = '#' + this.TA;
                 }
-                this.TW = jSONObject.optString("background_color");
-                if (!TextUtils.isEmpty(this.TW) && this.TW.charAt(0) != '#') {
-                    this.TW = '#' + this.TW;
+                this.TB = jSONObject.optString("background_color");
+                if (!TextUtils.isEmpty(this.TB) && this.TB.charAt(0) != '#') {
+                    this.TB = '#' + this.TB;
                 }
-                this.TX = jSONObject.optString("transparency");
-                this.TY = jSONObject.optString("timer_point_text");
+                this.TC = jSONObject.optString("transparency");
+                this.TD = jSONObject.optString("timer_point_text");
             }
         }
     }

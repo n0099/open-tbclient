@@ -11,54 +11,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b {
-    private final List<com.baidu.adp.widget.ListView.a> agQ = new ArrayList();
-    private e cfJ;
-    private BdTypeListView dvB;
-    private a dvC;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.a dvD;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.b dvE;
+    private final List<com.baidu.adp.widget.ListView.a> agy = new ArrayList();
+    private e ceS;
+    private BdTypeListView duK;
+    private a duL;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.a duM;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.b duN;
 
     public b(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.cfJ = tbPageContext;
-        this.dvB = bdTypeListView;
-        sX();
+        this.ceS = tbPageContext;
+        this.duK = bdTypeListView;
+        sY();
     }
 
-    private void sX() {
-        this.dvE = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.cfJ);
-        this.dvE.setFrom(1);
-        this.dvD = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.cfJ);
-        this.dvD.setFrom(1);
-        this.dvC = new a((TbPageContext) this.cfJ, com.baidu.tieba.ala.alasquare.live.b.b.dvI);
-        this.agQ.add(this.dvE);
-        this.agQ.add(this.dvD);
-        this.agQ.add(this.dvC);
-        this.dvB.addAdapters(this.agQ);
+    private void sY() {
+        this.duN = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.ceS);
+        this.duN.setFrom(1);
+        this.duM = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.ceS);
+        this.duM.setFrom(1);
+        this.duL = new a((TbPageContext) this.ceS, com.baidu.tieba.ala.alasquare.live.b.b.duR);
+        this.agy.add(this.duN);
+        this.agy.add(this.duM);
+        this.agy.add(this.duL);
+        this.duK.addAdapters(this.agy);
     }
 
     public void setDatas(List<m> list) {
-        if (this.dvB != null) {
-            this.dvB.setData(list);
+        if (this.duK != null) {
+            this.duK.setData(list);
         }
     }
 
-    public void mc(int i) {
-        this.dvE.mc(i);
-        this.dvD.mc(i);
+    public void mb(int i) {
+        this.duN.mb(i);
+        this.duM.mb(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.dvB != null && (this.dvB.getAdapter() instanceof BaseAdapter)) {
-            this.dvB.getAdapter().notifyDataSetChanged();
+        if (this.duK != null && (this.duK.getAdapter() instanceof BaseAdapter)) {
+            this.duK.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.dvC.a(iAlaSquareTabController);
+        this.duL.a(iAlaSquareTabController);
     }
 
     public void a(h hVar) {
-        this.dvE.b(hVar);
-        this.dvD.b(hVar);
+        this.duN.b(hVar);
+        this.duM.b(hVar);
     }
 }

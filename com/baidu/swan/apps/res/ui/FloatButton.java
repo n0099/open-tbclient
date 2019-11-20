@@ -56,63 +56,63 @@ public class FloatButton extends FullScreenFloatView {
         Rect rect = new Rect();
         switch (motionEvent.getAction()) {
             case 0:
-                this.bdk.getHitRect(rect);
+                this.bcS.getHitRect(rect);
                 if (rect.contains((int) x, (int) y)) {
-                    this.bdr = x;
-                    this.aqG = y;
-                    this.bdp = true;
-                    this.bdo = true;
-                    postDelayed(this.bds, ViewConfiguration.getTapTimeout());
+                    this.bcZ = x;
+                    this.aqo = y;
+                    this.bcX = true;
+                    this.bcW = true;
+                    postDelayed(this.bda, ViewConfiguration.getTapTimeout());
                     break;
                 }
                 break;
             case 1:
-                if (this.bdo) {
-                    if (this.bdt != null) {
-                        this.bdt.onClick();
+                if (this.bcW) {
+                    if (this.bdb != null) {
+                        this.bdb.onClick();
                     }
-                    removeCallbacks(this.bds);
-                } else if (this.bdp && this.bdt != null) {
-                    this.bdt.Lt();
+                    removeCallbacks(this.bda);
+                } else if (this.bcX && this.bdb != null) {
+                    this.bdb.Lu();
                 }
                 if (DEBUG) {
-                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.bdo);
+                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.bcW);
                 }
-                if (this.bdq && !this.bdo && x >= 0.0f && x <= this.bdn && y >= 0.0f && y <= this.mParentHeight + this.bdm) {
-                    this.bdk.animate().x(this.bdn - this.bdl).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                if (this.bcY && !this.bcW && x >= 0.0f && x <= this.bcV && y >= 0.0f && y <= this.mParentHeight + this.bcU) {
+                    this.bcS.animate().x(this.bcV - this.bcT).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                 }
-                this.bdo = false;
-                this.bdp = false;
+                this.bcW = false;
+                this.bcX = false;
                 break;
             case 2:
-                float abs = Math.abs(x - this.bdr);
-                float abs2 = Math.abs(y - this.aqG);
+                float abs = Math.abs(x - this.bcZ);
+                float abs2 = Math.abs(y - this.aqo);
                 if (Math.sqrt((abs * abs) + (abs2 * abs2)) > 10.0d) {
-                    this.bdo = false;
+                    this.bcW = false;
                 }
                 o(x, y);
                 break;
             case 3:
-                this.bdo = false;
-                this.bdp = false;
+                this.bcW = false;
+                this.bcX = false;
                 break;
             case 4:
-                this.bdo = false;
-                this.bdp = false;
+                this.bcW = false;
+                this.bcX = false;
                 break;
         }
-        return this.bdo | this.bdp;
+        return this.bcW | this.bcX;
     }
 
     private void o(float f, float f2) {
-        if (this.bdk != null) {
+        if (this.bcS != null) {
             if (DEBUG) {
                 Log.e("FloatButton", "move--> x = " + f + ", y = " + f2);
             }
-            int i = (int) (f - (this.bdl / 2));
-            int i2 = (int) (f2 - (this.bdm / 2));
-            int i3 = this.bdn - this.bdl;
-            int i4 = (this.mParentHeight - this.bdm) - 168;
+            int i = (int) (f - (this.bcT / 2));
+            int i2 = (int) (f2 - (this.bcU / 2));
+            int i3 = this.bcV - this.bcT;
+            int i4 = (this.mParentHeight - this.bcU) - 168;
             if (i <= 0) {
                 i = 0;
             }
@@ -128,8 +128,8 @@ public class FloatButton extends FullScreenFloatView {
             if (DEBUG) {
                 Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.mStatusBarHeight);
             }
-            this.bdk.setX(i3);
-            this.bdk.setY(i4);
+            this.bcS.setX(i3);
+            this.bcS.setY(i4);
             requestLayout();
         }
     }

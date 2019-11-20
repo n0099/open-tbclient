@@ -23,29 +23,29 @@ import com.baidu.tieba.tbadkCore.data.e;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class b {
-    private static b cKx = null;
-    private a cKy;
+    private static b cJG = null;
+    private a cJH;
 
-    public static b avJ() {
-        if (cKx == null) {
+    public static b avH() {
+        if (cJG == null) {
             synchronized (b.class) {
-                if (cKx == null) {
-                    cKx = new b();
+                if (cJG == null) {
+                    cJG = new b();
                 }
             }
         }
-        return cKx;
+        return cJG;
     }
 
     public void d(Application application) {
         if (application != null) {
             try {
-                if (this.cKy == null) {
-                    this.cKy = new a();
+                if (this.cJH == null) {
+                    this.cJH = new a();
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.setPriority(1000);
                     intentFilter.addAction("com.baidu.tieba.action.mutiProcess");
-                    application.registerReceiver(this.cKy, intentFilter);
+                    application.registerReceiver(this.cJH, intentFilter);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -54,11 +54,11 @@ public class b {
     }
 
     public static void a(String str, Parcelable parcelable) {
-        avJ().a(str, parcelable, null);
+        avH().a(str, parcelable, null);
     }
 
     public static void b(String str, Serializable serializable) {
-        avJ().c(str, serializable);
+        avH().c(str, serializable);
     }
 
     public Intent qb(String str) {
@@ -154,14 +154,14 @@ public class b {
                 String string = bundle.getString("key_message_type");
                 if ("onResume".equals(string)) {
                     int i2 = bundle.getInt("key_pageType");
-                    c.adZ().i(i, j);
-                    c.adZ().k(i2, j);
+                    c.adX().g(i, j);
+                    c.adX().i(i2, j);
                 } else if ("onPause".equals(string)) {
-                    c.adZ().aee();
+                    c.adX().aec();
                 } else if ("onTouch".equals(string)) {
-                    c.adZ().aeg();
+                    c.adX().aee();
                 } else if ("onActivity".equals(string)) {
-                    c.adZ().i(i, j);
+                    c.adX().g(i, j);
                 }
             }
         }

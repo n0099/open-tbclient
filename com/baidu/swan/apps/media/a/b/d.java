@@ -26,42 +26,42 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static com.baidu.swan.apps.media.a.b.c aVS;
+    private static com.baidu.swan.apps.media.a.b.c aVA;
 
     /* loaded from: classes2.dex */
     public static class a {
-        public b aVW;
-        public c aVX;
+        public b aVE;
+        public c aVF;
         public String info;
         public Uri uri;
     }
 
     /* loaded from: classes2.dex */
     public static class c {
-        public String aWb;
-        public long aWc;
-        public long aWd;
-        String aWe;
+        public String aVJ;
+        public long aVK;
+        public long aVL;
+        String aVM;
         public long duration;
         long id;
         public long size;
     }
 
     public static boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar, JSONObject jSONObject) {
-        b ae = b.ae(jSONObject);
-        if (ae.sourceType == 2) {
-            a(context, unitedSchemeEntity, callbackHandler, bVar, ae);
+        b af = b.af(jSONObject);
+        if (af.sourceType == 2) {
+            a(context, unitedSchemeEntity, callbackHandler, bVar, af);
             return true;
         }
-        c(context, unitedSchemeEntity, callbackHandler, bVar, ae);
+        c(context, unitedSchemeEntity, callbackHandler, bVar, af);
         return true;
     }
 
     private static void a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.ae.b bVar, final b bVar2) {
-        if (com.baidu.swan.apps.camera.a.CD().aO(context)) {
+        if (com.baidu.swan.apps.camera.a.CE().aO(context)) {
             b(context, unitedSchemeEntity, callbackHandler, bVar, bVar2);
         } else {
-            e.LD().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.media.a.b.d.1
+            e.LE().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.media.a.b.d.1
                 @Override // com.baidu.swan.apps.ab.a.InterfaceC0152a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     boolean z = false;
@@ -105,10 +105,10 @@ public class d {
                 fromFile = Uri.fromFile(b2);
             }
             intent.putExtra("output", fromFile);
-            intent.putExtra("android.intent.extra.durationLimit", bVar2.aWa);
+            intent.putExtra("android.intent.extra.durationLimit", bVar2.aVI);
             intent.putExtra("android.intent.extra.videoQuality", 1);
-            if (TextUtils.equals(bVar2.aVZ, "front") && Md()) {
-                if (com.baidu.swan.apps.an.a.Ua()) {
+            if (TextUtils.equals(bVar2.aVH, "front") && Me()) {
+                if (com.baidu.swan.apps.an.a.TY()) {
                     intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
                     intent.putExtra("android.intent.extras.LENS_FACING_FRONT", 1);
                     intent.putExtra("android.intent.extra.USE_FRONT_CAMERA", true);
@@ -127,7 +127,7 @@ public class d {
                         if (fromFile != null && fromFile.equals(intent2.getData())) {
                             aVar.uri = Uri.fromFile(b2);
                         }
-                        aVar.aVW = bVar2;
+                        aVar.aVE = bVar2;
                         d.a(context, unitedSchemeEntity, CallbackHandler.this, bVar, aVar);
                         return true;
                     } else {
@@ -147,7 +147,7 @@ public class d {
         }
     }
 
-    private static boolean Md() {
+    private static boolean Me() {
         int numberOfCameras = Camera.getNumberOfCameras();
         for (int i = 0; i < numberOfCameras; i++) {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
@@ -174,7 +174,7 @@ public class d {
                     if (intent != null) {
                         a aVar = new a();
                         aVar.uri = intent.getData();
-                        aVar.aVW = b.this;
+                        aVar.aVE = b.this;
                         d.a(context, unitedSchemeEntity, callbackHandler, bVar, aVar);
                         return true;
                     } else if (i == 0) {
@@ -195,9 +195,9 @@ public class d {
             Log.i("VideoPickHelper", "consumePickAction:" + aVar.uri);
         }
         if (aVar.uri != null) {
-            if (aVS == null || aVS.getStatus() == AsyncTask.Status.FINISHED) {
-                aVS = new com.baidu.swan.apps.media.a.b.c(context, unitedSchemeEntity, callbackHandler);
-                aVS.execute(aVar);
+            if (aVA == null || aVA.getStatus() == AsyncTask.Status.FINISHED) {
+                aVA = new com.baidu.swan.apps.media.a.b.c(context, unitedSchemeEntity, callbackHandler);
+                aVA.execute(aVar);
             } else if (DEBUG) {
                 Log.w("VideoPickHelper", "Pick task is running !!");
             }
@@ -210,11 +210,11 @@ public class d {
     public static class b {
         public String callback;
         public int sourceType = 3;
-        public boolean aVY = true;
-        public String aVZ = "back";
-        public int aWa = 60;
+        public boolean aVG = true;
+        public String aVH = "back";
+        public int aVI = 60;
 
-        public static b ae(JSONObject jSONObject) {
+        public static b af(JSONObject jSONObject) {
             b bVar = new b();
             if (jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
@@ -249,13 +249,13 @@ public class d {
                     }
                     bVar.sourceType = i;
                 }
-                bVar.aVY = jSONObject.optBoolean("compressed", true);
+                bVar.aVG = jSONObject.optBoolean("compressed", true);
                 int optInt = jSONObject.optInt("maxDuration", 60);
                 if (optInt > 60) {
                     optInt = 60;
                 }
-                bVar.aWa = optInt;
-                bVar.aVZ = jSONObject.optString("camera");
+                bVar.aVI = optInt;
+                bVar.aVH = jSONObject.optString("camera");
                 bVar.callback = jSONObject.optString("cb");
             }
             return bVar;

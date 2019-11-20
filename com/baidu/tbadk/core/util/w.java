@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.DefaultConfig;
 /* loaded from: classes.dex */
 public class w implements MediaScannerConnection.MediaScannerConnectionClient {
-    private a cjf;
+    private a cio;
     private boolean completed;
     private int length;
     private MediaScannerConnection mConnection;
@@ -82,8 +82,8 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
                 this.completed = false;
             }
         }
-        if (this.completed && this.cjf != null) {
-            this.cjf.onScanCompeted();
+        if (this.completed && this.cio != null) {
+            this.cio.onScanCompeted();
         }
     }
 }

@@ -5,57 +5,57 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public abstract class b<T> implements j<T> {
-    private boolean kkZ = false;
+    private boolean kki = false;
 
-    protected abstract void cHB();
+    protected abstract void A(Throwable th);
+
+    protected abstract void cHz();
 
     protected abstract void e(T t, boolean z);
 
-    protected abstract void z(Throwable th);
-
     @Override // com.facebook.imagepipeline.producers.j
     public synchronized void f(@Nullable T t, boolean z) {
-        if (!this.kkZ) {
-            this.kkZ = z;
+        if (!this.kki) {
+            this.kki = z;
             try {
                 e(t, z);
             } catch (Exception e) {
-                n(e);
+                m(e);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.producers.j
-    public synchronized void A(Throwable th) {
-        if (!this.kkZ) {
-            this.kkZ = true;
+    public synchronized void B(Throwable th) {
+        if (!this.kki) {
+            this.kki = true;
             try {
-                z(th);
+                A(th);
             } catch (Exception e) {
-                n(e);
+                m(e);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.producers.j
-    public synchronized void cCH() {
-        if (!this.kkZ) {
-            this.kkZ = true;
+    public synchronized void cCF() {
+        if (!this.kki) {
+            this.kki = true;
             try {
-                cHB();
+                cHz();
             } catch (Exception e) {
-                n(e);
+                m(e);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.producers.j
     public synchronized void av(float f) {
-        if (!this.kkZ) {
+        if (!this.kki) {
             try {
                 aJ(f);
             } catch (Exception e) {
-                n(e);
+                m(e);
             }
         }
     }
@@ -63,7 +63,7 @@ public abstract class b<T> implements j<T> {
     protected void aJ(float f) {
     }
 
-    protected void n(Exception exc) {
+    protected void m(Exception exc) {
         com.facebook.common.c.a.c(getClass(), "unhandled exception", exc);
     }
 }

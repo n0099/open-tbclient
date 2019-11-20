@@ -11,22 +11,22 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b bzQ;
-    private HashMap<String, c> byq = new HashMap<>();
+    private static volatile b byZ;
+    private HashMap<String, c> bxz = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
-    private final Object byt = new Object();
-    private com.baidu.swan.games.network.b bys = com.baidu.swan.games.network.b.Xw();
-    private String byr = f.VR();
+    private final Object bxC = new Object();
+    private com.baidu.swan.games.network.b bxB = com.baidu.swan.games.network.b.Xu();
+    private String bxA = f.VP();
 
-    public static b WN() {
-        if (bzQ == null) {
+    public static b WL() {
+        if (byZ == null) {
             synchronized (b.class) {
-                if (bzQ == null) {
-                    bzQ = new b();
+                if (byZ == null) {
+                    byZ = new b();
                 }
             }
         }
-        return bzQ;
+        return byZ;
     }
 
     public void a(String str, ValueCallback<String> valueCallback) {
@@ -44,7 +44,7 @@ public class b implements a {
                 }
                 return;
             }
-            synchronized (this.byt) {
+            synchronized (this.bxC) {
                 if (!jv(str)) {
                     jw(str);
                 }
@@ -58,12 +58,12 @@ public class b implements a {
     }
 
     private boolean jv(String str) {
-        return this.byq.containsKey(str);
+        return this.bxz.containsKey(str);
     }
 
     private void jw(String str) {
-        c cVar = new c(this.bys, this.byr, str, this);
-        this.byq.put(str, cVar);
+        c cVar = new c(this.bxB, this.bxA, str, this);
+        this.bxz.put(str, cVar);
         cVar.load();
     }
 
@@ -80,7 +80,7 @@ public class b implements a {
     @Override // com.baidu.swan.games.e.c.a
     public void aX(String str, String str2) {
         ArrayList<ValueCallback<String>> arrayList;
-        synchronized (this.byt) {
+        synchronized (this.bxC) {
             if (jv(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
@@ -89,21 +89,21 @@ public class b implements a {
                         Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.byq.remove(str);
+                this.bxz.remove(str);
             }
         }
     }
 
     @Override // com.baidu.swan.games.e.c.a
-    public void x(int i, String str) {
-        synchronized (this.byt) {
+    public void w(int i, String str) {
+        synchronized (this.bxC) {
             if (jv(str) && this.mCallbackMap.get(str) != null) {
-                this.byq.remove(str);
+                this.bxz.remove(str);
             }
         }
     }
 
     private String jx(String str) throws MalformedURLException {
-        return this.byr + f.jt(str);
+        return this.bxA + f.jt(str);
     }
 }

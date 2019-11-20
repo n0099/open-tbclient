@@ -3,12 +3,12 @@ package com.baidu.tieba.personCenter.data;
 import tbclient.SmartApp;
 /* loaded from: classes4.dex */
 public class l implements c {
-    private String faP;
-    private String gvy;
-    private Long imh;
-    private String imi;
-    private String imj;
-    private Integer imk;
+    private String eZY;
+    private String guH;
+    private Long ilp;
+    private String ilq;
+    private String ilr;
+    private Integer ils;
     private String mAppKey;
     private String mLink;
     private String mName;
@@ -17,18 +17,18 @@ public class l implements c {
     public l(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.imh = smartApp.swan_app_id;
+            this.ilp = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
-            this.faP = smartApp.avatar;
+            this.eZY = smartApp.avatar;
             this.mName = smartApp.name;
-            this.gvy = smartApp._abstract;
-            this.imi = smartApp.pic;
-            this.imj = smartApp.h5_url;
+            this.guH = smartApp._abstract;
+            this.ilq = smartApp.pic;
+            this.ilr = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.imk = smartApp.is_game;
+            this.ils = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class l implements c {
         return this.mType;
     }
 
-    public Long bZs() {
-        return this.imh;
+    public Long bZq() {
+        return this.ilp;
     }
 
     public String getAppKey() {
@@ -46,7 +46,7 @@ public class l implements c {
     }
 
     public String getAvatar() {
-        return this.faP;
+        return this.eZY;
     }
 
     public String getName() {
@@ -54,14 +54,14 @@ public class l implements c {
     }
 
     public String getH5Url() {
-        return this.imj;
+        return this.ilr;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer bZt() {
-        return this.imk;
+    public Integer bZr() {
+        return this.ils;
     }
 }

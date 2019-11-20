@@ -10,12 +10,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class c extends f {
-    public String TS;
+    public String Tx;
     public String avatar;
-    public int cck;
-    public String dHb;
-    public String dHc;
-    public ArrayList<a> dHd;
+    public int cbt;
+    public String dGk;
+    public String dGl;
+    public ArrayList<a> dGm;
     public String is_follow;
     public long live_id;
     public int rank;
@@ -28,10 +28,10 @@ public class c extends f {
     public void parserJson(JSONObject jSONObject) {
         this.user_id = JavaTypesHelper.toLong(jSONObject.optString("user_id"), 0L);
         this.rank = JavaTypesHelper.toInt(jSONObject.optString("rank"), 0);
-        this.cck = JavaTypesHelper.toInt(jSONObject.optString("is_live"), 0);
+        this.cbt = JavaTypesHelper.toInt(jSONObject.optString("is_live"), 0);
         this.live_id = JavaTypesHelper.toLong(jSONObject.optString("live_id"), 0L);
-        this.TS = jSONObject.optString(Config.EVENT_HEAT_POINT);
-        this.dHb = jSONObject.optString("point_behind");
+        this.Tx = jSONObject.optString(Config.EVENT_HEAT_POINT);
+        this.dGk = jSONObject.optString("point_behind");
         this.user_nickname = jSONObject.optString("user_nickname");
         if (!TextUtils.isEmpty(jSONObject.optString("bd_portrait"))) {
             this.avatar = jSONObject.optString("bd_portrait");
@@ -40,16 +40,16 @@ public class c extends f {
         }
         this.is_follow = jSONObject.optString("is_follow");
         this.user_name = jSONObject.optString("user_name");
-        this.dHc = jSONObject.optString("rule_url");
+        this.dGl = jSONObject.optString("rule_url");
         this.room_id = jSONObject.optInt("room_id");
         JSONArray optJSONArray = jSONObject.optJSONArray("bro_list");
         if (optJSONArray != null) {
-            this.dHd = new ArrayList<>();
+            this.dGm = new ArrayList<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 a aVar = new a();
                 aVar.parserJson(optJSONObject);
-                this.dHd.add(aVar);
+                this.dGm.add(aVar);
             }
         }
     }
@@ -60,8 +60,8 @@ public class c extends f {
 
     /* loaded from: classes6.dex */
     public class a {
-        public String dHe;
-        public long dHf;
+        public String dGn;
+        public long dGo;
         public String portrait;
         public String userId;
         public String userName;
@@ -73,14 +73,14 @@ public class c extends f {
             if (jSONObject != null) {
                 this.userId = jSONObject.optString("user_id");
                 this.userName = jSONObject.optString("user_name");
-                this.dHe = jSONObject.optString("user_nickname");
+                this.dGn = jSONObject.optString("user_nickname");
                 this.portrait = jSONObject.optString("bd_portrait");
-                this.dHf = jSONObject.optLong("charm_value");
+                this.dGo = jSONObject.optLong("charm_value");
             }
         }
 
         public String getName_show() {
-            return !StringHelper.isEmpty(this.dHe) ? this.dHe : this.userName;
+            return !StringHelper.isEmpty(this.dGn) ? this.dGn : this.userName;
         }
     }
 }

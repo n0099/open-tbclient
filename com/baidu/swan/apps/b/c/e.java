@@ -5,11 +5,11 @@ import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
 import com.baidu.swan.apps.b.c.d;
 /* loaded from: classes2.dex */
 public interface e<T extends d> extends TypedCallbackHandler {
-    T Cr();
-
-    String Cs();
+    T Cs();
 
     String Ct();
+
+    String Cu();
 
     void a(com.baidu.swan.apps.core.c cVar);
 

@@ -8,33 +8,33 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class b implements com.baidu.c.a.b.a.b {
-    private d awt;
+    private d awb;
     private Context mContext;
-    private boolean aws = false;
-    private final Map<String, a> awu = new ConcurrentHashMap();
+    private boolean awa = false;
+    private final Map<String, a> awc = new ConcurrentHashMap();
 
     public b(Context context, d dVar) {
         this.mContext = context;
-        this.awt = dVar;
+        this.awb = dVar;
     }
 
     private a e(String str, String str2, boolean z) {
-        if (this.awu.get(str) != null) {
-            this.awu.get(str).dm(str);
-            this.awu.remove(str);
+        if (this.awc.get(str) != null) {
+            this.awc.get(str).dm(str);
+            this.awc.remove(str);
         }
-        a aVar = new a(this.awt.l(this.mContext, str, str2));
-        this.awu.put(str, aVar);
+        a aVar = new a(this.awb.l(this.mContext, str, str2));
+        this.awc.put(str, aVar);
         return aVar;
     }
 
     public a dn(String str) {
-        return this.awu.get(str);
+        return this.awc.get(str);
     }
 
     /* renamed from: do  reason: not valid java name */
     public com.baidu.c.a.b.c m14do(String str) {
-        return this.awu.get(str).xi();
+        return this.awc.get(str).xj();
     }
 
     @Override // com.baidu.c.a.b.a.b
@@ -52,20 +52,20 @@ public class b implements com.baidu.c.a.b.a.b {
     }
 
     @Override // com.baidu.c.a.b.a.b
-    public synchronized void sy() {
+    public synchronized void sz() {
         try {
-            for (Map.Entry<String, a> entry : this.awu.entrySet()) {
+            for (Map.Entry<String, a> entry : this.awc.entrySet()) {
                 String key = entry.getKey();
-                a aVar = this.awu.get(key);
+                a aVar = this.awc.get(key);
                 if (aVar != null) {
-                    if (aVar.xj()) {
-                        aVar.sy();
+                    if (aVar.xk()) {
+                        aVar.sz();
                     }
-                    this.awu.remove(key);
+                    this.awc.remove(key);
                 }
             }
-            this.awt.unregisterConnectListener();
-            this.aws = false;
+            this.awb.unregisterConnectListener();
+            this.awa = false;
         } catch (Exception e) {
         }
     }
@@ -87,29 +87,29 @@ public class b implements com.baidu.c.a.b.a.b {
     }
 
     private void register() {
-        if (!this.aws) {
-            this.awt.unregisterConnectListener();
-            this.awt.a(new com.baidu.c.a.b.a() { // from class: com.baidu.c.b.a.a.b.1
+        if (!this.awa) {
+            this.awb.unregisterConnectListener();
+            this.awb.a(new com.baidu.c.a.b.a() { // from class: com.baidu.c.b.a.a.b.1
                 @Override // com.baidu.c.a.b.a
                 public void onResult(int i) {
                     if (i == 0) {
                         b.this.reconnect();
                     } else if (1 == i) {
-                        b.this.awt.wX();
+                        b.this.awb.wY();
                     }
                 }
             });
-            this.aws = true;
+            this.awa = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reconnect() {
         try {
-            for (Map.Entry<String, a> entry : this.awu.entrySet()) {
-                a aVar = this.awu.get(entry.getKey());
+            for (Map.Entry<String, a> entry : this.awc.entrySet()) {
+                a aVar = this.awc.get(entry.getKey());
                 if (aVar != null) {
-                    aVar.tQ();
+                    aVar.tR();
                 }
             }
         } catch (Exception e) {

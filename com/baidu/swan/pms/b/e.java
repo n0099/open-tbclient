@@ -6,20 +6,20 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class e {
+    public static String abi() {
+        return String.format("%s/getpkg", abl());
+    }
+
+    public static String abj() {
+        return String.format("%s/updatecore", abl());
+    }
+
     public static String abk() {
-        return String.format("%s/getpkg", abn());
+        return String.format("%s/getplugin", abl());
     }
 
-    public static String abl() {
-        return String.format("%s/updatecore", abn());
-    }
-
-    public static String abm() {
-        return String.format("%s/getplugin", abn());
-    }
-
-    private static String abn() {
-        return com.baidu.swan.pms.e.aaS().JQ();
+    private static String abl() {
+        return com.baidu.swan.pms.e.aaQ().JR();
     }
 
     public static String f(String str, Map<String, String> map) {
@@ -38,27 +38,27 @@ public class e {
     }
 
     private static String kX(String str) {
-        String F = F(F(F(F(F(F(F(F(F(str, "cuid", com.baidu.swan.pms.e.aaS().JR()), "ua", abo()), "host_app", com.baidu.swan.pms.e.aaS().JS()), "host_app_ver", com.baidu.swan.pms.e.aaS().JT()), "host_os", com.baidu.swan.pms.e.a.abK()), "host_os_ver", com.baidu.swan.pms.e.a.getOsVersion()), "network", com.baidu.swan.pms.e.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.e.aaS().JU()), BdStatsConstant.StatsKey.CURRENT_CHANNEL, com.baidu.swan.c.c.adu());
-        String aaR = com.baidu.swan.pms.e.aaT().aaR();
-        if (!TextUtils.isEmpty(aaR)) {
-            return F(F, "extension_rule", aaR);
+        String F = F(F(F(F(F(F(F(F(F(str, "cuid", com.baidu.swan.pms.e.aaQ().JS()), "ua", abm()), "host_app", com.baidu.swan.pms.e.aaQ().JT()), "host_app_ver", com.baidu.swan.pms.e.aaQ().JU()), "host_os", com.baidu.swan.pms.e.a.abI()), "host_os_ver", com.baidu.swan.pms.e.a.getOsVersion()), "network", com.baidu.swan.pms.e.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.e.aaQ().JV()), BdStatsConstant.StatsKey.CURRENT_CHANNEL, com.baidu.swan.c.c.ads());
+        String aaP = com.baidu.swan.pms.e.aaR().aaP();
+        if (!TextUtils.isEmpty(aaP)) {
+            return F(F, "extension_rule", aaP);
         }
         return F;
     }
 
-    private static String abo() {
-        int abL = com.baidu.swan.pms.e.a.abL();
-        int abM = com.baidu.swan.pms.e.a.abM();
+    private static String abm() {
+        int abJ = com.baidu.swan.pms.e.a.abJ();
+        int abK = com.baidu.swan.pms.e.a.abK();
         int densityDpi = com.baidu.swan.pms.e.a.getDensityDpi();
-        String abK = com.baidu.swan.pms.e.a.abK();
+        String abI = com.baidu.swan.pms.e.a.abI();
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(abL);
-        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append(abM);
+        stringBuffer.append(abJ);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(abK);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append(com.baidu.swan.pms.e.aaS().JT());
+        stringBuffer.append(abI);
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append(com.baidu.swan.pms.e.aaQ().JU());
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(densityDpi);
         return stringBuffer.toString();

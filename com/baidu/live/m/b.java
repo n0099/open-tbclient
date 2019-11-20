@@ -13,9 +13,9 @@ public interface b {
 
     void setCanVisible(boolean z);
 
-    void uM();
-
     void uN();
 
-    void y(JSONObject jSONObject);
+    void uO();
+
+    void z(JSONObject jSONObject);
 }

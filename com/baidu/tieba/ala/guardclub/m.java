@@ -5,43 +5,59 @@ import android.util.SparseArray;
 import com.baidu.live.data.z;
 /* loaded from: classes6.dex */
 public class m {
-    private static volatile m dNR;
-    private z Ud;
-    private SparseArray<String> dNS = new SparseArray<>();
-    private SparseArray<String> dNT = new SparseArray<>();
-    private SparseArray<String> dNU = new SparseArray<>();
-    private SparseArray<String> dNV = new SparseArray<>();
+    private static volatile m dNa;
+    private z TJ;
+    private SparseArray<String> dNb = new SparseArray<>();
+    private SparseArray<String> dNc = new SparseArray<>();
+    private SparseArray<String> dNd = new SparseArray<>();
+    private SparseArray<String> dNe = new SparseArray<>();
 
     private m() {
     }
 
-    public static m aLx() {
-        if (dNR == null) {
+    public static m aLv() {
+        if (dNa == null) {
             synchronized (m.class) {
-                if (dNR == null) {
-                    dNR = new m();
+                if (dNa == null) {
+                    dNa = new m();
                 }
             }
         }
-        return dNR;
+        return dNa;
     }
 
-    public String aLy() {
-        if (aLA() || this.Ud.Tw == null) {
+    public String aLw() {
+        if (aLy() || this.TJ.Td == null) {
             return null;
         }
-        return this.Ud.Tw;
+        return this.TJ.Td;
+    }
+
+    public String mL(int i) {
+        String str = this.dNb.get(i);
+        if (TextUtils.isEmpty(str)) {
+            if (aLy() || this.TJ.Th == null) {
+                return null;
+            }
+            String optString = this.TJ.Th.optString(String.valueOf(i));
+            if (!TextUtils.isEmpty(optString)) {
+                this.dNb.put(i, optString);
+                return optString;
+            }
+            return optString;
+        }
+        return str;
     }
 
     public String mM(int i) {
-        String str = this.dNS.get(i);
+        String str = this.dNc.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (aLA() || this.Ud.TA == null) {
+            if (aLy() || this.TJ.Tf == null) {
                 return null;
             }
-            String optString = this.Ud.TA.optString(String.valueOf(i));
+            String optString = this.TJ.Tf.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.dNS.put(i, optString);
+                this.dNc.put(i, optString);
                 return optString;
             }
             return optString;
@@ -50,14 +66,14 @@ public class m {
     }
 
     public String mN(int i) {
-        String str = this.dNT.get(i);
+        String str = this.dNd.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (aLA() || this.Ud.Ty == null) {
+            if (aLy() || this.TJ.Tg == null) {
                 return null;
             }
-            String optString = this.Ud.Ty.optString(String.valueOf(i));
+            String optString = this.TJ.Tg.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.dNT.put(i, optString);
+                this.dNd.put(i, optString);
                 return optString;
             }
             return optString;
@@ -66,14 +82,14 @@ public class m {
     }
 
     public String mO(int i) {
-        String str = this.dNU.get(i);
+        String str = this.dNe.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (aLA() || this.Ud.Tz == null) {
+            if (aLy() || this.TJ.Ti == null) {
                 return null;
             }
-            String optString = this.Ud.Tz.optString(String.valueOf(i));
+            String optString = this.TJ.Ti.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.dNU.put(i, optString);
+                this.dNe.put(i, optString);
                 return optString;
             }
             return optString;
@@ -81,33 +97,17 @@ public class m {
         return str;
     }
 
-    public String mP(int i) {
-        String str = this.dNV.get(i);
-        if (TextUtils.isEmpty(str)) {
-            if (aLA() || this.Ud.TB == null) {
-                return null;
-            }
-            String optString = this.Ud.TB.optString(String.valueOf(i));
-            if (!TextUtils.isEmpty(optString)) {
-                this.dNV.put(i, optString);
-                return optString;
-            }
-            return optString;
-        }
-        return str;
-    }
-
-    public z aLz() {
-        if (aLA()) {
+    public z aLx() {
+        if (aLy()) {
             return null;
         }
-        return this.Ud;
+        return this.TJ;
     }
 
-    private boolean aLA() {
-        if (this.Ud == null) {
-            this.Ud = com.baidu.live.l.a.uA().akM.Ud;
-            if (this.Ud == null) {
+    private boolean aLy() {
+        if (this.TJ == null) {
+            this.TJ = com.baidu.live.l.a.uB().aku.TJ;
+            if (this.TJ == null) {
                 return true;
             }
         }

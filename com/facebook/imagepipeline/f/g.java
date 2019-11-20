@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.f;
 /* loaded from: classes2.dex */
 public interface g {
-    int cHU();
+    int cHS();
 
-    boolean cHV();
+    boolean cHT();
 
-    boolean cHW();
+    boolean cHU();
 }

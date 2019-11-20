@@ -11,46 +11,46 @@ import com.baidu.tieba.ala.fragment.AlaRankListFragment;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class AlaRankListPKStatusFragmentAdapter extends FragmentPagerAdapter {
-    private boolean duG;
-    private ArrayList<com.baidu.tieba.ala.data.b> dve;
-    private ArrayList<Fragment> dvf;
-    private BaseFragmentActivity dvg;
+    private boolean dtP;
+    private ArrayList<com.baidu.tieba.ala.data.b> dun;
+    private ArrayList<Fragment> duo;
+    private BaseFragmentActivity dup;
     private String otherParams;
 
     public AlaRankListPKStatusFragmentAdapter(BaseFragmentActivity baseFragmentActivity, int i, long j, boolean z, String str) {
         super(baseFragmentActivity.getSupportFragmentManager());
         this.otherParams = "";
-        this.dvg = baseFragmentActivity;
-        this.duG = z;
+        this.dup = baseFragmentActivity;
+        this.dtP = z;
         b(i, j, str);
     }
 
     private void b(int i, long j, String str) {
-        this.dvf = new ArrayList<>();
-        this.dve = new ArrayList<>();
-        this.dvf.add(AlaRankListFragment.a("guard", i, TbadkCoreApplication.getCurrentAccountId(), TbadkCoreApplication.getCurrentAccountName(), this.duG, str, this.otherParams, "", -1L, ""));
+        this.duo = new ArrayList<>();
+        this.dun = new ArrayList<>();
+        this.duo.add(AlaRankListFragment.a("guard", i, TbadkCoreApplication.getCurrentAccountId(), TbadkCoreApplication.getCurrentAccountName(), this.dtP, str, this.otherParams, "", -1L, ""));
         com.baidu.tieba.ala.data.b bVar = new com.baidu.tieba.ala.data.b();
-        bVar.dGZ = this.dvg.getString(a.i.ala_rank_list_name_defend);
-        bVar.dHa = "guard";
-        this.dve.add(bVar);
-        this.dvf.add(AlaChallengeHistoryListFragment.e(i, str, this.duG));
+        bVar.dGi = this.dup.getString(a.i.ala_rank_list_name_defend);
+        bVar.dGj = "guard";
+        this.dun.add(bVar);
+        this.duo.add(AlaChallengeHistoryListFragment.e(i, str, this.dtP));
         com.baidu.tieba.ala.data.b bVar2 = new com.baidu.tieba.ala.data.b();
-        bVar2.dGZ = this.dvg.getString(a.i.ala_rank_list_name_history);
-        bVar2.dHa = "challenge_history";
-        this.dve.add(bVar2);
+        bVar2.dGi = this.dup.getString(a.i.ala_rank_list_name_history);
+        bVar2.dGj = "challenge_history";
+        this.dun.add(bVar2);
     }
 
     public int sB(String str) {
-        if (this.dvf == null || StringUtils.isNull(str)) {
+        if (this.duo == null || StringUtils.isNull(str)) {
             return -1;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.dve.size()) {
+            if (i2 >= this.dun.size()) {
                 return -1;
             }
-            if (!str.equals(this.dve.get(i2).dHa)) {
+            if (!str.equals(this.dun.get(i2).dGj)) {
                 i = i2 + 1;
             } else {
                 return i2;
@@ -60,23 +60,23 @@ public class AlaRankListPKStatusFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (this.dvf == null) {
+        if (this.duo == null) {
             return null;
         }
-        return this.dvf.get(i);
+        return this.duo.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.dvf != null) {
-            return this.dvf.size();
+        if (this.duo != null) {
+            return this.duo.size();
         }
         return 0;
     }
 
-    public String ma(int i) {
-        if (this.dve != null && i >= 0 && i < this.dve.size()) {
-            return this.dve.get(i).dGZ;
+    public String lZ(int i) {
+        if (this.dun != null && i >= 0 && i < this.dun.size()) {
+            return this.dun.get(i).dGi;
         }
         return null;
     }

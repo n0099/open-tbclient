@@ -11,56 +11,56 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d implements b {
-    private final Path.FillType gV;
-    private final com.tb.airbnb.lottie.model.a.d kuf;
-    private final GradientType kuk;
-    private final com.tb.airbnb.lottie.model.a.c kul;
-    private final com.tb.airbnb.lottie.model.a.f kum;
-    private final com.tb.airbnb.lottie.model.a.f kun;
+    private final Path.FillType gw;
+    private final com.tb.airbnb.lottie.model.a.d kto;
+    private final GradientType ktt;
+    private final com.tb.airbnb.lottie.model.a.c ktu;
+    private final com.tb.airbnb.lottie.model.a.f ktv;
+    private final com.tb.airbnb.lottie.model.a.f ktw;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b kuo;
+    private final com.tb.airbnb.lottie.model.a.b ktx;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b kup;
+    private final com.tb.airbnb.lottie.model.a.b kty;
     private final String name;
 
     private d(String str, GradientType gradientType, Path.FillType fillType, com.tb.airbnb.lottie.model.a.c cVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.f fVar, com.tb.airbnb.lottie.model.a.f fVar2, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2) {
-        this.kuk = gradientType;
-        this.gV = fillType;
-        this.kul = cVar;
-        this.kuf = dVar;
-        this.kum = fVar;
-        this.kun = fVar2;
+        this.ktt = gradientType;
+        this.gw = fillType;
+        this.ktu = cVar;
+        this.kto = dVar;
+        this.ktv = fVar;
+        this.ktw = fVar2;
         this.name = str;
-        this.kuo = bVar;
-        this.kup = bVar2;
+        this.ktx = bVar;
+        this.kty = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType cLG() {
-        return this.kuk;
+    public GradientType cLE() {
+        return this.ktt;
     }
 
     public Path.FillType cx() {
-        return this.gV;
+        return this.gw;
     }
 
-    public com.tb.airbnb.lottie.model.a.c cLH() {
-        return this.kul;
+    public com.tb.airbnb.lottie.model.a.c cLF() {
+        return this.ktu;
     }
 
-    public com.tb.airbnb.lottie.model.a.d cLz() {
-        return this.kuf;
+    public com.tb.airbnb.lottie.model.a.d cLx() {
+        return this.kto;
     }
 
-    public com.tb.airbnb.lottie.model.a.f cLI() {
-        return this.kum;
+    public com.tb.airbnb.lottie.model.a.f cLG() {
+        return this.ktv;
     }
 
-    public com.tb.airbnb.lottie.model.a.f cLJ() {
-        return this.kun;
+    public com.tb.airbnb.lottie.model.a.f cLH() {
+        return this.ktw;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b

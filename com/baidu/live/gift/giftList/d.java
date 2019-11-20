@@ -18,8 +18,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d extends BdBaseModel {
-    private HttpMessageListener acf;
-    private a acj;
+    private HttpMessageListener abN;
+    private a abR;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -28,7 +28,7 @@ public class d extends BdBaseModel {
 
     public d(BdPageContext bdPageContext) {
         super(bdPageContext);
-        this.acf = new HttpMessageListener(1021120) { // from class: com.baidu.live.gift.giftList.d.3
+        this.abN = new HttpMessageListener(1021120) { // from class: com.baidu.live.gift.giftList.d.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -38,15 +38,15 @@ public class d extends BdBaseModel {
                 }
             }
         };
-        this.acf.setTag(bdPageContext.getUniqueId());
-        registerListener(this.acf);
+        this.abN.setTag(bdPageContext.getUniqueId());
+        registerListener(this.abN);
     }
 
     public void f(final String str, final boolean z) {
         TbSingleExecutor.execute(new SingleRunnable<AlaSdkGetGiftListHttpResponseMessage>() { // from class: com.baidu.live.gift.giftList.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.tbadk.util.SingleRunnable
-            /* renamed from: qZ */
+            /* renamed from: ra */
             public AlaSdkGetGiftListHttpResponseMessage doInBackground() {
                 BdKVCache<String> stringCacheWithSapce = DBKVCacheManager.getInstance().getStringCacheWithSapce(DBKVCacheManager.ALA_GIFT_LIST_CACHE_KEY);
                 if (stringCacheWithSapce == null) {
@@ -69,7 +69,7 @@ public class d extends BdBaseModel {
             @Override // com.baidu.live.tbadk.util.ISingleRunnableCallback
             /* renamed from: a */
             public void onReturnDataInUI(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
-                if (alaSdkGetGiftListHttpResponseMessage != null && !ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.qX())) {
+                if (alaSdkGetGiftListHttpResponseMessage != null && !ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.qY())) {
                     d.this.a(str, alaSdkGetGiftListHttpResponseMessage, true);
                     if (z) {
                         d.this.cy(str);
@@ -84,16 +84,16 @@ public class d extends BdBaseModel {
 
     public void cy(String str) {
         if (StringUtils.isNull(str)) {
-            str = com.baidu.live.gift.b.b.rc().rf();
+            str = com.baidu.live.gift.b.b.rd().rg();
         }
         sendMessage(new c(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage, boolean z) {
-        com.baidu.live.gift.b.b.rc().e(str, alaSdkGetGiftListHttpResponseMessage.qX());
-        if (this.acj != null) {
-            this.acj.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.qX(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.qY());
+        com.baidu.live.gift.b.b.rd().e(str, alaSdkGetGiftListHttpResponseMessage.qY());
+        if (this.abR != null) {
+            this.abR.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.qY(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.qZ());
         }
     }
 
@@ -110,10 +110,10 @@ public class d extends BdBaseModel {
 
     public void onDestroy() {
         cancelLoadData();
-        MessageManager.getInstance().unRegisterListener(this.acf);
+        MessageManager.getInstance().unRegisterListener(this.abN);
     }
 
     public void a(a aVar) {
-        this.acj = aVar;
+        this.abR = aVar;
     }
 }

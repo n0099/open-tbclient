@@ -6,25 +6,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class q implements b, a.InterfaceC0007a {
-    private final ShapeTrimPath.Type fn;
-    private final com.airbnb.lottie.a.b.a<?, Float> fo;
-    private final com.airbnb.lottie.a.b.a<?, Float> fq;
-    private final com.airbnb.lottie.a.b.a<?, Float> fs;
+    private final ShapeTrimPath.Type eM;
+    private final com.airbnb.lottie.a.b.a<?, Float> eN;
+    private final com.airbnb.lottie.a.b.a<?, Float> eO;
+    private final com.airbnb.lottie.a.b.a<?, Float> eP;
     private final List<a.InterfaceC0007a> listeners = new ArrayList();
     private String name;
 
     public q(com.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.fn = shapeTrimPath.bD();
-        this.fo = shapeTrimPath.cY().bY();
-        this.fq = shapeTrimPath.cX().bY();
-        this.fs = shapeTrimPath.cR().bY();
-        aVar.a(this.fo);
-        aVar.a(this.fq);
-        aVar.a(this.fs);
-        this.fo.b(this);
-        this.fq.b(this);
-        this.fs.b(this);
+        this.eM = shapeTrimPath.bD();
+        this.eN = shapeTrimPath.cY().bY();
+        this.eO = shapeTrimPath.cX().bY();
+        this.eP = shapeTrimPath.cR().bY();
+        aVar.a(this.eN);
+        aVar.a(this.eO);
+        aVar.a(this.eP);
+        this.eN.b(this);
+        this.eO.b(this);
+        this.eP.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
@@ -57,18 +57,18 @@ public class q implements b, a.InterfaceC0007a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ShapeTrimPath.Type bD() {
-        return this.fn;
+        return this.eM;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> bE() {
-        return this.fo;
+        return this.eN;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> bF() {
-        return this.fq;
+        return this.eO;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> bG() {
-        return this.fs;
+        return this.eP;
     }
 }

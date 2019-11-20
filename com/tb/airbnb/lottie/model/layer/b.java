@@ -11,29 +11,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b extends a {
-    private final List<a> dz;
-    private final RectF hW;
+    private final List<a> cW;
+    private final RectF hx;
     @Nullable
-    private final com.tb.airbnb.lottie.a.b.a<Float, Float> kuQ;
+    private final com.tb.airbnb.lottie.a.b.a<Float, Float> ktZ;
     @Nullable
-    private Boolean kuR;
+    private Boolean kua;
     @Nullable
-    private Boolean kuS;
+    private Boolean kub;
     private final RectF rect;
 
     public b(com.tb.airbnb.lottie.f fVar, Layer layer, List<Layer> list, com.tb.airbnb.lottie.e eVar) {
         super(fVar, layer);
         a aVar;
-        this.dz = new ArrayList();
+        this.cW = new ArrayList();
         this.rect = new RectF();
-        this.hW = new RectF();
-        com.tb.airbnb.lottie.model.a.b cMk = layer.cMk();
-        if (cMk != null) {
-            this.kuQ = cMk.cLn();
-            a(this.kuQ);
-            this.kuQ.b(this);
+        this.hx = new RectF();
+        com.tb.airbnb.lottie.model.a.b cMi = layer.cMi();
+        if (cMi != null) {
+            this.ktZ = cMi.cLl();
+            a(this.ktZ);
+            this.ktZ.b(this);
         } else {
-            this.kuQ = null;
+            this.ktZ = null;
         }
         LongSparseArray longSparseArray = new LongSparseArray(eVar.aW().size());
         int size = list.size() - 1;
@@ -43,13 +43,13 @@ public class b extends a {
             if (a == null) {
                 aVar = aVar2;
             } else {
-                longSparseArray.put(a.cMf().getId(), a);
+                longSparseArray.put(a.cMd().getId(), a);
                 if (aVar2 != null) {
                     aVar2.b(a);
                     aVar = null;
                 } else {
-                    this.dz.add(0, a);
-                    switch (r0.cMh()) {
+                    this.cW.add(0, a);
+                    switch (r0.cMf()) {
                         case Add:
                         case Invert:
                             aVar = a;
@@ -65,7 +65,7 @@ public class b extends a {
         }
         for (int i = 0; i < longSparseArray.size(); i++) {
             a aVar3 = (a) longSparseArray.get(longSparseArray.keyAt(i));
-            a aVar4 = (a) longSparseArray.get(aVar3.cMf().dk());
+            a aVar4 = (a) longSparseArray.get(aVar3.cMd().dk());
             if (aVar4 != null) {
                 aVar3.c(aVar4);
             }
@@ -76,15 +76,15 @@ public class b extends a {
     void b(Canvas canvas, Matrix matrix, int i) {
         com.tb.airbnb.lottie.d.beginSection("CompositionLayer#draw");
         canvas.save();
-        this.hW.set(0.0f, 0.0f, this.kuK.dg(), this.kuK.dh());
-        matrix.mapRect(this.hW);
-        for (int size = this.dz.size() - 1; size >= 0; size--) {
+        this.hx.set(0.0f, 0.0f, this.ktT.dg(), this.ktT.dh());
+        matrix.mapRect(this.hx);
+        for (int size = this.cW.size() - 1; size >= 0; size--) {
             boolean z = true;
-            if (!this.hW.isEmpty()) {
-                z = canvas.clipRect(this.hW);
+            if (!this.hx.isEmpty()) {
+                z = canvas.clipRect(this.hx);
             }
             if (z) {
-                this.dz.get(size).a(canvas, matrix, i);
+                this.cW.get(size).a(canvas, matrix, i);
             }
         }
         canvas.restore();
@@ -95,8 +95,8 @@ public class b extends a {
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.dz.size() - 1; size >= 0; size--) {
-            this.dz.get(size).a(this.rect, this.hK);
+        for (int size = this.cW.size() - 1; size >= 0; size--) {
+            this.cW.get(size).a(this.rect, this.hl);
             if (rectF.isEmpty()) {
                 rectF.set(this.rect);
             } else {
@@ -108,52 +108,52 @@ public class b extends a {
     @Override // com.tb.airbnb.lottie.model.layer.a
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         super.setProgress(f);
-        if (this.kuQ != null) {
-            f = (this.kuQ.getValue().floatValue() * 1000.0f) / ((float) this.lottieDrawable.cLc().getDuration());
+        if (this.ktZ != null) {
+            f = (this.ktZ.getValue().floatValue() * 1000.0f) / ((float) this.lottieDrawable.cLa().getDuration());
         }
-        if (this.kuK.de() != 0.0f) {
-            f /= this.kuK.de();
+        if (this.ktT.de() != 0.0f) {
+            f /= this.ktT.de();
         }
-        float bo = f - this.kuK.bo();
-        for (int size = this.dz.size() - 1; size >= 0; size--) {
-            this.dz.get(size).setProgress(bo);
+        float bo = f - this.ktT.bo();
+        for (int size = this.cW.size() - 1; size >= 0; size--) {
+            this.cW.get(size).setProgress(bo);
         }
     }
 
     public boolean hasMasks() {
-        if (this.kuS == null) {
-            for (int size = this.dz.size() - 1; size >= 0; size--) {
-                a aVar = this.dz.get(size);
+        if (this.kub == null) {
+            for (int size = this.cW.size() - 1; size >= 0; size--) {
+                a aVar = this.cW.get(size);
                 if (aVar instanceof e) {
                     if (aVar.dc()) {
-                        this.kuS = true;
+                        this.kub = true;
                         return true;
                     }
                 } else if ((aVar instanceof b) && ((b) aVar).hasMasks()) {
-                    this.kuS = true;
+                    this.kub = true;
                     return true;
                 }
             }
-            this.kuS = false;
+            this.kub = false;
         }
-        return this.kuS.booleanValue();
+        return this.kub.booleanValue();
     }
 
     public boolean hasMatte() {
-        if (this.kuR == null) {
+        if (this.kua == null) {
             if (da()) {
-                this.kuR = true;
+                this.kua = true;
                 return true;
             }
-            for (int size = this.dz.size() - 1; size >= 0; size--) {
-                if (this.dz.get(size).da()) {
-                    this.kuR = true;
+            for (int size = this.cW.size() - 1; size >= 0; size--) {
+                if (this.cW.get(size).da()) {
+                    this.kua = true;
                     return true;
                 }
             }
-            this.kuR = false;
+            this.kua = false;
         }
-        return this.kuR.booleanValue();
+        return this.kua.booleanValue();
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.a.a.d
@@ -161,9 +161,9 @@ public class b extends a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.dz.size()) {
-                a aVar = this.dz.get(i2);
-                String name = aVar.cMf().getName();
+            if (i2 < this.cW.size()) {
+                a aVar = this.cW.get(i2);
+                String name = aVar.cMd().getName();
                 if (str == null) {
                     aVar.b((String) null, (String) null, colorFilter);
                 } else if (name.equals(str)) {

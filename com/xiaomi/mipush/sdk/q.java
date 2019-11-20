@@ -1,21 +1,35 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
+import com.xiaomi.push.Cif;
+import com.xiaomi.push.ai;
+import com.xiaomi.push.hg;
+import com.xiaomi.push.ht;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class q implements com.xiaomi.push.mpcd.b {
-    private Context a;
+public final class q extends ai.a {
+    final /* synthetic */ Context a;
 
-    public q(Context context) {
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ Cif f74a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(Cif cif, Context context) {
+        this.f74a = cif;
         this.a = context;
     }
 
-    @Override // com.xiaomi.push.mpcd.b
-    public String a() {
-        return d.a(this.a).f();
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public int mo140a() {
+        return 22;
     }
 
-    @Override // com.xiaomi.push.mpcd.b
-    public void a(com.xiaomi.xmpush.thrift.ai aiVar, com.xiaomi.xmpush.thrift.a aVar, com.xiaomi.xmpush.thrift.u uVar) {
-        az.a(this.a).a((az) aiVar, aVar, uVar);
+    @Override // java.lang.Runnable
+    public void run() {
+        if (this.f74a != null) {
+            this.f74a.a(com.xiaomi.push.service.aj.a());
+            ay.a(this.a.getApplicationContext()).a((ay) this.f74a, hg.Notification, true, (ht) null, true);
+        }
     }
 }

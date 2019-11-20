@@ -6,25 +6,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class q implements b, a.InterfaceC0577a {
-    private final ShapeTrimPath.Type ktu;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> ktv;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> ktw;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> ktx;
+    private final ShapeTrimPath.Type ksD;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> ksE;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> ksF;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> ksG;
     private final List<a.InterfaceC0577a> listeners = new ArrayList();
     private String name;
 
     public q(com.tb.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.ktu = shapeTrimPath.cLf();
-        this.ktv = shapeTrimPath.cMe().cLn();
-        this.ktw = shapeTrimPath.cMd().cLn();
-        this.ktx = shapeTrimPath.cLZ().cLn();
-        aVar.a(this.ktv);
-        aVar.a(this.ktw);
-        aVar.a(this.ktx);
-        this.ktv.b(this);
-        this.ktw.b(this);
-        this.ktx.b(this);
+        this.ksD = shapeTrimPath.cLd();
+        this.ksE = shapeTrimPath.cMc().cLl();
+        this.ksF = shapeTrimPath.cMb().cLl();
+        this.ksG = shapeTrimPath.cLX().cLl();
+        aVar.a(this.ksE);
+        aVar.a(this.ksF);
+        aVar.a(this.ksG);
+        this.ksE.b(this);
+        this.ksF.b(this);
+        this.ksG.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0577a
@@ -56,19 +56,19 @@ public class q implements b, a.InterfaceC0577a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type cLf() {
-        return this.ktu;
+    public ShapeTrimPath.Type cLd() {
+        return this.ksD;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> cLe() {
+        return this.ksE;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> cLf() {
+        return this.ksF;
     }
 
     public com.tb.airbnb.lottie.a.b.a<?, Float> cLg() {
-        return this.ktv;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> cLh() {
-        return this.ktw;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> cLi() {
-        return this.ktx;
+        return this.ksG;
     }
 }

@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0306a dbb;
-    private float dbc;
-    private long dbd;
-    private long dbe;
-    private boolean dbf;
-    private boolean dbg;
+    private InterfaceC0306a daj;
+    private float dak;
+    private long dal;
+    private long dam;
+    private boolean dan;
+    private boolean dao;
     private float mDownX;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
@@ -22,9 +22,9 @@ public class a {
     /* renamed from: com.baidu.tbadk.widget.viewpager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0306a {
-        void aAM();
+        void aAK();
 
-        void aAN();
+        void aAL();
 
         void s(float f, float f2);
     }
@@ -47,41 +47,41 @@ public class a {
         switch (motionEvent.getAction()) {
             case 0:
                 this.mDownX = motionEvent.getX();
-                this.dbc = motionEvent.getY();
-                this.dbd = System.currentTimeMillis();
-                this.dbf = true;
+                this.dak = motionEvent.getY();
+                this.dal = System.currentTimeMillis();
+                this.dan = true;
                 break;
             case 1:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.dbd < 100 && currentTimeMillis - this.dbe < 500) {
-                    this.dbg = true;
+                if (currentTimeMillis - this.dal < 100 && currentTimeMillis - this.dam < 500) {
+                    this.dao = true;
                 } else {
-                    this.dbg = false;
+                    this.dao = false;
                 }
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.dbc - motionEvent.getY()) > 50.0f) {
-                    this.dbg = false;
-                    this.dbf = false;
+                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.dak - motionEvent.getY()) > 50.0f) {
+                    this.dao = false;
+                    this.dan = false;
                 }
-                if (this.dbg) {
-                    if (this.dbb != null) {
-                        this.dbb.s(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.dao) {
+                    if (this.daj != null) {
+                        this.daj.s(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.dbc - motionEvent.getY()) && this.dbb != null) {
-                    this.dbb.aAN();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.dak - motionEvent.getY()) && this.daj != null) {
+                    this.daj.aAL();
                 }
-                if (!this.dbg && this.dbf && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.dbc - motionEvent.getY()) < 30.0f) {
+                if (!this.dao && this.dan && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.dak - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.viewpager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.dbg && a.this.dbf && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.dbc - motionEvent.getY()) < 30.0f && a.this.dbb != null) {
-                                a.this.dbb.aAM();
+                            if (!a.this.dao && a.this.dan && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.dak - motionEvent.getY()) < 30.0f && a.this.daj != null) {
+                                a.this.daj.aAK();
                             }
                         }
                     }, 300L);
                 }
-                this.dbe = currentTimeMillis;
+                this.dam = currentTimeMillis;
                 releaseVelocityTracker();
                 break;
             case 3:
@@ -92,7 +92,7 @@ public class a {
     }
 
     public void setEventListener(InterfaceC0306a interfaceC0306a) {
-        this.dbb = interfaceC0306a;
+        this.daj = interfaceC0306a;
     }
 
     private void releaseVelocityTracker() {

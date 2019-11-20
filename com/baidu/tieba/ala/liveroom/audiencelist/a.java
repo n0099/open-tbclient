@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a extends BaseAdapter {
-    private List<d> Px;
+    private List<d> OX;
     private Context mContext;
 
     public a(Context context) {
@@ -27,50 +27,50 @@ public class a extends BaseAdapter {
     }
 
     public void d(e eVar) {
-        this.Px = new ArrayList();
+        this.OX = new ArrayList();
         if (eVar != null && eVar.getList() != null && !eVar.getList().isEmpty()) {
             for (d dVar : eVar.getList()) {
-                if (dVar != null && dVar.Ps != null) {
-                    this.Px.add(dVar);
+                if (dVar != null && dVar.OR != null) {
+                    this.OX.add(dVar);
                 }
             }
         }
     }
 
     public boolean b(d dVar) {
-        if (dVar == null || dVar.Ps == null) {
+        if (dVar == null || dVar.OR == null) {
             return false;
         }
-        if (this.Px == null) {
+        if (this.OX == null) {
             return false;
         }
-        if (this.Px.size() == 0) {
-            this.Px.add(dVar);
+        if (this.OX.size() == 0) {
+            this.OX.add(dVar);
             return true;
         }
-        for (d dVar2 : this.Px) {
-            if (dVar2 != null && dVar2.Ps != null && dVar.Ps.userId == dVar2.Ps.userId) {
+        for (d dVar2 : this.OX) {
+            if (dVar2 != null && dVar2.OR != null && dVar.OR.userId == dVar2.OR.userId) {
                 return false;
             }
         }
-        this.Px.add(dVar);
+        this.OX.add(dVar);
         return true;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Px == null) {
+        if (this.OX == null) {
             return 0;
         }
-        return this.Px.size();
+        return this.OX.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.Px == null) {
+        if (this.OX == null) {
             return null;
         }
-        return this.Px.get(i);
+        return this.OX.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -85,61 +85,61 @@ public class a extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_live_audience_header_image, (ViewGroup) null);
             C0358a c0358a2 = new C0358a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                c0358a2.dYJ.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
+                c0358a2.dXS.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
             } else {
-                c0358a2.dYJ.setDefaultResource(a.f.sdk_icon_default_avatar100);
+                c0358a2.dXS.setDefaultResource(a.f.sdk_icon_default_avatar100);
             }
-            c0358a2.dYJ.setIsRound(true);
-            c0358a2.dYJ.setDrawBorder(false);
-            c0358a2.dYJ.setAutoChangeStyle(false);
-            c0358a2.dYJ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            c0358a2.dYK.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            c0358a2.dXS.setIsRound(true);
+            c0358a2.dXS.setDrawBorder(false);
+            c0358a2.dXS.setAutoChangeStyle(false);
+            c0358a2.dXS.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            c0358a2.dXT.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             view.setTag(c0358a2);
             c0358a = c0358a2;
         } else {
             c0358a = (C0358a) view.getTag();
         }
         d dVar = (d) getItem(i);
-        c0358a.dYJ.setDrawBorder(true);
-        if (dVar.Pv == 1 && dVar.Ps.totalPrice > 0) {
-            c0358a.dYK.setVisibility(0);
-            c0358a.dYK.setImageResource(a.f.pic_live_top1);
-            c0358a.dYL.setBackgroundResource(a.f.round_header_day_list_bg_1);
-        } else if (dVar.Pv == 2 && dVar.Ps.totalPrice > 0) {
-            c0358a.dYK.setVisibility(0);
-            c0358a.dYK.setImageResource(a.f.pic_live_top2);
-            c0358a.dYL.setBackgroundResource(a.f.round_header_day_list_bg_2);
-        } else if (dVar.Pv == 3 && dVar.Ps.totalPrice > 0) {
-            c0358a.dYK.setVisibility(0);
-            c0358a.dYK.setImageResource(a.f.pic_live_top3);
-            c0358a.dYL.setBackgroundResource(a.f.round_header_day_list_bg_3);
+        c0358a.dXS.setDrawBorder(true);
+        if (dVar.OV == 1 && dVar.OR.totalPrice > 0) {
+            c0358a.dXT.setVisibility(0);
+            c0358a.dXT.setImageResource(a.f.pic_live_top1);
+            c0358a.dXU.setBackgroundResource(a.f.round_header_day_list_bg_1);
+        } else if (dVar.OV == 2 && dVar.OR.totalPrice > 0) {
+            c0358a.dXT.setVisibility(0);
+            c0358a.dXT.setImageResource(a.f.pic_live_top2);
+            c0358a.dXU.setBackgroundResource(a.f.round_header_day_list_bg_2);
+        } else if (dVar.OV == 3 && dVar.OR.totalPrice > 0) {
+            c0358a.dXT.setVisibility(0);
+            c0358a.dXT.setImageResource(a.f.pic_live_top3);
+            c0358a.dXU.setBackgroundResource(a.f.round_header_day_list_bg_3);
         } else {
-            c0358a.dYK.setVisibility(8);
-            c0358a.dYL.setBackgroundResource(a.f.round_header_day_list_bg_normal);
+            c0358a.dXT.setVisibility(8);
+            c0358a.dXU.setBackgroundResource(a.f.round_header_day_list_bg_normal);
         }
-        c0358a.dYL.setText(StringHelper.formatForHeaderDayCharmValue(dVar.Ps.totalPrice));
-        if (dVar.Ps.totalPrice <= 0) {
-            c0358a.dYL.setVisibility(4);
+        c0358a.dXU.setText(StringHelper.formatForHeaderDayCharmValue(dVar.OR.totalPrice));
+        if (dVar.OR.totalPrice <= 0) {
+            c0358a.dXU.setVisibility(4);
         } else {
-            c0358a.dYL.setVisibility(0);
+            c0358a.dXU.setVisibility(0);
         }
-        j.a(c0358a.dYJ, dVar.Ps.portrait, true, !StringUtils.isNull(dVar.Ps.appId));
+        j.a(c0358a.dXS, dVar.OR.portrait, true, !StringUtils.isNull(dVar.OR.appId));
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.audiencelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0358a {
-        public HeadImageView dYJ;
-        public ImageView dYK;
-        public TextView dYL;
+        public HeadImageView dXS;
+        public ImageView dXT;
+        public TextView dXU;
         public View rootView;
 
         public C0358a(View view) {
             this.rootView = view;
-            this.dYJ = (HeadImageView) view.findViewById(a.g.ala_live_room_audience_header_img);
-            this.dYK = (ImageView) view.findViewById(a.g.ala_live_room_audience_pendant);
-            this.dYL = (TextView) view.findViewById(a.g.ala_live_room_audience_charm_count);
+            this.dXS = (HeadImageView) view.findViewById(a.g.ala_live_room_audience_header_img);
+            this.dXT = (ImageView) view.findViewById(a.g.ala_live_room_audience_pendant);
+            this.dXU = (TextView) view.findViewById(a.g.ala_live_room_audience_charm_count);
         }
     }
 }

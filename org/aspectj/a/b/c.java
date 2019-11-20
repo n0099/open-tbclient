@@ -5,48 +5,48 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class c implements org.aspectj.lang.b {
     Object[] args;
-    Object kwO;
-    a.InterfaceC0608a kwP;
+    Object kvX;
+    a.InterfaceC0596a kvY;
     Object target;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
-    public static class a implements a.InterfaceC0608a {
-        String kwQ;
-        org.aspectj.lang.c kwR;
-        org.aspectj.lang.reflect.d kwS;
+    public static class a implements a.InterfaceC0596a {
+        String kvZ;
+        org.aspectj.lang.c kwa;
+        org.aspectj.lang.reflect.d kwb;
 
         public a(String str, org.aspectj.lang.c cVar, org.aspectj.lang.reflect.d dVar) {
-            this.kwQ = str;
-            this.kwR = cVar;
-            this.kwS = dVar;
+            this.kvZ = str;
+            this.kwa = cVar;
+            this.kwb = dVar;
         }
 
-        public String cNn() {
-            return this.kwQ;
+        public String cNl() {
+            return this.kvZ;
         }
 
-        public org.aspectj.lang.c cNo() {
-            return this.kwR;
+        public org.aspectj.lang.c cNm() {
+            return this.kwa;
         }
 
         String a(h hVar) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(hVar.Hd(cNn()));
+            stringBuffer.append(hVar.Hd(cNl()));
             stringBuffer.append("(");
-            stringBuffer.append(((f) cNo()).a(hVar));
+            stringBuffer.append(((f) cNm()).a(hVar));
             stringBuffer.append(")");
             return stringBuffer.toString();
         }
 
         public final String toString() {
-            return a(h.kxk);
+            return a(h.kwt);
         }
     }
 
-    public c(a.InterfaceC0608a interfaceC0608a, Object obj, Object obj2, Object[] objArr) {
-        this.kwP = interfaceC0608a;
-        this.kwO = obj;
+    public c(a.InterfaceC0596a interfaceC0596a, Object obj, Object obj2, Object[] objArr) {
+        this.kvY = interfaceC0596a;
+        this.kvX = obj;
         this.target = obj2;
         this.args = objArr;
     }
@@ -57,6 +57,6 @@ public class c implements org.aspectj.lang.b {
     }
 
     public final String toString() {
-        return this.kwP.toString();
+        return this.kvY.toString();
     }
 }

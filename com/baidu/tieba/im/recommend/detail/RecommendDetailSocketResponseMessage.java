@@ -32,7 +32,7 @@ public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> nk = com.baidu.tbadk.core.d.a.akN().nk("tb.im_recommend_detail");
+        l<byte[]> nk = com.baidu.tbadk.core.d.a.akL().nk("tb.im_recommend_detail");
         if (nk != null && bArr != null && this.mDetailInfo != null && this.mDetailInfo.user_id != null) {
             nk.setForever(this.mDetailInfo.user_id + "", bArr);
         }

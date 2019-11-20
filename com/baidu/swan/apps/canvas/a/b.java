@@ -43,9 +43,9 @@ public class b extends a {
             return false;
         }
         final String optString = optParamsAsJo.optString("cb");
-        boolean a = com.baidu.swan.apps.canvas.a.CO().a(context, c, new CanvasView.b() { // from class: com.baidu.swan.apps.canvas.a.b.1
+        boolean a = com.baidu.swan.apps.canvas.a.CP().a(context, c, new CanvasView.b() { // from class: com.baidu.swan.apps.canvas.a.b.1
             @Override // com.baidu.swan.apps.canvas.view.CanvasView.b
-            public void CQ() {
+            public void CR() {
                 if (optString != null) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
                 }

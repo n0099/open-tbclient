@@ -9,11 +9,11 @@ import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.recapp.n;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.frs.h<bh, f> implements m {
-    private n dbz;
+    private n daI;
 
     public e(n nVar, BdUniqueId bdUniqueId) {
         super(nVar.getTbPageContext(), bdUniqueId);
-        this.dbz = nVar;
+        this.daI = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class e extends com.baidu.tieba.frs.h<bh, f> implements m {
     public View a(int i, View view, ViewGroup viewGroup, bh bhVar, f fVar) {
         if (bhVar instanceof AdvertAppInfo) {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) bhVar;
-            com.baidu.tbadk.core.data.c.a(advertAppInfo.advertAppContext, com.baidu.adp.lib.g.b.toInt(advertAppInfo.adPosition, -1), advertAppInfo.bXu.bXH == -1001);
+            com.baidu.tbadk.core.data.c.a(advertAppInfo.advertAppContext, com.baidu.adp.lib.g.b.toInt(advertAppInfo.adPosition, -1), advertAppInfo.bWD.bWQ == -1001);
         }
         return fVar.getView();
     }

@@ -12,70 +12,70 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.person.b.a;
 /* loaded from: classes6.dex */
 public class d implements com.baidu.live.liveroom.c.d {
-    private BdUniqueId dFZ;
-    private CustomMessageListener dUL = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
+    private BdUniqueId dFi;
+    private CustomMessageListener dTU = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.evB != null && d.this.evB.isEmpty() && !d.this.evB.isLoading()) {
-                d.this.evB.refreshData();
+            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.euK != null && d.this.euK.isEmpty() && !d.this.euK.isLoading()) {
+                d.this.euK.refreshData();
             }
         }
     };
-    private b evB;
-    private int evx;
+    private int euG;
+    private b euK;
     private TbPageContext mPageContext;
     private String mUserId;
 
     public d(TbPageContext tbPageContext, int i, String str, BdUniqueId bdUniqueId) {
-        this.dFZ = null;
+        this.dFi = null;
         this.mPageContext = tbPageContext;
-        this.evx = i;
+        this.euG = i;
         this.mUserId = str;
-        this.dFZ = bdUniqueId;
-        this.evB = new b(this.mPageContext, this.evx, this.mUserId, this.dFZ);
-        if (this.evB != null && this.evB.isEmpty() && !this.evB.isLoading()) {
-            this.evB.refreshData();
+        this.dFi = bdUniqueId;
+        this.euK = new b(this.mPageContext, this.euG, this.mUserId, this.dFi);
+        if (this.euK != null && this.euK.isEmpty() && !this.euK.isLoading()) {
+            this.euK.refreshData();
         }
-        MessageManager.getInstance().registerListener(this.dUL);
+        MessageManager.getInstance().registerListener(this.dTU);
     }
 
     public void V(String str, boolean z) {
-        if (this.evB != null) {
-            this.evB.V(str, z);
+        if (this.euK != null) {
+            this.euK.V(str, z);
         }
     }
 
     public int getTabType() {
-        return this.evx;
+        return this.euG;
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public View sr() {
-        if (this.evB == null) {
+    public View ss() {
+        if (this.euK == null) {
             return null;
         }
-        return this.evB.aof();
+        return this.euK.aod();
     }
 
     @Override // com.baidu.live.liveroom.c.d
     public String getTitle() {
-        return this.evx == 0 ? this.mPageContext.getString(a.i.ala_person_fans) : this.mPageContext.getString(a.i.ala_person_attentions);
+        return this.euG == 0 ? this.mPageContext.getString(a.i.ala_person_fans) : this.mPageContext.getString(a.i.ala_person_attentions);
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public String ss() {
+    public String st() {
         return null;
     }
 
     public void a(a.InterfaceC0378a interfaceC0378a) {
-        if (this.evB != null) {
-            this.evB.a(interfaceC0378a);
+        if (this.euK != null) {
+            this.euK.a(interfaceC0378a);
         }
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public short st() {
+    public short su() {
         return (short) 0;
     }
 
@@ -89,16 +89,16 @@ public class d implements com.baidu.live.liveroom.c.d {
 
     @Override // com.baidu.live.liveroom.c.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dUL);
-        if (this.evB != null) {
-            this.evB.onDestory();
+        MessageManager.getInstance().unRegisterListener(this.dTU);
+        if (this.euK != null) {
+            this.euK.onDestory();
         }
     }
 
     @Override // com.baidu.live.liveroom.c.d
     public void onChangeSkinType(int i) {
-        if (this.evB != null) {
-            this.evB.onChangeSkinType(i);
+        if (this.euK != null) {
+            this.euK.onChangeSkinType(i);
         }
     }
 }

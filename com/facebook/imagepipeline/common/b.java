@@ -4,45 +4,45 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class b {
-    private boolean khS;
-    private boolean khT;
-    private boolean khU;
-    private boolean khV;
+    private boolean khb;
+    private boolean khc;
+    private boolean khd;
+    private boolean khe;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b khW;
-    private int khR = 100;
+    private com.facebook.imagepipeline.decoder.b khf;
+    private int kha = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int cFQ() {
-        return this.khR;
+    public int cFO() {
+        return this.kha;
+    }
+
+    public boolean cFP() {
+        return this.khb;
+    }
+
+    public boolean cFQ() {
+        return this.khc;
     }
 
     public boolean cFR() {
-        return this.khS;
-    }
-
-    public boolean cFS() {
-        return this.khT;
-    }
-
-    public boolean cFT() {
-        return this.khU;
+        return this.khd;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b cFU() {
-        return this.khW;
+    public com.facebook.imagepipeline.decoder.b cFS() {
+        return this.khf;
     }
 
-    public boolean cFV() {
-        return this.khV;
+    public boolean cFT() {
+        return this.khe;
     }
 
-    public Bitmap.Config cFW() {
+    public Bitmap.Config cFU() {
         return this.mBitmapConfig;
     }
 
-    public a cFX() {
+    public a cFV() {
         return new a(this);
     }
 }
