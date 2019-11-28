@@ -40,10 +40,10 @@ public class SyncCoordinateConverter {
         if (this.b == null) {
             this.b = CoordType.BD09LL;
         }
-        switch (a.a[this.b.ordinal()]) {
-            case 1:
+        switch (this.b) {
+            case COMMON:
                 return a(this.a);
-            case 2:
+            case BD09LL:
                 return b(this.a);
             default:
                 return null;

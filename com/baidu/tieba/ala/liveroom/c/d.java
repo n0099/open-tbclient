@@ -1023,6 +1023,7 @@ public class d extends b {
             this.dVZ.g(iVar);
             if (iVar != null && this.dXg != null && !this.dXg.hasInit && !TextUtils.isEmpty(this.dXg.efy)) {
                 this.dXg.hasInit = true;
+                Log.e("Da88", "openDetail--1---url = " + this.dXg.efy);
                 this.dVZ.tw(this.dXg.efy);
             }
         }

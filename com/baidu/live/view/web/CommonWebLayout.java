@@ -11,8 +11,10 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.webkit.ConsoleMessage;
+import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -201,8 +203,35 @@ public class CommonWebLayout extends FrameLayout {
             }
 
             @Override // android.webkit.WebChromeClient
+            public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+                if (jsResult != null) {
+                    jsResult.cancel();
+                    return true;
+                }
+                return true;
+            }
+
+            @Override // android.webkit.WebChromeClient
             public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-                return CommonWebLayout.this.atr != null ? CommonWebLayout.this.atr.a(str2, jsResult) : super.onJsConfirm(webView, str, str2, jsResult);
+                Log.e("Da88", "onJsConfirm-3 = " + str);
+                if (CommonWebLayout.this.atr != null) {
+                    CommonWebLayout.this.atr.a(str2, jsResult);
+                    return true;
+                } else if (jsResult != null) {
+                    jsResult.cancel();
+                    return true;
+                } else {
+                    return true;
+                }
+            }
+
+            @Override // android.webkit.WebChromeClient
+            public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+                if (jsPromptResult != null) {
+                    jsPromptResult.cancel();
+                    return true;
+                }
+                return true;
             }
         });
         addView(this.ats, new FrameLayout.LayoutParams(-1, -1));

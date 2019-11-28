@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.support.v4.graphics.ColorUtils;
 import android.text.TextUtils;
+import android.util.Log;
 import android.webkit.JsResult;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
@@ -53,6 +54,7 @@ public class a implements e, b.a {
 
     @Override // com.baidu.tieba.ala.liveroom.f.b.a
     public boolean a(String str, final JsResult jsResult) {
+        Log.e("Da88", "onJsConfirm-2 = " + str);
         this.eei = new d(this.mPageContext.getPageActivity());
         this.eei.setCancelable(false);
         this.eei.setCanceledOnTouchOutside(false);

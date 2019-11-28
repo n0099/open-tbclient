@@ -17,6 +17,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -316,7 +317,9 @@ public class AgreeAloneView extends LinearLayout {
     public void ix(int i) {
         if (this.clD != null) {
             HttpMessage httpMessage = new HttpMessage(1001601);
-            httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
+            if (TbSingleton.getInstance().hasAgreeSecretProtocol()) {
+                httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
+            }
             httpMessage.addParam("thread_id", this.clD.threadId);
             httpMessage.addParam("op_type", i);
             if (this.clD.objType == 0) {

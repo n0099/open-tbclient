@@ -127,7 +127,10 @@ public class PassManagerStatic {
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Application> customMessage) {
                 if (customMessage != null) {
-                    PassManagerStatic.dM(customMessage.getData());
+                    Application data = customMessage.getData();
+                    if (!PassManagerStatic.aBF()) {
+                        PassManagerStatic.dM(data);
+                    }
                 }
                 return null;
             }
@@ -335,5 +338,10 @@ public class PassManagerStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static boolean aBF() {
+        return !com.baidu.tbadk.core.sharedPref.b.alP().getBoolean("key_secret_is_show", false);
     }
 }

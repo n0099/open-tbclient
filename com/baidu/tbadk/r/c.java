@@ -9,6 +9,7 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.s;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.t.aq;
@@ -136,7 +137,9 @@ public class c extends com.baidu.adp.framework.a.d {
         }
         httpMessage.addCookie("TBBRAND", Build.MODEL);
         httpMessage.addCookie("CUID", TbadkCoreApplication.getInst().getCuid());
-        httpMessage.addCookie("BAIDUZID", FH.gz(TbadkCoreApplication.getInst()));
+        if (TbSingleton.getInstance().hasAgreeSecretProtocol()) {
+            httpMessage.addCookie("BAIDUZID", FH.gz(TbadkCoreApplication.getInst()));
+        }
         String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
         if (!TextUtils.isEmpty(cuidGalaxy2)) {
             httpMessage.addCookie("BAIDUCUID", new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes())));

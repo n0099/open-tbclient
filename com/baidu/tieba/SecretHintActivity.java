@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.app.Application;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.TextPaint;
@@ -13,6 +14,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
@@ -54,11 +57,18 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.tbadk.core.sharedPref.b.alP().putBoolean("key_secret_is_show", true);
+            TbSingleton.getInstance().setHasAgreeSecretProtocol(true);
             if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) != null) {
                 SecretHintActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(SecretHintActivity.this.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, 1)));
             } else {
                 SecretHintActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(SecretHintActivity.this.getPageContext().getPageActivity()).createNormalCfg(2)));
             }
+            SecretHintActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SAPI_INIT, TbadkCoreApplication.getInst().getApp()));
+            com.baidu.tieba.r.c.cra().autoTrace(TbadkCoreApplication.getInst().getApp());
+            com.baidu.tieba.r.c cra = com.baidu.tieba.r.c.cra();
+            Application app = TbadkCoreApplication.getInst().getApp();
+            TbadkCoreApplication.getInst();
+            cra.setAppChannel(app, TbadkCoreApplication.getFrom(), true);
             SecretHintActivity.this.finish();
             an anVar = new an("c13295");
             anVar.bS("obj_locate", "1");

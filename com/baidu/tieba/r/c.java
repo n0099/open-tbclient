@@ -46,20 +46,24 @@ public class c {
     }
 
     public void autoTrace(Context context) {
-        if (this.jpz != null) {
+        if (!aBF() && this.jpz != null) {
             this.jpz.autoTrace(context);
         }
     }
 
     public void setAppChannel(Context context, String str, boolean z) {
-        if (this.jpz != null) {
+        if (!aBF() && this.jpz != null) {
             this.jpz.setAppChannel(context, str, z);
         }
     }
 
     public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
-        if (this.jpz != null) {
+        if (!aBF() && this.jpz != null) {
             this.jpz.trackWebView(context, webView, webChromeClient);
         }
+    }
+
+    private static boolean aBF() {
+        return !com.baidu.tbadk.core.sharedPref.b.alP().getBoolean("key_secret_is_show", false);
     }
 }

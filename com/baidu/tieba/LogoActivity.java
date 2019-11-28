@@ -32,6 +32,7 @@ import com.baidu.live.tbadk.core.util.CommonStatisticKey;
 import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
@@ -705,7 +706,9 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     }
 
     private boolean aBF() {
-        return !com.baidu.tbadk.core.sharedPref.b.alP().getBoolean("key_secret_is_show", false);
+        boolean z = com.baidu.tbadk.core.sharedPref.b.alP().getBoolean("key_secret_is_show", false);
+        TbSingleton.getInstance().setHasAgreeSecretProtocol(z);
+        return !z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

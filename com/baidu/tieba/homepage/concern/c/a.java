@@ -174,7 +174,7 @@ public class a {
             int count = v.getCount(list);
             if (i == 1) {
                 for (ConcernData concernData : list2) {
-                    if (concernData != null && concernData.thread_list.tid != null) {
+                    if (concernData != null && concernData.thread_list != null && concernData.thread_list.tid != null) {
                         list.add(concernData);
                     }
                 }
@@ -182,7 +182,7 @@ public class a {
                 list.clear();
                 for (int count2 = v.getCount(list2) - 1; count2 >= 0; count2--) {
                     ConcernData concernData2 = (ConcernData) v.getItem(list2, count2);
-                    if (concernData2 != null && concernData2.thread_list.tid != null) {
+                    if (concernData2 != null && concernData2.thread_list != null && concernData2.thread_list.tid != null) {
                         list.add(0, concernData2);
                     }
                 }

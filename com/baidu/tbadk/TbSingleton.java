@@ -53,6 +53,7 @@ public final class TbSingleton {
     private String invokeSource = "";
     private boolean mFrsRootViewLoadingShow = false;
     private boolean mFrsContentViewLoadingShow = false;
+    private boolean hasAgreeSecretProtocol = false;
     private boolean isVideoEnterMiddlePage = true;
     private boolean mIsVideoCardMute = true;
     private boolean mIsVideoCardMuteInHeadSet = false;
@@ -546,5 +547,13 @@ public final class TbSingleton {
 
     public boolean needUploadMoreLog() {
         return d.ft().af("need_more_logs") == 1;
+    }
+
+    public void setHasAgreeSecretProtocol(boolean z) {
+        this.hasAgreeSecretProtocol = z;
+    }
+
+    public boolean hasAgreeSecretProtocol() {
+        return this.hasAgreeSecretProtocol;
     }
 }

@@ -19,6 +19,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.bh;
@@ -130,7 +131,9 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     public void ix(int i) {
         if (this.mData != null) {
             HttpMessage httpMessage = new HttpMessage(1001601);
-            httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
+            if (TbSingleton.getInstance().hasAgreeSecretProtocol()) {
+                httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
+            }
             httpMessage.addParam("thread_id", this.mThreadId);
             httpMessage.addParam("op_type", i);
             httpMessage.addParam("obj_type", this.objType);

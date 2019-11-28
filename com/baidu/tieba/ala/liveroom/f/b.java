@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -123,10 +124,11 @@ public class b extends Dialog {
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
             public boolean a(String str, JsResult jsResult) {
+                Log.e("Da88", "onJsConfirm-1 = " + str);
                 if (b.this.eek != null) {
                     return b.this.eek.a(str, jsResult);
                 }
-                return false;
+                return true;
             }
         });
         f fVar = new f();

@@ -9,6 +9,7 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
@@ -62,7 +63,9 @@ public class h {
             httpMessage.addParam("obj_type", 3);
             httpMessage.addParam("agree_type", 2);
             httpMessage.addParam("forum_id", gVar.forumId);
-            httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
+            if (TbSingleton.getInstance().hasAgreeSecretProtocol()) {
+                httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
+            }
             httpMessage.addHeader("needSig", "1");
             MessageManager.getInstance().sendMessage(httpMessage);
             this.fBm.bmj();
