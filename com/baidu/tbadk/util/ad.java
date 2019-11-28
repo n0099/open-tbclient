@@ -1,7 +1,9 @@
 package com.baidu.tbadk.util;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.webkit.WebSettings;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -10,6 +12,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
@@ -37,6 +40,13 @@ public class ad {
             return null;
         }
         return mBaseWebView.getSettings().getUserAgentString();
+    }
+
+    public static String bPu() {
+        if (Build.VERSION.SDK_INT >= 17) {
+            return WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()) + " tieba/" + TbConfig.getVersion();
+        }
+        return "";
     }
 
     public static String getMatchStringFromURL(String str, String str2) {

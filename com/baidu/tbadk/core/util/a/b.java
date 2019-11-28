@@ -7,6 +7,7 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.q;
@@ -89,7 +90,7 @@ public class b {
         qVar.addPostData("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
         qVar.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
         qVar.addPostData("model", Build.MODEL);
-        if (com.baidu.tbadk.core.sharedPref.b.alP().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
+        if (com.baidu.tbadk.core.sharedPref.b.alP().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1 && TbSingleton.getInstance().hasAgreeSecretProtocol()) {
             qVar.addPostData("z_id", FH.gz(TbadkCoreApplication.getInst()));
         }
     }

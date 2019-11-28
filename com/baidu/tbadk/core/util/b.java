@@ -17,10 +17,9 @@ public class b {
 
     private static byte[] cq(Context context) {
         try {
-            for (PackageInfo packageInfo : context.getPackageManager().getInstalledPackages(64)) {
-                if (packageInfo.packageName.equals(context.getPackageName())) {
-                    return w(packageInfo.signatures[0].toByteArray());
-                }
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
+            if (packageInfo != null && packageInfo.signatures[0] != null) {
+                return w(packageInfo.signatures[0].toByteArray());
             }
         } catch (Exception e) {
             BdLog.e(e);

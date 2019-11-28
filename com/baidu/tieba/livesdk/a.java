@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -29,6 +30,7 @@ import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.util.ad;
 import com.baidu.tieba.livesdk.b;
 import com.baidu.tieba.sdk.a.d;
 import com.baidu.tieba.sdk.activity.LivePlayerActivity;
@@ -139,9 +141,9 @@ public class a {
                             hashMap.put(ExtraParamsManager.KEY_DO_TIEBA_LOG, true);
                         }
                         if (map.containsKey(ExtraParamsManager.KEY_GET_USER_AGENT)) {
-                            map.put(ExtraParamsManager.KEY_GET_USER_AGENT, "bdtb for Android " + TbConfig.getVersion());
+                            hashMap.put(ExtraParamsManager.KEY_GET_USER_AGENT, ad.bPu() + " (Baidu; P1 " + Build.VERSION.RELEASE + ")");
                         }
-                        if (map.containsKey(ExtraParamsManager.KEY_GET_BAIDUZID)) {
+                        if (map.containsKey(ExtraParamsManager.KEY_GET_BAIDUZID) && TbSingleton.getInstance().hasAgreeSecretProtocol()) {
                             hashMap.put(ExtraParamsManager.KEY_GET_BAIDUZID, FH.gz(TbadkCoreApplication.getInst()));
                         }
                         if (map.containsKey(ExtraParamsManager.KEY_GET_ENCRYPTION_USERID)) {

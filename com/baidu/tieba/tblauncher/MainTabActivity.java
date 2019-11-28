@@ -41,6 +41,7 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BdToken.f;
 import com.baidu.tbadk.KuangFloatingViewController;
@@ -374,6 +375,7 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
                 if (MainTabActivity.this.jno != null) {
                     MainTabActivity.this.jno.cqA();
                 }
+                MainTabActivity.this.cQf();
             }
         }
     };
@@ -700,6 +702,7 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
         MessageManager.getInstance().registerListener(this.gYP);
         TbSingleton.getInstance().startOneGame();
         this.bTF = new WeakReference<>(TbadkCoreApplication.getInst());
+        cQf();
         com.baidu.tbadk.p.n.awQ().bp(System.currentTimeMillis());
     }
 
@@ -1495,6 +1498,19 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
             super.onConfigurationChanged(configuration);
             if (TbadkCoreApplication.getInst().getSkinType() != 1) {
                 am.amF();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cQf() {
+        String str = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_is_clear_concern_cache_when_version_update") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + TbConfig.getVersion();
+        if (!com.baidu.tbadk.core.sharedPref.b.alP().getBoolean(str, false)) {
+            try {
+                com.baidu.tbadk.core.d.a.akL().bJ("tb.concern_page", TbadkCoreApplication.getCurrentAccount()).setForever("0", null);
+                com.baidu.tbadk.core.sharedPref.b.alP().putBoolean(str, true);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
         }
     }

@@ -3,12 +3,14 @@ package com.baidu.tieba.homeExtra.b;
 import android.content.Context;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import com.baidu.mobstat.MtjConfig;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.r.c;
 /* loaded from: classes6.dex */
 public class a implements c.a {
     @Override // com.baidu.tieba.r.c.a
     public void autoTrace(Context context) {
+        StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
         StatService.autoTrace(context);
     }
 

@@ -29,6 +29,7 @@ import com.baidu.sofire.ac.FH;
 import com.baidu.swan.apps.an.ac;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.u.b.c;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tieba.R;
@@ -451,11 +452,12 @@ public final class c {
     }
 
     public static String getZid(Context context) {
+        long currentTimeMillis;
         long j = 0;
         if (DEBUG) {
             j = System.currentTimeMillis();
         }
-        String gz = FH.gz(AppRuntime.getAppContext());
+        String gz = TbSingleton.getInstance().hasAgreeSecretProtocol() ? FH.gz(AppRuntime.getAppContext()) : null;
         if (!TextUtils.isEmpty(gz) && gz.contains("|")) {
             if (DEBUG) {
                 throw new RuntimeException("getZid zid contains | zid:" + gz);
@@ -463,8 +465,7 @@ public final class c {
             gz = null;
         }
         if (DEBUG) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.w("AccountUtils", "getZid start:" + j + ",end:" + currentTimeMillis + ",totalTime:" + (currentTimeMillis - j) + ";zid:" + gz);
+            Log.w("AccountUtils", "getZid start:" + j + ",end:" + System.currentTimeMillis() + ",totalTime:" + (currentTimeMillis - j) + ";zid:" + gz);
         }
         return gz;
     }

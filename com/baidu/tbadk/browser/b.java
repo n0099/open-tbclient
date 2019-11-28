@@ -31,6 +31,7 @@ import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
 import com.baidu.tbadk.BdToken.t;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
@@ -486,7 +487,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private String getZid() {
-        String gz = FH.gz(TbadkCoreApplication.getInst());
+        String gz = TbSingleton.getInstance().hasAgreeSecretProtocol() ? FH.gz(TbadkCoreApplication.getInst()) : null;
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("resultCode", 1);
@@ -927,9 +928,12 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
         String version = TbConfig.getVersion();
         stringBuffer.append("client_version=");
         stringBuffer.append(version);
-        String gz = FH.gz(TbadkCoreApplication.getInst());
-        stringBuffer.append("zid=");
-        stringBuffer.append(gz);
+        String str2 = null;
+        if (TbSingleton.getInstance().hasAgreeSecretProtocol()) {
+            str2 = FH.gz(TbadkCoreApplication.getInst());
+            stringBuffer.append("zid=");
+            stringBuffer.append(str2);
+        }
         stringBuffer.append("tiebaclient!!!");
         String md5 = s.toMd5(stringBuffer.toString());
         try {
@@ -940,7 +944,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             jSONObject.put(Constants.PHONE_BRAND, str);
             jSONObject.put("client_type", "Android");
             jSONObject.put("client_version", version);
-            jSONObject.put("zid", gz);
+            jSONObject.put("zid", str2);
             jSONObject.put("sign", md5);
             return jSONObject.toString();
         } catch (JSONException e) {

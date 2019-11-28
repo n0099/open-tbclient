@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,9 +92,10 @@ public class b implements com.baidu.live.liveroom.a.a {
                 }
                 if (!z) {
                     BrowserHelper.startInternalWebActivity(b.this.mPageContext.getPageActivity(), str);
-                } else {
-                    b.this.tw(str);
+                    return;
                 }
+                Log.e("Da88", "openDetail--3---url = " + str);
+                b.this.tw(str);
             }
         }
     };
@@ -978,6 +980,7 @@ public class b implements com.baidu.live.liveroom.a.a {
                 sb.append("room");
                 sb.append("=");
                 sb.append(1);
+                Log.e("Da88", "openDetail--2---url = " + sb.toString());
                 tw(sb.toString());
                 return;
             }

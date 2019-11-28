@@ -656,8 +656,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
             setPresenterCallback(ActionMenuPresenter.this.mPopupPresenterCallback);
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.support.v7.view.menu.MenuPopupHelper
-        protected void onDismiss() {
+        public void onDismiss() {
             if (ActionMenuPresenter.this.mMenu != null) {
                 ActionMenuPresenter.this.mMenu.close();
             }
@@ -683,8 +684,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
             setPresenterCallback(ActionMenuPresenter.this.mPopupPresenterCallback);
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.support.v7.view.menu.MenuPopupHelper
-        protected void onDismiss() {
+        public void onDismiss() {
             ActionMenuPresenter.this.mActionButtonPopup = null;
             ActionMenuPresenter.this.mOpenSubMenuId = 0;
             super.onDismiss();

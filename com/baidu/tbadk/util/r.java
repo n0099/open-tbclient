@@ -7,6 +7,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import java.lang.reflect.Field;
@@ -61,7 +62,7 @@ public class r {
                 }
                 builder.pversion = "1.0.3";
                 builder.lego_lib_version = TbConfig.getLegoLibVersion();
-                if (com.baidu.tbadk.core.sharedPref.b.alP().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
+                if (com.baidu.tbadk.core.sharedPref.b.alP().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1 && TbSingleton.getInstance().hasAgreeSecretProtocol()) {
                     builder.z_id = FH.gz(TbadkCoreApplication.getInst());
                 }
                 builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());

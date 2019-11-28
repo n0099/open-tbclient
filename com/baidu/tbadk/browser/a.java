@@ -20,6 +20,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -211,7 +212,9 @@ public class a {
             }
             cookieManager.setCookie(".baidu.com", "BAIDUCUID=" + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             cookieManager.setCookie(".baidu.com", "TBBRAND=" + Build.MODEL + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-            cookieManager.setCookie(".baidu.com", "BAIDUZID=" + FH.gz(TbadkCoreApplication.getInst()) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            if (TbSingleton.getInstance().hasAgreeSecretProtocol()) {
+                cookieManager.setCookie(".baidu.com", "BAIDUZID=" + FH.gz(TbadkCoreApplication.getInst()) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            }
             cookieManager.setCookie(".baidu.com", "cuid_galaxy2=" + cuidGalaxy2 + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             cookieManager.setCookie(".baidu.com", "cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             try {
