@@ -1,17 +1,22 @@
 package com.baidu.tieba.sharesdk;
 
+import android.app.Application;
 import android.util.Pair;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.pass.biometrics.base.utils.PassBioEnv;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.coreExtra.c.d;
 import com.baidu.tbadk.coreExtra.c.e;
 import com.baidu.tieba.share.ImplicitShareMessage;
+import com.sina.weibo.sdk.WbSdk;
+import com.sina.weibo.sdk.auth.AuthInfo;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class ShareStatic {
@@ -38,6 +43,12 @@ public class ShareStatic {
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof ShareDialogConfig)) {
+                    try {
+                        Application app = TbadkCoreApplication.getInst().getApp();
+                        WbSdk.install(app, new AuthInfo(app, "1511099634", PassBioEnv.PASSPORT_DOMAIN, "invitation_write"));
+                    } catch (Exception e) {
+                        BdLog.e(e);
+                    }
                     ShareDialogConfig data = customMessage.getData();
                     if (data.mIsShowTransmitShare || data.mShowMoreForumShare) {
                         ShareStatic.c(data);

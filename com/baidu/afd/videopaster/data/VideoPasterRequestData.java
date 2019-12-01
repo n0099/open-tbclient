@@ -11,7 +11,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -65,7 +64,7 @@ public class VideoPasterRequestData extends HttpMessage {
 
     private void addCommonParams() {
         addParam("_client_version", TbConfig.getVersion());
-        addParam("uid", SapiAccountManager.getInstance().getSession("uid"));
+        addParam("uid", TbadkCoreApplication.getCurrentAccount());
         addParam("cuid", TbadkCoreApplication.getInst().getCuid());
         addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         addParam("model", Build.MODEL);
