@@ -8,7 +8,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -56,7 +55,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
         addParam("ot", "2");
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
         addParam("nt", String.valueOf(com.baidu.adp.lib.util.j.netType()));
-        addParam("uid", SapiAccountManager.getInstance().getSession("uid"));
+        addParam("uid", TbadkCoreApplication.getCurrentAccount());
         addParam("is_https", 1);
     }
 

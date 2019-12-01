@@ -5,9 +5,8 @@ import com.xiaomi.push.Cif;
 import com.xiaomi.push.ai;
 import com.xiaomi.push.hg;
 import com.xiaomi.push.ht;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public final class q extends ai.a {
+final class q extends ai.a {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */

@@ -11,6 +11,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.b.d;
+import com.baidu.adp.lib.g.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
@@ -67,7 +68,7 @@ public final class TbSingleton {
     private boolean hasDownloadEmotion = false;
     private int mHomePageStyleAbTest = 0;
     private HashMap<Long, String> liveForumMap = new HashMap<>();
-    private final BroadcastReceiver mHeadSetStateReceiver = new BroadcastReceiver() { // from class: com.baidu.tbadk.TbSingleton.1
+    private final BroadcastReceiver mHeadSetStateReceiver = new BroadcastReceiver() { // from class: com.baidu.tbadk.TbSingleton.2
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             boolean z = false;
@@ -93,7 +94,12 @@ public final class TbSingleton {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.HEADSET_PLUG");
         TbadkCoreApplication.getInst().registerReceiver(this.mHeadSetStateReceiver, intentFilter);
-        registerScreenSizeChangeTask();
+        e.fZ().post(new Runnable() { // from class: com.baidu.tbadk.TbSingleton.1
+            @Override // java.lang.Runnable
+            public void run() {
+                TbSingleton.this.registerScreenSizeChangeTask();
+            }
+        });
     }
 
     public static TbSingleton getInstance() {
@@ -527,7 +533,7 @@ public final class TbSingleton {
     }
 
     public void registerScreenSizeChangeTask() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921414, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tbadk.TbSingleton.2
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921414, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tbadk.TbSingleton.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
                 return new CustomResponsedMessage<>(2921414);

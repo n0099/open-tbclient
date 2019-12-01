@@ -128,7 +128,11 @@ public class PassManagerStatic {
             public CustomResponsedMessage<?> run(CustomMessage<Application> customMessage) {
                 if (customMessage != null) {
                     Application data = customMessage.getData();
-                    if (!PassManagerStatic.aBF()) {
+                    boolean z = false;
+                    if (customMessage.getExtra() instanceof Boolean) {
+                        z = ((Boolean) customMessage.getExtra()).booleanValue();
+                    }
+                    if (!PassManagerStatic.aBF() || z) {
                         PassManagerStatic.dM(data);
                     }
                 }

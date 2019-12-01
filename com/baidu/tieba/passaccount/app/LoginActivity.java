@@ -123,10 +123,17 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     protected void bPh() {
+        boolean z = true;
         try {
-            SapiAccountManager.getInstance().getConfignation();
+            if (SapiAccountManager.getInstance().getConfignation() != null) {
+                z = false;
+            }
         } catch (Exception e) {
-            sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SAPI_INIT, TbadkCoreApplication.getInst().getApp()));
+        }
+        if (z) {
+            CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_SAPI_INIT, TbadkCoreApplication.getInst().getApp());
+            customMessage.setExtra(Boolean.TRUE);
+            sendMessage(customMessage);
         }
         MessageManager.getInstance().runTask(CmdConfigCustom.CMD_INIT_RIM_SDK, (Class) null);
         PassManagerStatic.bPr();
@@ -355,11 +362,15 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         if (!aq.isEmpty(this.hEz)) {
             String nI = m.nI(this.hEz);
             if (!aq.isEmpty(nI) && m.nG(nI)) {
-                SapiAccountManager.getInstance().getConfignation().skin = nI;
+                if (SapiAccountManager.getInstance().getConfignation() != null) {
+                    SapiAccountManager.getInstance().getConfignation().skin = nI;
+                }
                 return true;
             }
         }
-        SapiAccountManager.getInstance().getConfignation().skin = "file:///android_asset/sapi_theme/style.css";
+        if (SapiAccountManager.getInstance().getConfignation() != null) {
+            SapiAccountManager.getInstance().getConfignation().skin = "file:///android_asset/sapi_theme/style.css";
+        }
         return false;
     }
 
