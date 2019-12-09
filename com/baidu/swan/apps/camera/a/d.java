@@ -63,8 +63,8 @@ public class d extends a {
             a(unitedSchemeEntity, callbackHandler, bVar, cameraPreview, bVar2, str);
             return;
         }
-        com.baidu.swan.apps.w.e.LE().a(1, new String[]{"android.permission.CAMERA", "android.permission.RECORD_AUDIO"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.camera.a.d.2
-            @Override // com.baidu.swan.apps.ab.a.InterfaceC0152a
+        com.baidu.swan.apps.w.e.LE().a(1, new String[]{"android.permission.CAMERA", "android.permission.RECORD_AUDIO"}, new a.InterfaceC0147a() { // from class: com.baidu.swan.apps.camera.a.d.2
+            @Override // com.baidu.swan.apps.ab.a.InterfaceC0147a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
                 if (i != 1) {

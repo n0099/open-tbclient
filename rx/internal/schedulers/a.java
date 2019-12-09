@@ -18,13 +18,13 @@ public final class a extends rx.g implements h {
     private static final long kBR;
     private static final TimeUnit kBS = TimeUnit.SECONDS;
     static final c kBT = new c(RxThreadFactory.NONE);
-    static final C0611a kBU;
+    static final C0606a kBU;
     final ThreadFactory aAW;
-    final AtomicReference<C0611a> kBV = new AtomicReference<>(kBU);
+    final AtomicReference<C0606a> kBV = new AtomicReference<>(kBU);
 
     static {
         kBT.unsubscribe();
-        kBU = new C0611a(null, 0L, null);
+        kBU = new C0606a(null, 0L, null);
         kBU.shutdown();
         kBR = Integer.getInteger("rx.io-scheduler.keepalive", 60).intValue();
     }
@@ -32,7 +32,7 @@ public final class a extends rx.g implements h {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.schedulers.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0611a {
+    public static final class C0606a {
         private final ThreadFactory aAW;
         private final long kBW;
         private final ConcurrentLinkedQueue<c> kBX;
@@ -40,7 +40,7 @@ public final class a extends rx.g implements h {
         private final ScheduledExecutorService kBZ;
         private final Future<?> kCa;
 
-        C0611a(final ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
+        C0606a(final ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
             ScheduledFuture<?> scheduledFuture;
             ScheduledExecutorService scheduledExecutorService = null;
             this.aAW = threadFactory;
@@ -61,7 +61,7 @@ public final class a extends rx.g implements h {
                 scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(new Runnable() { // from class: rx.internal.schedulers.a.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        C0611a.this.cOP();
+                        C0606a.this.cOP();
                     }
                 }, this.kBW, this.kBW, TimeUnit.NANOSECONDS);
             } else {
@@ -133,22 +133,22 @@ public final class a extends rx.g implements h {
 
     @Override // rx.internal.schedulers.h
     public void start() {
-        C0611a c0611a = new C0611a(this.aAW, kBR, kBS);
-        if (!this.kBV.compareAndSet(kBU, c0611a)) {
-            c0611a.shutdown();
+        C0606a c0606a = new C0606a(this.aAW, kBR, kBS);
+        if (!this.kBV.compareAndSet(kBU, c0606a)) {
+            c0606a.shutdown();
         }
     }
 
     @Override // rx.internal.schedulers.h
     public void shutdown() {
-        C0611a c0611a;
+        C0606a c0606a;
         do {
-            c0611a = this.kBV.get();
-            if (c0611a == kBU) {
+            c0606a = this.kBV.get();
+            if (c0606a == kBU) {
                 return;
             }
-        } while (!this.kBV.compareAndSet(c0611a, kBU));
-        c0611a.shutdown();
+        } while (!this.kBV.compareAndSet(c0606a, kBU));
+        c0606a.shutdown();
     }
 
     @Override // rx.g
@@ -158,14 +158,14 @@ public final class a extends rx.g implements h {
 
     /* loaded from: classes2.dex */
     static final class b extends g.a implements rx.functions.a {
-        private final C0611a kCe;
+        private final C0606a kCe;
         private final c kCf;
         private final rx.subscriptions.b kCd = new rx.subscriptions.b();
         final AtomicBoolean once = new AtomicBoolean();
 
-        b(C0611a c0611a) {
-            this.kCe = c0611a;
-            this.kCf = c0611a.cOO();
+        b(C0606a c0606a) {
+            this.kCe = c0606a;
+            this.kCf = c0606a.cOO();
         }
 
         @Override // rx.k

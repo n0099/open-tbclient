@@ -1,54 +1,54 @@
 package com.baidu.sapi2.utils.enums;
 
-import com.baidu.sapi2.utils.SapiHost;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes.dex */
+import com.baidu.sapi2.utils.h;
+/* loaded from: classes2.dex */
 public enum Domain {
-    DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", SapiHost.DOMAIN_ONLINE_WAPPASS_URL, SapiHost.DOMAIN_ONLINE_DEVICE_URL, SapiHost.DOMAIN_ONLINE_CONFIG_HTTPS_URL, SapiHost.DOMAIN_ONLINE_PORTRAIT_URL),
-    DOMAIN_RD(SapiHost.DOMAIN_RD_PASSPORT_URL, "aHR0cDovL3dhcHBhc3MtcmR0ZXN0LmJhaWR1LmNvbQ==", SapiHost.DOMAIN_RD_DEVICE_URL, "aHR0cDovL3dhcHBhc3MtcmR0ZXN0LmJhaWR1LmNvbQ==", "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ=="),
-    DOMAIN_QA(SapiHost.DOMAIN_QA_PASSPORT_URL, SapiHost.DOMAIN_QA_WAPPASS_URL, SapiHost.DOMAIN_QA_DEVICE_URL, SapiHost.DOMAIN_QA_CONFIG_HTTPS_URL, "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==");
+    DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", h.b, h.c, h.d, h.e),
+    DOMAIN_RD(h.f, "aHR0cDovL3dhcHBhc3MtcmR0ZXN0LmJhaWR1LmNvbQ==", h.h, "aHR0cDovL3dhcHBhc3MtcmR0ZXN0LmJhaWR1LmNvbQ==", "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ=="),
+    DOMAIN_QA(h.k, h.l, h.m, h.n, "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==");
     
-    private String a;
     private String b;
     private String c;
     private String d;
     private String e;
-    private boolean f;
+    private String f;
+    private boolean g;
 
     Domain(String str, String str2, String str3, String str4, String str5) {
-        this.a = SapiHost.getHost(str);
-        this.b = SapiHost.getHost(str2);
-        this.c = SapiHost.getHost(str3);
-        this.d = SapiHost.getHost(str4);
-        this.e = SapiHost.getHost(str5);
+        this.b = h.a(str);
+        this.c = h.a(str2);
+        this.d = h.a(str3);
+        this.e = h.a(str4);
+        this.f = h.a(str5);
+    }
+
+    public Domain forceHttps(boolean z) {
+        this.g = z;
+        return this;
+    }
+
+    public String getConfigHttpsUrl() {
+        return this.e;
+    }
+
+    public String getDeviceUrl() {
+        return this.d;
+    }
+
+    public String getPortraitUrl() {
+        return this.f;
     }
 
     public String getURL() {
         return getURL(SapiUtils.getDefaultHttpsEnabled());
     }
 
-    public String getURL(boolean z) {
-        return (!(equals(DOMAIN_ONLINE) && z) && (equals(DOMAIN_ONLINE) || !this.f)) ? this.a : this.a.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-    }
-
     public String getWap() {
-        return (!(equals(DOMAIN_ONLINE) && SapiUtils.getDefaultHttpsEnabled()) && (equals(DOMAIN_ONLINE) || !this.f)) ? this.b : this.b.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        return (!(equals(DOMAIN_ONLINE) && SapiUtils.getDefaultHttpsEnabled()) && (equals(DOMAIN_ONLINE) || !this.g)) ? this.c : this.c.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 
-    public String getDeviceUrl() {
-        return this.c;
-    }
-
-    public String getConfigHttpsUrl() {
-        return this.d;
-    }
-
-    public String getPortraitUrl() {
-        return this.e;
-    }
-
-    public Domain forceHttps(boolean z) {
-        this.f = z;
-        return this;
+    public String getURL(boolean z) {
+        return (!(equals(DOMAIN_ONLINE) && z) && (equals(DOMAIN_ONLINE) || !this.g)) ? this.b : this.b.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 }

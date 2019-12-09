@@ -19,141 +19,96 @@ import android.widget.ImageView;
 @TargetApi(8)
 /* loaded from: classes2.dex */
 public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnScaleGestureListener, View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
-    public static final float MAX_SCALE = 4.0f;
-    private static ZoomImageView mInstance;
-    public float initScale;
-    private int mHorizontalPadding;
-    private boolean mIsDrag;
-    private boolean mIsLongerLeftAndRight;
-    private boolean mIsLongerTopAndBottom;
-    private int mLastPointerCount;
-    private float mLastX;
-    private float mLastY;
-    private ScaleGestureDetector mScaleGestureDetector;
-    public final Matrix mScaleMatrix;
-    private double mTouchSlop;
-    private int mVerticalPadding;
-    private final float[] matrixValues;
-    private boolean once;
+    public static final float a = 12.0f;
+    private static ZoomImageView b;
+    public float c;
+    private final float[] d;
+    private boolean e;
+    private ScaleGestureDetector f;
+    public final Matrix g;
+    private int h;
+    private float i;
+    private float j;
+    private boolean k;
+    private double l;
+    private boolean m;
+    private boolean n;
+    private int o;
+    private int p;
 
     public ZoomImageView(Context context) {
         this(context, null);
     }
 
-    public ZoomImageView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.initScale = 1.0f;
-        this.matrixValues = new float[9];
-        this.once = true;
-        this.mScaleMatrix = new Matrix();
-        this.mLastPointerCount = 0;
-        this.mLastX = 0.0f;
-        this.mLastY = 0.0f;
-        this.mHorizontalPadding = 22;
-        super.setScaleType(ImageView.ScaleType.MATRIX);
-        this.mScaleGestureDetector = new ScaleGestureDetector(context, this);
-        this.mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
-        setOnTouchListener(this);
-        if (mInstance == null) {
-            mInstance = this;
+    public static void a() {
+        b = null;
+    }
+
+    private void c() {
+        Rect rect;
+        float f = 0.0f;
+        RectF matrixRectF = getMatrixRectF();
+        ClipBoxView clipBoxView = ClipBoxView.getInstance();
+        if (clipBoxView != null) {
+            rect = clipBoxView.getmFrameRectF();
+        } else {
+            rect = new Rect();
         }
+        getWidth();
+        getHeight();
+        float f2 = matrixRectF.top;
+        int i = rect.top;
+        float f3 = (f2 <= ((float) i) || !this.n) ? 0.0f : -(f2 - i);
+        float f4 = matrixRectF.bottom;
+        int i2 = rect.bottom;
+        if (f4 < i2 && this.n) {
+            f3 = i2 - f4;
+        }
+        float f5 = matrixRectF.left;
+        int i3 = rect.left;
+        if (f5 > i3 && this.m) {
+            f = -(f5 - i3);
+        }
+        float f6 = matrixRectF.right;
+        int i4 = rect.right;
+        if (f6 < i4 && this.m) {
+            f = i4 - f6;
+        }
+        this.g.postTranslate(f, f3);
     }
 
     public static ZoomImageView getInstance() {
-        if (mInstance != null) {
-            return mInstance;
+        ZoomImageView zoomImageView = b;
+        if (zoomImageView != null) {
+            return zoomImageView;
         }
         return null;
     }
 
-    public static void clearInstance() {
-        mInstance = null;
+    public Bitmap b() {
+        Bitmap createBitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        draw(new Canvas(createBitmap));
+        if (ClipBoxView.getInstance() != null) {
+            Rect rect = ClipBoxView.getInstance().getmFrameRectF();
+            return Bitmap.createBitmap(createBitmap, rect.left, rect.top, rect.width(), rect.height());
+        }
+        return null;
     }
 
-    @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
-    public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-        float scale = getScale();
-        float scaleFactor = scaleGestureDetector.getScaleFactor();
-        if (getDrawable() != null && ((scale < 4.0f && scaleFactor > 1.0f) || scaleFactor < 1.0f)) {
-            if (scaleFactor * scale > 4.0f) {
-                scaleFactor = 4.0f / scale;
-            }
-            this.mScaleMatrix.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
-            checkBorderAndCenterWhenScale(scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
-            setImageMatrix(this.mScaleMatrix);
+    public RectF getMatrixRectF() {
+        Matrix matrix = this.g;
+        RectF rectF = new RectF();
+        Drawable drawable = getDrawable();
+        if (drawable != null) {
+            rectF.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            matrix.mapRect(rectF);
         }
-        return true;
+        return rectF;
     }
 
-    @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
-    public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
-        return true;
-    }
-
-    @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
-    public void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        float f;
-        float f2;
-        this.mScaleGestureDetector.onTouchEvent(motionEvent);
-        float f3 = 0.0f;
-        float f4 = 0.0f;
-        int pointerCount = motionEvent.getPointerCount();
-        for (int i = 0; i < pointerCount; i++) {
-            f3 += motionEvent.getX(i);
-            f4 += motionEvent.getY(i);
-        }
-        float f5 = f3 / pointerCount;
-        float f6 = f4 / pointerCount;
-        if (pointerCount != this.mLastPointerCount) {
-            this.mIsDrag = false;
-            this.mLastX = f5;
-            this.mLastY = f6;
-        }
-        this.mLastPointerCount = pointerCount;
-        switch (motionEvent.getAction()) {
-            case 1:
-            case 3:
-                this.mLastPointerCount = 0;
-                return true;
-            case 2:
-                float f7 = f5 - this.mLastX;
-                float f8 = f6 - this.mLastY;
-                if (!this.mIsDrag) {
-                    this.mIsDrag = Math.sqrt((double) ((f7 * f7) + (f8 * f8))) >= this.mTouchSlop;
-                }
-                if (this.mIsDrag) {
-                    RectF matrixRectF = getMatrixRectF();
-                    if (getDrawable() != null) {
-                        this.mIsLongerLeftAndRight = true;
-                        this.mIsLongerTopAndBottom = true;
-                        Rect rect = ClipBoxView.getInstance().getmFrameRectF();
-                        if (matrixRectF.width() < rect.right - rect.left) {
-                            f = 0.0f;
-                            this.mIsLongerLeftAndRight = false;
-                        } else {
-                            f = f7;
-                        }
-                        if (matrixRectF.height() < rect.bottom - rect.top) {
-                            f2 = 0.0f;
-                            this.mIsLongerTopAndBottom = false;
-                        } else {
-                            f2 = f8;
-                        }
-                        this.mScaleMatrix.postTranslate(f, f2);
-                        checkMatrixBounds();
-                        setImageMatrix(this.mScaleMatrix);
-                    }
-                }
-                this.mLastX = f5;
-                this.mLastY = f6;
-                return true;
-            default:
-                return true;
-        }
+    public final float getScale() {
+        this.g.getValues(this.d);
+        return this.d[0];
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -172,94 +127,177 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
     public void onGlobalLayout() {
         Drawable drawable;
         float max;
-        if (this.once && (drawable = getDrawable()) != null) {
-            this.mHorizontalPadding = (int) TypedValue.applyDimension(1, this.mHorizontalPadding, getResources().getDisplayMetrics());
-            this.mVerticalPadding = (getHeight() - (getWidth() - (this.mHorizontalPadding * 2))) / 2;
+        if (this.e && (drawable = getDrawable()) != null) {
+            this.o = (int) TypedValue.applyDimension(1, this.o, getResources().getDisplayMetrics());
+            this.p = (getHeight() - (getWidth() - (this.o * 2))) / 2;
             int width = getWidth();
             int height = getHeight();
             int intrinsicWidth = drawable.getIntrinsicWidth();
             int intrinsicHeight = drawable.getIntrinsicHeight();
-            if (intrinsicWidth < getWidth() - (this.mHorizontalPadding * 2) && intrinsicHeight > getHeight() - (this.mVerticalPadding * 2)) {
-                max = ((getWidth() * 1.0f) - (this.mHorizontalPadding * 2)) / intrinsicWidth;
-            } else if (intrinsicHeight < getHeight() - (this.mVerticalPadding * 2) && intrinsicWidth > getWidth() - (this.mHorizontalPadding * 2)) {
-                max = ((getHeight() * 1.0f) - (this.mVerticalPadding * 2)) / intrinsicHeight;
+            if (intrinsicWidth < getWidth() - (this.o * 2) && intrinsicHeight > getHeight() - (this.p * 2)) {
+                max = ((getWidth() * 1.0f) - (this.o * 2)) / intrinsicWidth;
+            } else if (intrinsicHeight < getHeight() - (this.p * 2) && intrinsicWidth > getWidth() - (this.o * 2)) {
+                max = ((getHeight() * 1.0f) - (this.p * 2)) / intrinsicHeight;
             } else {
-                max = Math.max(((getWidth() * 1.0f) - (this.mHorizontalPadding * 2)) / intrinsicWidth, ((getHeight() * 1.0f) - (this.mVerticalPadding * 2)) / intrinsicHeight);
+                max = Math.max(((getWidth() * 1.0f) - (this.o * 2)) / intrinsicWidth, ((getHeight() * 1.0f) - (this.p * 2)) / intrinsicHeight);
             }
-            this.initScale = max;
-            this.mScaleMatrix.postTranslate((width - intrinsicWidth) / 2, (height - intrinsicHeight) / 2);
-            this.mScaleMatrix.postScale(max, max, width / 2, height / 2);
-            setImageMatrix(this.mScaleMatrix);
-            this.once = false;
+            this.c = max;
+            this.g.postTranslate((width - intrinsicWidth) / 2, (height - intrinsicHeight) / 2);
+            this.g.postScale(max, max, width / 2, height / 2);
+            setImageMatrix(this.g);
+            this.e = false;
         }
     }
 
-    public final float getScale() {
-        this.mScaleMatrix.getValues(this.matrixValues);
-        return this.matrixValues[0];
+    @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
+    public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
+        float scale = getScale();
+        float scaleFactor = scaleGestureDetector.getScaleFactor();
+        if (getDrawable() != null && ((scale < 12.0f && scaleFactor > 1.0f) || scaleFactor < 1.0f)) {
+            if (scaleFactor * scale > 12.0f) {
+                scaleFactor = 12.0f / scale;
+            }
+            this.g.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+            a(scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+            setImageMatrix(this.g);
+        }
+        return true;
     }
 
-    public void checkBorderAndCenterWhenScale(float f, float f2) {
+    @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
+    public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
+        return true;
+    }
+
+    @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
+    public void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        Rect rect;
+        float f;
+        this.f.onTouchEvent(motionEvent);
+        float f2 = 0.0f;
+        float f3 = 0.0f;
+        int pointerCount = motionEvent.getPointerCount();
+        for (int i = 0; i < pointerCount; i++) {
+            f2 += motionEvent.getX(i);
+            f3 += motionEvent.getY(i);
+        }
+        float f4 = pointerCount;
+        float f5 = f2 / f4;
+        float f6 = f3 / f4;
+        if (pointerCount != this.h) {
+            this.k = false;
+            this.i = f5;
+            this.j = f6;
+        }
+        this.h = pointerCount;
+        int action = motionEvent.getAction();
+        if (action != 1) {
+            if (action == 2) {
+                float f7 = f5 - this.i;
+                float f8 = f6 - this.j;
+                if (!this.k) {
+                    this.k = Math.sqrt((double) ((f7 * f7) + (f8 * f8))) >= this.l;
+                }
+                if (this.k) {
+                    RectF matrixRectF = getMatrixRectF();
+                    if (getDrawable() != null) {
+                        this.m = true;
+                        this.n = true;
+                        ClipBoxView clipBoxView = ClipBoxView.getInstance();
+                        if (clipBoxView != null) {
+                            rect = clipBoxView.getmFrameRectF();
+                        } else {
+                            rect = new Rect();
+                        }
+                        if (matrixRectF.width() < rect.right - rect.left) {
+                            f7 = 0.0f;
+                            this.m = false;
+                        }
+                        if (matrixRectF.height() < rect.bottom - rect.top) {
+                            f = 0.0f;
+                            this.n = false;
+                        } else {
+                            f = f8;
+                        }
+                        this.g.postTranslate(f7, f);
+                        c();
+                        setImageMatrix(this.g);
+                    }
+                }
+                this.i = f5;
+                this.j = f6;
+                return true;
+            } else if (action != 3) {
+                return true;
+            }
+        }
+        this.h = 0;
+        return true;
+    }
+
+    public ZoomImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.c = 1.0f;
+        this.d = new float[9];
+        this.e = true;
+        this.g = new Matrix();
+        this.h = 0;
+        this.i = 0.0f;
+        this.j = 0.0f;
+        this.o = 22;
+        super.setScaleType(ImageView.ScaleType.MATRIX);
+        this.f = new ScaleGestureDetector(context, this);
+        this.l = ViewConfiguration.get(context).getScaledTouchSlop();
+        setOnTouchListener(this);
+        if (b == null) {
+            b = this;
+        }
+    }
+
+    public void a(float f, float f2) {
+        Rect rect;
         float f3;
         RectF matrixRectF = getMatrixRectF();
-        Rect rect = ClipBoxView.getInstance().getmFrameRectF();
+        ClipBoxView clipBoxView = ClipBoxView.getInstance();
+        if (clipBoxView != null) {
+            rect = clipBoxView.getmFrameRectF();
+        } else {
+            rect = new Rect();
+        }
         int i = rect.right - rect.left;
         int i2 = rect.bottom - rect.top;
-        if (matrixRectF.width() >= i) {
-            f3 = matrixRectF.left > ((float) rect.left) ? -(matrixRectF.left - rect.left) : 0.0f;
-            if (matrixRectF.right < rect.right) {
-                f3 = rect.right - matrixRectF.right;
+        float f4 = i;
+        if (matrixRectF.width() >= f4) {
+            float f5 = matrixRectF.left;
+            int i3 = rect.left;
+            f3 = f5 > ((float) i3) ? -(f5 - i3) : 0.0f;
+            float f6 = matrixRectF.right;
+            int i4 = rect.right;
+            if (f6 < i4) {
+                f3 = i4 - f6;
             }
         } else {
             f3 = 0.0f;
         }
-        if (matrixRectF.height() >= i2) {
-            r1 = matrixRectF.top > ((float) rect.top) ? -(matrixRectF.top - rect.top) : 0.0f;
-            if (matrixRectF.bottom < rect.bottom) {
-                r1 = rect.bottom - matrixRectF.bottom;
+        float f7 = i2;
+        if (matrixRectF.height() >= f7) {
+            float f8 = matrixRectF.top;
+            int i5 = rect.top;
+            r2 = f8 > ((float) i5) ? -(f8 - i5) : 0.0f;
+            float f9 = matrixRectF.bottom;
+            int i6 = rect.bottom;
+            if (f9 < i6) {
+                r2 = i6 - f9;
             }
         }
-        this.mScaleMatrix.postTranslate(f3, r1);
-        if (matrixRectF.width() < i || matrixRectF.height() < i2) {
-            float max = Math.max(i / matrixRectF.width(), i2 / matrixRectF.height());
-            this.mScaleMatrix.postScale(max, max, f, f2);
+        this.g.postTranslate(f3, r2);
+        if (matrixRectF.width() < f4 || matrixRectF.height() < f7) {
+            float max = Math.max(f4 / matrixRectF.width(), f7 / matrixRectF.height());
+            this.g.postScale(max, max, f, f2);
         }
-    }
-
-    public RectF getMatrixRectF() {
-        Matrix matrix = this.mScaleMatrix;
-        RectF rectF = new RectF();
-        Drawable drawable = getDrawable();
-        if (drawable != null) {
-            rectF.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            matrix.mapRect(rectF);
-        }
-        return rectF;
-    }
-
-    private void checkMatrixBounds() {
-        float f = 0.0f;
-        RectF matrixRectF = getMatrixRectF();
-        Rect rect = ClipBoxView.getInstance().getmFrameRectF();
-        getWidth();
-        getHeight();
-        float f2 = (matrixRectF.top <= ((float) rect.top) || !this.mIsLongerTopAndBottom) ? 0.0f : -(matrixRectF.top - rect.top);
-        if (matrixRectF.bottom < rect.bottom && this.mIsLongerTopAndBottom) {
-            f2 = rect.bottom - matrixRectF.bottom;
-        }
-        if (matrixRectF.left > rect.left && this.mIsLongerLeftAndRight) {
-            f = -(matrixRectF.left - rect.left);
-        }
-        if (matrixRectF.right < rect.right && this.mIsLongerLeftAndRight) {
-            f = rect.right - matrixRectF.right;
-        }
-        this.mScaleMatrix.postTranslate(f, f2);
-    }
-
-    public Bitmap cropImage() {
-        Bitmap createBitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
-        draw(new Canvas(createBitmap));
-        Rect rect = ClipBoxView.getInstance().getmFrameRectF();
-        return Bitmap.createBitmap(createBitmap, rect.left, rect.top, rect.width(), rect.height());
     }
 }

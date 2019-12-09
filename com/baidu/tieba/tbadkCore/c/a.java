@@ -43,14 +43,14 @@ public class a {
     private ErrorData jiL;
     private AntiData jiM;
     private com.baidu.tieba.tbadkCore.videoupload.a jiN;
-    private InterfaceC0519a jiO;
+    private InterfaceC0514a jiO;
     private h jiP;
     private x mNetwork = null;
     private boolean isCancelled = false;
 
     /* renamed from: com.baidu.tieba.tbadkCore.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0519a {
+    public interface InterfaceC0514a {
         void zS(int i);
     }
 
@@ -63,8 +63,8 @@ public class a {
         this.jiP = hVar;
     }
 
-    public void a(InterfaceC0519a interfaceC0519a) {
-        this.jiO = interfaceC0519a;
+    public void a(InterfaceC0514a interfaceC0514a) {
+        this.jiO = interfaceC0514a;
     }
 
     public ImageUploadResult e(ImageFileInfo imageFileInfo, boolean z) {

@@ -42,7 +42,7 @@ public class ad {
         return mBaseWebView.getSettings().getUserAgentString();
     }
 
-    public static String bPu() {
+    public static String cQe() {
         if (Build.VERSION.SDK_INT >= 17) {
             return WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()) + " tieba/" + TbConfig.getVersion();
         }

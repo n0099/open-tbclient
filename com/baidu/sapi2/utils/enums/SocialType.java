@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils.enums;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public enum SocialType {
     UNKNOWN(0, "未知"),
     SINA_WEIBO_SSO(2, "新浪微博SSO"),
@@ -10,40 +10,44 @@ public enum SocialType {
     XIAOMI(49, "小米"),
     MEIZU(50, "魅族");
     
-    private int a;
-    private String b;
+    private int b;
+    private String c;
 
     SocialType(int i, String str) {
-        this.a = i;
-        this.b = str;
-    }
-
-    public int getType() {
-        return this.a;
-    }
-
-    public String getName() {
-        return this.b;
+        this.b = i;
+        this.c = str;
     }
 
     public static SocialType getSocialType(int i) {
-        switch (i) {
-            case 2:
-                return SINA_WEIBO_SSO;
-            case 15:
-                return QQ_SSO;
-            case 42:
+        if (i != 2) {
+            if (i != 15) {
+                if (i != 42) {
+                    if (i != 45) {
+                        if (i != 47) {
+                            if (i != 49) {
+                                if (i != 50) {
+                                    return UNKNOWN;
+                                }
+                                return MEIZU;
+                            }
+                            return XIAOMI;
+                        }
+                        return IQIYI;
+                    }
+                    return HUAWEI;
+                }
                 return WEIXIN;
-            case 45:
-                return HUAWEI;
-            case 47:
-                return IQIYI;
-            case 49:
-                return XIAOMI;
-            case 50:
-                return MEIZU;
-            default:
-                return UNKNOWN;
+            }
+            return QQ_SSO;
         }
+        return SINA_WEIBO_SSO;
+    }
+
+    public String getName() {
+        return this.c;
+    }
+
+    public int getType() {
+        return this.b;
     }
 }

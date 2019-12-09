@@ -64,7 +64,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     protected View eMN;
     protected View eMp;
     protected TextView gXD;
-    private a.C0454a hdt;
+    private a.C0449a hdt;
     private final int hfd;
     protected ViewStub iIN;
     protected View iIO;
@@ -616,7 +616,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         rect.top = iArr[1];
         rect.right = rect.left + tbImageView.getWidth();
         rect.bottom = rect.top + tbImageView.getHeight();
-        this.hdt = new a.C0454a();
+        this.hdt = new a.C0449a();
         this.hdt.picUrl = tbImageView.getUrl();
         this.hdt.aoK = rect;
     }
@@ -725,7 +725,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         }
     }
 
-    public a.C0454a getAnimationInfo() {
+    public a.C0449a getAnimationInfo() {
         return this.hdt;
     }
 
@@ -808,12 +808,12 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     public String CH(String str) {
         StringBuilder sb = new StringBuilder(str);
         if (this.hdt != null && this.hdt.isValid()) {
-            String c0454a = this.hdt.toString();
-            if (!TextUtils.isEmpty(c0454a)) {
+            String c0449a = this.hdt.toString();
+            if (!TextUtils.isEmpty(c0449a)) {
                 sb.append("&");
                 sb.append(LegoListActivityConfig.ANIMATION_INFO);
                 sb.append("=");
-                sb.append(URLEncoder.encode(c0454a));
+                sb.append(URLEncoder.encode(c0449a));
             }
         }
         if (!TextUtils.isEmpty(this.iJk.getPreLoadData())) {

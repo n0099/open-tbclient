@@ -14,39 +14,36 @@ public class ExtendSysWebViewMethodResult extends SapiResult {
     public JSONObject getJsonResult() {
         JSONObject jSONObject;
         JSONObject jSONObject2 = new JSONObject();
-        if (this.recogResult != null && this.recogResult.extraJson != null) {
-            jSONObject = this.recogResult.extraJson;
-        } else {
-            jSONObject = new JSONObject();
-        }
+        PassFaceRecogResult passFaceRecogResult = this.recogResult;
+        JSONObject jSONObject3 = (passFaceRecogResult == null || (jSONObject = passFaceRecogResult.extraJson) == null) ? new JSONObject() : jSONObject;
         try {
             if (this.recogResult != null) {
                 if (!TextUtils.isEmpty(this.recogResult.authSid)) {
-                    jSONObject.put("authsid", this.recogResult.authSid);
+                    jSONObject3.put("authsid", this.recogResult.authSid);
                 }
                 if (!TextUtils.isEmpty(this.recogResult.authSid)) {
-                    jSONObject.put("authsid", this.recogResult.authSid);
+                    jSONObject3.put("authsid", this.recogResult.authSid);
                 }
                 if (!TextUtils.isEmpty(this.recogResult.video)) {
-                    jSONObject.put("video", this.recogResult.video);
+                    jSONObject3.put("video", this.recogResult.video);
                 }
                 if (!TextUtils.isEmpty(this.recogResult.callbackkey)) {
-                    jSONObject.put("callbackkey", this.recogResult.callbackkey);
+                    jSONObject3.put("callbackkey", this.recogResult.callbackkey);
                 }
                 if (!TextUtils.isEmpty(this.recogResult.faceimage)) {
-                    jSONObject.put("faceimage", this.recogResult.faceimage);
+                    jSONObject3.put("faceimage", this.recogResult.faceimage);
                 }
                 if (!TextUtils.isEmpty(this.recogResult.imgdigests)) {
-                    jSONObject.put("imgdigests", this.recogResult.imgdigests);
+                    jSONObject3.put("imgdigests", this.recogResult.imgdigests);
                 }
                 if (!TextUtils.isEmpty(this.recogResult.originalImage)) {
-                    jSONObject.put("originimage", this.recogResult.originalImage);
+                    jSONObject3.put("originimage", this.recogResult.originalImage);
                 }
             }
             for (Map.Entry<String, Object> entry : this.params.entrySet()) {
-                jSONObject.put(entry.getKey(), entry.getValue().toString());
+                jSONObject3.put(entry.getKey(), entry.getValue().toString());
             }
-            jSONObject2.put("result", jSONObject);
+            jSONObject2.put("result", jSONObject3);
             if (this.recogResult != null) {
                 jSONObject2.put("retCode", this.recogResult.getResultCode());
                 jSONObject2.put("retMsg", this.recogResult.getResultMsg());

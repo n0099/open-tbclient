@@ -29,8 +29,8 @@ public class f {
     private final Context mContext;
     private String cyt = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
     private String cyu = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.cyt;
-    private a.InterfaceC0287a cyw = new a.InterfaceC0287a() { // from class: com.baidu.tbadk.coreExtra.c.f.1
-        @Override // com.baidu.tbadk.coreExtra.c.a.InterfaceC0287a
+    private a.InterfaceC0282a cyw = new a.InterfaceC0282a() { // from class: com.baidu.tbadk.coreExtra.c.f.1
+        @Override // com.baidu.tbadk.coreExtra.c.a.InterfaceC0282a
         public void d(e eVar) {
             f.this.cys.a(f.this.a(eVar, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
         }

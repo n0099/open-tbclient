@@ -6,7 +6,6 @@ import com.airbnb.lottie.a.a.p;
 import com.airbnb.lottie.model.a.a;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.d;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.List;
@@ -99,7 +98,7 @@ public class ShapeStroke implements b {
                     String optString2 = optJSONObject.optString("n");
                     if (optString2.equals(Config.OS)) {
                         bVar2 = b.a.e(optJSONObject.optJSONObject("v"), eVar);
-                    } else if (optString2.equals("d") || optString2.equals(IXAdRequestInfo.GPS)) {
+                    } else if (optString2.equals("d") || optString2.equals("g")) {
                         arrayList.add(b.a.e(optJSONObject.optJSONObject("v"), eVar));
                     }
                 }

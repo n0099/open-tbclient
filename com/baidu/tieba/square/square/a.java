@@ -27,7 +27,7 @@ public class a extends BaseAdapter {
         public void onClick(View view) {
             d dVar;
             Object tag = view.getTag();
-            if ((tag instanceof C0517a) && (dVar = ((C0517a) tag).jdj) != null) {
+            if ((tag instanceof C0512a) && (dVar = ((C0512a) tag).jdj) != null) {
                 if (dVar.jba == null) {
                     BarFolderFirstDirActivity.e(a.this.cmR(), null);
                 } else {
@@ -49,13 +49,13 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.tieba.square.square.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0517a {
+    public static class C0512a {
         public TextView bFm;
         public BarImageView jdh;
         public BestStringsFitTextView jdi;
         public d jdj;
 
-        protected C0517a() {
+        protected C0512a() {
         }
     }
 
@@ -88,7 +88,7 @@ public class a extends BaseAdapter {
                     findViewById.setVisibility(0);
                 }
             } else if (itemViewType == 1) {
-                a(viewGroup, (C0517a) view.getTag(), i);
+                a(viewGroup, (C0512a) view.getTag(), i);
             }
         }
         return view;
@@ -103,32 +103,32 @@ public class a extends BaseAdapter {
         }
         View inflate = LayoutInflater.from(this.ceC).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
         inflate.setOnClickListener(this.jdf);
-        C0517a c0517a = new C0517a();
-        c0517a.jdh = (BarImageView) inflate.findViewById(R.id.portrait);
-        c0517a.bFm = (TextView) inflate.findViewById(R.id.name);
-        c0517a.jdi = (BestStringsFitTextView) inflate.findViewById(R.id.description);
-        inflate.setTag(c0517a);
+        C0512a c0512a = new C0512a();
+        c0512a.jdh = (BarImageView) inflate.findViewById(R.id.portrait);
+        c0512a.bFm = (TextView) inflate.findViewById(R.id.name);
+        c0512a.jdi = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        inflate.setTag(c0512a);
         return inflate;
     }
 
-    private void a(ViewGroup viewGroup, C0517a c0517a, int i) {
+    private void a(ViewGroup viewGroup, C0512a c0512a, int i) {
         d dVar = this.jde.get(i / 2);
-        c0517a.jdj = dVar;
-        c0517a.bFm.setText(dVar.jaZ);
+        c0512a.jdj = dVar;
+        c0512a.bFm.setText(dVar.jaZ);
         if (dVar.jdm != null) {
-            c0517a.jdi.setVisibility(0);
+            c0512a.jdi.setVisibility(0);
             String[] strArr = new String[dVar.jdm.size()];
             for (int i2 = 0; i2 < dVar.jdm.size(); i2++) {
                 strArr[i2] = dVar.jdm.get(i2).jaZ;
             }
-            c0517a.jdi.setTextArray(strArr);
+            c0512a.jdi.setTextArray(strArr);
         } else {
-            c0517a.jdi.setVisibility(8);
+            c0512a.jdi.setVisibility(8);
         }
         if (dVar.logoUrl != null) {
             int dip2px = l.dip2px(this.ceC, 45.0f);
-            c0517a.jdh.setTag(dVar.logoUrl);
-            c0517a.jdh.a(dVar.logoUrl, 10, dip2px, dip2px, false);
+            c0512a.jdh.setTag(dVar.logoUrl);
+            c0512a.jdh.a(dVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 

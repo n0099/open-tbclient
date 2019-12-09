@@ -13,7 +13,7 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.core.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0173a {
+    public interface InterfaceC0168a {
         void Ek();
 
         void El();
@@ -21,13 +21,13 @@ public final class a {
         void cW(int i);
     }
 
-    public static void a(String str, InterfaceC0173a interfaceC0173a, final String str2) {
-        if (TextUtils.isEmpty(str) && interfaceC0173a != null) {
-            interfaceC0173a.Ek();
+    public static void a(String str, InterfaceC0168a interfaceC0168a, final String str2) {
+        if (TextUtils.isEmpty(str) && interfaceC0168a != null) {
+            interfaceC0168a.Ek();
         } else if (com.baidu.swan.apps.core.pms.a.dl(0)) {
             com.baidu.swan.pms.b.d.b bVar = new com.baidu.swan.pms.b.d.b(str, 0);
             bVar.lg("1");
-            c.a(bVar, new com.baidu.swan.apps.core.pms.a.a(str, interfaceC0173a) { // from class: com.baidu.swan.apps.core.a.b.a.1
+            c.a(bVar, new com.baidu.swan.apps.core.pms.a.a(str, interfaceC0168a) { // from class: com.baidu.swan.apps.core.a.b.a.1
                 @Override // com.baidu.swan.apps.core.pms.d, com.baidu.swan.pms.a.f
                 public void Ej() {
                     this.aJv = str2;
@@ -44,7 +44,7 @@ public final class a {
         } else {
             Context appContext = AppRuntime.getAppContext();
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new b(appContext, str, interfaceC0173a, str2));
+            arrayList.add(new b(appContext, str, interfaceC0168a, str2));
             com.baidu.a.a.a.init(appContext, ProcessUtils.isMainProcess());
             com.baidu.a.a.c.a.a(appContext, com.baidu.swan.apps.u.a.JG().Ke());
             com.baidu.a.a.c.a.b((List<Object>) arrayList, true);

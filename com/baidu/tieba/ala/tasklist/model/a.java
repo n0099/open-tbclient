@@ -14,13 +14,13 @@ import com.baidu.tieba.ala.tasklist.AlaTaskListActivity;
 public class a extends BdBaseModel<AlaTaskListActivity> {
     private AlaLiveUserInfoData eCg;
     private q eCh;
-    private InterfaceC0389a eCi;
+    private InterfaceC0384a eCi;
     private HttpMessageListener eCj;
     private HttpMessageListener eCk;
 
     /* renamed from: com.baidu.tieba.ala.tasklist.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0389a {
+    public interface InterfaceC0384a {
         void O(int i, String str);
 
         void a(AlaLiveUserInfoData alaLiveUserInfoData, q qVar);
@@ -134,7 +134,7 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
         return true;
     }
 
-    public void a(InterfaceC0389a interfaceC0389a) {
-        this.eCi = interfaceC0389a;
+    public void a(InterfaceC0384a interfaceC0384a) {
+        this.eCi = interfaceC0384a;
     }
 }

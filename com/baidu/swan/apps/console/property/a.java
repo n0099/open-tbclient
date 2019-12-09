@@ -15,7 +15,7 @@ public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private final String aHn = "performance_" + System.currentTimeMillis();
     private int aHo = 3000;
-    private HandlerC0170a aHp;
+    private HandlerC0165a aHp;
     private BufferedWriter aHq;
     private Map<String, Object> mData;
 
@@ -25,7 +25,7 @@ public class a {
             com.baidu.swan.apps.console.c.d("PropertyLogcat", "Start monitor logcat");
         }
         if (this.aHp == null) {
-            this.aHp = new HandlerC0170a();
+            this.aHp = new HandlerC0165a();
         }
         if (this.aHq == null) {
             File file = new File(getFilePath());
@@ -61,8 +61,8 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.console.property.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class HandlerC0170a extends Handler {
-        private HandlerC0170a() {
+    private class HandlerC0165a extends Handler {
+        private HandlerC0165a() {
         }
 
         @Override // android.os.Handler

@@ -10,8 +10,8 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class RecordingYearBox extends AbstractFullBox {
     public static final String TYPE = "yrrc";
-    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_1 = null;
     int recordingYear;
 
     static {

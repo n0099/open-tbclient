@@ -31,7 +31,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0452a {
+    public interface InterfaceC0447a {
         void no(boolean z);
     }
 
@@ -175,10 +175,10 @@ public class a {
         return i != hwZ ? 0 : 1;
     }
 
-    public static void a(String str, String str2, final InterfaceC0452a interfaceC0452a) {
-        if (interfaceC0452a != null) {
+    public static void a(String str, String str2, final InterfaceC0447a interfaceC0447a) {
+        if (interfaceC0447a != null) {
             if (StringUtils.isNull(str) || StringUtils.isNull(str2) || !new File(str).exists()) {
-                interfaceC0452a.no(false);
+                interfaceC0447a.no(false);
             } else {
                 new BdAsyncTask<String, Void, Boolean>() { // from class: com.baidu.tieba.k.a.2
                     /* JADX DEBUG: Method merged with bridge method */
@@ -196,8 +196,8 @@ public class a {
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public void onPostExecute(Boolean bool) {
                         super.onPostExecute((AnonymousClass2) bool);
-                        if (InterfaceC0452a.this != null) {
-                            InterfaceC0452a.this.no(bool.booleanValue());
+                        if (InterfaceC0447a.this != null) {
+                            InterfaceC0447a.this.no(bool.booleanValue());
                         }
                     }
                 }.execute(str, str2);

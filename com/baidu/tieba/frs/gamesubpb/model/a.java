@@ -17,7 +17,7 @@ import java.util.List;
 public class a {
     private String fJA;
     private FrsGameSubPbActivity fJM;
-    private InterfaceC0415a fJN;
+    private InterfaceC0410a fJN;
     private boolean fJQ;
     private boolean hasMore;
     private int mForumId;
@@ -85,7 +85,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.frs.gamesubpb.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0415a {
+    public interface InterfaceC0410a {
         void a(boolean z, int i, String str, d dVar);
 
         void a(boolean z, int i, String str, boolean z2, boolean z3, b bVar, List<m> list);
@@ -129,8 +129,8 @@ public class a {
         this.fJM.registerListener(1003381, this.fJT);
     }
 
-    public void a(InterfaceC0415a interfaceC0415a) {
-        this.fJN = interfaceC0415a;
+    public void a(InterfaceC0410a interfaceC0410a) {
+        this.fJN = interfaceC0410a;
     }
 
     public void loadData(boolean z) {

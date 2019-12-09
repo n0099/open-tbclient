@@ -91,7 +91,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
 /* loaded from: classes6.dex */
-public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0306a {
+public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0301a {
     public ImageView Nj;
     private e bUz;
     private String bYk;
@@ -560,8 +560,8 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0306a
         if (this.jHN != null && this.jHx != null) {
             this.jHN.a(getPageContext());
             this.jHN.ah(this.jHx.thread_id, this.jHx.forum_id, this.jHx.forum_name);
-            this.jHN.a(new a.InterfaceC0536a() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.10
-                @Override // com.baidu.tieba.videoplay.editor.a.InterfaceC0536a
+            this.jHN.a(new a.InterfaceC0531a() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.10
+                @Override // com.baidu.tieba.videoplay.editor.a.InterfaceC0531a
                 public void rD(boolean z) {
                     VideoPlayFragment.this.jHC.setVisibility(0);
                     if (z) {
@@ -652,8 +652,8 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0306a
         }
         this.hLd = com.baidu.tbadk.baseEditMark.a.a(getBaseFragmentActivity());
         if (this.hLd != null) {
-            this.hLd.a(new a.InterfaceC0279a() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.13
-                @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0279a
+            this.hLd.a(new a.InterfaceC0274a() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.13
+                @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0274a
                 public void c(boolean z, boolean z2, String str) {
                     if (z) {
                         if (VideoPlayFragment.this.hLd != null) {
@@ -994,8 +994,8 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0306a
         }
         if (this.jHH != null) {
             ArrayList arrayList = new ArrayList();
-            a.C0537a c0537a = new a.C0537a(this.jHH);
-            c0537a.a(new a.c() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.18
+            a.C0532a c0532a = new a.C0532a(this.jHH);
+            c0532a.a(new a.c() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.18
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
                     VideoPlayFragment.this.bUz.dismiss();
@@ -1026,13 +1026,13 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0306a
                 z = true;
             }
             if (z) {
-                c0537a.setText(getResources().getString(R.string.remove_mark));
+                c0532a.setText(getResources().getString(R.string.remove_mark));
             } else {
-                c0537a.setText(getResources().getString(R.string.mark));
+                c0532a.setText(getResources().getString(R.string.mark));
             }
-            arrayList.add(c0537a);
-            a.C0537a c0537a2 = new a.C0537a(getActivity().getString(R.string.delete), this.jHH);
-            c0537a2.a(new a.c() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.19
+            arrayList.add(c0532a);
+            a.C0532a c0532a2 = new a.C0532a(getActivity().getString(R.string.delete), this.jHH);
+            c0532a2.a(new a.c() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.19
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
                     VideoPlayFragment.this.bUz.dismiss();
@@ -1043,11 +1043,11 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0306a
                     }
                 }
             });
-            c0537a2.setText(getResources().getString(R.string.report_text));
-            arrayList.add(c0537a2);
+            c0532a2.setText(getResources().getString(R.string.report_text));
+            arrayList.add(c0532a2);
             if (this.dQT) {
-                a.C0537a c0537a3 = new a.C0537a(getActivity().getString(R.string.delete), this.jHH);
-                c0537a3.a(new a.c() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.20
+                a.C0532a c0532a3 = new a.C0532a(getActivity().getString(R.string.delete), this.jHH);
+                c0532a3.a(new a.c() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.20
                     @Override // com.baidu.tieba.view.a.c
                     public void onClick() {
                         VideoPlayFragment.this.bUz.dismiss();
@@ -1074,8 +1074,8 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0306a
                         aVar.akM();
                     }
                 });
-                c0537a3.setText(getResources().getString(R.string.delete));
-                arrayList.add(c0537a3);
+                c0532a3.setText(getResources().getString(R.string.delete));
+                arrayList.add(c0532a3);
             }
             this.jHH.at(arrayList);
         }
@@ -1211,7 +1211,7 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0306a
         return this.jHI;
     }
 
-    @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0306a
+    @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0301a
     public void aAK() {
         if (this.iva.isPlaying()) {
             this.iva.pause();
@@ -1222,7 +1222,7 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0306a
         }
     }
 
-    @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0306a
+    @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0301a
     public void s(float f, float f2) {
         if (bc.checkUpIsLogin(getActivity()) && !this.jHJ) {
             cwr();
@@ -1270,7 +1270,7 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0306a
         }
     }
 
-    @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0306a
+    @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0301a
     public void aAL() {
         if (this.jHx != null && this.jHx.author_info != null) {
             long j = com.baidu.adp.lib.g.b.toLong(this.jHx.author_info.user_id, 0L);

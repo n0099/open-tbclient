@@ -22,7 +22,7 @@ public class SwanInspectorEndpoint {
     private static SwanInspectorEndpoint bAG = new SwanInspectorEndpoint();
     private String bAJ;
     private String bAK;
-    private a.C0246a bAN;
+    private a.C0241a bAN;
     private Runnable bAP;
     private Throwable bAS;
     private int bAT;
@@ -231,9 +231,9 @@ public class SwanInspectorEndpoint {
     private SwanInspectorEndpoint() {
     }
 
-    public void a(com.baidu.swan.games.inspector.a aVar, com.baidu.swan.games.e.a aVar2, a.C0246a c0246a, Runnable runnable) {
+    public void a(com.baidu.swan.games.inspector.a aVar, com.baidu.swan.games.e.a aVar2, a.C0241a c0241a, Runnable runnable) {
         L(false);
-        a(c0246a);
+        a(c0241a);
         try {
             x(aVar2);
             if (aVar.Xg()) {
@@ -251,8 +251,8 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public void a(a.C0246a c0246a) {
-        this.bAN = c0246a;
+    public void a(a.C0241a c0241a) {
+        this.bAN = c0241a;
     }
 
     private void b(com.baidu.swan.games.inspector.a aVar) {
@@ -290,12 +290,12 @@ public class SwanInspectorEndpoint {
         String string3;
         StringBuilder sb = new StringBuilder();
         long currentTimeMillis = System.currentTimeMillis();
-        a.C0246a c0246a = this.bAN;
-        if (c0246a == null) {
-            c0246a = a.C0246a.Xj();
+        a.C0241a c0241a = this.bAN;
+        if (c0241a == null) {
+            c0241a = a.C0241a.Xj();
         }
-        sb.append(c0246a.Xk()).append("\n");
-        if (!c0246a.isEnabled()) {
+        sb.append(c0241a.Xk()).append("\n");
+        if (!c0241a.isEnabled()) {
             return sb.toString();
         }
         String str = null;

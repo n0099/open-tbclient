@@ -9,7 +9,7 @@ public class a {
     private float alg;
     private float alh;
     private float ali;
-    private InterfaceC0405a eXk;
+    private InterfaceC0400a eXk;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -34,7 +34,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0405a {
+    public interface InterfaceC0400a {
         void t(int i, int i2);
 
         void u(int i, int i2);
@@ -42,8 +42,8 @@ public class a {
         void v(int i, int i2);
     }
 
-    public void a(InterfaceC0405a interfaceC0405a) {
-        this.eXk = interfaceC0405a;
+    public void a(InterfaceC0400a interfaceC0400a) {
+        this.eXk = interfaceC0400a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {

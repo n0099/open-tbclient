@@ -280,11 +280,11 @@ public class g extends UnitedSchemeBaseDispatcher {
         }
         String optString = optParamsAsJo.optString("title");
         boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
-        if (!(context instanceof a.InterfaceC0213a)) {
+        if (!(context instanceof a.InterfaceC0208a)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
             return false;
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a AE = ((a.InterfaceC0213a) context).AE();
+        com.baidu.swan.apps.res.widget.floatlayer.a AE = ((a.InterfaceC0208a) context).AE();
         View view = AE.getView();
         if (view instanceof LoadingView) {
             loadingView = (LoadingView) view;
@@ -301,11 +301,11 @@ public class g extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        if (!(context instanceof a.InterfaceC0213a)) {
+        if (!(context instanceof a.InterfaceC0208a)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support FloatLayer");
             return false;
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a AE = ((a.InterfaceC0213a) context).AE();
+        com.baidu.swan.apps.res.widget.floatlayer.a AE = ((a.InterfaceC0208a) context).AE();
         if (AE.getView() instanceof LoadingView) {
             AE.reset();
         }

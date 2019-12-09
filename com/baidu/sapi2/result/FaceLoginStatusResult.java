@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FaceLoginStatusResult extends SapiResult {
     public static final int STATUS_AVAILABLE = 1;
     public static final int STATUS_UNREGISTER = 2;

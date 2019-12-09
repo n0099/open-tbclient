@@ -2,6 +2,7 @@ package com.baidu.tieba.video.editvideo.b;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import com.baidu.sapi2.SapiAccountManager;
 import java.io.File;
 @TargetApi(18)
 /* loaded from: classes5.dex */
@@ -101,7 +102,7 @@ public class b {
             if (file.exists() && file.length() > 0) {
                 this.jyi.EJ(this.jwx);
             } else {
-                this.jyi.aK(223, "Err empty outputFile");
+                this.jyi.aK(SapiAccountManager.VERSION_CODE, "Err empty outputFile");
             }
         }
         this.mIsRunning = false;

@@ -17,7 +17,7 @@ public class n<K, A> extends a<K, A> {
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a
-    public void b(a.InterfaceC0577a interfaceC0577a) {
+    public void b(a.InterfaceC0572a interfaceC0572a) {
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a

@@ -51,14 +51,14 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0489a c0489a;
+        C0484a c0484a;
         if (view == null) {
-            c0489a = new C0489a();
+            c0484a = new C0484a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_pb_emotion_bar, (ViewGroup) null);
-            c0489a.hCC = (EmotionView) view.findViewById(R.id.iv_emotion);
-            c0489a.hCC.bfQ();
-            c0489a.hCC.setController(this.hXr);
-            c0489a.hCC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
+            c0484a.hCC = (EmotionView) view.findViewById(R.id.iv_emotion);
+            c0484a.hCC.bfQ();
+            c0484a.hCC.setController(this.hXr);
+            c0484a.hCC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (a.this.hYv != null && (view2 instanceof EmotionView)) {
@@ -67,9 +67,9 @@ public class a extends BaseAdapter {
                     }
                 }
             });
-            c0489a.fFJ = (TextView) view.findViewById(R.id.tv_more);
-            am.setViewTextColor(c0489a.fFJ, (int) R.color.cp_cont_d);
-            c0489a.fFJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.2
+            c0484a.fFJ = (TextView) view.findViewById(R.id.tv_more);
+            am.setViewTextColor(c0484a.fFJ, (int) R.color.cp_cont_d);
+            c0484a.fFJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (a.this.hYv != null) {
@@ -85,30 +85,30 @@ public class a extends BaseAdapter {
                     }
                 }
             });
-            view.setTag(c0489a);
+            view.setTag(c0484a);
         } else {
-            c0489a = (C0489a) view.getTag();
+            c0484a = (C0484a) view.getTag();
         }
         if (i >= 0) {
             if (i < this.fgP.size()) {
-                c0489a.hCC.getLayoutParams().width = this.hYu;
-                c0489a.hCC.getLayoutParams().height = this.hYu;
-                c0489a.hCC.reset();
-                c0489a.hCC.setTag(R.id.iv_emotion, null);
+                c0484a.hCC.getLayoutParams().width = this.hYu;
+                c0484a.hCC.getLayoutParams().height = this.hYu;
+                c0484a.hCC.reset();
+                c0484a.hCC.setTag(R.id.iv_emotion, null);
                 EmotionImageData emotionImageData = this.fgP.get(i);
                 if (emotionImageData != null) {
-                    c0489a.hCC.a(emotionImageData);
+                    c0484a.hCC.a(emotionImageData);
                     if (this.hCu != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                        this.hCu.add(emotionImageData.getThumbUrl() + c0489a.hCC.getLoadProcType());
+                        this.hCu.add(emotionImageData.getThumbUrl() + c0484a.hCC.getLoadProcType());
                     }
                 }
-                c0489a.hCC.setVisibility(0);
-                c0489a.fFJ.setVisibility(8);
+                c0484a.hCC.setVisibility(0);
+                c0484a.fFJ.setVisibility(8);
             } else if (i == this.fgP.size()) {
-                c0489a.fFJ.getLayoutParams().width = this.hYu;
-                c0489a.fFJ.getLayoutParams().height = this.hYu;
-                c0489a.hCC.setVisibility(8);
-                c0489a.fFJ.setVisibility(0);
+                c0484a.fFJ.getLayoutParams().width = this.hYu;
+                c0484a.fFJ.getLayoutParams().height = this.hYu;
+                c0484a.hCC.setVisibility(8);
+                c0484a.fFJ.setVisibility(0);
             }
         }
         return view;
@@ -131,11 +131,11 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    static class C0489a {
+    static class C0484a {
         TextView fFJ;
         EmotionView hCC;
 
-        C0489a() {
+        C0484a() {
         }
     }
 

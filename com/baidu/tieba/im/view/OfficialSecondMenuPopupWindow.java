@@ -196,7 +196,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
             int itemViewType = getItemViewType(i);
             View view2 = view;
             if (view == null) {
-                C0443a c0443a = new C0443a();
+                C0438a c0438a = new C0438a();
                 if (itemViewType == 0) {
                     TextView textView = new TextView(this.mContext);
                     textView.setLayoutParams(new AbsListView.LayoutParams(-1, e.w(this.mContext, R.dimen.ds96)));
@@ -206,7 +206,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                     textView.setBackgroundResource(R.drawable.official_bar_menu_text_bg);
                     textView.setSingleLine();
                     textView.setEllipsize(TextUtils.TruncateAt.END);
-                    c0443a.gQT = textView;
+                    c0438a.gQT = textView;
                     linearLayout = textView;
                 } else {
                     linearLayout = view;
@@ -222,22 +222,22 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                         linearLayout = linearLayout2;
                     }
                 }
-                linearLayout.setTag(c0443a);
+                linearLayout.setTag(c0438a);
                 view2 = linearLayout;
             }
-            C0443a c0443a2 = (C0443a) view2.getTag();
+            C0438a c0438a2 = (C0438a) view2.getTag();
             if (itemViewType == 0) {
-                c0443a2.gQT.setText(((com.baidu.tieba.im.data.b) getItem(i)).getName());
+                c0438a2.gQT.setText(((com.baidu.tieba.im.data.b) getItem(i)).getName());
             }
             return view2;
         }
 
         /* renamed from: com.baidu.tieba.im.view.OfficialSecondMenuPopupWindow$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        class C0443a {
+        class C0438a {
             TextView gQT;
 
-            C0443a() {
+            C0438a() {
             }
         }
     }

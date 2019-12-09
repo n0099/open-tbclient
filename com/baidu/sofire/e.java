@@ -33,11 +33,6 @@ public final class e {
         }
     }
 
-    public final void a(long j) {
-        this.c.putLong("npuct", j);
-        this.c.commit();
-    }
-
     public final boolean a() {
         return this.a.getBoolean("iio", false);
     }
@@ -100,86 +95,84 @@ public final class e {
         this.c.commit();
     }
 
+    public final String l() {
+        return this.b.getString("xyus", "");
+    }
+
     public final void a(String str) {
+        this.d.putString("xyus", str);
+        this.d.commit();
+    }
+
+    public final String m() {
+        return this.b.getString("xyusec", "");
+    }
+
+    public final void b(String str) {
         this.d.putString("xyusec", str);
         this.d.commit();
     }
 
-    public final String l() {
+    public final String n() {
         String str;
         String string = this.b.getString("xyglsn", "");
         if (TextUtils.isEmpty(string)) {
             return "";
         }
         try {
-            str = new String(com.baidu.sofire.b.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(string, 10), true), HTTP.UTF_8);
+            str = new String(com.baidu.sofire.i.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(string, 10), true), HTTP.UTF_8);
         } catch (Throwable th) {
             str = "";
-            com.baidu.sofire.b.e.a();
-        }
-        return str;
-    }
-
-    public final String m() {
-        String str;
-        String string = this.b.getString("rpiiemn", "");
-        if (TextUtils.isEmpty(string)) {
-            return "";
-        }
-        try {
-            str = new String(com.baidu.sofire.b.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(string, 10), true), HTTP.UTF_8);
-        } catch (Throwable th) {
-            str = "";
-            com.baidu.sofire.b.e.a();
-        }
-        return str;
-    }
-
-    public final String n() {
-        String str;
-        String string = this.b.getString("rpmacaddn", "");
-        if (TextUtils.isEmpty(string)) {
-            return "";
-        }
-        try {
-            str = new String(com.baidu.sofire.b.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(string, 10), true), HTTP.UTF_8);
-        } catch (Throwable th) {
-            str = "";
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
         return str;
     }
 
     public final String o() {
         String str;
+        String string = this.b.getString("rpiiemn", "");
+        if (TextUtils.isEmpty(string)) {
+            return "";
+        }
+        try {
+            str = new String(com.baidu.sofire.i.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(string, 10), true), HTTP.UTF_8);
+        } catch (Throwable th) {
+            str = "";
+            com.baidu.sofire.i.d.a();
+        }
+        return str;
+    }
+
+    public final String p() {
+        String str;
         String string = this.b.getString("rpnewuidn", "");
         if (TextUtils.isEmpty(string)) {
             return "";
         }
         try {
-            str = new String(com.baidu.sofire.b.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(string, 10), true), HTTP.UTF_8);
+            str = new String(com.baidu.sofire.i.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(string, 10), true), HTTP.UTF_8);
         } catch (Throwable th) {
             str = "";
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
         return str;
     }
 
-    public final void b(String str) {
+    public final void c(String str) {
         if (TextUtils.isEmpty(str)) {
             this.d.putString("rpnewuidn", "");
             this.d.commit();
             return;
         }
         try {
-            this.d.putString("rpnewuidn", new String(Base64.encode(com.baidu.sofire.b.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes(HTTP.UTF_8)), 10), HTTP.UTF_8));
+            this.d.putString("rpnewuidn", new String(Base64.encode(com.baidu.sofire.i.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes(HTTP.UTF_8)), 10), HTTP.UTF_8));
             this.d.commit();
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
     }
 
-    public final List<Integer> p() {
+    public final List<Integer> q() {
         String[] split;
         ArrayList arrayList = new ArrayList();
         String string = this.a.getString("hcpk", "");
@@ -212,7 +205,7 @@ public final class e {
         this.c.commit();
     }
 
-    public final List<Integer> q() {
+    public final List<Integer> r() {
         String[] split;
         ArrayList arrayList = new ArrayList();
         String string = this.a.getString("glspk", "");
@@ -245,12 +238,12 @@ public final class e {
         this.c.commit();
     }
 
-    public final void r() {
+    public final void s() {
         this.c.putBoolean("lpcf", true);
         this.c.commit();
     }
 
-    public final boolean s() {
+    public final boolean t() {
         return this.a.getBoolean("lpcf", false);
     }
 
@@ -264,7 +257,7 @@ public final class e {
         this.c.commit();
     }
 
-    public final int t() {
+    public final int u() {
         return this.a.getInt("appal_te", 24);
     }
 
@@ -273,7 +266,7 @@ public final class e {
         this.c.commit();
     }
 
-    public final int u() {
+    public final int v() {
         return this.a.getInt("sustfd", 0);
     }
 
@@ -282,11 +275,11 @@ public final class e {
         this.c.commit();
     }
 
-    public final int v() {
+    public final int w() {
         return this.a.getInt("sufzfd", 0);
     }
 
-    public final void b(long j) {
+    public final void a(long j) {
         this.c.putLong("slruct", j);
         this.c.commit();
     }
@@ -323,13 +316,13 @@ public final class e {
         return this.a.getInt(str + i2, 0);
     }
 
-    public final void a(com.baidu.sofire.rp.a.a aVar) {
-        this.f.putString("re_con", this.e.getString("re_con", "") + "||" + com.baidu.sofire.rp.a.a.a(aVar));
+    public final void a(com.baidu.sofire.d.a aVar) {
+        this.f.putString("re_con", this.e.getString("re_con", "") + "||" + com.baidu.sofire.d.a.a(aVar));
         this.f.commit();
     }
 
-    public final List<com.baidu.sofire.rp.a.a> w() {
-        com.baidu.sofire.rp.a.a a;
+    public final List<com.baidu.sofire.d.a> x() {
+        com.baidu.sofire.d.a a;
         String string = this.e.getString("re_con", "");
         if (TextUtils.isEmpty(string)) {
             return null;
@@ -337,20 +330,20 @@ public final class e {
         ArrayList arrayList = new ArrayList();
         String[] split = string.split("\\|\\|");
         for (String str : split) {
-            if (!TextUtils.isEmpty(str) && (a = com.baidu.sofire.rp.a.a.a(str)) != null) {
+            if (!TextUtils.isEmpty(str) && (a = com.baidu.sofire.d.a.a(str)) != null) {
                 arrayList.add(a);
             }
         }
         return arrayList;
     }
 
-    public final int x() {
+    public final int y() {
         if ("com.baidu.BaiduMap.meizu".equals(this.g.getPackageName())) {
             return this.e.getInt("re_net_hr", 24);
         }
         int i = this.e.getInt("re_net_hr", 3);
         try {
-            String[] g = com.baidu.sofire.b.e.g(this.g);
+            String[] g = com.baidu.sofire.i.d.g(this.g);
             if (g != null && g.length == 2 && !TextUtils.isEmpty(g[0]) && !TextUtils.isEmpty(g[1]) && "200080".equals(g[0])) {
                 if ("com.baidu.BaiduMap".equals(this.g.getPackageName()) && i < 24) {
                     return 24;
@@ -361,26 +354,26 @@ public final class e {
         return i;
     }
 
-    public final void c(long j) {
+    public final void b(long j) {
         this.f.putLong("re_last_ofline_time", j);
         this.f.commit();
     }
 
-    public final int y() {
+    public final int z() {
         return this.e.getInt("up_nu_li", 100);
     }
 
-    public final void d(long j) {
+    public final void c(long j) {
         this.f.putLong("re_day_len", j);
         this.f.commit();
     }
 
-    public final void e(long j) {
+    public final void d(long j) {
         this.f.putLong("re_day_b_t", j);
         this.f.commit();
     }
 
-    public final String c(String str) {
+    public final String d(String str) {
         return this.e.getString("al_da" + str, "");
     }
 
@@ -394,7 +387,17 @@ public final class e {
         this.c.commit();
     }
 
-    public final boolean z() {
+    public final boolean A() {
         return this.a.getBoolean("s_c_c", true);
+    }
+
+    public final void b(boolean z) {
+        this.c.putBoolean("se_fg_s", z);
+        this.c.commit();
+    }
+
+    public final void c(boolean z) {
+        this.c.putBoolean("a_a_c_b", z);
+        this.c.commit();
     }
 }

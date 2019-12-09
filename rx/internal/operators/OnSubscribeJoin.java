@@ -86,9 +86,9 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     i2 = ResultSink.this.rightId;
                 }
                 try {
-                    C0604a c0604a = new C0604a(i);
-                    ResultSink.this.group.add(c0604a);
-                    OnSubscribeJoin.this.kzc.call(tleft).a((rx.j<? super TLeftDuration>) c0604a);
+                    C0599a c0599a = new C0599a(i);
+                    ResultSink.this.group.add(c0599a);
+                    OnSubscribeJoin.this.kzc.call(tleft).a((rx.j<? super TLeftDuration>) c0599a);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TRight> entry : ResultSink.this.rightMap.entrySet()) {
@@ -130,11 +130,11 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
 
             /* renamed from: rx.internal.operators.OnSubscribeJoin$ResultSink$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            final class C0604a extends rx.j<TLeftDuration> {
+            final class C0599a extends rx.j<TLeftDuration> {
                 final int id;
                 boolean once = true;
 
-                public C0604a(int i) {
+                public C0599a(int i) {
                     this.id = i;
                 }
 

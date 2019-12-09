@@ -99,8 +99,8 @@ public class d {
         if (z) {
             aVar.fY(0);
         } else {
-            e.LE().a(2, new String[]{"android.permission.RECORD_AUDIO"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.games.screenrecord.d.2
-                @Override // com.baidu.swan.apps.ab.a.InterfaceC0152a
+            e.LE().a(2, new String[]{"android.permission.RECORD_AUDIO"}, new a.InterfaceC0147a() { // from class: com.baidu.swan.games.screenrecord.d.2
+                @Override // com.baidu.swan.apps.ab.a.InterfaceC0147a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     boolean z2;
                     if (i != 2 || iArr.length <= 0) {

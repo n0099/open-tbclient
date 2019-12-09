@@ -1,5 +1,5 @@
 package com.baidu.sapi2.share;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 enum ShareEvent {
     VALIDATE,
     INVALIDATE,

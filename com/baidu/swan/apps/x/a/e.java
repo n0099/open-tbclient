@@ -1,6 +1,7 @@
 package com.baidu.swan.apps.x.a;
 
 import android.text.TextUtils;
+import com.baidu.sapi2.activity.SlideActiviy;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -18,8 +19,8 @@ public class e extends c {
             if (jSONObject.has("name")) {
                 this.name = jSONObject.optString("name");
             }
-            if (jSONObject.has("address")) {
-                this.address = jSONObject.optString("address");
+            if (jSONObject.has(SlideActiviy.ADDRESS_PAGE_NAME)) {
+                this.address = jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME);
             }
         }
     }

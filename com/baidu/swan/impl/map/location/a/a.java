@@ -8,7 +8,7 @@ import com.baidu.swan.impl.map.location.a;
 import com.baidu.swan.impl.map.location.model.SelectedLocationInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.a> implements a.InterfaceC0264a {
+public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.a> implements a.InterfaceC0259a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
     private com.baidu.swan.apps.x.b bHM;
@@ -55,7 +55,7 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.a> im
         B.ZB();
     }
 
-    @Override // com.baidu.swan.impl.map.location.a.InterfaceC0264a
+    @Override // com.baidu.swan.impl.map.location.a.InterfaceC0259a
     public void onCancel() {
         c.i("map", "choose location cancel");
         if (this.bHM != null && this.bHN != null) {
@@ -63,7 +63,7 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.a> im
         }
     }
 
-    @Override // com.baidu.swan.impl.map.location.a.InterfaceC0264a
+    @Override // com.baidu.swan.impl.map.location.a.InterfaceC0259a
     public void onError() {
         c.i("map", "choose location fail");
         if (this.bHM != null && this.bHN != null) {
@@ -71,7 +71,7 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.a> im
         }
     }
 
-    @Override // com.baidu.swan.impl.map.location.a.InterfaceC0264a
+    @Override // com.baidu.swan.impl.map.location.a.InterfaceC0259a
     public void a(SelectedLocationInfo selectedLocationInfo) {
         if (this.bHM != null && this.bHN != null) {
             this.bHM.e(this.bHN.callBack, selectedLocationInfo.toJson());

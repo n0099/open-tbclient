@@ -14,7 +14,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.view.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0231a {
+    public static class C0226a {
         private int btK;
         private int btQ;
         private boolean btM = true;
@@ -22,36 +22,36 @@ public class a {
         private boolean btS = true;
         private boolean btP = false;
 
-        public static C0231a UN() {
-            return new C0231a();
+        public static C0226a UN() {
+            return new C0226a();
         }
 
-        public C0231a fz(int i) {
+        public C0226a fz(int i) {
             this.btK = i;
             return this;
         }
 
-        public C0231a fA(int i) {
+        public C0226a fA(int i) {
             this.btQ = i;
             return this;
         }
 
-        public C0231a cX(boolean z) {
+        public C0226a cX(boolean z) {
             this.btM = z;
             return this;
         }
 
-        public C0231a cY(boolean z) {
+        public C0226a cY(boolean z) {
             this.btR = z;
             return this;
         }
 
-        public C0231a cZ(boolean z) {
+        public C0226a cZ(boolean z) {
             this.btS = z;
             return this;
         }
 
-        public C0231a da(boolean z) {
+        public C0226a da(boolean z) {
             this.btP = z;
             return this;
         }

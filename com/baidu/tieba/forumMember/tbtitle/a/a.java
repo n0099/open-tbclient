@@ -45,13 +45,13 @@ public class a extends c<TbTitleActivity> {
     public LinearLayout fsm;
     private List<LevelInfo> fsn;
     private DataRes fso;
-    private C0407a fsp;
+    private C0402a fsp;
     private NavigationBar mNavigationBar;
     private RelativeLayout mRootView;
 
     public a(TbTitleActivity tbTitleActivity, View.OnClickListener onClickListener) {
         super(tbTitleActivity.getPageContext());
-        this.fsp = new C0407a(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.tbtitle.a.a.1
+        this.fsp = new C0402a(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.tbtitle.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(a.this.fsg.getPageContext().getContext()).createNormalCfg(a.this.getPageContext().getString(R.string.tieba_text), "from")));
@@ -101,10 +101,10 @@ public class a extends c<TbTitleActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.forumMember.tbtitle.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0407a extends ClickableSpan {
+    public class C0402a extends ClickableSpan {
         private View.OnClickListener cot;
 
-        public C0407a(View.OnClickListener onClickListener) {
+        public C0402a(View.OnClickListener onClickListener) {
             this.cot = onClickListener;
         }
 

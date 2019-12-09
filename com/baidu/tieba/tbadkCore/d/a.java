@@ -19,27 +19,27 @@ public class a {
         public String mPid;
     }
 
-    public static C0520a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        C0520a c0520a = new C0520a(str, str2, str3, str4, str5);
-        c0520a.l(str6, str7, str8, str9, str10);
-        return c0520a;
+    public static C0515a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        C0515a c0515a = new C0515a(str, str2, str3, str4, str5);
+        c0515a.l(str6, str7, str8, str9, str10);
+        return c0515a;
     }
 
-    public static C0520a d(String str, String str2, String str3, String str4, String str5, String str6) {
-        C0520a c0520a = new C0520a("ad_tpoint", "PT", str, str2, "tpoint");
-        c0520a.l(null, null, str3, str4, str5);
+    public static C0515a d(String str, String str2, String str3, String str4, String str5, String str6) {
+        C0515a c0515a = new C0515a("ad_tpoint", "PT", str, str2, "tpoint");
+        c0515a.l(null, null, str3, str4, str5);
         if (!aq.isEmpty(str6)) {
-            c0520a.ea("obj_ref", str6);
+            c0515a.ea("obj_ref", str6);
         }
-        return c0520a;
+        return c0515a;
     }
 
     @Deprecated
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        C0520a c0520a = new C0520a("ad_tpoint", "PT", str, "c0122", "ad_plat");
-        c0520a.l(str2, str7, str3, str4, str5);
-        c0520a.ea(TiebaInitialize.Params.OBJ_URL, str6);
-        c0520a.save();
+        C0515a c0515a = new C0515a("ad_tpoint", "PT", str, "c0122", "ad_plat");
+        c0515a.l(str2, str7, str3, str4, str5);
+        c0515a.ea(TiebaInitialize.Params.OBJ_URL, str6);
+        c0515a.save();
     }
 
     @Deprecated
@@ -55,7 +55,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0520a {
+    public static class C0515a {
         private final boolean bYO;
         private final an hcy;
         private final String jiS;
@@ -64,7 +64,7 @@ public class a {
         private final String key;
         private final String page;
 
-        private C0520a(String str, String str2, String str3, String str4, String str5) {
+        private C0515a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
             this.jiS = str2;
             this.page = str3;
@@ -112,7 +112,7 @@ public class a {
             return this.hcy;
         }
 
-        public C0520a ea(String str, String str2) {
+        public C0515a ea(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
                 this.hcy.bS(str, str2);
             }

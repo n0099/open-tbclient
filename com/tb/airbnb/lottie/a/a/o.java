@@ -6,7 +6,7 @@ import com.tb.airbnb.lottie.a.b.a;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class o implements k, a.InterfaceC0577a {
+public class o implements k, a.InterfaceC0572a {
     private boolean ei;
     private final com.tb.airbnb.lottie.a.b.a<?, Path> ksC;
     @Nullable
@@ -23,7 +23,7 @@ public class o implements k, a.InterfaceC0577a {
         this.ksC.b(this);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0577a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0572a
     public void bt() {
         invalidate();
     }

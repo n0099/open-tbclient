@@ -197,7 +197,7 @@ public class TbRichTextItem extends OrmObject {
     private SpannableString H(ArrayList<b> arrayList) {
         String text;
         int pz;
-        a.C0296a pV;
+        a.C0291a pV;
         SpannableString spannableString = null;
         if (this.mType == 4 && this.cWf != null && this.cWf.getText() != null && this.cWf.getLink() != null && (pz = TbFaceManager.avr().pz((text = this.cWf.getText()))) != 0) {
             String str = "#(" + TbFaceManager.avr().pB(text) + ")";

@@ -26,7 +26,7 @@ import com.baidu.tieba.frs.gamesubpb.model.d;
 /* loaded from: classes4.dex */
 public class SpannableTextView extends TextView {
     private long dzX;
-    private a.InterfaceC0414a fJE;
+    private a.InterfaceC0409a fJE;
     private int fKA;
     private int fKB;
     private int fKC;
@@ -61,8 +61,8 @@ public class SpannableTextView extends TextView {
         setMovementMethod(a.bom());
     }
 
-    public void setClickListener(a.InterfaceC0414a interfaceC0414a) {
-        this.fJE = interfaceC0414a;
+    public void setClickListener(a.InterfaceC0409a interfaceC0409a) {
+        this.fJE = interfaceC0409a;
     }
 
     private SpannableString g(d dVar) {

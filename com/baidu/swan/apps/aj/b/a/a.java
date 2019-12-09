@@ -36,7 +36,7 @@ public class a extends b {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            a.C0156a bF = com.baidu.swan.apps.aj.b.a.bF(context);
+            a.C0151a bF = com.baidu.swan.apps.aj.b.a.bF(context);
             if (bF == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                 return false;

@@ -15,8 +15,8 @@ import org.json.JSONObject;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private String buP;
-    private List<C0234a> buQ;
-    private List<C0234a> buR;
+    private List<C0229a> buQ;
+    private List<C0229a> buR;
     private int[] buS;
     private long mTimeStamp;
 
@@ -127,16 +127,16 @@ public class a {
         }
     }
 
-    public C0234a b(MotionEvent motionEvent, int i) {
+    public C0229a b(MotionEvent motionEvent, int i) {
         int pointerId = motionEvent.getPointerId(i);
-        C0234a c0234a = new C0234a();
-        c0234a.identifier = pointerId;
-        c0234a.x = motionEvent.getX(i);
-        c0234a.y = motionEvent.getY(i);
-        c0234a.buT = (motionEvent.getRawX() + c0234a.x) - motionEvent.getX();
-        c0234a.buU = (motionEvent.getRawY() + c0234a.y) - motionEvent.getY();
-        c0234a.buV = motionEvent.getPressure(i);
-        return c0234a;
+        C0229a c0229a = new C0229a();
+        c0229a.identifier = pointerId;
+        c0229a.x = motionEvent.getX(i);
+        c0229a.y = motionEvent.getY(i);
+        c0229a.buT = (motionEvent.getRawX() + c0229a.x) - motionEvent.getX();
+        c0229a.buU = (motionEvent.getRawY() + c0229a.y) - motionEvent.getY();
+        c0229a.buV = motionEvent.getPressure(i);
+        return c0229a;
     }
 
     public JSONObject Ve() {
@@ -144,17 +144,17 @@ public class a {
         try {
             JSONArray jSONArray = new JSONArray();
             if (!this.buQ.isEmpty()) {
-                for (C0234a c0234a : this.buQ) {
-                    if (c0234a != null) {
-                        jSONArray.put(c0234a.Vf());
+                for (C0229a c0229a : this.buQ) {
+                    if (c0229a != null) {
+                        jSONArray.put(c0229a.Vf());
                     }
                 }
             }
             JSONArray jSONArray2 = new JSONArray();
             if (!this.buR.isEmpty()) {
-                for (C0234a c0234a2 : this.buR) {
-                    if (c0234a2 != null) {
-                        jSONArray2.put(c0234a2.Vf());
+                for (C0229a c0229a2 : this.buR) {
+                    if (c0229a2 != null) {
+                        jSONArray2.put(c0229a2.Vf());
                     }
                 }
             }
@@ -172,7 +172,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.container.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0234a {
+    public class C0229a {
         private float buT;
         private float buU;
         private float buV;
@@ -180,7 +180,7 @@ public class a {
         private float x;
         private float y;
 
-        private C0234a() {
+        private C0229a() {
         }
 
         JSONObject Vf() {

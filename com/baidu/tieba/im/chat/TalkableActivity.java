@@ -87,7 +87,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     protected LocalPicModel gzF = null;
     protected com.baidu.adp.base.d gzG = null;
     protected i gzH = null;
-    protected a.InterfaceC0297a<ChatMessage> gzK = null;
+    protected a.InterfaceC0292a<ChatMessage> gzK = null;
     private long gzL = -1;
     private WriteImagesInfo writeImagesInfo = new WriteImagesInfo(1);
     private boolean gzN = true;
@@ -207,9 +207,9 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
         } else {
             this.gzL = System.currentTimeMillis();
         }
-        this.gzK = new a.InterfaceC0297a<ChatMessage>() { // from class: com.baidu.tieba.im.chat.TalkableActivity.2
+        this.gzK = new a.InterfaceC0292a<ChatMessage>() { // from class: com.baidu.tieba.im.chat.TalkableActivity.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.img.a.InterfaceC0297a
+            @Override // com.baidu.tbadk.img.a.InterfaceC0292a
             /* renamed from: a */
             public void onImageProgessInUI(int i, ChatMessage chatMessage) {
                 TalkableActivity.this.gzD.updateAdapter(i, chatMessage);

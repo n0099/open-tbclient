@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes2.dex */
 public class a {
-    InterfaceC0561a keJ;
+    InterfaceC0556a keJ;
     final float keK;
     boolean keL;
     boolean keM;
@@ -15,7 +15,7 @@ public class a {
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0561a {
+    public interface InterfaceC0556a {
         boolean cDX();
     }
 
@@ -38,8 +38,8 @@ public class a {
         this.keM = false;
     }
 
-    public void a(InterfaceC0561a interfaceC0561a) {
-        this.keJ = interfaceC0561a;
+    public void a(InterfaceC0556a interfaceC0556a) {
+        this.keJ = interfaceC0556a;
     }
 
     public boolean cFc() {

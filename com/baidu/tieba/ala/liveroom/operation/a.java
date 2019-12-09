@@ -50,7 +50,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     private FrameLayout elB;
     private b elC;
     private View.OnLayoutChangeListener elD;
-    private InterfaceC0369a elE;
+    private InterfaceC0364a elE;
     private CustomMessageListener elF;
     CustomMessageListener elG;
     CustomMessageListener elH;
@@ -61,7 +61,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.operation.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0369a {
+    public interface InterfaceC0364a {
         void aQ(int i, int i2);
 
         void aR(int i, int i2);
@@ -241,9 +241,9 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         this.elz.emk.setVisibility(8);
     }
 
-    public void a(InterfaceC0369a interfaceC0369a) {
+    public void a(InterfaceC0364a interfaceC0364a) {
         if (this.elz != null && this.elz.emk != null && this.elz.emk.getVisibility() == 0) {
-            this.elE = interfaceC0369a;
+            this.elE = interfaceC0364a;
             this.elD = new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.ala.liveroom.operation.a.6
                 @Override // android.view.View.OnLayoutChangeListener
                 public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {

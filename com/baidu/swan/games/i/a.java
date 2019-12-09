@@ -381,7 +381,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.games.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0245a {
+    public static class C0240a {
         public static boolean a(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo) {
             boolean bz;
             if (swanGameSubPackageAPSInfo == null) {

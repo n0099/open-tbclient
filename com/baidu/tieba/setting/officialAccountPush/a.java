@@ -51,30 +51,30 @@ public class a extends BaseAdapter implements BdSwitchView.a {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0511a c0511a;
+        C0506a c0506a;
         if (view == null) {
             view = LayoutInflater.from(this.ceu.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
-            c0511a = new C0511a();
-            c0511a.iVV = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
-            view.setTag(c0511a);
+            c0506a = new C0506a();
+            c0506a.iVV = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
+            view.setTag(c0506a);
         } else {
-            c0511a = (C0511a) view.getTag();
+            c0506a = (C0506a) view.getTag();
         }
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) getItem(i);
         if (aq.isEmpty(officialAccountPushInfo.name)) {
-            c0511a.iVV.setVisibility(8);
+            c0506a.iVV.setVisibility(8);
         } else {
-            c0511a.iVV.setVisibility(0);
-            c0511a.iVV.setText(officialAccountPushInfo.name);
+            c0506a.iVV.setVisibility(0);
+            c0506a.iVV.setText(officialAccountPushInfo.name);
             if (officialAccountPushInfo.iVX == 1) {
-                c0511a.iVV.getSwitchView().turnOnNoCallback();
+                c0506a.iVV.getSwitchView().turnOnNoCallback();
             } else {
-                c0511a.iVV.getSwitchView().turnOffNoCallback();
+                c0506a.iVV.getSwitchView().turnOffNoCallback();
             }
-            c0511a.iVV.setLineVisibility(true);
-            c0511a.iVV.onChangeSkinType(this.ceu, TbadkCoreApplication.getInst().getSkinType());
-            c0511a.iVV.getSwitchView().setOnSwitchStateChangeListener(this);
-            c0511a.iVV.getSwitchView().setTag(officialAccountPushInfo);
+            c0506a.iVV.setLineVisibility(true);
+            c0506a.iVV.onChangeSkinType(this.ceu, TbadkCoreApplication.getInst().getSkinType());
+            c0506a.iVV.getSwitchView().setOnSwitchStateChangeListener(this);
+            c0506a.iVV.getSwitchView().setTag(officialAccountPushInfo);
         }
         return view;
     }
@@ -92,10 +92,10 @@ public class a extends BaseAdapter implements BdSwitchView.a {
 
     /* renamed from: com.baidu.tieba.setting.officialAccountPush.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0511a {
+    public class C0506a {
         MsgSettingItemView iVV;
 
-        public C0511a() {
+        public C0506a() {
         }
     }
 }

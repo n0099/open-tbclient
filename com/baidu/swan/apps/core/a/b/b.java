@@ -13,15 +13,15 @@ class b extends e {
     private c aJA;
     private List<UbcFlowEvent> aJg;
     private String aJv;
-    private a.InterfaceC0173a aJz;
+    private a.InterfaceC0168a aJz;
     private String mAppId;
     private Context mContext;
 
-    public b(Context context, String str, a.InterfaceC0173a interfaceC0173a, String str2) {
+    public b(Context context, String str, a.InterfaceC0168a interfaceC0168a, String str2) {
         super(str);
         this.mAppId = str;
         this.mContext = context;
-        this.aJz = interfaceC0173a;
+        this.aJz = interfaceC0168a;
         this.aJg = new ArrayList();
         this.aJA = new c();
         this.aJA.mAppId = str;

@@ -107,7 +107,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     private void bqi() {
         if (this.fwq.isAdded()) {
             this.fRW = AnimationUtils.loadAnimation(this.fwq.getPageContext().getPageActivity(), R.anim.frs_pull_up_refresh_in);
-            this.fRW.setAnimationListener(new animation.Animation$AnimationListenerC0418b(this.fRZ));
+            this.fRW.setAnimationListener(new animation.Animation$AnimationListenerC0413b(this.fRZ));
         }
     }
 
@@ -225,10 +225,10 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.vc.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class animation.Animation$AnimationListenerC0418b implements Animation.AnimationListener {
+    public static class animation.Animation$AnimationListenerC0413b implements Animation.AnimationListener {
         View view;
 
-        public animation.Animation$AnimationListenerC0418b(View view) {
+        public animation.Animation$AnimationListenerC0413b(View view) {
             this.view = view;
         }
 

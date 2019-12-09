@@ -2,6 +2,7 @@ package com.baidu.swan.impl.map.a.a;
 
 import android.content.Context;
 import android.os.Bundle;
+import com.baidu.sapi2.activity.SlideActiviy;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.e> {
@@ -30,7 +31,7 @@ public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.e> {
         bundle.putDouble("longitude", eVar.aTL.longitude);
         bundle.putDouble("scale", eVar.aTM);
         bundle.putString("name", eVar.name);
-        bundle.putString("address", eVar.address);
+        bundle.putString(SlideActiviy.ADDRESS_PAGE_NAME, eVar.address);
         return bundle;
     }
 

@@ -10,9 +10,9 @@ import rx.k;
 public final class b extends rx.g implements h {
     static final int kCj;
     static final c kCk;
-    static final C0612b kCl;
+    static final C0607b kCl;
     final ThreadFactory aAW;
-    final AtomicReference<C0612b> kBV = new AtomicReference<>(kCl);
+    final AtomicReference<C0607b> kBV = new AtomicReference<>(kCl);
 
     static {
         int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
@@ -23,18 +23,18 @@ public final class b extends rx.g implements h {
         kCj = intValue;
         kCk = new c(RxThreadFactory.NONE);
         kCk.unsubscribe();
-        kCl = new C0612b(null, 0);
+        kCl = new C0607b(null, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.schedulers.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0612b {
+    public static final class C0607b {
         final int kCr;
         final c[] kCs;
         long n;
 
-        C0612b(ThreadFactory threadFactory, int i) {
+        C0607b(ThreadFactory threadFactory, int i) {
             this.kCr = i;
             this.kCs = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
@@ -72,22 +72,22 @@ public final class b extends rx.g implements h {
 
     @Override // rx.internal.schedulers.h
     public void start() {
-        C0612b c0612b = new C0612b(this.aAW, kCj);
-        if (!this.kBV.compareAndSet(kCl, c0612b)) {
-            c0612b.shutdown();
+        C0607b c0607b = new C0607b(this.aAW, kCj);
+        if (!this.kBV.compareAndSet(kCl, c0607b)) {
+            c0607b.shutdown();
         }
     }
 
     @Override // rx.internal.schedulers.h
     public void shutdown() {
-        C0612b c0612b;
+        C0607b c0607b;
         do {
-            c0612b = this.kBV.get();
-            if (c0612b == kCl) {
+            c0607b = this.kBV.get();
+            if (c0607b == kCl) {
                 return;
             }
-        } while (!this.kBV.compareAndSet(c0612b, kCl));
-        c0612b.shutdown();
+        } while (!this.kBV.compareAndSet(c0607b, kCl));
+        c0607b.shutdown();
     }
 
     public k g(rx.functions.a aVar) {

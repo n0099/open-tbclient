@@ -141,32 +141,32 @@ public class d extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         c cVar;
-        C0470d c0470d;
+        C0465d c0465d;
         switch (getItemViewType(i)) {
             case 0:
-                if (view == null || !(view.getTag() instanceof C0470d)) {
+                if (view == null || !(view.getTag() instanceof C0465d)) {
                     view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.home_mark_item, (ViewGroup) null);
-                    C0470d c0470d2 = new C0470d(view);
-                    view.setTag(c0470d2);
-                    c0470d = c0470d2;
+                    C0465d c0465d2 = new C0465d(view);
+                    view.setTag(c0465d2);
+                    c0465d = c0465d2;
                 } else {
-                    c0470d = (C0470d) view.getTag();
+                    c0465d = (C0465d) view.getTag();
                 }
                 MarkData item = getItem(i);
                 if (item == null) {
-                    c0470d.hyZ.setVisibility(8);
+                    c0465d.hyZ.setVisibility(8);
                     break;
                 } else {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0470d.hzd.getLayoutParams();
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0465d.hzd.getLayoutParams();
                     if (this.dfW) {
-                        c0470d.hyZ.setVisibility(0);
+                        c0465d.hyZ.setVisibility(0);
                         layoutParams.leftMargin = 0;
                     } else {
-                        c0470d.hyZ.setVisibility(8);
+                        c0465d.hyZ.setVisibility(8);
                         layoutParams.leftMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.ds34);
                     }
-                    c0470d.b(item);
-                    a(i, c0470d);
+                    c0465d.b(item);
+                    a(i, c0465d);
                     this.mPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() != 1);
                     this.mPageContext.getLayoutMode().onModeChanged(view);
                     break;
@@ -371,11 +371,11 @@ public class d extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.myCollection.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0470d extends a {
+    private class C0465d extends a {
         TbImageView eOk;
         LinearLayout hzh;
 
-        public C0470d(View view) {
+        public C0465d(View view) {
             super();
             this.hzd = (LinearLayout) view.findViewById(R.id.home_lv_markitem);
             this.fXu = (ClickableHeaderImageView) view.findViewById(R.id.mark_userinfo_header_view);

@@ -45,9 +45,9 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static C0191a a(BufferedInputStream bufferedInputStream, File file) {
+    public static C0186a a(BufferedInputStream bufferedInputStream, File file) {
         DataInputStream dataInputStream;
-        C0191a c0191a = new C0191a(false);
+        C0186a c0186a = new C0186a(false);
         if (file != null && bufferedInputStream != null) {
             b bVar = new b();
             try {
@@ -62,7 +62,7 @@ public class a {
                         dataInputStream.readFully(bVar.aSb);
                         byte[] r = r(bVar.aSb);
                         if (r == null || r.length <= 0) {
-                            c0191a.aMQ = "cipher is null";
+                            c0186a.aMQ = "cipher is null";
                             com.baidu.swan.c.a.b(dataInputStream);
                         } else {
                             byte[] bArr = new byte[bVar.aRY];
@@ -73,7 +73,7 @@ public class a {
                             System.arraycopy(r, 16, bArr3, 0, 16);
                             byte[] c = c(bArr, bArr2, bArr3);
                             if (c == null || c.length <= 0) {
-                                c0191a.aMQ = "index array length <= 0";
+                                c0186a.aMQ = "index array length <= 0";
                                 com.baidu.swan.c.a.b(dataInputStream);
                             } else {
                                 DataInputStream dataInputStream2 = new DataInputStream(new ByteArrayInputStream(c));
@@ -114,32 +114,32 @@ public class a {
                                     countDownLatch.await();
                                     com.baidu.swan.c.a.b(dataInputStream2);
                                     com.baidu.swan.c.a.b(dataInputStream3);
-                                    c0191a.isSuccess = true;
+                                    c0186a.isSuccess = true;
                                     com.baidu.swan.c.a.b(dataInputStream);
                                 } else {
                                     if (DEBUG) {
                                         Log.e("BundleDecrypt", "create destination directory fail");
                                     }
-                                    c0191a.aMQ = "create destination directory failed";
+                                    c0186a.aMQ = "create destination directory failed";
                                     com.baidu.swan.c.a.b(dataInputStream);
                                 }
                             }
                         }
                     } catch (IOException e) {
                         e = e;
-                        c0191a.aMQ = e.getLocalizedMessage();
+                        c0186a.aMQ = e.getLocalizedMessage();
                         if (DEBUG) {
                             Log.e("BundleDecrypt", "decrypt bundle fail", e);
                         }
                         com.baidu.swan.c.a.b(dataInputStream);
-                        return c0191a;
+                        return c0186a;
                     } catch (InterruptedException e2) {
                         e = e2;
-                        c0191a.aMQ = e.getLocalizedMessage();
+                        c0186a.aMQ = e.getLocalizedMessage();
                         if (DEBUG) {
                         }
                         com.baidu.swan.c.a.b(dataInputStream);
-                        return c0191a;
+                        return c0186a;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -158,7 +158,7 @@ public class a {
                 throw th;
             }
         }
-        return c0191a;
+        return c0186a;
     }
 
     private static int a(DataInputStream dataInputStream) throws IOException {
@@ -264,11 +264,11 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.install.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0191a {
+    public static class C0186a {
         public String aMQ = "";
         public boolean isSuccess;
 
-        public C0191a(boolean z) {
+        public C0186a(boolean z) {
             this.isSuccess = z;
         }
     }

@@ -40,7 +40,7 @@ public class b implements com.baidu.adp.plugin.packageManager.pluginServerConfig
         this.cMX = aVar;
         if (!this.cMY) {
             this.cMY = true;
-            new C0301b(cVar, z).execute(new Void[0]);
+            new C0296b(cVar, z).execute(new Void[0]);
         }
         try {
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
@@ -65,12 +65,12 @@ public class b implements com.baidu.adp.plugin.packageManager.pluginServerConfig
 
     /* renamed from: com.baidu.tbadk.q.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0301b extends BdAsyncTask<Void, PluginNetConfigInfos, Void> {
+    private class C0296b extends BdAsyncTask<Void, PluginNetConfigInfos, Void> {
         private x bUY;
         private c cNa;
         private boolean cNb;
 
-        public C0301b(c cVar, boolean z) {
+        public C0296b(c cVar, boolean z) {
             this.cNb = false;
             this.cNa = cVar;
             this.cNb = z;

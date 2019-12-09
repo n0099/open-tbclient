@@ -10,11 +10,11 @@ import java.util.HashSet;
 /* loaded from: classes2.dex */
 public class a extends d {
     private static final boolean DEBUG = b.DEBUG;
-    private a.InterfaceC0173a aJz;
+    private a.InterfaceC0168a aJz;
 
-    public a(String str, a.InterfaceC0173a interfaceC0173a) {
+    public a(String str, a.InterfaceC0168a interfaceC0168a) {
         super(str);
-        this.aJz = interfaceC0173a;
+        this.aJz = interfaceC0168a;
     }
 
     @Override // com.baidu.swan.pms.a.f

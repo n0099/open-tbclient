@@ -16,7 +16,7 @@ public class a {
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractC0573a<T extends AbstractC0573a<T>> {
+    public static abstract class AbstractC0568a<T extends AbstractC0568a<T>> {
         private List<com.meizu.cloud.pushsdk.c.a.b> a = new LinkedList();
         private long b = System.currentTimeMillis();
         private String c = e.b();
@@ -31,13 +31,13 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a(AbstractC0573a<?> abstractC0573a) {
-        d.a(((AbstractC0573a) abstractC0573a).a);
-        d.a(((AbstractC0573a) abstractC0573a).c);
-        d.a(!((AbstractC0573a) abstractC0573a).c.isEmpty(), "eventId cannot be empty");
-        this.a = ((AbstractC0573a) abstractC0573a).a;
-        this.b = ((AbstractC0573a) abstractC0573a).b;
-        this.c = ((AbstractC0573a) abstractC0573a).c;
+    public a(AbstractC0568a<?> abstractC0568a) {
+        d.a(((AbstractC0568a) abstractC0568a).a);
+        d.a(((AbstractC0568a) abstractC0568a).c);
+        d.a(!((AbstractC0568a) abstractC0568a).c.isEmpty(), "eventId cannot be empty");
+        this.a = ((AbstractC0568a) abstractC0568a).a;
+        this.b = ((AbstractC0568a) abstractC0568a).b;
+        this.c = ((AbstractC0568a) abstractC0568a).c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

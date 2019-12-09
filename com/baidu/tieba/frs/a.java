@@ -29,7 +29,7 @@ public class a {
     }
 
     public static a biU() {
-        return C0409a.ftx;
+        return C0404a.ftx;
     }
 
     public boolean biV() {
@@ -98,7 +98,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0409a {
+    public static class C0404a {
         private static a ftx = new a();
     }
 

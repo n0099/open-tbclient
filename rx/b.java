@@ -26,7 +26,7 @@ public class b {
 
     /* renamed from: rx.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0601b extends rx.functions.f<c, c> {
+    public interface InterfaceC0596b extends rx.functions.f<c, c> {
     }
 
     public static b a(a aVar) {

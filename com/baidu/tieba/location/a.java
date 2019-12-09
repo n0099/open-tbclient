@@ -21,7 +21,7 @@ import java.util.Locale;
 public class a implements com.baidu.adp.lib.d.b {
     private static a hkm = null;
     private LocationClient bFP;
-    private C0461a hkp;
+    private C0456a hkp;
     private LocationClientOption hkq;
     private Address lastAddress;
     private Context mContext;
@@ -77,7 +77,7 @@ public class a implements com.baidu.adp.lib.d.b {
                 this.hkq.setProdName(this.hkn);
                 this.hkq.setAddrType("all");
                 this.hkq.setCoorType("bd09ll");
-                this.hkp = new C0461a();
+                this.hkp = new C0456a();
                 this.bFP.registerLocationListener(this.hkp);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -115,8 +115,8 @@ public class a implements com.baidu.adp.lib.d.b {
 
     /* renamed from: com.baidu.tieba.location.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private class C0461a implements BDLocationListener {
-        private C0461a() {
+    private class C0456a implements BDLocationListener {
+        private C0456a() {
         }
 
         @Override // com.baidu.location.BDLocationListener

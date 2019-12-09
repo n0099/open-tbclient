@@ -121,8 +121,8 @@ public class d extends z {
         if (com.baidu.swan.apps.camera.a.CE().aO(context)) {
             m(context, unitedSchemeEntity, callbackHandler, bVar);
         } else {
-            com.baidu.swan.apps.w.e.LE().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.scheme.actions.d.3
-                @Override // com.baidu.swan.apps.ab.a.InterfaceC0152a
+            com.baidu.swan.apps.w.e.LE().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0147a() { // from class: com.baidu.swan.apps.scheme.actions.d.3
+                @Override // com.baidu.swan.apps.ab.a.InterfaceC0147a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     boolean z = false;
                     if (i != 1) {

@@ -66,7 +66,7 @@ public abstract class a<T> implements Closeable, Cloneable {
     }
 
     private static <T> a<T> b(@Nullable T t, com.facebook.common.references.c<T> cVar) {
-        return kay ? new C0556a(t, cVar) : new b(t, cVar);
+        return kay ? new C0551a(t, cVar) : new b(t, cVar);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
@@ -99,7 +99,7 @@ public abstract class a<T> implements Closeable, Cloneable {
     }
 
     private a<T> cCS() {
-        return kay ? new C0556a((SharedReference) this.kax) : new b((SharedReference) this.kax);
+        return kay ? new C0551a((SharedReference) this.kax) : new b((SharedReference) this.kax);
     }
 
     public synchronized boolean isValid() {
@@ -148,7 +148,7 @@ public abstract class a<T> implements Closeable, Cloneable {
     /* loaded from: classes2.dex */
     public static class b<T> extends a<T> {
         private static final ReferenceQueue<a> kaz = new ReferenceQueue<>();
-        private final C0557a kaA;
+        private final C0552a kaA;
 
         @Override // com.facebook.common.references.a
         public /* synthetic */ Object clone() throws CloneNotSupportedException {
@@ -157,21 +157,21 @@ public abstract class a<T> implements Closeable, Cloneable {
 
         /* renamed from: com.facebook.common.references.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        private static class C0557a extends PhantomReference<a> {
+        private static class C0552a extends PhantomReference<a> {
             @GuardedBy("Destructor.class")
-            private static C0557a kaB;
+            private static C0552a kaB;
             @GuardedBy("Destructor.class")
-            private C0557a kaC;
+            private C0552a kaC;
             @GuardedBy("Destructor.class")
-            private C0557a kaD;
+            private C0552a kaD;
             @GuardedBy("this")
             private boolean kaE;
             private final SharedReference kax;
 
-            public C0557a(a aVar, ReferenceQueue<? super a> referenceQueue) {
+            public C0552a(a aVar, ReferenceQueue<? super a> referenceQueue) {
                 super(aVar, referenceQueue);
                 this.kax = aVar.kax;
-                synchronized (C0557a.class) {
+                synchronized (C0552a.class) {
                     if (kaB != null) {
                         kaB.kaC = this;
                         this.kaD = kaB;
@@ -188,7 +188,7 @@ public abstract class a<T> implements Closeable, Cloneable {
                 synchronized (this) {
                     if (!this.kaE) {
                         this.kaE = true;
-                        synchronized (C0557a.class) {
+                        synchronized (C0552a.class) {
                             if (this.kaD != null) {
                                 this.kaD.kaC = this.kaC;
                             }
@@ -213,7 +213,7 @@ public abstract class a<T> implements Closeable, Cloneable {
                 public void run() {
                     while (true) {
                         try {
-                            ((C0557a) b.kaz.remove()).hK(false);
+                            ((C0552a) b.kaz.remove()).hK(false);
                         } catch (InterruptedException e) {
                         }
                     }
@@ -223,12 +223,12 @@ public abstract class a<T> implements Closeable, Cloneable {
 
         private b(SharedReference<T> sharedReference) {
             super((SharedReference) sharedReference);
-            this.kaA = new C0557a(this, kaz);
+            this.kaA = new C0552a(this, kaz);
         }
 
         private b(T t, com.facebook.common.references.c<T> cVar) {
             super(t, cVar);
-            this.kaA = new C0557a(this, kaz);
+            this.kaA = new C0552a(this, kaz);
         }
 
         @Override // com.facebook.common.references.a, java.io.Closeable, java.lang.AutoCloseable
@@ -245,17 +245,17 @@ public abstract class a<T> implements Closeable, Cloneable {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.facebook.common.references.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0556a<T> extends a<T> {
+    public static class C0551a<T> extends a<T> {
         @Override // com.facebook.common.references.a
         public /* synthetic */ Object clone() throws CloneNotSupportedException {
             return super.clone();
         }
 
-        private C0556a(SharedReference<T> sharedReference) {
+        private C0551a(SharedReference<T> sharedReference) {
             super((SharedReference) sharedReference);
         }
 
-        private C0556a(T t, com.facebook.common.references.c<T> cVar) {
+        private C0551a(T t, com.facebook.common.references.c<T> cVar) {
             super(t, cVar);
         }
 

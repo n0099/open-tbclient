@@ -33,7 +33,7 @@ public class a implements b.a {
     private CustomMessageListener adk;
     private CustomMessageListener ahl;
     private long aju;
-    private InterfaceC0347a dOg;
+    private InterfaceC0342a dOg;
     private String dOh;
     private boolean dOi;
     private boolean dOj;
@@ -45,7 +45,7 @@ public class a implements b.a {
 
     /* renamed from: com.baidu.tieba.ala.guardclub.rank.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0347a {
+    public interface InterfaceC0342a {
         ViewGroup aLs();
 
         void ae(String str, int i);
@@ -63,8 +63,8 @@ public class a implements b.a {
         this.mContext = tbPageContext;
     }
 
-    public void a(Intent intent, InterfaceC0347a interfaceC0347a) {
-        this.dOg = interfaceC0347a;
+    public void a(Intent intent, InterfaceC0342a interfaceC0342a) {
+        this.dOg = interfaceC0342a;
         C(intent);
         ru();
         aLR();

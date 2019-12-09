@@ -77,8 +77,8 @@ public class a extends e {
             this.iNj = ((AdCard) this.iNu).directDownload;
         }
         if (this.iNt != null) {
-            View$OnClickListenerC0507a view$OnClickListenerC0507a = new View$OnClickListenerC0507a(this.iNt);
-            this.mRootView.setOnClickListener(view$OnClickListenerC0507a);
+            View$OnClickListenerC0502a view$OnClickListenerC0502a = new View$OnClickListenerC0502a(this.iNt);
+            this.mRootView.setOnClickListener(view$OnClickListenerC0502a);
             if (cgK()) {
                 this.iKc.setOnClickInterceptListener(new b.a() { // from class: com.baidu.tieba.recapp.e.a.1
                     @Override // com.baidu.tieba.ad.download.mvp.b.a
@@ -86,7 +86,7 @@ public class a extends e {
                     }
                 });
             } else {
-                this.iKc.setOnClickListener(view$OnClickListenerC0507a);
+                this.iKc.setOnClickListener(view$OnClickListenerC0502a);
             }
             int intValue = Integer.valueOf(this.iNt.adPosition).intValue();
             this.iMu = this.iNt.bWx;
@@ -133,10 +133,10 @@ public class a extends e {
 
     /* renamed from: com.baidu.tieba.recapp.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class View$OnClickListenerC0507a implements View.OnClickListener {
+    private class View$OnClickListenerC0502a implements View.OnClickListener {
         private AdvertAppInfo iMx;
 
-        public View$OnClickListenerC0507a(AdvertAppInfo advertAppInfo) {
+        public View$OnClickListenerC0502a(AdvertAppInfo advertAppInfo) {
             this.iMx = advertAppInfo;
         }
 

@@ -15,12 +15,12 @@ import java.util.List;
 import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
 /* loaded from: classes4.dex */
 public class a {
-    private InterfaceC0411a fGj;
+    private InterfaceC0406a fGj;
     private l<byte[]> fqn;
 
     /* renamed from: com.baidu.tieba.frs.game.strategy.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0411a {
+    public interface InterfaceC0406a {
         void b(List<e> list, List<m> list2, boolean z);
     }
 
@@ -76,7 +76,7 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0411a interfaceC0411a) {
-        this.fGj = interfaceC0411a;
+    public void a(InterfaceC0406a interfaceC0406a) {
+        this.fGj = interfaceC0406a;
     }
 }

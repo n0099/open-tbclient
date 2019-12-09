@@ -12,18 +12,18 @@ public class a {
         @Override // java.lang.Runnable
         public void run() {
             a.cDM();
-            for (InterfaceC0562a interfaceC0562a : a.this.kbW) {
-                interfaceC0562a.release();
+            for (InterfaceC0557a interfaceC0557a : a.this.kbW) {
+                interfaceC0557a.release();
             }
             a.this.kbW.clear();
         }
     };
-    private final Set<InterfaceC0562a> kbW = new HashSet();
+    private final Set<InterfaceC0557a> kbW = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0562a {
+    public interface InterfaceC0557a {
         void release();
     }
 
@@ -38,16 +38,16 @@ public class a {
         return aVar;
     }
 
-    public void a(InterfaceC0562a interfaceC0562a) {
+    public void a(InterfaceC0557a interfaceC0557a) {
         cDM();
-        if (this.kbW.add(interfaceC0562a) && this.kbW.size() == 1) {
+        if (this.kbW.add(interfaceC0557a) && this.kbW.size() == 1) {
             this.mUiHandler.post(this.kbX);
         }
     }
 
-    public void b(InterfaceC0562a interfaceC0562a) {
+    public void b(InterfaceC0557a interfaceC0557a) {
         cDM();
-        this.kbW.remove(interfaceC0562a);
+        this.kbW.remove(interfaceC0557a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

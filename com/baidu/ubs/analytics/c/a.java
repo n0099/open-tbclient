@@ -10,11 +10,11 @@ import java.util.Set;
 final class a {
     private static final a jXl = new a();
     private boolean ac;
-    private final Set<InterfaceC0551a> jXm = new LinkedHashSet();
+    private final Set<InterfaceC0546a> jXm = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0551a {
+    public interface InterfaceC0546a {
         void T();
 
         void U();
@@ -33,14 +33,14 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0551a> cBg() {
+    public final Set<InterfaceC0546a> cBg() {
         return this.jXm;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0551a interfaceC0551a) {
+    public final void a(InterfaceC0546a interfaceC0546a) {
         synchronized (this.jXm) {
-            this.jXm.add(interfaceC0551a);
+            this.jXm.add(interfaceC0546a);
         }
     }
 

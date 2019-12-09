@@ -533,8 +533,8 @@ public class d extends b {
 
     private void aOq() {
         if (this.dVW != null) {
-            this.dVW.a(new a.InterfaceC0369a() { // from class: com.baidu.tieba.ala.liveroom.c.d.14
-                @Override // com.baidu.tieba.ala.liveroom.operation.a.InterfaceC0369a
+            this.dVW.a(new a.InterfaceC0364a() { // from class: com.baidu.tieba.ala.liveroom.c.d.14
+                @Override // com.baidu.tieba.ala.liveroom.operation.a.InterfaceC0364a
                 public void aQ(int i, int i2) {
                     com.baidu.live.data.i uk = d.this.aPu().eeL.uk();
                     if (uk != null && uk.mLiveInfo != null) {
@@ -542,8 +542,8 @@ public class d extends b {
                             d.this.dXd = new com.baidu.tieba.ala.liveroom.turntable.lucky.b(d.this.aPu().pageContext.getPageActivity());
                         }
                         d.this.dXd.d(d.this.dXi, i, i2);
-                        d.this.dXd.a(String.valueOf(uk.mLiveInfo.live_id), new a.InterfaceC0372a() { // from class: com.baidu.tieba.ala.liveroom.c.d.14.1
-                            @Override // com.baidu.tieba.ala.liveroom.turntable.lucky.a.InterfaceC0372a
+                        d.this.dXd.a(String.valueOf(uk.mLiveInfo.live_id), new a.InterfaceC0367a() { // from class: com.baidu.tieba.ala.liveroom.c.d.14.1
+                            @Override // com.baidu.tieba.ala.liveroom.turntable.lucky.a.InterfaceC0367a
                             public void a(float f, String str) {
                                 if (d.this.dVW != null) {
                                     d.this.dVW.b(f, str);
@@ -553,7 +553,7 @@ public class d extends b {
                     }
                 }
 
-                @Override // com.baidu.tieba.ala.liveroom.operation.a.InterfaceC0369a
+                @Override // com.baidu.tieba.ala.liveroom.operation.a.InterfaceC0364a
                 public void aR(int i, int i2) {
                     if (d.this.dXd != null) {
                         d.this.dXd.bb(i, i2);

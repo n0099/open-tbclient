@@ -51,62 +51,62 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0441a c0441a;
-        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0441a)) {
+        C0436a c0436a;
+        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0436a)) {
             view = LayoutInflater.from(this.gOc.getActivity()).inflate(R.layout.tab_my_group_item, viewGroup, false);
-            c0441a = new C0441a();
-            c0441a.gOe = (LinearLayout) view.findViewById(R.id.click_head);
-            c0441a.gOg = (ImageView) view.findViewById(R.id.diver_top);
-            c0441a.gOh = (ImageView) view.findViewById(R.id.diver_buttom_px);
-            c0441a.gOi = (ImageView) view.findViewById(R.id.diver_top_px);
-            c0441a.gGi = (GroupImageView) view.findViewById(R.id.item_head);
-            c0441a.gGj = (TextView) view.findViewById(R.id.item_group_name);
-            c0441a.gGl = (TextView) view.findViewById(R.id.item_group_num);
-            c0441a.gGm = (TextView) view.findViewById(R.id.item_introduce);
-            c0441a.gOf = (TextView) view.findViewById(R.id.isCreator);
-            c0441a.gGn = (ImageView) view.findViewById(R.id.item_grade1);
-            c0441a.gGo = (ImageView) view.findViewById(R.id.item_grade2);
-            c0441a.gGp = (ImageView) view.findViewById(R.id.item_grade3);
-            c0441a.gGq = new ImageView[4];
-            c0441a.gGq[1] = c0441a.gGn;
-            c0441a.gGq[2] = c0441a.gGo;
-            c0441a.gGq[3] = c0441a.gGp;
-            view.setTag(c0441a);
+            c0436a = new C0436a();
+            c0436a.gOe = (LinearLayout) view.findViewById(R.id.click_head);
+            c0436a.gOg = (ImageView) view.findViewById(R.id.diver_top);
+            c0436a.gOh = (ImageView) view.findViewById(R.id.diver_buttom_px);
+            c0436a.gOi = (ImageView) view.findViewById(R.id.diver_top_px);
+            c0436a.gGi = (GroupImageView) view.findViewById(R.id.item_head);
+            c0436a.gGj = (TextView) view.findViewById(R.id.item_group_name);
+            c0436a.gGl = (TextView) view.findViewById(R.id.item_group_num);
+            c0436a.gGm = (TextView) view.findViewById(R.id.item_introduce);
+            c0436a.gOf = (TextView) view.findViewById(R.id.isCreator);
+            c0436a.gGn = (ImageView) view.findViewById(R.id.item_grade1);
+            c0436a.gGo = (ImageView) view.findViewById(R.id.item_grade2);
+            c0436a.gGp = (ImageView) view.findViewById(R.id.item_grade3);
+            c0436a.gGq = new ImageView[4];
+            c0436a.gGq[1] = c0436a.gGn;
+            c0436a.gGq[2] = c0436a.gGo;
+            c0436a.gGq[3] = c0436a.gGp;
+            view.setTag(c0436a);
         } else {
-            c0441a = (C0441a) view.getTag();
+            c0436a = (C0436a) view.getTag();
         }
         GroupInfoData groupInfoData = this.gOd.get(i);
-        c0441a.gGi.setTag(null);
-        c0441a.gGi.setDrawBorder(true);
+        c0436a.gGi.setTag(null);
+        c0436a.gGi.setDrawBorder(true);
         if (groupInfoData != null) {
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                c0441a.gGi.startLoad(portrait, 10, false);
+                c0436a.gGi.startLoad(portrait, 10, false);
             } else {
-                c0441a.gGi.startLoad("", 10, false);
+                c0436a.gGi.startLoad("", 10, false);
             }
-            c0441a.gOe.setOnClickListener(this.gOc);
-            c0441a.gOe.setTag(groupInfoData);
-            c0441a.gOg.setVisibility(8);
-            c0441a.gOi.setVisibility(8);
-            c0441a.gOh.setVisibility(0);
-            c0441a.gGj.setText(groupInfoData.getName());
-            c0441a.gGl.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            c0441a.gGm.setText(groupInfoData.getIntro());
+            c0436a.gOe.setOnClickListener(this.gOc);
+            c0436a.gOe.setTag(groupInfoData);
+            c0436a.gOg.setVisibility(8);
+            c0436a.gOi.setVisibility(8);
+            c0436a.gOh.setVisibility(0);
+            c0436a.gGj.setText(groupInfoData.getName());
+            c0436a.gGl.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            c0436a.gGm.setText(groupInfoData.getIntro());
             if (groupInfoData.getIsGroupManager() == 1) {
-                c0441a.gOf.setVisibility(0);
+                c0436a.gOf.setVisibility(0);
             } else {
-                c0441a.gOf.setVisibility(8);
+                c0436a.gOf.setVisibility(8);
             }
-            a(c0441a.gGq, groupInfoData.getGrade());
+            a(c0436a.gGq, groupInfoData.getGrade());
         }
         this.gOc.getBaseFragmentActivity().getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
         this.gOc.getBaseFragmentActivity().getLayoutMode().onModeChanged(view);
         if (groupInfoData != null && groupInfoData.isMemGroup()) {
-            am.setViewTextColor(c0441a.gGj, R.color.common_color_10009, 1);
-            am.setImageResource(c0441a.gGn, R.drawable.icon_vip_grade_big_small_s);
-            am.setImageResource(c0441a.gGo, R.drawable.icon_vip_grade_big_small_s);
-            am.setImageResource(c0441a.gGp, R.drawable.icon_vip_grade_big_small_s);
+            am.setViewTextColor(c0436a.gGj, R.color.common_color_10009, 1);
+            am.setImageResource(c0436a.gGn, R.drawable.icon_vip_grade_big_small_s);
+            am.setImageResource(c0436a.gGo, R.drawable.icon_vip_grade_big_small_s);
+            am.setImageResource(c0436a.gGp, R.drawable.icon_vip_grade_big_small_s);
         }
         return view;
     }
@@ -127,7 +127,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.im.mygroup.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    static class C0441a {
+    static class C0436a {
         GroupImageView gGi;
         TextView gGj;
         TextView gGl;
@@ -142,7 +142,7 @@ public class a extends BaseAdapter {
         ImageView gOh;
         ImageView gOi;
 
-        C0441a() {
+        C0436a() {
         }
     }
 }

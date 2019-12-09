@@ -307,7 +307,7 @@ public final class c {
 
     /* loaded from: classes2.dex */
     public static class d {
-        public List<C0153c> bku;
+        public List<C0148c> bku;
         public HashMap<String, Boolean> bkv;
         public HashMap<String, String> bkw;
 
@@ -327,7 +327,7 @@ public final class c {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    dVar.bku.add(C0153c.a(optJSONObject, dVar.bkw));
+                    dVar.bku.add(C0148c.a(optJSONObject, dVar.bkw));
                 }
             }
             return dVar;
@@ -344,43 +344,43 @@ public final class c {
 
     /* renamed from: com.baidu.swan.apps.ae.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0153c {
+    public static class C0148c {
         private static final String bkt = File.separator;
         public String bkr;
         public List<String> bks;
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static C0153c a(JSONObject jSONObject, HashMap<String, String> hashMap) {
+        public static C0148c a(JSONObject jSONObject, HashMap<String, String> hashMap) {
             String str;
             if (jSONObject == null || hashMap == null) {
                 return RB();
             }
-            C0153c c0153c = new C0153c();
-            c0153c.bkr = jSONObject.optString("root");
+            C0148c c0148c = new C0148c();
+            c0148c.bkr = jSONObject.optString("root");
             JSONArray optJSONArray = jSONObject.optJSONArray("pages");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
-                c0153c.bks = new ArrayList();
+                c0148c.bks = new ArrayList();
                 for (int i = 0; i < length; i++) {
                     String optString = optJSONArray.optString(i);
-                    c0153c.bks.add(optString);
-                    if (!TextUtils.isEmpty(c0153c.bkr) && !TextUtils.isEmpty(optString)) {
-                        if (c0153c.bkr.endsWith(bkt) || optString.startsWith(bkt)) {
-                            str = c0153c.bkr + optString;
+                    c0148c.bks.add(optString);
+                    if (!TextUtils.isEmpty(c0148c.bkr) && !TextUtils.isEmpty(optString)) {
+                        if (c0148c.bkr.endsWith(bkt) || optString.startsWith(bkt)) {
+                            str = c0148c.bkr + optString;
                         } else {
-                            str = c0153c.bkr + bkt + optString;
+                            str = c0148c.bkr + bkt + optString;
                         }
-                        hashMap.put(str, c0153c.bkr);
+                        hashMap.put(str, c0148c.bkr);
                     }
                 }
             }
-            return c0153c;
+            return c0148c;
         }
 
-        private static C0153c RB() {
-            C0153c c0153c = new C0153c();
-            c0153c.bks = new ArrayList();
-            return c0153c;
+        private static C0148c RB() {
+            C0148c c0148c = new C0148c();
+            c0148c.bks = new ArrayList();
+            return c0148c;
         }
     }
 
@@ -399,9 +399,9 @@ public final class c {
             }
             e eVar = new e();
             eVar.bkx = new HashMap<>();
-            for (C0153c c0153c : dVar.bku) {
-                if (c0153c != null && !TextUtils.isEmpty(c0153c.bkr)) {
-                    eVar.bkx.put(c0153c.bkr, optJSONObject.optString(c0153c.bkr));
+            for (C0148c c0148c : dVar.bku) {
+                if (c0148c != null && !TextUtils.isEmpty(c0148c.bkr)) {
+                    eVar.bkx.put(c0148c.bkr, optJSONObject.optString(c0148c.bkr));
                 }
             }
             return eVar;

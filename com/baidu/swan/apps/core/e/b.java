@@ -40,7 +40,7 @@ public class b {
 
     /* renamed from: com.baidu.swan.apps.core.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0179b {
+    public interface InterfaceC0174b {
         void DT();
 
         void eg(String str);
@@ -72,8 +72,8 @@ public class b {
                 b.this.aLH = null;
             }
         });
-        this.aLH.a(new a.InterfaceC0178a() { // from class: com.baidu.swan.apps.core.e.b.10
-            @Override // com.baidu.swan.apps.core.e.a.InterfaceC0178a
+        this.aLH.a(new a.InterfaceC0173a() { // from class: com.baidu.swan.apps.core.e.b.10
+            @Override // com.baidu.swan.apps.core.e.a.InterfaceC0173a
             public void onCancel() {
                 if (aVar != null) {
                     aVar.DX();
@@ -249,13 +249,13 @@ public class b {
         return date == null ? "" : DateFormat.getDateFormat(this.mContext).format(date);
     }
 
-    public boolean a(String str, String str2, final InterfaceC0179b interfaceC0179b) {
+    public boolean a(String str, String str2, final InterfaceC0174b interfaceC0174b) {
         if (!FV()) {
             if (DEBUG) {
                 Log.e(TAG, "can not showJsAlert");
             }
-            if (interfaceC0179b != null) {
-                interfaceC0179b.DT();
+            if (interfaceC0174b != null) {
+                interfaceC0174b.DT();
                 return false;
             }
             return false;
@@ -263,15 +263,15 @@ public class b {
         g.a b = new g.a(this.mContext).dj(a.h.aiapps_dialog_webcall_common_title).hi(str2).b(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (interfaceC0179b != null) {
-                    interfaceC0179b.eg("");
+                if (interfaceC0174b != null) {
+                    interfaceC0174b.eg("");
                 }
             }
         }).b(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.b.2
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (interfaceC0179b != null) {
-                    interfaceC0179b.onCancel();
+                if (interfaceC0174b != null) {
+                    interfaceC0174b.onCancel();
                 }
             }
         });
@@ -283,13 +283,13 @@ public class b {
         return true;
     }
 
-    public boolean b(String str, String str2, final InterfaceC0179b interfaceC0179b) {
+    public boolean b(String str, String str2, final InterfaceC0174b interfaceC0174b) {
         if (!FV()) {
             if (DEBUG) {
                 Log.e(TAG, "can not showJsConfirm");
             }
-            if (interfaceC0179b != null) {
-                interfaceC0179b.DT();
+            if (interfaceC0174b != null) {
+                interfaceC0174b.DT();
                 return false;
             }
             return false;
@@ -297,22 +297,22 @@ public class b {
         g.a b = new g.a(this.mContext).dj(a.h.aiapps_dialog_webcall_common_title).hi(str2).b(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.6
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (interfaceC0179b != null) {
-                    interfaceC0179b.eg("");
+                if (interfaceC0174b != null) {
+                    interfaceC0174b.eg("");
                 }
             }
         }).c(a.h.aiapps_dialog_nagtive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.5
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (interfaceC0179b != null) {
-                    interfaceC0179b.onCancel();
+                if (interfaceC0174b != null) {
+                    interfaceC0174b.onCancel();
                 }
             }
         }).b(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.b.4
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (interfaceC0179b != null) {
-                    interfaceC0179b.onCancel();
+                if (interfaceC0174b != null) {
+                    interfaceC0174b.onCancel();
                 }
             }
         });
@@ -324,10 +324,10 @@ public class b {
         return true;
     }
 
-    public boolean a(String str, String str2, String str3, final InterfaceC0179b interfaceC0179b) {
+    public boolean a(String str, String str2, String str3, final InterfaceC0174b interfaceC0174b) {
         if (!FV()) {
-            if (interfaceC0179b != null) {
-                interfaceC0179b.DT();
+            if (interfaceC0174b != null) {
+                interfaceC0174b.DT();
             }
             return false;
         }
@@ -338,22 +338,22 @@ public class b {
         g.a b = new g.a(this.mContext).dj(a.h.aiapps_dialog_webcall_common_title).al(inflate).b(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.9
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (interfaceC0179b != null) {
-                    interfaceC0179b.eg(editText.getText().toString());
+                if (interfaceC0174b != null) {
+                    interfaceC0174b.eg(editText.getText().toString());
                 }
             }
         }).c(a.h.aiapps_dialog_nagtive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.8
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (interfaceC0179b != null) {
-                    interfaceC0179b.onCancel();
+                if (interfaceC0174b != null) {
+                    interfaceC0174b.onCancel();
                 }
             }
         }).b(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.b.7
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (interfaceC0179b != null) {
-                    interfaceC0179b.onCancel();
+                if (interfaceC0174b != null) {
+                    interfaceC0174b.onCancel();
                 }
             }
         });

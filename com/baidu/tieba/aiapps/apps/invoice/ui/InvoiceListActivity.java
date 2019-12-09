@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import com.baidu.sapi2.activity.SlideActiviy;
 import com.baidu.swan.apps.res.ui.CommonEmptyView;
 import com.baidu.swan.apps.res.widget.a.b;
 import com.baidu.tbadk.BaseActivity;
@@ -36,8 +37,8 @@ public class InvoiceListActivity extends BaseActivity {
     private SwanAppBdActionBar dog;
     private RecyclerView.LayoutManager mLayoutManager;
     private String mSource = "source_setting";
-    private c.InterfaceC0326c doN = new c.InterfaceC0326c() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.4
-        @Override // com.baidu.tieba.aiapps.apps.invoice.c.InterfaceC0326c
+    private c.InterfaceC0321c doN = new c.InterfaceC0321c() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.4
+        @Override // com.baidu.tieba.aiapps.apps.invoice.c.InterfaceC0321c
         public void be(List<InvoiceInfo> list) {
             if (InvoiceListActivity.this.doG != null) {
                 InvoiceListActivity.this.AL();
@@ -288,7 +289,7 @@ public class InvoiceListActivity extends BaseActivity {
     public void l(InvoiceInfo invoiceInfo) {
         Intent intent = new Intent(this, InvoiceEditActivity.class);
         intent.putExtra("type", 0);
-        intent.putExtra("invoice", invoiceInfo);
+        intent.putExtra(SlideActiviy.INVOICE_PAGE_NAME, invoiceInfo);
         startActivityForResult(intent, 10002);
     }
 
@@ -304,7 +305,7 @@ public class InvoiceListActivity extends BaseActivity {
         if (i2 == -1) {
             InvoiceInfo invoiceInfo = null;
             if (intent != null) {
-                invoiceInfo = (InvoiceInfo) intent.getParcelableExtra("invoice");
+                invoiceInfo = (InvoiceInfo) intent.getParcelableExtra(SlideActiviy.INVOICE_PAGE_NAME);
             }
             switch (i) {
                 case 10001:

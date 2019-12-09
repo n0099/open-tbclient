@@ -353,14 +353,14 @@ public class SpecialLiveFragment extends BaseFragment {
         this.dAH = new ArrayList();
         this.dAI = new ArrayList();
         this.dAF = new e(getPageContext());
-        this.dAG = new com.baidu.tieba.ala.alasquare.special_forum.model.a(getPageContext(), new a.InterfaceC0337a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.5
-            @Override // com.baidu.tieba.ala.alasquare.special_forum.model.a.InterfaceC0337a
+        this.dAG = new com.baidu.tieba.ala.alasquare.special_forum.model.a(getPageContext(), new a.InterfaceC0332a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.5
+            @Override // com.baidu.tieba.ala.alasquare.special_forum.model.a.InterfaceC0332a
             public void b(h hVar) {
                 SpecialLiveFragment.this.hideLoadingView(SpecialLiveFragment.this.mRootView);
                 SpecialLiveFragment.this.a(hVar);
             }
 
-            @Override // com.baidu.tieba.ala.alasquare.special_forum.model.a.InterfaceC0337a
+            @Override // com.baidu.tieba.ala.alasquare.special_forum.model.a.InterfaceC0332a
             public void R(int i, String str) {
                 SpecialLiveFragment.this.Q(i, str);
             }

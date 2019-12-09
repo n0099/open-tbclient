@@ -63,9 +63,9 @@ public class d implements Handler.Callback {
                             bVar.bQI = true;
                         }
                         d.this.r(bVar);
-                    } else if (completeTaskReqMsg.extra instanceof C0277d) {
-                        obj = (C0277d) completeTaskReqMsg.extra;
-                        d.this.lZ(((C0277d) obj).data);
+                    } else if (completeTaskReqMsg.extra instanceof C0272d) {
+                        obj = (C0272d) completeTaskReqMsg.extra;
+                        d.this.lZ(((C0272d) obj).data);
                     } else if (completeTaskReqMsg.extra instanceof f) {
                         n.aew().aex();
                         obj = null;
@@ -160,20 +160,20 @@ public class d implements Handler.Callback {
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
     public void c(ResponsedMessage<?> responsedMessage) {
-        C0277d c0277d;
+        C0272d c0272d;
         if (responsedMessage != null) {
             CompleteTaskReqMsg completeTaskReqMsg = (CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra();
             if (completeTaskReqMsg.extra instanceof e) {
                 e eVar = (e) completeTaskReqMsg.extra;
                 m(eVar.bSS);
-                c0277d = eVar;
-            } else if (!(completeTaskReqMsg.extra instanceof C0277d)) {
-                c0277d = null;
+                c0272d = eVar;
+            } else if (!(completeTaskReqMsg.extra instanceof C0272d)) {
+                c0272d = null;
             } else {
-                c0277d = (C0277d) completeTaskReqMsg.extra;
+                c0272d = (C0272d) completeTaskReqMsg.extra;
             }
-            if (c0277d != null) {
-                this.bSJ.remove(c0277d);
+            if (c0272d != null) {
+                this.bSJ.remove(c0272d);
             }
             aeP();
         }
@@ -268,7 +268,7 @@ public class d implements Handler.Callback {
                 }
             }
             if (jSONObject != null) {
-                this.bSJ.add(new C0277d(jSONObject.toString()));
+                this.bSJ.add(new C0272d(jSONObject.toString()));
                 aeP();
             }
         }
@@ -309,10 +309,10 @@ public class d implements Handler.Callback {
                 }
                 return false;
             }
-            if (peek instanceof C0277d) {
-                C0277d c0277d = (C0277d) peek;
-                if (c0277d != null && (str = c0277d.data) != null) {
-                    a(str, 1, c0277d);
+            if (peek instanceof C0272d) {
+                C0272d c0272d = (C0272d) peek;
+                if (c0272d != null && (str = c0272d.data) != null) {
+                    a(str, 1, c0272d);
                     return true;
                 }
                 return false;
@@ -348,10 +348,10 @@ public class d implements Handler.Callback {
 
     /* renamed from: com.baidu.tbadk.BdToken.completeTask.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0277d extends a {
+    public static class C0272d extends a {
         public String data;
 
-        public C0277d(String str) {
+        public C0272d(String str) {
             this.data = str;
         }
     }

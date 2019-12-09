@@ -14,17 +14,17 @@ import com.baidu.tieba.square.square.d;
 public class a extends BaseAdapter {
     private d jaR;
     private int jaS = 0;
-    C0515a jaT;
+    C0510a jaT;
     Context mActivity;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.square.flist.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0515a {
+    public class C0510a {
         ImageView jaU;
         TextView jaV;
 
-        C0515a() {
+        C0510a() {
         }
     }
 
@@ -60,7 +60,7 @@ public class a extends BaseAdapter {
         }
         if (this.jaR != null) {
             d dVar = this.jaR.jdm.get(i);
-            this.jaT = (C0515a) view.getTag();
+            this.jaT = (C0510a) view.getTag();
             if (dVar != null) {
                 a(this.jaT, dVar, view, i);
             }
@@ -83,28 +83,28 @@ public class a extends BaseAdapter {
 
     private View cmz() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
-        this.jaT = new C0515a();
+        this.jaT = new C0510a();
         this.jaT.jaU = (ImageView) inflate.findViewById(R.id.menu_choose);
         this.jaT.jaV = (TextView) inflate.findViewById(R.id.menu_name);
         inflate.setTag(this.jaT);
         return inflate;
     }
 
-    private void a(C0515a c0515a, d dVar, View view, int i) {
-        if (c0515a != null && dVar != null) {
-            c0515a.jaV.setText("");
+    private void a(C0510a c0510a, d dVar, View view, int i) {
+        if (c0510a != null && dVar != null) {
+            c0510a.jaV.setText("");
             if (i == 0) {
-                c0515a.jaV.setText(this.mActivity.getString(R.string.all) + dVar.jaZ);
+                c0510a.jaV.setText(this.mActivity.getString(R.string.all) + dVar.jaZ);
             } else {
-                c0515a.jaV.setText(dVar.jaZ);
+                c0510a.jaV.setText(dVar.jaZ);
             }
             if (i != this.jaS) {
-                c0515a.jaU.setVisibility(4);
-                am.setViewTextColor(c0515a.jaV, R.color.common_color_10200, 1);
+                c0510a.jaU.setVisibility(4);
+                am.setViewTextColor(c0510a.jaV, R.color.common_color_10200, 1);
                 return;
             }
-            c0515a.jaU.setVisibility(0);
-            am.setViewTextColor(c0515a.jaV, R.color.common_color_10013, 1);
+            c0510a.jaU.setVisibility(0);
+            am.setViewTextColor(c0510a.jaV, R.color.common_color_10013, 1);
         }
     }
 }

@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class PbNewChudianCommonView extends RelativeLayout implements View.OnClickListener {
     private TextView igA;
     private i igB;
-    private a.InterfaceC0476a igC;
+    private a.InterfaceC0471a igC;
     private BdBaseActivity<?> igu;
     private TextView igv;
     private TextView igw;
@@ -83,13 +83,13 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
         }
     }
 
-    public void setData(i iVar, BdBaseActivity<?> bdBaseActivity, a.InterfaceC0476a interfaceC0476a) {
+    public void setData(i iVar, BdBaseActivity<?> bdBaseActivity, a.InterfaceC0471a interfaceC0471a) {
         h hVar;
         h hVar2;
         if (iVar != null && bdBaseActivity != null) {
             this.igB = iVar;
             this.igu = bdBaseActivity;
-            this.igC = interfaceC0476a;
+            this.igC = interfaceC0471a;
             ArrayList<h> cnR = this.igB.cnR();
             if (cnR != null && cnR.size() > 0 && (hVar = cnR.get(0)) != null && !aq.isEmpty(hVar.getText())) {
                 am.setViewTextColor(this.igv, R.color.cp_other_c, 1);

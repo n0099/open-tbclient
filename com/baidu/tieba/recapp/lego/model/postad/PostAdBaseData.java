@@ -228,7 +228,7 @@ public class PostAdBaseData implements ICardInfo {
 
         /* renamed from: com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static final class C0508a {
+        public static final class C0503a {
             public String downloadUrl;
             public String packageName;
         }
@@ -242,7 +242,7 @@ public class PostAdBaseData implements ICardInfo {
 
         /* loaded from: classes3.dex */
         public static final class c {
-            public C0508a iIL;
+            public C0503a iIL;
         }
 
         public int yk(int i) {
@@ -289,7 +289,7 @@ public class PostAdBaseData implements ICardInfo {
                     aVar.extraData = new c();
                     JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
                     if (optJSONObject3 != null) {
-                        aVar.extraData.iIL = new C0508a();
+                        aVar.extraData.iIL = new C0503a();
                         aVar.extraData.iIL.packageName = optJSONObject3.optString("pkgname");
                         aVar.extraData.iIL.downloadUrl = optJSONObject3.optString("download_url");
                     }

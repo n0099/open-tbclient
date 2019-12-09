@@ -447,8 +447,8 @@ public class i {
             this.idD = null;
             this.fAq.Bn(this.idE);
             this.fAq.bIC().setOnDragingListener(hii);
-            this.fAq.a(new c.InterfaceC0497c() { // from class: com.baidu.tieba.pb.video.i.3
-                @Override // com.baidu.tieba.play.c.InterfaceC0497c
+            this.fAq.a(new c.InterfaceC0492c() { // from class: com.baidu.tieba.pb.video.i.3
+                @Override // com.baidu.tieba.play.c.InterfaceC0492c
                 public void kw() {
                     i.this.hNh.setSwipeBackEnabled(true);
                     i.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.video.i.3.1
@@ -465,7 +465,7 @@ public class i {
                     i.this.startPosition = -1L;
                 }
 
-                @Override // com.baidu.tieba.play.c.InterfaceC0497c
+                @Override // com.baidu.tieba.play.c.InterfaceC0492c
                 public void kv() {
                     i.this.hNh.setSwipeBackEnabled(false);
                     i.this.idU = false;

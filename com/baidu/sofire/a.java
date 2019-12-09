@@ -9,7 +9,7 @@ public final class a {
     public static void a(Context context, Intent intent) {
         int i = 0;
         try {
-            String[] g = com.baidu.sofire.b.e.g(context);
+            String[] g = com.baidu.sofire.i.d.g(context);
             new StringBuilder().append(g[0]).append(" : ").append(g[1]);
             b.a();
             com.baidu.sofire.core.e.a(context, 0, g[0], g[1], 100028);
@@ -22,7 +22,7 @@ public final class a {
                     HashMap hashMap = new HashMap();
                     hashMap.put("0", "152");
                     hashMap.put("1", g[0]);
-                    com.baidu.sofire.b.e.a(context.getApplicationContext(), "1014115", hashMap);
+                    com.baidu.sofire.i.d.a(context.getApplicationContext(), "1014115", hashMap);
                     new StringBuilder().append(hashMap.toString());
                     b.a();
                     break;
@@ -43,7 +43,7 @@ public final class a {
             }, new Class[]{Context.class, Intent.class}, context, intent);
         } catch (Throwable th) {
             b.a();
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
     }
 }

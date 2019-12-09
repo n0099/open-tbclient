@@ -12,7 +12,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.aj.d.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0157a {
+    private static class C0152a {
         public static final a bqv = new a();
     }
 
@@ -20,7 +20,7 @@ public class a {
     }
 
     public static a Tn() {
-        return C0157a.bqv;
+        return C0152a.bqv;
     }
 
     public void a(Activity activity, float f) {

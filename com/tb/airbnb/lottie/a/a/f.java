@@ -11,7 +11,7 @@ import com.tb.airbnb.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class f implements d, a.InterfaceC0577a {
+public class f implements d, a.InterfaceC0572a {
     private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> ksd;
     private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> ksk;
     private final com.tb.airbnb.lottie.f lottieDrawable;
@@ -37,7 +37,7 @@ public class f implements d, a.InterfaceC0577a {
         aVar.a(this.ksd);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0577a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0572a
     public void bt() {
         this.lottieDrawable.invalidateSelf();
     }

@@ -7,7 +7,7 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
 public class a {
-    private InterfaceC0381a exx;
+    private InterfaceC0376a exx;
     private HttpMessageListener exy = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -26,13 +26,13 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0381a {
+    public interface InterfaceC0376a {
         void j(boolean z, String str);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0381a interfaceC0381a) {
+    public a(TbPageContext tbPageContext, InterfaceC0376a interfaceC0376a) {
         this.mPageContext = tbPageContext;
-        this.exx = interfaceC0381a;
+        this.exx = interfaceC0376a;
         this.mPageContext.registerListener(this.exy);
     }
 

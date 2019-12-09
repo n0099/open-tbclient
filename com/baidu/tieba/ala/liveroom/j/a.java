@@ -41,7 +41,7 @@ import org.json.JSONObject;
 public class a {
     private i aaj;
     private ViewGroup dYe;
-    private InterfaceC0362a efO;
+    private InterfaceC0357a efO;
     protected b efP;
     private com.baidu.tieba.ala.guardclub.model.c efQ;
     private com.baidu.tieba.ala.guardclub.view.a efR;
@@ -143,7 +143,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0362a {
+    public interface InterfaceC0357a {
         void aPA();
     }
 
@@ -176,8 +176,8 @@ public class a {
         return true;
     }
 
-    public void a(InterfaceC0362a interfaceC0362a) {
-        this.efO = interfaceC0362a;
+    public void a(InterfaceC0357a interfaceC0357a) {
+        this.efO = interfaceC0357a;
     }
 
     public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, i iVar) {
@@ -261,15 +261,15 @@ public class a {
 
     private void aRW() {
         this.efR = new com.baidu.tieba.ala.guardclub.view.a(this.mTbPageContext.getPageActivity());
-        this.efR.a(new a.InterfaceC0349a() { // from class: com.baidu.tieba.ala.liveroom.j.a.2
-            @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0349a
+        this.efR.a(new a.InterfaceC0344a() { // from class: com.baidu.tieba.ala.liveroom.j.a.2
+            @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0344a
             public void onConfirm() {
                 if (a.this.aRX()) {
                     a.this.efR.dismiss();
                 }
             }
 
-            @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0349a
+            @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0344a
             public void onCancel() {
                 a.this.efR.dismiss();
             }
@@ -352,8 +352,8 @@ public class a {
             }
             if (!z3) {
                 this.efR = new com.baidu.tieba.ala.guardclub.view.a(this.mTbPageContext.getPageActivity());
-                this.efR.a(new a.InterfaceC0349a() { // from class: com.baidu.tieba.ala.liveroom.j.a.3
-                    @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0349a
+                this.efR.a(new a.InterfaceC0344a() { // from class: com.baidu.tieba.ala.liveroom.j.a.3
+                    @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0344a
                     public void onConfirm() {
                         a.this.efR.dismiss();
                         if (a.this.efO != null) {
@@ -361,7 +361,7 @@ public class a {
                         }
                     }
 
-                    @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0349a
+                    @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0344a
                     public void onCancel() {
                         if (!TextUtils.isEmpty(str2)) {
                             StringBuilder sb = new StringBuilder(str2);

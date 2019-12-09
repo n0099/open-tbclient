@@ -218,7 +218,7 @@ public class b {
                             l.showToast(TbadkCoreApplication.getInst(), "验证失败，请您稍后再试");
                         } else {
                             MessageManager.getInstance().runTask(CmdConfigCustom.CMD_INIT_RIM_SDK, (Class) null);
-                            b.bPw().b(data, new C0474b(data));
+                            b.bPw().b(data, new C0469b(data));
                         }
                     }
                 }
@@ -245,10 +245,10 @@ public class b {
 
     /* renamed from: com.baidu.tieba.passaccount.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    static class C0474b implements a {
+    static class C0469b implements a {
         private AuthVerifyData hES;
 
-        public C0474b(AuthVerifyData authVerifyData) {
+        public C0469b(AuthVerifyData authVerifyData) {
             this.hES = authVerifyData;
         }
 

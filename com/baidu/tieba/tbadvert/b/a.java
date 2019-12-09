@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.x;
 /* loaded from: classes3.dex */
 public class a {
     private com.baidu.tieba.tbadvert.a.a jlN;
-    private InterfaceC0523a jlO;
-    private InterfaceC0523a jlP = new InterfaceC0523a() { // from class: com.baidu.tieba.tbadvert.b.a.1
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0523a
+    private InterfaceC0518a jlO;
+    private InterfaceC0518a jlP = new InterfaceC0518a() { // from class: com.baidu.tieba.tbadvert.b.a.1
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0518a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
             a.this.jlN = aVar;
             if (a.this.jlO != null) {
@@ -21,14 +21,14 @@ public class a {
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0523a
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0518a
         public void at(Object obj) {
             if (a.this.jlO != null) {
                 a.this.jlO.at(obj);
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0523a
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0518a
         public void cpM() {
             a.this.jlN = null;
             if (a.this.jlO != null) {
@@ -63,7 +63,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.tbadvert.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0523a {
+    public interface InterfaceC0518a {
         void a(com.baidu.tieba.tbadvert.a.a aVar);
 
         void at(Object obj);
@@ -119,16 +119,16 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0523a interfaceC0523a) {
-        this.jlO = interfaceC0523a;
+    public void a(InterfaceC0518a interfaceC0518a) {
+        this.jlO = interfaceC0518a;
     }
 
     /* loaded from: classes3.dex */
     private class b extends BdAsyncTask<String, Void, Object> {
-        private InterfaceC0523a jlO;
+        private InterfaceC0518a jlO;
 
-        public b(InterfaceC0523a interfaceC0523a) {
-            this.jlO = interfaceC0523a;
+        public b(InterfaceC0518a interfaceC0518a) {
+            this.jlO = interfaceC0518a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */

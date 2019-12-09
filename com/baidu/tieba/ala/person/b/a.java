@@ -26,8 +26,8 @@ public class a implements e {
     private String mUserId;
     private String mUserName;
     private BdUniqueId dFi = BdUniqueId.gen();
-    private InterfaceC0378a euz = new InterfaceC0378a() { // from class: com.baidu.tieba.ala.person.b.a.1
-        @Override // com.baidu.tieba.ala.person.b.a.InterfaceC0378a
+    private InterfaceC0373a euz = new InterfaceC0373a() { // from class: com.baidu.tieba.ala.person.b.a.1
+        @Override // com.baidu.tieba.ala.person.b.a.InterfaceC0373a
         public void a(com.baidu.tieba.ala.person.a.b bVar, View view, int i) {
             if (bVar.live_status != 1) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(a.this.mPageContext.getPageActivity(), bVar.id, bVar.name, bVar.portrait, 0, 0, null, null, 0L, 0L, 0L, bVar.dQP, a.this.mGroupId, a.this.mLiveId, a.this.agL, a.this.agM, null, bVar.getNameShow(), "")));
@@ -70,7 +70,7 @@ public class a implements e {
 
     /* renamed from: com.baidu.tieba.ala.person.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0378a {
+    public interface InterfaceC0373a {
         void a(com.baidu.tieba.ala.person.a.b bVar, View view, int i);
     }
 

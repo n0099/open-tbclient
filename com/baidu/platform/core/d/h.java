@@ -19,6 +19,7 @@ import com.baidu.mapapi.search.route.MassTransitRouteResult;
 import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.sapi2.activity.SlideActiviy;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import java.util.List;
@@ -249,7 +250,7 @@ public class h extends com.baidu.platform.base.d {
                 JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
                 if (jSONObject != null) {
                     PoiInfo poiInfo = new PoiInfo();
-                    poiInfo.address = jSONObject.optString("address");
+                    poiInfo.address = jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME);
                     poiInfo.uid = jSONObject.optString("uid");
                     poiInfo.name = jSONObject.optString("name");
                     JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);

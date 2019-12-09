@@ -30,10 +30,10 @@ public class b extends o<Float, Float> {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tb.airbnb.lottie.model.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0579b implements m.a<Float> {
-        static final C0579b kta = new C0579b();
+    public static class C0574b implements m.a<Float> {
+        static final C0574b kta = new C0574b();
 
-        private C0579b() {
+        private C0574b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,7 +60,7 @@ public class b extends o<Float, Float> {
             if (jSONObject != null && jSONObject.has(Config.EVENT_HEAT_X)) {
                 eVar.E("Lottie doesn't support expressions.");
             }
-            n.a cLC = n.a(jSONObject, bb, eVar, C0579b.kta).cLC();
+            n.a cLC = n.a(jSONObject, bb, eVar, C0574b.kta).cLC();
             return new b(cLC.eR, (Float) cLC.fg);
         }
     }

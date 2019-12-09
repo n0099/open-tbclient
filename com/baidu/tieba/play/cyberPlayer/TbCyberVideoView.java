@@ -35,7 +35,7 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
     private i iwn;
     private d iwr;
     private g.a iyA;
-    private g.InterfaceC0498g iyB;
+    private g.InterfaceC0493g iyB;
     private g.b iyC;
     private g.e iyD;
     private QuickVideoView.b iyE;
@@ -331,8 +331,8 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
     }
 
     @Override // com.baidu.tieba.play.a.a
-    public void setOnSeekCompleteListener(g.InterfaceC0498g interfaceC0498g) {
-        this.iyB = interfaceC0498g;
+    public void setOnSeekCompleteListener(g.InterfaceC0493g interfaceC0493g) {
+        this.iyB = interfaceC0493g;
     }
 
     @Override // com.baidu.tieba.play.a.a

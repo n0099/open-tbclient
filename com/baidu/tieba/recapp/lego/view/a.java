@@ -27,13 +27,13 @@ public class a extends com.baidu.tieba.recapp.a {
 
     @Override // com.baidu.tieba.recapp.a
     public void initListener() {
-        this.dhI = new a.InterfaceC0311a() { // from class: com.baidu.tieba.recapp.lego.view.a.1
-            @Override // com.baidu.tieba.ad.play.a.InterfaceC0311a
+        this.dhI = new a.InterfaceC0306a() { // from class: com.baidu.tieba.recapp.lego.view.a.1
+            @Override // com.baidu.tieba.ad.play.a.InterfaceC0306a
             public void onLoading() {
                 a.this.iGw.loading();
             }
 
-            @Override // com.baidu.tieba.ad.play.a.InterfaceC0311a
+            @Override // com.baidu.tieba.ad.play.a.InterfaceC0306a
             public void onPlay() {
                 a.this.iGw.play();
                 a.this.mStatus = 1;

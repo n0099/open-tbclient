@@ -78,7 +78,7 @@ public class al {
         IBinder.DeathRecipient f853a = null;
 
         /* renamed from: a  reason: collision with other field name */
-        final C0592b f857a = new C0592b();
+        final C0587b f857a = new C0587b();
 
         /* loaded from: classes3.dex */
         public interface a {
@@ -88,7 +88,7 @@ public class al {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.xiaomi.push.service.al$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0592b extends XMPushService.i {
+        public class C0587b extends XMPushService.i {
 
             /* renamed from: a  reason: collision with other field name */
             String f865a;
@@ -98,7 +98,7 @@ public class al {
             String f866b;
             int c;
 
-            public C0592b() {
+            public C0587b() {
                 super(0);
             }
 

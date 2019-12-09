@@ -53,7 +53,7 @@ public class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        a(J(activity), relativeLayout, i, layoutParams, a.C0151a.aiapps_toast_enter);
+        a(J(activity), relativeLayout, i, layoutParams, a.C0146a.aiapps_toast_enter);
     }
 
     static View J(@NonNull Activity activity) {
@@ -76,7 +76,7 @@ public class e {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 81;
         layoutParams.bottomMargin = (int) resources.getDimension(a.d.aiapps_clickable_toast_view_margin_bottom);
-        a(J(activity), relativeLayout, i, layoutParams, a.C0151a.aiapps_toast_enter);
+        a(J(activity), relativeLayout, i, layoutParams, a.C0146a.aiapps_toast_enter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -99,7 +99,7 @@ public class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        a(J(activity), linearLayout, i, layoutParams, a.C0151a.aiapps_highlight_toast_show);
+        a(J(activity), linearLayout, i, layoutParams, a.C0146a.aiapps_highlight_toast_show);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -115,7 +115,7 @@ public class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        a(J(activity), linearLayout, i, layoutParams, a.C0151a.aiapps_highlight_toast_show);
+        a(J(activity), linearLayout, i, layoutParams, a.C0146a.aiapps_highlight_toast_show);
     }
 
     private static void a(View view, View view2, int i, FrameLayout.LayoutParams layoutParams, @AnimRes int i2) {
@@ -279,7 +279,7 @@ public class e {
                 animation = animationSet;
                 break;
             default:
-                animation = AnimationUtils.loadAnimation(activity, a.C0151a.aiapps_toast_enter);
+                animation = AnimationUtils.loadAnimation(activity, a.C0146a.aiapps_toast_enter);
                 break;
         }
         a(J(activity), linearLayout, i4, layoutParams, animation);
@@ -311,7 +311,7 @@ public class e {
 
         @Override // java.lang.Runnable
         public void run() {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.bjE.getContext(), a.C0151a.aiapps_toast_exit);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.bjE.getContext(), a.C0146a.aiapps_toast_exit);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {

@@ -29,8 +29,8 @@ public class b extends com.baidu.tbadk.baseEditMark.a {
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0279a interfaceC0279a) {
-        this.hzE.a(interfaceC0279a);
+    public void a(a.InterfaceC0274a interfaceC0274a) {
+        this.hzE.a(interfaceC0274a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a

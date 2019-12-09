@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes4.dex */
 public class a extends PopupWindow {
     private TbPageContext ceu;
-    private InterfaceC0426a gia;
+    private InterfaceC0421a gia;
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0426a {
+    public interface InterfaceC0421a {
         void bud();
     }
 
@@ -55,7 +55,7 @@ public class a extends PopupWindow {
         super.dismiss();
     }
 
-    public void a(InterfaceC0426a interfaceC0426a) {
-        this.gia = interfaceC0426a;
+    public void a(InterfaceC0421a interfaceC0421a) {
+        this.gia = interfaceC0421a;
     }
 }

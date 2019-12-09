@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0477a hJk;
+    private InterfaceC0472a hJk;
     private int count = 0;
     private long hJi = 0;
     private long hJj = 0;
@@ -31,14 +31,14 @@ public class a implements View.OnTouchListener {
 
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0477a {
+    public interface InterfaceC0472a {
         void bRn();
 
         void bRo();
     }
 
-    public a(InterfaceC0477a interfaceC0477a) {
-        this.hJk = interfaceC0477a;
+    public a(InterfaceC0472a interfaceC0472a) {
+        this.hJk = interfaceC0472a;
     }
 
     @Override // android.view.View.OnTouchListener

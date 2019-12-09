@@ -27,7 +27,7 @@ public class b {
     private PersonEmptyView euF;
     private int euG;
     private boolean euH;
-    private a.InterfaceC0378a euz;
+    private a.InterfaceC0373a euz;
     private boolean mHasMore;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -121,8 +121,8 @@ public class b {
         return this.mRootView;
     }
 
-    public void a(a.InterfaceC0378a interfaceC0378a) {
-        this.euz = interfaceC0378a;
+    public void a(a.InterfaceC0373a interfaceC0373a) {
+        this.euz = interfaceC0373a;
     }
 
     public void showLoadingView() {
@@ -154,8 +154,8 @@ public class b {
                 }
             }
         });
-        this.euB.a(new a.InterfaceC0377a() { // from class: com.baidu.tieba.ala.person.b.b.3
-            @Override // com.baidu.tieba.ala.person.adapter.a.InterfaceC0377a
+        this.euB.a(new a.InterfaceC0372a() { // from class: com.baidu.tieba.ala.person.b.b.3
+            @Override // com.baidu.tieba.ala.person.adapter.a.InterfaceC0372a
             public void a(com.baidu.tieba.ala.person.a.b bVar, View view) {
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(b.this.mPageContext.getPageActivity());

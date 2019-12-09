@@ -13,8 +13,8 @@ public class c {
     private boolean hKd;
     private final a hKe;
     private final com.baidu.tieba.f.b hKf;
-    private a.InterfaceC0405a hKg = new a.InterfaceC0405a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
-        @Override // com.baidu.tieba.f.a.InterfaceC0405a
+    private a.InterfaceC0400a hKg = new a.InterfaceC0400a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
+        @Override // com.baidu.tieba.f.a.InterfaceC0400a
         public void t(int i, int i2) {
             if (c.this.hKe.isActive() && !c.this.bRF() && c.this.hKe.bRB().bRL() && Math.abs(i2) > c.TOUCH_SLOP) {
                 c.this.hKe.n(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
@@ -28,7 +28,7 @@ public class c {
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0405a
+        @Override // com.baidu.tieba.f.a.InterfaceC0400a
         public void u(int i, int i2) {
             if (c.this.hKe.isActive() && !c.this.bRF() && !c.this.bRG()) {
                 c.this.nW(true);
@@ -42,7 +42,7 @@ public class c {
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0405a
+        @Override // com.baidu.tieba.f.a.InterfaceC0400a
         public void v(int i, int i2) {
         }
     };

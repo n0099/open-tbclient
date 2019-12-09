@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ScrollView;
+import com.baidu.sapi2.activity.SlideActiviy;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
@@ -137,7 +138,7 @@ public class InvoiceEditActivity extends BaseActivity {
 
     private void ag(Intent intent) {
         if (intent != null && this.mType == 0) {
-            InvoiceInfo invoiceInfo = (InvoiceInfo) intent.getParcelableExtra("invoice");
+            InvoiceInfo invoiceInfo = (InvoiceInfo) intent.getParcelableExtra(SlideActiviy.INVOICE_PAGE_NAME);
             this.dof = invoiceInfo;
             if (invoiceInfo != null) {
                 this.doe.d(this.dof);
@@ -155,7 +156,7 @@ public class InvoiceEditActivity extends BaseActivity {
                     com.baidu.swan.apps.console.c.i("chooseInvoiceTitle", "修改发票成功");
                     InvoiceEditActivity.this.AL();
                     Intent intent = new Intent();
-                    intent.putExtra("invoice", invoiceInfo2);
+                    intent.putExtra(SlideActiviy.INVOICE_PAGE_NAME, invoiceInfo2);
                     InvoiceEditActivity.this.setResult(-1, intent);
                     InvoiceEditActivity.this.finish();
                 }
@@ -184,7 +185,7 @@ public class InvoiceEditActivity extends BaseActivity {
                     com.baidu.swan.apps.console.c.i("chooseInvoiceTitle", "创建发票成功");
                     InvoiceEditActivity.this.AL();
                     Intent intent = new Intent();
-                    intent.putExtra("invoice", invoiceInfo2);
+                    intent.putExtra(SlideActiviy.INVOICE_PAGE_NAME, invoiceInfo2);
                     InvoiceEditActivity.this.setResult(-1, intent);
                     InvoiceEditActivity.this.finish();
                 }

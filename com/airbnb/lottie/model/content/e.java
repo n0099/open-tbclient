@@ -6,7 +6,6 @@ import com.airbnb.lottie.model.a.c;
 import com.airbnb.lottie.model.a.d;
 import com.airbnb.lottie.model.a.f;
 import com.airbnb.lottie.model.content.ShapeStroke;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.List;
@@ -97,7 +96,7 @@ public class e implements b {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static e q(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
             String optString = jSONObject.optString("nm");
-            JSONObject optJSONObject = jSONObject.optJSONObject(IXAdRequestInfo.GPS);
+            JSONObject optJSONObject = jSONObject.optJSONObject("g");
             if (optJSONObject != null && optJSONObject.has("k")) {
                 optJSONObject = optJSONObject.optJSONObject("k");
             }
@@ -134,7 +133,7 @@ public class e implements b {
                     String optString2 = optJSONObject5.optString("n");
                     if (optString2.equals(Config.OS)) {
                         bVar2 = b.a.e(optJSONObject5.optJSONObject("v"), eVar);
-                    } else if (optString2.equals("d") || optString2.equals(IXAdRequestInfo.GPS)) {
+                    } else if (optString2.equals("d") || optString2.equals("g")) {
                         arrayList.add(b.a.e(optJSONObject5.optJSONObject("v"), eVar));
                     }
                 }

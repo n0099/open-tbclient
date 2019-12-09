@@ -59,8 +59,8 @@ public class b implements e {
                 }
                 return;
             }
-            a.a(this.hxl, this.hxl + "_moov_head_suffix", new a.InterfaceC0452a() { // from class: com.baidu.tieba.k.b.2
-                @Override // com.baidu.tieba.k.a.InterfaceC0452a
+            a.a(this.hxl, this.hxl + "_moov_head_suffix", new a.InterfaceC0447a() { // from class: com.baidu.tieba.k.b.2
+                @Override // com.baidu.tieba.k.a.InterfaceC0447a
                 public void no(boolean z) {
                     if (b.this.hxm && z) {
                         b.this.hxn = true;

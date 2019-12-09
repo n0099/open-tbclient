@@ -32,19 +32,19 @@ public class a extends PopupWindow {
     private int aqM;
     private AlbumActivity jRS;
     private b jRT;
-    private InterfaceC0545a jRU;
+    private InterfaceC0540a jRU;
     private ListView mListView;
     private final View.OnClickListener mOnClickListener;
     private final AdapterView.OnItemClickListener mOnItemClickListener;
 
     /* renamed from: com.baidu.tieba.write.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0545a {
+    public interface InterfaceC0540a {
         void a(int i, com.baidu.tbadk.album.a aVar);
     }
 
-    public void a(InterfaceC0545a interfaceC0545a) {
-        this.jRU = interfaceC0545a;
+    public void a(InterfaceC0540a interfaceC0540a) {
+        this.jRU = interfaceC0540a;
     }
 
     public a(AlbumActivity albumActivity) {

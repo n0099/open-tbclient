@@ -30,7 +30,7 @@ public class a extends Dialog implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.ala.liveroom.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0366a {
+    public interface InterfaceC0361a {
         void onConfirm();
     }
 
@@ -85,8 +85,8 @@ public class a extends Dialog implements View.OnClickListener {
                 if (this.emz != null && this.emz.user_info != null) {
                     if (aVw()) {
                         TiebaInitialize.log("c12271");
-                        a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.1
-                            @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
+                        a(new InterfaceC0361a() { // from class: com.baidu.tieba.ala.liveroom.n.a.1
+                            @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0361a
                             public void onConfirm() {
                                 if (a.this.emz != null && a.this.emz.user_info != null) {
                                     a.this.emz.user_info.is_block = 0;
@@ -97,8 +97,8 @@ public class a extends Dialog implements View.OnClickListener {
                         return;
                     }
                     TiebaInitialize.log("c12267");
-                    a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.2
-                        @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
+                    a(new InterfaceC0361a() { // from class: com.baidu.tieba.ala.liveroom.n.a.2
+                        @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0361a
                         public void onConfirm() {
                             if (a.this.emz != null && a.this.emz.user_info != null) {
                                 a.this.emz.user_info.is_block = 1;
@@ -111,8 +111,8 @@ public class a extends Dialog implements View.OnClickListener {
                 if (this.emz != null && this.emz.user_info != null) {
                     if (aVv()) {
                         TiebaInitialize.log("c12271");
-                        a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.3
-                            @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
+                        a(new InterfaceC0361a() { // from class: com.baidu.tieba.ala.liveroom.n.a.3
+                            @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0361a
                             public void onConfirm() {
                                 if (a.this.emz != null && a.this.emz.user_info != null) {
                                     a.this.emz.user_info.is_block = 0;
@@ -123,8 +123,8 @@ public class a extends Dialog implements View.OnClickListener {
                         return;
                     }
                     TiebaInitialize.log("c12268");
-                    a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.4
-                        @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
+                    a(new InterfaceC0361a() { // from class: com.baidu.tieba.ala.liveroom.n.a.4
+                        @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0361a
                         public void onConfirm() {
                             if (a.this.emz != null && a.this.emz.user_info != null) {
                                 a.this.emz.user_info.is_block = 2;
@@ -137,8 +137,8 @@ public class a extends Dialog implements View.OnClickListener {
                 if (this.emz != null && this.emz.login_user_info != null) {
                     if (aVx()) {
                         TiebaInitialize.log("c12270");
-                        a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.5
-                            @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
+                        a(new InterfaceC0361a() { // from class: com.baidu.tieba.ala.liveroom.n.a.5
+                            @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0361a
                             public void onConfirm() {
                                 if (a.this.emz != null && a.this.emz.login_user_info != null) {
                                     a.this.emz.login_user_info.is_live_admin = 1;
@@ -148,8 +148,8 @@ public class a extends Dialog implements View.OnClickListener {
                         }, String.format(getContext().getResources().getString(a.i.ala_person_appoint_admin_confirm_tip), this.emz.user_info.getNameShow()));
                     } else if (aVy()) {
                         TiebaInitialize.log("c12272");
-                        a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.6
-                            @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
+                        a(new InterfaceC0361a() { // from class: com.baidu.tieba.ala.liveroom.n.a.6
+                            @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0361a
                             public void onConfirm() {
                                 if (a.this.emz != null && a.this.emz.login_user_info != null) {
                                     a.this.emz.login_user_info.is_live_admin = 0;
@@ -159,8 +159,8 @@ public class a extends Dialog implements View.OnClickListener {
                         }, String.format(getContext().getResources().getString(a.i.ala_person_fire_admin_confirm_tip), this.emz.user_info.getNameShow()));
                     } else if (aVz()) {
                         TiebaInitialize.log("c12269");
-                        a(new InterfaceC0366a() { // from class: com.baidu.tieba.ala.liveroom.n.a.7
-                            @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0366a
+                        a(new InterfaceC0361a() { // from class: com.baidu.tieba.ala.liveroom.n.a.7
+                            @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0361a
                             public void onConfirm() {
                                 if (a.this.emz != null && a.this.emz.login_user_info != null) {
                                     a.this.emz.login_user_info.is_live_admin = 0;
@@ -176,7 +176,7 @@ public class a extends Dialog implements View.OnClickListener {
         }
     }
 
-    private void a(final InterfaceC0366a interfaceC0366a, String str) {
+    private void a(final InterfaceC0361a interfaceC0361a, String str) {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(this.mPageContext.getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
@@ -185,8 +185,8 @@ public class a extends Dialog implements View.OnClickListener {
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog2) {
                 bdAlertDialog2.dismiss();
-                if (interfaceC0366a != null) {
-                    interfaceC0366a.onConfirm();
+                if (interfaceC0361a != null) {
+                    interfaceC0361a.onConfirm();
                 }
             }
         });

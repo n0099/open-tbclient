@@ -58,8 +58,8 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     private int hEw = -2;
     private boolean mClose = false;
     private int hEy = -1;
-    private final a.InterfaceC0280a dgl = new a.InterfaceC0280a() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.3
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0280a
+    private final a.InterfaceC0275a dgl = new a.InterfaceC0275a() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.3
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0275a
         public void onBeforeLogin(String str) {
             if (LoginActivity.this.getLoadingDialog() == null || !LoginActivity.this.getLoadingDialog().isShowing()) {
                 LoginActivity.this.showLoadingDialog(LoginActivity.this.getPageContext().getString(R.string.sapi_logining), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.3.1
@@ -71,7 +71,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0280a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0275a
         public void a(AccountData accountData) {
             com.baidu.tbadk.core.e.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
             TiebaStatic.log(new an("c12948").O("obj_type", LoginActivity.this.hEs).bS(TiebaInitialize.Params.OBJ_URL, LoginActivity.this.hEx));
@@ -83,7 +83,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0280a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0275a
         public void onFailure(String str, int i, String str2) {
             com.baidu.tbadk.core.e.a.a("account", -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
             LoginActivity.this.closeLoadingDialog();
@@ -123,24 +123,21 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     protected void bPh() {
-        boolean z = true;
         try {
-            if (SapiAccountManager.getInstance().getConfignation() != null) {
-                z = false;
-            }
+            SapiAccountManager.getInstance().getConfignation();
         } catch (Exception e) {
+            sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SAPI_INIT, TbadkCoreApplication.getInst().getApp()));
         }
-        if (z) {
-            CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_SAPI_INIT, TbadkCoreApplication.getInst().getApp());
-            customMessage.setExtra(Boolean.TRUE);
-            sendMessage(customMessage);
+        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+        if (confignation != null && !confignation.isAgreeDangerousProtocol()) {
+            confignation.setAgreeDangerousProtocol(true);
         }
         MessageManager.getInstance().runTask(CmdConfigCustom.CMD_INIT_RIM_SDK, (Class) null);
         PassManagerStatic.bPr();
-        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
-        if (confignation != null && confignation.fastLoginFeatureList != null) {
-            confignation.fastLoginFeatureList.clear();
-            confignation.fastLoginFeatureList.addAll(PassManagerStatic.bPp());
+        SapiConfiguration confignation2 = SapiAccountManager.getInstance().getConfignation();
+        if (confignation2 != null && confignation2.fastLoginFeatureList != null) {
+            confignation2.fastLoginFeatureList.clear();
+            confignation2.fastLoginFeatureList.addAll(PassManagerStatic.bPp());
         }
         bPk();
         if (bPi()) {

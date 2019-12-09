@@ -42,7 +42,7 @@ public class e {
                                 bc.skipToLoginActivity(e.this.mActivity.getActivity());
                                 return;
                             }
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, a.C0281a.a(e.this.icZ.channelId, e.this.mActivity.getUniqueId())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, a.C0276a.a(e.this.icZ.channelId, e.this.mActivity.getUniqueId())));
                             return;
                         }
                         return;

@@ -12,13 +12,13 @@ public class a<T> {
     private final f cIA;
     private String mPath;
     public T progessObject;
-    private WeakReference<InterfaceC0297a<T>> mUploadProgressCallback = null;
+    private WeakReference<InterfaceC0292a<T>> mUploadProgressCallback = null;
     private c cIy = null;
     private a<T>.b cIz = null;
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0297a<T> {
+    public interface InterfaceC0292a<T> {
         void onImageProgessInUI(int i, T t);
     }
 
@@ -91,7 +91,7 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onProgressUpdate(Integer... numArr) {
             if (numArr != null && numArr.length != 0 && a.this.mUploadProgressCallback != null && a.this.mUploadProgressCallback.get() != null) {
-                ((InterfaceC0297a) a.this.mUploadProgressCallback.get()).onImageProgessInUI(numArr[0].intValue(), a.this.progessObject);
+                ((InterfaceC0292a) a.this.mUploadProgressCallback.get()).onImageProgessInUI(numArr[0].intValue(), a.this.progessObject);
             }
         }
 
@@ -133,8 +133,8 @@ public class a<T> {
         }
     }
 
-    public void a(InterfaceC0297a<T> interfaceC0297a) {
-        this.mUploadProgressCallback = new WeakReference<>(interfaceC0297a);
+    public void a(InterfaceC0292a<T> interfaceC0292a) {
+        this.mUploadProgressCallback = new WeakReference<>(interfaceC0292a);
     }
 
     public void a(c cVar) {

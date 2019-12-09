@@ -7,10 +7,10 @@ public class AccountCenterResult extends SapiResult {
     public boolean isAccountFreeze = false;
     public String preSetUserName;
 
-    public void loginSuc() {
-    }
-
     public AccountCenterResult() {
         this.msgMap.put(-10001, "请登录");
+    }
+
+    public void loginSuc() {
     }
 }

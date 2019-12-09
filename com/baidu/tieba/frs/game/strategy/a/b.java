@@ -33,8 +33,8 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
     private int fGp = 0;
     private boolean mIsLoading = false;
     private Handler mHandler = new Handler();
-    private a.InterfaceC0411a fGr = new a.InterfaceC0411a() { // from class: com.baidu.tieba.frs.game.strategy.a.b.1
-        @Override // com.baidu.tieba.frs.game.strategy.a.a.InterfaceC0411a
+    private a.InterfaceC0406a fGr = new a.InterfaceC0406a() { // from class: com.baidu.tieba.frs.game.strategy.a.b.1
+        @Override // com.baidu.tieba.frs.game.strategy.a.a.InterfaceC0406a
         public void b(List<e> list, List<m> list2, boolean z) {
             if (b.this.fGl != null && b.this.fGd != null) {
                 b.this.fGd.a(0, 0, list2, list, z, true, -1);

@@ -17,7 +17,7 @@ public class a extends BaseAdapter {
     private final int[] ejQ;
     private final short[] ejR;
     private final int[] ejS;
-    private InterfaceC0365a ejT;
+    private InterfaceC0360a ejT;
     private View.OnClickListener ejU = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.panel.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -50,7 +50,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.master.panel.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0365a {
+    public interface InterfaceC0360a {
         void y(int i, boolean z);
     }
 
@@ -214,7 +214,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void a(InterfaceC0365a interfaceC0365a) {
-        this.ejT = interfaceC0365a;
+    public void a(InterfaceC0360a interfaceC0360a) {
+        this.ejT = interfaceC0360a;
     }
 }

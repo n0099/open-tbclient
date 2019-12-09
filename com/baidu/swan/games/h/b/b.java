@@ -34,7 +34,7 @@ public class b extends h {
         if (dVar == null) {
             return new com.baidu.swan.apps.ak.a().ar(13L).at(2907L).iK("小游戏GameCore包 Framework null");
         }
-        a.C0227a d = com.baidu.swan.apps.swancore.e.a.d(dVar.versionName, dVar.filePath, dVar.sign, 1);
+        a.C0222a d = com.baidu.swan.apps.swancore.e.a.d(dVar.versionName, dVar.filePath, dVar.sign, 1);
         com.baidu.swan.c.a.deleteFile(dVar.filePath);
         if (d.isOk()) {
             if (DEBUG) {

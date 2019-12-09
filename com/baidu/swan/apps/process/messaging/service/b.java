@@ -17,8 +17,8 @@ public final class b {
     }
 
     public void a(final SwanAppProcessInfo swanAppProcessInfo, final int i, final Bundle bundle) {
-        com.baidu.swan.apps.process.a.Og().b(new a.InterfaceC0199a() { // from class: com.baidu.swan.apps.process.messaging.service.b.1
-            @Override // com.baidu.swan.apps.process.a.InterfaceC0199a
+        com.baidu.swan.apps.process.a.Og().b(new a.InterfaceC0194a() { // from class: com.baidu.swan.apps.process.messaging.service.b.1
+            @Override // com.baidu.swan.apps.process.a.InterfaceC0194a
             public void onReady() {
                 SwanAppMessengerService serviceObject = SwanAppMessengerService.getServiceObject();
                 if (serviceObject != null) {

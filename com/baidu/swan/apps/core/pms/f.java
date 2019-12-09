@@ -33,7 +33,7 @@ public class f extends h {
         if (dVar == null) {
             return new com.baidu.swan.apps.ak.a().ar(13L).at(2907L).iK("小程序Core包 Framework null");
         }
-        a.C0227a d = com.baidu.swan.apps.swancore.e.a.d(dVar.versionName, dVar.filePath, dVar.sign, 0);
+        a.C0222a d = com.baidu.swan.apps.swancore.e.a.d(dVar.versionName, dVar.filePath, dVar.sign, 0);
         if (DEBUG) {
             Log.d("SwanAppUpdateCoreCallback", "SwanCore RemoteCoreUpdateStatus: " + d);
         }

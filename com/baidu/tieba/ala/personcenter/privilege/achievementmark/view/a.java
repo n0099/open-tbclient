@@ -41,7 +41,7 @@ public class a {
     private AlaNetRefreshView eyY;
     private RelativeLayout eyZ;
     private TextView eza;
-    private InterfaceC0384a ezb;
+    private InterfaceC0379a ezb;
     private List<AlaLiveMarkData> ezc = new ArrayList();
     private b.a ezd = new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a.2
         @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.a
@@ -56,13 +56,13 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0384a {
+    public interface InterfaceC0379a {
         void a(com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b bVar);
     }
 
-    public a(TbPageContext<BaseFragmentActivity> tbPageContext, InterfaceC0384a interfaceC0384a) {
+    public a(TbPageContext<BaseFragmentActivity> tbPageContext, InterfaceC0379a interfaceC0379a) {
         this.ceu = tbPageContext;
-        this.ezb = interfaceC0384a;
+        this.ezb = interfaceC0379a;
         initView();
     }
 

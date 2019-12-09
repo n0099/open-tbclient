@@ -107,7 +107,7 @@ public class g {
                     bc.skipToLoginActivity(this.ceu.getPageActivity());
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, a.C0281a.a(this.icZ.channelId, this.ceu.getUniqueId())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, a.C0276a.a(this.icZ.channelId, this.ceu.getUniqueId())));
             }
         }
     }

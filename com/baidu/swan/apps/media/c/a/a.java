@@ -118,8 +118,8 @@ public class a extends z {
             a(callbackHandler, unitedSchemeEntity, str, context, aVar, bVar, str2, str3);
             return;
         }
-        e.LE().a(2, new String[]{"android.permission.RECORD_AUDIO"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.media.c.a.a.2
-            @Override // com.baidu.swan.apps.ab.a.InterfaceC0152a
+        e.LE().a(2, new String[]{"android.permission.RECORD_AUDIO"}, new a.InterfaceC0147a() { // from class: com.baidu.swan.apps.media.c.a.a.2
+            @Override // com.baidu.swan.apps.ab.a.InterfaceC0147a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 if (i != 2 || iArr.length <= 0) {
                     if (a.DEBUG) {

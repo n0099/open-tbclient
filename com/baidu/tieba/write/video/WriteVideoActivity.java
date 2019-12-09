@@ -79,7 +79,7 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
     private boolean jRv;
     private Runnable jRw;
     private Runnable jRx;
-    private a.InterfaceC0519a jlt;
+    private a.InterfaceC0514a jlt;
     private l jly;
     private int jxI;
     private String jxJ;
@@ -203,8 +203,8 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
                 }
             }
         };
-        this.jlt = new a.InterfaceC0519a() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.14
-            @Override // com.baidu.tieba.tbadkCore.c.a.InterfaceC0519a
+        this.jlt = new a.InterfaceC0514a() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.14
+            @Override // com.baidu.tieba.tbadkCore.c.a.InterfaceC0514a
             public void zS(int i) {
                 WriteVideoActivity.this.jRs = i;
                 com.baidu.adp.lib.g.e.fZ().post(WriteVideoActivity.this.jRx);

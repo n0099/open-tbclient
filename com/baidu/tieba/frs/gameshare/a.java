@@ -55,13 +55,13 @@ public class a {
     private TextView fJp;
     private TextView fJq;
     private TextView fJr;
-    private InterfaceC0413a fJs;
+    private InterfaceC0408a fJs;
     private BlurDrawable fJt;
     private FrameLayout mContentLayout;
 
     /* renamed from: com.baidu.tieba.frs.gameshare.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0413a {
+    public interface InterfaceC0408a {
         void onCancel();
 
         void t(Bitmap bitmap);
@@ -73,8 +73,8 @@ public class a {
         void w(Bitmap bitmap);
     }
 
-    public a(Context context, InterfaceC0413a interfaceC0413a) {
-        this.fJs = interfaceC0413a;
+    public a(Context context, InterfaceC0408a interfaceC0408a) {
+        this.fJs = interfaceC0408a;
         this.bEf = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.activity_game_share_layout, (ViewGroup) null);
         this.mContentLayout = (FrameLayout) this.bEf.findViewById(R.id.game_share_content_layout);
         this.fIQ = (ImageView) this.bEf.findViewById(R.id.game_share_content_bg_view);

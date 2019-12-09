@@ -11,7 +11,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
     protected EditorTools CJ;
     private CommonTabContentView.b cHc;
     private b cHh;
-    private InterfaceC0295a cHi;
+    private InterfaceC0290a cHi;
     private CommonTabHost.a cHl;
     private int column = 0;
     private int row = 0;
@@ -25,7 +25,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
 
     /* renamed from: com.baidu.tbadk.editortools.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0295a {
+    public interface InterfaceC0290a {
         View getView(int i, View view, ViewGroup viewGroup);
     }
 
@@ -63,12 +63,12 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.cHh = bVar;
     }
 
-    public InterfaceC0295a auZ() {
+    public InterfaceC0290a auZ() {
         return this.cHi;
     }
 
-    public void a(InterfaceC0295a interfaceC0295a) {
-        this.cHi = interfaceC0295a;
+    public void a(InterfaceC0290a interfaceC0290a) {
+        this.cHi = interfaceC0290a;
     }
 
     public int getColumn() {

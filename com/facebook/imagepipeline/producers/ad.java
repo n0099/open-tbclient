@@ -83,7 +83,7 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
         private d klt;
         @GuardedBy("Multiplexer.this")
         @Nullable
-        private ad<K, T>.a.C0566a klu;
+        private ad<K, T>.a.C0561a klu;
 
         public a(K k) {
             this.bv = k;
@@ -194,7 +194,7 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
                 }
                 aj ajVar = (aj) this.klq.iterator().next().second;
                 this.klt = new d(ajVar.cIF(), ajVar.getId(), ajVar.cIG(), ajVar.cDZ(), ajVar.cIH(), cJf(), cJh(), cJj());
-                this.klu = new C0566a();
+                this.klu = new C0561a();
                 ad.this.kkh.a(this.klu, this.klt);
             }
         }
@@ -266,9 +266,9 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
             return priority;
         }
 
-        public void a(ad<K, T>.a.C0566a c0566a, Throwable th) {
+        public void a(ad<K, T>.a.C0561a c0561a, Throwable th) {
             synchronized (this) {
-                if (this.klu == c0566a) {
+                if (this.klu == c0561a) {
                     Iterator<Pair<j<T>, aj>> it = this.klq.iterator();
                     this.klq.clear();
                     ad.this.a((ad) this.bv, (ad<ad, T>.a) this);
@@ -284,9 +284,9 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
             }
         }
 
-        public void a(ad<K, T>.a.C0566a c0566a, T t, boolean z) {
+        public void a(ad<K, T>.a.C0561a c0561a, T t, boolean z) {
             synchronized (this) {
-                if (this.klu == c0566a) {
+                if (this.klu == c0561a) {
                     b(this.klr);
                     this.klr = null;
                     Iterator<Pair<j<T>, aj>> it = this.klq.iterator();
@@ -306,9 +306,9 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
             }
         }
 
-        public void a(ad<K, T>.a.C0566a c0566a) {
+        public void a(ad<K, T>.a.C0561a c0561a) {
             synchronized (this) {
-                if (this.klu == c0566a) {
+                if (this.klu == c0561a) {
                     this.klu = null;
                     this.klt = null;
                     b(this.klr);
@@ -318,9 +318,9 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
             }
         }
 
-        public void a(ad<K, T>.a.C0566a c0566a, float f) {
+        public void a(ad<K, T>.a.C0561a c0561a, float f) {
             synchronized (this) {
-                if (this.klu == c0566a) {
+                if (this.klu == c0561a) {
                     this.kls = f;
                     Iterator<Pair<j<T>, aj>> it = this.klq.iterator();
                     while (it.hasNext()) {
@@ -346,8 +346,8 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.imagepipeline.producers.ad$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0566a extends b<T> {
-            private C0566a() {
+        public class C0561a extends b<T> {
+            private C0561a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */

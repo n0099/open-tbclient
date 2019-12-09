@@ -15,7 +15,7 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.process.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0199a {
+    public interface InterfaceC0194a {
         void onReady();
     }
 
@@ -33,14 +33,14 @@ public final class a {
         return bau;
     }
 
-    private void a(final InterfaceC0199a interfaceC0199a) {
+    private void a(final InterfaceC0194a interfaceC0194a) {
         Context appContext = AppRuntime.getAppContext();
         appContext.bindService(new Intent(appContext, SwanAppMessengerService.class), new ServiceConnection() { // from class: com.baidu.swan.apps.process.a.1
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 a.this.bav = SwanAppMessengerService.getServiceObject();
-                if (interfaceC0199a != null) {
-                    interfaceC0199a.onReady();
+                if (interfaceC0194a != null) {
+                    interfaceC0194a.onReady();
                 }
             }
 
@@ -51,12 +51,12 @@ public final class a {
         }, 1);
     }
 
-    public void b(InterfaceC0199a interfaceC0199a) {
-        if (interfaceC0199a != null) {
+    public void b(InterfaceC0194a interfaceC0194a) {
+        if (interfaceC0194a != null) {
             if (this.bav == null) {
-                a(interfaceC0199a);
+                a(interfaceC0194a);
             } else {
-                interfaceC0199a.onReady();
+                interfaceC0194a.onReady();
             }
         }
     }

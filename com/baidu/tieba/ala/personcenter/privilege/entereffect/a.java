@@ -15,7 +15,7 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffec
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private InterfaceC0386a ezD;
+    private InterfaceC0381a ezD;
     private BdAsyncTask ezE;
     private HttpMessageListener ezF = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,13 +66,13 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.entereffect.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0386a {
+    public interface InterfaceC0381a {
         void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0386a interfaceC0386a) {
+    public a(TbPageContext tbPageContext, InterfaceC0381a interfaceC0381a) {
         this.mPageContext = tbPageContext;
-        this.ezD = interfaceC0386a;
+        this.ezD = interfaceC0381a;
         this.mPageContext.registerListener(this.ezF);
     }
 

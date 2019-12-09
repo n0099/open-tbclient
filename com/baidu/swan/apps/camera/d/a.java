@@ -31,7 +31,7 @@ public class a extends com.baidu.swan.apps.model.a.a.a {
     }
 
     public String CJ() {
-        return C0165a.dW(this.aFb);
+        return C0160a.dW(this.aFb);
     }
 
     public int getWidth() {
@@ -44,7 +44,7 @@ public class a extends com.baidu.swan.apps.model.a.a.a {
 
     /* renamed from: com.baidu.swan.apps.camera.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0165a {
+    private static class C0160a {
         static String dW(String str) {
             char c = 65535;
             switch (str.hashCode()) {

@@ -14,7 +14,7 @@ public class b extends com.baidu.tieba.f.a {
     }
 
     public b(Context context) {
-        this.mScaleGestureDetector = new ScaleGestureDetector(context, new C0406b());
+        this.mScaleGestureDetector = new ScaleGestureDetector(context, new C0401b());
     }
 
     public void a(a aVar) {
@@ -23,10 +23,10 @@ public class b extends com.baidu.tieba.f.a {
 
     /* renamed from: com.baidu.tieba.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private final class C0406b extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+    private final class C0401b extends ScaleGestureDetector.SimpleOnScaleGestureListener {
         private boolean aln;
 
-        private C0406b() {
+        private C0401b() {
             this.aln = false;
         }
 

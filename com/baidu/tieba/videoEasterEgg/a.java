@@ -86,7 +86,7 @@ public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickList
         this.jGm = (TbCheckBox) this.mContentView.findViewById(R.id.checkbox);
         this.jGm.setBackgroundDrawableId(R.drawable.icon_frs_luhan_selct, R.drawable.icon_frs_luhan_selctguand);
         this.jGm.setStatedChangedListener(this.jGw);
-        this.jGm.setTagData(new C0535a());
+        this.jGm.setTagData(new C0530a());
         this.jGl.setClickable(true);
         this.jGl.setOnClickListener(this);
         aM(this.mContentView);
@@ -203,10 +203,10 @@ public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickList
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.videoEasterEgg.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0535a implements TbCheckBox.b {
+    public class C0530a implements TbCheckBox.b {
         private boolean isChecked = false;
 
-        C0535a() {
+        C0530a() {
         }
 
         @Override // com.baidu.tbadk.core.view.TbCheckBox.b

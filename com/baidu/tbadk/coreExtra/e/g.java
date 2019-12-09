@@ -123,8 +123,8 @@ public class g {
         String ati = ati();
         if (ati == null) {
             if (!a.asS().asX()) {
-                a.asS().a(new a.InterfaceC0288a() { // from class: com.baidu.tbadk.coreExtra.e.g.2
-                    @Override // com.baidu.tbadk.coreExtra.e.a.InterfaceC0288a
+                a.asS().a(new a.InterfaceC0283a() { // from class: com.baidu.tbadk.coreExtra.e.g.2
+                    @Override // com.baidu.tbadk.coreExtra.e.a.InterfaceC0283a
                     public void asY() {
                         g.this.currentIndex = 0;
                         g.this.cCg = a.asS().asV();
@@ -181,8 +181,8 @@ public class g {
                                 g.this.po("change ip to reconnect with DNS' failed.");
                                 return;
                             } else {
-                                a.asS().a(new a.InterfaceC0288a() { // from class: com.baidu.tbadk.coreExtra.e.g.3.1
-                                    @Override // com.baidu.tbadk.coreExtra.e.a.InterfaceC0288a
+                                a.asS().a(new a.InterfaceC0283a() { // from class: com.baidu.tbadk.coreExtra.e.g.3.1
+                                    @Override // com.baidu.tbadk.coreExtra.e.a.InterfaceC0283a
                                     public void asY() {
                                         g.this.currentIndex = 0;
                                         g.this.cCg = a.asS().asV();

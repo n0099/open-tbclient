@@ -42,8 +42,8 @@ public class a extends BaseAdapter {
         if (view == null) {
             if (i == 11) {
                 View inflate = View.inflate(this.mContext, a.g.aiapps_keyboard_img_item, null);
-                bVar = new C0207a();
-                ((C0207a) bVar).aRz = (ImageView) inflate.findViewById(a.f.delete_key_img_view);
+                bVar = new C0202a();
+                ((C0202a) bVar).aRz = (ImageView) inflate.findViewById(a.f.delete_key_img_view);
                 view2 = inflate;
             } else {
                 View inflate2 = View.inflate(this.mContext, a.g.aiapps_keyboard_text_item, null);
@@ -81,10 +81,10 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.swan.apps.r.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static final class C0207a {
+    private static final class C0202a {
         private ImageView aRz;
 
-        private C0207a() {
+        private C0202a() {
         }
     }
 }

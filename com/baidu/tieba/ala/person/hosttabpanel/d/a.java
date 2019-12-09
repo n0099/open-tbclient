@@ -26,7 +26,7 @@ public class a implements com.baidu.live.liveroom.c.d {
             }
         }
     };
-    private a.InterfaceC0380a etM = new a.InterfaceC0380a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
+    private a.InterfaceC0375a etM = new a.InterfaceC0375a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
     };
     private TbPageContext mPageContext;
     private View mRootView;

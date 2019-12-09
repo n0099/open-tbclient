@@ -58,7 +58,7 @@ public class NewWriteModel extends BdBaseModel {
     private c jlq;
     private d jlr;
     private boolean jls;
-    private a.InterfaceC0519a jlt;
+    private a.InterfaceC0514a jlt;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -278,8 +278,8 @@ public class NewWriteModel extends BdBaseModel {
         this.jlq = cVar;
     }
 
-    public void a(a.InterfaceC0519a interfaceC0519a) {
-        this.jlt = interfaceC0519a;
+    public void a(a.InterfaceC0514a interfaceC0514a) {
+        this.jlt = interfaceC0514a;
     }
 
     public void d(WriteData writeData) {

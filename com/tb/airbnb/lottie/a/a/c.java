@@ -10,7 +10,7 @@ import com.tb.airbnb.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class c implements d, k, a.InterfaceC0577a {
+public class c implements d, k, a.InterfaceC0572a {
     private final List<b> ec;
     @Nullable
     private List<k> ed;
@@ -86,7 +86,7 @@ public class c implements d, k, a.InterfaceC0577a {
         }
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0577a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0572a
     public void bt() {
         this.lottieDrawable.invalidateSelf();
     }

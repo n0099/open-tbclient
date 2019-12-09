@@ -16,9 +16,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public static BdAsyncTask<?, ?, ?> a(final String str, String str2, String str3, String str4, final a.InterfaceC0280a interfaceC0280a) {
+    public static BdAsyncTask<?, ?, ?> a(final String str, String str2, String str3, String str4, final a.InterfaceC0275a interfaceC0275a) {
         com.baidu.tbadk.core.a.d dVar = new com.baidu.tbadk.core.a.d();
-        final a aVar = new a(str, str2, str3, interfaceC0280a, false);
+        final a aVar = new a(str, str2, str3, interfaceC0275a, false);
         if (com.baidu.tbadk.core.a.d.isVerification() && StringUtils.isNull(str4)) {
             dVar.a(str2, new d.a() { // from class: com.baidu.tieba.model.b.1
                 @Override // com.baidu.tbadk.core.a.d.a
@@ -29,8 +29,8 @@ public class b {
 
                 @Override // com.baidu.tbadk.core.a.d.a
                 public void onFailed() {
-                    if (interfaceC0280a != null) {
-                        interfaceC0280a.onFailure(str, 1, null);
+                    if (interfaceC0275a != null) {
+                        interfaceC0275a.onFailure(str, 1, null);
                     }
                 }
             });
@@ -46,31 +46,31 @@ public class b {
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Integer, AccountData> {
         private final String hvM;
-        private final a.InterfaceC0280a hvN;
+        private final a.InterfaceC0275a hvN;
         private final boolean hvO;
         private final String mName;
         private volatile x mNetwork = null;
         private final String mPtoken;
         private String mStoken;
 
-        public a(String str, String str2, String str3, a.InterfaceC0280a interfaceC0280a, boolean z) {
+        public a(String str, String str2, String str3, a.InterfaceC0275a interfaceC0275a, boolean z) {
             this.mName = str;
             this.hvM = str2;
             this.mPtoken = str3;
             this.hvO = z;
-            this.hvN = interfaceC0280a == null ? new a.InterfaceC0280a() { // from class: com.baidu.tieba.model.b.a.1
-                @Override // com.baidu.tbadk.core.a.a.InterfaceC0280a
+            this.hvN = interfaceC0275a == null ? new a.InterfaceC0275a() { // from class: com.baidu.tieba.model.b.a.1
+                @Override // com.baidu.tbadk.core.a.a.InterfaceC0275a
                 public void onBeforeLogin(String str4) {
                 }
 
-                @Override // com.baidu.tbadk.core.a.a.InterfaceC0280a
+                @Override // com.baidu.tbadk.core.a.a.InterfaceC0275a
                 public void a(AccountData accountData) {
                 }
 
-                @Override // com.baidu.tbadk.core.a.a.InterfaceC0280a
+                @Override // com.baidu.tbadk.core.a.a.InterfaceC0275a
                 public void onFailure(String str4, int i, String str5) {
                 }
-            } : interfaceC0280a;
+            } : interfaceC0275a;
             setPriority(3);
         }
 

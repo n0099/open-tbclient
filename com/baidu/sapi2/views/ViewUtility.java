@@ -3,86 +3,34 @@ package com.baidu.sapi2.views;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Build;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import com.baidu.d.a.a;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
-public class ViewUtility {
-    public static void dismissDialog(Activity activity, Dialog dialog) {
-        if (activity == null) {
-            throw new IllegalArgumentException("Activity must not be null");
-        }
-        if (dialog != null && !activity.isFinishing() && dialog.isShowing()) {
-            try {
-                dialog.dismiss();
-            } catch (Exception e) {
-                Log.e(e);
-            }
-        }
-    }
-
-    public static void setViewClickAlpha(View view, final float f) {
-        view.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.sapi2.views.ViewUtility.1
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view2, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()) {
-                    case 0:
-                        if (Build.VERSION.SDK_INT >= 11) {
-                            view2.setAlpha(f);
-                            return false;
-                        }
-                        return false;
-                    case 1:
-                        if (Build.VERSION.SDK_INT >= 11) {
-                            view2.setAlpha(1.0f);
-                            return false;
-                        }
-                        return false;
-                    case 2:
-                    default:
-                        return false;
-                    case 3:
-                        if (Build.VERSION.SDK_INT >= 11) {
-                            view2.setAlpha(1.0f);
-                            return false;
-                        }
-                        return false;
-                }
-            }
-        });
-    }
-
-    public static void enableStatusBarTint(Activity activity, int i) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            if (i == -1) {
-                try {
-                    if (Build.VERSION.SDK_INT < 23) {
-                        i = activity.getResources().getColor(a.b.sapi_sdk_gray_status_bar);
-                    }
-                } catch (Exception e) {
-                    Log.e(e);
-                    return;
-                }
-            }
-            if (!setMIUIStatusBarLightMode(activity, true)) {
-                setFlymeStatusBarLightMode(activity, true);
-            }
-            Window window = activity.getWindow();
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.flags |= 67108864;
-            window.setAttributes(attributes);
-            SystemBarTintManager systemBarTintManager = new SystemBarTintManager(activity);
-            systemBarTintManager.setStatusBarTintEnabled(true);
-            systemBarTintManager.setStatusBarTintColor(i);
+public class ViewUtility implements com.baidu.sapi2.c {
+    private static boolean a(Activity activity, boolean z) {
+        try {
+            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+            Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
+            Field declaredField2 = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
+            declaredField.setAccessible(true);
+            declaredField2.setAccessible(true);
+            int i = declaredField.getInt(null);
+            int i2 = declaredField2.getInt(attributes);
+            declaredField2.setInt(attributes, z ? i | i2 : (i ^ (-1)) & i2);
+            activity.getWindow().setAttributes(attributes);
+            return true;
+        } catch (Throwable th) {
+            return false;
         }
     }
 
-    private static boolean setMIUIStatusBarLightMode(Activity activity, boolean z) {
+    private static boolean b(Activity activity, boolean z) {
         Window window = activity.getWindow();
         window.addFlags(Integer.MIN_VALUE);
         window.clearFlags(67108864);
@@ -103,26 +51,59 @@ public class ViewUtility {
         }
     }
 
-    private static boolean setFlymeStatusBarLightMode(Activity activity, boolean z) {
-        int i;
-        try {
-            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-            Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
-            Field declaredField2 = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
-            declaredField.setAccessible(true);
-            declaredField2.setAccessible(true);
-            int i2 = declaredField.getInt(null);
-            int i3 = declaredField2.getInt(attributes);
-            if (z) {
-                i = i2 | i3;
-            } else {
-                i = (i2 ^ (-1)) & i3;
+    public static void dismissDialog(Activity activity, Dialog dialog) {
+        if (activity != null) {
+            if (dialog != null && !activity.isFinishing() && dialog.isShowing()) {
+                try {
+                    dialog.dismiss();
+                    return;
+                } catch (Exception e) {
+                    Log.e(e);
+                    return;
+                }
             }
-            declaredField2.setInt(attributes, i);
-            activity.getWindow().setAttributes(attributes);
-            return true;
-        } catch (Throwable th) {
-            return false;
+            return;
         }
+        throw new IllegalArgumentException("Activity must not be null");
+    }
+
+    public static void enableStatusBarTint(Activity activity, int i) {
+        boolean z = true;
+        if (Build.VERSION.SDK_INT >= 21) {
+            try {
+                boolean z2 = SapiAccountManager.getInstance().getConfignation().isNightMode;
+                boolean z3 = SapiAccountManager.getInstance().getConfignation().isDarkMode;
+                if (!z2 && !z3) {
+                    z = false;
+                }
+                if (z) {
+                    if (Build.VERSION.SDK_INT < 23) {
+                        i = activity.getResources().getColor(a.b.sapi_sdk_dark_mode_title_color);
+                    } else {
+                        i = activity.getColor(a.b.sapi_sdk_dark_mode_title_color);
+                    }
+                }
+                if (!b(activity, true)) {
+                    a(activity, true);
+                }
+                Window window = activity.getWindow();
+                window.addFlags(Integer.MIN_VALUE);
+                window.clearFlags(67108864);
+                window.setStatusBarColor(i);
+                if (Build.VERSION.SDK_INT >= 23) {
+                    if (!z) {
+                        window.getDecorView().setSystemUiVisibility(9216);
+                        return;
+                    }
+                    window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() & (-8193));
+                }
+            } catch (Exception e) {
+                Log.e(e);
+            }
+        }
+    }
+
+    public static void setViewClickAlpha(View view, float f) {
+        view.setOnTouchListener(new s(f));
     }
 }

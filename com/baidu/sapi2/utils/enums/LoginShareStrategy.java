@@ -1,13 +1,21 @@
 package com.baidu.sapi2.utils.enums;
 
 import android.text.TextUtils;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public enum LoginShareStrategy {
     DISABLED("disabled"),
     SILENT("silent"),
     CHOICE("choice");
     
-    private String a;
+    private String b;
+
+    LoginShareStrategy(String str) {
+        this.b = str;
+    }
+
+    public static LoginShareStrategy getDefault() {
+        return SILENT;
+    }
 
     public static LoginShareStrategy mapStrToValue(String str) {
         LoginShareStrategy[] values;
@@ -22,15 +30,7 @@ public enum LoginShareStrategy {
         return getDefault();
     }
 
-    public static LoginShareStrategy getDefault() {
-        return SILENT;
-    }
-
-    LoginShareStrategy(String str) {
-        this.a = str;
-    }
-
     public String getStrValue() {
-        return this.a;
+        return this.b;
     }
 }

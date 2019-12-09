@@ -23,7 +23,7 @@ public class h extends com.tb.airbnb.lottie.a.a<PointF> {
         public static h a(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar, m.a<PointF> aVar) {
             PointF pointF;
             PointF pointF2;
-            com.tb.airbnb.lottie.a.a a = a.C0575a.a(jSONObject, eVar, eVar.bb(), aVar);
+            com.tb.airbnb.lottie.a.a a = a.C0570a.a(jSONObject, eVar, eVar.bb(), aVar);
             JSONArray optJSONArray = jSONObject.optJSONArray(Config.FEED_LIST_PART);
             JSONArray optJSONArray2 = jSONObject.optJSONArray("to");
             if (optJSONArray == null || optJSONArray2 == null) {

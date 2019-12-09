@@ -3,6 +3,7 @@ package com.baidu.swan.impl.map.location.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.sapi2.activity.SlideActiviy;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -60,7 +61,7 @@ public class SelectedLocationInfo implements Parcelable {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("name", this.mName);
-            jSONObject.put("address", this.mAddress);
+            jSONObject.put(SlideActiviy.ADDRESS_PAGE_NAME, this.mAddress);
             jSONObject.put("latitude", this.mLatitude);
             jSONObject.put("longitude", this.mLongitude);
         } catch (JSONException e) {

@@ -65,38 +65,38 @@ public class a extends BaseAdapter {
         View view2;
         Exception exc;
         View view3;
-        C0310a c0310a;
+        C0305a c0305a;
         try {
             try {
                 if (view != null) {
-                    c0310a = (C0310a) view.getTag();
+                    c0305a = (C0305a) view.getTag();
                     view3 = view;
                 } else if (getItemViewType(i) == 0) {
                     view3 = LayoutInflater.from(this.cGd.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
-                    c0310a = new C0310a();
-                    c0310a.dfX = (TextView) view3.findViewById(R.id.account);
-                    c0310a.dfZ = (ImageView) view3.findViewById(R.id.active);
-                    c0310a.dga = (TextView) view3.findViewById(R.id.delete);
-                    c0310a.dga.setOnClickListener(this.cot);
-                    view3.setTag(c0310a);
+                    c0305a = new C0305a();
+                    c0305a.dfX = (TextView) view3.findViewById(R.id.account);
+                    c0305a.dfZ = (ImageView) view3.findViewById(R.id.active);
+                    c0305a.dga = (TextView) view3.findViewById(R.id.delete);
+                    c0305a.dga.setOnClickListener(this.cot);
+                    view3.setTag(c0305a);
                 } else {
                     view3 = LayoutInflater.from(this.cGd.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
-                    c0310a = new C0310a();
-                    c0310a.dfY = (TextView) view3.findViewById(R.id.add_text);
-                    view3.setTag(c0310a);
+                    c0305a = new C0305a();
+                    c0305a.dfY = (TextView) view3.findViewById(R.id.add_text);
+                    view3.setTag(c0305a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0310a.dfZ.setVisibility(8);
-                    c0310a.dga.setVisibility(8);
-                    c0310a.dga.setTag(accountData);
+                    c0305a.dfZ.setVisibility(8);
+                    c0305a.dga.setVisibility(8);
+                    c0305a.dga.setTag(accountData);
                     if (accountData != null) {
-                        c0310a.dfX.setText(accountData.getAccountNameShow());
+                        c0305a.dfX.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0310a.dfZ.setVisibility(0);
+                            c0305a.dfZ.setVisibility(0);
                         }
                         if (this.dfW) {
-                            c0310a.dga.setVisibility(0);
+                            c0305a.dga.setVisibility(0);
                         }
                     }
                 }
@@ -163,13 +163,13 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0310a {
+    private class C0305a {
         TextView dfX;
         TextView dfY;
         ImageView dfZ;
         TextView dga;
 
-        private C0310a() {
+        private C0305a() {
         }
     }
 }

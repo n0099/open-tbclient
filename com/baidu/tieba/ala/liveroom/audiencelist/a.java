@@ -80,62 +80,62 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0358a c0358a;
+        C0353a c0353a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_live_audience_header_image, (ViewGroup) null);
-            C0358a c0358a2 = new C0358a(view);
+            C0353a c0353a2 = new C0353a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                c0358a2.dXS.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
+                c0353a2.dXS.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
             } else {
-                c0358a2.dXS.setDefaultResource(a.f.sdk_icon_default_avatar100);
+                c0353a2.dXS.setDefaultResource(a.f.sdk_icon_default_avatar100);
             }
-            c0358a2.dXS.setIsRound(true);
-            c0358a2.dXS.setDrawBorder(false);
-            c0358a2.dXS.setAutoChangeStyle(false);
-            c0358a2.dXS.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            c0358a2.dXT.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            view.setTag(c0358a2);
-            c0358a = c0358a2;
+            c0353a2.dXS.setIsRound(true);
+            c0353a2.dXS.setDrawBorder(false);
+            c0353a2.dXS.setAutoChangeStyle(false);
+            c0353a2.dXS.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            c0353a2.dXT.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            view.setTag(c0353a2);
+            c0353a = c0353a2;
         } else {
-            c0358a = (C0358a) view.getTag();
+            c0353a = (C0353a) view.getTag();
         }
         d dVar = (d) getItem(i);
-        c0358a.dXS.setDrawBorder(true);
+        c0353a.dXS.setDrawBorder(true);
         if (dVar.OV == 1 && dVar.OR.totalPrice > 0) {
-            c0358a.dXT.setVisibility(0);
-            c0358a.dXT.setImageResource(a.f.pic_live_top1);
-            c0358a.dXU.setBackgroundResource(a.f.round_header_day_list_bg_1);
+            c0353a.dXT.setVisibility(0);
+            c0353a.dXT.setImageResource(a.f.pic_live_top1);
+            c0353a.dXU.setBackgroundResource(a.f.round_header_day_list_bg_1);
         } else if (dVar.OV == 2 && dVar.OR.totalPrice > 0) {
-            c0358a.dXT.setVisibility(0);
-            c0358a.dXT.setImageResource(a.f.pic_live_top2);
-            c0358a.dXU.setBackgroundResource(a.f.round_header_day_list_bg_2);
+            c0353a.dXT.setVisibility(0);
+            c0353a.dXT.setImageResource(a.f.pic_live_top2);
+            c0353a.dXU.setBackgroundResource(a.f.round_header_day_list_bg_2);
         } else if (dVar.OV == 3 && dVar.OR.totalPrice > 0) {
-            c0358a.dXT.setVisibility(0);
-            c0358a.dXT.setImageResource(a.f.pic_live_top3);
-            c0358a.dXU.setBackgroundResource(a.f.round_header_day_list_bg_3);
+            c0353a.dXT.setVisibility(0);
+            c0353a.dXT.setImageResource(a.f.pic_live_top3);
+            c0353a.dXU.setBackgroundResource(a.f.round_header_day_list_bg_3);
         } else {
-            c0358a.dXT.setVisibility(8);
-            c0358a.dXU.setBackgroundResource(a.f.round_header_day_list_bg_normal);
+            c0353a.dXT.setVisibility(8);
+            c0353a.dXU.setBackgroundResource(a.f.round_header_day_list_bg_normal);
         }
-        c0358a.dXU.setText(StringHelper.formatForHeaderDayCharmValue(dVar.OR.totalPrice));
+        c0353a.dXU.setText(StringHelper.formatForHeaderDayCharmValue(dVar.OR.totalPrice));
         if (dVar.OR.totalPrice <= 0) {
-            c0358a.dXU.setVisibility(4);
+            c0353a.dXU.setVisibility(4);
         } else {
-            c0358a.dXU.setVisibility(0);
+            c0353a.dXU.setVisibility(0);
         }
-        j.a(c0358a.dXS, dVar.OR.portrait, true, !StringUtils.isNull(dVar.OR.appId));
+        j.a(c0353a.dXS, dVar.OR.portrait, true, !StringUtils.isNull(dVar.OR.appId));
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.audiencelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0358a {
+    public static class C0353a {
         public HeadImageView dXS;
         public ImageView dXT;
         public TextView dXU;
         public View rootView;
 
-        public C0358a(View view) {
+        public C0353a(View view) {
             this.rootView = view;
             this.dXS = (HeadImageView) view.findViewById(a.g.ala_live_room_audience_header_img);
             this.dXT = (ImageView) view.findViewById(a.g.ala_live_room_audience_pendant);

@@ -52,8 +52,8 @@ public class c {
                 return false;
             }
         });
-        this.fyF.a(new a.InterfaceC0405a() { // from class: com.baidu.tieba.frs.gamesubpb.c.3
-            @Override // com.baidu.tieba.f.a.InterfaceC0405a
+        this.fyF.a(new a.InterfaceC0400a() { // from class: com.baidu.tieba.frs.gamesubpb.c.3
+            @Override // com.baidu.tieba.f.a.InterfaceC0400a
             public void t(int i, int i2) {
                 if (c.this.fJI != null && c.this.fJI.bnX() && Math.abs(i2) > c.TOUCH_SLOP) {
                     if (c.this.fJG != null) {
@@ -63,12 +63,12 @@ public class c {
                 }
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0405a
+            @Override // com.baidu.tieba.f.a.InterfaceC0400a
             public void u(int i, int i2) {
                 c.this.bnY();
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0405a
+            @Override // com.baidu.tieba.f.a.InterfaceC0400a
             public void v(int i, int i2) {
             }
         });

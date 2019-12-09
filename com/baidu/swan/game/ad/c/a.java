@@ -10,7 +10,7 @@ import okhttp3.Response;
 /* loaded from: classes2.dex */
 public class a {
     private Context a;
-    private a.InterfaceC0240a bwq;
+    private a.InterfaceC0235a bwq;
 
     public a(Context context) {
         this.a = context;
@@ -78,8 +78,8 @@ public class a {
         }
     }
 
-    public void a(a.InterfaceC0240a interfaceC0240a) {
-        this.bwq = interfaceC0240a;
+    public void a(a.InterfaceC0235a interfaceC0235a) {
+        this.bwq = interfaceC0235a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

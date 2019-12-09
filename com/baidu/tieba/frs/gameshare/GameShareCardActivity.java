@@ -21,7 +21,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gameshare.a;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes4.dex */
-public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0413a {
+public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0408a {
     private a fIL;
     private f fIM;
     private GameShareData fIN;
@@ -86,7 +86,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
         return eVar;
     }
 
-    @Override // com.baidu.tieba.frs.gameshare.a.InterfaceC0413a
+    @Override // com.baidu.tieba.frs.gameshare.a.InterfaceC0408a
     public void t(final Bitmap bitmap) {
         if (bitmap != null) {
             TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).bS("obj_param1", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO).bS("obj_type", "4"));
@@ -109,7 +109,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
         }
     }
 
-    @Override // com.baidu.tieba.frs.gameshare.a.InterfaceC0413a
+    @Override // com.baidu.tieba.frs.gameshare.a.InterfaceC0408a
     public void u(final Bitmap bitmap) {
         if (bitmap != null) {
             TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).bS("obj_param1", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO).bS("obj_type", "3"));
@@ -132,7 +132,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
         }
     }
 
-    @Override // com.baidu.tieba.frs.gameshare.a.InterfaceC0413a
+    @Override // com.baidu.tieba.frs.gameshare.a.InterfaceC0408a
     public void v(final Bitmap bitmap) {
         if (bitmap != null) {
             TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).bS("obj_param1", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO).bS("obj_type", "9"));
@@ -155,7 +155,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
         }
     }
 
-    @Override // com.baidu.tieba.frs.gameshare.a.InterfaceC0413a
+    @Override // com.baidu.tieba.frs.gameshare.a.InterfaceC0408a
     public void w(final Bitmap bitmap) {
         if (bitmap != null) {
             TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).bS("obj_param1", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO).bS("obj_type", "7"));
@@ -178,7 +178,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
         }
     }
 
-    @Override // com.baidu.tieba.frs.gameshare.a.InterfaceC0413a
+    @Override // com.baidu.tieba.frs.gameshare.a.InterfaceC0408a
     public void onCancel() {
         finish();
     }

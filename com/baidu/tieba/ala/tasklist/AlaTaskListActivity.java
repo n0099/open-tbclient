@@ -63,8 +63,8 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
     public BdListView mListView;
     private View mRootView;
     private boolean eBW = false;
-    a.InterfaceC0389a eCc = new a.InterfaceC0389a() { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.3
-        @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0389a
+    a.InterfaceC0384a eCc = new a.InterfaceC0384a() { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.3
+        @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0384a
         public void a(AlaLiveUserInfoData alaLiveUserInfoData, q qVar) {
             if (alaLiveUserInfoData != null) {
                 AlaTaskListActivity.this.Z(String.valueOf(alaLiveUserInfoData.petalNum), true);
@@ -79,7 +79,7 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
             AlaTaskListActivity.this.aYH();
         }
 
-        @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0389a
+        @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0384a
         public void O(int i, String str) {
             AlaTaskListActivity.this.dEF.reset();
             AlaTaskListActivity.this.dEF.setTitle(a.i.ala_task_empty_msg);

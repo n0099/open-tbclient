@@ -52,7 +52,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0472a {
+    public static class C0467a {
         private static final a iPQ = new a();
     }
 
@@ -197,7 +197,7 @@ public class a {
     }
 
     public static final a chb() {
-        return C0472a.iPQ;
+        return C0467a.iPQ;
     }
 
     private void initListener() {

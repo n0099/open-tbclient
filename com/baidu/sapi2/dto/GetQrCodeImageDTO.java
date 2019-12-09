@@ -1,5 +1,5 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GetQrCodeImageDTO {
     public static final String LP_TYPE_APP = "app";
     public static final String LP_TYPE_PC = "pc";

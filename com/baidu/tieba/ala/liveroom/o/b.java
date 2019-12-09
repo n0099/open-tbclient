@@ -31,7 +31,7 @@ public class b extends Dialog {
     private FlexLayout ata;
     private a emX;
     private View emY;
-    private C0368b emZ;
+    private C0363b emZ;
     private View mContentView;
 
     /* loaded from: classes6.dex */
@@ -255,7 +255,7 @@ public class b extends Dialog {
 
     private void v(String[] strArr) {
         if (this.emZ == null) {
-            this.emZ = new C0368b(strArr);
+            this.emZ = new C0363b(strArr);
             this.ata.setAdapter(this.emZ);
             return;
         }
@@ -273,8 +273,8 @@ public class b extends Dialog {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.ala.liveroom.o.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0368b extends FlexAdapter<String> {
-        C0368b(String[] strArr) {
+    public static class C0363b extends FlexAdapter<String> {
+        C0363b(String[] strArr) {
             super(strArr);
         }
 

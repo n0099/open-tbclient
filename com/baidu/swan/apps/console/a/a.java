@@ -117,7 +117,7 @@ public class a extends z {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
         int i = 0;
-        final File Jd = e.C0192e.Jd();
+        final File Jd = e.C0187e.Jd();
         if (Jd.exists()) {
             Jd.delete();
         }

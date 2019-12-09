@@ -2,12 +2,11 @@ package com.baidu.sofire;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
-import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import com.baidu.sofire.b.v;
+import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public class MyProvider extends ContentProvider {
     @Override // android.content.ContentProvider
@@ -17,38 +16,30 @@ public class MyProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, final String str2) {
-        b.a();
-        try {
-            if ("p".equals(str)) {
-                final Context context = getContext();
-                v.a().a(new Runnable() { // from class: com.baidu.sofire.MyProvider.1
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        try {
-                            new StringBuilder().append(str2);
-                            b.a();
-                            Intent intent = new Intent();
-                            intent.putExtra("t", "p");
-                            intent.putExtra("c", str2);
-                            a.a(context, intent);
-                        } catch (Throwable th) {
-                            com.baidu.sofire.b.e.a();
-                        }
-                    }
-                });
-                return null;
-            }
-            return null;
-        } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
-            return null;
-        }
+    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+        return null;
     }
 
     @Override // android.content.ContentProvider
     public Bundle call(String str, String str2, Bundle bundle) {
-        return com.baidu.sofire.core.e.a(getContext().getApplicationContext(), str, bundle);
+        String callingPackage;
+        try {
+            if (Build.VERSION.SDK_INT < 19 || (callingPackage = getCallingPackage()) == null || callingPackage.equals(getContext().getPackageName())) {
+                if ("getRemoteZid".equals(str)) {
+                    String b = com.baidu.sofire.i.g.b(getContext());
+                    Bundle bundle2 = new Bundle();
+                    if (!TextUtils.isEmpty(b)) {
+                        bundle2.putString("_zid", b);
+                    }
+                    return bundle2;
+                }
+                return com.baidu.sofire.core.e.a(getContext().getApplicationContext(), str, bundle);
+            }
+            return null;
+        } catch (Throwable th) {
+            com.baidu.sofire.i.d.a();
+            return null;
+        }
     }
 
     @Override // android.content.ContentProvider

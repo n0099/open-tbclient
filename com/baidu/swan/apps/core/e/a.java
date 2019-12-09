@@ -16,13 +16,13 @@ public class a {
     private TextView aLC;
     private TextView aLD;
     private b aLE;
-    private InterfaceC0178a aLF;
+    private InterfaceC0173a aLF;
     private final Context mContext;
     private final String su;
 
     /* renamed from: com.baidu.swan.apps.core.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0178a {
+    public interface InterfaceC0173a {
         void onCancel();
     }
 
@@ -50,8 +50,8 @@ public class a {
         this.aLE = bVar;
     }
 
-    public void a(InterfaceC0178a interfaceC0178a) {
-        this.aLF = interfaceC0178a;
+    public void a(InterfaceC0173a interfaceC0173a) {
+        this.aLF = interfaceC0173a;
     }
 
     public void show() {

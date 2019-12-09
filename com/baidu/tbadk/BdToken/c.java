@@ -599,15 +599,15 @@ public class c {
                     }
                 }
             }
-            new C0276c().execute(arrayList);
+            new C0271c().execute(arrayList);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.BdToken.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0276c extends BdAsyncTask<List<com.baidu.tbadk.BdToken.b>, Integer, Void> {
-        private C0276c() {
+    public class C0271c extends BdAsyncTask<List<com.baidu.tbadk.BdToken.b>, Integer, Void> {
+        private C0271c() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

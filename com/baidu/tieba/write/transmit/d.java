@@ -34,7 +34,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     private List<TransmitForumData> jLU;
     private com.baidu.tieba.likedForum.a jQG;
     private s jQH;
-    private a.InterfaceC0455a jQI;
+    private a.InterfaceC0450a jQI;
     private ArrayList<HotTopicBussinessData> mForumList;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -83,8 +83,8 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                 d.this.jQG.loadData();
             }
         };
-        this.jQI = new a.InterfaceC0455a() { // from class: com.baidu.tieba.write.transmit.d.2
-            @Override // com.baidu.tieba.likedForum.a.InterfaceC0455a
+        this.jQI = new a.InterfaceC0450a() { // from class: com.baidu.tieba.write.transmit.d.2
+            @Override // com.baidu.tieba.likedForum.a.InterfaceC0450a
             public void a(boolean z, int i, String str, List<ForumInfo> list2) {
                 ArrayList arrayList = new ArrayList();
                 if (v.getCount(list2) > 0) {

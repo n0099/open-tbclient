@@ -47,7 +47,7 @@ public class f extends com.baidu.swan.apps.process.b.a.a {
         if (DEBUG) {
             Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
         }
-        new a.C0224a(10002).hV(jSONObject.toString()).La();
+        new a.C0219a(10002).hV(jSONObject.toString()).La();
         finish();
     }
 

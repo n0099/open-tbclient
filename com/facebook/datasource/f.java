@@ -62,7 +62,7 @@ public class f<T> implements i<b<T>> {
             for (int i = 0; i < size; i++) {
                 b<T> bVar = (b) ((i) f.this.kbv.get(i)).get();
                 this.kbA.add(bVar);
-                bVar.a(new C0559a(i), com.facebook.common.b.a.cCD());
+                bVar.a(new C0554a(i), com.facebook.common.b.a.cCD());
                 if (bVar.cDk()) {
                     return;
                 }
@@ -181,10 +181,10 @@ public class f<T> implements i<b<T>> {
 
         /* renamed from: com.facebook.datasource.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        private class C0559a implements d<T> {
+        private class C0554a implements d<T> {
             private int mIndex;
 
-            public C0559a(int i) {
+            public C0554a(int i) {
                 this.mIndex = i;
             }
 

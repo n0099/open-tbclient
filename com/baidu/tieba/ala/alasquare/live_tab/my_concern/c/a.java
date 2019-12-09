@@ -22,7 +22,7 @@ public class a {
     private BdSwipeRefreshLayout dxt;
     private View dxu;
     private com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a dxv;
-    private InterfaceC0335a dxw;
+    private InterfaceC0330a dxw;
     private AlphaAnimation dxx;
     private AlphaAnimation dxy;
     private RelativeLayout mContainer;
@@ -54,7 +54,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0335a {
+    public interface InterfaceC0330a {
         void onListPullRefresh(boolean z);
 
         void onScrollToBottom();
@@ -183,8 +183,8 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0335a interfaceC0335a) {
-        this.dxw = interfaceC0335a;
+    public void a(InterfaceC0330a interfaceC0330a) {
+        this.dxw = interfaceC0330a;
     }
 
     public RelativeLayout aJA() {

@@ -49,19 +49,19 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C0594d(this, i, i2);
+        return new C0589d(this, i, i2);
     }
 
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static final class C0594d<E> extends d<E> implements RandomAccess {
+    private static final class C0589d<E> extends d<E> implements RandomAccess {
         private int kuJ;
         private final d<E> kuK;
         private final int kuL;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C0594d(d<? extends E> dVar, int i, int i2) {
+        public C0589d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.p.i(dVar, "list");
             this.kuK = dVar;
             this.kuL = i;

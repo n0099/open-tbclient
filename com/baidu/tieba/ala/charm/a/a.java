@@ -29,8 +29,8 @@ public class a implements d {
     private BdUniqueId mPageId;
     private String mUid;
     private boolean dEU = true;
-    a.InterfaceC0341a dEA = new a.InterfaceC0341a() { // from class: com.baidu.tieba.ala.charm.a.a.1
-        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0341a
+    a.InterfaceC0336a dEA = new a.InterfaceC0336a() { // from class: com.baidu.tieba.ala.charm.a.a.1
+        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0336a
         public void a(ALaCharmDataList aLaCharmDataList) {
             a.this.dET.hideLoadingView();
             a.this.dET.completePullRefresh();
@@ -38,7 +38,7 @@ public class a implements d {
             a.this.dEU = false;
         }
 
-        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0341a
+        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0336a
         public void R(int i, String str) {
             if (str != null) {
                 CustomToast.newInstance().showToast(str);

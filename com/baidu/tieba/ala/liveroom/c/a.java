@@ -707,8 +707,8 @@ public class a extends b {
 
     private void aOq() {
         if (this.dVW != null) {
-            this.dVW.a(new a.InterfaceC0369a() { // from class: com.baidu.tieba.ala.liveroom.c.a.3
-                @Override // com.baidu.tieba.ala.liveroom.operation.a.InterfaceC0369a
+            this.dVW.a(new a.InterfaceC0364a() { // from class: com.baidu.tieba.ala.liveroom.c.a.3
+                @Override // com.baidu.tieba.ala.liveroom.operation.a.InterfaceC0364a
                 public void aQ(int i, int i2) {
                     com.baidu.live.data.i uk = a.this.aPu().eeL.uk();
                     if (uk != null && uk.mLiveInfo != null) {
@@ -716,8 +716,8 @@ public class a extends b {
                             a.this.dXd = new com.baidu.tieba.ala.liveroom.turntable.lucky.b(a.this.aPu().pageContext.getPageActivity());
                         }
                         a.this.dXd.d(a.this.dXi, i, i2);
-                        a.this.dXd.a(String.valueOf(uk.mLiveInfo.live_id), new a.InterfaceC0372a() { // from class: com.baidu.tieba.ala.liveroom.c.a.3.1
-                            @Override // com.baidu.tieba.ala.liveroom.turntable.lucky.a.InterfaceC0372a
+                        a.this.dXd.a(String.valueOf(uk.mLiveInfo.live_id), new a.InterfaceC0367a() { // from class: com.baidu.tieba.ala.liveroom.c.a.3.1
+                            @Override // com.baidu.tieba.ala.liveroom.turntable.lucky.a.InterfaceC0367a
                             public void a(float f, String str) {
                                 if (a.this.dVW != null) {
                                     a.this.dVW.b(f, str);
@@ -727,7 +727,7 @@ public class a extends b {
                     }
                 }
 
-                @Override // com.baidu.tieba.ala.liveroom.operation.a.InterfaceC0369a
+                @Override // com.baidu.tieba.ala.liveroom.operation.a.InterfaceC0364a
                 public void aR(int i, int i2) {
                     if (a.this.dXd != null) {
                         a.this.dXd.bb(i, i2);

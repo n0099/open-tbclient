@@ -78,7 +78,7 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.d.d {
                                 return;
                             }
                             ba.amO().b(e.this.mPageContext, new String[]{url});
-                            a.C0520a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", jVar.cnt(), e.this.mForumId, e.this.mForumName, null);
+                            a.C0515a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", jVar.cnt(), e.this.mForumId, e.this.mForumName, null);
                             b2.ea(TiebaInitialize.Params.OBJ_URL, jVar.getUrl());
                             b2.save();
                         }
@@ -325,7 +325,7 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.d.d {
                     cVar.bFk.setOnClickListener(this.fXp);
                 }
                 if (this.fWm != null && this.fWm.add(jVar.cnt())) {
-                    a.C0520a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", jVar.cnt(), this.mForumId, this.mForumName, null);
+                    a.C0515a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", jVar.cnt(), this.mForumId, this.mForumName, null);
                     b2.ea(TiebaInitialize.Params.OBJ_URL, jVar.getUrl());
                     b2.save();
                 }
@@ -359,7 +359,7 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.d.d {
             bVar.bFk.setOnClickListener(this.fXp);
         }
         if (this.fWm != null && this.fWm.add(jVar.cnt())) {
-            a.C0520a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", jVar.cnt(), this.mForumId, this.mForumName, null);
+            a.C0515a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", jVar.cnt(), this.mForumId, this.mForumName, null);
             b2.ea(TiebaInitialize.Params.OBJ_URL, jVar.getUrl());
             b2.save();
         }

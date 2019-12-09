@@ -38,7 +38,7 @@ public class a extends Dialog {
     private com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b exP;
     private d exQ;
     private AlaUpdateMarkStatusModel exR;
-    private InterfaceC0382a exS;
+    private InterfaceC0377a exS;
     private LinearLayout exT;
     private TextView exU;
     private TextView exV;
@@ -51,14 +51,14 @@ public class a extends Dialog {
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0382a {
+    public interface InterfaceC0377a {
         void a(boolean z, com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b bVar);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0382a interfaceC0382a) {
+    public a(TbPageContext tbPageContext, InterfaceC0377a interfaceC0377a) {
         super(tbPageContext.getPageActivity());
         this.mPageContext = tbPageContext;
-        this.exS = interfaceC0382a;
+        this.exS = interfaceC0377a;
     }
 
     @Override // android.app.Dialog
@@ -104,8 +104,8 @@ public class a extends Dialog {
                 }
             }
         });
-        this.exZ = new com.baidu.tieba.ala.personcenter.privilege.a(this.mPageContext, new a.InterfaceC0381a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.3
-            @Override // com.baidu.tieba.ala.personcenter.privilege.a.InterfaceC0381a
+        this.exZ = new com.baidu.tieba.ala.personcenter.privilege.a(this.mPageContext, new a.InterfaceC0376a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.3
+            @Override // com.baidu.tieba.ala.personcenter.privilege.a.InterfaceC0376a
             public void j(boolean z, String str) {
                 if (z) {
                     if (a.this.exP != null) {

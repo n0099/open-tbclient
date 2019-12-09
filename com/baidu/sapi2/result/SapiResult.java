@@ -2,7 +2,7 @@ package com.baidu.sapi2.result;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SapiResult {
     public static final int ERROR_CODE_METHOD_DEPRECATED = -206;
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
@@ -46,18 +46,18 @@ public class SapiResult {
         return this.resultCode;
     }
 
+    public String getResultMsg() {
+        if (TextUtils.isEmpty(this.resultMsg)) {
+            return this.msgMap.get(this.resultCode) != null ? this.msgMap.get(this.resultCode) : this.msgMap.get(-202);
+        }
+        return this.resultMsg;
+    }
+
     public void setResultCode(int i) {
         this.resultCode = i;
     }
 
     public void setResultMsg(String str) {
         this.resultMsg = str;
-    }
-
-    public String getResultMsg() {
-        if (TextUtils.isEmpty(this.resultMsg)) {
-            return this.msgMap.get(this.resultCode) != null ? this.msgMap.get(this.resultCode) : this.msgMap.get(-202);
-        }
-        return this.resultMsg;
     }
 }

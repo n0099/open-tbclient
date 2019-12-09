@@ -293,7 +293,7 @@ public final class c implements g {
                 e.printStackTrace();
             }
         }
-        new a.C0224a(10001).hU(com.baidu.swan.apps.ae.b.Ra() == null ? "null appkey" : com.baidu.swan.apps.ae.b.Ra().getAppKey()).hV(jSONObject.toString()).La();
+        new a.C0219a(10001).hU(com.baidu.swan.apps.ae.b.Ra() == null ? "null appkey" : com.baidu.swan.apps.ae.b.Ra().getAppKey()).hV(jSONObject.toString()).La();
     }
 
     public boolean GU() {

@@ -144,7 +144,7 @@ public class a {
             } else {
                 button.setText(this.mPositiveButtonTip);
                 if (this.iXt != null) {
-                    button.setOnClickListener(new View$OnClickListenerC0514a(this, this.iXt));
+                    button.setOnClickListener(new View$OnClickListenerC0509a(this, this.iXt));
                 }
                 z = true;
             }
@@ -153,7 +153,7 @@ public class a {
             } else {
                 button2.setText(this.mNegativeButtonTip);
                 if (this.iXu != null) {
-                    button2.setOnClickListener(new View$OnClickListenerC0514a(this, this.iXu));
+                    button2.setOnClickListener(new View$OnClickListenerC0509a(this, this.iXu));
                 }
                 z2 = true;
             }
@@ -162,7 +162,7 @@ public class a {
             } else {
                 button3.setText(this.iXs);
                 if (this.iXv != null) {
-                    button3.setOnClickListener(new View$OnClickListenerC0514a(this, this.iXv));
+                    button3.setOnClickListener(new View$OnClickListenerC0509a(this, this.iXv));
                 }
                 z3 = true;
             }
@@ -291,11 +291,11 @@ public class a {
 
     /* renamed from: com.baidu.tieba.sharewrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class View$OnClickListenerC0514a implements View.OnClickListener {
+    private class View$OnClickListenerC0509a implements View.OnClickListener {
         private final a iXy;
         private final b iXz;
 
-        public View$OnClickListenerC0514a(a aVar, b bVar) {
+        public View$OnClickListenerC0509a(a aVar, b bVar) {
             this.iXy = aVar;
             this.iXz = bVar;
         }

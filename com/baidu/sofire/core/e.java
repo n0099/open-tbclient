@@ -15,8 +15,8 @@ import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.F;
-import com.baidu.sofire.b.t;
-import com.baidu.sofire.b.v;
+import com.baidu.sofire.i.s;
+import com.baidu.sofire.i.u;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -27,64 +27,70 @@ import org.json.JSONObject;
 public class e {
     public static String a = "";
     public static String b = "";
+    private static boolean c = false;
 
-    public static void a(final Context context, final int i, final String str, final String str2, final int... iArr) {
-        try {
-            d.b = context;
-            new Thread(new Runnable() { // from class: com.baidu.sofire.core.e.1
-                @Override // java.lang.Runnable
-                public final void run() {
-                    com.baidu.sofire.b.e.j(context);
-                    try {
-                        if (!com.baidu.sofire.b.e.a(context, true)) {
-                            com.baidu.sofire.b.a();
-                            return;
-                        }
-                        int a2 = com.baidu.sofire.b.e.a(context);
-                        if (a2 != 1) {
-                            if (a2 == 2) {
-                                com.baidu.sofire.b.a();
-                                Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
-                                intent.setClass(context, MyService.class);
-                                intent.setPackage(context.getPackageName());
-                                intent.addCategory("com.baidu.category.SOFIRE");
-                                intent.addCategory("android.intent.category.DEFAULT");
-                                Bundle bundle = new Bundle();
-                                bundle.putStringArray("appkey", new String[]{str, str2});
-                                bundle.putIntArray(TiebaInitialize.Params.KEY, iArr);
-                                bundle.putInt("delay", i);
-                                intent.putExtra("bundle", bundle);
-                                context.startService(intent);
+    public static synchronized void a(final Context context, final int i, final String str, final String str2, final int... iArr) {
+        synchronized (e.class) {
+            try {
+                if (!c) {
+                    c = true;
+                    d.b = context;
+                    new Thread(new Runnable() { // from class: com.baidu.sofire.core.e.1
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            com.baidu.sofire.i.d.j(context);
+                            try {
+                                if (!com.baidu.sofire.i.d.a(context, true)) {
+                                    com.baidu.sofire.b.a();
+                                    return;
+                                }
+                                int a2 = com.baidu.sofire.i.d.a(context);
+                                if (a2 != 1) {
+                                    if (a2 == 2) {
+                                        com.baidu.sofire.b.a();
+                                        Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
+                                        intent.setClass(context, MyService.class);
+                                        intent.setPackage(context.getPackageName());
+                                        intent.addCategory("com.baidu.category.SOFIRE");
+                                        intent.addCategory("android.intent.category.DEFAULT");
+                                        Bundle bundle = new Bundle();
+                                        bundle.putStringArray("appkey", new String[]{str, str2});
+                                        bundle.putIntArray(TiebaInitialize.Params.KEY, iArr);
+                                        bundle.putInt("delay", i);
+                                        intent.putExtra("bundle", bundle);
+                                        context.startService(intent);
+                                    }
+                                    com.baidu.sofire.b.a();
+                                    return;
+                                }
+                                e.b(context);
+                                d a3 = d.a(context);
+                                com.baidu.sofire.i.g.a(context);
+                                com.baidu.sofire.i.g.b(context);
+                                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                                    String str3 = str;
+                                    String str4 = str2;
+                                    if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4) && (!"3".equals(str3) || !"925fc15df8a49bed0b3eca8d2b44cb7b".equals(str4))) {
+                                        com.baidu.sofire.e eVar = a3.a;
+                                        eVar.c.putString("svi", str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str4);
+                                        eVar.c.commit();
+                                    }
+                                }
+                                e.c(context);
+                                if (i > 0) {
+                                    Thread.sleep(i * 1000);
+                                }
+                                new com.baidu.sofire.e(context).a(iArr);
+                                d.a(1);
+                                a3.b();
+                            } catch (Throwable th) {
+                                com.baidu.sofire.i.d.a();
                             }
-                            com.baidu.sofire.b.a();
-                            return;
                         }
-                        e.b(context);
-                        d a3 = d.a(context);
-                        com.baidu.sofire.b.h.a(context);
-                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                            String str3 = str;
-                            String str4 = str2;
-                            if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4) && (!"3".equals(str3) || !"925fc15df8a49bed0b3eca8d2b44cb7b".equals(str4))) {
-                                com.baidu.sofire.e eVar = a3.a;
-                                eVar.c.putString("svi", str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str4);
-                                eVar.c.commit();
-                            }
-                        }
-                        e.c(context);
-                        if (i > 0) {
-                            Thread.sleep(i * 1000);
-                        }
-                        new com.baidu.sofire.e(context).a(iArr);
-                        d.a(1);
-                        a3.a((Callback) null);
-                    } catch (Throwable th) {
-                        com.baidu.sofire.b.e.a();
-                    }
+                    }).start();
                 }
-            }).start();
-        } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            } finally {
+            }
         }
     }
 
@@ -94,19 +100,19 @@ public class e {
             Context context = d.b;
             if (context == null) {
                 a2 = new Pair<>(4, null);
-            } else if (!com.baidu.sofire.b.e.a(d.b, false)) {
+            } else if (!com.baidu.sofire.i.d.a(d.b, false)) {
                 com.baidu.sofire.b.a();
                 a2 = new Pair<>(11, null);
             } else {
-                String b2 = com.baidu.sofire.b.e.b(d.b);
+                String b2 = com.baidu.sofire.i.d.b(d.b);
                 if (TextUtils.isEmpty(b2)) {
-                    if (com.baidu.sofire.b.e.b(d.b.getPackageName())) {
+                    if (com.baidu.sofire.i.d.b(d.b.getPackageName())) {
                         a2 = new Pair<>(5, null);
                     } else {
                         com.baidu.sofire.b.a();
                         a2 = d.a(context).a(i, str, clsArr, objArr);
                     }
-                } else if (com.baidu.sofire.b.e.b(b2)) {
+                } else if (com.baidu.sofire.i.d.b(b2)) {
                     com.baidu.sofire.b.a();
                     a2 = b(d.b, i, str, clsArr, objArr);
                 } else {
@@ -116,7 +122,7 @@ public class e {
             }
             return a2;
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
             return new Pair<>(3, null);
         }
     }
@@ -127,18 +133,18 @@ public class e {
             Context context = d.b;
             if (context == null) {
                 b2 = new Pair<>(4, null);
-            } else if (!com.baidu.sofire.b.e.a(d.b, false)) {
+            } else if (!com.baidu.sofire.i.d.a(d.b, false)) {
                 b2 = new Pair<>(11, null);
             } else {
-                String b3 = com.baidu.sofire.b.e.b(d.b);
+                String b3 = com.baidu.sofire.i.d.b(d.b);
                 if (TextUtils.isEmpty(b3)) {
-                    if (com.baidu.sofire.b.e.b(d.b.getPackageName())) {
+                    if (com.baidu.sofire.i.d.b(d.b.getPackageName())) {
                         b2 = new Pair<>(5, null);
                     } else {
                         d.a(context);
                         b2 = b(str, clsArr, objArr);
                     }
-                } else if (com.baidu.sofire.b.e.b(b3)) {
+                } else if (com.baidu.sofire.i.d.b(b3)) {
                     b2 = b(d.b, 1, str, clsArr, objArr);
                 } else {
                     d.a(context);
@@ -147,7 +153,7 @@ public class e {
             }
             return b2;
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
             return new Pair<>(3, null);
         }
     }
@@ -162,7 +168,7 @@ public class e {
         try {
             a2 = g.a();
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
         if (a2 == null) {
             pair = new Pair<>(3, null);
@@ -170,7 +176,7 @@ public class e {
             ApkInfo d = a2.d("com.baidu.sofire.x0");
             if (d != null) {
                 Class<?> a3 = ((f) d.classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                pair = new Pair<>(0, com.baidu.sofire.b.e.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, d.b), str, clsArr, objArr));
+                pair = new Pair<>(0, com.baidu.sofire.i.d.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, d.b), str, clsArr, objArr));
             }
             pair = new Pair<>(3, null);
         }
@@ -179,7 +185,7 @@ public class e {
 
     public static boolean a(final int i, final String str, final Callback callback, final Class<?>[] clsArr, final Object... objArr) {
         try {
-            v.a().a(new Runnable() { // from class: com.baidu.sofire.core.e.2
+            u.a().a(new Runnable() { // from class: com.baidu.sofire.core.e.2
                 @Override // java.lang.Runnable
                 public final void run() {
                     int i2 = 0;
@@ -190,7 +196,7 @@ public class e {
                                 try {
                                     Thread.sleep(50L);
                                 } catch (InterruptedException e) {
-                                    com.baidu.sofire.b.e.a();
+                                    com.baidu.sofire.i.d.a();
                                 }
                                 context = d.b;
                                 if (context != null) {
@@ -207,9 +213,9 @@ public class e {
                             }
                         }
                     } catch (Throwable th) {
-                        com.baidu.sofire.b.e.a();
+                        com.baidu.sofire.i.d.a();
                     }
-                    if (!com.baidu.sofire.b.e.a(d.b, false)) {
+                    if (!com.baidu.sofire.i.d.a(d.b, false)) {
                         com.baidu.sofire.b.a();
                         if (Callback.this != null) {
                             Callback.this.onError(11);
@@ -217,9 +223,9 @@ public class e {
                         }
                         return;
                     }
-                    String b2 = com.baidu.sofire.b.e.b(d.b);
+                    String b2 = com.baidu.sofire.i.d.b(d.b);
                     if (TextUtils.isEmpty(b2)) {
-                        if (com.baidu.sofire.b.e.b(d.b.getPackageName())) {
+                        if (com.baidu.sofire.i.d.b(d.b.getPackageName())) {
                             if (Callback.this != null) {
                                 Callback.this.onError(5);
                                 return;
@@ -233,7 +239,7 @@ public class e {
                                 try {
                                     Thread.sleep(50L);
                                 } catch (InterruptedException e2) {
-                                    com.baidu.sofire.b.e.a();
+                                    com.baidu.sofire.i.d.a();
                                 }
                                 a2 = d.a();
                                 if (a2 != null) {
@@ -251,7 +257,7 @@ public class e {
                         }
                         a2.a(i, str, Callback.this, clsArr, objArr);
                         return;
-                    } else if (com.baidu.sofire.b.e.b(b2)) {
+                    } else if (com.baidu.sofire.i.d.b(b2)) {
                         com.baidu.sofire.b.a();
                         e.a(d.b, i, str, Callback.this, clsArr, objArr);
                         return;
@@ -263,7 +269,7 @@ public class e {
                                 try {
                                     Thread.sleep(50L);
                                 } catch (InterruptedException e3) {
-                                    com.baidu.sofire.b.e.a();
+                                    com.baidu.sofire.i.d.a();
                                 }
                                 a3 = d.a();
                                 if (a3 != null) {
@@ -282,12 +288,12 @@ public class e {
                         a3.a(i, str, Callback.this, clsArr, objArr);
                         return;
                     }
-                    com.baidu.sofire.b.e.a();
+                    com.baidu.sofire.i.d.a();
                 }
             });
             return true;
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
             return false;
         }
     }
@@ -303,18 +309,18 @@ public class e {
                     }
                 }
                 return a;
-            } else if (!com.baidu.sofire.b.e.a(context, false)) {
+            } else if (!com.baidu.sofire.i.d.a(context, false)) {
                 com.baidu.sofire.b.a();
                 return "";
             } else {
-                String b2 = com.baidu.sofire.b.e.b(context);
+                String b2 = com.baidu.sofire.i.d.b(context);
                 if (TextUtils.isEmpty(b2)) {
-                    if (com.baidu.sofire.b.e.b(context.getPackageName())) {
+                    if (com.baidu.sofire.i.d.b(context.getPackageName())) {
                         return "";
                     }
                     com.baidu.sofire.b.a();
                     return b(context, str, i, str2);
-                } else if (com.baidu.sofire.b.e.b(b2)) {
+                } else if (com.baidu.sofire.i.d.b(b2)) {
                     com.baidu.sofire.b.a();
                     Pair<Integer, Object> b3 = b(context, 0, "gzfi", null, str, Integer.valueOf(i), str2);
                     if (b3 != null && ((Integer) b3.first).intValue() == 0) {
@@ -327,7 +333,7 @@ public class e {
                 }
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
         return "";
     }
@@ -352,7 +358,7 @@ public class e {
             gVar = new com.baidu.sofire.g(context);
             a2 = gVar.a();
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
         if (!TextUtils.isEmpty(a2)) {
             a = a2;
@@ -363,15 +369,15 @@ public class e {
             a = string;
             return string;
         }
-        String a3 = com.baidu.sofire.b.h.a(context);
-        if (!TextUtils.isEmpty(a3)) {
-            String[] split = a3.split("\\|");
+        String b2 = com.baidu.sofire.i.g.b(context);
+        if (!TextUtils.isEmpty(b2)) {
+            String[] split = b2.split("\\|");
             if (split == null || split.length != 2 || TextUtils.isEmpty(split[0]) || TextUtils.isEmpty(split[1])) {
                 a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
                 return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
             }
             if (F.getInstance().re(split[1].getBytes(), split[0].getBytes()) != null) {
-                String str = split[0] + com.baidu.sofire.b.e.a(re);
+                String str = split[0] + com.baidu.sofire.i.d.a(re);
                 gVar.b.putString("xytk_m", str);
                 gVar.b.commit();
                 a = str;
@@ -395,13 +401,13 @@ public class e {
             }
             com.baidu.sofire.b.a();
             if (TextUtils.isEmpty(b)) {
-                b = t.a(context).c();
+                b = s.a(context).c();
             }
             if (TextUtils.isEmpty(b)) {
-                b = t.a(context).b();
+                b = s.a(context).b();
             }
             final String str = b;
-            v.a().a(new Runnable() { // from class: com.baidu.sofire.core.e.3
+            u.a().a(new Runnable() { // from class: com.baidu.sofire.core.e.3
                 @Override // java.lang.Runnable
                 public final void run() {
                     synchronized (e.class) {
@@ -412,15 +418,13 @@ public class e {
                         }
                         gVar.b.putInt("td_a_c", b2);
                         gVar.b.commit();
-                        String a3 = t.a(context).a(str, b2);
-                        t.a(context).a(a3);
-                        e.b = a3;
+                        e.b = s.a(context).a(str, b2);
                     }
                 }
             });
             return b;
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
             return "";
         }
     }
@@ -429,22 +433,22 @@ public class e {
     public static String b(Context context) {
         try {
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
         if (!TextUtils.isEmpty(a)) {
             return a;
-        } else if (!com.baidu.sofire.b.e.a(context, false)) {
+        } else if (!com.baidu.sofire.i.d.a(context, false)) {
             com.baidu.sofire.b.a();
             return "";
         } else {
-            String b2 = com.baidu.sofire.b.e.b(context);
+            String b2 = com.baidu.sofire.i.d.b(context);
             if (TextUtils.isEmpty(b2)) {
-                if (com.baidu.sofire.b.e.b(context.getPackageName())) {
+                if (com.baidu.sofire.i.d.b(context.getPackageName())) {
                     return "";
                 }
                 com.baidu.sofire.b.a();
                 return d(context);
-            } else if (com.baidu.sofire.b.e.b(b2)) {
+            } else if (com.baidu.sofire.i.d.b(b2)) {
                 com.baidu.sofire.b.a();
                 Pair<Integer, Object> b3 = b(context, 0, "gz", null, new Object[0]);
                 if (b3 != null) {
@@ -468,7 +472,7 @@ public class e {
         try {
             a2 = a("xgz", new Class[]{String.class}, str);
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
             i = 501;
         }
         if (((Integer) a2.first).intValue() == 0 && !TextUtils.isEmpty((String) a2.second)) {
@@ -478,7 +482,7 @@ public class e {
         try {
             return new JSONObject().put("rc", i).put("z", b(context)).toString();
         } catch (Throwable th2) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
             return "";
         }
     }
@@ -487,7 +491,7 @@ public class e {
         if (context != null) {
             try {
             } catch (Throwable th) {
-                com.baidu.sofire.b.e.a();
+                com.baidu.sofire.i.d.a();
             }
             if (!TextUtils.isEmpty(str)) {
                 Pair<Integer, Object> a2 = a(100067, "retrieveToken", new Class[]{String.class, String.class, Integer.TYPE, String.class}, str, str2, Integer.valueOf(i), str3);
@@ -495,26 +499,26 @@ public class e {
                     String str4 = (String) a2.second;
                     com.baidu.sofire.b.a();
                     if (TextUtils.isEmpty(str4)) {
-                        return com.baidu.sofire.b.e.a(context, 9);
+                        return com.baidu.sofire.i.d.a(context, 9);
                     }
                     return str4;
                 }
                 new StringBuilder("gt failed ").append(a2.first);
                 com.baidu.sofire.b.a();
                 if (((Integer) a2.first).intValue() == 4 || ((Integer) a2.first).intValue() == 3) {
-                    String[] g = com.baidu.sofire.b.e.g(context);
+                    String[] g = com.baidu.sofire.i.d.g(context);
                     new StringBuilder("gt method try ").append(g[0]).append(" : ").append(g[1]);
                     com.baidu.sofire.b.a();
                     a(context, 0, g[0], g[1], 100067);
-                    return com.baidu.sofire.b.e.a(context, ((Integer) a2.first).intValue() == 3 ? 5 : 2);
+                    return com.baidu.sofire.i.d.a(context, ((Integer) a2.first).intValue() == 3 ? 5 : 2);
                 }
                 if (((Integer) a2.first).intValue() == 5 || ((Integer) a2.first).intValue() == 11) {
-                    return com.baidu.sofire.b.e.a(context, 7);
+                    return com.baidu.sofire.i.d.a(context, 7);
                 }
-                return com.baidu.sofire.b.e.a(context, 8);
+                return com.baidu.sofire.i.d.a(context, 8);
             }
         }
-        return com.baidu.sofire.b.e.a(context, 8);
+        return com.baidu.sofire.i.d.a(context, 8);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x0069  */
@@ -586,7 +590,7 @@ public class e {
                         for (int i3 = 0; i3 < objArr.length; i3++) {
                             String str7 = (String) objArr[i3];
                             if (!TextUtils.isEmpty(str7) && str7.contains("@@")) {
-                                Class<?> a3 = com.baidu.sofire.b.e.a(str7);
+                                Class<?> a3 = com.baidu.sofire.i.d.a(str7);
                                 if (a3 != null) {
                                     new StringBuilder("convert back class name ").append(a3.getCanonicalName());
                                     com.baidu.sofire.b.a();
@@ -620,7 +624,7 @@ public class e {
                                     return null;
                                 } catch (Throwable th) {
                                     try {
-                                        com.baidu.sofire.b.e.a();
+                                        com.baidu.sofire.i.d.a();
                                         return null;
                                     } finally {
                                         countDownLatch.countDown();
@@ -637,7 +641,7 @@ public class e {
                                     return null;
                                 } catch (Throwable th) {
                                     try {
-                                        com.baidu.sofire.b.e.a();
+                                        com.baidu.sofire.i.d.a();
                                         return null;
                                     } finally {
                                         countDownLatch.countDown();
@@ -668,7 +672,7 @@ public class e {
                 return bundle2;
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
         bundle2.putInt("status", 10);
         return bundle2;
@@ -690,7 +694,7 @@ public class e {
                 Object[] objArr2 = new Object[clsArr.length];
                 for (int i3 = 0; i3 < clsArr.length; i3++) {
                     if (clsArr[i3].isPrimitive()) {
-                        String a2 = com.baidu.sofire.b.e.a(clsArr[i3]);
+                        String a2 = com.baidu.sofire.i.d.a(clsArr[i3]);
                         if (!TextUtils.isEmpty(a2)) {
                             objArr2[i3] = a2 + "@@";
                         }
@@ -740,7 +744,7 @@ public class e {
             }
             return Pair.create(Integer.valueOf(i4), cVar2 == null ? null : cVar2.f);
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
             return Pair.create(3, null);
         }
     }
@@ -749,13 +753,23 @@ public class e {
         return a(context, i, 1, str, clsArr, objArr);
     }
 
+    public static void b(Context context, boolean z) {
+        try {
+            com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
+            eVar.d.putBoolean("s_a_pl", z);
+            eVar.d.commit();
+        } catch (Throwable th) {
+            com.baidu.sofire.i.d.a();
+        }
+    }
+
     static /* synthetic */ void c(Context context) {
         try {
-            if (TextUtils.isEmpty(t.a(context).c())) {
-                t.a(context).a(t.a(context).b());
+            if (TextUtils.isEmpty(s.a(context).c())) {
+                s.a(context).a(s.a(context).b());
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
     }
 
@@ -792,7 +806,7 @@ public class e {
                 } catch (Throwable th2) {
                 }
             }
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
     }
 }

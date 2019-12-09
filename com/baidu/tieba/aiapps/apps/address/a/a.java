@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class a extends RecyclerView.Adapter<C0322a> {
+public class a extends RecyclerView.Adapter<C0317a> {
     private List<com.baidu.tieba.aiapps.apps.address.c.b> dmh = new ArrayList();
     private b dmi;
     private Context mContext;
@@ -48,22 +48,22 @@ public class a extends RecyclerView.Adapter<C0322a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: h */
-    public C0322a onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public C0317a onCreateViewHolder(ViewGroup viewGroup, int i) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.delivery_choose_item_layout, viewGroup, false);
-        a(new C0322a(inflate));
-        return new C0322a(inflate);
+        a(new C0317a(inflate));
+        return new C0317a(inflate);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public void onBindViewHolder(C0322a c0322a, final int i) {
+    public void onBindViewHolder(C0317a c0317a, final int i) {
         final com.baidu.tieba.aiapps.apps.address.c.b bVar = this.dmh.get(i);
-        c0322a.crw.setText(bVar.userName);
-        c0322a.dmk.setText(bVar.dmK);
-        c0322a.dml.setText(bVar.aFP());
-        c0322a.dmm.setVisibility(bVar.dmQ ? 0 : 8);
-        c0322a.dmn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.1
+        c0317a.crw.setText(bVar.userName);
+        c0317a.dmk.setText(bVar.dmK);
+        c0317a.dml.setText(bVar.aFP());
+        c0317a.dmm.setVisibility(bVar.dmQ ? 0 : 8);
+        c0317a.dmn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (a.this.dmi != null) {
@@ -71,7 +71,7 @@ public class a extends RecyclerView.Adapter<C0322a> {
                 }
             }
         });
-        c0322a.dmn.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.2
+        c0317a.dmn.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 int action = motionEvent.getAction();
@@ -86,7 +86,7 @@ public class a extends RecyclerView.Adapter<C0322a> {
                 }
             }
         });
-        c0322a.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.3
+        c0317a.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (a.this.dmi != null) {
@@ -94,7 +94,7 @@ public class a extends RecyclerView.Adapter<C0322a> {
                 }
             }
         });
-        c0322a.itemView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.4
+        c0317a.itemView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.4
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
                 if (a.this.dmi != null) {
@@ -106,31 +106,31 @@ public class a extends RecyclerView.Adapter<C0322a> {
         });
     }
 
-    public void a(C0322a c0322a) {
+    public void a(C0317a c0317a) {
         if (com.baidu.swan.apps.u.a.JE().Kd()) {
             int color = AppRuntime.getAppContext().getResources().getColor(R.color.delivery_txt_color_1);
             int color2 = AppRuntime.getAppContext().getResources().getColor(R.color.delivery_txt_color_2);
             int color3 = AppRuntime.getAppContext().getResources().getColor(R.color.delivery_txt_color_3);
-            c0322a.itemView.setBackgroundResource(R.drawable.delivery_list_item_background_selector);
-            c0322a.crw.setTextColor(color);
-            c0322a.dmk.setTextColor(color);
-            c0322a.dml.setTextColor(color2);
-            c0322a.dmm.setTextColor(color);
+            c0317a.itemView.setBackgroundResource(R.drawable.delivery_list_item_background_selector);
+            c0317a.crw.setTextColor(color);
+            c0317a.dmk.setTextColor(color);
+            c0317a.dml.setTextColor(color2);
+            c0317a.dmm.setTextColor(color);
             Drawable drawable = AppRuntime.getAppContext().getResources().getDrawable(R.drawable.delivery_default_used);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            c0322a.dmm.setCompoundDrawables(drawable, null, null, null);
-            c0322a.dmn.setTextColor(color);
+            c0317a.dmm.setCompoundDrawables(drawable, null, null, null);
+            c0317a.dmn.setTextColor(color);
             Drawable drawable2 = AppRuntime.getAppContext().getResources().getDrawable(R.drawable.delivery_edit);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            c0322a.dmn.setCompoundDrawables(drawable2, null, null, null);
-            c0322a.dmo.setBackgroundColor(color3);
+            c0317a.dmn.setCompoundDrawables(drawable2, null, null, null);
+            c0317a.dmo.setBackgroundColor(color3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.aiapps.apps.address.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0322a extends RecyclerView.ViewHolder {
+    public static class C0317a extends RecyclerView.ViewHolder {
         private TextView crw;
         private TextView dmk;
         private TextView dml;
@@ -139,7 +139,7 @@ public class a extends RecyclerView.Adapter<C0322a> {
         private View dmo;
         private View dmp;
 
-        public C0322a(View view) {
+        public C0317a(View view) {
             super(view);
             this.dmp = view;
             this.crw = (TextView) view.findViewById(R.id.addr_user_name);

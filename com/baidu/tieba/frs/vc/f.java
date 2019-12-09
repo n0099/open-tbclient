@@ -267,16 +267,16 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
         this.fwZ = frsHeaderViewContainer;
         this.fSC = BdUniqueId.gen();
         this.fSB = new com.baidu.tieba.f.a();
-        this.fSB.a(new a.InterfaceC0405a() { // from class: com.baidu.tieba.frs.vc.f.6
-            @Override // com.baidu.tieba.f.a.InterfaceC0405a
+        this.fSB.a(new a.InterfaceC0400a() { // from class: com.baidu.tieba.frs.vc.f.6
+            @Override // com.baidu.tieba.f.a.InterfaceC0400a
             public void t(int i, int i2) {
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0405a
+            @Override // com.baidu.tieba.f.a.InterfaceC0400a
             public void u(int i, int i2) {
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0405a
+            @Override // com.baidu.tieba.f.a.InterfaceC0400a
             public void v(int i, int i2) {
             }
         });

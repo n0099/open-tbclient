@@ -1,5 +1,5 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PassNameValuePair {
     public String name;
     public String value;
@@ -17,21 +17,26 @@ public class PassNameValuePair {
         return this.value;
     }
 
+    public int hashCode() {
+        String str = this.name;
+        int hashCode = (str != null ? str.hashCode() : 0) * 31;
+        String str2 = this.value;
+        return hashCode + (str2 != null ? str2.hashCode() : 0);
+    }
+
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || PassNameValuePair.class != obj.getClass()) {
             return false;
         }
         PassNameValuePair passNameValuePair = (PassNameValuePair) obj;
-        if (this.name == null ? passNameValuePair.name != null : !this.name.equals(passNameValuePair.name)) {
+        String str = this.name;
+        if (str == null ? passNameValuePair.name != null : !str.equals(passNameValuePair.name)) {
             return false;
         }
-        return this.value != null ? this.value.equals(passNameValuePair.value) : passNameValuePair.value == null;
-    }
-
-    public int hashCode() {
-        return ((this.name != null ? this.name.hashCode() : 0) * 31) + (this.value != null ? this.value.hashCode() : 0);
+        String str2 = this.value;
+        return str2 != null ? str2.equals(passNameValuePair.value) : passNameValuePair.value == null;
     }
 }

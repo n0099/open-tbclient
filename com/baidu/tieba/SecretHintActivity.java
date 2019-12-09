@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -63,7 +64,7 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
             } else {
                 SecretHintActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(SecretHintActivity.this.getPageContext().getPageActivity()).createNormalCfg(2)));
             }
-            SecretHintActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SAPI_INIT, TbadkCoreApplication.getInst().getApp()));
+            SapiAccountManager.getInstance().getConfignation().setAgreeDangerousProtocol(true);
             com.baidu.tieba.r.c.cra().autoTrace(TbadkCoreApplication.getInst().getApp());
             com.baidu.tieba.r.c cra = com.baidu.tieba.r.c.cra();
             Application app = TbadkCoreApplication.getInst().getApp();

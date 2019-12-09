@@ -30,12 +30,12 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0555a kab;
-        private C0555a kac;
+        private C0550a kab;
+        private C0550a kac;
         private boolean kad;
 
         private a(String str) {
-            this.kab = new C0555a();
+            this.kab = new C0550a();
             this.kac = this.kab;
             this.kad = false;
             this.className = (String) g.checkNotNull(str);
@@ -57,28 +57,28 @@ public final class f {
             boolean z = this.kad;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0555a c0555a = this.kab.kae; c0555a != null; c0555a = c0555a.kae) {
-                if (!z || c0555a.value != null) {
+            for (C0550a c0550a = this.kab.kae; c0550a != null; c0550a = c0550a.kae) {
+                if (!z || c0550a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0555a.name != null) {
-                        append.append(c0555a.name).append('=');
+                    if (c0550a.name != null) {
+                        append.append(c0550a.name).append('=');
                     }
-                    append.append(c0555a.value);
+                    append.append(c0550a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0555a cCH() {
-            C0555a c0555a = new C0555a();
-            this.kac.kae = c0555a;
-            this.kac = c0555a;
-            return c0555a;
+        private C0550a cCH() {
+            C0550a c0550a = new C0550a();
+            this.kac.kae = c0550a;
+            this.kac = c0550a;
+            return c0550a;
         }
 
         private a r(String str, @Nullable Object obj) {
-            C0555a cCH = cCH();
+            C0550a cCH = cCH();
             cCH.value = obj;
             cCH.name = (String) g.checkNotNull(str);
             return this;
@@ -87,12 +87,12 @@ public final class f {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static final class C0555a {
-            C0555a kae;
+        public static final class C0550a {
+            C0550a kae;
             String name;
             Object value;
 
-            private C0555a() {
+            private C0550a() {
             }
         }
     }

@@ -29,7 +29,7 @@ public class b {
     public static final String aHx = com.baidu.swan.apps.ak.e.bsh.id;
     public static final String aHy = com.baidu.swan.apps.ak.e.bsj.id;
     private e aHA;
-    private Choreographer$FrameCallbackC0171b aHB;
+    private Choreographer$FrameCallbackC0166b aHB;
     private a aHC;
     private ConcurrentMap<String, Object> aHD;
     private boolean aHE;
@@ -74,7 +74,7 @@ public class b {
             return;
         }
         this.aHE = true;
-        this.aHB = new Choreographer$FrameCallbackC0171b();
+        this.aHB = new Choreographer$FrameCallbackC0166b();
         Choreographer.getInstance().postFrameCallback(this.aHB);
         this.aHC = new a();
         this.aHA = new e();
@@ -251,11 +251,11 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.console.property.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class Choreographer$FrameCallbackC0171b implements Choreographer.FrameCallback {
+    public class Choreographer$FrameCallbackC0166b implements Choreographer.FrameCallback {
         long aHI;
         int aHJ;
 
-        private Choreographer$FrameCallbackC0171b() {
+        private Choreographer$FrameCallbackC0166b() {
             this.aHI = -1L;
             this.aHJ = -1;
         }

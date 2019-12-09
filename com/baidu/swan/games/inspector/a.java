@@ -16,18 +16,18 @@ public class a {
 
     /* renamed from: com.baidu.swan.games.inspector.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0246a {
+    public static class C0241a {
         private String bAD;
         private boolean mEnabled;
 
-        C0246a(boolean z, String str) {
+        C0241a(boolean z, String str) {
             this.mEnabled = false;
             this.mEnabled = z;
             this.bAD = str;
         }
 
-        public static C0246a Xj() {
-            return new C0246a(false, "未启用真机调试");
+        public static C0241a Xj() {
+            return new C0241a(false, "未启用真机调试");
         }
 
         public boolean isEnabled() {
@@ -65,15 +65,15 @@ public class a {
         }
     }
 
-    public C0246a Xe() {
+    public C0241a Xe() {
         if (this.bAC || !Xf()) {
-            return new C0246a(this.bAB, !this.bAB ? "未启用真机调试" : this.bAC ? "使用了 debug 面板配置" : "启用了真机调试");
+            return new C0241a(this.bAB, !this.bAB ? "未启用真机调试" : this.bAC ? "使用了 debug 面板配置" : "启用了真机调试");
         }
-        return new C0246a(false, "线上包禁用真机调试");
+        return new C0241a(false, "线上包禁用真机调试");
     }
 
-    public static C0246a a(a aVar) {
-        return aVar == null ? C0246a.Xj() : aVar.Xe();
+    public static C0241a a(a aVar) {
+        return aVar == null ? C0241a.Xj() : aVar.Xe();
     }
 
     private boolean Xf() {

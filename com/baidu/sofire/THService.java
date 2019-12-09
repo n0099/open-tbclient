@@ -3,19 +3,19 @@ package com.baidu.sofire;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import com.baidu.sofire.b.v;
+import com.baidu.sofire.i.u;
 /* loaded from: classes2.dex */
 public class THService extends Service {
     @Override // android.app.Service
     public int onStartCommand(final Intent intent, int i, int i2) {
         try {
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
         if (intent == null) {
             return super.onStartCommand(intent, i, i2);
         }
-        v.a().a(new Runnable() { // from class: com.baidu.sofire.THService.1
+        u.a().a(new Runnable() { // from class: com.baidu.sofire.THService.1
             @Override // java.lang.Runnable
             public final void run() {
                 try {
@@ -29,7 +29,7 @@ public class THService extends Service {
                         a.a(THService.this.getApplicationContext(), intent2);
                     }
                 } catch (Throwable th2) {
-                    com.baidu.sofire.b.e.a();
+                    com.baidu.sofire.i.d.a();
                 }
             }
         });

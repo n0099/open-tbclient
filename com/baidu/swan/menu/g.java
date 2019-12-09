@@ -190,16 +190,16 @@ public class g implements View.OnKeyListener, e {
                 }
                 switch (itemId) {
                     case 5:
-                        next.setTitle(z ? f.C0268f.aiapp_menu_text_day_mode : f.C0268f.aiapp_menu_text_night_mode);
+                        next.setTitle(z ? f.C0263f.aiapp_menu_text_day_mode : f.C0263f.aiapp_menu_text_night_mode);
                         next.setIcon(z ? f.c.aiapp_menu_item_daymode : f.c.aiapp_menu_item_nightmode);
                         break;
                     case 38:
                         if (i == 2) {
-                            next.setTitle(f.C0268f.aiapp_menu_text_cancel_favorite);
+                            next.setTitle(f.C0263f.aiapp_menu_text_cancel_favorite);
                             next.setIcon(f.c.aiapp_menu_item_cancel_fav_selector);
                             break;
                         } else if (i == 1) {
-                            next.setTitle(f.C0268f.aiapp_menu_text_favorite);
+                            next.setTitle(f.C0263f.aiapp_menu_text_favorite);
                             next.setIcon(f.c.aiapp_menu_item_add_fav_selector);
                             break;
                         }

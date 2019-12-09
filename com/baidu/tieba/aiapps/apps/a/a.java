@@ -21,12 +21,12 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.aiapps.apps.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0319a {
+    public static class C0314a {
         private static final a dlw = new a();
     }
 
     public static a aFm() {
-        return C0319a.dlw;
+        return C0314a.dlw;
     }
 
     public void init(Context context) {

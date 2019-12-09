@@ -10,7 +10,7 @@ import com.baidu.swan.apps.console.c;
 public class a {
     private static volatile a bqw;
     private SensorManager aoj;
-    private InterfaceC0158a bqB;
+    private InterfaceC0153a bqB;
     private SensorEventListener bqk;
     private Sensor bql;
     private SensorEventListener bqx;
@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.aj.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0158a {
+    public interface InterfaceC0153a {
         void R(float f);
     }
 
@@ -45,8 +45,8 @@ public class a {
         this.mContext = context;
     }
 
-    public void a(InterfaceC0158a interfaceC0158a) {
-        this.bqB = interfaceC0158a;
+    public void a(InterfaceC0153a interfaceC0153a) {
+        this.bqB = interfaceC0153a;
     }
 
     public void Tp() {

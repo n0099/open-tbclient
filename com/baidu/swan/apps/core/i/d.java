@@ -41,7 +41,7 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
     public d(Context context) {
         super(context);
         this.aNm = true;
-        a(new C0181d());
+        a(new C0176d());
         a(new a());
         aY(context);
     }
@@ -148,9 +148,9 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.swan.apps.core.i.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0181d extends WebViewClient {
+    public class C0176d extends WebViewClient {
         /* JADX INFO: Access modifiers changed from: protected */
-        public C0181d() {
+        public C0176d() {
         }
 
         @Override // android.webkit.WebViewClient

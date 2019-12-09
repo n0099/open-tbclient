@@ -12,7 +12,7 @@ import com.baidu.tieba.ala.liveroom.turntable.lucky.a;
 import com.baidu.tieba.ala.liveroom.turntable.lucky.c;
 /* loaded from: classes6.dex */
 public class b implements a {
-    private a.InterfaceC0372a eoo;
+    private a.InterfaceC0367a eoo;
     private ViewGroup eop;
     private int eoq;
     private int eor;
@@ -36,11 +36,11 @@ public class b implements a {
         this.eor = i2;
     }
 
-    public void a(String str, a.InterfaceC0372a interfaceC0372a) {
+    public void a(String str, a.InterfaceC0367a interfaceC0367a) {
         rt();
         this.eoy = true;
         this.mLiveId = str;
-        this.eoo = interfaceC0372a;
+        this.eoo = interfaceC0367a;
         aWh();
     }
 
@@ -96,7 +96,7 @@ public class b implements a {
         if (this.eov == null) {
             this.eov = new com.baidu.tieba.ala.liveroom.turntable.c();
             this.eov.a(new com.baidu.tieba.ala.liveroom.turntable.b() { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.1
-                @Override // com.baidu.tieba.ala.liveroom.turntable.b, com.baidu.tieba.ala.liveroom.turntable.a.InterfaceC0371a
+                @Override // com.baidu.tieba.ala.liveroom.turntable.b, com.baidu.tieba.ala.liveroom.turntable.a.InterfaceC0366a
                 public void a(String str, c cVar) {
                     super.a(str, cVar);
                     b.this.b(str, cVar);

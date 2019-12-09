@@ -53,7 +53,7 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
             this.extraData = new PostAdBaseData.a.c();
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
             if (optJSONObject3 != null) {
-                this.extraData.iIL = new PostAdBaseData.a.C0508a();
+                this.extraData.iIL = new PostAdBaseData.a.C0503a();
                 this.extraData.iIL.packageName = optJSONObject3.optString("pkgname");
                 this.extraData.iIL.downloadUrl = optJSONObject3.optString("download_url");
             }

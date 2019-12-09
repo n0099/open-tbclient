@@ -85,8 +85,8 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if (SearchLocationActivity.this.hkG != null && SearchLocationActivity.this.hkG.bJN()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY));
                 MessageManager messageManager = MessageManager.getInstance();
-                a.C0462a c0462a = (a.C0462a) SearchLocationActivity.this.hkG.getItem(i);
-                messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0462a.getName(), c0462a.getName(), c0462a.getScreatString()));
+                a.C0457a c0457a = (a.C0457a) SearchLocationActivity.this.hkG.getItem(i);
+                messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0457a.getName(), c0457a.getName(), c0457a.getScreatString()));
                 SearchLocationActivity.this.finish();
             }
         }
@@ -164,34 +164,34 @@ public class SearchLocationActivity extends NavigationBarActivity {
         this.hkG.notifyDataSetChanged();
     }
 
-    private ArrayList<a.C0462a> b(List<a.C0521a> list, String str, String str2) {
+    private ArrayList<a.C0457a> b(List<a.C0516a> list, String str, String str2) {
         if (list == null || list.size() <= 0) {
             return null;
         }
-        ArrayList<a.C0462a> arrayList = new ArrayList<>();
-        a.C0521a c0521a = null;
-        for (a.C0521a c0521a2 : list) {
-            if (c0521a2 != null && !TextUtils.isEmpty(c0521a2.getName())) {
-                if (TextUtils.equals(c0521a2.getName(), str)) {
-                    c0521a = c0521a2;
+        ArrayList<a.C0457a> arrayList = new ArrayList<>();
+        a.C0516a c0516a = null;
+        for (a.C0516a c0516a2 : list) {
+            if (c0516a2 != null && !TextUtils.isEmpty(c0516a2.getName())) {
+                if (TextUtils.equals(c0516a2.getName(), str)) {
+                    c0516a = c0516a2;
                 } else {
-                    a.C0462a c0462a = new a.C0462a();
-                    c0462a.setName(c0521a2.getName());
-                    c0462a.zd(c0521a2.getSn());
-                    arrayList.add(c0462a);
+                    a.C0457a c0457a = new a.C0457a();
+                    c0457a.setName(c0516a2.getName());
+                    c0457a.zd(c0516a2.getSn());
+                    arrayList.add(c0457a);
                 }
             }
         }
-        if (c0521a != null) {
-            a.C0462a c0462a2 = new a.C0462a();
-            c0462a2.setName(c0521a.getName());
-            c0462a2.zd(c0521a.getSn());
-            arrayList.add(0, c0462a2);
+        if (c0516a != null) {
+            a.C0457a c0457a2 = new a.C0457a();
+            c0457a2.setName(c0516a.getName());
+            c0457a2.zd(c0516a.getSn());
+            arrayList.add(0, c0457a2);
         } else {
-            a.C0462a c0462a3 = new a.C0462a();
-            c0462a3.setName(str);
-            c0462a3.zd(str2);
-            arrayList.add(0, c0462a3);
+            a.C0457a c0457a3 = new a.C0457a();
+            c0457a3.setName(str);
+            c0457a3.zd(str2);
+            arrayList.add(0, c0457a3);
         }
         return arrayList;
     }

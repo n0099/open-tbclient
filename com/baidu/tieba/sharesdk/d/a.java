@@ -176,17 +176,17 @@ public class a implements View.OnClickListener {
         if (i <= this.iXf.size() && i >= 0) {
             this.iXf.add(i, view);
             if (onClickListener != null) {
-                view.setOnClickListener(new View$OnClickListenerC0513a(onClickListener));
+                view.setOnClickListener(new View$OnClickListenerC0508a(onClickListener));
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.sharesdk.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    class View$OnClickListenerC0513a implements View.OnClickListener {
+    class View$OnClickListenerC0508a implements View.OnClickListener {
         private View.OnClickListener iXm;
 
-        public View$OnClickListenerC0513a(View.OnClickListener onClickListener) {
+        public View$OnClickListenerC0508a(View.OnClickListener onClickListener) {
             this.iXm = onClickListener;
         }
 

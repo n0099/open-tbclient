@@ -49,8 +49,6 @@ import com.baidu.tieba.passaccount.a.b;
 import com.baidu.tieba.passaccount.a.d;
 import com.baidu.tieba.passaccount.app.LoginActivity;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.sina.weibo.sdk.WbSdk;
-import com.sina.weibo.sdk.auth.AuthInfo;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import java.util.ArrayList;
 import java.util.List;
@@ -127,14 +125,7 @@ public class PassManagerStatic {
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Application> customMessage) {
                 if (customMessage != null) {
-                    Application data = customMessage.getData();
-                    boolean z = false;
-                    if (customMessage.getExtra() instanceof Boolean) {
-                        z = ((Boolean) customMessage.getExtra()).booleanValue();
-                    }
-                    if (!PassManagerStatic.aBF() || z) {
-                        PassManagerStatic.dM(data);
-                    }
+                    PassManagerStatic.dM(customMessage.getData());
                 }
                 return null;
             }
@@ -193,6 +184,7 @@ public class PassManagerStatic {
             builder.setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.PASS_LOGIN_ADDRESS);
         }
         builder.setProductLineInfo("tb", "1", "6e93e7659ae637845c7f83abee68a740").sofireSdkConfig("200033", "ea737e4f435b53786043369d2e5ace4f", 1).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin("file:///android_asset/sapi_theme/style.css").fastLoginSupport(bPo()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).qqAppID("101462192").sinaAppID("1511099634", PassBioEnv.PASSPORT_DOMAIN).setSupportFaceLogin(true).setSupportTouchLogin(false).forbidPresetPhoneNumber(true);
+        builder.setAgreeDangerousProtocol(com.baidu.tbadk.core.sharedPref.b.alP().getBoolean("key_secret_is_show", false));
         if (com.baidu.tbadk.coreExtra.a.b.PASS_LOGIN_ADDRESS == Domain.DOMAIN_QA) {
             builder.setRuntimeEnvironment(Domain.DOMAIN_QA.forceHttps(true));
             builder.debug(true);
@@ -200,7 +192,6 @@ public class PassManagerStatic {
         hEH = builder.build();
         try {
             SapiAccountManager.getInstance().init(hEH);
-            WbSdk.install(context, new AuthInfo(context, "1511099634", PassBioEnv.PASSPORT_DOMAIN, "invitation_write"));
         } catch (Exception e2) {
             BdLog.e(e2);
         }
@@ -342,10 +333,5 @@ public class PassManagerStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static boolean aBF() {
-        return !com.baidu.tbadk.core.sharedPref.b.alP().getBoolean("key_secret_is_show", false);
     }
 }

@@ -14,7 +14,7 @@ public class a {
     private SensorManager aoj;
     private SensorEventListener bqk;
     private Sensor bql;
-    private InterfaceC0154a bqm;
+    private InterfaceC0149a bqm;
     private double[] bqn = new double[3];
     private boolean bqo = false;
     private long bqp = 0;
@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.aj.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0154a {
+    public interface InterfaceC0149a {
         void a(double[] dArr);
     }
 
@@ -46,8 +46,8 @@ public class a {
         this.bqq = i;
     }
 
-    public void a(InterfaceC0154a interfaceC0154a) {
-        this.bqm = interfaceC0154a;
+    public void a(InterfaceC0149a interfaceC0149a) {
+        this.bqm = interfaceC0149a;
     }
 
     public void Tk() {

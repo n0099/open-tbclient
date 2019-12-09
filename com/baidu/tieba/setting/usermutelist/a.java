@@ -16,13 +16,13 @@ import tbclient.UserMuteQuery.MuteUser;
 public class a extends BaseAdapter {
     private ArrayList<MuteUser> bbH;
     private b iWr;
-    private InterfaceC0512a iWs;
+    private InterfaceC0507a iWs;
     private SimpleDateFormat iWu = new SimpleDateFormat("yyyy.MM.dd");
     private BaseActivity mActivity;
 
     /* renamed from: com.baidu.tieba.setting.usermutelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0512a {
+    public interface InterfaceC0507a {
         void t(long j, String str);
     }
 
@@ -31,10 +31,10 @@ public class a extends BaseAdapter {
         void s(long j, String str);
     }
 
-    public a(BaseActivity baseActivity, b bVar, InterfaceC0512a interfaceC0512a) {
+    public a(BaseActivity baseActivity, b bVar, InterfaceC0507a interfaceC0507a) {
         this.mActivity = baseActivity;
         this.iWr = bVar;
-        this.iWs = interfaceC0512a;
+        this.iWs = interfaceC0507a;
     }
 
     public void setData(ArrayList<MuteUser> arrayList) {

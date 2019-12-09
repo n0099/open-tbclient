@@ -21,109 +21,110 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class a implements Runnable {
     private static final String a = "PassHttpClientRequest";
-    private static final char[] b = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-    private static final String e = "User-Agent";
-    private static final int f = 15000;
-    private Context g;
-    private HttpResponseHandler h;
-    private PassHttpParamDTO i;
-    private Method j;
-    private HttpURLConnection k;
-    private Thread l;
-    private String c = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
-    private boolean d = false;
-    private volatile boolean m = false;
+    private static final String b = "Set-Cookie";
+    private static final char[] c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    private static final String f = "User-Agent";
+    private static final int g = 15000;
+    private Context h;
+    private HttpResponseHandler i;
+    private PassHttpParamDTO j;
+    private Method k;
+    private HttpURLConnection l;
+    private Thread m;
+    private String d = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
+    private boolean e = false;
     private volatile boolean n = false;
+    private volatile boolean o = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Method method, Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
-        this.j = method;
-        this.g = context;
-        this.i = passHttpParamDTO;
-        this.h = httpResponseHandler;
+        this.k = method;
+        this.h = context;
+        this.j = passHttpParamDTO;
+        this.i = httpResponseHandler;
         d();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a() {
-        this.n = true;
-        if (this.l != null) {
-            while (this.l.isAlive() && !this.m) {
-                this.l.interrupt();
+        this.o = true;
+        if (this.m != null) {
+            while (this.m.isAlive() && !this.n) {
+                this.m.interrupt();
                 try {
-                    this.l.join(10L);
-                } catch (InterruptedException e2) {
+                    this.m.join(10L);
+                } catch (InterruptedException e) {
                 }
             }
-            this.l = null;
+            this.m = null;
         }
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.l = Thread.currentThread();
-        if (this.h != null) {
-            this.h.a();
+        this.m = Thread.currentThread();
+        if (this.i != null) {
+            this.i.a();
         }
         try {
             c();
-        } catch (Exception e2) {
-            this.m = true;
-            if (!this.n) {
-                if (this.h != null) {
-                    this.h.a(e2, e2.getMessage());
+        } catch (Exception e) {
+            this.n = true;
+            if (!this.o) {
+                if (this.i != null) {
+                    this.i.a(e, e.getMessage());
                 }
             } else {
                 return;
             }
         }
-        if (this.h != null) {
-            this.h.b();
+        if (this.i != null) {
+            this.i.b();
         }
     }
 
     private void c() throws IOException, InterruptedException, IllegalArgumentException {
         byte[] a2;
-        switch (this.j) {
+        switch (this.k) {
             case GET:
-                String a3 = a(this.i.paramsMap);
+                String a3 = a(this.j.paramsMap);
                 if (!TextUtils.isEmpty(a3)) {
-                    this.i.url += "?" + a3;
+                    this.j.url += "?" + a3;
                 }
-                this.k = (HttpURLConnection) new URL(this.i.url).openConnection();
-                this.k.setRequestMethod("GET");
-                this.k.setUseCaches(false);
+                this.l = (HttpURLConnection) new URL(this.j.url).openConnection();
+                this.l.setRequestMethod("GET");
+                this.l.setUseCaches(false);
                 a2 = null;
                 break;
             case POST:
-                this.k = (HttpURLConnection) new URL(this.i.url).openConnection();
-                this.k.setRequestMethod("POST");
-                this.k.setDoOutput(true);
-                a2 = a(this.k, this.i);
+                this.l = (HttpURLConnection) new URL(this.j.url).openConnection();
+                this.l.setRequestMethod("POST");
+                this.l.setDoOutput(true);
+                a2 = a(this.l, this.j);
                 break;
             default:
-                throw new IllegalArgumentException(this.j + " method not support");
+                throw new IllegalArgumentException(this.k + " method not support");
         }
-        a(this.k, this.i.connectTimeout);
-        a(this.k, this.i.userAgent);
-        a(this.k, this.i.headers);
-        b.a(this.g, this.k, this.i);
+        a(this.l, this.j.connectTimeout);
+        a(this.l, this.j.userAgent);
+        a(this.l, this.j.headers);
+        b.a(this.h, this.l, this.j);
         if (a2 != null) {
-            OutputStream outputStream = this.k.getOutputStream();
+            OutputStream outputStream = this.l.getOutputStream();
             outputStream.write(a2);
             outputStream.flush();
             outputStream.close();
         }
-        InputStream inputStream = this.k.getInputStream();
-        int responseCode = this.k.getResponseCode();
+        InputStream inputStream = this.l.getInputStream();
+        int responseCode = this.l.getResponseCode();
         byte[] a4 = a(inputStream);
         if (a4 != null) {
             c.a(a, "responseBody:" + new String(a4));
         }
-        HashMap<String, String> a5 = a(this.k);
-        b.b(this.g, this.k, this.i);
-        if (this.h != null) {
-            this.h.c(responseCode, a5, a4);
+        HashMap<String, String> a5 = a(this.l);
+        b.b(this.h, this.l, this.j);
+        if (this.i != null) {
+            this.i.c(responseCode, a5, a4);
         }
     }
 
@@ -142,29 +143,29 @@ public class a implements Runnable {
                         break;
                     }
                     bufferedOutputStream.write(bArr2, 0, read);
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                     try {
                         bufferedOutputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
                     try {
                         bufferedInputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
                 }
             } finally {
                 try {
                     bufferedOutputStream.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
+                } catch (IOException e4) {
+                    e4.printStackTrace();
                 }
                 try {
                     bufferedInputStream.close();
-                } catch (IOException e6) {
-                    e6.printStackTrace();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
                 }
             }
         }
@@ -177,7 +178,12 @@ public class a implements Runnable {
         HashMap<String, String> hashMap = new HashMap<>();
         int size = httpURLConnection.getHeaderFields().size();
         for (int i = 0; i < size; i++) {
-            hashMap.put(httpURLConnection.getHeaderFieldKey(i), httpURLConnection.getHeaderField(i));
+            String headerFieldKey = httpURLConnection.getHeaderFieldKey(i);
+            String headerField = httpURLConnection.getHeaderField(i);
+            if ("Set-Cookie".equals(headerFieldKey) && !TextUtils.isEmpty(headerField) && headerField.contains("=")) {
+                headerFieldKey = headerField.substring(0, headerField.indexOf("="));
+            }
+            hashMap.put(headerFieldKey, headerField);
         }
         return hashMap;
     }
@@ -186,21 +192,21 @@ public class a implements Runnable {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < 30; i++) {
-            sb.append(b[random.nextInt(b.length)]);
+            sb.append(c[random.nextInt(c.length)]);
         }
-        this.c = sb.toString();
+        this.d = sb.toString();
     }
 
     private void a(ByteArrayOutputStream byteArrayOutputStream) throws IOException {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < 30; i++) {
-            sb.append(b[random.nextInt(b.length)]);
+            sb.append(c[random.nextInt(c.length)]);
         }
-        byte[] bytes = ("\r\n--" + this.c + "\r\n").getBytes();
-        if (!this.d) {
-            this.d = true;
-            byteArrayOutputStream.write(("--" + this.c + "\r\n").getBytes());
+        byte[] bytes = ("\r\n--" + this.d + "\r\n").getBytes();
+        if (!this.e) {
+            this.e = true;
+            byteArrayOutputStream.write(("--" + this.d + "\r\n").getBytes());
             return;
         }
         byteArrayOutputStream.write(bytes);
@@ -232,14 +238,14 @@ public class a implements Runnable {
                 }
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream;
-            } catch (IOException e2) {
-                throw e2;
+            } catch (IOException e) {
+                throw e;
             }
         } finally {
             try {
                 inputStream.close();
-            } catch (IOException e3) {
-                e3.printStackTrace();
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
         }
     }
@@ -252,8 +258,8 @@ public class a implements Runnable {
                     try {
                         sb.append(URLEncoder.encode((String) entry.getKey(), HTTP.UTF_8)).append("=").append(URLEncoder.encode((String) entry.getValue(), HTTP.UTF_8));
                         sb.append("&");
-                    } catch (UnsupportedEncodingException e2) {
-                        c.a(e2.getMessage());
+                    } catch (UnsupportedEncodingException e) {
+                        c.a(e.getMessage());
                     }
                 }
             }
@@ -265,7 +271,7 @@ public class a implements Runnable {
     }
 
     public HttpURLConnection b() {
-        return this.k;
+        return this.l;
     }
 
     public void a(HttpURLConnection httpURLConnection, String str) {
@@ -277,9 +283,11 @@ public class a implements Runnable {
     private void a(HttpURLConnection httpURLConnection, int i) {
         if (i != 0) {
             httpURLConnection.setConnectTimeout(i);
-        } else {
-            httpURLConnection.setConnectTimeout(15000);
+            httpURLConnection.setReadTimeout(i);
+            return;
         }
+        httpURLConnection.setConnectTimeout(15000);
+        httpURLConnection.setReadTimeout(15000);
     }
 
     private void a(HttpURLConnection httpURLConnection, HashMap<String, String> hashMap) {
@@ -292,7 +300,7 @@ public class a implements Runnable {
 
     private byte[] a(HttpURLConnection httpURLConnection, PassHttpParamDTO passHttpParamDTO) throws IOException {
         if (passHttpParamDTO.paramsMap instanceof MultipartHashMap) {
-            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.c);
+            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.d);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             if (passHttpParamDTO.paramsMap != null) {
                 for (Map.Entry entry : passHttpParamDTO.paramsMap.getMap().entrySet()) {

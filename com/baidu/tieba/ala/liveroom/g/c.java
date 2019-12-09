@@ -77,23 +77,23 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        C0361c c0361c;
+        C0356c c0356c;
         if (view == null) {
-            C0361c c0361c2 = new C0361c();
-            c0361c2.eeA = new AlaLiveMultiBeautyFilterItemView(this.eet.getContext());
-            c0361c2.eeA.setTag(c0361c2);
-            c0361c = c0361c2;
+            C0356c c0356c2 = new C0356c();
+            c0356c2.eeA = new AlaLiveMultiBeautyFilterItemView(this.eet.getContext());
+            c0356c2.eeA.setTag(c0356c2);
+            c0356c = c0356c2;
         } else {
-            c0361c = (C0361c) view.getTag();
+            c0356c = (C0356c) view.getTag();
         }
         if (this.eeu.get(i) == null || !this.eeu.get(i).booleanValue()) {
-            c0361c.eeA.setUnselectedBackground();
+            c0356c.eeA.setUnselectedBackground();
         } else {
-            c0361c.eeA.setSelectedBackground();
+            c0356c.eeA.setSelectedBackground();
         }
-        c0361c.eeA.setItemIcon(this.ees[i % this.ees.length].coA);
-        c0361c.eeA.setItemText(this.ees[i % this.ees.length].eez);
-        c0361c.eeA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.g.c.1
+        c0356c.eeA.setItemIcon(this.ees[i % this.ees.length].coA);
+        c0356c.eeA.setItemText(this.ees[i % this.ees.length].eez);
+        c0356c.eeA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.g.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (c.this.eev != i) {
@@ -106,18 +106,18 @@ public class c extends BaseAdapter {
                     }
                 }
                 if (view2.getTag() != null) {
-                    ((C0361c) view2.getTag()).eeA.setSelectedBackground();
+                    ((C0356c) view2.getTag()).eeA.setSelectedBackground();
                 }
                 c.this.nu(i);
                 c.this.notifyDataSetChanged();
             }
         });
         if (i == 0 && this.eex != 0) {
-            c0361c.eeA.setPadding(this.eex, 0, 0, 0);
+            c0356c.eeA.setPadding(this.eex, 0, 0, 0);
         } else {
-            c0361c.eeA.setPadding(0, 0, 0, 0);
+            c0356c.eeA.setPadding(0, 0, 0, 0);
         }
-        return c0361c.eeA;
+        return c0356c.eeA;
     }
 
     public void nv(int i) {
@@ -126,10 +126,10 @@ public class c extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    class C0361c {
+    class C0356c {
         AlaLiveMultiBeautyFilterItemView eeA;
 
-        C0361c() {
+        C0356c() {
         }
     }
 

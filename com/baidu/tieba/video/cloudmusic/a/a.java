@@ -60,48 +60,48 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        C0526a c0526a;
+        C0521a c0521a;
         if (view == null) {
             view = LayoutInflater.from(this.ceS.getPageActivity()).inflate(R.layout.cloud_music_item, viewGroup, false);
-            c0526a = new C0526a();
-            c0526a.jxn = (TbImageView) view.findViewById(R.id.music_state);
-            c0526a.jxm = (TbImageView) view.findViewById(R.id.music_image);
-            c0526a.jxm.setDrawerType(1);
-            c0526a.jxm.setIsRound(true);
-            c0526a.jxm.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
-            c0526a.jxm.setDefaultResource(R.drawable.bg_video_cloudmusic);
-            c0526a.jxm.setDefaultBgResource(R.color.transparent);
-            c0526a.jxm.setBorderWidth(l.getDimens(this.ceS.getPageActivity(), R.dimen.ds4));
-            c0526a.jxm.setBorderColor(am.getColor(R.color.cp_link_tip_a));
-            c0526a.jxo = view.findViewById(R.id.music_loading);
-            c0526a.jxp = (TextView) view.findViewById(R.id.music_title);
-            c0526a.jxq = (TextView) view.findViewById(R.id.music_author_name);
-            c0526a.jxr = (TextView) view.findViewById(R.id.music_duration);
-            c0526a.jxs = (TextView) view.findViewById(R.id.music_choose);
-            c0526a.eyu = view.findViewById(R.id.line);
-            view.setTag(c0526a);
+            c0521a = new C0521a();
+            c0521a.jxn = (TbImageView) view.findViewById(R.id.music_state);
+            c0521a.jxm = (TbImageView) view.findViewById(R.id.music_image);
+            c0521a.jxm.setDrawerType(1);
+            c0521a.jxm.setIsRound(true);
+            c0521a.jxm.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
+            c0521a.jxm.setDefaultResource(R.drawable.bg_video_cloudmusic);
+            c0521a.jxm.setDefaultBgResource(R.color.transparent);
+            c0521a.jxm.setBorderWidth(l.getDimens(this.ceS.getPageActivity(), R.dimen.ds4));
+            c0521a.jxm.setBorderColor(am.getColor(R.color.cp_link_tip_a));
+            c0521a.jxo = view.findViewById(R.id.music_loading);
+            c0521a.jxp = (TextView) view.findViewById(R.id.music_title);
+            c0521a.jxq = (TextView) view.findViewById(R.id.music_author_name);
+            c0521a.jxr = (TextView) view.findViewById(R.id.music_duration);
+            c0521a.jxs = (TextView) view.findViewById(R.id.music_choose);
+            c0521a.eyu = view.findViewById(R.id.line);
+            view.setTag(c0521a);
         } else {
-            c0526a = (C0526a) view.getTag();
+            c0521a = (C0521a) view.getTag();
         }
-        c0526a.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+        c0521a.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
         final CloudMusicData.MusicTagList.MusicList musicList = this.jxj.get(i);
         if (musicList != null) {
-            c0526a.jxp.setText(musicList.name);
-            c0526a.jxm.startLoad(musicList.image, 10, false);
-            c0526a.jxq.setText(musicList.author);
-            c0526a.jxr.setText(aq.stringForVideoTime(musicList.duration * 1000));
+            c0521a.jxp.setText(musicList.name);
+            c0521a.jxm.startLoad(musicList.image, 10, false);
+            c0521a.jxq.setText(musicList.author);
+            c0521a.jxr.setText(aq.stringForVideoTime(musicList.duration * 1000));
             if (musicList.isLoading) {
-                c0526a.jxo.setVisibility(0);
+                c0521a.jxo.setVisibility(0);
             } else {
-                c0526a.jxo.setVisibility(4);
+                c0521a.jxo.setVisibility(4);
             }
             if (musicList.equals(com.baidu.tieba.video.cloudmusic.data.a.csQ().csR())) {
-                c0526a.jxn.setImageResource(R.drawable.btn_icon_stop_video);
-                c0526a.jxm.setDrawBorder(true);
-                c0526a.jxs.setVisibility(0);
-                c0526a.jxo.setVisibility(4);
+                c0521a.jxn.setImageResource(R.drawable.btn_icon_stop_video);
+                c0521a.jxm.setDrawBorder(true);
+                c0521a.jxs.setVisibility(0);
+                c0521a.jxo.setVisibility(4);
                 musicList.isLoading = false;
-                c0526a.jxs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.cloudmusic.a.a.1
+                c0521a.jxs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.cloudmusic.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (a.this.jxk != null) {
@@ -110,9 +110,9 @@ public class a extends BaseAdapter {
                     }
                 });
             } else {
-                c0526a.jxn.setImageResource(R.drawable.btn_icon_play_video_n);
-                c0526a.jxm.setDrawBorder(false);
-                c0526a.jxs.setVisibility(8);
+                c0521a.jxn.setImageResource(R.drawable.btn_icon_play_video_n);
+                c0521a.jxm.setDrawBorder(false);
+                c0521a.jxs.setVisibility(8);
             }
         }
         return view;
@@ -129,7 +129,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.video.cloudmusic.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0526a {
+    public static class C0521a {
         private View eyu;
         public TbImageView jxm;
         public TbImageView jxn;

@@ -11,8 +11,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static C0226a bpU;
-    private static C0226a bpV;
+    private static C0221a bpU;
+    private static C0221a bpV;
 
     public static void d(boolean z, int i) {
         f.ST().putBoolean(eY(i), z);
@@ -30,20 +30,20 @@ public final class a {
         return f.ST().getLong(fd(i), 0L);
     }
 
-    public static C0226a fa(int i) {
+    public static C0221a fa(int i) {
         return i == 1 ? Tc() : Td();
     }
 
-    private static C0226a Tc() {
+    private static C0221a Tc() {
         if (bpV == null) {
-            bpV = C0226a.c(ff(1), 1);
+            bpV = C0221a.c(ff(1), 1);
         }
         return bpV;
     }
 
-    private static C0226a Td() {
+    private static C0221a Td() {
         if (bpU == null) {
-            bpU = C0226a.c(ff(0), 0);
+            bpU = C0221a.c(ff(0), 0);
         }
         return bpU;
     }
@@ -54,7 +54,7 @@ public final class a {
                 Log.d("PresetSwanCoreControl", "onPresetUpdate start.");
             }
             if (eX(i)) {
-                C0226a fa = fa(i);
+                C0221a fa = fa(i);
                 long j = f.ST().getLong(fc(i), 0L);
                 long iu = com.baidu.swan.apps.swancore.b.iu(fa.bpW);
                 if (DEBUG) {
@@ -138,15 +138,15 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.swancore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0226a {
+    public static class C0221a {
         public String bpW;
 
-        public static C0226a c(JSONObject jSONObject, int i) {
-            C0226a c0226a = new C0226a();
+        public static C0221a c(JSONObject jSONObject, int i) {
+            C0221a c0221a = new C0221a();
             if (jSONObject != null) {
-                c0226a.bpW = jSONObject.optString(eP(i));
+                c0221a.bpW = jSONObject.optString(eP(i));
             }
-            return c0226a;
+            return c0221a;
         }
 
         private static String eP(int i) {

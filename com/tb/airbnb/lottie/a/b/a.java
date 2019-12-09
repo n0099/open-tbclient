@@ -10,13 +10,13 @@ public abstract class a<K, A> {
     private final List<? extends com.tb.airbnb.lottie.a.a<K>> eR;
     @Nullable
     private com.tb.airbnb.lottie.a.a<K> ksH;
-    final List<InterfaceC0577a> listeners = new ArrayList();
+    final List<InterfaceC0572a> listeners = new ArrayList();
     private boolean eQ = false;
     private float progress = 0.0f;
 
     /* renamed from: com.tb.airbnb.lottie.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0577a {
+    public interface InterfaceC0572a {
         void bt();
     }
 
@@ -31,8 +31,8 @@ public abstract class a<K, A> {
         this.eQ = true;
     }
 
-    public void b(InterfaceC0577a interfaceC0577a) {
-        this.listeners.add(interfaceC0577a);
+    public void b(InterfaceC0572a interfaceC0572a) {
+        this.listeners.add(interfaceC0572a);
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {

@@ -7,7 +7,7 @@ import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
 /* loaded from: classes2.dex */
 public class PassBiometricDefaultFactory extends PassBiometricFactory {
     public static final int VERSION_CODE = 8;
-    public static final String VERSION_NAME = "1.2.2";
+    public static final String VERSION_NAME = "1.2.4";
     private static PassBiometricDefaultFactory defaultFactory;
 
     private PassBiometricDefaultFactory() {

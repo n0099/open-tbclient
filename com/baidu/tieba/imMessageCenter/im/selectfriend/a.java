@@ -70,7 +70,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0447a c0447a;
+        C0442a c0442a;
         b bVar;
         if (getItemViewType(i) == 2) {
             return null;
@@ -96,23 +96,23 @@ public class a extends BaseAdapter {
             am.setBackgroundColor(bVar.cfh, R.color.cp_bg_line_c);
             return view;
         } else if (getItemViewType(i) == 1) {
-            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0447a)) {
-                C0447a c0447a2 = new C0447a();
+            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0442a)) {
+                C0442a c0442a2 = new C0442a();
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
-                c0447a2.diM = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
-                c0447a2.diN = (TextView) view.findViewById(R.id.addresslist_child_item_name);
-                c0447a2.cfh = view.findViewById(R.id.addresslist_child_item_divider);
-                view.setTag(c0447a2);
-                c0447a = c0447a2;
+                c0442a2.diM = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                c0442a2.diN = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                c0442a2.cfh = view.findViewById(R.id.addresslist_child_item_divider);
+                view.setTag(c0442a2);
+                c0442a = c0442a2;
             } else {
-                c0447a = (C0447a) view.getTag();
+                c0442a = (C0442a) view.getTag();
             }
             if (item.getUserName() != null) {
-                c0447a.diN.setText(item.getUserName());
-                c0447a.diM.startLoad(item.arY(), 12, false);
+                c0442a.diN.setText(item.getUserName());
+                c0442a.diM.startLoad(item.arY(), 12, false);
             }
-            am.setViewTextColor(c0447a.diN, this.diO, 1);
-            am.setBackgroundResource(c0447a.cfh, R.color.cp_bg_line_c);
+            am.setViewTextColor(c0442a.diN, this.diO, 1);
+            am.setBackgroundResource(c0442a.cfh, R.color.cp_bg_line_c);
             am.setBackgroundResource(view, R.drawable.select_friend_item_bg);
             return view;
         } else {
@@ -131,12 +131,12 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.selectfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0447a {
+    private class C0442a {
         View cfh;
         HeadImageView diM;
         TextView diN;
 
-        private C0447a() {
+        private C0442a() {
         }
     }
 }

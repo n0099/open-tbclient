@@ -25,7 +25,7 @@ public class a {
     private static a iHN = new a();
     private static DownloadData cDT = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private C0506a iHO = null;
+    private C0501a iHO = null;
     private int max = 20;
     @SuppressLint({"HandlerLeak"})
     private Handler cDV = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.a.1
@@ -112,7 +112,7 @@ public class a {
         if (cDT == null && !mTaskList.isEmpty()) {
             cDT = mTaskList.get(0);
             if (cDT != null) {
-                this.iHO = new C0506a();
+                this.iHO = new C0501a();
                 this.iHO.execute(cDT);
             }
         }
@@ -170,10 +170,10 @@ public class a {
     @SuppressLint({"DefaultLocale"})
     /* renamed from: com.baidu.tieba.recapp.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0506a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
+    public class C0501a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         private c iHQ = new c();
 
-        C0506a() {
+        C0501a() {
         }
 
         public void cancelImmediately() {
@@ -321,7 +321,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             String string;
-            super.onPostExecute((C0506a) num);
+            super.onPostExecute((C0501a) num);
             if (num != null) {
                 if (num.intValue() == 0) {
                     a.cDT.setStatus(0);

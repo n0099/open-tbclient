@@ -14,7 +14,7 @@ public final class f {
                     field.setAccessible(true);
                     field.set(obj2, field.get(obj));
                 } catch (Throwable th) {
-                    com.baidu.sofire.b.e.a();
+                    com.baidu.sofire.i.d.a();
                 }
             }
             cls = cls.getSuperclass();

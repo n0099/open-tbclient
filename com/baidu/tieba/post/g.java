@@ -56,8 +56,8 @@ public class g extends BaseAdapter {
             g.this.notifyDataSetChanged();
         }
     };
-    private final a.InterfaceC0499a iBp = new a.InterfaceC0499a() { // from class: com.baidu.tieba.post.g.2
-        @Override // com.baidu.tieba.post.a.InterfaceC0499a
+    private final a.InterfaceC0494a iBp = new a.InterfaceC0494a() { // from class: com.baidu.tieba.post.g.2
+        @Override // com.baidu.tieba.post.a.InterfaceC0494a
         public void cK(View view) {
             String[] strArr;
             int id = view.getId();

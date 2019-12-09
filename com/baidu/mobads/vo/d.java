@@ -121,7 +121,7 @@ public abstract class d implements IXAdRequestInfo {
             } catch (Exception e2) {
                 str2 = "";
             }
-            hashMap.put(IXAdRequestInfo.GPS, str2);
+            hashMap.put("g", str2);
             try {
                 str2 = "";
                 List<String[]> wifi = systemUtils.getWIFI(this.d);

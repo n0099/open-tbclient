@@ -330,7 +330,7 @@ public class a {
             if (arrayList != null) {
                 arrayList.add(bVar);
             }
-            a.C0296a pV = TbFaceManager.avr().pV(str);
+            a.C0291a pV = TbFaceManager.avr().pV(str);
             if (pV != null) {
                 int width = (int) (0.5d * pV.getWidth());
                 bVar.setBounds(new Rect(0, 0, width, width));

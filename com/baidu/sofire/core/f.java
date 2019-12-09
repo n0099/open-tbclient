@@ -8,7 +8,7 @@ public final class f extends DexClassLoader {
     }
 
     @Override // java.lang.ClassLoader
-    protected final Class<?> loadClass(String str, boolean z) {
+    protected final Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
         Class<?> cls;
         Class<?> findLoadedClass = findLoadedClass(str);
         if (findLoadedClass == null) {
@@ -22,7 +22,7 @@ public final class f extends DexClassLoader {
                     findLoadedClass = getParent() != null ? getParent().loadClass(str) : (Class) getClass().getDeclaredMethod("findBootstrapClassOrNull", String.class).invoke(this, str);
                 } catch (Throwable th2) {
                     findLoadedClass = cls;
-                    com.baidu.sofire.b.e.a();
+                    com.baidu.sofire.i.d.a();
                 }
             } else {
                 findLoadedClass = cls;
@@ -35,20 +35,20 @@ public final class f extends DexClassLoader {
             try {
                 return super.loadClass(str, z);
             } catch (Throwable th3) {
-                com.baidu.sofire.b.e.a();
+                com.baidu.sofire.i.d.a();
                 return findLoadedClass;
             }
         }
         return findLoadedClass;
     }
 
-    public final Class<?> a(String str) {
+    public final Class<?> a(String str) throws ClassNotFoundException {
         Class<?> findLoadedClass = findLoadedClass(str);
         if (findLoadedClass == null) {
             try {
                 return findClass(str);
             } catch (Throwable th) {
-                com.baidu.sofire.b.e.a();
+                com.baidu.sofire.i.d.a();
                 return findLoadedClass;
             }
         }

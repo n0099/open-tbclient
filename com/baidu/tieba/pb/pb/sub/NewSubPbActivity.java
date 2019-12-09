@@ -160,7 +160,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     private boolean mIsFromCDN = true;
     private int hMo = 0;
     PostData got = null;
-    private a.InterfaceC0279a hMl = null;
+    private a.InterfaceC0274a hMl = null;
     private a iaw = null;
     private a iax = null;
     private boolean dpZ = false;
@@ -414,20 +414,20 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         if (this.iap != null && this.ian != null && this.ian.bWU()) {
             this.iaB = new com.baidu.tieba.pb.pb.sub.a(this, getListView(), this.iap.aKP());
             this.iaB.bnZ();
-            this.iaB.a(new a.InterfaceC0490a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.39
+            this.iaB.a(new a.InterfaceC0485a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.39
                 private boolean fJB = false;
 
-                @Override // com.baidu.tieba.pb.pb.sub.a.InterfaceC0490a
+                @Override // com.baidu.tieba.pb.pb.sub.a.InterfaceC0485a
                 public void bnV() {
                     NewSubPbActivity.this.iap.kt(false);
                     this.fJB = true;
                 }
 
-                @Override // com.baidu.tieba.pb.pb.sub.a.InterfaceC0490a
+                @Override // com.baidu.tieba.pb.pb.sub.a.InterfaceC0485a
                 public void bnW() {
                 }
 
-                @Override // com.baidu.tieba.pb.pb.sub.a.InterfaceC0490a
+                @Override // com.baidu.tieba.pb.pb.sub.a.InterfaceC0485a
                 public boolean bnX() {
                     if (!this.fJB) {
                         return NewSubPbActivity.this.iap.beB() != null && NewSubPbActivity.this.iap.beB().getTop() == 0;
@@ -548,8 +548,8 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 }
             }
         };
-        this.hMl = new a.InterfaceC0279a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.4
-            @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0279a
+        this.hMl = new a.InterfaceC0274a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.4
+            @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0274a
             public void c(boolean z, boolean z2, String str) {
                 if (z) {
                     if (NewSubPbActivity.this.hLd != null) {

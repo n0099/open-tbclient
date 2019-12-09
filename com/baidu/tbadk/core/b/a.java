@@ -12,18 +12,18 @@ public abstract class a {
 
     /* renamed from: com.baidu.tbadk.core.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0281a extends a {
+    public static class C0276a extends a {
         public long channelId;
 
-        public C0281a() {
+        public C0276a() {
             super();
         }
 
-        public static C0281a a(long j, BdUniqueId bdUniqueId) {
-            C0281a c0281a = new C0281a();
-            c0281a.channelId = j;
-            c0281a.bVH = bdUniqueId;
-            return c0281a;
+        public static C0276a a(long j, BdUniqueId bdUniqueId) {
+            C0276a c0276a = new C0276a();
+            c0276a.channelId = j;
+            c0276a.bVH = bdUniqueId;
+            return c0276a;
         }
     }
 

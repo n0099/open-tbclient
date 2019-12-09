@@ -111,7 +111,7 @@ public class h {
             builder.plan_id = Integer.valueOf(optJSONObject.optInt("plan_id", 0));
             builder.user_id = optJSONObject.optString("user_id");
             builder.price = optJSONObject.optString("price");
-            builder.verify = optJSONObject.optString(SmsLoginView.StatEvent.BEGIN_LOGIN);
+            builder.verify = optJSONObject.optString(SmsLoginView.f.j);
             builder.ext_info = optJSONObject.optString("ext_info");
             builder.pos_name = optJSONObject.optString("pos_name");
             GoodsInfo cb = cb(optJSONObject);

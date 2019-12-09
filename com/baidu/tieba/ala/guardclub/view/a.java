@@ -27,12 +27,12 @@ public class a extends Dialog implements View.OnClickListener {
     private AnimatorSet arU;
     private View dMv;
     private TbImageView dOA;
-    private InterfaceC0349a dOB;
+    private InterfaceC0344a dOB;
     private TextView mTitleTextView;
 
     /* renamed from: com.baidu.tieba.ala.guardclub.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0349a {
+    public interface InterfaceC0344a {
         void onCancel();
 
         void onConfirm();
@@ -43,8 +43,8 @@ public class a extends Dialog implements View.OnClickListener {
         init();
     }
 
-    public void a(InterfaceC0349a interfaceC0349a) {
-        this.dOB = interfaceC0349a;
+    public void a(InterfaceC0344a interfaceC0344a) {
+        this.dOB = interfaceC0344a;
     }
 
     public void S(int i, String str) {
