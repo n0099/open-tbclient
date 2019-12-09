@@ -1,8 +1,8 @@
 package com.baidu.pass.biometrics.base.utils;
 /* loaded from: classes2.dex */
 public interface PassBioEnv {
-    public static final String CONFIG_URI = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/appdistribute/android.txt";
-    public static final String CONF_DOMAIN = "https://gss0.bdstatic.com";
+    public static final String CONFIG_URI = "/static/appsapi/appdistribute/android.txt";
+    public static final String CONF_DOMAIN = "https://wappass.bdimg.com";
     public static final String FACE_DETECT_URI = "/risk/living/facedetect";
     public static final String GET_UPLOAD_PHOTO_CONTRAST_URI = "/risk/living/authfacematch";
     public static final String PASSPORT_DOMAIN = "https://passport.baidu.com";

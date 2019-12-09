@@ -16,12 +16,12 @@ import org.apache.http.protocol.HTTP;
 public class b {
     private static b iyM = null;
     private com.baidu.tieba.play.b.a iyL;
-    private InterfaceC0495b iyN = null;
+    private InterfaceC0490b iyN = null;
     private int iyO = 0;
 
     /* renamed from: com.baidu.tieba.play.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0495b {
+    public interface InterfaceC0490b {
         void dG(String str, String str2);
     }
 
@@ -39,8 +39,8 @@ public class b {
         return iyM;
     }
 
-    public void a(InterfaceC0495b interfaceC0495b) {
-        this.iyN = interfaceC0495b;
+    public void a(InterfaceC0490b interfaceC0490b) {
+        this.iyN = interfaceC0490b;
     }
 
     public boolean BU(String str) {
@@ -49,11 +49,11 @@ public class b {
         }
         if (BV(str) && this.iyL.ana().size() > this.iyO) {
             if (this.iyN != null) {
-                InterfaceC0495b interfaceC0495b = this.iyN;
+                InterfaceC0490b interfaceC0490b = this.iyN;
                 List<String> ana = this.iyL.ana();
                 int i = this.iyO;
                 this.iyO = i + 1;
-                interfaceC0495b.dG(ana.get(i), str);
+                interfaceC0490b.dG(ana.get(i), str);
             }
             return true;
         } else if (this.iyL != null && this.iyL.ana() != null && this.iyL.ana().size() <= this.iyO) {

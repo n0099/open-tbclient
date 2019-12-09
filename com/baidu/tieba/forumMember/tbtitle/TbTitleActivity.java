@@ -33,8 +33,8 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     private com.baidu.tieba.forumMember.tbtitle.model.a<TbTitleActivity> frZ;
     private String mForumId;
     private String mForumName;
-    private a.InterfaceC0408a fsa = new a.InterfaceC0408a() { // from class: com.baidu.tieba.forumMember.tbtitle.TbTitleActivity.1
-        @Override // com.baidu.tieba.forumMember.tbtitle.model.a.InterfaceC0408a
+    private a.InterfaceC0403a fsa = new a.InterfaceC0403a() { // from class: com.baidu.tieba.forumMember.tbtitle.TbTitleActivity.1
+        @Override // com.baidu.tieba.forumMember.tbtitle.model.a.InterfaceC0403a
         public void a(DataRes dataRes, boolean z, int i, String str) {
             if (z) {
                 if (i != 0 || dataRes == null) {

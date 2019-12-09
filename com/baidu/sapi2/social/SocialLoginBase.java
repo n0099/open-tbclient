@@ -1,21 +1,16 @@
 package com.baidu.sapi2.social;
 
-import android.content.Intent;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.sapi2.c;
 /* loaded from: classes2.dex */
-public class SocialLoginBase extends BaseActivity {
-    protected static WXInvokeCallback wxInvokeCallback;
-
-    /* loaded from: classes2.dex */
-    public interface WXInvokeCallback {
-        void onResult(int i, Intent intent);
-    }
+public class SocialLoginBase extends BaseActivity implements c {
+    private static WXInvokeCallback r;
 
     public static WXInvokeCallback getWXinvokeCallback() {
-        return wxInvokeCallback;
+        return r;
     }
 
     public static void setWXLoginCallback(WXInvokeCallback wXInvokeCallback) {
-        wxInvokeCallback = wXInvokeCallback;
+        r = wXInvokeCallback;
     }
 }

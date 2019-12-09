@@ -19,7 +19,7 @@ public class a extends com.baidu.swan.apps.setting.oauth.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
     public boolean IM() {
-        a(new C0205a());
+        a(new C0200a());
         return true;
     }
 
@@ -58,7 +58,7 @@ public class a extends com.baidu.swan.apps.setting.oauth.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.b
     /* renamed from: X */
-    public a.C0221a Y(JSONObject jSONObject) throws JSONException {
+    public a.C0216a Y(JSONObject jSONObject) throws JSONException {
         com.baidu.tieba.aiapps.apps.a.c.b(this.mActivity, jSONObject);
         return super.Y(jSONObject);
     }
@@ -73,8 +73,8 @@ public class a extends com.baidu.swan.apps.setting.oauth.a.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.q.a.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0205a extends com.baidu.swan.apps.setting.oauth.d {
-        private C0205a() {
+    public class C0200a extends com.baidu.swan.apps.setting.oauth.d {
+        private C0200a() {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
@@ -85,16 +85,16 @@ public class a extends com.baidu.swan.apps.setting.oauth.a.a {
                 /* renamed from: o */
                 public void B(Bundle bundle) {
                     if (bundle == null) {
-                        C0205a.this.l(new OAuthException("null stoken", 10001));
+                        C0200a.this.l(new OAuthException("null stoken", 10001));
                         return;
                     }
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         a.this.mStoken = string;
-                        C0205a.this.Sp();
+                        C0200a.this.Sp();
                         return;
                     }
-                    C0205a.this.l(new OAuthException("empty stoken", 10001));
+                    C0200a.this.l(new OAuthException("empty stoken", 10001));
                 }
             }, "dev");
             return false;

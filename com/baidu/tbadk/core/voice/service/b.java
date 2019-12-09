@@ -20,7 +20,7 @@ public class b {
     private l csV;
     private String csW;
     private String csX;
-    private List<C0286b> csY = new ArrayList();
+    private List<C0281b> csY = new ArrayList();
     private x mNetwork;
 
     public b(String str, String str2) {
@@ -76,9 +76,9 @@ public class b {
         this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.csX);
         this.mNetwork.addPostData("voice_md5", kVar.getMd5());
         if (v.getCount(this.csY) != 0) {
-            for (C0286b c0286b : this.csY) {
-                if (c0286b != null) {
-                    this.mNetwork.addPostData(c0286b.getKey(), c0286b.getValue());
+            for (C0281b c0281b : this.csY) {
+                if (c0281b != null) {
+                    this.mNetwork.addPostData(c0281b.getKey(), c0281b.getValue());
                 }
             }
         }
@@ -183,7 +183,7 @@ public class b {
 
     /* renamed from: com.baidu.tbadk.core.voice.service.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0286b {
+    public class C0281b {
         private String key;
         private String value;
 
@@ -195,13 +195,13 @@ public class b {
             return this.key;
         }
 
-        public C0286b(String str, String str2) {
+        public C0281b(String str, String str2) {
             this.key = str;
             this.value = str2;
         }
     }
 
     public void addPostParam(String str, int i) {
-        this.csY.add(new C0286b(str, String.valueOf(i)));
+        this.csY.add(new C0281b(str, String.valueOf(i)));
     }
 }

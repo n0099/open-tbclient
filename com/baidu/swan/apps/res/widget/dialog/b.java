@@ -160,10 +160,10 @@ public class b extends g {
 
     /* renamed from: com.baidu.swan.apps.res.widget.dialog.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0212b extends g.a {
+    public static class C0207b extends g.a {
         private List<a> list;
 
-        public C0212b(Context context) {
+        public C0207b(Context context) {
             super(context);
             this.list = new ArrayList();
             cy(false);
@@ -175,7 +175,7 @@ public class b extends g {
             return new b(context);
         }
 
-        public C0212b a(a aVar) {
+        public C0207b a(a aVar) {
             if (aVar != null) {
                 this.list.add(aVar);
             }

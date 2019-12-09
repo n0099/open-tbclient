@@ -65,62 +65,62 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0540a c0540a;
+        C0535a c0535a;
         if (this.mParent == null) {
             this.mParent = viewGroup;
         }
         HotTopicBussinessData item = getItem(i);
         if (item != null) {
-            c0540a = a(view != null ? view.getTag() : null, item);
+            c0535a = a(view != null ? view.getTag() : null, item);
         } else {
-            c0540a = null;
+            c0535a = null;
         }
-        if (c0540a != null) {
-            return c0540a.mRootView;
+        if (c0535a != null) {
+            return c0535a.mRootView;
         }
         return null;
     }
 
-    private C0540a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
-        C0540a c0540a;
+    private C0535a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
+        C0535a c0535a;
         if (obj == null) {
-            c0540a = cyy();
+            c0535a = cyy();
         } else {
-            c0540a = (C0540a) obj;
+            c0535a = (C0535a) obj;
         }
-        c0540a.jPN.setText(FD(hotTopicBussinessData.mForumName));
-        c0540a.jPM.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
-        am.setBackgroundResource(c0540a.mRootView, R.drawable.select_forum_item_bg);
-        am.setViewTextColor(c0540a.jPN, (int) R.color.cp_cont_b);
-        am.setBackgroundColor(c0540a.fER, R.color.cp_bg_line_e);
-        return c0540a;
+        c0535a.jPN.setText(FD(hotTopicBussinessData.mForumName));
+        c0535a.jPM.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        am.setBackgroundResource(c0535a.mRootView, R.drawable.select_forum_item_bg);
+        am.setViewTextColor(c0535a.jPN, (int) R.color.cp_cont_b);
+        am.setBackgroundColor(c0535a.fER, R.color.cp_bg_line_e);
+        return c0535a;
     }
 
-    private C0540a cyy() {
-        C0540a c0540a = new C0540a();
-        c0540a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
-        am.setBackgroundResource(c0540a.mRootView, R.drawable.select_forum_item_bg);
-        am.setViewTextColor(c0540a.jPN, (int) R.color.cp_cont_b);
-        c0540a.jPN = (TextView) c0540a.mRootView.findViewById(R.id.fourm_tv);
-        c0540a.fER = c0540a.mRootView.findViewById(R.id.line_view);
-        c0540a.jPM = (TbImageView) c0540a.mRootView.findViewById(R.id.icon_img);
-        c0540a.jPM.setDefaultBgResource(R.color.cp_bg_line_e);
-        c0540a.jPM.setDefaultResource(R.drawable.transparent_bg);
-        c0540a.jPM.setDefaultErrorResource(R.drawable.icon_default_ba_120);
-        c0540a.mRootView.setTag(c0540a);
-        return c0540a;
+    private C0535a cyy() {
+        C0535a c0535a = new C0535a();
+        c0535a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
+        am.setBackgroundResource(c0535a.mRootView, R.drawable.select_forum_item_bg);
+        am.setViewTextColor(c0535a.jPN, (int) R.color.cp_cont_b);
+        c0535a.jPN = (TextView) c0535a.mRootView.findViewById(R.id.fourm_tv);
+        c0535a.fER = c0535a.mRootView.findViewById(R.id.line_view);
+        c0535a.jPM = (TbImageView) c0535a.mRootView.findViewById(R.id.icon_img);
+        c0535a.jPM.setDefaultBgResource(R.color.cp_bg_line_e);
+        c0535a.jPM.setDefaultResource(R.drawable.transparent_bg);
+        c0535a.jPM.setDefaultErrorResource(R.drawable.icon_default_ba_120);
+        c0535a.mRootView.setTag(c0535a);
+        return c0535a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0540a {
+    public class C0535a {
         public View fER;
         public TbImageView jPM;
         public TextView jPN;
         public View mRootView;
 
-        private C0540a() {
+        private C0535a() {
         }
     }
 }

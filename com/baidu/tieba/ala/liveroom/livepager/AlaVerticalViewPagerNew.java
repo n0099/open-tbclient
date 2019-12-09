@@ -2055,9 +2055,9 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         return new c(getContext(), attributeSet);
     }
 
-    public void setEventListener(a.InterfaceC0364a interfaceC0364a) {
+    public void setEventListener(a.InterfaceC0359a interfaceC0359a) {
         if (this.ehK != null) {
-            this.ehK.setEventListener(interfaceC0364a);
+            this.ehK.setEventListener(interfaceC0359a);
         }
     }
 

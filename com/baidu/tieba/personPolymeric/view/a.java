@@ -17,7 +17,7 @@ import java.util.List;
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.c> {
     public ListViewPager hiX;
     private com.baidu.tieba.personPolymeric.c.c isq;
-    private C0494a isr;
+    private C0489a isr;
     private com.baidu.adp.lib.e.b<PersonCommonForumItemView> iss;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
@@ -26,7 +26,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.isr = new C0494a();
+        this.isr = new C0489a();
         this.mPageContext = tbPageContext;
         View view = getView();
         this.mTitle = (TextView) view.findViewById(R.id.common_forum_title);
@@ -81,8 +81,8 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.personPolymeric.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0494a extends PagerAdapter {
-        private C0494a() {
+    public class C0489a extends PagerAdapter {
+        private C0489a() {
         }
 
         @Override // android.support.v4.view.PagerAdapter

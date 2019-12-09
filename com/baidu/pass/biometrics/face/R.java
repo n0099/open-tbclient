@@ -98,8 +98,8 @@ public final class R {
         public static final int negative_btn = 0x7f0f0d62;
         public static final int neutral_btn = 0x7f0f1398;
         public static final int positive_btn = 0x7f0f0d63;
-        public static final int rim_base_toast_icon = 0x7f0f1742;
-        public static final int rim_base_toast_message = 0x7f0f1743;
+        public static final int rim_base_toast_icon = 0x7f0f174d;
+        public static final int rim_base_toast_message = 0x7f0f174e;
         public static final int sapi_bio_title_btn_left = 0x7f0f13a5;
         public static final int sapi_bio_title_btn_right = 0x7f0f13a7;
         public static final int sapi_bio_title_text = 0x7f0f13a6;
@@ -120,7 +120,7 @@ public final class R {
         public static final int layout_pass_liveness_dialog_alert = 0x7f030416;
         public static final int layout_pass_liveness_recognize = 0x7f030417;
         public static final int layout_pass_liveness_title_bar = 0x7f030418;
-        public static final int pass_bio_toast_tips = 0x7f030515;
+        public static final int pass_bio_toast_tips = 0x7f030517;
     }
 
     /* loaded from: classes.dex */

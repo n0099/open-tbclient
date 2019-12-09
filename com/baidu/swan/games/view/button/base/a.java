@@ -12,7 +12,7 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import java.util.HashSet;
 /* loaded from: classes2.dex */
 public class a {
-    private InterfaceC0260a bEn;
+    private InterfaceC0255a bEn;
     @V8JavascriptField
     public String backgroundColor;
     @V8JavascriptField
@@ -47,7 +47,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.games.view.button.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0260a {
+    public interface InterfaceC0255a {
         void YH();
     }
 
@@ -217,8 +217,8 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0260a interfaceC0260a) {
-        this.bEn = interfaceC0260a;
+    public void a(InterfaceC0255a interfaceC0255a) {
+        this.bEn = interfaceC0255a;
     }
 
     public static int ge(@ColorInt int i) {

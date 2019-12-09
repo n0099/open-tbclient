@@ -64,7 +64,7 @@ public class c {
     private g.a dcS;
     private g.f dcT;
     private g.e dcV;
-    private g.InterfaceC0498g dcW;
+    private g.InterfaceC0493g dcW;
     private SeekBar.OnSeekBarChangeListener dhY;
     private com.baidu.tieba.play.o dpP;
     private VideoLoadingProgressView.a eMc;
@@ -135,7 +135,7 @@ public class c {
     private boolean ivj;
     private boolean ivk;
     private View.OnClickListener ivl;
-    protected InterfaceC0497c ivm;
+    protected InterfaceC0492c ivm;
     private d ivn;
     private long ivo;
     private o ivp;
@@ -167,7 +167,7 @@ public class c {
 
     /* renamed from: com.baidu.tieba.play.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0497c {
+    public interface InterfaceC0492c {
         void kv();
 
         void kw();
@@ -410,8 +410,8 @@ public class c {
                 }
             }
         };
-        this.dcW = new g.InterfaceC0498g() { // from class: com.baidu.tieba.play.c.2
-            @Override // com.baidu.tieba.play.g.InterfaceC0498g
+        this.dcW = new g.InterfaceC0493g() { // from class: com.baidu.tieba.play.c.2
+            @Override // com.baidu.tieba.play.g.InterfaceC0493g
             public void b(com.baidu.tieba.play.g gVar) {
                 if (c.this.ivB) {
                     com.baidu.adp.lib.g.e.fZ().postDelayed(c.this.ivN, 200L);
@@ -800,8 +800,8 @@ public class c {
                 }
             }
         };
-        this.dcW = new g.InterfaceC0498g() { // from class: com.baidu.tieba.play.c.2
-            @Override // com.baidu.tieba.play.g.InterfaceC0498g
+        this.dcW = new g.InterfaceC0493g() { // from class: com.baidu.tieba.play.c.2
+            @Override // com.baidu.tieba.play.g.InterfaceC0493g
             public void b(com.baidu.tieba.play.g gVar) {
                 if (c.this.ivB) {
                     com.baidu.adp.lib.g.e.fZ().postDelayed(c.this.ivN, 200L);
@@ -1191,8 +1191,8 @@ public class c {
                 }
             }
         };
-        this.dcW = new g.InterfaceC0498g() { // from class: com.baidu.tieba.play.c.2
-            @Override // com.baidu.tieba.play.g.InterfaceC0498g
+        this.dcW = new g.InterfaceC0493g() { // from class: com.baidu.tieba.play.c.2
+            @Override // com.baidu.tieba.play.g.InterfaceC0493g
             public void b(com.baidu.tieba.play.g gVar) {
                 if (c.this.ivB) {
                     com.baidu.adp.lib.g.e.fZ().postDelayed(c.this.ivN, 200L);
@@ -2536,8 +2536,8 @@ public class c {
         }
     }
 
-    public void a(InterfaceC0497c interfaceC0497c) {
-        this.ivm = interfaceC0497c;
+    public void a(InterfaceC0492c interfaceC0492c) {
+        this.ivm = interfaceC0492c;
     }
 
     public void vn(int i2) {

@@ -95,7 +95,7 @@ public class e<T> implements i<b<T>> {
             i<b<T>> cDs = cDs();
             b<T> bVar = cDs != null ? cDs.get() : null;
             if (h(bVar) && bVar != null) {
-                bVar.a(new C0558a(), com.facebook.common.b.a.cCD());
+                bVar.a(new C0553a(), com.facebook.common.b.a.cCD());
                 return true;
             }
             l(bVar);
@@ -185,8 +185,8 @@ public class e<T> implements i<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.datasource.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0558a implements d<T> {
-            private C0558a() {
+        public class C0553a implements d<T> {
+            private C0553a() {
             }
 
             @Override // com.facebook.datasource.d

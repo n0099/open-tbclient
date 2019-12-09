@@ -132,20 +132,20 @@ public class a {
         this.mProgressBar = (ProgressBar) this.mRootView.findViewById(R.id.progressBar);
         bog();
         this.fKm = new com.baidu.tieba.frs.gamesubpb.b(this.fJM.getPageContext(), this.duK);
-        this.fKm.setClickListener(new a.InterfaceC0414a() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.6
-            @Override // com.baidu.tieba.frs.gamesubpb.a.InterfaceC0414a
+        this.fKm.setClickListener(new a.InterfaceC0409a() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.6
+            @Override // com.baidu.tieba.frs.gamesubpb.a.InterfaceC0409a
             public void a(d dVar) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(a.this.fJM.getPageContext().getPageActivity()).createNormalConfig(Long.valueOf(dVar.userId).longValue(), String.valueOf(a.this.dzX).equals(dVar.userId), false)));
             }
 
-            @Override // com.baidu.tieba.frs.gamesubpb.a.InterfaceC0414a
+            @Override // com.baidu.tieba.frs.gamesubpb.a.InterfaceC0409a
             public void b(d dVar) {
                 if (dVar != null) {
                     a.this.d(dVar);
                 }
             }
 
-            @Override // com.baidu.tieba.frs.gamesubpb.a.InterfaceC0414a
+            @Override // com.baidu.tieba.frs.gamesubpb.a.InterfaceC0409a
             public void c(d dVar) {
                 if (a.this.fJw != null) {
                     a.this.fJw.bnY();

@@ -71,22 +71,22 @@ public class f extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
         final String valueOf = String.valueOf(System.currentTimeMillis());
         this.aXX.put(valueOf, 0L);
         com.baidu.swan.apps.network.a.a aVar = new com.baidu.swan.apps.network.a.a();
-        aVar.a(new a.InterfaceC0194a() { // from class: com.baidu.swan.apps.scheme.actions.f.1
-            @Override // com.baidu.swan.apps.network.a.a.InterfaceC0194a
+        aVar.a(new a.InterfaceC0189a() { // from class: com.baidu.swan.apps.scheme.actions.f.1
+            @Override // com.baidu.swan.apps.network.a.a.InterfaceC0189a
             public void ac(long j2) {
                 callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "download file size > 10MB").toString());
                 SwanAppNetworkUtils.a(bVar.Rh().MM(), go);
                 f.this.gm(valueOf);
             }
 
-            @Override // com.baidu.swan.apps.network.a.a.InterfaceC0194a
+            @Override // com.baidu.swan.apps.network.a.a.InterfaceC0189a
             public void k(long j2, long j3) {
                 callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "progress callback fail()").toString());
                 SwanAppNetworkUtils.a(bVar.Rh().MM(), go);
                 f.this.gm(valueOf);
             }
 
-            @Override // com.baidu.swan.apps.network.a.a.InterfaceC0194a
+            @Override // com.baidu.swan.apps.network.a.a.InterfaceC0189a
             public void b(int i, long j2, long j3) {
                 if (System.currentTimeMillis() - f.this.gl(valueOf) > 500) {
                     if (i <= 100) {

@@ -11,7 +11,7 @@ public abstract class a {
 
     /* renamed from: com.baidu.tbadk.core.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0280a {
+    public interface InterfaceC0275a {
         void a(AccountData accountData);
 
         void onBeforeLogin(String str);
@@ -26,7 +26,7 @@ public abstract class a {
         public String mUsername = null;
     }
 
-    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, InterfaceC0280a interfaceC0280a);
+    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, InterfaceC0275a interfaceC0275a);
 
     public abstract b mJ(String str);
 

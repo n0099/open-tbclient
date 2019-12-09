@@ -2,7 +2,6 @@ package com.tb.airbnb.lottie.model.content;
 
 import android.graphics.Path;
 import android.support.annotation.Nullable;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.tb.airbnb.lottie.model.a.c;
 import com.tb.airbnb.lottie.model.a.d;
@@ -74,7 +73,7 @@ public class d implements b {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static d p(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {
             String optString = jSONObject.optString("nm");
-            JSONObject optJSONObject = jSONObject.optJSONObject(IXAdRequestInfo.GPS);
+            JSONObject optJSONObject = jSONObject.optJSONObject("g");
             if (optJSONObject != null && optJSONObject.has("k")) {
                 int optInt = optJSONObject.optInt("p");
                 optJSONObject = optJSONObject.optJSONObject("k");

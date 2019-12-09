@@ -47,8 +47,8 @@ public class e {
     /* loaded from: classes2.dex */
     protected class a extends BdAsyncTask<Void, Void, Void> {
         final ArrayList<com.baidu.tbadk.editortools.emotiontool.c> eYS = new ArrayList<>();
-        final a.InterfaceC0294a eYT = new a.InterfaceC0294a() { // from class: com.baidu.tieba.emotion.editortool.e.a.1
-            @Override // com.baidu.tbadk.editortools.emotiontool.a.InterfaceC0294a
+        final a.InterfaceC0289a eYT = new a.InterfaceC0289a() { // from class: com.baidu.tieba.emotion.editortool.e.a.1
+            @Override // com.baidu.tbadk.editortools.emotiontool.a.InterfaceC0289a
             public void a(com.baidu.tbadk.editortools.emotiontool.c cVar) {
                 a.this.eYS.add(cVar);
             }

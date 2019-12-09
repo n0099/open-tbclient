@@ -18,7 +18,7 @@ import java.util.List;
 public abstract class a {
     protected d biG;
     protected b.a biH;
-    private InterfaceC0208a biJ;
+    private InterfaceC0203a biJ;
     protected Context mContext;
     protected View.OnKeyListener mKeyClickListener;
     private View mMenu;
@@ -42,7 +42,7 @@ public abstract class a {
 
     /* renamed from: com.baidu.swan.apps.res.widget.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0208a {
+    public interface InterfaceC0203a {
         void ab(List<com.baidu.swan.apps.res.widget.a.b> list);
     }
 

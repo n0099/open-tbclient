@@ -22,7 +22,7 @@ public class a {
     private String ahX;
     private CustomMessageListener ahl;
     private CustomMessageListener dXu;
-    private InterfaceC0367a emS;
+    private InterfaceC0362a emS;
     private b emT;
     private String[] emU;
     private List<String> emV;
@@ -31,7 +31,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0367a {
+    public interface InterfaceC0362a {
         void aPx();
 
         void aPy();
@@ -39,8 +39,8 @@ public class a {
         boolean sG();
     }
 
-    public void a(InterfaceC0367a interfaceC0367a) {
-        this.emS = interfaceC0367a;
+    public void a(InterfaceC0362a interfaceC0362a) {
+        this.emS = interfaceC0362a;
     }
 
     public void a(i iVar, String str) {

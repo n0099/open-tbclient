@@ -1059,7 +1059,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         com.baidu.tieba.im.sendmessage.a.bDY().setSendCallback(dVar);
     }
 
-    public void setImageUploadUIProgressCallback(a.InterfaceC0297a<ChatMessage> interfaceC0297a) {
-        com.baidu.tieba.im.sendmessage.a.bDY().setImageUploadUIProgressCallback(interfaceC0297a);
+    public void setImageUploadUIProgressCallback(a.InterfaceC0292a<ChatMessage> interfaceC0292a) {
+        com.baidu.tieba.im.sendmessage.a.bDY().setImageUploadUIProgressCallback(interfaceC0292a);
     }
 }

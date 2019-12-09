@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.adp.R;
-import com.baidu.sapi2.utils.enums.ShareDirectionType;
 /* loaded from: classes.dex */
 public class FloatingLayout extends LinearLayout {
     private int mMeasuredHeight;
@@ -199,7 +198,7 @@ public class FloatingLayout extends LinearLayout {
                     this.clear = 1;
                 } else if ("after".equals(string)) {
                     this.clear = 2;
-                } else if (ShareDirectionType.BOTH.equals(string)) {
+                } else if (com.baidu.sapi2.utils.enums.a.c.equals(string)) {
                     this.clear = 3;
                 }
             }

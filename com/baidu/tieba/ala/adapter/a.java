@@ -54,25 +54,25 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0334a c0334a;
+        C0329a c0329a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_history_list_item_view, (ViewGroup) null);
-            C0334a c0334a2 = new C0334a(view);
-            view.setTag(c0334a2);
-            c0334a = c0334a2;
+            C0329a c0329a2 = new C0329a(view);
+            view.setTag(c0329a2);
+            c0329a = c0329a2;
         } else {
-            c0334a = (C0334a) view.getTag();
+            c0329a = (C0329a) view.getTag();
         }
         com.baidu.tieba.ala.data.a aVar = (com.baidu.tieba.ala.data.a) getItem(i);
         if (aVar != null) {
-            c0334a.a(aVar);
+            c0329a.a(aVar);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    protected class C0334a {
+    protected class C0329a {
         private LinearLayout duc;
         private HeadImageView dud;
         private TextView due;
@@ -84,7 +84,7 @@ public class a extends BaseAdapter {
         private HeadImageView duk;
         private TextView dul;
 
-        public C0334a(View view) {
+        public C0329a(View view) {
             this.duc = (LinearLayout) view.findViewById(a.g.item_challenge_history_left);
             this.dud = (HeadImageView) view.findViewById(a.g.img_challenge_history_left);
             this.due = (TextView) view.findViewById(a.g.text_challenge_history_left);

@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes2.dex */
-public class d extends b implements a.InterfaceC0213a {
+public class d extends b implements a.InterfaceC0208a {
     private static String aKG;
     private FrameLayout aKB;
     private com.baidu.swan.apps.b.c.c aKC;
@@ -423,8 +423,8 @@ public class d extends b implements a.InterfaceC0213a {
         if (DEBUG) {
             Log.d("SwanAppFragment", "createSlaveAndLoad preloadManager: " + z);
         }
-        com.baidu.swan.apps.core.i.b.a(z, new b.InterfaceC0180b() { // from class: com.baidu.swan.apps.core.d.d.2
-            @Override // com.baidu.swan.apps.core.i.b.InterfaceC0180b
+        com.baidu.swan.apps.core.i.b.a(z, new b.InterfaceC0175b() { // from class: com.baidu.swan.apps.core.d.d.2
+            @Override // com.baidu.swan.apps.core.i.b.InterfaceC0175b
             public void onReady() {
                 com.baidu.swan.apps.core.j.b bVar = new com.baidu.swan.apps.core.j.b();
                 bVar.aNz = str;
@@ -604,7 +604,7 @@ public class d extends b implements a.InterfaceC0213a {
         return this.aKC;
     }
 
-    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0213a
+    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0208a
     public com.baidu.swan.apps.res.widget.floatlayer.a AE() {
         if (this.aKH == null) {
             if (this.mRootView == null) {

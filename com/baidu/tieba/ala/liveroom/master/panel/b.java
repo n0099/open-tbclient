@@ -22,7 +22,7 @@ public class b extends Dialog {
     private static final int ejY = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60);
     private static final int ejZ = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds17);
     private FrameLayout aeH;
-    private a.InterfaceC0365a ejT;
+    private a.InterfaceC0360a ejT;
     private boolean eka;
     private int ekb;
     private int ekc;
@@ -48,8 +48,8 @@ public class b extends Dialog {
     public b(Context context, boolean z) {
         super(context);
         this.ekc = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds24);
-        this.ejT = new a.InterfaceC0365a() { // from class: com.baidu.tieba.ala.liveroom.master.panel.b.1
-            @Override // com.baidu.tieba.ala.liveroom.master.panel.a.InterfaceC0365a
+        this.ejT = new a.InterfaceC0360a() { // from class: com.baidu.tieba.ala.liveroom.master.panel.b.1
+            @Override // com.baidu.tieba.ala.liveroom.master.panel.a.InterfaceC0360a
             public void y(int i, boolean z2) {
                 if (b.this.ekf != null) {
                     if (i == 1) {

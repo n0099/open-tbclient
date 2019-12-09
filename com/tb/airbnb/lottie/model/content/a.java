@@ -26,7 +26,7 @@ public class a implements b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.tb.airbnb.lottie.model.content.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0580a {
+    public static class C0575a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static a o(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {
             return new a(jSONObject.optString("nm"), com.tb.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar), f.a.i(jSONObject.optJSONObject("s"), eVar), jSONObject.optInt("d", 2) == 3);

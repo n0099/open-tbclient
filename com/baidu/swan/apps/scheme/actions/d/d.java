@@ -51,12 +51,12 @@ public class d extends z {
             return false;
         }
         com.baidu.swan.apps.core.d.b Fr = AI.Fr();
-        if (!(Fr instanceof a.InterfaceC0213a)) {
+        if (!(Fr instanceof a.InterfaceC0208a)) {
             com.baidu.swan.apps.console.c.e("showLoading", "fragment not support");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
             return false;
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a AE = ((a.InterfaceC0213a) Fr).AE();
+        com.baidu.swan.apps.res.widget.floatlayer.a AE = ((a.InterfaceC0208a) Fr).AE();
         if (AE == null) {
             com.baidu.swan.apps.console.c.e("showLoading", "can't get floatLayer");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");

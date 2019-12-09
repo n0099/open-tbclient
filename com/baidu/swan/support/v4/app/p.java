@@ -20,7 +20,7 @@ public class p extends o {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public final class a implements b.a<Object>, b.InterfaceC0269b<Object> {
+    public final class a implements b.a<Object>, b.InterfaceC0264b<Object> {
         o.a<Object> bNv;
         com.baidu.swan.support.v4.a.b<Object> bNw;
         a bNx;
@@ -103,7 +103,7 @@ public class p extends o {
             this.mStarted = false;
             if (!this.mRetaining && this.bNw != null && this.mListenerRegistered) {
                 this.mListenerRegistered = false;
-                this.bNw.a((b.InterfaceC0269b<Object>) this);
+                this.bNw.a((b.InterfaceC0264b<Object>) this);
                 this.bNw.b(this);
                 this.bNw.stopLoading();
             }
@@ -142,7 +142,7 @@ public class p extends o {
             if (this.bNw != null) {
                 if (this.mListenerRegistered) {
                     this.mListenerRegistered = false;
-                    this.bNw.a((b.InterfaceC0269b<Object>) this);
+                    this.bNw.a((b.InterfaceC0264b<Object>) this);
                     this.bNw.b(this);
                 }
                 this.bNw.reset();

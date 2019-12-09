@@ -290,7 +290,7 @@ public class b {
     public static void a(@NonNull Context context, @NonNull com.baidu.swan.apps.v.b.c cVar, int i, String str) {
         com.baidu.swan.apps.performance.b.NB().aA(str, "aiapp_aps_check_start_timestamp");
         ArrayList arrayList = new ArrayList();
-        com.baidu.swan.apps.core.a.a.a Ei = new a.C0172a().cV(i).br(false).Ei();
+        com.baidu.swan.apps.core.a.a.a Ei = new a.C0167a().cV(i).br(false).Ei();
         if (cVar.aST == 0) {
             arrayList.add(new g(context, cVar, Ei, str));
         } else {

@@ -98,7 +98,7 @@ public class a extends d implements e.a {
         DuMixGameSurfaceView ca = com.baidu.swan.games.glsurface.a.Xc().ca(this.aQw);
         ca.setRenderMode(1);
         com.baidu.swan.games.glsurface.a.Xc().f(ca);
-        this.bzZ = com.baidu.swan.games.e.f.a(new g.a().fR(2).jH("master").WI(), new b(cVar.bBe, cVar.bBg == null ? null : cVar.bBg.bCA), new C0244a(ca));
+        this.bzZ = com.baidu.swan.games.e.f.a(new g.a().fR(2).jH("master").WI(), new b(cVar.bBe, cVar.bBg == null ? null : cVar.bBg.bCA), new C0239a(ca));
         this.bzZ.setFileSystemDelegatePolicy(new com.baidu.swan.games.e.c.d());
         this.bzZ.setContext(this.aQw);
         ca.setV8Engine(this.bzZ);
@@ -306,7 +306,7 @@ public class a extends d implements e.a {
             aVar.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.g.a.b.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.C0246a a = com.baidu.swan.games.inspector.a.a(b.this.bAg);
+                    a.C0241a a = com.baidu.swan.games.inspector.a.a(b.this.bAg);
                     if (a.isEnabled()) {
                         SwanInspectorEndpoint.Xl().a(b.this.bAg, a.this.bzZ, a, runnable);
                         return;
@@ -331,10 +331,10 @@ public class a extends d implements e.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.games.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0244a implements V8ThreadDelegatePolicy {
+    public class C0239a implements V8ThreadDelegatePolicy {
         private DuMixGameSurfaceView aLm;
 
-        C0244a(DuMixGameSurfaceView duMixGameSurfaceView) {
+        C0239a(DuMixGameSurfaceView duMixGameSurfaceView) {
             this.aLm = duMixGameSurfaceView;
         }
 
@@ -349,9 +349,9 @@ public class a extends d implements e.a {
                     if (a.DEBUG) {
                         Log.d("SwanGameFrame", "startEngineInternal");
                     }
-                    C0244a.this.aLm.WY();
+                    C0239a.this.aLm.WY();
                     v8Engine.startEngineInternal();
-                    C0244a.this.aLm.WZ();
+                    C0239a.this.aLm.WZ();
                 }
             });
         }

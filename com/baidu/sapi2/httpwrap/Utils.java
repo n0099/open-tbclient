@@ -8,13 +8,13 @@ import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class Utils {
     Utils() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Map<String, String> buildCommonParams() {
+    public static Map<String, String> a() {
         SapiConfiguration confignation;
         HashMap hashMap = new HashMap();
         hashMap.put("client", "android");

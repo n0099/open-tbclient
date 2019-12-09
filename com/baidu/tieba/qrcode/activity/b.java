@@ -39,7 +39,7 @@ public class b implements QRCodeView.a {
     private boolean iDL;
     private final com.baidu.tieba.qrcode.activity.a iDS;
     private c iDT;
-    private C0501b iDU;
+    private C0496b iDU;
     private final TbPageContext mTbPageContext;
 
     public b(com.baidu.tieba.qrcode.activity.a aVar, TbPageContext tbPageContext) {
@@ -175,8 +175,8 @@ public class b implements QRCodeView.a {
                     if (this.iDU != null) {
                         this.iDU.cancel();
                     }
-                    this.iDU = new C0501b(new C0501b.a() { // from class: com.baidu.tieba.qrcode.activity.b.2
-                        @Override // com.baidu.tieba.qrcode.activity.b.C0501b.a
+                    this.iDU = new C0496b(new C0496b.a() { // from class: com.baidu.tieba.qrcode.activity.b.2
+                        @Override // com.baidu.tieba.qrcode.activity.b.C0496b.a
                         public void dI(String str, String str2) {
                             if (!TextUtils.isEmpty(str)) {
                                 com.baidu.tbadk.core.sharedPref.b.alP().putString("key_gallery_last_image_path", str);
@@ -194,7 +194,7 @@ public class b implements QRCodeView.a {
 
     /* renamed from: com.baidu.tieba.qrcode.activity.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0501b extends BdAsyncTask<String, Void, String> {
+    public static class C0496b extends BdAsyncTask<String, Void, String> {
         private String filePath;
         private a iDX;
 
@@ -204,7 +204,7 @@ public class b implements QRCodeView.a {
             void dI(String str, String str2);
         }
 
-        public C0501b(a aVar) {
+        public C0496b(a aVar) {
             this.iDX = aVar;
         }
 
@@ -223,7 +223,7 @@ public class b implements QRCodeView.a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0501b) str);
+            super.onPostExecute((C0496b) str);
             if (this.iDX != null) {
                 this.iDX.dI(this.filePath, str);
             }
@@ -385,8 +385,8 @@ public class b implements QRCodeView.a {
             com.baidu.tbadk.core.util.c.a aVar = new com.baidu.tbadk.core.util.c.a();
             aVar.clearRequestPermissionList();
             aVar.appendRequestPermission(this.mTbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            aVar.a(new a.InterfaceC0284a() { // from class: com.baidu.tieba.qrcode.activity.b.3
-                @Override // com.baidu.tbadk.core.util.c.a.InterfaceC0284a
+            aVar.a(new a.InterfaceC0279a() { // from class: com.baidu.tieba.qrcode.activity.b.3
+                @Override // com.baidu.tbadk.core.util.c.a.InterfaceC0279a
                 public void onPermissionsGranted() {
                     try {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2921361, URLDecoder.decode(str, HTTP.UTF_8)));

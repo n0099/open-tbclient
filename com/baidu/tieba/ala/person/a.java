@@ -12,12 +12,12 @@ public class a extends Dialog implements View.OnClickListener {
     private Context context;
     private View esU;
     private View esV;
-    private InterfaceC0376a esW;
+    private InterfaceC0371a esW;
     private boolean esX;
 
     /* renamed from: com.baidu.tieba.ala.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0376a {
+    public interface InterfaceC0371a {
         void aXn();
     }
 
@@ -63,8 +63,8 @@ public class a extends Dialog implements View.OnClickListener {
         dismiss();
     }
 
-    public void a(InterfaceC0376a interfaceC0376a) {
-        this.esW = interfaceC0376a;
+    public void a(InterfaceC0371a interfaceC0371a) {
+        this.esW = interfaceC0371a;
     }
 
     public void resize() {

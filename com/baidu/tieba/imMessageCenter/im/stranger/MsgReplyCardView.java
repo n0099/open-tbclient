@@ -40,7 +40,7 @@ public class MsgReplyCardView extends g {
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            a.C0448a yA = a.yA(chatMessage.getContent());
+            a.C0443a yA = a.yA(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
             this.gTV.setText(a(yA, valueOf));
             this.gTW.setText(yA.gTE);
@@ -49,33 +49,33 @@ public class MsgReplyCardView extends g {
         }
     }
 
-    private String a(a.C0448a c0448a, String str) {
+    private String a(a.C0443a c0443a, String str) {
         String string;
         String uM;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = uM(c0448a.gUa);
+            string = uM(c0443a.gUa);
             uM = this.mContext.getString(R.string.you);
         } else {
             string = this.mContext.getString(R.string.you);
-            uM = uM(c0448a.gUa);
+            uM = uM(c0443a.gUa);
         }
-        return String.format(this.mContext.getString(R.string.add_friend_card_title), string, uN(c0448a.type), uM);
+        return String.format(this.mContext.getString(R.string.add_friend_card_title), string, uN(c0443a.type), uM);
     }
 
-    private String b(a.C0448a c0448a, String str) {
+    private String b(a.C0443a c0443a, String str) {
         String uM;
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
             uM = this.mContext.getString(R.string.me);
         } else {
-            uM = uM(c0448a.gUa);
+            uM = uM(c0443a.gUa);
         }
-        if (c0448a.type == 1) {
+        if (c0443a.type == 1) {
             sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_comment), uM));
-            sb.append(c0448a.gUe);
+            sb.append(c0443a.gUe);
         } else {
             sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_thread), uM));
-            sb.append(c0448a.title);
+            sb.append(c0443a.title);
         }
         return sb.toString();
     }

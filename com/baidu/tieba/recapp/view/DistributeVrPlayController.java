@@ -15,13 +15,13 @@ public class DistributeVrPlayController extends a {
 
     @Override // com.baidu.tieba.recapp.a
     public void initListener() {
-        this.dhI = new a.InterfaceC0311a() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.1
-            @Override // com.baidu.tieba.ad.play.a.InterfaceC0311a
+        this.dhI = new a.InterfaceC0306a() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.1
+            @Override // com.baidu.tieba.ad.play.a.InterfaceC0306a
             public void onLoading() {
                 DistributeVrPlayController.this.iGw.loading();
             }
 
-            @Override // com.baidu.tieba.ad.play.a.InterfaceC0311a
+            @Override // com.baidu.tieba.ad.play.a.InterfaceC0306a
             public void onPlay() {
                 if (DistributeVrPlayController.this.iOH) {
                     DistributeVrPlayController.this.iOH = false;

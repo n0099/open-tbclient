@@ -24,8 +24,8 @@ public class b {
     private int mStatusBarHeight;
     private TextView mTitle;
     private boolean fbn = false;
-    private a.InterfaceC0402a fbo = new a.InterfaceC0402a() { // from class: com.baidu.tieba.enterForum.home.b.1
-        @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0402a
+    private a.InterfaceC0397a fbo = new a.InterfaceC0397a() { // from class: com.baidu.tieba.enterForum.home.b.1
+        @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0397a
         public void lK(int i) {
             b.this.mSortType = i;
             TiebaStatic.log(new an("c13369").O("obj_type", i == 1 ? 2 : 1));

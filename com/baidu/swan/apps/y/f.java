@@ -79,8 +79,8 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.f.b {
         this.aXJ = new JSONArray();
         this.mIsBackground = true;
         this.aXE = com.baidu.swan.apps.u.a.Jm().Be() * 1000;
-        this.aXF = a.C0238a.gf("simple_parser");
-        this.aXG = a.C0238a.gf("hsv_parser");
+        this.aXF = a.C0233a.gf("simple_parser");
+        this.aXG = a.C0233a.gf("hsv_parser");
         this.aXA = com.baidu.swan.apps.u.a.Jm().Bp();
         EventBusWrapper.lazyRegister("dialog_event_tag", com.baidu.swan.apps.res.widget.dialog.a.class, new rx.functions.b<com.baidu.swan.apps.res.widget.dialog.a>() { // from class: com.baidu.swan.apps.y.f.1
             /* JADX DEBUG: Method merged with bridge method */

@@ -28,7 +28,7 @@ public class a extends com.baidu.tbadk.m.a {
     protected TbImageView cIY;
     private com.baidu.adp.base.e ceS;
     private BdListView fVh;
-    private C0421a fVi;
+    private C0416a fVi;
     private TextView fVj;
     private TextView mTitleView;
     protected TextView subTextView;
@@ -70,7 +70,7 @@ public class a extends com.baidu.tbadk.m.a {
 
     public void cB(List<RecmForumInfo> list) {
         if (list != null) {
-            this.fVi = new C0421a(list);
+            this.fVi = new C0416a(list);
             this.fVh.setAdapter((ListAdapter) this.fVi);
         }
     }
@@ -106,10 +106,10 @@ public class a extends com.baidu.tbadk.m.a {
 
     /* renamed from: com.baidu.tieba.frs.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0421a extends BaseAdapter {
+    public class C0416a extends BaseAdapter {
         private List<RecmForumInfo> fVk;
 
-        public C0421a(List<RecmForumInfo> list) {
+        public C0416a(List<RecmForumInfo> list) {
             this.fVk = list;
         }
 
@@ -159,8 +159,8 @@ public class a extends com.baidu.tbadk.m.a {
                 bVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (!StringUtils.isNull(C0421a.this.getItem(i).forum_name)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(a.this.ceS.getContext()).createNormalCfg(C0421a.this.getItem(i).forum_name, null)));
+                        if (!StringUtils.isNull(C0416a.this.getItem(i).forum_name)) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(a.this.ceS.getContext()).createNormalCfg(C0416a.this.getItem(i).forum_name, null)));
                         }
                     }
                 });

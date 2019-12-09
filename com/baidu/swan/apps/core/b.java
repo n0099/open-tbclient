@@ -104,7 +104,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
         this.aIr.setLongClickable(true);
         this.aIu = new com.baidu.swan.apps.core.e.b(this.mContext);
         this.aIr.setWebViewClient(new c());
-        this.aIr.setWebChromeClient(new C0174b());
+        this.aIr.setWebChromeClient(new C0169b());
         this.aIr.setOverScrollMode(2);
         this.aIr.setOnCommonEventHandler(this);
     }
@@ -653,8 +653,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.core.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0174b extends WebChromeClient {
-        private C0174b() {
+    public class C0169b extends WebChromeClient {
+        private C0169b() {
         }
 
         @Override // android.webkit.WebChromeClient
@@ -841,18 +841,18 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onJsPrompt");
             }
-            return b.this.aIu.a(str, str2, str3, new b.InterfaceC0179b() { // from class: com.baidu.swan.apps.core.b.b.1
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0179b
+            return b.this.aIu.a(str, str2, str3, new b.InterfaceC0174b() { // from class: com.baidu.swan.apps.core.b.b.1
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0174b
                 public void DT() {
                     jsPromptResult.cancel();
                 }
 
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0179b
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0174b
                 public void eg(String str4) {
                     jsPromptResult.confirm(str4);
                 }
 
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0179b
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0174b
                 public void onCancel() {
                     jsPromptResult.cancel();
                 }
@@ -864,18 +864,18 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onJsAlert");
             }
-            return b.this.aIu.a(str, str2, new b.InterfaceC0179b() { // from class: com.baidu.swan.apps.core.b.b.2
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0179b
+            return b.this.aIu.a(str, str2, new b.InterfaceC0174b() { // from class: com.baidu.swan.apps.core.b.b.2
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0174b
                 public void DT() {
                     jsResult.cancel();
                 }
 
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0179b
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0174b
                 public void eg(String str3) {
                     jsResult.confirm();
                 }
 
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0179b
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0174b
                 public void onCancel() {
                     jsResult.cancel();
                 }
@@ -887,18 +887,18 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onJsConfirm");
             }
-            return b.this.aIu.b(str, str2, new b.InterfaceC0179b() { // from class: com.baidu.swan.apps.core.b.b.3
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0179b
+            return b.this.aIu.b(str, str2, new b.InterfaceC0174b() { // from class: com.baidu.swan.apps.core.b.b.3
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0174b
                 public void DT() {
                     jsResult.cancel();
                 }
 
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0179b
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0174b
                 public void eg(String str3) {
                     jsResult.confirm();
                 }
 
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0179b
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0174b
                 public void onCancel() {
                     jsResult.cancel();
                 }
@@ -962,8 +962,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
         if (ac.UC()) {
             a(str, callback);
         } else {
-            com.baidu.swan.apps.w.e.LE().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.core.b.3
-                @Override // com.baidu.swan.apps.ab.a.InterfaceC0152a
+            com.baidu.swan.apps.w.e.LE().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0147a() { // from class: com.baidu.swan.apps.core.b.3
+                @Override // com.baidu.swan.apps.ab.a.InterfaceC0147a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     if (i != 0) {
                         if (b.DEBUG) {

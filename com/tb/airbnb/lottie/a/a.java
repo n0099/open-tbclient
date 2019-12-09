@@ -92,7 +92,7 @@ public class a<T> {
 
     /* renamed from: com.tb.airbnb.lottie.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0575a {
+    public static class C0570a {
         private static SparseArrayCompat<WeakReference<Interpolator>> dR;
 
         private static SparseArrayCompat<WeakReference<Interpolator>> bs() {
@@ -105,19 +105,19 @@ public class a<T> {
         @Nullable
         private static WeakReference<Interpolator> k(int i) {
             WeakReference<Interpolator> weakReference;
-            synchronized (C0575a.class) {
+            synchronized (C0570a.class) {
                 weakReference = bs().get(i);
             }
             return weakReference;
         }
 
         private static void a(int i, WeakReference<Interpolator> weakReference) {
-            synchronized (C0575a.class) {
+            synchronized (C0570a.class) {
                 dR.put(i, weakReference);
             }
         }
 
-        private C0575a() {
+        private C0570a() {
         }
 
         public static <T> a<T> a(JSONObject jSONObject, e eVar, float f, m.a<T> aVar) {

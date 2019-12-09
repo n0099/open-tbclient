@@ -129,11 +129,11 @@ public class d {
         Flow bs;
         bs = bs(str, i);
         if (bs != null && bs.getValid()) {
-            RunnableC0550d runnableC0550d = new RunnableC0550d(bs, str2);
+            RunnableC0545d runnableC0545d = new RunnableC0545d(bs, str2);
             if (this.jWH != null && this.jWH.lw(str)) {
-                runnableC0550d.dI(true);
+                runnableC0545d.dI(true);
             }
-            this.btb.execute(runnableC0550d);
+            this.btb.execute(runnableC0545d);
         }
         return bs;
     }
@@ -143,11 +143,11 @@ public class d {
         Flow bs;
         bs = bs(str, i);
         if (bs != null && bs.getValid()) {
-            RunnableC0550d runnableC0550d = new RunnableC0550d(bs, jSONObject);
+            RunnableC0545d runnableC0545d = new RunnableC0545d(bs, jSONObject);
             if (this.jWH != null && this.jWH.lw(str)) {
-                runnableC0550d.dI(true);
+                runnableC0545d.dI(true);
             }
-            this.btb.execute(runnableC0550d);
+            this.btb.execute(runnableC0545d);
         }
         return bs;
     }
@@ -311,17 +311,17 @@ public class d {
 
     /* renamed from: com.baidu.ubc.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class RunnableC0550d implements Runnable {
+    private class RunnableC0545d implements Runnable {
         private k jWO;
 
-        RunnableC0550d(Flow flow, String str) {
+        RunnableC0545d(Flow flow, String str) {
             this.jWO = new k(flow.getId(), flow.getHandle(), str, flow.getOption());
             this.jWO.aA(flow.getStartTime());
             this.jWO.lz("1");
             d.d(d.this);
         }
 
-        RunnableC0550d(Flow flow, JSONObject jSONObject) {
+        RunnableC0545d(Flow flow, JSONObject jSONObject) {
             this.jWO = new k(flow.getId(), flow.getHandle(), jSONObject, flow.getOption());
             this.jWO.aA(flow.getStartTime());
             this.jWO.lz("1");

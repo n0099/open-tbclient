@@ -13,19 +13,19 @@ import com.baidu.tieba.tbadvert.view.CountDownTextView;
 public class a {
     private FrameLayout bEf;
     private ImageView jlT;
-    private InterfaceC0524a jlU;
+    private InterfaceC0519a jlU;
     private Context mContext;
 
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0524a {
+    public interface InterfaceC0519a {
         void cpN();
 
         void cpO();
     }
 
-    public a(Context context, InterfaceC0524a interfaceC0524a) {
-        this.jlU = interfaceC0524a;
+    public a(Context context, InterfaceC0519a interfaceC0519a) {
+        this.jlU = interfaceC0519a;
         this.mContext = context;
         this.bEf = new FrameLayout(context);
     }

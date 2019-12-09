@@ -11,7 +11,7 @@ public class a {
     private long dam;
     private boolean dan;
     private boolean dao;
-    private InterfaceC0364a ehD;
+    private InterfaceC0359a ehD;
     private float mDownX;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
@@ -21,7 +21,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.livepager.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0364a {
+    public interface InterfaceC0359a {
         void aAK();
 
         void aAL();
@@ -91,8 +91,8 @@ public class a {
         return true;
     }
 
-    public void setEventListener(InterfaceC0364a interfaceC0364a) {
-        this.ehD = interfaceC0364a;
+    public void setEventListener(InterfaceC0359a interfaceC0359a) {
+        this.ehD = interfaceC0359a;
     }
 
     private void releaseVelocityTracker() {

@@ -10,7 +10,7 @@ import java.util.Set;
 public abstract class e<K, V> {
     e<K, V>.b bND;
     e<K, V>.c bNE;
-    e<K, V>.C0271e bNF;
+    e<K, V>.C0266e bNF;
 
     protected abstract void colClear();
 
@@ -360,8 +360,8 @@ public abstract class e<K, V> {
 
     /* renamed from: com.baidu.swan.support.v4.b.e$e  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    final class C0271e implements Collection<V> {
-        C0271e() {
+    final class C0266e implements Collection<V> {
+        C0266e() {
         }
 
         @Override // java.util.Collection
@@ -561,7 +561,7 @@ public abstract class e<K, V> {
 
     public Collection<V> getValues() {
         if (this.bNF == null) {
-            this.bNF = new C0271e();
+            this.bNF = new C0266e();
         }
         return this.bNF;
     }

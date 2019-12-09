@@ -9,7 +9,7 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static InterfaceC0228a brl;
+    private static InterfaceC0223a brl;
     private static volatile a brm;
     private int brh = 0;
     private int bri = 200;
@@ -19,7 +19,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.textarea.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0228a {
+    public interface InterfaceC0223a {
         void fm(String str);
 
         void y(String str, int i);
@@ -76,10 +76,10 @@ public class a {
         view.getViewTreeObserver().addOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
     }
 
-    public void a(View view, String str, InterfaceC0228a interfaceC0228a) {
+    public void a(View view, String str, InterfaceC0223a interfaceC0223a) {
         aq(view);
         this.brk = str;
-        brl = interfaceC0228a;
+        brl = interfaceC0223a;
         this.brj = 0;
     }
 

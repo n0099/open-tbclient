@@ -16,9 +16,9 @@ import java.util.Queue;
 /* loaded from: classes2.dex */
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final int aKT = a.C0151a.aiapps_slide_in_from_right;
-    public static final int aKU = a.C0151a.aiapps_slide_out_to_right;
-    public static final int aKV = a.C0151a.aiapps_hold;
+    public static final int aKT = a.C0146a.aiapps_slide_in_from_right;
+    public static final int aKU = a.C0146a.aiapps_slide_out_to_right;
+    public static final int aKV = a.C0146a.aiapps_hold;
     private k aKP;
     private a aKS;
     private Activity mActivity;

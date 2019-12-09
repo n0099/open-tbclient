@@ -14,8 +14,8 @@ import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 public class AlaChallengeHistoryListFragment extends BaseFragment {
     private a dHu;
     private com.baidu.tieba.ala.a.a dHv;
-    private a.InterfaceC0338a dHw = new a.InterfaceC0338a() { // from class: com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment.1
-        @Override // com.baidu.tieba.ala.c.a.InterfaceC0338a
+    private a.InterfaceC0333a dHw = new a.InterfaceC0333a() { // from class: com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment.1
+        @Override // com.baidu.tieba.ala.c.a.InterfaceC0333a
         public void a(int i, String str, Object obj) {
             if (i != 0 && !StringUtils.isNull(str)) {
                 if (AlaChallengeHistoryListFragment.this.dHv != null) {

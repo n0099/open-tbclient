@@ -53,7 +53,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     private g.f dcT;
     private g.c dcU;
     private g.e dcV;
-    private g.InterfaceC0498g dcW;
+    private g.InterfaceC0493g dcW;
     private g.i dcX;
     private g.d dcY;
     private g.h dcZ;
@@ -62,7 +62,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     private boolean dqF;
     private g.f dqO;
     private g.a dqP;
-    private g.InterfaceC0498g dqS;
+    private g.InterfaceC0493g dqS;
     private int ifX;
     private a ivP;
     private r iwA;
@@ -361,8 +361,8 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                 return true;
             }
         };
-        this.dqS = new g.InterfaceC0498g() { // from class: com.baidu.tieba.play.QuickVideoView.13
-            @Override // com.baidu.tieba.play.g.InterfaceC0498g
+        this.dqS = new g.InterfaceC0493g() { // from class: com.baidu.tieba.play.QuickVideoView.13
+            @Override // com.baidu.tieba.play.g.InterfaceC0493g
             public void b(g gVar) {
                 if (QuickVideoView.this.iwG) {
                     QuickVideoView.this.iwG = false;
@@ -690,8 +690,8 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                 return true;
             }
         };
-        this.dqS = new g.InterfaceC0498g() { // from class: com.baidu.tieba.play.QuickVideoView.13
-            @Override // com.baidu.tieba.play.g.InterfaceC0498g
+        this.dqS = new g.InterfaceC0493g() { // from class: com.baidu.tieba.play.QuickVideoView.13
+            @Override // com.baidu.tieba.play.g.InterfaceC0493g
             public void b(g gVar) {
                 if (QuickVideoView.this.iwG) {
                     QuickVideoView.this.iwG = false;
@@ -1019,8 +1019,8 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                 return true;
             }
         };
-        this.dqS = new g.InterfaceC0498g() { // from class: com.baidu.tieba.play.QuickVideoView.13
-            @Override // com.baidu.tieba.play.g.InterfaceC0498g
+        this.dqS = new g.InterfaceC0493g() { // from class: com.baidu.tieba.play.QuickVideoView.13
+            @Override // com.baidu.tieba.play.g.InterfaceC0493g
             public void b(g gVar) {
                 if (QuickVideoView.this.iwG) {
                     QuickVideoView.this.iwG = false;
@@ -1441,7 +1441,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         if (this.iwr != null) {
             this.iwr.onStop();
         }
-        com.baidu.tieba.play.b.b.ccU().a((b.InterfaceC0495b) null);
+        com.baidu.tieba.play.b.b.ccU().a((b.InterfaceC0490b) null);
         if (this.iwn != null && this.iwn.zX(getLocateSource())) {
             this.iwn = null;
         }
@@ -1475,8 +1475,8 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     }
 
     @Override // com.baidu.tieba.play.a.a
-    public void setOnSeekCompleteListener(g.InterfaceC0498g interfaceC0498g) {
-        this.dcW = interfaceC0498g;
+    public void setOnSeekCompleteListener(g.InterfaceC0493g interfaceC0493g) {
+        this.dcW = interfaceC0493g;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

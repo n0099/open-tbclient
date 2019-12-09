@@ -16,14 +16,14 @@ import com.facebook.drawee.view.a;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
-    private final a.C0564a keU;
+    private final a.C0559a keU;
     private float keV;
     private b<DH> keW;
     private boolean keX;
 
     public DraweeView(Context context) {
         super(context);
-        this.keU = new a.C0564a();
+        this.keU = new a.C0559a();
         this.keV = 0.0f;
         this.keX = false;
         init(context);
@@ -31,7 +31,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
 
     public DraweeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.keU = new a.C0564a();
+        this.keU = new a.C0559a();
         this.keV = 0.0f;
         this.keX = false;
         init(context);
@@ -39,7 +39,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
 
     public DraweeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.keU = new a.C0564a();
+        this.keU = new a.C0559a();
         this.keV = 0.0f;
         this.keX = false;
         init(context);
@@ -48,7 +48,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @TargetApi(21)
     public DraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
-        this.keU = new a.C0564a();
+        this.keU = new a.C0559a();
         this.keV = 0.0f;
         this.keX = false;
         init(context);

@@ -21,7 +21,7 @@ public class a {
 
     /* renamed from: com.baidu.tbadk.coreExtra.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0288a {
+    public interface InterfaceC0283a {
         void asY();
     }
 
@@ -93,10 +93,10 @@ public class a {
         return this.cCi;
     }
 
-    public void a(InterfaceC0288a interfaceC0288a) {
+    public void a(InterfaceC0283a interfaceC0283a) {
         if (this.cCh == null) {
             this.cCi = true;
-            this.cCh = new b(interfaceC0288a);
+            this.cCh = new b(interfaceC0283a);
             this.cCh.setSelfExecute(true);
             this.cCh.execute(new Object[0]);
         }
@@ -117,12 +117,12 @@ public class a {
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<Object, Integer, Void> {
-        private InterfaceC0288a cCj;
+        private InterfaceC0283a cCj;
         private volatile x mNetwork = null;
 
-        public b(InterfaceC0288a interfaceC0288a) {
+        public b(InterfaceC0283a interfaceC0283a) {
             this.cCj = null;
-            this.cCj = interfaceC0288a;
+            this.cCj = interfaceC0283a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */

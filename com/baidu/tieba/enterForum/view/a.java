@@ -25,7 +25,7 @@ import java.util.List;
 public class a extends PopupWindow {
     private ViewGroup aqK;
     private View.OnClickListener dkf;
-    private InterfaceC0402a ffl;
+    private InterfaceC0397a ffl;
     private View ffm;
     private TextView ffn;
     private TextView ffo;
@@ -36,7 +36,7 @@ public class a extends PopupWindow {
 
     /* renamed from: com.baidu.tieba.enterForum.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0402a {
+    public interface InterfaceC0397a {
         void lK(int i);
     }
 
@@ -114,8 +114,8 @@ public class a extends PopupWindow {
         }
     }
 
-    public void a(InterfaceC0402a interfaceC0402a) {
-        this.ffl = interfaceC0402a;
+    public void a(InterfaceC0397a interfaceC0397a) {
+        this.ffl = interfaceC0397a;
     }
 
     public void O(View view) {

@@ -124,7 +124,7 @@ public class f extends z {
                         }
                         callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                         if (f.DEBUG) {
-                            Log.d("NavigateToSmartProgram", SmsLoginView.StatEvent.LOGIN_FAILURE);
+                            Log.d("NavigateToSmartProgram", SmsLoginView.f.l);
                             return;
                         }
                         return;

@@ -14,14 +14,13 @@ import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.NormalizeGuestAccountResult;
 import com.baidu.sapi2.result.SapiResult;
-import com.baidu.sapi2.utils.PtokenStat;
+import com.baidu.sapi2.utils.b;
 import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class NormalizeGuestAccountActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
-    private String bduss;
-    private NormalizeGuestAccountResult result = new NormalizeGuestAccountResult() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.1
+    private NormalizeGuestAccountResult r = new NormalizeGuestAccountResult() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.1
         @Override // com.baidu.sapi2.result.NormalizeGuestAccountResult
         public void finishActivity() {
             super.finishActivity();
@@ -29,37 +28,102 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
             PassportSDK.getInstance().release();
         }
     };
-    private SocialType socialType;
+    private String s;
+    private SocialType t;
 
-    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        try {
-            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
-            this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
-            SapiAccount accountFromBduss = SapiContext.getInstance(this).getAccountFromBduss(this.bduss);
-            if (TextUtils.isEmpty(this.bduss) || accountFromBduss == null) {
-                this.result.setResultCode(-204);
-                this.result.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
-                normalizeFail();
-                return;
-            }
-            this.socialType = accountFromBduss.getSocialType();
-            init();
-            setupViews();
-        } catch (Throwable th) {
-            reportWebviewError(th);
-            this.result.setResultCode(-202);
-            this.result.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
-            normalizeFail();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e() {
+        SapiWebView sapiWebView = this.sapiWebView;
+        if (sapiWebView != null && sapiWebView.canGoBack()) {
+            this.sapiWebView.goBack();
+        } else {
+            onClose();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f() {
+        if (PassportSDK.getInstance().getNormalizeGuestAccountCallback() != null) {
+            PassportSDK.getInstance().getNormalizeGuestAccountCallback().onFailure(this.r);
+        }
+        finish();
+        PassportSDK.getInstance().release();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void g() {
+        if (PassportSDK.getInstance().getNormalizeGuestAccountCallback() != null) {
+            PassportSDK.getInstance().getNormalizeGuestAccountCallback().onSuccess(this.r);
+        }
+        NormalizeGuestAccountDTO normalizeGuestAccountDTO = PassportSDK.getInstance().getNormalizeGuestAccountDTO();
+        if (normalizeGuestAccountDTO == null || !normalizeGuestAccountDTO.finishActivityAfterSuc) {
+            return;
+        }
+        finish();
+        PassportSDK.getInstance().release();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public SapiWebDTO getWebDTO() {
+        return PassportSDK.getInstance().getNormalizeGuestAccountDTO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
-        this.result.activity = this;
+        this.r.activity = this;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        e();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onClose() {
+        super.onClose();
+        this.r.setResultCode(-301);
+        this.r.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+        f();
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        try {
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
+            this.s = getIntent().getStringExtra("EXTRA_BDUSS");
+            SapiAccount accountFromBduss = SapiContext.getInstance(this).getAccountFromBduss(this.s);
+            if (!TextUtils.isEmpty(this.s) && accountFromBduss != null) {
+                this.t = accountFromBduss.getSocialType();
+                init();
+                setupViews();
+                return;
+            }
+            this.r.setResultCode(-204);
+            this.r.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
+            f();
+        } catch (Throwable th) {
+            reportWebviewError(th);
+            this.r.setResultCode(-202);
+            this.r.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
+            f();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        super.onLeftBtnClick();
+        if (!this.executeSubClassMethod) {
+            return;
+        }
+        e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -70,7 +134,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {
-                NormalizeGuestAccountActivity.this.goBack();
+                NormalizeGuestAccountActivity.this.e();
             }
         });
         this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.3
@@ -90,83 +154,22 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
         }
         this.sapiWebView.setNormalizeGuestAccountCallback(new SapiJsCallBacks.NormalizeGuestAccountCallback() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.4
             @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
-            public void onSuccess(boolean z, String str2) {
-                NormalizeGuestAccountActivity.this.result.isAccountMerge = z;
-                NormalizeGuestAccountActivity.this.result.setNormalizeWay(str2);
-                NormalizeGuestAccountActivity.this.result.setResultCode(0);
-                NormalizeGuestAccountActivity.this.result.setResultMsg("成功");
-                NormalizeGuestAccountActivity.this.normalizeSucess();
-                new PtokenStat().onEvent(PtokenStat.NORMAL_GUEST);
+            public void onFailure(int i, String str2) {
+                NormalizeGuestAccountActivity.this.r.setResultCode(i);
+                NormalizeGuestAccountActivity.this.r.setResultMsg(str2);
+                NormalizeGuestAccountActivity.this.f();
             }
 
             @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
-            public void onFailure(int i, String str2) {
-                NormalizeGuestAccountActivity.this.result.setResultCode(i);
-                NormalizeGuestAccountActivity.this.result.setResultMsg(str2);
-                NormalizeGuestAccountActivity.this.normalizeFail();
+            public void onSuccess(boolean z, String str2) {
+                NormalizeGuestAccountActivity.this.r.isAccountMerge = z;
+                NormalizeGuestAccountActivity.this.r.setNormalizeWay(str2);
+                NormalizeGuestAccountActivity.this.r.setResultCode(0);
+                NormalizeGuestAccountActivity.this.r.setResultMsg("成功");
+                NormalizeGuestAccountActivity.this.g();
+                new b().a(b.e);
             }
         }, str);
-        this.sapiWebView.loadNormalizeGuestAccount(arrayList, this.bduss, this.socialType);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        super.onLeftBtnClick();
-        if (this.executeSubClassMethod) {
-            goBack();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        super.onBottomBackBtnClick();
-        goBack();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onClose() {
-        super.onClose();
-        this.result.setResultCode(-301);
-        this.result.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
-        normalizeFail();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void goBack() {
-        if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
-            this.sapiWebView.goBack();
-        } else {
-            onClose();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void normalizeSucess() {
-        if (PassportSDK.getInstance().getNormalizeGuestAccountCallback() != null) {
-            PassportSDK.getInstance().getNormalizeGuestAccountCallback().onSuccess(this.result);
-        }
-        NormalizeGuestAccountDTO normalizeGuestAccountDTO = PassportSDK.getInstance().getNormalizeGuestAccountDTO();
-        if (normalizeGuestAccountDTO != null && normalizeGuestAccountDTO.finishActivityAfterSuc) {
-            finish();
-            PassportSDK.getInstance().release();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void normalizeFail() {
-        if (PassportSDK.getInstance().getNormalizeGuestAccountCallback() != null) {
-            PassportSDK.getInstance().getNormalizeGuestAccountCallback().onFailure(this.result);
-        }
-        finish();
-        PassportSDK.getInstance().release();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public SapiWebDTO getWebDTO() {
-        return PassportSDK.getInstance().getNormalizeGuestAccountDTO();
+        this.sapiWebView.loadNormalizeGuestAccount(arrayList, this.s, this.t);
     }
 }

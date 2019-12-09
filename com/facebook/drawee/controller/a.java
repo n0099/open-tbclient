@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes2.dex */
-public abstract class a<T, INFO> implements a.InterfaceC0561a, a.InterfaceC0562a, com.facebook.drawee.d.a {
+public abstract class a<T, INFO> implements a.InterfaceC0556a, a.InterfaceC0557a, com.facebook.drawee.d.a {
     private static final Class<?> jYW = a.class;
     private final com.facebook.drawee.components.a kbT;
     private final DraweeEventTracker kcf = DraweeEventTracker.cDN();
@@ -62,15 +62,15 @@ public abstract class a<T, INFO> implements a.InterfaceC0561a, a.InterfaceC0562a
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.facebook.drawee.controller.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0563a<INFO> extends e<INFO> {
-        private C0563a() {
+    public static class C0558a<INFO> extends e<INFO> {
+        private C0558a() {
         }
 
-        public static <INFO> C0563a<INFO> a(c<? super INFO> cVar, c<? super INFO> cVar2) {
-            C0563a<INFO> c0563a = new C0563a<>();
-            c0563a.c(cVar);
-            c0563a.c(cVar2);
-            return c0563a;
+        public static <INFO> C0558a<INFO> a(c<? super INFO> cVar, c<? super INFO> cVar2) {
+            C0558a<INFO> c0558a = new C0558a<>();
+            c0558a.c(cVar);
+            c0558a.c(cVar2);
+            return c0558a;
         }
     }
 
@@ -104,8 +104,8 @@ public abstract class a<T, INFO> implements a.InterfaceC0561a, a.InterfaceC0562a
             this.kci.init();
             this.kci.a(this);
         }
-        if (this.kcj instanceof C0563a) {
-            ((C0563a) this.kcj).cEl();
+        if (this.kcj instanceof C0558a) {
+            ((C0558a) this.kcj).cEl();
         } else {
             this.kcj = null;
         }
@@ -123,7 +123,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0561a, a.InterfaceC0562a
         this.kcn = obj;
     }
 
-    @Override // com.facebook.drawee.components.a.InterfaceC0562a
+    @Override // com.facebook.drawee.components.a.InterfaceC0557a
     public void release() {
         this.kcf.a(DraweeEventTracker.Event.ON_RELEASE_CONTROLLER);
         if (this.kch != null) {
@@ -205,10 +205,10 @@ public abstract class a<T, INFO> implements a.InterfaceC0561a, a.InterfaceC0562a
     /* JADX WARN: Multi-variable type inference failed */
     public void a(c<? super INFO> cVar) {
         g.checkNotNull(cVar);
-        if (this.kcj instanceof C0563a) {
-            ((C0563a) this.kcj).c(cVar);
+        if (this.kcj instanceof C0558a) {
+            ((C0558a) this.kcj).c(cVar);
         } else if (this.kcj != null) {
-            this.kcj = C0563a.a(this.kcj, cVar);
+            this.kcj = C0558a.a(this.kcj, cVar);
         } else {
             this.kcj = cVar;
         }
@@ -309,7 +309,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0561a, a.InterfaceC0562a
         return this.kcq && this.kch != null && this.kch.cDO();
     }
 
-    @Override // com.facebook.drawee.c.a.InterfaceC0561a
+    @Override // com.facebook.drawee.c.a.InterfaceC0556a
     public boolean cDX() {
         if (com.facebook.common.c.a.isLoggable(2)) {
             com.facebook.common.c.a.a(jYW, "controller %x %s: onClick", Integer.valueOf(System.identityHashCode(this)), this.mId);

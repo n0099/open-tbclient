@@ -51,40 +51,40 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0416a c0416a;
+        C0411a c0411a;
         if (view == null) {
             view = LayoutInflater.from(this.ceu.getPageActivity()).inflate(R.layout.frs_lite_program_list_fragment_item, viewGroup, false);
-            C0416a c0416a2 = new C0416a();
-            c0416a2.fOS = (RelativeLayout) view.findViewById(R.id.card);
-            c0416a2.fOR = (HeadImageView) view.findViewById(R.id.portrait);
-            c0416a2.mTitle = (TextView) view.findViewById(R.id.title);
-            c0416a2.aan = (TextView) view.findViewById(R.id.desc);
-            view.setTag(c0416a2);
-            c0416a = c0416a2;
+            C0411a c0411a2 = new C0411a();
+            c0411a2.fOS = (RelativeLayout) view.findViewById(R.id.card);
+            c0411a2.fOR = (HeadImageView) view.findViewById(R.id.portrait);
+            c0411a2.mTitle = (TextView) view.findViewById(R.id.title);
+            c0411a2.aan = (TextView) view.findViewById(R.id.desc);
+            view.setTag(c0411a2);
+            c0411a = c0411a2;
         } else {
-            c0416a = (C0416a) view.getTag();
+            c0411a = (C0411a) view.getTag();
         }
         b bVar = (b) getItem(i);
         int dimens = l.getDimens(this.ceu.getPageActivity(), R.dimen.tbds136);
-        c0416a.fOR.setIsRound(true);
-        c0416a.fOR.a(bVar.avatar, 10, dimens, dimens, false);
-        c0416a.mTitle.setText(bVar.name);
-        c0416a.aan.setText(bVar.fOU);
-        am.setViewTextColor(c0416a.mTitle, R.color.cp_cont_b, 1);
-        am.setViewTextColor(c0416a.aan, R.color.cp_cont_d, 1);
-        am.setBackgroundResource(c0416a.fOS, R.drawable.lite_progrom_icorner_bg);
+        c0411a.fOR.setIsRound(true);
+        c0411a.fOR.a(bVar.avatar, 10, dimens, dimens, false);
+        c0411a.mTitle.setText(bVar.name);
+        c0411a.aan.setText(bVar.fOU);
+        am.setViewTextColor(c0411a.mTitle, R.color.cp_cont_b, 1);
+        am.setViewTextColor(c0411a.aan, R.color.cp_cont_d, 1);
+        am.setBackgroundResource(c0411a.fOS, R.drawable.lite_progrom_icorner_bg);
         return view;
     }
 
     /* renamed from: com.baidu.tieba.frs.smartapp.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0416a {
+    public class C0411a {
         TextView aan;
         HeadImageView fOR;
         RelativeLayout fOS;
         TextView mTitle;
 
-        public C0416a() {
+        public C0411a() {
         }
     }
 }

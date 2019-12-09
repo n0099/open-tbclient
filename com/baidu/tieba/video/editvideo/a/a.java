@@ -15,12 +15,12 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
     private e ceS;
-    private InterfaceC0527a jxV;
+    private InterfaceC0522a jxV;
     private List<PendantData> mList;
 
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0527a {
+    public interface InterfaceC0522a {
         void a(View view, int i, PendantData pendantData);
     }
 
@@ -131,8 +131,8 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public void a(InterfaceC0527a interfaceC0527a) {
-        this.jxV = interfaceC0527a;
+    public void a(InterfaceC0522a interfaceC0522a) {
+        this.jxV = interfaceC0522a;
     }
 
     /* loaded from: classes5.dex */

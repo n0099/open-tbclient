@@ -36,7 +36,7 @@ public class a extends d {
     private final NewWriteModel.d cGo;
     private TbPageContext<?> ceu;
     private com.baidu.tieba.write.b gnK;
-    private InterfaceC0536a jIq;
+    private InterfaceC0531a jIq;
     private String mForumId;
     private String mForumName;
     private TextWatcher mTextWatcher;
@@ -44,7 +44,7 @@ public class a extends d {
 
     /* renamed from: com.baidu.tieba.videoplay.editor.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0536a {
+    public interface InterfaceC0531a {
         void rD(boolean z);
     }
 
@@ -266,8 +266,8 @@ public class a extends d {
         }
     }
 
-    public void a(InterfaceC0536a interfaceC0536a) {
-        this.jIq = interfaceC0536a;
+    public void a(InterfaceC0531a interfaceC0531a) {
+        this.jIq = interfaceC0531a;
     }
 
     public void cwC() {

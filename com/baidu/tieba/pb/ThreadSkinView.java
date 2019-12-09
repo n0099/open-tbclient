@@ -18,7 +18,7 @@ import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
     private SkinInfo hGa;
-    private a.C0520a hGb;
+    private a.C0515a hGb;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -40,14 +40,14 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0520a c0520a) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0515a c0515a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.hGa != skinInfo && c0520a != null) {
-            this.hGb = c0520a;
+        if (this.hGa != skinInfo && c0515a != null) {
+            this.hGb = c0515a;
             this.hGb.delete("action_type");
             this.hGb.ea("obj_id", skinInfo.obj_id);
             this.hGb.ea(TiebaInitialize.Params.OBJ_URL, skinInfo.url);

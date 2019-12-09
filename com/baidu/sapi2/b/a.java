@@ -1,94 +1,115 @@
 package com.baidu.sapi2.b;
 
-import android.annotation.TargetApi;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.ComponentName;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
-import com.baidu.sapi2.utils.Log;
-import com.coloros.mcssdk.PushManager;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.dto.PassNameValuePair;
+import com.baidu.sapi2.utils.SapiUtils;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static final String a = a.class.getSimpleName();
-    private static final String b = "pass_channel_id";
-    private static final String c = "pass_channel";
-    private static final long d = 86400;
-    private static final long e = 432000;
+    public static final String a = "SapiScheme";
+    public static final String b = "3.0.5";
+    public static final int c = 2;
+    public static final String d = "3.0.5";
+    public static final String e = "com.baidu.passport.securitycenter";
+    public static final String f = "baiduppscapp";
+    public static final String g = "otp";
+    public static final int h = 0;
+    public static final int i = 1;
+    public static final int j = 2;
+    public static final int k = 3;
+    public static final int l = 4;
+    public static final int m = 3001;
+    public static final String n = "achieve_sc_app_data";
+    private SapiWebView.InvokeScAppCallback.InvokeScAppResult o;
+    private b p;
 
-    public void a(final Context context) {
-        List<String> phoneRisksList;
-        Log.e(a, "thread id", Thread.currentThread().getName(), Long.valueOf(Thread.currentThread().getId()));
-        long pushInternalTime = SapiContext.getInstance(context).getPushInternalTime();
-        long pushSucTime = SapiContext.getInstance(context).getPushSucTime();
-        long lastPushCheckTime = SapiContext.getInstance(context).getLastPushCheckTime();
-        if (System.currentTimeMillis() - pushSucTime >= pushInternalTime && System.currentTimeMillis() - lastPushCheckTime >= 86400 && (phoneRisksList = SapiContext.getInstance(context).getPhoneRisksList()) != null && phoneRisksList.contains(SapiAccountManager.getInstance().getConfignation().tpl)) {
-            SapiContext.getInstance(context).setLastPushCheckTime(System.currentTimeMillis());
-            SapiAccountManager.getInstance().getAccountService().checkPush(new com.baidu.sapi2.callback.a.a() { // from class: com.baidu.sapi2.b.a.1
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                /* renamed from: a */
-                public void onSuccess(com.baidu.sapi2.result.a.a aVar) {
-                    Log.e(a.a, "thread id", Thread.currentThread().getName(), Long.valueOf(Thread.currentThread().getId()));
-                    if (aVar.a && !TextUtils.isEmpty(aVar.d) && !TextUtils.isEmpty(aVar.c) && !TextUtils.isEmpty(aVar.b)) {
-                        a.this.a(context, aVar.c, aVar.c, aVar.d, aVar.b);
-                        SapiContext.getInstance(context).setPushInternalTime(aVar.e == 0 ? a.e : aVar.e);
-                        SapiContext.getInstance(context).setPushSucTime(System.currentTimeMillis());
-                    }
-                }
+    public int a(Context context, String str, SapiWebView.InvokeScAppCallback invokeScAppCallback) {
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = context.getPackageManager().getPackageInfo(e, 0);
+        } catch (PackageManager.NameNotFoundException e2) {
+        }
+        if (packageInfo != null) {
+            if (SapiUtils.versionCompareTo(packageInfo.versionName, str) < 0) {
+                return 1;
+            }
+            if (invokeScAppCallback == null) {
+                return 4;
+            }
+            return !a(context, context.getPackageName()) ? 3 : 0;
+        }
+        return 2;
+    }
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                /* renamed from: b */
-                public void onFailure(com.baidu.sapi2.result.a.a aVar) {
-                }
-
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onStart() {
-                }
-
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFinish() {
-                }
-            });
+    public void a(Activity activity, String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
+        this.o = invokeScAppResult;
+        a aVar = new a();
+        if (!aVar.a((Context) activity, e)) {
+            this.o.setInvokeResult(a(b.b, b.d));
+            return;
+        }
+        try {
+            aVar.a(activity, aVar.a(str, str2, list));
+        } catch (Exception e2) {
+            this.o.setInvokeResult(a(b.a, b.c));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    @TargetApi(11)
-    public void a(Context context, String str, String str2, String str3, String str4) {
-        Notification.Builder builder;
-        if (Build.VERSION.SDK_INT >= 16) {
-            ComponentName componentName = new ComponentName(context.getPackageName(), "com.baidu.sapi2.activity.LoadExternalWebViewActivity");
-            Intent intent = new Intent();
-            intent.putExtra("android.intent.extra.TEXT", str4);
-            intent.setComponent(componentName);
-            intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, str);
-            intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_URL, str4);
-            intent.setFlags(268435456);
-            PendingIntent activity = PendingIntent.getActivity(context, 0, intent, 0);
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
-            if (Build.VERSION.SDK_INT >= 26) {
-                notificationManager.createNotificationChannel(new NotificationChannel(b, c, 3));
-                builder = new Notification.Builder(context, b);
-            } else {
-                builder = new Notification.Builder(context);
-                builder.setPriority(0);
+    public void a(int i2, int i3, Intent intent) {
+        if (this.o != null) {
+            String str = null;
+            if (intent != null) {
+                str = intent.getExtras().getString(n);
             }
-            builder.setSmallIcon(context.getApplicationInfo().icon);
-            builder.setContentIntent(activity);
-            builder.setContentTitle(str2);
-            builder.setContentText(str3);
-            builder.setAutoCancel(true);
-            notificationManager.notify(1, builder.build());
+            this.o.setInvokeResult(str);
         }
+    }
+
+    private String a(String str, String str2, List<PassNameValuePair> list) {
+        String str3 = "baiduppscapp://v2/" + str + "?";
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        list.add(new PassNameValuePair("minver", str2));
+        return str3 + SapiUtils.createRequestParams(list);
+    }
+
+    private void a(Activity activity, String str) throws Exception {
+        activity.startActivityForResult(new Intent("android.intent.action.VIEW", Uri.parse(str)), 3001);
+    }
+
+    public boolean a(Context context, String str) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return false;
+        }
+        HashMap hashMap = new HashMap();
+        hashMap.putAll(SapiContext.getInstance(context).getAuthorizedPackages());
+        hashMap.putAll(SapiContext.getInstance(context).getSCAuthorizedPackages());
+        String packageSign = SapiUtils.getPackageSign(context, str);
+        if (!TextUtils.isEmpty(packageSign)) {
+            for (String str2 : hashMap.keySet()) {
+                if (str.matches(str2) && packageSign.equals(hashMap.get(str2))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private String a(int i2, String str) {
+        this.p = new b();
+        this.p.setResultCode(i2);
+        this.p.setResultMsg(str);
+        return this.p.a();
     }
 }

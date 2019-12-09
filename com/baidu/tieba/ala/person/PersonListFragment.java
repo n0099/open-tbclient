@@ -134,8 +134,8 @@ public class PersonListFragment extends BaseFragment {
                 }
             }
         });
-        this.esL.a(new a.InterfaceC0377a() { // from class: com.baidu.tieba.ala.person.PersonListFragment.3
-            @Override // com.baidu.tieba.ala.person.adapter.a.InterfaceC0377a
+        this.esL.a(new a.InterfaceC0372a() { // from class: com.baidu.tieba.ala.person.PersonListFragment.3
+            @Override // com.baidu.tieba.ala.person.adapter.a.InterfaceC0372a
             public void a(b bVar, View view) {
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(PersonListFragment.this.getActivity());

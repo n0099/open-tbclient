@@ -17,7 +17,7 @@ public final class e extends ContextWrapper {
         super(AppRuntime.getApplication());
         this.bjY = new a<>();
         this.bjZ = new a().a(new a.c());
-        this.bka = new a().a(new a.C0162a());
+        this.bka = new a().a(new a.C0157a());
     }
 
     public static e Rt() {

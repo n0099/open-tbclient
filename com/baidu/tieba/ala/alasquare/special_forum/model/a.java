@@ -14,7 +14,7 @@ import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveResponseMessa
 import com.baidu.tieba.ala.alasquare.special_forum.data.h;
 /* loaded from: classes6.dex */
 public class a {
-    private InterfaceC0337a dBB;
+    private InterfaceC0332a dBB;
     private boolean isLoading;
     private TbPageContext mPageContext;
     private HttpMessageListener dBz = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.a.1
@@ -38,15 +38,15 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.alasquare.special_forum.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0337a {
+    public interface InterfaceC0332a {
         void R(int i, String str);
 
         void b(h hVar);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0337a interfaceC0337a) {
+    public a(TbPageContext tbPageContext, InterfaceC0332a interfaceC0332a) {
         this.mPageContext = tbPageContext;
-        this.dBB = interfaceC0337a;
+        this.dBB = interfaceC0332a;
         registerTask();
         registerListener();
     }

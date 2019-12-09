@@ -34,10 +34,10 @@ public class c {
         this.Nd.setData(this.Na);
     }
 
-    public void a(a.InterfaceC0378a interfaceC0378a) {
+    public void a(a.InterfaceC0373a interfaceC0373a) {
         for (com.baidu.live.liveroom.c.d dVar : this.Na) {
             if (dVar != null && (dVar instanceof d)) {
-                ((d) dVar).a(interfaceC0378a);
+                ((d) dVar).a(interfaceC0373a);
             }
         }
     }

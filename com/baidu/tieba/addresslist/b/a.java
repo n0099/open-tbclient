@@ -10,11 +10,11 @@ import java.util.List;
 public class a {
     private static a diZ;
     private List<com.baidu.tbadk.coreExtra.relationship.a> dja;
-    private List<InterfaceC0314a> mObservers = new ArrayList();
+    private List<InterfaceC0309a> mObservers = new ArrayList();
 
     /* renamed from: com.baidu.tieba.addresslist.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0314a {
+    public interface InterfaceC0309a {
         void aR(List<com.baidu.tbadk.coreExtra.relationship.a> list);
     }
 
@@ -32,15 +32,15 @@ public class a {
         return aVar;
     }
 
-    public void a(InterfaceC0314a interfaceC0314a) {
-        if (interfaceC0314a != null && !this.mObservers.contains(interfaceC0314a)) {
-            this.mObservers.add(interfaceC0314a);
+    public void a(InterfaceC0309a interfaceC0309a) {
+        if (interfaceC0309a != null && !this.mObservers.contains(interfaceC0309a)) {
+            this.mObservers.add(interfaceC0309a);
         }
     }
 
-    public void b(InterfaceC0314a interfaceC0314a) {
-        if (interfaceC0314a != null) {
-            this.mObservers.remove(interfaceC0314a);
+    public void b(InterfaceC0309a interfaceC0309a) {
+        if (interfaceC0309a != null) {
+            this.mObservers.remove(interfaceC0309a);
         }
     }
 
@@ -118,8 +118,8 @@ public class a {
     }
 
     private void aEc() {
-        for (InterfaceC0314a interfaceC0314a : this.mObservers) {
-            interfaceC0314a.aR(this.dja);
+        for (InterfaceC0309a interfaceC0309a : this.mObservers) {
+            interfaceC0309a.aR(this.dja);
         }
     }
 }

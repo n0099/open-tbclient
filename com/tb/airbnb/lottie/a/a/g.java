@@ -17,7 +17,7 @@ import com.tb.airbnb.lottie.model.content.GradientType;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class g implements d, a.InterfaceC0577a {
+public class g implements d, a.InterfaceC0572a {
     private final int er;
     private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> ksd;
     private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> ksk;
@@ -54,7 +54,7 @@ public class g implements d, a.InterfaceC0577a {
         aVar.a(this.ksn);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0577a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0572a
     public void bt() {
         this.lottieDrawable.invalidateSelf();
     }

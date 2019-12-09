@@ -135,7 +135,7 @@ public class h implements m {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.xl == null ? a.C0396a.eRY : this.xl;
+        return this.xl == null ? a.C0391a.eRY : this.xl;
     }
 
     public static ChannelHomeVideoList<h> bM(List<ChannelVideoInfo> list) {

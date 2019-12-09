@@ -18,8 +18,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
         synchronized (this.jXz.cBg()) {
-            for (a.InterfaceC0551a interfaceC0551a : this.jXz.cBg()) {
-                interfaceC0551a.T();
+            for (a.InterfaceC0546a interfaceC0546a : this.jXz.cBg()) {
+                interfaceC0546a.T();
             }
         }
     }
@@ -27,8 +27,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
         synchronized (this.jXz.cBg()) {
-            for (a.InterfaceC0551a interfaceC0551a : this.jXz.cBg()) {
-                interfaceC0551a.U();
+            for (a.InterfaceC0546a interfaceC0546a : this.jXz.cBg()) {
+                interfaceC0546a.U();
             }
         }
     }
@@ -36,8 +36,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
         synchronized (this.jXz.cBg()) {
-            for (a.InterfaceC0551a interfaceC0551a : this.jXz.cBg()) {
-                interfaceC0551a.a(activity);
+            for (a.InterfaceC0546a interfaceC0546a : this.jXz.cBg()) {
+                interfaceC0546a.a(activity);
             }
         }
     }
@@ -45,7 +45,7 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
         synchronized (this.jXz.cBg()) {
-            Iterator<a.InterfaceC0551a> it = this.jXz.cBg().iterator();
+            Iterator<a.InterfaceC0546a> it = this.jXz.cBg().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -55,7 +55,7 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
         synchronized (this.jXz.cBg()) {
-            Iterator<a.InterfaceC0551a> it = this.jXz.cBg().iterator();
+            Iterator<a.InterfaceC0546a> it = this.jXz.cBg().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -65,7 +65,7 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
         synchronized (this.jXz.cBg()) {
-            Iterator<a.InterfaceC0551a> it = this.jXz.cBg().iterator();
+            Iterator<a.InterfaceC0546a> it = this.jXz.cBg().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -75,8 +75,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
         synchronized (this.jXz.cBg()) {
-            for (a.InterfaceC0551a interfaceC0551a : this.jXz.cBg()) {
-                interfaceC0551a.onActivityDestroyed(activity);
+            for (a.InterfaceC0546a interfaceC0546a : this.jXz.cBg()) {
+                interfaceC0546a.onActivityDestroyed(activity);
             }
         }
     }

@@ -40,7 +40,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onOpen(Map<String, String> map) {
         this.bBZ = SocketTaskState.OPEN;
-        i("open", new e.C0253e(new JSONObject(map)));
+        i("open", new e.C0248e(new JSONObject(map)));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener

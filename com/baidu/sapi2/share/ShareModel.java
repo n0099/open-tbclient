@@ -9,23 +9,9 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ShareModel implements Parcelable {
-    public static final Parcelable.Creator<ShareModel> CREATOR = new Parcelable.Creator<ShareModel>() { // from class: com.baidu.sapi2.share.ShareModel.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public ShareModel createFromParcel(Parcel parcel) {
-            return new ShareModel(parcel);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public ShareModel[] newArray(int i) {
-            return new ShareModel[i];
-        }
-    };
+    public static final Parcelable.Creator<ShareModel> CREATOR = new o();
     private SapiAccount a;
     private List<SapiAccount> b;
     private ShareEvent c;
@@ -36,33 +22,6 @@ public class ShareModel implements Parcelable {
         this.b = new ArrayList();
     }
 
-    ShareModel(Parcel parcel) {
-        this.b = new ArrayList();
-        a(parcel);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ShareModel(ShareEvent shareEvent) {
-        this.b = new ArrayList();
-        this.c = shareEvent;
-    }
-
-    ShareModel(ShareEvent shareEvent, SapiAccount sapiAccount) {
-        this(shareEvent);
-        this.a = sapiAccount;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ShareModel(ShareEvent shareEvent, SapiAccount sapiAccount, List<SapiAccount> list) {
-        this(shareEvent, sapiAccount);
-        this.b = list;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<SapiAccount> a() {
-        return this.b;
-    }
-
     void a(List<SapiAccount> list) {
         if (list != null) {
             this.b = list;
@@ -70,8 +29,59 @@ public class ShareModel implements Parcelable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    public String b() {
+        return this.d;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public List<SapiAccount> c() {
+        return this.b;
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public String toString() {
+        return "ShareModel{currentAccount=" + this.a + ", shareAccounts=" + this.b + ", event=" + this.c + ", from='" + this.d + "', senderStrategy=" + this.e + '}';
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeSerializable(this.c);
+        parcel.writeTypedList(this.b);
+        parcel.writeParcelable(this.a, i);
+        parcel.writeSerializable(this.e);
+        parcel.writeString(this.d);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(LoginShareStrategy loginShareStrategy) {
         this.e = loginShareStrategy;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void b(Context context) {
+        ArrayList arrayList = new ArrayList();
+        for (SapiAccount sapiAccount : c()) {
+            arrayList.add(n.b(context, sapiAccount));
+        }
+        a(arrayList);
+        SapiAccount sapiAccount2 = this.a;
+        if (sapiAccount2 != null) {
+            this.a = n.b(context, sapiAccount2);
+        }
+        if (TextUtils.isEmpty(this.d)) {
+            return;
+        }
+        this.d = n.b(context, this.d);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ShareModel(Parcel parcel) {
+        this.b = new ArrayList();
+        a(parcel);
     }
 
     void a(ShareEvent shareEvent) {
@@ -79,7 +89,7 @@ public class ShareModel implements Parcelable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShareEvent b() {
+    public ShareEvent a() {
         return this.c;
     }
 
@@ -89,8 +99,9 @@ public class ShareModel implements Parcelable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String c() {
-        return this.d;
+    public ShareModel(ShareEvent shareEvent) {
+        this.b = new ArrayList();
+        this.c = shareEvent;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -106,51 +117,31 @@ public class ShareModel implements Parcelable {
         this.d = parcel.readString();
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
+    ShareModel(ShareEvent shareEvent, SapiAccount sapiAccount) {
+        this(shareEvent);
+        this.a = sapiAccount;
     }
 
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeSerializable(this.c);
-        parcel.writeTypedList(this.b);
-        parcel.writeParcelable(this.a, i);
-        parcel.writeSerializable(this.e);
-        parcel.writeString(this.d);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ShareModel(ShareEvent shareEvent, SapiAccount sapiAccount, List<SapiAccount> list) {
+        this(shareEvent, sapiAccount);
+        this.b = list;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Context context) {
         ArrayList arrayList = new ArrayList();
-        for (SapiAccount sapiAccount : a()) {
-            arrayList.add(b.a(context, sapiAccount));
+        for (SapiAccount sapiAccount : c()) {
+            arrayList.add(n.a(context, sapiAccount));
         }
         a(arrayList);
-        if (this.a != null) {
-            this.a = b.a(context, this.a);
+        SapiAccount sapiAccount2 = this.a;
+        if (sapiAccount2 != null) {
+            this.a = n.a(context, sapiAccount2);
         }
-        if (!TextUtils.isEmpty(this.d)) {
-            this.d = b.a(context, this.d);
+        if (TextUtils.isEmpty(this.d)) {
+            return;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(Context context) {
-        ArrayList arrayList = new ArrayList();
-        for (SapiAccount sapiAccount : a()) {
-            arrayList.add(b.b(context, sapiAccount));
-        }
-        a(arrayList);
-        if (this.a != null) {
-            this.a = b.b(context, this.a);
-        }
-        if (!TextUtils.isEmpty(this.d)) {
-            this.d = b.b(context, this.d);
-        }
-    }
-
-    public String toString() {
-        return "ShareModel{currentAccount=" + this.a + ", shareAccounts=" + this.b + ", event=" + this.c + ", from='" + this.d + "', senderStrategy=" + this.e + '}';
+        this.d = n.a(context, this.d);
     }
 }

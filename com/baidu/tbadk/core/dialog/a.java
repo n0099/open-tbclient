@@ -212,7 +212,7 @@ public class a {
             c(eVar);
             if (this.cej != null) {
                 this.cek.setVisibility(0);
-                this.cek.setOnClickListener(new View$OnClickListenerC0282a(this, this.cej));
+                this.cek.setOnClickListener(new View$OnClickListenerC0277a(this, this.cej));
                 am.setBackgroundResource(this.cek, R.drawable.icon_popup_close_n, isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0);
             }
             if (this.mButtonTextColor != -1) {
@@ -232,7 +232,7 @@ public class a {
                 this.yesButton.setText(this.mPositiveButtonTip);
                 this.yesButton.setTag(this.yesTag);
                 if (this.ceh != null) {
-                    this.yesButton.setOnClickListener(new View$OnClickListenerC0282a(this, this.ceh));
+                    this.yesButton.setOnClickListener(new View$OnClickListenerC0277a(this, this.ceh));
                 }
                 z = true;
             }
@@ -241,7 +241,7 @@ public class a {
             } else {
                 this.noButton.setText(this.mNegativeButtonTip);
                 if (this.cei != null) {
-                    this.noButton.setOnClickListener(new View$OnClickListenerC0282a(this, this.cei));
+                    this.noButton.setOnClickListener(new View$OnClickListenerC0277a(this, this.cei));
                 }
             }
             mouldButtons(z, z2);
@@ -457,11 +457,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.core.dialog.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class View$OnClickListenerC0282a implements View.OnClickListener {
+    public class View$OnClickListenerC0277a implements View.OnClickListener {
         private final a CM;
         private final b cem;
 
-        public View$OnClickListenerC0282a(a aVar, b bVar) {
+        public View$OnClickListenerC0277a(a aVar, b bVar) {
             this.CM = aVar;
             this.cem = bVar;
         }

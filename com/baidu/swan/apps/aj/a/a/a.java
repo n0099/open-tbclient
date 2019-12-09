@@ -60,9 +60,9 @@ public class a extends z {
             }
             c.i("accelerometer", " init ");
             com.baidu.swan.apps.aj.a.a Tj = com.baidu.swan.apps.aj.a.a.Tj();
-            Tj.k(context, C0155a.iy(optParamsAsJo.optString("interval")));
-            Tj.a(new a.InterfaceC0154a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
-                @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0154a
+            Tj.k(context, C0150a.iy(optParamsAsJo.optString("interval")));
+            Tj.a(new a.InterfaceC0149a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
+                @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0149a
                 public void a(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
                         c.e("accelerometer", "illegal accelerometers");
@@ -98,7 +98,7 @@ public class a extends z {
 
     /* renamed from: com.baidu.swan.apps.aj.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0155a {
+    private static class C0150a {
         private static ArrayMap<String, Integer> bqt = new ArrayMap<>(3);
 
         static {

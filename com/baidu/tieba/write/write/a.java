@@ -74,72 +74,72 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0547a c0547a;
+        C0542a c0542a;
         if (this.mParent == null) {
             this.mParent = viewGroup;
         }
         MetaData item = getItem(i);
         if (item != null) {
-            c0547a = a(view != null ? view.getTag() : null, item);
+            c0542a = a(view != null ? view.getTag() : null, item);
         } else {
-            c0547a = null;
+            c0542a = null;
         }
-        if (c0547a != null) {
-            return c0547a.rootView;
+        if (c0542a != null) {
+            return c0542a.rootView;
         }
         return null;
     }
 
-    private C0547a a(Object obj, MetaData metaData) {
-        C0547a c0547a;
+    private C0542a a(Object obj, MetaData metaData) {
+        C0542a c0542a;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (obj == null) {
-            c0547a = czd();
+            c0542a = czd();
         } else {
-            c0547a = (C0547a) obj;
+            c0542a = (C0542a) obj;
         }
         if (this.jSC != null) {
-            this.jSC.a(c0547a.rootView, metaData);
+            this.jSC.a(c0542a.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
-        c0547a.evA.setText(metaData.getName_show());
-        c0547a.gTm.setTagData(metaData);
-        c0547a.gSR.setTag(portrait);
+        c0542a.evA.setText(metaData.getName_show());
+        c0542a.gTm.setTagData(metaData);
+        c0542a.gSR.setTag(portrait);
         if (this.jSD) {
-            c0547a.gTm.setVisibility(0);
+            c0542a.gTm.setVisibility(0);
         } else {
-            c0547a.gTm.setVisibility(8);
+            c0542a.gTm.setVisibility(8);
         }
-        c0547a.gSR.startLoad(portrait, 12, false);
+        c0542a.gSR.startLoad(portrait, 12, false);
         this.jSB.getPageContext().getLayoutMode().setNightMode(skinType == 1);
-        this.jSB.getPageContext().getLayoutMode().onModeChanged(c0547a.rootView);
-        return c0547a;
+        this.jSB.getPageContext().getLayoutMode().onModeChanged(c0542a.rootView);
+        return c0542a;
     }
 
-    private C0547a czd() {
-        C0547a c0547a = new C0547a();
-        c0547a.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
-        c0547a.gSR = (HeadImageView) c0547a.rootView.findViewById(R.id.photo);
-        c0547a.gSR.setIsRound(false);
-        c0547a.evA = (TextView) c0547a.rootView.findViewById(R.id.txt_user_name);
-        c0547a.gTm = (TbCheckBox) c0547a.rootView.findViewById(R.id.ckb_select);
+    private C0542a czd() {
+        C0542a c0542a = new C0542a();
+        c0542a.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
+        c0542a.gSR = (HeadImageView) c0542a.rootView.findViewById(R.id.photo);
+        c0542a.gSR.setIsRound(false);
+        c0542a.evA = (TextView) c0542a.rootView.findViewById(R.id.txt_user_name);
+        c0542a.gTm = (TbCheckBox) c0542a.rootView.findViewById(R.id.ckb_select);
         if (this.gTj != null) {
-            c0547a.gTm.setStatedChangedListener(this.gTj);
+            c0542a.gTm.setStatedChangedListener(this.gTj);
         }
-        c0547a.rootView.setTag(c0547a);
-        return c0547a;
+        c0542a.rootView.setTag(c0542a);
+        return c0542a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.write.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0547a {
+    public class C0542a {
         public TextView evA;
         public HeadImageView gSR;
         public TbCheckBox gTm;
         public View rootView;
 
-        private C0547a() {
+        private C0542a() {
         }
     }
 }

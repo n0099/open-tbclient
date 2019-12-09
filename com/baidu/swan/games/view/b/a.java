@@ -20,7 +20,7 @@ import com.baidu.swan.games.k.a;
 import com.baidu.swan.games.k.c;
 /* loaded from: classes2.dex */
 public class a {
-    private a.InterfaceC0247a bEA;
+    private a.InterfaceC0242a bEA;
     private c bEB;
     private EditText bEv;
     private EditText bEw;
@@ -142,8 +142,8 @@ public class a {
         }
     }
 
-    public void a(a.InterfaceC0247a interfaceC0247a) {
-        this.bEA = interfaceC0247a;
+    public void a(a.InterfaceC0242a interfaceC0242a) {
+        this.bEA = interfaceC0242a;
     }
 
     public void a(final c cVar) {

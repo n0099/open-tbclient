@@ -1,58 +1,10 @@
 package com.baidu.sapi2.utils;
-/* loaded from: classes.dex */
-public final class Log {
+/* loaded from: classes2.dex */
+public final class Log implements com.baidu.sapi2.c {
     public static final String TAG = "SAPI";
-    private static boolean a = false;
+    public static boolean enabled;
 
     private Log() {
-    }
-
-    public static void enable(boolean z) {
-        a = z;
-    }
-
-    public static void d(String str, Object... objArr) {
-        if (a) {
-            android.util.Log.d(str, a(str, objArr));
-        }
-    }
-
-    public static void d(Object... objArr) {
-        d(TAG, objArr);
-    }
-
-    public static void i(String str, Object... objArr) {
-        if (a) {
-            android.util.Log.i(str, a(str, objArr));
-        }
-    }
-
-    public static void i(Object... objArr) {
-        i(TAG, objArr);
-    }
-
-    public static void w(String str, Object... objArr) {
-        if (a) {
-            android.util.Log.w(str, a(str, objArr));
-        }
-    }
-
-    public static void w(Object... objArr) {
-        w(TAG, objArr);
-    }
-
-    public static void e(Throwable th) {
-        e(TAG, th);
-    }
-
-    public static void e(String str, Throwable th) {
-        e(str, th);
-    }
-
-    public static void e(String str, Object... objArr) {
-        if (a) {
-            android.util.Log.e(str, a(str, objArr));
-        }
     }
 
     private static String a(String str, Object[] objArr) {
@@ -85,5 +37,57 @@ public final class Log {
             }
         }
         return "";
+    }
+
+    public static void d(String str, Object... objArr) {
+        if (!enabled) {
+            return;
+        }
+        android.util.Log.d(str, a(str, objArr));
+    }
+
+    public static void e(Throwable th) {
+        e(TAG, th);
+    }
+
+    public static void enable(boolean z) {
+        enabled = z;
+    }
+
+    public static void i(String str, Object... objArr) {
+        if (!enabled) {
+            return;
+        }
+        android.util.Log.i(str, a(str, objArr));
+    }
+
+    public static void w(String str, Object... objArr) {
+        if (!enabled) {
+            return;
+        }
+        android.util.Log.w(str, a(str, objArr));
+    }
+
+    public static void e(String str, Throwable th) {
+        e(str, th);
+    }
+
+    public static void d(Object... objArr) {
+        d(TAG, objArr);
+    }
+
+    public static void e(String str, Object... objArr) {
+        if (!enabled) {
+            return;
+        }
+        android.util.Log.e(str, a(str, objArr));
+    }
+
+    public static void i(Object... objArr) {
+        i(TAG, objArr);
+    }
+
+    public static void w(Object... objArr) {
+        w(TAG, objArr);
     }
 }

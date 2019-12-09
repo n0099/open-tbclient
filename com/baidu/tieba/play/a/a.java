@@ -40,7 +40,7 @@ public interface a extends MediaController.MediaPlayerControl {
 
     void setOnPreparedListener(g.f fVar);
 
-    void setOnSeekCompleteListener(g.InterfaceC0498g interfaceC0498g);
+    void setOnSeekCompleteListener(g.InterfaceC0493g interfaceC0493g);
 
     void setOnSurfaceDestroyedListener(QuickVideoView.b bVar);
 

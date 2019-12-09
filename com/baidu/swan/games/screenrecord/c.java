@@ -12,14 +12,14 @@ import com.baidu.swan.games.screenrecord.b;
 public class c extends EventTargetImpl implements com.baidu.mario.b.b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private int bCP;
-    private b.C0259b bCQ;
+    private b.C0254b bCQ;
     private String bCR;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(JSRuntime jSRuntime) {
         super(jSRuntime);
         this.bCP = -1;
-        this.bCQ = new b.C0259b();
+        this.bCQ = new b.C0254b();
         d.XM().XN().setGameRecordCallback(this);
     }
 

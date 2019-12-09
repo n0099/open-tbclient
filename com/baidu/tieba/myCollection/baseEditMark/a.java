@@ -20,7 +20,7 @@ public class a {
     private boolean gfR;
     private b hzu = null;
     private c hzv = null;
-    private C0469a hzw = null;
+    private C0464a hzw = null;
     private int hzy = 0;
     private int hzz = 0;
     protected com.baidu.tieba.myCollection.c hzA = null;
@@ -436,7 +436,7 @@ public class a {
         if (i >= this.hzx.size() || this.hzx.get(i) == null || this.hzx.get(i).getId() == null) {
             return false;
         }
-        this.hzw = new C0469a(this.hzx.get(i).getId(), i, this.hzx.get(i).getForumId());
+        this.hzw = new C0464a(this.hzx.get(i).getId(), i, this.hzx.get(i).getForumId());
         this.hzw.setPriority(2);
         this.hzw.execute(new Boolean[0]);
         return true;
@@ -444,14 +444,14 @@ public class a {
 
     /* renamed from: com.baidu.tieba.myCollection.baseEditMark.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0469a extends BdAsyncTask<Boolean, Integer, Boolean> {
+    private class C0464a extends BdAsyncTask<Boolean, Integer, Boolean> {
         private x bUY = null;
         private String fid;
         private com.baidu.tieba.myCollection.baseEditMark.c hzB;
         private int pos;
         private String tid;
 
-        public C0469a(String str, int i, String str2) {
+        public C0464a(String str, int i, String str2) {
             this.tid = null;
             this.fid = null;
             this.pos = 0;

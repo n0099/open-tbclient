@@ -14,7 +14,7 @@ import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class d implements com.baidu.tieba.c.a {
     private EnterForumModel faP;
-    private a.InterfaceC0393a fbN;
+    private a.InterfaceC0388a fbN;
     private final EnterForumModel.b fbe = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.d.1
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
         public void a(EnterForumModel.a aVar) {
@@ -67,7 +67,7 @@ public class d implements com.baidu.tieba.c.a {
     }
 
     @Override // com.baidu.tieba.c.a
-    public void a(a.InterfaceC0393a interfaceC0393a) {
-        this.fbN = interfaceC0393a;
+    public void a(a.InterfaceC0388a interfaceC0388a) {
+        this.fbN = interfaceC0388a;
     }
 }

@@ -15,7 +15,7 @@ public class a extends BdBaseModel {
 
     /* renamed from: com.baidu.tieba.ala.person.hosttabpanel.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0380a {
+    public interface InterfaceC0375a {
     }
 
     public void refreshData() {

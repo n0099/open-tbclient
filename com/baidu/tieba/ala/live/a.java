@@ -206,20 +206,20 @@ public class a {
 
     private void a(com.baidu.tieba.ala.live.a.a aVar) {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.h.sdk_wallet_channel_item_view, (ViewGroup) null);
-        C0352a c0352a = new C0352a(inflate);
-        c0352a.b(aVar);
-        inflate.setTag(c0352a);
+        C0347a c0347a = new C0347a(inflate);
+        c0347a.b(aVar);
+        inflate.setTag(c0347a);
         this.mChannelList.addView(inflate, new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds120)));
         this.mShowedItemViewList.add(inflate);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshChannelListView() {
-        C0352a c0352a;
+        C0347a c0347a;
         if (!ListUtils.isEmpty(this.mShowedItemViewList)) {
             for (View view : this.mShowedItemViewList) {
-                if (view != null && (c0352a = (C0352a) view.getTag()) != null && !StringUtils.isNull(c0352a.curChannel)) {
-                    c0352a.updateSelectorIcon(c0352a.curChannel.equals(this.mChosenChannel));
+                if (view != null && (c0347a = (C0347a) view.getTag()) != null && !StringUtils.isNull(c0347a.curChannel)) {
+                    c0347a.updateSelectorIcon(c0347a.curChannel.equals(this.mChosenChannel));
                 }
             }
         }
@@ -310,7 +310,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.ala.live.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0352a {
+    public class C0347a {
         public String curChannel;
         public HeadImageView dPR;
         private boolean mChosen;
@@ -320,7 +320,7 @@ public class a {
         public TextView tagTv;
         public TextView titleTv;
 
-        public C0352a(View view) {
+        public C0347a(View view) {
             this.rootView = view;
             this.dPR = (HeadImageView) view.findViewById(a.g.channel_icon);
             this.dPR.setIsRound(true);
@@ -360,10 +360,10 @@ public class a {
             this.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!C0352a.this.mChosen && !a.this.isPaying) {
-                        C0352a.this.mChosen = !C0352a.this.mChosen;
-                        C0352a.this.updateSelectorIcon(C0352a.this.mChosen);
-                        a.this.mChosenChannel = C0352a.this.curChannel;
+                    if (!C0347a.this.mChosen && !a.this.isPaying) {
+                        C0347a.this.mChosen = !C0347a.this.mChosen;
+                        C0347a.this.updateSelectorIcon(C0347a.this.mChosen);
+                        a.this.mChosenChannel = C0347a.this.curChannel;
                         a.this.refreshChannelListView();
                     }
                 }

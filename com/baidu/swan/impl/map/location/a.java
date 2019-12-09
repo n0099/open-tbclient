@@ -66,12 +66,12 @@ public class a extends com.baidu.swan.apps.core.d.b implements View.OnClickListe
     private h bHf;
     private boolean bHg;
     private boolean bHh;
-    private InterfaceC0264a bHi;
+    private InterfaceC0259a bHi;
     private SelectedLocationInfo bHj;
 
     /* renamed from: com.baidu.swan.impl.map.location.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0264a {
+    public interface InterfaceC0259a {
         void a(SelectedLocationInfo selectedLocationInfo);
 
         void onCancel();
@@ -94,8 +94,8 @@ public class a extends com.baidu.swan.apps.core.d.b implements View.OnClickListe
         }
     }
 
-    public void a(InterfaceC0264a interfaceC0264a) {
-        this.bHi = interfaceC0264a;
+    public void a(InterfaceC0259a interfaceC0259a) {
+        this.bHi = interfaceC0259a;
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment

@@ -6,12 +6,12 @@ import org.aspectj.lang.a;
 public class c implements org.aspectj.lang.b {
     Object[] args;
     Object kvX;
-    a.InterfaceC0596a kvY;
+    a.InterfaceC0591a kvY;
     Object target;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
-    public static class a implements a.InterfaceC0596a {
+    public static class a implements a.InterfaceC0591a {
         String kvZ;
         org.aspectj.lang.c kwa;
         org.aspectj.lang.reflect.d kwb;
@@ -44,8 +44,8 @@ public class c implements org.aspectj.lang.b {
         }
     }
 
-    public c(a.InterfaceC0596a interfaceC0596a, Object obj, Object obj2, Object[] objArr) {
-        this.kvY = interfaceC0596a;
+    public c(a.InterfaceC0591a interfaceC0591a, Object obj, Object obj2, Object[] objArr) {
+        this.kvY = interfaceC0591a;
         this.kvX = obj;
         this.target = obj2;
         this.args = objArr;

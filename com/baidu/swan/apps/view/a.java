@@ -45,7 +45,7 @@ public class a {
             linkedHashMap.put("op_type", IMTrack.DbBuilder.ACTION_ADD);
             String Cf = com.baidu.swan.apps.u.a.Jv().Cf();
             if (!TextUtils.isEmpty(Cf)) {
-                HttpManager.getDefault(com.baidu.swan.apps.u.a.Jj()).getRequest().url(Cf).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.u.a.JG().Ke()).build().executeAsyncOnUIBack(new C0230a(this.btD.getCallback(), false));
+                HttpManager.getDefault(com.baidu.swan.apps.u.a.Jj()).getRequest().url(Cf).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.u.a.JG().Ke()).build().executeAsyncOnUIBack(new C0225a(this.btD.getCallback(), false));
                 return;
             }
             return;
@@ -63,7 +63,7 @@ public class a {
             linkedHashMap.put("third_id", this.btE.aXe);
             String Ce = com.baidu.swan.apps.u.a.Jv().Ce();
             if (!TextUtils.isEmpty(Ce)) {
-                HttpManager.getDefault(com.baidu.swan.apps.u.a.Jj()).getRequest().url(Ce).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.u.a.JG().Ke()).build().executeAsyncOnUIBack(new C0230a(this.btD.getCallback(), true));
+                HttpManager.getDefault(com.baidu.swan.apps.u.a.Jj()).getRequest().url(Ce).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.u.a.JG().Ke()).build().executeAsyncOnUIBack(new C0225a(this.btD.getCallback(), true));
             }
         }
     }
@@ -71,11 +71,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0230a extends ResponseCallback<String> {
+    public class C0225a extends ResponseCallback<String> {
         private BearLayout.a btF;
         private boolean btG;
 
-        C0230a(BearLayout.a aVar, boolean z) {
+        C0225a(BearLayout.a aVar, boolean z) {
             this.btF = aVar;
             this.btG = z;
         }

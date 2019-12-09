@@ -21,7 +21,7 @@ public class a {
     private EditText dkb;
     private TextView dkc;
     private ImageView dkd;
-    private InterfaceC0317a dke;
+    private InterfaceC0312a dke;
     private View.OnClickListener dkf = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -45,7 +45,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.addresslist.im.searchfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0317a {
+    public interface InterfaceC0312a {
         void rN(String str);
     }
 
@@ -95,8 +95,8 @@ public class a {
         l.hideSoftKeyPad(this.context, this.dkb);
     }
 
-    public void a(InterfaceC0317a interfaceC0317a) {
-        this.dke = interfaceC0317a;
+    public void a(InterfaceC0312a interfaceC0312a) {
+        this.dke = interfaceC0312a;
     }
 
     public void changeSkin(int i) {

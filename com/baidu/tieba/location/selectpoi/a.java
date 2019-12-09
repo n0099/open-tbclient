@@ -49,19 +49,19 @@ public class a extends BaseAdapter {
         if (!this.fkg) {
             return bC(viewGroup);
         }
-        C0463a c0463a = null;
-        if (view != null && (view.getTag() instanceof C0463a)) {
-            c0463a = (C0463a) view.getTag();
+        C0458a c0458a = null;
+        if (view != null && (view.getTag() instanceof C0458a)) {
+            c0458a = (C0458a) view.getTag();
         }
-        if (c0463a == null) {
+        if (c0458a == null) {
             view = LayoutInflater.from(this.hkO.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
-            c0463a = cl(view);
-            view.setTag(c0463a);
+            c0458a = cl(view);
+            view.setTag(c0458a);
         }
-        C0463a c0463a2 = c0463a;
-        c0463a2.hkQ.setText(this.hkN.bJJ().get(i).getName());
-        am.setBackgroundColor(c0463a2.eyu, R.color.cp_bg_line_c);
-        am.setViewTextColor(c0463a2.hkQ, R.color.cp_cont_b, 1);
+        C0458a c0458a2 = c0458a;
+        c0458a2.hkQ.setText(this.hkN.bJJ().get(i).getName());
+        am.setBackgroundColor(c0458a2.eyu, R.color.cp_bg_line_c);
+        am.setViewTextColor(c0458a2.hkQ, R.color.cp_cont_b, 1);
         am.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
         return view;
     }
@@ -77,19 +77,19 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.location.selectpoi.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0463a {
+    public class C0458a {
         View eyu;
         TextView hkQ;
 
-        private C0463a() {
+        private C0458a() {
         }
     }
 
-    public C0463a cl(View view) {
-        C0463a c0463a = new C0463a();
-        c0463a.hkQ = (TextView) view.findViewById(R.id.location_search_address_name);
-        c0463a.eyu = view.findViewById(R.id.location_search_line);
-        return c0463a;
+    public C0458a cl(View view) {
+        C0458a c0458a = new C0458a();
+        c0458a.hkQ = (TextView) view.findViewById(R.id.location_search_address_name);
+        c0458a.eyu = view.findViewById(R.id.location_search_line);
+        return c0458a;
     }
 
     public View bC(ViewGroup viewGroup) {

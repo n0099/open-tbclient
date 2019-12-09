@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.pb.a;
 /* loaded from: classes4.dex */
 public class PbNewChudianDescriptionView extends LinearLayout implements View.OnClickListener {
-    private a.InterfaceC0476a igC;
+    private a.InterfaceC0471a igC;
     private String igE;
     private int igF;
     private Context mContext;

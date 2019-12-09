@@ -31,7 +31,7 @@ public class i implements b {
         public static i v(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {
             String optString = jSONObject.optString("nm");
             JSONObject optJSONObject = jSONObject.optJSONObject("c");
-            com.tb.airbnb.lottie.model.a.a d = optJSONObject != null ? a.C0578a.d(optJSONObject, eVar) : null;
+            com.tb.airbnb.lottie.model.a.a d = optJSONObject != null ? a.C0573a.d(optJSONObject, eVar) : null;
             JSONObject optJSONObject2 = jSONObject.optJSONObject(Config.OS);
             return new i(optString, jSONObject.optBoolean("fillEnabled"), jSONObject.optInt("r", 1) == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD, d, optJSONObject2 != null ? d.a.g(optJSONObject2, eVar) : null);
         }

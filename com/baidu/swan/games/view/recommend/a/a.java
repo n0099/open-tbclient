@@ -18,7 +18,7 @@ import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class a implements b {
     protected com.baidu.swan.games.view.recommend.d.b bEV;
-    protected InterfaceC0261a bEW;
+    protected InterfaceC0256a bEW;
     private int bEX;
     private boolean bEY;
     private ObjectAnimator bEZ;
@@ -29,7 +29,7 @@ public class a implements b {
 
     /* renamed from: com.baidu.swan.games.view.recommend.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0261a {
+    public interface InterfaceC0256a {
         void YW();
 
         void YX();
@@ -114,8 +114,8 @@ public class a implements b {
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b
-    public void a(InterfaceC0261a interfaceC0261a) {
-        this.bEW = interfaceC0261a;
+    public void a(InterfaceC0256a interfaceC0256a) {
+        this.bEW = interfaceC0256a;
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b

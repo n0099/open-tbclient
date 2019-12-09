@@ -15,19 +15,19 @@ import com.baidu.tieba.ala.charm.data.ALaCharmDataList;
 /* loaded from: classes6.dex */
 public class a extends BdBaseModel<ALaCharmCardActivity> {
     private BdUniqueId dFi;
-    private InterfaceC0341a dFj;
+    private InterfaceC0336a dFj;
     private HttpMessageListener dFk;
     private String mUid;
 
     /* renamed from: com.baidu.tieba.ala.charm.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0341a {
+    public interface InterfaceC0336a {
         void R(int i, String str);
 
         void a(ALaCharmDataList aLaCharmDataList);
     }
 
-    public a(TbPageContext<ALaCharmCardActivity> tbPageContext, String str, InterfaceC0341a interfaceC0341a) {
+    public a(TbPageContext<ALaCharmCardActivity> tbPageContext, String str, InterfaceC0336a interfaceC0336a) {
         super(tbPageContext);
         this.dFi = BdUniqueId.gen();
         this.dFk = new HttpMessageListener(1021002) { // from class: com.baidu.tieba.ala.charm.model.a.1
@@ -51,7 +51,7 @@ public class a extends BdBaseModel<ALaCharmCardActivity> {
             }
         };
         this.mUid = str;
-        this.dFj = interfaceC0341a;
+        this.dFj = interfaceC0336a;
         this.dFk.setTag(this.dFi);
         MessageManager.getInstance().registerListener(this.dFk);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021002, TbConfig.SERVER_ADDRESS + "ala/relation/getGuardianShipList");

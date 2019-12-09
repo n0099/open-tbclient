@@ -42,7 +42,7 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
         }
     };
     private com.baidu.tieba.InjectPlugin.a.c iGR;
-    private a.InterfaceC0307a iGS;
+    private a.InterfaceC0302a iGS;
     private String mForumId;
     private String mForumName;
     private TbPageContext mPageContext;
@@ -73,8 +73,8 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
-    public void a(a.InterfaceC0307a interfaceC0307a) {
-        this.iGS = interfaceC0307a;
+    public void a(a.InterfaceC0302a interfaceC0302a) {
+        this.iGS = interfaceC0302a;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
@@ -191,7 +191,7 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
 
     private void dK(String str, String str2) {
         if (!StringUtils.isNULL(str)) {
-            a.C0520a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "CLICK", str, this.mForumId, this.mForumName, null);
+            a.C0515a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "CLICK", str, this.mForumId, this.mForumName, null);
             b.ea(TiebaInitialize.Params.OBJ_URL, str2);
             b.save();
         }
@@ -200,7 +200,7 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void Cx(String str) {
         if (!StringUtils.isNULL(str)) {
-            a.C0520a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "VIEW_TRUE", str, this.mForumId, this.mForumName, null);
+            a.C0515a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "VIEW_TRUE", str, this.mForumId, this.mForumName, null);
             b.ea(TiebaInitialize.Params.OBJ_URL, this.czc.ahf());
             b.save();
         }

@@ -7,7 +7,7 @@ public class HuaweiLoginActivity extends BaseSSOLoginActivity {
     public static final String ACCESS_TOKEN = "access_token";
     public static final String UID = "uid";
 
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setupViews();

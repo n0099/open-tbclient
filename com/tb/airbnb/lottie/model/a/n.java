@@ -37,7 +37,7 @@ public class n<T> {
         if (this.gp != null) {
             Object opt = this.gp.opt("k");
             if (j(opt)) {
-                return a.C0575a.a((JSONArray) opt, this.composition, this.scale, this.ktr);
+                return a.C0570a.a((JSONArray) opt, this.composition, this.scale, this.ktr);
             }
             return Collections.emptyList();
         }

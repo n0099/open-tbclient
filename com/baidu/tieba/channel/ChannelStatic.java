@@ -39,9 +39,9 @@ public class ChannelStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelFollowHttpResponseMessage)) {
-                a.C0281a c0281a = (a.C0281a) httpResponsedMessage.getOrginalMessage().getExtra();
-                c0281a.bVI = httpResponsedMessage;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, c0281a));
+                a.C0276a c0276a = (a.C0276a) httpResponsedMessage.getOrginalMessage().getExtra();
+                c0276a.bVI = httpResponsedMessage;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, c0276a));
             }
         }
     };
@@ -79,8 +79,8 @@ public class ChannelStatic {
             public CustomResponsedMessage<a> run(CustomMessage<a> customMessage) {
                 a data;
                 if (customMessage != null && customMessage.getData() != null && (data = customMessage.getData()) != null) {
-                    if (data instanceof a.C0281a) {
-                        ChannelHomeModel.a(((a.C0281a) data).channelId, data);
+                    if (data instanceof a.C0276a) {
+                        ChannelHomeModel.a(((a.C0276a) data).channelId, data);
                     } else if (data instanceof a.c) {
                         ChannelHomeModel.b(((a.c) data).channelId, data);
                     } else if (data instanceof a.b) {

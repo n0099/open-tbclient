@@ -115,17 +115,17 @@ public class b {
 
     public void z(ArrayList<AdvertAppInfo> arrayList) {
         try {
-            new C0293b().execute(arrayList);
+            new C0288b().execute(arrayList);
         } catch (Exception e) {
         }
     }
 
     /* renamed from: com.baidu.tbadk.download.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0293b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
+    private class C0288b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
         ArrayList<AdvertAppInfo> cDQ;
 
-        private C0293b() {
+        private C0288b() {
             this.cDQ = null;
         }
 

@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes.dex */
 public class b {
-    private volatile C0298b cIC;
+    private volatile C0293b cIC;
     private Queue<a> imagesWaitingForLoad = new ConcurrentLinkedQueue();
 
     public com.baidu.adp.widget.ImageView.a a(ImageFileInfo imageFileInfo, boolean z) {
@@ -41,7 +41,7 @@ public class b {
 
     protected void notifyNewTaskAdded() {
         if (this.cIC == null && !this.imagesWaitingForLoad.isEmpty()) {
-            this.cIC = new C0298b(this.imagesWaitingForLoad);
+            this.cIC = new C0293b(this.imagesWaitingForLoad);
             this.cIC.execute(new Void[0]);
         }
     }
@@ -57,10 +57,10 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.img.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0298b extends BdAsyncTask<Void, a, a> {
+    public class C0293b extends BdAsyncTask<Void, a, a> {
         final Queue<a> imagesWaitingForLoadRef;
 
-        public C0298b(Queue<a> queue) {
+        public C0293b(Queue<a> queue) {
             this.imagesWaitingForLoadRef = queue;
             super.setPriority(2);
         }

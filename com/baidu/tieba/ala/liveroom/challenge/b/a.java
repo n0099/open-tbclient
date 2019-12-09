@@ -29,7 +29,7 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
     private BdUniqueId afK;
-    private InterfaceC0359a dYH;
+    private InterfaceC0354a dYH;
     private int dZc;
     private int dZd;
     private long dZl;
@@ -119,7 +119,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.challenge.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0359a {
+    public interface InterfaceC0354a {
         void V(int i, String str);
 
         void W(int i, String str);
@@ -179,8 +179,8 @@ public class a {
         this.dZt = j2;
     }
 
-    public void a(InterfaceC0359a interfaceC0359a) {
-        this.dYH = interfaceC0359a;
+    public void a(InterfaceC0354a interfaceC0354a) {
+        this.dYH = interfaceC0354a;
     }
 
     public void b(j.g gVar) {

@@ -5,8 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.sofire.b;
-import com.baidu.sofire.b.g;
 import com.baidu.sofire.e;
+import com.baidu.sofire.i.d;
+import com.baidu.sofire.i.f;
 /* loaded from: classes2.dex */
 public class Receiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -14,21 +15,18 @@ public class Receiver extends BroadcastReceiver {
         if (intent != null) {
             try {
                 String action = intent.getAction();
-                if (!TextUtils.isEmpty(action)) {
-                    if (action.equals("android.intent.action.BOOT_COMPLETED")) {
-                        g.a(context).a();
-                    } else if (action.equals("com.b.r.p") && intent != null) {
-                        e eVar = new e(context);
-                        int x = eVar.x();
-                        new StringBuilder().append(x);
-                        b.a();
-                        com.baidu.sofire.b.e.a(context, x * 3600000);
-                        g.a(context).c();
-                        eVar.c(System.currentTimeMillis());
-                    }
+                if (TextUtils.isEmpty(action) || !action.equals("com.b.r.p") || intent == null) {
+                    return;
                 }
+                e eVar = new e(context);
+                int y = eVar.y();
+                new StringBuilder().append(y);
+                b.a();
+                d.a(context, y * 3600000);
+                f.a(context).c();
+                eVar.b(System.currentTimeMillis());
             } catch (Throwable th) {
-                com.baidu.sofire.b.e.a();
+                d.a();
             }
         }
     }

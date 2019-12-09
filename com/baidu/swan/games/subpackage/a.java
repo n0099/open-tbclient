@@ -85,19 +85,19 @@ public class a {
         if (this.bDI == null || this.bDI.bCx == null || this.bDI.bCx.bCD == null) {
             return null;
         }
-        for (a.C0257a c0257a : this.bDI.bCx.bCD) {
-            if (TextUtils.equals(c0257a.name, str) || TextUtils.equals(c0257a.bCB, str)) {
+        for (a.C0252a c0252a : this.bDI.bCx.bCD) {
+            if (TextUtils.equals(c0252a.name, str) || TextUtils.equals(c0252a.bCB, str)) {
                 switch (i) {
                     case 0:
-                        return c0257a.name;
+                        return c0252a.name;
                     case 1:
-                        return c0257a.bCB;
+                        return c0252a.bCB;
                     case 2:
-                        return c0257a.path;
+                        return c0252a.path;
                     case 3:
-                        return c0257a.bCC;
+                        return c0252a.bCC;
                     default:
-                        return c0257a.bCB;
+                        return c0252a.bCB;
                 }
             }
             while (r2.hasNext()) {

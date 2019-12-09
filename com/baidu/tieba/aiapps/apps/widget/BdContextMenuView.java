@@ -95,11 +95,11 @@ public class BdContextMenuView extends FrameLayout implements a.b {
 
         /* renamed from: com.baidu.tieba.aiapps.apps.widget.BdContextMenuView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0333a {
+        public class C0328a {
             public ImageView dsy;
             public TextView dsz;
 
-            public C0333a() {
+            public C0328a() {
             }
         }
 
@@ -131,44 +131,44 @@ public class BdContextMenuView extends FrameLayout implements a.b {
         @Override // android.widget.Adapter
         @SuppressLint({"InflateParams"})
         public View getView(int i, View view, ViewGroup viewGroup) {
-            C0333a c0333a;
+            C0328a c0328a;
             View view2;
             if (view == null) {
                 view2 = LayoutInflater.from(this.mContext).inflate(R.layout.aiapps_menu_item_view, (ViewGroup) null);
-                C0333a c0333a2 = new C0333a();
-                c0333a2.dsy = (ImageView) view2.findViewById(R.id.item_icon);
-                c0333a2.dsz = (TextView) view2.findViewById(R.id.item_title);
-                c0333a2.dsz.setTextColor(this.mContext.getResources().getColor(R.color.aiapps_context_menu_item_title_color));
+                C0328a c0328a2 = new C0328a();
+                c0328a2.dsy = (ImageView) view2.findViewById(R.id.item_icon);
+                c0328a2.dsz = (TextView) view2.findViewById(R.id.item_title);
+                c0328a2.dsz.setTextColor(this.mContext.getResources().getColor(R.color.aiapps_context_menu_item_title_color));
                 m(view2, i);
-                view2.setTag(c0333a2);
-                c0333a = c0333a2;
+                view2.setTag(c0328a2);
+                c0328a = c0328a2;
             } else {
-                c0333a = (C0333a) view.getTag();
+                c0328a = (C0328a) view.getTag();
                 view2 = view;
             }
             com.baidu.swan.apps.res.widget.a.b bVar = this.mDataList.get(i);
-            c0333a.dsz.setText(bVar.getTitle());
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0333a.dsz.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0333a.dsy.getLayoutParams();
+            c0328a.dsz.setText(bVar.getTitle());
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0328a.dsz.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0328a.dsy.getLayoutParams();
             if (bVar.getIcon() != null) {
-                c0333a.dsy.setVisibility(0);
-                c0333a.dsy.setImageDrawable(bVar.getIcon());
+                c0328a.dsy.setVisibility(0);
+                c0328a.dsy.setImageDrawable(bVar.getIcon());
                 layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_item_title_left_margin));
-                c0333a.dsz.setLayoutParams(layoutParams);
+                c0328a.dsz.setLayoutParams(layoutParams);
             } else {
-                c0333a.dsy.setVisibility(8);
+                c0328a.dsy.setVisibility(8);
                 layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_item_icon_left_margin));
-                c0333a.dsz.setLayoutParams(layoutParams);
+                c0328a.dsz.setLayoutParams(layoutParams);
             }
             if (BdContextMenuView.this.dsw) {
                 ((LinearLayout) view2).setGravity(17);
                 layoutParams.width = -2;
                 if (bVar.getIcon() != null) {
                     layoutParams2.setMarginStart(0);
-                    c0333a.dsy.setLayoutParams(layoutParams2);
+                    c0328a.dsy.setLayoutParams(layoutParams2);
                 } else {
                     layoutParams.setMarginStart(0);
-                    c0333a.dsz.setLayoutParams(layoutParams);
+                    c0328a.dsz.setLayoutParams(layoutParams);
                 }
             }
             return view2;

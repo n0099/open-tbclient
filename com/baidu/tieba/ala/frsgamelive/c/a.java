@@ -50,10 +50,10 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
 
     /* renamed from: com.baidu.tieba.ala.frsgamelive.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0344a extends v.a {
+    public static class C0339a extends v.a {
         public a dIW;
 
-        public C0344a(a aVar) {
+        public C0339a(a aVar) {
             super(aVar.getView());
             this.dIW = aVar;
         }

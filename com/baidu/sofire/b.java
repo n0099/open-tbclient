@@ -27,7 +27,7 @@ public final class b {
             }
             try {
             } catch (Throwable th3) {
-                com.baidu.sofire.b.e.a();
+                com.baidu.sofire.i.d.a();
                 return "";
             }
         }

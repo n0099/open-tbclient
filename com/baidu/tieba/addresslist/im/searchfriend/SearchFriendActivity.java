@@ -35,8 +35,8 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     private a djU;
     private NavigationBar djV;
     private View djW;
-    private a.InterfaceC0317a djX = new a.InterfaceC0317a() { // from class: com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity.1
-        @Override // com.baidu.tieba.addresslist.im.searchfriend.a.InterfaceC0317a
+    private a.InterfaceC0312a djX = new a.InterfaceC0312a() { // from class: com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity.1
+        @Override // com.baidu.tieba.addresslist.im.searchfriend.a.InterfaceC0312a
         public void rN(String str) {
             HttpMessage httpMessage = new HttpMessage(1001521);
             httpMessage.addParam("search_key", str);

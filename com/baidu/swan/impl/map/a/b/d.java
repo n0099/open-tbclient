@@ -42,8 +42,8 @@ public class d {
         if (ac.UC()) {
             aVar.onSuccess();
         } else {
-            com.baidu.swan.apps.w.e.LE().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0152a() { // from class: com.baidu.swan.impl.map.a.b.d.2
-                @Override // com.baidu.swan.apps.ab.a.InterfaceC0152a
+            com.baidu.swan.apps.w.e.LE().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0147a() { // from class: com.baidu.swan.impl.map.a.b.d.2
+                @Override // com.baidu.swan.apps.ab.a.InterfaceC0147a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     if (i != 0) {
                         a.this.onFail();

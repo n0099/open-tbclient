@@ -67,20 +67,20 @@ public final class b {
         this.kvT = cls.getClassLoader();
     }
 
-    public a.InterfaceC0596a a(String str, org.aspectj.lang.c cVar, int i) {
+    public a.InterfaceC0591a a(String str, org.aspectj.lang.c cVar, int i) {
         return new c.a(str, cVar, cO(i, -1));
     }
 
-    public static org.aspectj.lang.a a(a.InterfaceC0596a interfaceC0596a, Object obj, Object obj2) {
-        return new c(interfaceC0596a, obj, obj2, kvV);
+    public static org.aspectj.lang.a a(a.InterfaceC0591a interfaceC0591a, Object obj, Object obj2) {
+        return new c(interfaceC0591a, obj, obj2, kvV);
     }
 
-    public static org.aspectj.lang.a a(a.InterfaceC0596a interfaceC0596a, Object obj, Object obj2, Object obj3) {
-        return new c(interfaceC0596a, obj, obj2, new Object[]{obj3});
+    public static org.aspectj.lang.a a(a.InterfaceC0591a interfaceC0591a, Object obj, Object obj2, Object obj3) {
+        return new c(interfaceC0591a, obj, obj2, new Object[]{obj3});
     }
 
-    public static org.aspectj.lang.a a(a.InterfaceC0596a interfaceC0596a, Object obj, Object obj2, Object[] objArr) {
-        return new c(interfaceC0596a, obj, obj2, objArr);
+    public static org.aspectj.lang.a a(a.InterfaceC0591a interfaceC0591a, Object obj, Object obj2, Object[] objArr) {
+        return new c(interfaceC0591a, obj, obj2, objArr);
     }
 
     public org.aspectj.lang.reflect.c b(String str, String str2, String str3, String str4, String str5, String str6, String str7) {

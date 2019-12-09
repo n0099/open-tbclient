@@ -41,7 +41,7 @@ public class a extends HandlerThread {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.games.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0251a {
+    public interface InterfaceC0246a {
         void onResult(boolean z);
     }
 
@@ -49,8 +49,8 @@ public class a extends HandlerThread {
         super("SwanGamePageMonitor", 5);
         this.bBI = false;
         this.aXC = 0;
-        this.aXF = a.C0238a.gf("solid_parser");
-        this.aXG = a.C0238a.gf("hsv_parser");
+        this.aXF = a.C0233a.gf("solid_parser");
+        this.aXG = a.C0233a.gf("hsv_parser");
     }
 
     public static a Xr() {
@@ -104,8 +104,8 @@ public class a extends HandlerThread {
                     return;
                 case 3:
                     final com.baidu.swan.apps.y.c cVar = (com.baidu.swan.apps.y.c) message.obj;
-                    a.this.a(cVar, a.this.aXF, new InterfaceC0251a() { // from class: com.baidu.swan.games.n.a.c.1
-                        @Override // com.baidu.swan.games.n.a.InterfaceC0251a
+                    a.this.a(cVar, a.this.aXF, new InterfaceC0246a() { // from class: com.baidu.swan.games.n.a.c.1
+                        @Override // com.baidu.swan.games.n.a.InterfaceC0246a
                         public void onResult(boolean z) {
                             if (z) {
                                 a.this.log("simple error report");
@@ -113,8 +113,8 @@ public class a extends HandlerThread {
                             }
                         }
                     });
-                    a.this.a(cVar, a.this.aXG, new InterfaceC0251a() { // from class: com.baidu.swan.games.n.a.c.2
-                        @Override // com.baidu.swan.games.n.a.InterfaceC0251a
+                    a.this.a(cVar, a.this.aXG, new InterfaceC0246a() { // from class: com.baidu.swan.games.n.a.c.2
+                        @Override // com.baidu.swan.games.n.a.InterfaceC0246a
                         public void onResult(boolean z) {
                             if (z) {
                                 a.this.log("grid error report");
@@ -189,15 +189,15 @@ public class a extends HandlerThread {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.swan.apps.y.c cVar, com.baidu.swan.apps.y.a aVar, @NonNull InterfaceC0251a interfaceC0251a) {
+    public void a(com.baidu.swan.apps.y.c cVar, com.baidu.swan.apps.y.a aVar, @NonNull InterfaceC0246a interfaceC0246a) {
         if (cVar == null || aVar == null) {
-            interfaceC0251a.onResult(false);
+            interfaceC0246a.onResult(false);
         } else if (TextUtils.equals(cVar.getToken(), this.bBJ)) {
             log("start parse");
-            interfaceC0251a.onResult(aVar.a(cVar.Mv(), cVar.getRect()));
+            interfaceC0246a.onResult(aVar.a(cVar.Mv(), cVar.getRect()));
         } else {
             log("page has changed from " + cVar.getToken() + " => " + this.bBJ);
-            interfaceC0251a.onResult(false);
+            interfaceC0246a.onResult(false);
         }
     }
 

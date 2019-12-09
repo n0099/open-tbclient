@@ -8,7 +8,7 @@ public abstract class b implements a {
         return false;
     }
 
-    @Override // com.baidu.tieba.play.g.InterfaceC0498g
+    @Override // com.baidu.tieba.play.g.InterfaceC0493g
     public void b(g gVar) {
     }
 

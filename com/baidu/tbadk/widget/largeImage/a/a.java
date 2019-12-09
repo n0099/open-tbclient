@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private final C0304a cSy;
+    private final C0299a cSy;
     private Bitmap mBitmap;
     private int mBlockSize;
     private Canvas mCanvas;
@@ -17,7 +17,7 @@ public class a {
     private final Rect mSrc;
 
     public a(int i) {
-        this.cSy = new C0304a();
+        this.cSy = new C0299a();
         this.mSrc = new Rect();
         this.mDst = new Rect();
         this.mPositionInOriginBitmap = new Rect();
@@ -27,7 +27,7 @@ public class a {
     }
 
     public a(Bitmap bitmap) {
-        this.cSy = new C0304a();
+        this.cSy = new C0299a();
         this.mSrc = new Rect();
         this.mDst = new Rect();
         this.mPositionInOriginBitmap = new Rect();
@@ -79,7 +79,7 @@ public class a {
         this.cSy.sampleScale = i3;
     }
 
-    public C0304a ayG() {
+    public C0299a ayG() {
         return this.cSy;
     }
 
@@ -92,15 +92,15 @@ public class a {
 
     /* renamed from: com.baidu.tbadk.widget.largeImage.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0304a {
+    public static class C0299a {
         int column;
         int row;
         int sampleScale;
 
-        public C0304a() {
+        public C0299a() {
         }
 
-        public C0304a(int i, int i2, int i3) {
+        public C0299a(int i, int i2, int i3) {
             this.row = i;
             this.column = i2;
             this.sampleScale = i3;
@@ -111,9 +111,9 @@ public class a {
         }
 
         public boolean equals(Object obj) {
-            if (obj instanceof C0304a) {
-                C0304a c0304a = (C0304a) obj;
-                return this.row == c0304a.getRow() && this.column == c0304a.getColumn() && this.sampleScale == c0304a.getSampleScale();
+            if (obj instanceof C0299a) {
+                C0299a c0299a = (C0299a) obj;
+                return this.row == c0299a.getRow() && this.column == c0299a.getColumn() && this.sampleScale == c0299a.getSampleScale();
             }
             return false;
         }

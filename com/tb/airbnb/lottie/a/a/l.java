@@ -8,7 +8,7 @@ import com.tb.airbnb.lottie.model.content.PolystarShape;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class l implements k, a.InterfaceC0577a {
+public class l implements k, a.InterfaceC0572a {
     private boolean ei;
     @Nullable
     private q ksf;
@@ -62,7 +62,7 @@ public class l implements k, a.InterfaceC0577a {
         }
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0577a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0572a
     public void bt() {
         invalidate();
     }

@@ -16,8 +16,8 @@ public class e {
             public boolean xq(String str) {
                 return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
             }
-        }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0431a() { // from class: com.baidu.tieba.im.chat.b.e.2
-            @Override // com.baidu.tieba.im.chat.b.a.InterfaceC0431a
+        }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0426a() { // from class: com.baidu.tieba.im.chat.b.e.2
+            @Override // com.baidu.tieba.im.chat.b.a.InterfaceC0426a
             public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo2) {
                 if (chatMessage != null && chatMessage.getMsgType() == 22) {
                     if (com.baidu.tieba.im.util.e.r(chatMessage)) {

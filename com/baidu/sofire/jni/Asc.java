@@ -1,6 +1,6 @@
 package com.baidu.sofire.jni;
 
-import com.baidu.sofire.b.e;
+import com.baidu.sofire.i.d;
 /* loaded from: classes2.dex */
 public class Asc {
     public native byte[] ac(byte[] bArr, byte[] bArr2);
@@ -17,7 +17,7 @@ public class Asc {
         try {
             System.loadLibrary("fire");
         } catch (Throwable th) {
-            e.a();
+            d.a();
         }
     }
 }

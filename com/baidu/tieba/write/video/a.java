@@ -16,7 +16,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.write.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0542a {
+    public static class C0537a {
         public View cfh;
         public TextView title;
     }
@@ -43,22 +43,22 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0542a c0542a;
+        C0537a c0537a;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.video_activity_title_item, (ViewGroup) null);
-            C0542a c0542a2 = new C0542a();
-            c0542a2.title = (TextView) view.findViewById(R.id.title);
-            c0542a2.cfh = view.findViewById(R.id.divider_line);
-            am.setViewTextColor(c0542a2.title, (int) R.color.cp_cont_b);
-            am.setBackgroundColor(c0542a2.cfh, R.color.cp_bg_line_c);
-            view.setTag(c0542a2);
-            c0542a = c0542a2;
+            C0537a c0537a2 = new C0537a();
+            c0537a2.title = (TextView) view.findViewById(R.id.title);
+            c0537a2.cfh = view.findViewById(R.id.divider_line);
+            am.setViewTextColor(c0537a2.title, (int) R.color.cp_cont_b);
+            am.setBackgroundColor(c0537a2.cfh, R.color.cp_bg_line_c);
+            view.setTag(c0537a2);
+            c0537a = c0537a2;
         } else {
-            c0542a = (C0542a) view.getTag();
+            c0537a = (C0537a) view.getTag();
         }
         am.setBackgroundResource(view, R.drawable.addresslist_item_bg);
         if (getItem(i) != null) {
-            c0542a.title.setText("#" + getItem(i).name + "#");
+            c0537a.title.setText("#" + getItem(i).name + "#");
         }
         return view;
     }

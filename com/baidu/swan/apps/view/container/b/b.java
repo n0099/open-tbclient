@@ -18,7 +18,7 @@ public class b implements View.OnTouchListener {
     private String aUx;
     private String buX;
     private String buY;
-    private C0235b bvb;
+    private C0230b bvb;
     private long bvc;
     private boolean buZ = false;
     private int[] bva = new int[2];
@@ -69,16 +69,16 @@ public class b implements View.OnTouchListener {
         }
         int actionMasked = motionEvent.getActionMasked();
         if (actionMasked == 0 && motionEvent.getPointerCount() == 1) {
-            this.bvb = new C0235b(motionEvent.getX(), motionEvent.getY());
+            this.bvb = new C0230b(motionEvent.getX(), motionEvent.getY());
             this.bvc = motionEvent.getEventTime();
             this.bvd.o(motionEvent);
             view.postDelayed(this.bvd, 350L);
             Vi();
-        } else if (actionMasked == 1 || actionMasked == 3 || !a(new C0235b(motionEvent.getX(), motionEvent.getY()))) {
+        } else if (actionMasked == 1 || actionMasked == 3 || !a(new C0230b(motionEvent.getX(), motionEvent.getY()))) {
             view.removeCallbacks(this.bvd);
         }
         a(n(motionEvent));
-        if (actionMasked == 1 && a(new C0235b(motionEvent.getX(), motionEvent.getY())) && motionEvent.getEventTime() - this.bvc < 350) {
+        if (actionMasked == 1 && a(new C0230b(motionEvent.getX(), motionEvent.getY())) && motionEvent.getEventTime() - this.bvc < 350) {
             a(b(motionEvent, "tap"));
         }
     }
@@ -114,8 +114,8 @@ public class b implements View.OnTouchListener {
         return fVar;
     }
 
-    private boolean a(C0235b c0235b) {
-        return this.bvb != null && this.bvb.b(c0235b) <= ((double) z.S(10.0f));
+    private boolean a(C0230b c0230b) {
+        return this.bvb != null && this.bvb.b(c0230b) <= ((double) z.S(10.0f));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -142,20 +142,20 @@ public class b implements View.OnTouchListener {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.container.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0235b {
+    public class C0230b {
         private double x;
         private double y;
 
-        public C0235b(double d, double d2) {
+        public C0230b(double d, double d2) {
             this.x = d;
             this.y = d2;
         }
 
-        public double b(C0235b c0235b) {
-            if (c0235b == null) {
+        public double b(C0230b c0230b) {
+            if (c0230b == null) {
                 return Double.MAX_VALUE;
             }
-            double pow = Math.pow(c0235b.x - this.x, 2.0d) + Math.pow(c0235b.y - this.y, 2.0d);
+            double pow = Math.pow(c0230b.x - this.x, 2.0d) + Math.pow(c0230b.y - this.y, 2.0d);
             if (pow > 0.0d) {
                 return Math.sqrt(pow);
             }

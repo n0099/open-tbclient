@@ -11,7 +11,7 @@ import com.baidu.swan.games.view.recommend.a.d;
 public class a implements b {
     private b bFA;
 
-    public a(final int i, @NonNull final d dVar, final a.InterfaceC0261a interfaceC0261a) {
+    public a(final int i, @NonNull final d dVar, final a.InterfaceC0256a interfaceC0256a) {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.1
             @Override // java.lang.Runnable
             public void run() {
@@ -21,7 +21,7 @@ public class a implements b {
                     return;
                 }
                 a.this.bFA = com.baidu.swan.games.view.recommend.a.a.a(i, Yq, dVar);
-                a.this.bFA.a(interfaceC0261a);
+                a.this.bFA.a(interfaceC0256a);
             }
         });
     }
@@ -39,12 +39,12 @@ public class a implements b {
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b
-    public void a(final a.InterfaceC0261a interfaceC0261a) {
+    public void a(final a.InterfaceC0256a interfaceC0256a) {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.3
             @Override // java.lang.Runnable
             public void run() {
                 if (a.this.bFA != null) {
-                    a.this.bFA.a(interfaceC0261a);
+                    a.this.bFA.a(interfaceC0256a);
                 }
             }
         });

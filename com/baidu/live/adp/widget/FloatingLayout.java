@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.live.adp.R;
-import com.baidu.sapi2.utils.enums.ShareDirectionType;
+import com.baidu.sapi2.utils.enums.a;
 /* loaded from: classes6.dex */
 public class FloatingLayout extends LinearLayout {
     private static final boolean DEBUG = false;
@@ -204,7 +204,7 @@ public class FloatingLayout extends LinearLayout {
                     this.clear = 1;
                 } else if ("after".equals(string)) {
                     this.clear = 2;
-                } else if (ShareDirectionType.BOTH.equals(string)) {
+                } else if (a.c.equals(string)) {
                     this.clear = 3;
                 }
             }

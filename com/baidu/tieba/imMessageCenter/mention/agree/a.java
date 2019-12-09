@@ -36,7 +36,7 @@ public class a {
     private e gVP;
     private boolean gVS;
     private View gWv;
-    private InterfaceC0449a gWw;
+    private InterfaceC0444a gWw;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private i mPullView;
@@ -67,7 +67,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.mention.agree.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0449a {
+    public interface InterfaceC0444a {
         void aYW();
 
         void bmy();
@@ -80,8 +80,8 @@ public class a {
         this.gVP = new e(tbPageContext, this.yJ);
     }
 
-    public void a(InterfaceC0449a interfaceC0449a) {
-        this.gWw = interfaceC0449a;
+    public void a(InterfaceC0444a interfaceC0444a) {
+        this.gWw = interfaceC0444a;
     }
 
     private void q(TbPageContext tbPageContext) {

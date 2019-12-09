@@ -82,7 +82,7 @@ public class UpdateSo {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("appid", this.configuration.appId);
         httpHashMapWrap.put(TableDefine.PaSubscribeColumns.COLUMN_TPL, this.configuration.tpl);
-        new HttpClientWrap(this.application).get("https://gss0.bdstatic.com/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new HttpHandlerWrap(true) { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.2
+        new HttpClientWrap(this.application).get("https://wappass.bdimg.com/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new HttpHandlerWrap(true) { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.2
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
             public void onSuccess(int i, String str) {

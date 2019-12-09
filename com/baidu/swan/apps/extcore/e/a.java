@@ -54,7 +54,7 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
             Log.e("ExtCore-RemoteControl", "doUpdate: remote with null coreFilePath");
             return false;
         }
-        C0190a s = s(aVar.versionName, aVar.aQp, aVar.sign);
+        C0185a s = s(aVar.versionName, aVar.aQp, aVar.sign);
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + s);
         }
@@ -62,27 +62,27 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
         return s.isOk();
     }
 
-    private C0190a s(String str, @NonNull String str2, String str3) {
+    private C0185a s(String str, @NonNull String str2, String str3) {
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doRemoteUpdate start.");
             Log.d("ExtCore-RemoteControl", "doRemoteUpdate version: " + str + " ,filePath: " + str2 + " ,sign:" + str3);
         }
         long fk = com.baidu.swan.apps.extcore.f.a.fk(str);
         if (fk == 0) {
-            return C0190a.fj("invalid version code : " + str);
+            return C0185a.fj("invalid version code : " + str);
         }
         if (!w.b(new File(str2), str3)) {
-            return C0190a.fj("sign failed.");
+            return C0185a.fj("sign failed.");
         }
         if (!com.baidu.swan.c.a.bz(str2, U(fk).getPath())) {
-            return C0190a.fj("unzip bundle failed.");
+            return C0185a.fj("unzip bundle failed.");
         }
         com.baidu.swan.apps.extcore.f.a.a(HU(), j(Ig(), fk));
         V(fk);
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + fk);
         }
-        return C0190a.Ij();
+        return C0185a.Ij();
     }
 
     private ArrayList<Long> j(long j, long j2) {
@@ -114,7 +114,7 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
 
     /* renamed from: com.baidu.swan.apps.extcore.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0190a {
+    public static class C0185a {
         public String message;
         public int statusCode = 0;
 
@@ -122,19 +122,19 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
             return this.statusCode == 0;
         }
 
-        public static C0190a Ij() {
+        public static C0185a Ij() {
             return q(0, "");
         }
 
-        public static C0190a fj(String str) {
+        public static C0185a fj(String str) {
             return q(1, str);
         }
 
-        public static C0190a q(int i, String str) {
-            C0190a c0190a = new C0190a();
-            c0190a.statusCode = i;
-            c0190a.message = str;
-            return c0190a;
+        public static C0185a q(int i, String str) {
+            C0185a c0185a = new C0185a();
+            c0185a.statusCode = i;
+            c0185a.message = str;
+            return c0185a;
         }
 
         public String toString() {

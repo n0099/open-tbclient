@@ -17,7 +17,7 @@ import com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView;
 import com.baidu.tieba.ala.guardclub.view.GuardClubRankListView;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class GuardClubRankFragment extends GuardClubRankBaseFragment implements b.InterfaceC0348b {
+public class GuardClubRankFragment extends GuardClubRankBaseFragment implements b.InterfaceC0343b {
     private GuardClubRankListView dOn;
     private GuardClubRankHeaderView dOo;
     private GuardClubRankInfoView dOp;
@@ -167,21 +167,21 @@ public class GuardClubRankFragment extends GuardClubRankBaseFragment implements 
         }
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0348b
+    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0343b
     public void a(BaseAdapter baseAdapter) {
         if (this.dOn != null) {
             this.dOn.setAdapter((ListAdapter) baseAdapter);
         }
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0348b
+    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0343b
     public void by(List<p> list) {
         if (this.dOo != null) {
             this.dOo.setData(list);
         }
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0348b
+    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0343b
     public void z(boolean z, boolean z2) {
         if (this.dOn != null) {
             if (z2) {
@@ -191,7 +191,7 @@ public class GuardClubRankFragment extends GuardClubRankBaseFragment implements 
         }
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0348b
+    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0343b
     public void aLT() {
         if (this.dOp != null) {
             this.dOp.setVisibility(8);
@@ -216,7 +216,7 @@ public class GuardClubRankFragment extends GuardClubRankBaseFragment implements 
         }
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0348b
+    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0343b
     public void f(String str, String str2, String str3, String str4, boolean z) {
         this.dOp.setData(str, str2, str3, str4, z);
         this.dOp.setVisibility(0);

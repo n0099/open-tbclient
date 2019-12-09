@@ -20,7 +20,7 @@ public class a {
     private TbPageContext ceu;
     private GameVideoGridView ghO;
     private com.baidu.tieba.homepage.gamevideo.a.b ghP;
-    private InterfaceC0425a ghQ;
+    private InterfaceC0420a ghQ;
     private BdUniqueId mBdUniqueId;
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.a.1
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -45,7 +45,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0425a {
+    public interface InterfaceC0420a {
         void a(com.baidu.tieba.homepage.gamevideo.c.a aVar);
     }
 
@@ -98,8 +98,8 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0425a interfaceC0425a) {
-        this.ghQ = interfaceC0425a;
+    public void a(InterfaceC0420a interfaceC0420a) {
+        this.ghQ = interfaceC0420a;
     }
 
     public void onDestroy() {

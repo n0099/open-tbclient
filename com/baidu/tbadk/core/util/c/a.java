@@ -16,12 +16,12 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
     private b ckK;
-    private InterfaceC0284a ckL;
+    private InterfaceC0279a ckL;
     private ArrayList<String> requestPermissionList = new ArrayList<>();
 
     /* renamed from: com.baidu.tbadk.core.util.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0284a {
+    public interface InterfaceC0279a {
         void onPermissionsGranted();
     }
 
@@ -135,8 +135,8 @@ public class a {
         return "android.permission.CALL_PHONE".equals(str) ? R.string.request_permission_cellphone : R.string.request_permission_default_text;
     }
 
-    public void a(InterfaceC0284a interfaceC0284a) {
-        this.ckL = interfaceC0284a;
+    public void a(InterfaceC0279a interfaceC0279a) {
+        this.ckL = interfaceC0279a;
     }
 
     public void onPermissionsGranted() {

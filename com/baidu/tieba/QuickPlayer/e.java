@@ -25,7 +25,7 @@ public class e implements d.b, com.baidu.tieba.play.g {
     private g.f dcT;
     private g.c dcU;
     private g.e dcV;
-    private g.InterfaceC0498g dcW;
+    private g.InterfaceC0493g dcW;
     private g.i dcX;
     private g.d dcY;
     private g.h dcZ;
@@ -234,8 +234,8 @@ public class e implements d.b, com.baidu.tieba.play.g {
     }
 
     @Override // com.baidu.tieba.play.g
-    public void setOnSeekCompleteListener(g.InterfaceC0498g interfaceC0498g) {
-        this.dcW = interfaceC0498g;
+    public void setOnSeekCompleteListener(g.InterfaceC0493g interfaceC0493g) {
+        this.dcW = interfaceC0493g;
     }
 
     @Override // com.baidu.tieba.play.g

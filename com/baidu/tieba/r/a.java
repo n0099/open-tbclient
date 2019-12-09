@@ -8,11 +8,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
     private static a jpu;
-    private InterfaceC0503a jpv = cqT();
+    private InterfaceC0498a jpv = cqT();
 
     /* renamed from: com.baidu.tieba.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0503a {
+    public interface InterfaceC0498a {
         void behaviorRecordEvent(MotionEvent motionEvent, Activity activity);
 
         void g(Application application);
@@ -29,12 +29,12 @@ public class a {
     private a() {
     }
 
-    private InterfaceC0503a cqT() {
+    private InterfaceC0498a cqT() {
         CustomResponsedMessage runTask;
-        if (!cqS() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0503a.class)) == null) {
+        if (!cqS() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0498a.class)) == null) {
             return null;
         }
-        return (InterfaceC0503a) runTask.getData();
+        return (InterfaceC0498a) runTask.getData();
     }
 
     public static a cqU() {

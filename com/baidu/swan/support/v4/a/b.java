@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 /* loaded from: classes2.dex */
 public class b<D> {
     a<D> bNA;
-    InterfaceC0269b<D> bNz;
+    InterfaceC0264b<D> bNz;
     boolean mAbandoned;
     boolean mContentChanged;
     int mId;
@@ -20,22 +20,22 @@ public class b<D> {
 
     /* renamed from: com.baidu.swan.support.v4.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0269b<D> {
+    public interface InterfaceC0264b<D> {
     }
 
-    public void a(int i, InterfaceC0269b<D> interfaceC0269b) {
+    public void a(int i, InterfaceC0264b<D> interfaceC0264b) {
         if (this.bNz != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.bNz = interfaceC0269b;
+        this.bNz = interfaceC0264b;
         this.mId = i;
     }
 
-    public void a(InterfaceC0269b<D> interfaceC0269b) {
+    public void a(InterfaceC0264b<D> interfaceC0264b) {
         if (this.bNz == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.bNz != interfaceC0269b) {
+        if (this.bNz != interfaceC0264b) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
         this.bNz = null;

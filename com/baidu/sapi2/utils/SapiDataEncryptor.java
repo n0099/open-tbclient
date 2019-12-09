@@ -17,74 +17,22 @@ import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
-/* loaded from: classes.dex */
-public class SapiDataEncryptor {
+/* loaded from: classes2.dex */
+public class SapiDataEncryptor implements com.baidu.sapi2.c {
     private static final String a = "0123456789ABCDEF";
-    private String b;
+    private String b = a();
     private AES c = new AES();
 
-    /* loaded from: classes.dex */
-    public static class Cert1 {
-        public static final String CERT = "-----BEGIN CERTIFICATE-----\nMIIFKDCCBBCgAwIBAgIQaG9YabPddabIY+N5IoXttzANBgkqhkiG9w0BAQUFADCB\nvDELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL\nExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTswOQYDVQQLEzJUZXJtcyBvZiB1c2Ug\nYXQgaHR0cHM6Ly93d3cudmVyaXNpZ24uY29tL3JwYSAoYykxMDE2MDQGA1UEAxMt\nVmVyaVNpZ24gQ2xhc3MgMyBJbnRlcm5hdGlvbmFsIFNlcnZlciBDQSAtIEczMB4X\nDTEwMTIwMzAwMDAwMFoXDTEyMTIwMjIzNTk1OVowga8xCzAJBgNVBAYTAkNOMRAw\nDgYDVQQIEwdCZWlqaW5nMRAwDgYDVQQHFAdCZWlqaW5nMTkwNwYDVQQKFDBCZWlK\naW5nIEJhaWR1IE5ldGNvbSBTY2llbmNlIFRlY2hub2xvZ3kgQ28uLCBMdGQxJTAj\nBgNVBAsUHHNlcnZpY2Ugb3BlcmF0aW9uIGRlcGFydG1lbnQxGjAYBgNVBAMUEW9w\nZW5hcGkuYmFpZHUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC68R1G\nWkkVvvjBOGKHOoyLxdtEcxBiVOGG8lvXTckB8jNrg4tihQzql+fJbr/X8V9MqQLw\nzzOyQViYlW+/GhC6u1jrP6t3Br0Wy8HyThDnvOAWyPFEawgbIywT20F41Iqayled\n/DQ/JCDWcNA7+xX56rqEcQd+6baNAiu9o962PwIDAQABo4IBszCCAa8wCQYDVR0T\nBAIwADALBgNVHQ8EBAMCBaAwQQYDVR0fBDowODA2oDSgMoYwaHR0cDovL1NWUklu\ndGwtRzMtY3JsLnZlcmlzaWduLmNvbS9TVlJJbnRsRzMuY3JsMEQGA1UdIAQ9MDsw\nOQYLYIZIAYb4RQEHFwMwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cudmVyaXNp\nZ24uY29tL3JwYTAoBgNVHSUEITAfBglghkgBhvhCBAEGCCsGAQUFBwMBBggrBgEF\nBQcDAjByBggrBgEFBQcBAQRmMGQwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLnZl\ncmlzaWduLmNvbTA8BggrBgEFBQcwAoYwaHR0cDovL1NWUkludGwtRzMtYWlhLnZl\ncmlzaWduLmNvbS9TVlJJbnRsRzMuY2VyMG4GCCsGAQUFBwEMBGIwYKFeoFwwWjBY\nMFYWCWltYWdlL2dpZjAhMB8wBwYFKw4DAhoEFEtruSiWBgy70FI4mymsSweLIQUY\nMCYWJGh0dHA6Ly9sb2dvLnZlcmlzaWduLmNvbS92c2xvZ28xLmdpZjANBgkqhkiG\n9w0BAQUFAAOCAQEAgNIl8/QIKP4KWWWj6ltL6lVknoGlpUIoowvnv+57H7FdEYJb\n9zQewrAqoFkblB0mMiUEGdJOa7YxKKJialqz6KnlMrHQMAsB641BHLDESvLjuhio\nUsWmvBowIK92HQ2H9N01U8d1i5rTz5wwFK+Nvue/61tzCTTmbRgBuGPotQ/tcA+g\nYCNuEIHsJMbWiX9O3gflnMdRME7z9Hw9zMogt+lz7GudP/AO1K6sZ6VnQ931Gv1e\nIOmPCPfvO/Kw/aXSacoEWnMsy+qTIewVPT/MMgSaq9JewAQgLpMX+O5qqAJBYoDj\nxoZnHufGgOIKfNmSvYiHjDFJtP55PdEH21q+JA==\n-----END CERTIFICATE-----";
-        public static final int CERT_ID = 1;
-    }
-
-    public SapiDataEncryptor() {
-        this.b = "kf1t9tsczk16vc8z";
-        this.b = a();
-    }
-
-    public String getAESKey() {
-        return this.b;
+    /* loaded from: classes2.dex */
+    public static class a {
+        public static final int a = 1;
+        public static final String b = "-----BEGIN CERTIFICATE-----\nMIIFKDCCBBCgAwIBAgIQaG9YabPddabIY+N5IoXttzANBgkqhkiG9w0BAQUFADCB\nvDELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL\nExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTswOQYDVQQLEzJUZXJtcyBvZiB1c2Ug\nYXQgaHR0cHM6Ly93d3cudmVyaXNpZ24uY29tL3JwYSAoYykxMDE2MDQGA1UEAxMt\nVmVyaVNpZ24gQ2xhc3MgMyBJbnRlcm5hdGlvbmFsIFNlcnZlciBDQSAtIEczMB4X\nDTEwMTIwMzAwMDAwMFoXDTEyMTIwMjIzNTk1OVowga8xCzAJBgNVBAYTAkNOMRAw\nDgYDVQQIEwdCZWlqaW5nMRAwDgYDVQQHFAdCZWlqaW5nMTkwNwYDVQQKFDBCZWlK\naW5nIEJhaWR1IE5ldGNvbSBTY2llbmNlIFRlY2hub2xvZ3kgQ28uLCBMdGQxJTAj\nBgNVBAsUHHNlcnZpY2Ugb3BlcmF0aW9uIGRlcGFydG1lbnQxGjAYBgNVBAMUEW9w\nZW5hcGkuYmFpZHUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC68R1G\nWkkVvvjBOGKHOoyLxdtEcxBiVOGG8lvXTckB8jNrg4tihQzql+fJbr/X8V9MqQLw\nzzOyQViYlW+/GhC6u1jrP6t3Br0Wy8HyThDnvOAWyPFEawgbIywT20F41Iqayled\n/DQ/JCDWcNA7+xX56rqEcQd+6baNAiu9o962PwIDAQABo4IBszCCAa8wCQYDVR0T\nBAIwADALBgNVHQ8EBAMCBaAwQQYDVR0fBDowODA2oDSgMoYwaHR0cDovL1NWUklu\ndGwtRzMtY3JsLnZlcmlzaWduLmNvbS9TVlJJbnRsRzMuY3JsMEQGA1UdIAQ9MDsw\nOQYLYIZIAYb4RQEHFwMwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cudmVyaXNp\nZ24uY29tL3JwYTAoBgNVHSUEITAfBglghkgBhvhCBAEGCCsGAQUFBwMBBggrBgEF\nBQcDAjByBggrBgEFBQcBAQRmMGQwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLnZl\ncmlzaWduLmNvbTA8BggrBgEFBQcwAoYwaHR0cDovL1NWUkludGwtRzMtYWlhLnZl\ncmlzaWduLmNvbS9TVlJJbnRsRzMuY2VyMG4GCCsGAQUFBwEMBGIwYKFeoFwwWjBY\nMFYWCWltYWdlL2dpZjAhMB8wBwYFKw4DAhoEFEtruSiWBgy70FI4mymsSweLIQUY\nMCYWJGh0dHA6Ly9sb2dvLnZlcmlzaWduLmNvbS92c2xvZ28xLmdpZjANBgkqhkiG\n9w0BAQUFAAOCAQEAgNIl8/QIKP4KWWWj6ltL6lVknoGlpUIoowvnv+57H7FdEYJb\n9zQewrAqoFkblB0mMiUEGdJOa7YxKKJialqz6KnlMrHQMAsB641BHLDESvLjuhio\nUsWmvBowIK92HQ2H9N01U8d1i5rTz5wwFK+Nvue/61tzCTTmbRgBuGPotQ/tcA+g\nYCNuEIHsJMbWiX9O3gflnMdRME7z9Hw9zMogt+lz7GudP/AO1K6sZ6VnQ931Gv1e\nIOmPCPfvO/Kw/aXSacoEWnMsy+qTIewVPT/MMgSaq9JewAQgLpMX+O5qqAJBYoDj\nxoZnHufGgOIKfNmSvYiHjDFJtP55PdEH21q+JA==\n-----END CERTIFICATE-----";
     }
 
     private byte[] a(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
         Cipher cipher = Cipher.getInstance("RSA/NONE/PKCS1Padding");
         cipher.init(1, key);
         return cipher.doFinal(bArr);
-    }
-
-    public String encrypt(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        int length;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return null;
-        }
-        PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
-        JSONArray jSONArray = new JSONArray();
-        byte[] bytes = str2.getBytes(HTTP.UTF_8);
-        if (bytes.length % 116 == 0) {
-            length = bytes.length / 116;
-        } else {
-            length = (bytes.length / 116) + 1;
-        }
-        for (int i = 0; i < length; i++) {
-            if (1 == length) {
-                jSONArray.put(Base64.encode(a(publicKey, bytes), HTTP.UTF_8));
-            } else if (i != length - 1) {
-                byte[] bArr = new byte[116];
-                System.arraycopy(bytes, i * 116, bArr, 0, 116);
-                jSONArray.put(Base64.encode(a(publicKey, bArr), HTTP.UTF_8));
-            } else {
-                int length2 = bytes.length - (i * 116);
-                byte[] bArr2 = new byte[length2];
-                System.arraycopy(bytes, i * 116, bArr2, 0, length2);
-                jSONArray.put(Base64.encode(a(publicKey, bArr2), HTTP.UTF_8));
-            }
-        }
-        return Base64.encode(jSONArray.toString().getBytes(HTTP.UTF_8), HTTP.UTF_8);
-    }
-
-    public String decrypt(String str) throws Exception {
-        return new String(this.c.decrypt(Base64.decode(str.getBytes()), new StringBuffer(this.b).reverse().toString(), this.b), HTTP.UTF_8);
-    }
-
-    private String a() {
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 16; i++) {
-            sb.append("abcdefghijklmnopqrstuvwxyz0123456789".charAt(random.nextInt("abcdefghijklmnopqrstuvwxyz0123456789".length())));
-        }
-        return sb.toString();
     }
 
     public static String decryptAccountInfo(String str, String str2) {
@@ -115,9 +63,58 @@ public class SapiDataEncryptor {
         int length = str.length() / 2;
         byte[] bArr = new byte[length];
         for (int i = 0; i < length; i++) {
-            bArr[i] = Integer.valueOf(str.substring(i * 2, (i * 2) + 2), 16).byteValue();
+            int i2 = i * 2;
+            bArr[i] = Integer.valueOf(str.substring(i2, i2 + 2), 16).byteValue();
         }
         return bArr;
+    }
+
+    public String decrypt(String str) throws Exception {
+        return new String(this.c.decrypt(Base64.decode(str.getBytes()), new StringBuffer(this.b).reverse().toString(), this.b), HTTP.UTF_8);
+    }
+
+    public String encrypt(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+        int length;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
+            JSONArray jSONArray = new JSONArray();
+            byte[] bytes = str2.getBytes(HTTP.UTF_8);
+            if (bytes.length % 116 == 0) {
+                length = bytes.length / 116;
+            } else {
+                length = (bytes.length / 116) + 1;
+            }
+            for (int i = 0; i < length; i++) {
+                if (1 == length) {
+                    jSONArray.put(Base64.encode(a(publicKey, bytes), HTTP.UTF_8));
+                } else if (i != length - 1) {
+                    byte[] bArr = new byte[116];
+                    System.arraycopy(bytes, i * 116, bArr, 0, 116);
+                    jSONArray.put(Base64.encode(a(publicKey, bArr), HTTP.UTF_8));
+                } else {
+                    int i2 = i * 116;
+                    int length2 = bytes.length - i2;
+                    byte[] bArr2 = new byte[length2];
+                    System.arraycopy(bytes, i2, bArr2, 0, length2);
+                    jSONArray.put(Base64.encode(a(publicKey, bArr2), HTTP.UTF_8));
+                }
+            }
+            return Base64.encode(jSONArray.toString().getBytes(HTTP.UTF_8), HTTP.UTF_8);
+        }
+        return null;
+    }
+
+    public String getAESKey() {
+        return this.b;
+    }
+
+    private String a() {
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 16; i++) {
+            sb.append("abcdefghijklmnopqrstuvwxyz0123456789".charAt(random.nextInt(36)));
+        }
+        return sb.toString();
     }
 
     public static String byteToHex(byte[] bArr) {

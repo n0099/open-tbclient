@@ -12,7 +12,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class a {
     private String bXT;
-    private InterfaceC0539a jPt;
+    private InterfaceC0534a jPt;
     private com.baidu.tieba.write.a.a jPu;
     private BdUniqueId mBdUniqueId;
     private HttpMessageListener jPv = new HttpMessageListener(1003324) { // from class: com.baidu.tieba.write.model.a.1
@@ -58,7 +58,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.write.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0539a {
+    public interface InterfaceC0534a {
         void a(com.baidu.tieba.write.a.a aVar);
     }
 
@@ -92,8 +92,8 @@ public class a {
         e.fZ().removeCallbacks(this.dhP);
     }
 
-    public void a(InterfaceC0539a interfaceC0539a) {
-        this.jPt = interfaceC0539a;
+    public void a(InterfaceC0534a interfaceC0534a) {
+        this.jPt = interfaceC0534a;
     }
 
     public com.baidu.tieba.write.a.a cyv() {

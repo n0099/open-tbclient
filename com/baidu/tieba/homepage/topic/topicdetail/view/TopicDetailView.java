@@ -78,7 +78,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     private EditText gnL;
     private int gnM;
     private com.baidu.tieba.homepage.topic.topicdetail.model.a gnN;
-    a.RunnableC0427a gnO;
+    a.RunnableC0422a gnO;
     private int gnP;
     private int gnQ;
     private NewWriteModel.d gnR;

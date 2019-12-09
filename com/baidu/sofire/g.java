@@ -14,7 +14,7 @@ public final class g {
             this.a = context.getSharedPreferences("leroadcfg", 0);
             this.b = this.a.edit();
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
     }
 

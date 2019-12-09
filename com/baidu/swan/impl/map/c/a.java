@@ -28,6 +28,7 @@ import com.baidu.mapapi.search.geocode.GeoCoder;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
+import com.baidu.sapi2.activity.SlideActiviy;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.core.d.b;
 import com.baidu.swan.apps.core.d.e;
@@ -107,7 +108,7 @@ public class a extends b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMar
             double d2 = arguments.getDouble("longitude");
             double d3 = arguments.getDouble("scale");
             this.mName = arguments.getString("name");
-            this.mAddress = arguments.getString("address");
+            this.mAddress = arguments.getString(SlideActiviy.ADDRESS_PAGE_NAME);
             LatLng latLng = new LatLng(d, d2);
             e(latLng);
             this.bGh.setMapStatus(MapStatusUpdateFactory.newLatLng(latLng));

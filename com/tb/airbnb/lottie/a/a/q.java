@@ -5,12 +5,12 @@ import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class q implements b, a.InterfaceC0577a {
+public class q implements b, a.InterfaceC0572a {
     private final ShapeTrimPath.Type ksD;
     private final com.tb.airbnb.lottie.a.b.a<?, Float> ksE;
     private final com.tb.airbnb.lottie.a.b.a<?, Float> ksF;
     private final com.tb.airbnb.lottie.a.b.a<?, Float> ksG;
-    private final List<a.InterfaceC0577a> listeners = new ArrayList();
+    private final List<a.InterfaceC0572a> listeners = new ArrayList();
     private String name;
 
     public q(com.tb.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
@@ -27,7 +27,7 @@ public class q implements b, a.InterfaceC0577a {
         this.ksG.b(this);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0577a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0572a
     public void bt() {
         int i = 0;
         while (true) {
@@ -51,8 +51,8 @@ public class q implements b, a.InterfaceC0577a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a.InterfaceC0577a interfaceC0577a) {
-        this.listeners.add(interfaceC0577a);
+    public void a(a.InterfaceC0572a interfaceC0572a) {
+        this.listeners.add(interfaceC0572a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

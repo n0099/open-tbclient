@@ -30,7 +30,7 @@ public class a implements c {
     private SpannableString b(ExcContent excContent) {
         String str;
         int pz;
-        a.C0296a pV;
+        a.C0291a pV;
         if (this.icx == null && (pz = TbFaceManager.avr().pz((str = excContent.text))) != 0) {
             String str2 = "#(" + TbFaceManager.avr().pB(str) + ")";
             this.icx = new SpannableString(str2 + HanziToPinyin.Token.SEPARATOR);

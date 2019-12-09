@@ -17,7 +17,7 @@ public final class f {
     /* loaded from: classes2.dex */
     private static final class a extends Writer {
         private final Appendable koC;
-        private final C0569a koD = new C0569a();
+        private final C0564a koD = new C0564a();
 
         a(Appendable appendable) {
             this.koC = appendable;
@@ -44,10 +44,10 @@ public final class f {
 
         /* renamed from: com.google.gson.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        static class C0569a implements CharSequence {
+        static class C0564a implements CharSequence {
             char[] chars;
 
-            C0569a() {
+            C0564a() {
             }
 
             @Override // java.lang.CharSequence

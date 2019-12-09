@@ -18,12 +18,12 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         this.dkh = a.aEa();
     }
 
-    public void a(a.InterfaceC0314a interfaceC0314a) {
-        this.dkh.a(interfaceC0314a);
+    public void a(a.InterfaceC0309a interfaceC0309a) {
+        this.dkh.a(interfaceC0309a);
     }
 
-    public void b(a.InterfaceC0314a interfaceC0314a) {
-        this.dkh.b(interfaceC0314a);
+    public void b(a.InterfaceC0309a interfaceC0309a) {
+        this.dkh.b(interfaceC0309a);
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.a> aEt() {

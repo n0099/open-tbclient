@@ -31,20 +31,18 @@ public class WebLoginDTO extends SapiWebDTO {
     /* loaded from: classes2.dex */
     public static class Config {
         public List<FastLoginFeature> fastLoginFeatureList;
-    }
-
-    public static boolean statExtraValid(String str) {
-        return SapiUtils.statExtraValid(str);
+        public boolean supportTouchGuide = true;
     }
 
     public static String getStatExtraDecode(String str) {
         try {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            return URLDecoder.decode(str, HTTP.UTF_8);
+            return TextUtils.isEmpty(str) ? "" : URLDecoder.decode(str, HTTP.UTF_8);
         } catch (UnsupportedEncodingException e) {
             return "";
         }
+    }
+
+    public static boolean statExtraValid(String str) {
+        return SapiUtils.statExtraValid(str);
     }
 }

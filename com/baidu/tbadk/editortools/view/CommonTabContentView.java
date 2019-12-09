@@ -182,13 +182,13 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
     /* loaded from: classes.dex */
     public class a extends BaseAdapter {
         private final int cHe;
-        private a.InterfaceC0295a cHf;
+        private a.InterfaceC0290a cHf;
         private final int count;
 
-        public a(Context context, int i, int i2, a.InterfaceC0295a interfaceC0295a) {
+        public a(Context context, int i, int i2, a.InterfaceC0290a interfaceC0290a) {
             this.count = i;
             this.cHe = i2;
-            this.cHf = interfaceC0295a;
+            this.cHf = interfaceC0290a;
         }
 
         @Override // android.widget.Adapter

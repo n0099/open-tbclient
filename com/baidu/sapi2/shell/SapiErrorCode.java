@@ -1,8 +1,11 @@
 package com.baidu.sapi2.shell;
-/* loaded from: classes.dex */
-public interface SapiErrorCode {
+
+import com.baidu.sapi2.c;
+/* loaded from: classes2.dex */
+public interface SapiErrorCode extends c {
     public static final int CANNOT_LOGIN = 16;
     public static final int ERROR_UNKNOWN = -100;
+    public static final int GUIDE_PROCESS = 302;
     public static final int INVALID_ARG = -103;
     public static final int LOGA_SUCCEED = 110000;
     public static final int LOGIN_TOO_MUCH = 5;

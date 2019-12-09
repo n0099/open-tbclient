@@ -21,7 +21,7 @@ public class a extends o<Integer, Integer> {
 
     /* renamed from: com.tb.airbnb.lottie.model.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0578a {
+    public static final class C0573a {
         public static a d(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {
             n.a cLC = n.a(jSONObject, 1.0f, eVar, com.tb.airbnb.lottie.model.a.ksX).cLC();
             return new a(cLC.eR, (Integer) cLC.fg);

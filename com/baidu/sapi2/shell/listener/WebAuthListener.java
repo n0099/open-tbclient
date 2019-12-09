@@ -9,10 +9,10 @@ public abstract class WebAuthListener implements SapiCallback<WebAuthResult> {
     }
 
     @Override // com.baidu.sapi2.callback.SapiCallback
-    public void onStart() {
+    public void onFinish() {
     }
 
     @Override // com.baidu.sapi2.callback.SapiCallback
-    public void onFinish() {
+    public void onStart() {
     }
 }

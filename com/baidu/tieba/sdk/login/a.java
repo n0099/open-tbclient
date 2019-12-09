@@ -175,40 +175,40 @@ public class a {
             }
             if (z2 && z) {
                 AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                C0510a c0510a = new C0510a(currentAccountInfo);
+                C0505a c0505a = new C0505a(currentAccountInfo);
                 String string3 = c.np().getString("ala_account_user_bduss", "");
                 if (!StringUtils.isNull(string3)) {
-                    c0510a.Dh(string3);
+                    c0505a.Dh(string3);
                 } else {
-                    c0510a.Dh(bJB.bduss);
+                    c0505a.Dh(bJB.bduss);
                 }
                 String string4 = c.np().getString("ala_account_user_tbs", "");
                 if (!StringUtils.isNull(string4)) {
-                    c0510a.Di(string4);
+                    c0505a.Di(string4);
                 }
-                c0510a.De(bJB.userId);
-                c0510a.Df(bJB.userName);
-                c0510a.Dg(bJB.nickName);
-                c0510a.Dj(bJB.portrait);
+                c0505a.De(bJB.userId);
+                c0505a.Df(bJB.userName);
+                c0505a.Dg(bJB.nickName);
+                c0505a.Dj(bJB.portrait);
                 if (currentAccountInfo == null) {
-                    TbadkCoreApplication.setCurrentAccount(c0510a.chT(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
+                    TbadkCoreApplication.setCurrentAccount(c0505a.chT(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     return;
                 } else {
-                    c0510a.chT();
+                    c0505a.chT();
                     return;
                 }
             }
             this.iRc = 0;
             chR();
-            C0510a c0510a2 = new C0510a();
-            c0510a2.Dh(bJB.bduss);
-            c0510a2.Df(bJB.userName);
-            c0510a2.Dg(bJB.nickName);
-            c0510a2.De(bJB.userId);
-            c0510a2.Dj(bJB.portrait);
+            C0505a c0505a2 = new C0505a();
+            c0505a2.Dh(bJB.bduss);
+            c0505a2.Df(bJB.userName);
+            c0505a2.Dg(bJB.nickName);
+            c0505a2.De(bJB.userId);
+            c0505a2.Dj(bJB.portrait);
             c.np().putString("ala_account_user_id", bJB.userId);
             c.np().putString("ala_account_user_bduss", bJB.bduss);
-            TbadkCoreApplication.setCurrentAccount(c0510a2.chT(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
+            TbadkCoreApplication.setCurrentAccount(c0505a2.chT(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
             a(bJB);
         }
     }
@@ -238,7 +238,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.sdk.login.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0510a {
+    public static class C0505a {
         private String BDUSS;
         private int iRh;
         private AccountData iRi;
@@ -249,11 +249,11 @@ public class a {
         private String userId;
         private String userName;
 
-        public C0510a() {
+        public C0505a() {
             this.iRi = new AccountData();
         }
 
-        public C0510a(AccountData accountData) {
+        public C0505a(AccountData accountData) {
             if (accountData == null) {
                 this.iRi = new AccountData();
             } else {
@@ -261,42 +261,42 @@ public class a {
             }
         }
 
-        public C0510a De(String str) {
+        public C0505a De(String str) {
             this.userId = str;
             return this;
         }
 
-        public C0510a Df(String str) {
+        public C0505a Df(String str) {
             this.userName = str;
             return this;
         }
 
-        public C0510a Dg(String str) {
+        public C0505a Dg(String str) {
             this.nickName = str;
             return this;
         }
 
-        public C0510a Dh(String str) {
+        public C0505a Dh(String str) {
             this.BDUSS = str;
             return this;
         }
 
-        public C0510a Di(String str) {
+        public C0505a Di(String str) {
             this.tbs = str;
             return this;
         }
 
-        public C0510a Dj(String str) {
+        public C0505a Dj(String str) {
             this.portrait = str;
             return this;
         }
 
-        public C0510a yH(int i) {
+        public C0505a yH(int i) {
             this.sex = i;
             return this;
         }
 
-        public C0510a yI(int i) {
+        public C0505a yI(int i) {
             this.iRh = i;
             return this;
         }

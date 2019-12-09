@@ -267,8 +267,8 @@ public class e {
             aVar.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
             aVar.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.CAMERA");
             aVar.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.RECORD_AUDIO");
-            aVar.a(new a.InterfaceC0284a() { // from class: com.baidu.tieba.write.e.11
-                @Override // com.baidu.tbadk.core.util.c.a.InterfaceC0284a
+            aVar.a(new a.InterfaceC0279a() { // from class: com.baidu.tieba.write.e.11
+                @Override // com.baidu.tbadk.core.util.c.a.InterfaceC0279a
                 public void onPermissionsGranted() {
                     String str2;
                     String str3 = null;
@@ -472,8 +472,8 @@ public class e {
         com.baidu.tbadk.core.util.c.a aVar = new com.baidu.tbadk.core.util.c.a();
         aVar.clearRequestPermissionList();
         aVar.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        aVar.a(new a.InterfaceC0284a() { // from class: com.baidu.tieba.write.e.4
-            @Override // com.baidu.tbadk.core.util.c.a.InterfaceC0284a
+        aVar.a(new a.InterfaceC0279a() { // from class: com.baidu.tieba.write.e.4
+            @Override // com.baidu.tbadk.core.util.c.a.InterfaceC0279a
             public void onPermissionsGranted() {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, WriteActivityConfig.this));
             }

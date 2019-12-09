@@ -17,7 +17,6 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.location.a.c;
 import com.baidu.location.a.d;
 import com.baidu.location.a.i;
-import com.baidu.sapi2.utils.enums.ShareDirectionType;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -574,7 +573,7 @@ public final class LocationClient implements c.a, d.b {
         bundle.putInt("timeOut", this.c.timeOut);
         bundle.putInt("priority", this.c.priority);
         bundle.putBoolean("map", this.y.booleanValue());
-        bundle.putBoolean(ShareDirectionType.IMPORT, this.z.booleanValue());
+        bundle.putBoolean(com.baidu.sapi2.utils.enums.a.a, this.z.booleanValue());
         bundle.putBoolean("needDirect", this.c.mIsNeedDeviceDirect);
         bundle.putBoolean("isneedaptag", this.c.isNeedAptag);
         bundle.putBoolean("isneedpoiregion", this.c.isNeedPoiRegion);

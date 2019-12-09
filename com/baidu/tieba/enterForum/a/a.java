@@ -124,7 +124,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0398a c0398a;
+        C0393a c0393a;
         c cVar;
         com.baidu.tieba.enterForum.view.c cVar2;
         com.baidu.tieba.enterForum.data.d dVar;
@@ -248,28 +248,28 @@ public class a extends BaseAdapter {
                 return view2;
             case 5:
                 bdA();
-                if (view == null || !(view.getTag() instanceof C0398a)) {
+                if (view == null || !(view.getTag() instanceof C0393a)) {
                     view = this.mPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.enter_forum_list_bar_creator_item, (ViewGroup) null);
-                    C0398a c0398a2 = new C0398a();
-                    c0398a2.mRoot = view.findViewById(R.id.container);
-                    c0398a2.mCloseButton = (ImageView) view.findViewById(R.id.creator_close);
-                    c0398a2.dgd = (ImageView) view.findViewById(R.id.creator_image);
-                    c0398a2.eZi = (TextView) view.findViewById(R.id.create_forum_label);
-                    c0398a2.eZj = (ImageView) view.findViewById(R.id.arrow_image);
-                    view.setTag(c0398a2);
-                    c0398a = c0398a2;
+                    C0393a c0393a2 = new C0393a();
+                    c0393a2.mRoot = view.findViewById(R.id.container);
+                    c0393a2.mCloseButton = (ImageView) view.findViewById(R.id.creator_close);
+                    c0393a2.dgd = (ImageView) view.findViewById(R.id.creator_image);
+                    c0393a2.eZi = (TextView) view.findViewById(R.id.create_forum_label);
+                    c0393a2.eZj = (ImageView) view.findViewById(R.id.arrow_image);
+                    view.setTag(c0393a2);
+                    c0393a = c0393a2;
                 } else {
-                    c0398a = (C0398a) view.getTag();
+                    c0393a = (C0393a) view.getTag();
                 }
-                am.setImageResource(c0398a.dgd, R.drawable.pic_setup_entry);
-                am.setImageResource(c0398a.mCloseButton, R.drawable.icon_home_card_delete);
-                am.setViewTextColor(c0398a.eZi, (int) R.color.cp_cont_a);
-                am.setImageResource(c0398a.eZj, R.drawable.icon_arrow12_white_right);
-                am.setBackgroundColor(c0398a.mRoot, R.color.cp_bg_line_e);
-                if (c0398a.mCloseButton != null) {
-                    c0398a.mCloseButton.setVisibility(TbadkApplication.isLogin() ? 0 : 8);
-                    l.addToParentArea(this.mPageContext.getPageActivity(), c0398a.mCloseButton, 20, 20, 20, 20);
-                    c0398a.mCloseButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.5
+                am.setImageResource(c0393a.dgd, R.drawable.pic_setup_entry);
+                am.setImageResource(c0393a.mCloseButton, R.drawable.icon_home_card_delete);
+                am.setViewTextColor(c0393a.eZi, (int) R.color.cp_cont_a);
+                am.setImageResource(c0393a.eZj, R.drawable.icon_arrow12_white_right);
+                am.setBackgroundColor(c0393a.mRoot, R.color.cp_bg_line_e);
+                if (c0393a.mCloseButton != null) {
+                    c0393a.mCloseButton.setVisibility(TbadkApplication.isLogin() ? 0 : 8);
+                    l.addToParentArea(this.mPageContext.getPageActivity(), c0393a.mCloseButton, 20, 20, 20, 20);
+                    c0393a.mCloseButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.5
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view3) {
                             TiebaStatic.log("c13380");
@@ -298,8 +298,8 @@ public class a extends BaseAdapter {
                         }
                     });
                 }
-                if (c0398a.dgd != null) {
-                    c0398a.dgd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.6
+                if (c0393a.dgd != null) {
+                    c0393a.dgd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.6
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view3) {
                             String bdK;
@@ -456,14 +456,14 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.enterForum.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0398a {
+    private class C0393a {
         ImageView dgd;
         TextView eZi;
         ImageView eZj;
         ImageView mCloseButton;
         View mRoot;
 
-        private C0398a() {
+        private C0393a() {
         }
     }
 }

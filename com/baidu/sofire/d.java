@@ -20,7 +20,7 @@ public class d extends FileObserver {
             new StringBuilder("f=").append(this.a).append(", e=").append(new File(this.a).exists()).append(", b=").append(this.b);
             b.a();
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
         }
     }
 
@@ -32,7 +32,7 @@ public class d extends FileObserver {
             }
             return false;
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
+            com.baidu.sofire.i.d.a();
             return false;
         }
     }
@@ -56,25 +56,25 @@ public class d extends FileObserver {
                                 super.run();
                                 b.a();
                                 synchronized (d.class) {
-                                    if (!com.baidu.sofire.b.e.c(d.this.a)) {
+                                    if (!com.baidu.sofire.i.d.c(d.this.a)) {
                                         b.a();
-                                        com.baidu.sofire.b.e.a(d.this.b, d.this.a);
-                                        com.baidu.sofire.b.e.a(d.this.a, true);
+                                        com.baidu.sofire.i.d.a(d.this.b, d.this.a);
+                                        com.baidu.sofire.i.d.a(d.this.a, true);
                                         c.a(new File(d.this.a));
                                         c.a(d.this.d, d.this.c, new File(d.this.a), new File(d.this.b));
                                         new StringBuilder().append(d.this.a.toString());
                                         b.a();
-                                        com.baidu.sofire.a.a.a(d.this.d).b(d.this.c, -1);
+                                        com.baidu.sofire.c.a.a(d.this.d).b(d.this.c, -1);
                                     }
                                 }
                             } catch (Throwable th) {
-                                com.baidu.sofire.b.e.a();
+                                com.baidu.sofire.i.d.a();
                             }
                         }
                     }.start();
                     return;
                 } catch (Throwable th) {
-                    com.baidu.sofire.b.e.a();
+                    com.baidu.sofire.i.d.a();
                     return;
                 }
             default:

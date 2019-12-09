@@ -15,24 +15,24 @@ import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
     private boolean cOw = false;
-    private a.InterfaceC0405a eXk = new a.InterfaceC0405a() { // from class: com.baidu.tieba.frs.gametab.b.1
+    private a.InterfaceC0400a eXk = new a.InterfaceC0400a() { // from class: com.baidu.tieba.frs.gametab.b.1
         final int dQA = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds98);
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0405a
+        @Override // com.baidu.tieba.f.a.InterfaceC0400a
         public void t(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && aj(i2)) {
                 b.this.kc(false);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0405a
+        @Override // com.baidu.tieba.f.a.InterfaceC0400a
         public void u(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && aj(i2)) {
                 b.this.kc(true);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0405a
+        @Override // com.baidu.tieba.f.a.InterfaceC0400a
         public void v(int i, int i2) {
         }
 

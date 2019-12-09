@@ -21,8 +21,8 @@ public class a implements com.baidu.tbadk.u.a {
     private Context mContext;
     private final Handler mHandler = new Handler();
     private boolean isActive = true;
-    private a.InterfaceC0523a jlF = new a.InterfaceC0523a() { // from class: com.baidu.tieba.tbadvert.a.1
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0523a
+    private a.InterfaceC0518a jlF = new a.InterfaceC0518a() { // from class: com.baidu.tieba.tbadvert.a.1
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0518a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
             if (j.isNetWorkAvailable()) {
                 a.this.jlE.cpS();
@@ -43,14 +43,14 @@ public class a implements com.baidu.tbadk.u.a {
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0523a
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0518a
         public void cpM() {
             if (a.this.isActive && a.this.jlD != null) {
                 a.this.jlD.axm();
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0523a
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0518a
         public void at(Object obj) {
             com.baidu.tieba.tbadvert.a.b cpR;
             if (a.this.isActive && (cpR = a.this.jlE.cpR()) != null) {
@@ -65,8 +65,8 @@ public class a implements com.baidu.tbadk.u.a {
             }
         }
     };
-    private a.InterfaceC0524a jlG = new a.InterfaceC0524a() { // from class: com.baidu.tieba.tbadvert.a.2
-        @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0524a
+    private a.InterfaceC0519a jlG = new a.InterfaceC0519a() { // from class: com.baidu.tieba.tbadvert.a.2
+        @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0519a
         public void cpN() {
             com.baidu.tieba.tbadvert.a.b cpR = a.this.jlE.cpR();
             if (cpR != null) {
@@ -89,7 +89,7 @@ public class a implements com.baidu.tbadk.u.a {
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0524a
+        @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0519a
         public void cpO() {
             if (a.this.jlD != null) {
                 a.this.jlD.afB();

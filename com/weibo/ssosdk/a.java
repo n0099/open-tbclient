@@ -32,10 +32,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.weibo.ssosdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0589a {
+    public static final class C0584a {
         private Intent kun;
 
-        private C0589a(Context context) {
+        private C0584a(Context context) {
             this.kun = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
 
@@ -170,10 +170,10 @@ public class a {
             double eA = eA(context);
             jSONObject.put("batterymaxcapacity", String.valueOf(eA));
             jSONObject.put("batterycurrentcapacity", String.valueOf(eA));
-            C0589a c0589a = new C0589a(context);
-            jSONObject.put("batterycurrentvoltage", c0589a.cMr());
-            jSONObject.put("batterycurrenttemperature", c0589a.cMs());
-            jSONObject.put("batterycurrentcapacity", (eA * c0589a.getLevel()) / c0589a.cMq());
+            C0584a c0584a = new C0584a(context);
+            jSONObject.put("batterycurrentvoltage", c0584a.cMr());
+            jSONObject.put("batterycurrenttemperature", c0584a.cMs());
+            jSONObject.put("batterycurrentcapacity", (eA * c0584a.getLevel()) / c0584a.cMq());
             return jSONObject.toString();
         } catch (JSONException e2) {
             return "";

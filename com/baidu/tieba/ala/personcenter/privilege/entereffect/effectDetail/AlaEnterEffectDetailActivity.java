@@ -45,8 +45,8 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             AlaEnterEffectDetailActivity.this.showToast(str);
         }
     };
-    private a.InterfaceC0388a eAk = new a.InterfaceC0388a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.5
-        @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.a.InterfaceC0388a
+    private a.InterfaceC0383a eAk = new a.InterfaceC0383a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.5
+        @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.a.InterfaceC0383a
         public void qy() {
             if (AlaEnterEffectDetailActivity.this.eAe != null) {
                 if (AlaEnterEffectDetailActivity.this.eAe.isOwn) {
@@ -132,8 +132,8 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 }
             }
         });
-        this.exZ = new com.baidu.tieba.ala.personcenter.privilege.a(getPageContext(), new a.InterfaceC0381a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.4
-            @Override // com.baidu.tieba.ala.personcenter.privilege.a.InterfaceC0381a
+        this.exZ = new com.baidu.tieba.ala.personcenter.privilege.a(getPageContext(), new a.InterfaceC0376a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.4
+            @Override // com.baidu.tieba.ala.personcenter.privilege.a.InterfaceC0376a
             public void j(boolean z, String str) {
                 if (z) {
                     if (AlaEnterEffectDetailActivity.this.eAe != null && AlaEnterEffectDetailActivity.this.eAg != null) {

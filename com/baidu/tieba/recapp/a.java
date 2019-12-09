@@ -17,7 +17,7 @@ public abstract class a {
     public MediaPlayer.OnPreparedListener bxF;
     public TbPageContext<?> ceu;
     public MediaPlayer.OnErrorListener ddn;
-    public a.InterfaceC0311a dhI;
+    public a.InterfaceC0306a dhI;
     public a.b iGA;
     public IVrPlayView iGw;
     public com.a.a.g iGx;

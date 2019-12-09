@@ -68,9 +68,9 @@ public class d implements com.baidu.live.liveroom.c.d {
         return null;
     }
 
-    public void a(a.InterfaceC0378a interfaceC0378a) {
+    public void a(a.InterfaceC0373a interfaceC0373a) {
         if (this.euK != null) {
-            this.euK.a(interfaceC0378a);
+            this.euK.a(interfaceC0373a);
         }
     }
 

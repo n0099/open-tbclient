@@ -72,20 +72,20 @@ public class g extends z {
         }
         final String remove = this.blw.remove(0);
         com.baidu.swan.apps.console.c.i("DownloadPackagesAction", "preload " + remove + ", waitSize=" + this.blw.size() + " , thread=" + Thread.currentThread().getName());
-        com.baidu.swan.apps.core.a.b.a.a(remove, new a.InterfaceC0173a() { // from class: com.baidu.swan.apps.scheme.actions.g.1
-            @Override // com.baidu.swan.apps.core.a.b.a.InterfaceC0173a
+        com.baidu.swan.apps.core.a.b.a.a(remove, new a.InterfaceC0168a() { // from class: com.baidu.swan.apps.scheme.actions.g.1
+            @Override // com.baidu.swan.apps.core.a.b.a.InterfaceC0168a
             public void Ek() {
                 com.baidu.swan.apps.console.c.w("DownloadPackagesAction", "swanAppIdInvalid: " + remove);
                 g.this.RN();
             }
 
-            @Override // com.baidu.swan.apps.core.a.b.a.InterfaceC0173a
+            @Override // com.baidu.swan.apps.core.a.b.a.InterfaceC0168a
             public void El() {
                 com.baidu.swan.apps.console.c.i("DownloadPackagesAction", "preDownloadSuccess: " + remove);
                 g.this.RN();
             }
 
-            @Override // com.baidu.swan.apps.core.a.b.a.InterfaceC0173a
+            @Override // com.baidu.swan.apps.core.a.b.a.InterfaceC0168a
             public void cW(int i) {
                 com.baidu.swan.apps.console.c.w("DownloadPackagesAction", "preDownloadFailed: " + remove + ", errorCode:" + i);
                 g.this.RN();

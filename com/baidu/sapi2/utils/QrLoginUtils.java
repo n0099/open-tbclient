@@ -7,8 +7,18 @@ import com.baidu.sapi2.ServiceManager;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class QrLoginUtils {
+    public static String getJoinQrLoginPromptInfo(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        if (SapiContext.getInstance().getCurrentAccount() == null) {
+            return LivenessStat.TYPE_STRING_DEFAULT;
+        }
+        return String.format(SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getJoinQrLoginPrompt(), URLDecoder.decode(SapiUtils.urlParamsToMap(str).get("appName")));
+    }
+
     public static boolean isJoinQrLoginSchema(String str) {
         try {
             URL url = new URL(str);
@@ -16,15 +26,5 @@ public class QrLoginUtils {
         } catch (MalformedURLException e) {
             return false;
         }
-    }
-
-    public static String getJoinQrLoginPromptInfo(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        if (ServiceManager.getInstance().getIsAccountManager().getSession() == null) {
-            return LivenessStat.TYPE_STRING_DEFAULT;
-        }
-        return String.format(SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getJoinQrLoginPrompt(), URLDecoder.decode(SapiUtils.urlParamsToMap(str).get("appName")));
     }
 }

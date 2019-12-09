@@ -21,7 +21,7 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import tv.danmaku.ijk.media.player.b;
 /* loaded from: classes.dex */
-public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e, b.a, b.InterfaceC0613b, b.c, b.d, b.e, b.f, b.h {
+public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e, b.a, b.InterfaceC0608b, b.c, b.d, b.e, b.f, b.h {
     private IjkMediaPlayer ayX;
     private CyberPlayerManager.OnPreparedListener ayY;
     private CyberPlayerManager.OnCompletionListener ayZ;
@@ -45,7 +45,7 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
             this.l = i;
             this.ayX.b(this.l);
             this.ayX.a((b.e) this);
-            this.ayX.a((b.InterfaceC0613b) this);
+            this.ayX.a((b.InterfaceC0608b) this);
             this.ayX.a((b.a) this);
             this.ayX.a((b.f) this);
             this.ayX.a((b.h) this);
@@ -185,7 +185,7 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
         return this.azd != null && this.azd.onError(i, i2, obj);
     }
 
-    @Override // tv.danmaku.ijk.media.player.b.InterfaceC0613b
+    @Override // tv.danmaku.ijk.media.player.b.InterfaceC0608b
     public void b(tv.danmaku.ijk.media.player.b bVar) {
         this.o = 5;
         this.p = 5;

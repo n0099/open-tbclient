@@ -93,7 +93,7 @@ public class b {
     }
 
     public static boolean a(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo) {
-        return a.C0245a.a(swanGameSubPackageAPSInfo);
+        return a.C0240a.a(swanGameSubPackageAPSInfo);
     }
 
     public static boolean a(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo, String str) {

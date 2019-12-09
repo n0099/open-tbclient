@@ -8,6 +8,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.sapi2.activity.SlideActiviy;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
@@ -395,7 +396,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         this.buttonStatus = jSONObject.optInt("button_status");
         this.buttonTextDone = jSONObject.optString("button_text_done");
         this.activityId = jSONObject.optInt("activity_id");
-        this.localAdsAddress = jSONObject.optString("address", "");
+        this.localAdsAddress = jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME, "");
         this.time = jSONObject.optLong("time", System.currentTimeMillis());
         this.reply_num = jSONObject.optInt("reply_num", INVALID_NUM);
         this.agree_num = jSONObject.optInt("agree_num", INVALID_NUM);

@@ -19,8 +19,8 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter implements View.OnClickListener {
     private static SparseArray<Integer> djq = new SparseArray<>();
-    private static HashMap<C0316a, Integer> djr = new HashMap<>();
-    private static HashMap<C0316a, Integer> djs = new HashMap<>();
+    private static HashMap<C0311a, Integer> djr = new HashMap<>();
+    private static HashMap<C0311a, Integer> djs = new HashMap<>();
     private List<com.baidu.tieba.im.data.a> data;
     private NewFriendsActivity djp;
     private b djt;
@@ -36,18 +36,18 @@ public class a extends BaseAdapter implements View.OnClickListener {
         djq.put(1, Integer.valueOf((int) R.string.pass));
         djq.put(2, Integer.valueOf((int) R.string.passed));
         djq.put(3, Integer.valueOf((int) R.string.waiting));
-        djr.put(new C0316a(false), Integer.valueOf((int) R.drawable.btn_pass));
-        djr.put(new C0316a(true), Integer.valueOf((int) R.drawable.btn_all_blue));
-        djs.put(new C0316a(false), Integer.valueOf((int) R.color.btn_pass_text_color));
-        djs.put(new C0316a(true), Integer.valueOf((int) R.color.btn_agree_text_color));
+        djr.put(new C0311a(false), Integer.valueOf((int) R.drawable.btn_pass));
+        djr.put(new C0311a(true), Integer.valueOf((int) R.drawable.btn_all_blue));
+        djs.put(new C0311a(false), Integer.valueOf((int) R.color.btn_pass_text_color));
+        djs.put(new C0311a(true), Integer.valueOf((int) R.color.btn_agree_text_color));
     }
 
     /* renamed from: com.baidu.tieba.addresslist.im.newFriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0316a {
+    private static class C0311a {
         private boolean dju;
 
-        public C0316a(boolean z) {
+        public C0311a(boolean z) {
             this.dju = z;
         }
 
@@ -59,7 +59,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
             if (this == obj) {
                 return true;
             }
-            return obj != null && getClass() == obj.getClass() && this.dju == ((C0316a) obj).dju;
+            return obj != null && getClass() == obj.getClass() && this.dju == ((C0311a) obj).dju;
         }
     }
 
@@ -107,11 +107,11 @@ public class a extends BaseAdapter implements View.OnClickListener {
         cVar.djy.setOnClickListener(this);
         this.djp.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
         this.djp.getLayoutMode().onModeChanged(view);
-        Integer num = djr.get(new C0316a(item.getStatus() == 1));
+        Integer num = djr.get(new C0311a(item.getStatus() == 1));
         if (num != null) {
             am.setBackgroundResource(cVar.djy, num.intValue());
         }
-        Integer num2 = djs.get(new C0316a(item.getStatus() == 1));
+        Integer num2 = djs.get(new C0311a(item.getStatus() == 1));
         if (num2 != null) {
             am.setViewTextColor(cVar.djy, num2.intValue(), 1);
         }

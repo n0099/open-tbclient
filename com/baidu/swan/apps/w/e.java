@@ -56,8 +56,8 @@ public final class e implements d.b {
         this.aTC.exit();
     }
 
-    public void a(int i, @NonNull String[] strArr, a.InterfaceC0152a interfaceC0152a) {
-        this.aTC.a(i, strArr, interfaceC0152a);
+    public void a(int i, @NonNull String[] strArr, a.InterfaceC0147a interfaceC0147a) {
+        this.aTC.a(i, strArr, interfaceC0147a);
     }
 
     public void Lh() {

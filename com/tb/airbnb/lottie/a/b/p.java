@@ -49,17 +49,17 @@ public class p {
         }
     }
 
-    public void a(a.InterfaceC0577a interfaceC0577a) {
-        this.ksN.b(interfaceC0577a);
-        this.ksO.b(interfaceC0577a);
-        this.ksP.b(interfaceC0577a);
-        this.ksQ.b(interfaceC0577a);
-        this.ksR.b(interfaceC0577a);
+    public void a(a.InterfaceC0572a interfaceC0572a) {
+        this.ksN.b(interfaceC0572a);
+        this.ksO.b(interfaceC0572a);
+        this.ksP.b(interfaceC0572a);
+        this.ksQ.b(interfaceC0572a);
+        this.ksR.b(interfaceC0572a);
         if (this.ksS != null) {
-            this.ksS.b(interfaceC0577a);
+            this.ksS.b(interfaceC0572a);
         }
         if (this.ksT != null) {
-            this.ksT.b(interfaceC0577a);
+            this.ksT.b(interfaceC0572a);
         }
     }
 

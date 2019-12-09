@@ -31,7 +31,7 @@ public class a {
     private b egC;
     private c egF;
     private d egG;
-    private InterfaceC0363a egz;
+    private InterfaceC0358a egz;
     private String mOtherParams;
     private TbPageContext mPageContext;
     private long mUid = -1;
@@ -40,7 +40,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0363a {
+    public interface InterfaceC0358a {
         boolean aPz();
 
         void onClose();
@@ -51,8 +51,8 @@ public class a {
         aSi();
     }
 
-    public void a(InterfaceC0363a interfaceC0363a) {
-        this.egz = interfaceC0363a;
+    public void a(InterfaceC0358a interfaceC0358a) {
+        this.egz = interfaceC0358a;
     }
 
     public void a(i iVar, String str) {

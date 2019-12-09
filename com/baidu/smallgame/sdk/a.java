@@ -20,7 +20,7 @@ public final class a implements AREngineDelegate {
     private ArBridge aCF;
     private GLSurfaceView.Renderer aCG;
     private Object aCJ;
-    private C0146a aCK;
+    private C0141a aCK;
     private boolean mDetached;
     private SurfaceHolder mSurfaceHolder;
     private long mCurrentGLThreadID = -1;
@@ -54,7 +54,7 @@ public final class a implements AREngineDelegate {
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setRenderer(GLSurfaceView.Renderer renderer) {
         this.aCG = renderer;
-        this.aCK = new C0146a(this);
+        this.aCK = new C0141a(this);
         this.aCK.start();
     }
 
@@ -129,7 +129,7 @@ public final class a implements AREngineDelegate {
     public void onAttachedToWindow() {
         if (this.mDetached && this.aCG != null) {
             int renderMode = this.aCK != null ? this.aCK.getRenderMode() : 1;
-            this.aCK = new C0146a(this);
+            this.aCK = new C0141a(this);
             if (renderMode != 1) {
                 this.aCK.setRenderMode(renderMode);
             }
@@ -256,7 +256,7 @@ public final class a implements AREngineDelegate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.smallgame.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0146a extends Thread {
+    public static class C0141a extends Thread {
         private c aCI;
         private boolean aCR;
         private boolean aCS;
@@ -286,7 +286,7 @@ public final class a implements AREngineDelegate {
         private int aCZ = 1;
         private boolean aDb = false;
 
-        C0146a(a aVar) {
+        C0141a(a aVar) {
             this.aDh = aVar;
             this.aCI = aVar.aCI;
         }
@@ -975,21 +975,21 @@ public final class a implements AREngineDelegate {
     /* loaded from: classes2.dex */
     public static class c {
         private static String TAG = "GLThreadManager";
-        private C0146a aDl;
+        private C0141a aDl;
 
         private c() {
         }
 
-        public synchronized void b(C0146a c0146a) {
-            c0146a.aCQ = true;
-            if (this.aDl == c0146a) {
+        public synchronized void b(C0141a c0141a) {
+            c0141a.aCQ = true;
+            if (this.aDl == c0141a) {
                 this.aDl = null;
             }
             notifyAll();
         }
 
-        public void c(C0146a c0146a) {
-            if (this.aDl == c0146a) {
+        public void c(C0141a c0141a) {
+            if (this.aDl == c0141a) {
                 this.aDl = null;
             }
             synchronized (this) {

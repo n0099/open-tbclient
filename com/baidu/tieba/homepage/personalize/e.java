@@ -207,18 +207,18 @@ public class e {
             return false;
         }
     };
-    private a.InterfaceC0405a eXk = new a.InterfaceC0405a() { // from class: com.baidu.tieba.homepage.personalize.e.20
-        @Override // com.baidu.tieba.f.a.InterfaceC0405a
+    private a.InterfaceC0400a eXk = new a.InterfaceC0400a() { // from class: com.baidu.tieba.homepage.personalize.e.20
+        @Override // com.baidu.tieba.f.a.InterfaceC0400a
         public void t(int i, int i2) {
             e.this.fwM = true;
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0405a
+        @Override // com.baidu.tieba.f.a.InterfaceC0400a
         public void u(int i, int i2) {
             e.this.fwM = false;
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0405a
+        @Override // com.baidu.tieba.f.a.InterfaceC0400a
         public void v(int i, int i2) {
         }
     };

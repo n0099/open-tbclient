@@ -185,11 +185,11 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cN(final boolean z) {
-        e.Rt().bka.get().AY().Bz().a(this.mActivity, z, this.mScope).g(new com.baidu.swan.apps.an.d.a<g<a.C0221a>>() { // from class: com.baidu.swan.apps.setting.b.a.4
+        e.Rt().bka.get().AY().Bz().a(this.mActivity, z, this.mScope).g(new com.baidu.swan.apps.an.d.a<g<a.C0216a>>() { // from class: com.baidu.swan.apps.setting.b.a.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: a */
-            public void B(g<a.C0221a> gVar) {
+            public void B(g<a.C0216a> gVar) {
                 if (!z && !a.this.boF) {
                     a.this.finish();
                 } else if (gVar == null || !gVar.isOk() || gVar.mData == null || gVar.mData.boh == null) {

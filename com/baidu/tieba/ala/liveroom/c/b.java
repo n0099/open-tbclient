@@ -349,18 +349,18 @@ public abstract class b implements com.baidu.tieba.ala.liveroom.b {
 
     private void aOS() {
         this.dWW = new com.baidu.tieba.ala.liveroom.o.a();
-        this.dWW.a(new a.InterfaceC0367a() { // from class: com.baidu.tieba.ala.liveroom.c.b.9
-            @Override // com.baidu.tieba.ala.liveroom.o.a.InterfaceC0367a
+        this.dWW.a(new a.InterfaceC0362a() { // from class: com.baidu.tieba.ala.liveroom.c.b.9
+            @Override // com.baidu.tieba.ala.liveroom.o.a.InterfaceC0362a
             public void aPx() {
                 b.this.nr(11);
             }
 
-            @Override // com.baidu.tieba.ala.liveroom.o.a.InterfaceC0367a
+            @Override // com.baidu.tieba.ala.liveroom.o.a.InterfaceC0362a
             public void aPy() {
                 b.this.nb(11);
             }
 
-            @Override // com.baidu.tieba.ala.liveroom.o.a.InterfaceC0367a
+            @Override // com.baidu.tieba.ala.liveroom.o.a.InterfaceC0362a
             public boolean sG() {
                 return b.this.rB();
             }
@@ -369,13 +369,13 @@ public abstract class b implements com.baidu.tieba.ala.liveroom.b {
 
     private void aOT() {
         this.dWX = new com.baidu.tieba.ala.liveroom.k.a(this.dWC.pageContext);
-        this.dWX.a(new a.InterfaceC0363a() { // from class: com.baidu.tieba.ala.liveroom.c.b.10
-            @Override // com.baidu.tieba.ala.liveroom.k.a.InterfaceC0363a
+        this.dWX.a(new a.InterfaceC0358a() { // from class: com.baidu.tieba.ala.liveroom.c.b.10
+            @Override // com.baidu.tieba.ala.liveroom.k.a.InterfaceC0358a
             public boolean aPz() {
                 return b.this.aOJ();
             }
 
-            @Override // com.baidu.tieba.ala.liveroom.k.a.InterfaceC0363a
+            @Override // com.baidu.tieba.ala.liveroom.k.a.InterfaceC0358a
             public void onClose() {
                 if (b.this.dWD != null) {
                     b.this.dWD.aPI();
@@ -681,8 +681,8 @@ public abstract class b implements com.baidu.tieba.ala.liveroom.b {
         }
         if (aPu().eeL.uk() != null && aPu().eeL.uk().OR != null && aPu().eeL.uk().mLiveInfo != null) {
             this.dXa.c(this.dXh, aPu().eeL.uk());
-            this.dXa.a(new a.InterfaceC0362a() { // from class: com.baidu.tieba.ala.liveroom.c.b.15
-                @Override // com.baidu.tieba.ala.liveroom.j.a.InterfaceC0362a
+            this.dXa.a(new a.InterfaceC0357a() { // from class: com.baidu.tieba.ala.liveroom.c.b.15
+                @Override // com.baidu.tieba.ala.liveroom.j.a.InterfaceC0357a
                 public void aPA() {
                     b.this.aPv();
                 }
@@ -1168,11 +1168,11 @@ public abstract class b implements com.baidu.tieba.ala.liveroom.b {
             this.dWV.release();
         }
         if (this.dWW != null) {
-            this.dWW.a((a.InterfaceC0367a) null);
+            this.dWW.a((a.InterfaceC0362a) null);
             this.dWW.release();
         }
         if (this.dWX != null) {
-            this.dWX.a((a.InterfaceC0363a) null);
+            this.dWX.a((a.InterfaceC0358a) null);
             this.dWX.onDestroy();
         }
         if (this.mHandler != null) {

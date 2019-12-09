@@ -52,7 +52,7 @@ import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AddressListFragment extends BaseFragment implements h.c, a.InterfaceC0314a, AssortView.a {
+public class AddressListFragment extends BaseFragment implements h.c, a.InterfaceC0309a, AssortView.a {
     private final CustomMessageListener bUR = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.addresslist.AddressListFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -185,7 +185,7 @@ public class AddressListFragment extends BaseFragment implements h.c, a.Interfac
         }
     }
 
-    @Override // com.baidu.tieba.addresslist.b.a.InterfaceC0314a
+    @Override // com.baidu.tieba.addresslist.b.a.InterfaceC0309a
     public void aR(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
         aQ(list);
     }

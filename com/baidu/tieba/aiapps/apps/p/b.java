@@ -32,12 +32,12 @@ public class b {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.tieba.aiapps.apps.p.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static final class C0331a {
+        public static final class C0326a {
             private static final a dsf = new a();
         }
 
         public static a aIq() {
-            return C0331a.dsf;
+            return C0326a.dsf;
         }
     }
 
@@ -76,10 +76,10 @@ public class b {
 
     /* renamed from: com.baidu.tieba.aiapps.apps.p.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static abstract class AbstractC0332b extends ProviderDelegation {
+    private static abstract class AbstractC0327b extends ProviderDelegation {
         protected abstract Bundle a(e eVar);
 
-        private AbstractC0332b() {
+        private AbstractC0327b() {
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
@@ -93,12 +93,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    public static class d extends AbstractC0332b {
+    public static class d extends AbstractC0327b {
         private d() {
             super();
         }
 
-        @Override // com.baidu.tieba.aiapps.apps.p.b.AbstractC0332b
+        @Override // com.baidu.tieba.aiapps.apps.p.b.AbstractC0327b
         protected Bundle a(e eVar) {
             switch (eVar.bpJ) {
                 case 1:
@@ -111,12 +111,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    public static class c extends AbstractC0332b {
+    public static class c extends AbstractC0327b {
         private c() {
             super();
         }
 
-        @Override // com.baidu.tieba.aiapps.apps.p.b.AbstractC0332b
+        @Override // com.baidu.tieba.aiapps.apps.p.b.AbstractC0327b
         protected Bundle a(e eVar) {
             Bundle bundle = new Bundle();
             switch (eVar.bpJ) {

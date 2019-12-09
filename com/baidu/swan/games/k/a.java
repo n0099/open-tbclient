@@ -16,8 +16,8 @@ public class a {
     private com.baidu.swan.games.k.b.a bBo;
     private b bxW;
     private com.baidu.swan.games.e.b bxv;
-    private InterfaceC0247a bBp = new InterfaceC0247a() { // from class: com.baidu.swan.games.k.a.1
-        @Override // com.baidu.swan.games.k.a.InterfaceC0247a
+    private InterfaceC0242a bBp = new InterfaceC0242a() { // from class: com.baidu.swan.games.k.a.1
+        @Override // com.baidu.swan.games.k.a.InterfaceC0242a
         public void fU(int i) {
             com.baidu.swan.games.k.b.b bVar = new com.baidu.swan.games.k.b.b();
             bVar.errMsg = "showKeyboard:ok";
@@ -25,26 +25,26 @@ public class a {
             com.baidu.swan.games.utils.a.a(a.this.bBi, true, bVar);
         }
 
-        @Override // com.baidu.swan.games.k.a.InterfaceC0247a
+        @Override // com.baidu.swan.games.k.a.InterfaceC0242a
         public void Xq() {
             a.this.hideKeyboard();
         }
 
-        @Override // com.baidu.swan.games.k.a.InterfaceC0247a
+        @Override // com.baidu.swan.games.k.a.InterfaceC0242a
         public void kj(String str) {
             if (a.this.bxW != null) {
                 a.this.bxW.km(str);
             }
         }
 
-        @Override // com.baidu.swan.games.k.a.InterfaceC0247a
+        @Override // com.baidu.swan.games.k.a.InterfaceC0242a
         public void kk(String str) {
             if (a.this.bxW != null) {
                 a.this.bxW.kn(str);
             }
         }
 
-        @Override // com.baidu.swan.games.k.a.InterfaceC0247a
+        @Override // com.baidu.swan.games.k.a.InterfaceC0242a
         public void kl(String str) {
             if (a.this.bxW != null) {
                 a.this.bxW.ko(str);
@@ -56,7 +56,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.games.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0247a {
+    public interface InterfaceC0242a {
         void Xq();
 
         void fU(int i);

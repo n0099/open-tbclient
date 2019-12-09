@@ -16,7 +16,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0291a cwM;
+    private C0286a cwM;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -34,7 +34,7 @@ public class a {
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
         if (this.cwM == null) {
-            this.cwM = new C0291a();
+            this.cwM = new C0286a();
             this.cwM.setPriority(2);
             this.cwM.eN(z);
             this.cwM.setPortrait(str);
@@ -51,7 +51,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0291a extends BdAsyncTask<Integer, Integer, String> {
+    public class C0286a extends BdAsyncTask<Integer, Integer, String> {
         private String authSid;
         private String forumId;
         private String from;
@@ -65,7 +65,7 @@ public class a {
         private String toUid;
         private AuthTokenData tokenData;
 
-        private C0291a() {
+        private C0286a() {
             this.mNetwork = null;
             this.isGod = false;
             this.from = "0";
@@ -146,7 +146,7 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0291a) str);
+            super.onPostExecute((C0286a) str);
             a.this.cwM = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();

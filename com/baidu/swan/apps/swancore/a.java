@@ -24,12 +24,12 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.swancore.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0225a {
+    private static class C0220a {
         private static final a bpO = new a();
     }
 
     public static a SU() {
-        return C0225a.bpO;
+        return C0220a.bpO;
     }
 
     public static String eM(int i) {

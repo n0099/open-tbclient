@@ -74,7 +74,7 @@ public class a {
         if (!cdl() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost()) || uri.toString().contains("127.0.0.1") || !uri.toString().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
             return false;
         }
-        com.baidu.tieba.play.b.b.ccU().a(new C0496a(this.mHandler, this.iAp, i, uri, gVar, i2, i3, i4));
+        com.baidu.tieba.play.b.b.ccU().a(new C0491a(this.mHandler, this.iAp, i, uri, gVar, i2, i3, i4));
         return com.baidu.tieba.play.b.b.ccU().BU(uri.getHost());
     }
 
@@ -85,7 +85,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.play.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0496a implements b.InterfaceC0495b {
+    public static class C0491a implements b.InterfaceC0490b {
         private int dNf;
         private c iAp;
         private g iAs;
@@ -95,7 +95,7 @@ public class a {
         private Uri mUri;
         private int what;
 
-        public C0496a(Handler handler, c cVar, int i, Uri uri, g gVar, int i2, int i3, int i4) {
+        public C0491a(Handler handler, c cVar, int i, Uri uri, g gVar, int i2, int i3, int i4) {
             this.mHandler = handler;
             this.iAp = cVar;
             this.mUri = uri;
@@ -106,7 +106,7 @@ public class a {
             this.dNf = i4;
         }
 
-        @Override // com.baidu.tieba.play.b.b.InterfaceC0495b
+        @Override // com.baidu.tieba.play.b.b.InterfaceC0490b
         public void dG(String str, String str2) {
             try {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || this.mUri == null || !str2.equals(this.mUri.getHost())) {
@@ -132,9 +132,8 @@ public class a {
         return z;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class b implements Runnable {
+    private static class b implements Runnable {
         private final int dNf;
         private c iAp;
         private final g iAs;

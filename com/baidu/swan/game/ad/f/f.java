@@ -10,7 +10,7 @@ import com.baidu.swan.apps.an.z;
 import com.baidu.swan.game.ad.b.a;
 import com.baidu.swan.game.ad.c.b;
 /* loaded from: classes2.dex */
-public class f implements a.InterfaceC0240a {
+public class f implements a.InterfaceC0235a {
     public String a;
     private i bwJ;
     public g bwK;
@@ -103,14 +103,14 @@ public class f implements a.InterfaceC0240a {
         });
     }
 
-    @Override // com.baidu.swan.game.ad.b.a.InterfaceC0240a
+    @Override // com.baidu.swan.game.ad.b.a.InterfaceC0235a
     public void a(com.baidu.swan.game.ad.a.a aVar) {
         this.bwM = aVar;
         c();
         com.baidu.swan.games.view.a.b.br("banner", "success");
     }
 
-    @Override // com.baidu.swan.game.ad.b.a.InterfaceC0240a
+    @Override // com.baidu.swan.game.ad.b.a.InterfaceC0235a
     public void a(String str) {
         if (this.bwJ != null) {
             this.bwJ.a(str);

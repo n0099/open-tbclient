@@ -46,8 +46,8 @@ public class SwanAppAbTestStatic {
                             com.baidu.tbadk.core.util.c.a aVar = new com.baidu.tbadk.core.util.c.a();
                             aVar.clearRequestPermissionList();
                             aVar.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                            aVar.a(new a.InterfaceC0284a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1.1
-                                @Override // com.baidu.tbadk.core.util.c.a.InterfaceC0284a
+                            aVar.a(new a.InterfaceC0279a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1.1
+                                @Override // com.baidu.tbadk.core.util.c.a.InterfaceC0279a
                                 public void onPermissionsGranted() {
                                     Uri parse = Uri.parse((String) customMessage.getData());
                                     SwanAppAbTestStatic.o(parse);

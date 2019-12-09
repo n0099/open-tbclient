@@ -46,7 +46,7 @@ public class a {
     public static volatile long gPq = 0;
     private a.c gPt;
     private VoiceSendModel gPu;
-    private WeakReference<a.InterfaceC0297a<ChatMessage>> gPv;
+    private WeakReference<a.InterfaceC0292a<ChatMessage>> gPv;
     private d mSendCallback;
     private final LinkedList<ChatMessage> gPr = new LinkedList<>();
     private final HashMap<String, com.baidu.tbadk.img.a<ChatMessage>> gPs = new HashMap<>();
@@ -608,7 +608,7 @@ public class a {
         }
     }
 
-    public void setImageUploadUIProgressCallback(a.InterfaceC0297a<ChatMessage> interfaceC0297a) {
-        this.gPv = new WeakReference<>(interfaceC0297a);
+    public void setImageUploadUIProgressCallback(a.InterfaceC0292a<ChatMessage> interfaceC0292a) {
+        this.gPv = new WeakReference<>(interfaceC0292a);
     }
 }

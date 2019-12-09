@@ -17,7 +17,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.video.editvideo.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0528a {
+    public interface InterfaceC0523a {
         void EH(String str);
 
         void csK();
@@ -72,7 +72,7 @@ public class a {
         }
     }
 
-    public void a(String str, final String str2, final InterfaceC0528a interfaceC0528a) {
+    public void a(String str, final String str2, final InterfaceC0523a interfaceC0523a) {
         String nameMd5FromUrl;
         if (!TextUtils.isEmpty(str2) && (nameMd5FromUrl = as.getNameMd5FromUrl(str2)) != null) {
             if (this.jyG != null) {
@@ -102,8 +102,8 @@ public class a {
                         if (a.this.jyG != null && downloadData2.getUrl().equals(a.this.jyG.getUrl())) {
                             a.this.jyG = null;
                         }
-                        if (interfaceC0528a != null) {
-                            interfaceC0528a.csK();
+                        if (interfaceC0523a != null) {
+                            interfaceC0523a.csK();
                         }
                     }
                 }
@@ -124,9 +124,9 @@ public class a {
                         if (a.this.jyG != null && downloadData2.getUrl().equals(a.this.jyG.getUrl())) {
                             a.this.jyG = null;
                         }
-                        if (interfaceC0528a != null) {
+                        if (interfaceC0523a != null) {
                             a.this.jyF.put(downloadData2.getPath().substring(c.jwb.length(), downloadData2.getPath().lastIndexOf(DefaultConfig.TOKEN_SEPARATOR)), downloadData2.getPath());
-                            interfaceC0528a.ef(str2, downloadData2.getPath());
+                            interfaceC0523a.ef(str2, downloadData2.getPath());
                         }
                     }
                 }
@@ -140,8 +140,8 @@ public class a {
                     if (a.this.jyG != null && downloadData2.getUrl().equals(a.this.jyG.getUrl())) {
                         a.this.jyG = null;
                     }
-                    if (interfaceC0528a != null) {
-                        interfaceC0528a.EH(str3);
+                    if (interfaceC0523a != null) {
+                        interfaceC0523a.EH(str3);
                     }
                 }
             });

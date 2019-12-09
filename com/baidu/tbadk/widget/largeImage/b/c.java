@@ -16,7 +16,7 @@ public class c {
     private static final String TAG = c.class.getSimpleName();
     private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> cIv;
     private final com.baidu.tbadk.widget.largeImage.a.b cSA;
-    private com.baidu.adp.lib.e.a<a.C0304a, com.baidu.tbadk.widget.largeImage.a.a> cSI;
+    private com.baidu.adp.lib.e.a<a.C0299a, com.baidu.tbadk.widget.largeImage.a.a> cSI;
     private final BitmapRegionDecoder mDecoder;
     private final List<BdAsyncTask> taskList = new LinkedList();
 
@@ -43,12 +43,12 @@ public class c {
         this.cSA = bVar;
         this.mDecoder = bitmapRegionDecoder;
         com.baidu.tbadk.imageManager.c.avs().setPicMaxSize((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
-        this.cSI = new com.baidu.adp.lib.e.a<a.C0304a, com.baidu.tbadk.widget.largeImage.a.a>((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f)) { // from class: com.baidu.tbadk.widget.largeImage.b.c.1
+        this.cSI = new com.baidu.adp.lib.e.a<a.C0299a, com.baidu.tbadk.widget.largeImage.a.a>((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f)) { // from class: com.baidu.tbadk.widget.largeImage.b.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.a
             /* renamed from: a */
-            public int sizeOf(a.C0304a c0304a, com.baidu.tbadk.widget.largeImage.a.a aVar) {
+            public int sizeOf(a.C0299a c0299a, com.baidu.tbadk.widget.largeImage.a.a aVar) {
                 if (aVar == null) {
                     return 0;
                 }
@@ -59,7 +59,7 @@ public class c {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.a
             /* renamed from: a */
-            public void entryRemoved(boolean z, a.C0304a c0304a, com.baidu.tbadk.widget.largeImage.a.a aVar, com.baidu.tbadk.widget.largeImage.a.a aVar2) {
+            public void entryRemoved(boolean z, a.C0299a c0299a, com.baidu.tbadk.widget.largeImage.a.a aVar, com.baidu.tbadk.widget.largeImage.a.a aVar2) {
                 if (z && c.this.cIv != null && aVar != null) {
                     aVar.clearBitmap();
                     c.this.cIv.returnObject(aVar);
@@ -79,7 +79,7 @@ public class c {
         this.taskList.add(aVar);
     }
 
-    public com.baidu.adp.lib.e.a<a.C0304a, com.baidu.tbadk.widget.largeImage.a.a> ayK() {
+    public com.baidu.adp.lib.e.a<a.C0299a, com.baidu.tbadk.widget.largeImage.a.a> ayK() {
         return this.cSI;
     }
 
@@ -89,7 +89,7 @@ public class c {
 
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask {
-        private com.baidu.adp.lib.e.a<a.C0304a, com.baidu.tbadk.widget.largeImage.a.a> cSI;
+        private com.baidu.adp.lib.e.a<a.C0299a, com.baidu.tbadk.widget.largeImage.a.a> cSI;
         private com.baidu.tbadk.widget.largeImage.a.b cSK;
         private com.baidu.tbadk.widget.largeImage.logic.a cSL;
         private c cSM;
@@ -151,7 +151,7 @@ public class c {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void a(c cVar, com.baidu.tbadk.widget.largeImage.a.b bVar, BitmapRegionDecoder bitmapRegionDecoder, com.baidu.adp.lib.e.a<a.C0304a, com.baidu.tbadk.widget.largeImage.a.a> aVar) {
+        public void a(c cVar, com.baidu.tbadk.widget.largeImage.a.b bVar, BitmapRegionDecoder bitmapRegionDecoder, com.baidu.adp.lib.e.a<a.C0299a, com.baidu.tbadk.widget.largeImage.a.a> aVar) {
             this.cSK = bVar;
             this.mDecoder = bitmapRegionDecoder;
             this.cSI = aVar;

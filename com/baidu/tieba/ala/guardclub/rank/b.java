@@ -16,7 +16,7 @@ public class b implements c {
     private boolean dOi;
     private n dOk;
     private a dOt;
-    private InterfaceC0348b dOw;
+    private InterfaceC0343b dOw;
     private l dOx;
     private int dOy;
     private Context mContext;
@@ -37,7 +37,7 @@ public class b implements c {
 
     /* renamed from: com.baidu.tieba.ala.guardclub.rank.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0348b {
+    public interface InterfaceC0343b {
         void a(BaseAdapter baseAdapter);
 
         void aLT();
@@ -59,8 +59,8 @@ public class b implements c {
         this.dOi = z;
     }
 
-    public void a(InterfaceC0348b interfaceC0348b) {
-        this.dOw = interfaceC0348b;
+    public void a(InterfaceC0343b interfaceC0343b) {
+        this.dOw = interfaceC0343b;
     }
 
     public void a(a aVar) {

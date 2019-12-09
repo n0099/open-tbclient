@@ -16,8 +16,8 @@ public class c {
     }
 
     private void a(Context context, BdTypeListView bdTypeListView) {
-        this.eRA = new d(context, a.C0396a.eRX);
-        this.eRB = new e(context, a.C0396a.eRY);
+        this.eRA = new d(context, a.C0391a.eRX);
+        this.eRB = new e(context, a.C0391a.eRY);
         this.agy.add(this.eRA);
         this.agy.add(this.eRB);
         bdTypeListView.addAdapters(this.agy);

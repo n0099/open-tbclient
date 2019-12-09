@@ -23,7 +23,7 @@ public class a {
     private d jIT;
     private b jIU;
     private boolean jIV;
-    private List<C0537a> mItems;
+    private List<C0532a> mItems;
     private String titleText;
     private View view;
 
@@ -70,7 +70,7 @@ public class a {
         return this.jIT;
     }
 
-    public void at(List<C0537a> list) {
+    public void at(List<C0532a> list) {
         if (list != null) {
             this.mItems = list;
             this.cfa.removeAllViews();
@@ -78,9 +78,9 @@ public class a {
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
-                    C0537a c0537a = list.get(i2);
-                    if (c0537a != null) {
-                        this.cfa.addView(c0537a.getView());
+                    C0532a c0532a = list.get(i2);
+                    if (c0532a != null) {
+                        this.cfa.addView(c0532a.getView());
                     }
                     i = i2 + 1;
                 } else {
@@ -102,8 +102,8 @@ public class a {
         am.setBackgroundResource(this.cfc, R.drawable.bg_bottom_up_list_dialog_item);
         am.setViewTextColor(this.cfc, (int) R.color.cp_cont_j);
         if (this.mItems != null) {
-            for (C0537a c0537a : this.mItems) {
-                c0537a.onChangeSkinType();
+            for (C0532a c0532a : this.mItems) {
+                c0532a.onChangeSkinType();
             }
         }
         if (this.jIV) {
@@ -111,10 +111,10 @@ public class a {
                 float dimension = getContext().getResources().getDimension(R.dimen.tbds32);
                 ((GradientDrawable) this.bUf.getBackground()).setCornerRadii(new float[]{dimension, dimension, dimension, dimension, 0.0f, 0.0f, 0.0f, 0.0f});
             } else if (v.getCount(this.mItems) > 0) {
-                C0537a c0537a2 = this.mItems.get(0);
-                if (!c0537a2.jIZ) {
-                    c0537a2.jIZ = true;
-                    c0537a2.onChangeSkinType();
+                C0532a c0532a2 = this.mItems.get(0);
+                if (!c0532a2.jIZ) {
+                    c0532a2.jIZ = true;
+                    c0532a2.onChangeSkinType();
                 }
             }
         }
@@ -142,7 +142,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0537a {
+    public static class C0532a {
         private View ceJ;
         private int ceK;
         private int ceL;
@@ -157,11 +157,11 @@ public class a {
         public TextView mTextView;
         private View mView;
 
-        public C0537a(a aVar) {
+        public C0532a(a aVar) {
             this(null, aVar);
         }
 
-        public C0537a(String str, a aVar) {
+        public C0532a(String str, a aVar) {
             this.mTextColor = R.drawable.person_more_pop_cancel_text_selector;
             this.ceK = R.drawable.person_more_pop_item_bg_selector;
             this.ceL = 17;
@@ -169,11 +169,11 @@ public class a {
             this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0537a.this.jIY != null) {
-                        C0537a.this.jIY.onClick();
+                    if (C0532a.this.jIY != null) {
+                        C0532a.this.jIY.onClick();
                     }
-                    if (C0537a.this.jIX != null && C0537a.this.jIX.cwM() != null) {
-                        C0537a.this.jIX.cwM().m(C0537a.this.mId, view);
+                    if (C0532a.this.jIX != null && C0532a.this.jIX.cwM() != null) {
+                        C0532a.this.jIX.cwM().m(C0532a.this.mId, view);
                     }
                 }
             };

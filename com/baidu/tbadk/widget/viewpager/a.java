@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0306a daj;
+    private InterfaceC0301a daj;
     private float dak;
     private long dal;
     private long dam;
@@ -21,7 +21,7 @@ public class a {
 
     /* renamed from: com.baidu.tbadk.widget.viewpager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0306a {
+    public interface InterfaceC0301a {
         void aAK();
 
         void aAL();
@@ -91,8 +91,8 @@ public class a {
         return true;
     }
 
-    public void setEventListener(InterfaceC0306a interfaceC0306a) {
-        this.daj = interfaceC0306a;
+    public void setEventListener(InterfaceC0301a interfaceC0301a) {
+        this.daj = interfaceC0301a;
     }
 
     private void releaseVelocityTracker() {

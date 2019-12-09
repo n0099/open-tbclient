@@ -1,0 +1,45 @@
+package com.baidu.sapi2.utils;
+/* loaded from: classes2.dex */
+public interface f {
+    public static final String A = "/wp/passwordresult";
+    public static final String B = "/wp/v3/ucenter/accountbind";
+    public static final String C = "/v3/phoenix/iqiyiat";
+    public static final String D = "/static/appsapi/img/default_portrait.png";
+    public static final String E = "/phoenix/account/guidetouristnormalize";
+    public static final String F = "/v3/login/facelogincheck";
+    public static final String G = "/v3/security/sapi/faceCheck";
+    public static final String H = "/v3/security/faceloginswitchresult";
+    public static final String I = "/v3/security/sapi/faceLoginStatus";
+    public static final String J = "/v3/ucenter/sapi/checkmobilenotactivepush";
+    public static final String K = "http://openapi.baidu.com/oauth/2.0/token";
+    public static final String L = "/v3/security/sapi/appFaceCheck";
+    public static final String M = "/v3/ucenter/contacts/upload";
+    public static final String N = "/v3/ucenter/contacts/get";
+    public static final String O = "/v3/login/api/authopenbduss";
+    public static final String a = "/v2/sapi/login";
+    public static final String b = "/v2/sapi/center/getuinfo";
+    public static final String c = "/cgi-bin/genimage?";
+    public static final String d = "/phoenix/account/ssologin";
+    public static final String e = "/phoenix/account/ssologin";
+    public static final String f = "/phoenix/account/startlogin";
+    public static final String g = "/phoenix/account/afterauth";
+    public static final String h = "/phoenix/account/finishbind";
+    public static final String i = "/v2/sapi/qrlogin";
+    public static final String j = "/v2/api/getqrcode";
+    public static final String k = "/channel/unicast";
+    public static final String l = "/v2/api/bdusslogin";
+    public static final String m = "/v3/login/main/qrbdusslogin";
+    public static final String n = "/v2/sapi/center/filluname";
+    public static final String o = "10698000036592";
+    public static final String p = "/v2/sapi/getdpass";
+    public static final String q = "AES/CBC/PKCS5Padding";
+    public static final String r = "AES";
+    public static final String s = "8070605040302010";
+    public static final String t = "/static/appsapi/conf/android-conf.txt";
+    public static final String u = "/static/appsapi/conf/android-conf.txt";
+    public static final String v = "/v2/sapi/bdussexchangeaccesstoken";
+    public static final String w = "/v3/login/api/auth/";
+    public static final String x = "/v2/security/sapibindwidgetsend";
+    public static final String y = "/v2/security/sapibindwidgetbind";
+    public static final String z = "/wp/v3/ucenter/edituser";
+}

@@ -122,8 +122,8 @@ public class SwanAppLauncherActivity extends Activity implements b.a {
             String be = com.baidu.swan.apps.u.a.Jo().be(context);
             final WeakReference weakReference = new WeakReference(context);
             bVar.ar("extra_data_uid_key", be);
-            com.baidu.swan.apps.process.a.Og().b(new a.InterfaceC0199a() { // from class: com.baidu.swan.apps.SwanAppLauncherActivity.2
-                @Override // com.baidu.swan.apps.process.a.InterfaceC0199a
+            com.baidu.swan.apps.process.a.Og().b(new a.InterfaceC0194a() { // from class: com.baidu.swan.apps.SwanAppLauncherActivity.2
+                @Override // com.baidu.swan.apps.process.a.InterfaceC0194a
                 public void onReady() {
                     Context context2 = (Context) weakReference.get();
                     if (context2 != null && !SwanAppLauncherActivity.aG(context2)) {

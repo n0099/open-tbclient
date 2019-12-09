@@ -7,12 +7,12 @@ import com.baidu.tieba.ala.liveroom.turntable.a;
 import com.baidu.tieba.ala.liveroom.turntable.lucky.TurnTableLuckyMomentsResponseMessage;
 /* loaded from: classes6.dex */
 public class c implements a {
-    private a.InterfaceC0371a eoh;
+    private a.InterfaceC0366a eoh;
     private HttpMessageListener eoi;
 
     @Override // com.baidu.tieba.ala.liveroom.turntable.a
-    public void a(a.InterfaceC0371a interfaceC0371a) {
-        this.eoh = interfaceC0371a;
+    public void a(a.InterfaceC0366a interfaceC0366a) {
+        this.eoh = interfaceC0366a;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.turntable.a

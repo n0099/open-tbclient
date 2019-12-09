@@ -14,7 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private InterfaceC0379a euN;
+    private InterfaceC0374a euN;
     private b euO;
     private c euP;
     private c euQ;
@@ -22,7 +22,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.person.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0379a {
+    public interface InterfaceC0374a {
         void a(com.baidu.tieba.ala.person.a.d dVar);
 
         void b(PersonUserData personUserData);
@@ -93,8 +93,8 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0379a interfaceC0379a) {
-        this.euN = interfaceC0379a;
+    public void a(InterfaceC0374a interfaceC0374a) {
+        this.euN = interfaceC0374a;
     }
 
     /* loaded from: classes6.dex */

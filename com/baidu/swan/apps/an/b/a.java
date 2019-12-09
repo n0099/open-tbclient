@@ -66,7 +66,7 @@ public class a {
         synchronized (this) {
             je("start");
             long currentTimeMillis = System.currentTimeMillis();
-            List<RunnableC0161a> UG = UG();
+            List<RunnableC0156a> UG = UG();
             CountDownLatch countDownLatch = new CountDownLatch(UG.size());
             ExecutorService a = a(UG, countDownLatch);
             a(readableByteChannel, UG);
@@ -91,7 +91,7 @@ public class a {
         }
     }
 
-    private List<RunnableC0161a> UG() {
+    private List<RunnableC0156a> UG() {
         final ArrayList arrayList = new ArrayList();
         a((Set) this.bta, (com.baidu.swan.apps.an.d.a) new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.an.d.a<Pipe.SourceChannel>>() { // from class: com.baidu.swan.apps.an.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -99,7 +99,7 @@ public class a {
             /* renamed from: k */
             public void B(com.baidu.swan.apps.an.d.a<Pipe.SourceChannel> aVar) {
                 try {
-                    arrayList.add(new RunnableC0161a(aVar));
+                    arrayList.add(new RunnableC0156a(aVar));
                 } catch (IOException e) {
                 }
             }
@@ -108,39 +108,39 @@ public class a {
     }
 
     @NonNull
-    private ExecutorService a(@NonNull List<RunnableC0161a> list, @NonNull final CountDownLatch countDownLatch) {
+    private ExecutorService a(@NonNull List<RunnableC0156a> list, @NonNull final CountDownLatch countDownLatch) {
         if (this.btb == null || this.btb.isShutdown() || this.btb.isTerminated()) {
             this.btb = null;
         }
         final ExecutorService newCachedThreadPool = this.btb == null ? Executors.newCachedThreadPool() : this.btb;
-        a(list, new com.baidu.swan.apps.an.d.a<RunnableC0161a>() { // from class: com.baidu.swan.apps.an.b.a.2
+        a(list, new com.baidu.swan.apps.an.d.a<RunnableC0156a>() { // from class: com.baidu.swan.apps.an.b.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: a */
-            public void B(RunnableC0161a runnableC0161a) {
-                runnableC0161a.a(countDownLatch);
-                newCachedThreadPool.submit(runnableC0161a);
+            public void B(RunnableC0156a runnableC0156a) {
+                runnableC0156a.a(countDownLatch);
+                newCachedThreadPool.submit(runnableC0156a);
             }
         });
         return newCachedThreadPool;
     }
 
-    private void a(@NonNull ReadableByteChannel readableByteChannel, @NonNull List<RunnableC0161a> list) {
+    private void a(@NonNull ReadableByteChannel readableByteChannel, @NonNull List<RunnableC0156a> list) {
         int i = 0;
         try {
             final ByteBuffer allocate = ByteBuffer.allocate(this.btc);
             while (readableByteChannel.read(allocate) != -1) {
                 i++;
                 allocate.flip();
-                a(list, new com.baidu.swan.apps.an.d.a<RunnableC0161a>() { // from class: com.baidu.swan.apps.an.b.a.3
+                a(list, new com.baidu.swan.apps.an.d.a<RunnableC0156a>() { // from class: com.baidu.swan.apps.an.b.a.3
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: a */
-                    public void B(RunnableC0161a runnableC0161a) {
+                    public void B(RunnableC0156a runnableC0156a) {
                         try {
-                            if (runnableC0161a.btm.isOpen() && runnableC0161a.btl.isOpen()) {
+                            if (runnableC0156a.btm.isOpen() && runnableC0156a.btl.isOpen()) {
                                 allocate.rewind();
-                                runnableC0161a.btm.write(allocate);
+                                runnableC0156a.btm.write(allocate);
                             }
                         } catch (IOException e) {
                         }
@@ -152,12 +152,12 @@ public class a {
         } catch (IOException e) {
         } finally {
             a(readableByteChannel, "connected source");
-            a(list, new com.baidu.swan.apps.an.d.a<RunnableC0161a>() { // from class: com.baidu.swan.apps.an.b.a.4
+            a(list, new com.baidu.swan.apps.an.d.a<RunnableC0156a>() { // from class: com.baidu.swan.apps.an.b.a.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: a */
-                public void B(RunnableC0161a runnableC0161a) {
-                    a.a(runnableC0161a.btm, runnableC0161a.toString() + " by[PumpingFinish]");
+                public void B(RunnableC0156a runnableC0156a) {
+                    a.a(runnableC0156a.btm, runnableC0156a.toString() + " by[PumpingFinish]");
                 }
             });
         }
@@ -201,7 +201,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.an.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0161a implements Runnable {
+    public class RunnableC0156a implements Runnable {
         private final com.baidu.swan.apps.an.d.a<Pipe.SourceChannel> btj;
         private CountDownLatch btn;
         private String bto;
@@ -209,7 +209,7 @@ public class a {
         private final Pipe.SinkChannel btm = this.btk.sink();
         private final Pipe.SourceChannel btl = this.btk.source();
 
-        RunnableC0161a(com.baidu.swan.apps.an.d.a<Pipe.SourceChannel> aVar) throws IOException {
+        RunnableC0156a(com.baidu.swan.apps.an.d.a<Pipe.SourceChannel> aVar) throws IOException {
             this.btj = aVar;
         }
 

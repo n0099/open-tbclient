@@ -25,7 +25,7 @@ import com.baidu.tieba.advert.sdk.widget.CountDownTextView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
 public class a {
-    private C0318a dkp = null;
+    private C0313a dkp = null;
     private String dkq = null;
     private WeakReference<SplashAdView> dkr;
 
@@ -112,7 +112,7 @@ public class a {
                 int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.ds106);
                 int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.ds52);
                 CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
-                this.dkp = new C0318a(countDownTextView);
+                this.dkp = new C0313a(countDownTextView);
                 String str = this.dkq;
                 if (TextUtils.isEmpty(str)) {
                     str = pageActivity.getResources().getString(R.string.skip);
@@ -185,10 +185,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.advert.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0318a {
+    public static class C0313a {
         private final WeakReference<CountDownTextView> dku;
 
-        private C0318a(CountDownTextView countDownTextView) {
+        private C0313a(CountDownTextView countDownTextView) {
             this.dku = new WeakReference<>(countDownTextView);
         }
 

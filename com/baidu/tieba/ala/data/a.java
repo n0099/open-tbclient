@@ -5,14 +5,14 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    public C0342a dFW;
+    public C0337a dFW;
     public b dFX;
     public b dFY;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (jSONObject.optJSONObject("pk_info") != null) {
-                this.dFW = new C0342a();
+                this.dFW = new C0337a();
                 this.dFW.parseJson(jSONObject.optJSONObject("pk_info"));
             }
             if (jSONObject.optJSONObject("user_info") != null) {
@@ -28,7 +28,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.data.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0342a {
+    public class C0337a {
         public String dFZ;
         public String dGa;
         public String dGb;
@@ -37,7 +37,7 @@ public class a {
         public String dGe;
         public String dGf;
 
-        public C0342a() {
+        public C0337a() {
         }
 
         public void parseJson(JSONObject jSONObject) {

@@ -15,20 +15,20 @@ import java.util.Arrays;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static C0227a d(String str, String str2, String str3, int i) {
+    public static C0222a d(String str, String str2, String str3, int i) {
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate start.");
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate version: " + str + " ,filePath: " + str2 + " ,sign:" + str3);
         }
         long iu = com.baidu.swan.apps.swancore.b.iu(str);
         if (iu == 0) {
-            return C0227a.iw("invalid version code : " + str);
+            return C0222a.iw("invalid version code : " + str);
         }
         if (!w.b(new File(str2), str3)) {
-            return C0227a.iw("sign failed.");
+            return C0222a.iw("sign failed.");
         }
         if (!com.baidu.swan.c.a.bz(str2, g(iu, i).getPath())) {
-            return C0227a.iw("unzip bundle failed.");
+            return C0222a.iw("unzip bundle failed.");
         }
         if (DEBUG) {
             String b = com.baidu.swan.c.b.b(new File(str2), false);
@@ -41,7 +41,7 @@ public class a {
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + iu);
         }
-        return C0227a.Tf();
+        return C0222a.Tf();
     }
 
     private static ArrayList<Long> j(long j, long j2) {
@@ -99,7 +99,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.swancore.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0227a {
+    public static class C0222a {
         public String message;
         public int statusCode = 0;
 
@@ -107,19 +107,19 @@ public class a {
             return this.statusCode == 0;
         }
 
-        public static C0227a Tf() {
+        public static C0222a Tf() {
             return u(0, "");
         }
 
-        public static C0227a iw(String str) {
+        public static C0222a iw(String str) {
             return u(1, str);
         }
 
-        public static C0227a u(int i, String str) {
-            C0227a c0227a = new C0227a();
-            c0227a.statusCode = i;
-            c0227a.message = str;
-            return c0227a;
+        public static C0222a u(int i, String str) {
+            C0222a c0222a = new C0222a();
+            c0222a.statusCode = i;
+            c0222a.message = str;
+            return c0222a;
         }
 
         public String toString() {

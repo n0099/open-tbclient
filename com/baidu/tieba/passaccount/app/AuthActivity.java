@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.d.a.a;
@@ -13,10 +14,10 @@ import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.Log;
-import com.baidu.sapi2.utils.SapiHost;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
+import com.baidu.sapi2.utils.h;
 import com.baidu.tbadk.coreExtra.data.AuthVerifyData;
 import com.baidu.tieba.passaccount.a.b;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
@@ -34,7 +35,7 @@ public class AuthActivity extends BaseActivity {
     private int type;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
@@ -78,6 +79,10 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
+    public String getHost(String str) {
+        return new String(Base64.decode(str.getBytes(), 0));
+    }
+
     private String bPd() {
         ArrayList arrayList = new ArrayList();
         try {
@@ -86,7 +91,7 @@ public class AuthActivity extends BaseActivity {
             arrayList.add(new PassNameValuePair("isnew", "true"));
             arrayList.add(new PassNameValuePair("token", URLEncoder.encode(this.authToken, HTTP.UTF_8)));
             arrayList.add(new PassNameValuePair(TableDefine.PaSubscribeColumns.COLUMN_TPL, URLEncoder.encode(this.tpl, HTTP.UTF_8)));
-            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=auth-widget", HTTP.UTF_8)));
+            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(h.s) + "?__wp-action=auth-widget", HTTP.UTF_8)));
         } catch (UnsupportedEncodingException e) {
             Log.e(e);
         }
@@ -96,7 +101,7 @@ public class AuthActivity extends BaseActivity {
     private String bPe() {
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd", HTTP.UTF_8)));
+            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(h.s) + "?__wp-action=modify-pwd", HTTP.UTF_8)));
             arrayList.add(new PassNameValuePair("adapter", "3"));
             arrayList.add(new PassNameValuePair("banner", "1"));
             arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));

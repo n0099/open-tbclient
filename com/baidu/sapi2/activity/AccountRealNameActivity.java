@@ -19,12 +19,106 @@ public class AccountRealNameActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public static final String EXTRA_NEED_CB_KEY = "EXTRA_NEED_CB_KEY";
     public static final String EXTRA_SCENE = "EXTRA_SCENE";
-    private String bduss;
-    private boolean needCbKey;
-    private AccountRealNameResult realNameResult = new AccountRealNameResult();
-    private String sence;
+    private String r;
+    private String s;
+    private boolean t;
+    private AccountRealNameResult u = new AccountRealNameResult();
 
-    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
+    private void e() {
+        SapiWebView sapiWebView = this.sapiWebView;
+        if (sapiWebView != null && sapiWebView.canGoBack()) {
+            this.sapiWebView.back();
+        } else {
+            onClose();
+        }
+    }
+
+    private void f() {
+        if (!TextUtils.isEmpty(this.r)) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("pp");
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.activity.AccountRealNameActivity.4
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onFinish() {
+                }
+
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onStart() {
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onFailure(GetTplStokenResult getTplStokenResult) {
+                    AccountRealNameActivity accountRealNameActivity = AccountRealNameActivity.this;
+                    SapiWebView sapiWebView = accountRealNameActivity.sapiWebView;
+                    if (sapiWebView != null) {
+                        sapiWebView.loadAccountRealName(null, accountRealNameActivity.s, AccountRealNameActivity.this.t);
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onSuccess(GetTplStokenResult getTplStokenResult) {
+                    if (AccountRealNameActivity.this.sapiWebView == null) {
+                        return;
+                    }
+                    AccountRealNameActivity accountRealNameActivity = AccountRealNameActivity.this;
+                    accountRealNameActivity.sapiWebView.loadAccountRealName(getTplStokenResult.tplStokenMap.get("pp"), accountRealNameActivity.s, AccountRealNameActivity.this.t);
+                }
+            }, this.r, arrayList);
+            return;
+        }
+        Toast.makeText(this, getString(a.g.sapi_sdk_account_center_please_relogin), 1).show();
+        finishActivity();
+    }
+
+    private void finishActivity() {
+        if (PassportSDK.getInstance().getAccountRealNameCallback() != null) {
+            PassportSDK.getInstance().getAccountRealNameCallback().onFinish();
+            PassportSDK.getInstance().getAccountRealNameCallback().onFinish(this.u);
+        }
+        finish();
+        PassportSDK.getInstance().release();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public SapiWebDTO getWebDTO() {
+        return PassportSDK.getInstance().getRealNameDTO();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void init() {
+        super.init();
+        this.r = getIntent().getStringExtra("EXTRA_BDUSS");
+        this.s = getIntent().getStringExtra(EXTRA_SCENE);
+        this.t = getIntent().getBooleanExtra(EXTRA_NEED_CB_KEY, false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        e();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onClose() {
+        super.onClose();
+        AccountRealNameResult accountRealNameResult = this.u;
+        if (!accountRealNameResult.juniorRealNameSuc && !accountRealNameResult.seniorRealNameSuc) {
+            accountRealNameResult.setResultCode(-301);
+            this.u.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+        } else {
+            this.u.setResultCode(0);
+            this.u.setResultMsg("成功");
+        }
+        finishActivity();
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
@@ -33,19 +127,20 @@ public class AccountRealNameActivity extends BaseActivity {
             setupViews();
         } catch (Throwable th) {
             reportWebviewError(th);
-            this.realNameResult.setResultCode(-202);
-            this.realNameResult.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
+            this.u.setResultCode(-202);
+            this.u.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
             finishActivity();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void init() {
-        super.init();
-        this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
-        this.sence = getIntent().getStringExtra(EXTRA_SCENE);
-        this.needCbKey = getIntent().getBooleanExtra(EXTRA_NEED_CB_KEY, false);
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        super.onLeftBtnClick();
+        if (!this.executeSubClassMethod) {
+            return;
+        }
+        e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -56,7 +151,8 @@ public class AccountRealNameActivity extends BaseActivity {
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.AccountRealNameActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
-                if (AccountRealNameActivity.this.sapiWebView != null && AccountRealNameActivity.this.sapiWebView.canGoBack()) {
+                SapiWebView sapiWebView = AccountRealNameActivity.this.sapiWebView;
+                if (sapiWebView != null && sapiWebView.canGoBack()) {
                     AccountRealNameActivity.this.sapiWebView.goBack();
                     return false;
                 }
@@ -73,97 +169,9 @@ public class AccountRealNameActivity extends BaseActivity {
         this.sapiWebView.setRealNameStateCallback(new SapiJsCallBacks.RealNameStatusCallback() { // from class: com.baidu.sapi2.activity.AccountRealNameActivity.3
             @Override // com.baidu.sapi2.SapiJsCallBacks.RealNameStatusCallback
             public void onFinish(AccountRealNameResult accountRealNameResult) {
-                AccountRealNameActivity.this.realNameResult = accountRealNameResult;
+                AccountRealNameActivity.this.u = accountRealNameResult;
             }
         });
-        loadAccountRealName();
-    }
-
-    private void loadAccountRealName() {
-        if (!TextUtils.isEmpty(this.bduss)) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("pp");
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.activity.AccountRealNameActivity.4
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onSuccess(GetTplStokenResult getTplStokenResult) {
-                    if (AccountRealNameActivity.this.sapiWebView != null) {
-                        AccountRealNameActivity.this.sapiWebView.loadAccountRealName(getTplStokenResult.tplStokenMap.get("pp"), AccountRealNameActivity.this.sence, AccountRealNameActivity.this.needCbKey);
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFailure(GetTplStokenResult getTplStokenResult) {
-                    if (AccountRealNameActivity.this.sapiWebView != null) {
-                        AccountRealNameActivity.this.sapiWebView.loadAccountRealName(null, AccountRealNameActivity.this.sence, AccountRealNameActivity.this.needCbKey);
-                    }
-                }
-
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onStart() {
-                }
-
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFinish() {
-                }
-            }, this.bduss, arrayList);
-            return;
-        }
-        Toast.makeText(this, getString(a.g.sapi_sdk_account_center_please_relogin), 1).show();
-        finishActivity();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        super.onLeftBtnClick();
-        if (this.executeSubClassMethod) {
-            goBack();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        super.onBottomBackBtnClick();
-        goBack();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onClose() {
-        super.onClose();
-        if (this.realNameResult.juniorRealNameSuc || this.realNameResult.seniorRealNameSuc) {
-            this.realNameResult.setResultCode(0);
-            this.realNameResult.setResultMsg("成功");
-        } else {
-            this.realNameResult.setResultCode(-301);
-            this.realNameResult.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
-        }
-        finishActivity();
-    }
-
-    private void goBack() {
-        if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
-            this.sapiWebView.back();
-        } else {
-            onClose();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public SapiWebDTO getWebDTO() {
-        return PassportSDK.getInstance().getRealNameDTO();
-    }
-
-    private void finishActivity() {
-        if (PassportSDK.getInstance().getAccountRealNameCallback() != null) {
-            PassportSDK.getInstance().getAccountRealNameCallback().onFinish();
-            PassportSDK.getInstance().getAccountRealNameCallback().onFinish(this.realNameResult);
-        }
-        finish();
-        PassportSDK.getInstance().release();
+        f();
     }
 }

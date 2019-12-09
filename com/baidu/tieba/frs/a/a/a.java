@@ -14,7 +14,7 @@ import com.baidu.tieba.card.data.n;
 import com.baidu.tieba.card.p;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes4.dex */
-public class a extends h<n, C0410a> {
+public class a extends h<n, C0405a> {
     private boolean fFs;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
@@ -26,34 +26,34 @@ public class a extends h<n, C0410a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aT */
-    public C0410a b(ViewGroup viewGroup) {
+    public C0405a b(ViewGroup viewGroup) {
         p pVar = new p(this.mPageContext);
         pVar.setStatKey(null, TbadkCoreStatisticKey.FRS_HOT_TOPIC_ITEM_CLICK);
-        return new C0410a(pVar);
+        return new C0405a(pVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, n nVar, C0410a c0410a) {
+    public View a(int i, View view, ViewGroup viewGroup, n nVar, C0405a c0405a) {
         TiebaStatic.log(new an(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW));
         if (nVar != null) {
             nVar.locate = i + 1;
-            c0410a.fFt.oL(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
-            c0410a.fFt.showBottomLine(this.fFs);
-            c0410a.fFt.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+            c0405a.fFt.oL(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
+            c0405a.fFt.showBottomLine(this.fFs);
+            c0405a.fFt.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
-        c0410a.fFt.a(nVar);
-        return c0410a.getView();
+        c0405a.fFt.a(nVar);
+        return c0405a.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.frs.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0410a extends v.a {
+    public class C0405a extends v.a {
         public p fFt;
 
-        public C0410a(p pVar) {
+        public C0405a(p pVar) {
             super(pVar.getView());
             this.fFt = pVar;
         }

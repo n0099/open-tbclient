@@ -66,7 +66,7 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
     private PersonUserData evU;
     private boolean evV;
     private boolean evW;
-    private a.InterfaceC0376a evX;
+    private a.InterfaceC0371a evX;
     private a evY;
     private Animation evZ;
     protected final PersonCardActivity evy;
@@ -151,16 +151,16 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
         this.evz.setOnClickListener(this);
         this.evL.setOnClickListener(this);
         this.evJ.setOnClickListener(this);
-        a(new a.InterfaceC0376a() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.4
-            @Override // com.baidu.tieba.ala.person.a.InterfaceC0376a
+        a(new a.InterfaceC0371a() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.4
+            @Override // com.baidu.tieba.ala.person.a.InterfaceC0371a
             public void aXn() {
                 PersonCardViewNew.this.evy.aXj();
             }
         });
     }
 
-    public void a(a.InterfaceC0376a interfaceC0376a) {
-        this.evX = interfaceC0376a;
+    public void a(a.InterfaceC0371a interfaceC0371a) {
+        this.evX = interfaceC0371a;
     }
 
     public void a(PersonUserData personUserData, boolean z) {
@@ -224,8 +224,8 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
             this.ewb.dismiss();
         }
         com.baidu.tieba.ala.person.a aVar = new com.baidu.tieba.ala.person.a(this.evy.getActivity(), true);
-        aVar.a(new a.InterfaceC0376a() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.5
-            @Override // com.baidu.tieba.ala.person.a.InterfaceC0376a
+        aVar.a(new a.InterfaceC0371a() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.5
+            @Override // com.baidu.tieba.ala.person.a.InterfaceC0371a
             public void aXn() {
                 if (PersonCardViewNew.this.evX != null) {
                     PersonCardViewNew.this.evX.aXn();

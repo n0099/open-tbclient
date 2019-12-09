@@ -29,7 +29,7 @@ public class a extends z {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.q.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0204a {
+    public interface InterfaceC0199a {
         void W(JSONObject jSONObject);
     }
 
@@ -81,8 +81,8 @@ public class a extends z {
         if (this.aQP != -1) {
             a(callbackHandler, str, jSONObject);
         } else {
-            a(new InterfaceC0204a() { // from class: com.baidu.swan.apps.q.a.a.a.1
-                @Override // com.baidu.swan.apps.q.a.a.a.InterfaceC0204a
+            a(new InterfaceC0199a() { // from class: com.baidu.swan.apps.q.a.a.a.1
+                @Override // com.baidu.swan.apps.q.a.a.a.InterfaceC0199a
                 public void W(JSONObject jSONObject2) {
                     if (jSONObject2 == null) {
                         a.this.a(callbackHandler, str, jSONObject);
@@ -134,8 +134,8 @@ public class a extends z {
         }
     }
 
-    private void a(final InterfaceC0204a interfaceC0204a) {
-        if (interfaceC0204a != null) {
+    private void a(final InterfaceC0199a interfaceC0199a) {
+        if (interfaceC0199a != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("gender", "1");
@@ -148,16 +148,16 @@ public class a extends z {
                 /* renamed from: x */
                 public void onSuccess(String str, int i) {
                     try {
-                        interfaceC0204a.W(new JSONObject(str));
+                        interfaceC0199a.W(new JSONObject(str));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
-                        interfaceC0204a.W(null);
+                        interfaceC0199a.W(null);
                     }
                 }
 
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onFail(Exception exc) {
-                    interfaceC0204a.W(null);
+                    interfaceC0199a.W(null);
                 }
             });
         }

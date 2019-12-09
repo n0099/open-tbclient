@@ -31,9 +31,9 @@ public class k {
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(Config.APP_VERSION_CODE);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("fc");
-            com.tb.airbnb.lottie.model.a.a d = optJSONObject2 != null ? a.C0578a.d(optJSONObject2, eVar) : null;
+            com.tb.airbnb.lottie.model.a.a d = optJSONObject2 != null ? a.C0573a.d(optJSONObject2, eVar) : null;
             JSONObject optJSONObject3 = optJSONObject.optJSONObject(Config.STAT_SDK_CHANNEL);
-            com.tb.airbnb.lottie.model.a.a d2 = optJSONObject3 != null ? a.C0578a.d(optJSONObject3, eVar) : null;
+            com.tb.airbnb.lottie.model.a.a d2 = optJSONObject3 != null ? a.C0573a.d(optJSONObject3, eVar) : null;
             JSONObject optJSONObject4 = optJSONObject.optJSONObject("sw");
             b e = optJSONObject4 != null ? b.a.e(optJSONObject4, eVar) : null;
             JSONObject optJSONObject5 = optJSONObject.optJSONObject("t");

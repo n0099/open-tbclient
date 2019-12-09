@@ -24,6 +24,7 @@ import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.sapi2.activity.SlideActiviy;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
@@ -268,7 +269,7 @@ public class VDeviceAPI {
             try {
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(Uri.fromFile(new File(str4)).toString()));
                 Intent intent = new Intent("android.intent.action.SEND");
-                intent.putExtra("address", str);
+                intent.putExtra(SlideActiviy.ADDRESS_PAGE_NAME, str);
                 intent.putExtra("subject", str2);
                 intent.putExtra("sms_body", str3);
                 intent.putExtra("android.intent.extra.STREAM", Uri.parse(SkiaImageDecoder.FILE_PREFIX + str4));

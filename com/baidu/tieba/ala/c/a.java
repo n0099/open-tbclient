@@ -12,16 +12,16 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes6.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0338a dHw;
+    private InterfaceC0333a dHw;
     private HttpMessageListener esq;
 
     /* renamed from: com.baidu.tieba.ala.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0338a {
+    public interface InterfaceC0333a {
         void a(int i, String str, Object obj);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0338a interfaceC0338a) {
+    public a(TbPageContext tbPageContext, InterfaceC0333a interfaceC0333a) {
         super(tbPageContext);
         this.esq = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class a extends BdBaseModel {
                 }
             }
         };
-        this.dHw = interfaceC0338a;
+        this.dHw = interfaceC0333a;
         registerTask();
         registerListener(this.esq);
     }

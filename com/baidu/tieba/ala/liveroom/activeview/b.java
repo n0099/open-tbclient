@@ -60,7 +60,7 @@ public class b implements com.baidu.live.liveroom.a.a {
     private HttpMessageListener dUZ;
     private HttpMessageListener dVa;
     private CustomMessageListener dVb;
-    private HandlerC0356b dVc;
+    private HandlerC0351b dVc;
     private Runnable dVd;
     private List<String> dVe;
     private boolean dVf;
@@ -433,7 +433,7 @@ public class b implements com.baidu.live.liveroom.a.a {
     public void aNP() {
         if (this.mRunning) {
             if (this.dVc == null) {
-                this.dVc = new HandlerC0356b(this);
+                this.dVc = new HandlerC0351b(this);
             }
             if (this.dVd == null) {
                 this.dVd = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.activeview.b.2
@@ -801,7 +801,7 @@ public class b implements com.baidu.live.liveroom.a.a {
         if (Build.VERSION.SDK_INT >= 19) {
             aNU();
             if (this.dVc == null) {
-                this.dVc = new HandlerC0356b(this);
+                this.dVc = new HandlerC0351b(this);
             }
             if (!this.dVc.hasMessages(1000)) {
                 this.dVc.sendEmptyMessageDelayed(1000, 1000L);
@@ -1084,10 +1084,10 @@ public class b implements com.baidu.live.liveroom.a.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.ala.liveroom.activeview.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class HandlerC0356b extends Handler {
+    public static class HandlerC0351b extends Handler {
         private final WeakReference<b> dVj;
 
-        HandlerC0356b(b bVar) {
+        HandlerC0351b(b bVar) {
             this.dVj = new WeakReference<>(bVar);
         }
 

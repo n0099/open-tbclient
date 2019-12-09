@@ -45,8 +45,8 @@ public class ak {
         }
     };
     private final Handler mHandler = new Handler(this.fyG);
-    private a.InterfaceC0405a eXk = new a.InterfaceC0405a() { // from class: com.baidu.tieba.frs.ak.2
-        @Override // com.baidu.tieba.f.a.InterfaceC0405a
+    private a.InterfaceC0400a eXk = new a.InterfaceC0400a() { // from class: com.baidu.tieba.frs.ak.2
+        @Override // com.baidu.tieba.f.a.InterfaceC0400a
         public void t(int i, int i2) {
             if (aj(i2)) {
                 ak.this.kc(false);
@@ -57,7 +57,7 @@ public class ak {
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0405a
+        @Override // com.baidu.tieba.f.a.InterfaceC0400a
         public void u(int i, int i2) {
             if (aj(i2)) {
                 ak.this.kc(true);
@@ -68,7 +68,7 @@ public class ak {
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0405a
+        @Override // com.baidu.tieba.f.a.InterfaceC0400a
         public void v(int i, int i2) {
         }
 

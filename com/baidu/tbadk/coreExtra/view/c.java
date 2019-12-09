@@ -40,7 +40,7 @@ public class c {
     private View cAG;
     private View cAH;
     private View cAI;
-    private a.InterfaceC0280a cAK;
+    private a.InterfaceC0275a cAK;
     private Activity ceC;
     private int size;
     private View cAl = null;
@@ -81,8 +81,8 @@ public class c {
         this.cAE.setBounds(0, 0, this.size, this.size);
     }
 
-    public void a(a.InterfaceC0280a interfaceC0280a) {
-        this.cAK = interfaceC0280a;
+    public void a(a.InterfaceC0275a interfaceC0275a) {
+        this.cAK = interfaceC0275a;
     }
 
     public void setAccountData(AccountData accountData) {
@@ -191,7 +191,7 @@ public class c {
                 if (this.ceC instanceof BaseActivity) {
                     ((BaseActivity) this.ceC).ShowSoftKeyPadDelay(this.cAn, 150);
                 } else {
-                    new Handler().postDelayed(new RunnableC0292c(this.cAn), 150L);
+                    new Handler().postDelayed(new RunnableC0287c(this.cAn), 150L);
                 }
             }
         }
@@ -200,10 +200,10 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.coreExtra.view.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0292c implements Runnable {
+    public class RunnableC0287c implements Runnable {
         private View mView;
 
-        public RunnableC0292c(View view) {
+        public RunnableC0287c(View view) {
             this.mView = null;
             this.mView = view;
         }

@@ -30,7 +30,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class FragmentActivity extends g implements a.InterfaceC0270a, c.a {
+public class FragmentActivity extends g implements a.InterfaceC0265a, c.a {
     boolean bMR;
     boolean mCreated;
     boolean mReallyStopped;
@@ -508,7 +508,7 @@ public class FragmentActivity extends g implements a.InterfaceC0270a, c.a {
         }
     }
 
-    @Override // android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0270a
+    @Override // android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0265a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         int i2 = (i >> 8) & 255;
         if (i2 != 0) {

@@ -11,9 +11,9 @@ public final class c {
     public static void a(Context context, int i, File file, File file2) {
         if (file != null) {
             try {
-                if (com.baidu.sofire.b.e.a(file)) {
-                    if (!com.baidu.sofire.b.e.a(file2)) {
-                        com.baidu.sofire.b.e.a(file, file2);
+                if (com.baidu.sofire.i.d.a(file)) {
+                    if (!com.baidu.sofire.i.d.a(file2)) {
+                        com.baidu.sofire.i.d.a(file, file2);
                     }
                     new StringBuilder("f=").append(file).append(", b=").append(file2);
                     b.a();
@@ -24,7 +24,7 @@ public final class c {
                     }
                 }
             } catch (Throwable th) {
-                com.baidu.sofire.b.e.a();
+                com.baidu.sofire.i.d.a();
             }
         }
     }
@@ -41,7 +41,7 @@ public final class c {
                     dVar.a();
                 }
             } catch (Throwable th) {
-                com.baidu.sofire.b.e.a();
+                com.baidu.sofire.i.d.a();
             }
         }
     }

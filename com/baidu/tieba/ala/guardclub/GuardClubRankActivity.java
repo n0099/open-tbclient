@@ -17,7 +17,7 @@ import com.baidu.tieba.ala.guardclub.rank.GuardClubRankFragmentPageAdapter;
 import com.baidu.tieba.ala.guardclub.rank.a;
 import com.baidu.tieba.ala.guardclub.view.GuardClubRankTabView;
 /* loaded from: classes6.dex */
-public class GuardClubRankActivity extends BaseFragmentActivity implements a.InterfaceC0347a {
+public class GuardClubRankActivity extends BaseFragmentActivity implements a.InterfaceC0342a {
     private static final String[] dMy = {"真爱团周榜", "真爱团总榜"};
     private ScrollEnableViewPager YC;
     private GuardClubRankTabView dMA;
@@ -54,7 +54,7 @@ public class GuardClubRankActivity extends BaseFragmentActivity implements a.Int
         super.onDestroy();
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.a.InterfaceC0347a
+    @Override // com.baidu.tieba.ala.guardclub.rank.a.InterfaceC0342a
     public void b(Fragment... fragmentArr) {
         final GuardClubRankFragmentPageAdapter guardClubRankFragmentPageAdapter = new GuardClubRankFragmentPageAdapter(getSupportFragmentManager());
         guardClubRankFragmentPageAdapter.a(fragmentArr);
@@ -83,14 +83,14 @@ public class GuardClubRankActivity extends BaseFragmentActivity implements a.Int
         });
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.a.InterfaceC0347a
+    @Override // com.baidu.tieba.ala.guardclub.rank.a.InterfaceC0342a
     public void mJ(int i) {
         if (this.dMz != null) {
             this.dMz.setBackgroundColor(i);
         }
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.a.InterfaceC0347a
+    @Override // com.baidu.tieba.ala.guardclub.rank.a.InterfaceC0342a
     public void ae(final String str, final int i) {
         this.dMC = new com.baidu.live.view.d(getPageContext().getPageActivity());
         this.dMC.aU(false);
@@ -115,7 +115,7 @@ public class GuardClubRankActivity extends BaseFragmentActivity implements a.Int
         this.dMC.show();
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.a.InterfaceC0347a
+    @Override // com.baidu.tieba.ala.guardclub.rank.a.InterfaceC0342a
     public void u(String str, long j) {
         if (this.YC != null && (this.YC.getAdapter() instanceof GuardClubRankFragmentPageAdapter)) {
             GuardClubRankFragmentPageAdapter guardClubRankFragmentPageAdapter = (GuardClubRankFragmentPageAdapter) this.YC.getAdapter();
@@ -134,12 +134,12 @@ public class GuardClubRankActivity extends BaseFragmentActivity implements a.Int
         }
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.a.InterfaceC0347a
+    @Override // com.baidu.tieba.ala.guardclub.rank.a.InterfaceC0342a
     public ViewGroup aLs() {
         return this.dMB;
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.a.InterfaceC0347a
+    @Override // com.baidu.tieba.ala.guardclub.rank.a.InterfaceC0342a
     public void aj(Intent intent) {
         setResult(-1, intent);
         finish();

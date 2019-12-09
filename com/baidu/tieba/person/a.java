@@ -14,20 +14,20 @@ public class a {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0493a c0493a = new C0493a();
-            c0493a.ijd = str;
-            c0493a.ije = bVar;
-            c0493a.execute("");
+            C0488a c0488a = new C0488a();
+            c0488a.ijd = str;
+            c0488a.ije = bVar;
+            c0488a.execute("");
         }
     }
 
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0493a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+    private static class C0488a extends BdAsyncTask<String, Integer, ImageUploadResult> {
         public String ijd;
         public b ije;
 
-        private C0493a() {
+        private C0488a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

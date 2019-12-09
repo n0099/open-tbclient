@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface ISAccountManager {
     SapiConfiguration getConfignation();
 
@@ -12,7 +12,7 @@ public interface ISAccountManager {
 
     String getDeviceAuthToken(Context context, String str, int i);
 
-    ISAccountService getIsAccountService();
+    a getIsAccountService();
 
     SapiAccount getSession();
 

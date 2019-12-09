@@ -59,7 +59,7 @@ public class f extends g.a {
     private com.baidu.swan.apps.ak.a a(@NonNull BufferedInputStream bufferedInputStream, String str) {
         File am;
         boolean d;
-        a.C0191a c0191a;
+        a.C0186a c0186a;
         com.baidu.swan.apps.v.c.a fF = com.baidu.swan.apps.v.c.a.fF(str);
         if (this.aRN == null) {
             com.baidu.swan.apps.ak.a iL = new com.baidu.swan.apps.ak.a().ar(11L).as(2320L).iL("pkg info is empty");
@@ -103,11 +103,11 @@ public class f extends g.a {
             boolean a = com.baidu.swan.apps.install.a.a.a(bufferedInputStream);
             bE(a);
             if (a) {
-                c0191a = com.baidu.swan.apps.install.a.a.a(bufferedInputStream, am);
-                d = c0191a.isSuccess;
+                c0186a = com.baidu.swan.apps.install.a.a.a(bufferedInputStream, am);
+                d = c0186a.isSuccess;
             } else {
                 d = com.baidu.swan.c.e.d(bufferedInputStream, am.getPath());
-                c0191a = null;
+                c0186a = null;
             }
             bF(a);
             long currentTimeMillis2 = System.currentTimeMillis();
@@ -119,7 +119,7 @@ public class f extends g.a {
             }
             com.baidu.swan.apps.ak.a ar = new com.baidu.swan.apps.ak.a().ar(11L);
             if (a) {
-                ar.as(2330L).iL("decrypt failed:" + c0191a.aMQ);
+                ar.as(2330L).iL("decrypt failed:" + c0186a.aMQ);
             } else {
                 ar.as(2320L).iL("unzip failed");
             }

@@ -43,8 +43,8 @@ public class a implements com.baidu.live.liveroom.c.d {
             }
         }
     };
-    a.InterfaceC0341a dEA = new a.InterfaceC0341a() { // from class: com.baidu.tieba.ala.charm.a.2
-        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0341a
+    a.InterfaceC0336a dEA = new a.InterfaceC0336a() { // from class: com.baidu.tieba.ala.charm.a.2
+        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0336a
         public void a(ALaCharmDataList aLaCharmDataList) {
             if (aLaCharmDataList == null) {
                 a.this.dEv.gN(true);
@@ -64,7 +64,7 @@ public class a implements com.baidu.live.liveroom.c.d {
             }
         }
 
-        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0341a
+        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0336a
         public void R(int i, String str) {
             a.this.dEv.gN(false);
             a.this.dEv.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.2.1

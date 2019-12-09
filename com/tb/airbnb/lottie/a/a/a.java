@@ -13,7 +13,7 @@ import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class a implements d, a.InterfaceC0577a {
+public abstract class a implements d, a.InterfaceC0572a {
     private final float[] dV;
     private final List<com.tb.airbnb.lottie.a.b.a<?, Float>> dY;
     private final com.tb.airbnb.lottie.a.b.a<?, Float> ksc;
@@ -25,7 +25,7 @@ public abstract class a implements d, a.InterfaceC0577a {
     private final Path path = new Path();
     private final Path dT = new Path();
     private final RectF rect = new RectF();
-    private final List<C0576a> dU = new ArrayList();
+    private final List<C0571a> dU = new ArrayList();
     final Paint paint = new Paint(1);
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -64,14 +64,14 @@ public abstract class a implements d, a.InterfaceC0577a {
         }
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0577a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0572a
     public void bt() {
         this.lottieDrawable.invalidateSelf();
     }
 
     @Override // com.tb.airbnb.lottie.a.a.b
     public void b(List<b> list, List<b> list2) {
-        C0576a c0576a;
+        C0571a c0571a;
         int size = list.size() - 1;
         q qVar = null;
         while (size >= 0) {
@@ -83,27 +83,27 @@ public abstract class a implements d, a.InterfaceC0577a {
             qVar.a(this);
         }
         int size2 = list2.size() - 1;
-        C0576a c0576a2 = null;
+        C0571a c0571a2 = null;
         while (size2 >= 0) {
             b bVar2 = list2.get(size2);
             if ((bVar2 instanceof q) && ((q) bVar2).cLd() == ShapeTrimPath.Type.Individually) {
-                if (c0576a2 != null) {
-                    this.dU.add(c0576a2);
+                if (c0571a2 != null) {
+                    this.dU.add(c0571a2);
                 }
-                C0576a c0576a3 = new C0576a((q) bVar2);
+                C0571a c0571a3 = new C0571a((q) bVar2);
                 ((q) bVar2).a(this);
-                c0576a = c0576a3;
+                c0571a = c0571a3;
             } else if (bVar2 instanceof k) {
-                c0576a = c0576a2 == null ? new C0576a(qVar) : c0576a2;
-                c0576a.ea.add((k) bVar2);
+                c0571a = c0571a2 == null ? new C0571a(qVar) : c0571a2;
+                c0571a.ea.add((k) bVar2);
             } else {
-                c0576a = c0576a2;
+                c0571a = c0571a2;
             }
             size2--;
-            c0576a2 = c0576a;
+            c0571a2 = c0571a;
         }
-        if (c0576a2 != null) {
-            this.dU.add(c0576a2);
+        if (c0571a2 != null) {
+            this.dU.add(c0571a2);
         }
     }
 
@@ -121,14 +121,14 @@ public abstract class a implements d, a.InterfaceC0577a {
         while (true) {
             int i3 = i2;
             if (i3 < this.dU.size()) {
-                C0576a c0576a = this.dU.get(i3);
-                if (c0576a.ksf != null) {
-                    a(canvas, c0576a, matrix);
+                C0571a c0571a = this.dU.get(i3);
+                if (c0571a.ksf != null) {
+                    a(canvas, c0571a, matrix);
                 } else {
                     com.tb.airbnb.lottie.d.beginSection("StrokeContent#buildPath");
                     this.path.reset();
-                    for (int size = c0576a.ea.size() - 1; size >= 0; size--) {
-                        this.path.addPath(((k) c0576a.ea.get(size)).bw(), matrix);
+                    for (int size = c0571a.ea.size() - 1; size >= 0; size--) {
+                        this.path.addPath(((k) c0571a.ea.get(size)).bw(), matrix);
                     }
                     com.tb.airbnb.lottie.d.D("StrokeContent#buildPath");
                     com.tb.airbnb.lottie.d.beginSection("StrokeContent#drawPath");
@@ -143,16 +143,16 @@ public abstract class a implements d, a.InterfaceC0577a {
         }
     }
 
-    private void a(Canvas canvas, C0576a c0576a, Matrix matrix) {
+    private void a(Canvas canvas, C0571a c0571a, Matrix matrix) {
         float f;
         com.tb.airbnb.lottie.d.beginSection("StrokeContent#applyTrimPath");
-        if (c0576a.ksf == null) {
+        if (c0571a.ksf == null) {
             com.tb.airbnb.lottie.d.D("StrokeContent#applyTrimPath");
             return;
         }
         this.path.reset();
-        for (int size = c0576a.ea.size() - 1; size >= 0; size--) {
-            this.path.addPath(((k) c0576a.ea.get(size)).bw(), matrix);
+        for (int size = c0571a.ea.size() - 1; size >= 0; size--) {
+            this.path.addPath(((k) c0571a.ea.get(size)).bw(), matrix);
         }
         this.dS.setPath(this.path, false);
         float length = this.dS.getLength();
@@ -163,13 +163,13 @@ public abstract class a implements d, a.InterfaceC0577a {
             }
             length = this.dS.getLength() + f;
         }
-        float floatValue = (c0576a.ksf.cLg().getValue().floatValue() * f) / 360.0f;
-        float floatValue2 = ((c0576a.ksf.cLe().getValue().floatValue() * f) / 100.0f) + floatValue;
-        float floatValue3 = ((c0576a.ksf.cLf().getValue().floatValue() * f) / 100.0f) + floatValue;
-        int size2 = c0576a.ea.size() - 1;
+        float floatValue = (c0571a.ksf.cLg().getValue().floatValue() * f) / 360.0f;
+        float floatValue2 = ((c0571a.ksf.cLe().getValue().floatValue() * f) / 100.0f) + floatValue;
+        float floatValue3 = ((c0571a.ksf.cLf().getValue().floatValue() * f) / 100.0f) + floatValue;
+        int size2 = c0571a.ea.size() - 1;
         float f2 = 0.0f;
         while (size2 >= 0) {
-            this.dT.set(((k) c0576a.ea.get(size2)).bw());
+            this.dT.set(((k) c0571a.ea.get(size2)).bw());
             this.dT.transform(matrix);
             this.dS.setPath(this.dT, false);
             float length2 = this.dS.getLength();
@@ -195,9 +195,9 @@ public abstract class a implements d, a.InterfaceC0577a {
         com.tb.airbnb.lottie.d.beginSection("StrokeContent#getBounds");
         this.path.reset();
         for (int i = 0; i < this.dU.size(); i++) {
-            C0576a c0576a = this.dU.get(i);
-            for (int i2 = 0; i2 < c0576a.ea.size(); i2++) {
-                this.path.addPath(((k) c0576a.ea.get(i2)).bw(), matrix);
+            C0571a c0571a = this.dU.get(i);
+            for (int i2 = 0; i2 < c0571a.ea.size(); i2++) {
+                this.path.addPath(((k) c0571a.ea.get(i2)).bw(), matrix);
             }
         }
         this.path.computeBounds(this.rect, false);
@@ -240,12 +240,12 @@ public abstract class a implements d, a.InterfaceC0577a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tb.airbnb.lottie.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0576a {
+    public static final class C0571a {
         private final List<k> ea;
         @Nullable
         private final q ksf;
 
-        private C0576a(@Nullable q qVar) {
+        private C0571a(@Nullable q qVar) {
             this.ea = new ArrayList();
             this.ksf = qVar;
         }

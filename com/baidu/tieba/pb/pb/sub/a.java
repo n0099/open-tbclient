@@ -17,7 +17,7 @@ public class a {
     private View.OnTouchListener fJK;
     private com.baidu.tieba.f.b fyF;
     private BlankView iai;
-    private InterfaceC0490a iaj;
+    private InterfaceC0485a iaj;
     private BaseActivity mActivity;
     private NavigationBar mNavigationBar;
     private static final int fJH = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds160);
@@ -27,7 +27,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.pb.pb.sub.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0490a {
+    public interface InterfaceC0485a {
         void bnV();
 
         void bnW();
@@ -54,8 +54,8 @@ public class a {
                 return false;
             }
         });
-        this.fyF.a(new a.InterfaceC0405a() { // from class: com.baidu.tieba.pb.pb.sub.a.3
-            @Override // com.baidu.tieba.f.a.InterfaceC0405a
+        this.fyF.a(new a.InterfaceC0400a() { // from class: com.baidu.tieba.pb.pb.sub.a.3
+            @Override // com.baidu.tieba.f.a.InterfaceC0400a
             public void t(int i, int i2) {
                 if (a.this.iaj != null && a.this.iaj.bnX() && Math.abs(i2) > a.TOUCH_SLOP) {
                     if (a.this.iai != null) {
@@ -65,12 +65,12 @@ public class a {
                 }
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0405a
+            @Override // com.baidu.tieba.f.a.InterfaceC0400a
             public void u(int i, int i2) {
                 a.this.bnY();
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0405a
+            @Override // com.baidu.tieba.f.a.InterfaceC0400a
             public void v(int i, int i2) {
             }
         });
@@ -123,8 +123,8 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0490a interfaceC0490a) {
-        this.iaj = interfaceC0490a;
+    public void a(InterfaceC0485a interfaceC0485a) {
+        this.iaj = interfaceC0485a;
     }
 
     public boolean boa() {

@@ -41,7 +41,7 @@ public abstract class a {
 
     /* renamed from: com.baidu.swan.apps.y.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0238a {
+    public static class C0233a {
         public static a gf(String str) {
             char c = 65535;
             switch (str.hashCode()) {

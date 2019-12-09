@@ -15,7 +15,7 @@ import java.util.List;
 public class a extends BaseAdapter {
     private Context context;
     private int dFv;
-    private InterfaceC0377a etj;
+    private InterfaceC0372a etj;
     private c etk;
     private b etl;
     private List mList;
@@ -24,7 +24,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.ala.person.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0377a {
+    public interface InterfaceC0372a {
         void a(com.baidu.tieba.ala.person.a.b bVar, View view);
     }
 
@@ -131,8 +131,8 @@ public class a extends BaseAdapter {
         this.mSkinType = i;
     }
 
-    public void a(InterfaceC0377a interfaceC0377a) {
-        this.etj = interfaceC0377a;
+    public void a(InterfaceC0372a interfaceC0372a) {
+        this.etj = interfaceC0372a;
     }
 
     public void a(c cVar) {

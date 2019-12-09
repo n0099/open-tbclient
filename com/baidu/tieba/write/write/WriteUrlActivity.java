@@ -107,8 +107,8 @@ public class WriteUrlActivity extends BaseActivity<WriteUrlActivity> {
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
         this.jVw = new com.baidu.tieba.write.model.a(getUniqueId());
-        this.jVw.a(new a.InterfaceC0539a() { // from class: com.baidu.tieba.write.write.WriteUrlActivity.3
-            @Override // com.baidu.tieba.write.model.a.InterfaceC0539a
+        this.jVw.a(new a.InterfaceC0534a() { // from class: com.baidu.tieba.write.write.WriteUrlActivity.3
+            @Override // com.baidu.tieba.write.model.a.InterfaceC0534a
             public void a(com.baidu.tieba.write.a.a aVar) {
                 WriteUrlActivity.this.jVy = aVar;
                 WriteUrlActivity.this.isLoading = false;

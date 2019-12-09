@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class a implements a.InterfaceC0503a {
+public class a implements a.InterfaceC0498a {
     private boolean eVL = false;
     private boolean eVM = false;
     private boolean eVN = false;
@@ -65,7 +65,7 @@ public class a implements a.InterfaceC0503a {
         }
     };
 
-    @Override // com.baidu.tieba.r.a.InterfaceC0503a
+    @Override // com.baidu.tieba.r.a.InterfaceC0498a
     public void g(Application application) {
         MessageManager.getInstance().registerListener(this.bRa);
         MessageManager.getInstance().registerListener(this.dgk);
@@ -325,21 +325,21 @@ public class a implements a.InterfaceC0503a {
         return "DailyBuild";
     }
 
-    @Override // com.baidu.tieba.r.a.InterfaceC0503a
+    @Override // com.baidu.tieba.r.a.InterfaceC0498a
     public void onPause(Activity activity) {
         if (this.eVL && activity != null) {
             CrabSDK.onPause(activity);
         }
     }
 
-    @Override // com.baidu.tieba.r.a.InterfaceC0503a
+    @Override // com.baidu.tieba.r.a.InterfaceC0498a
     public void onResume(Activity activity) {
         if (this.eVL && activity != null) {
             CrabSDK.onResume(activity);
         }
     }
 
-    @Override // com.baidu.tieba.r.a.InterfaceC0503a
+    @Override // com.baidu.tieba.r.a.InterfaceC0498a
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
         if (this.eVL && activity != null && motionEvent != null) {
             CrabSDK.behaviorRecordEvent(motionEvent, activity);

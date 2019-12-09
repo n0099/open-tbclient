@@ -15,9 +15,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class SubSampleInformationBox extends AbstractFullBox {
     public static final String TYPE = "subs";
-    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0596a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_2 = null;
     private List<SampleEntry> entries;
     private long entryCount;
 

@@ -18,7 +18,7 @@ public final class c {
     static volatile rx.functions.f<Throwable, Throwable> kEF;
     static volatile rx.functions.f<d.b, d.b> kEG;
     static volatile rx.functions.f<d.b, d.b> kEH;
-    static volatile rx.functions.f<b.InterfaceC0601b, b.InterfaceC0601b> kEI;
+    static volatile rx.functions.f<b.InterfaceC0596b, b.InterfaceC0596b> kEI;
     static volatile rx.functions.f<d.a, d.a> kEq;
     static volatile rx.functions.f<h.a, h.a> kEr;
     static volatile rx.functions.f<b.a, b.a> kEs;
@@ -131,12 +131,12 @@ public final class c {
                 return f.cPz().cPD().S(th);
             }
         };
-        kEI = new rx.functions.f<b.InterfaceC0601b, b.InterfaceC0601b>() { // from class: rx.c.c.5
+        kEI = new rx.functions.f<b.InterfaceC0596b, b.InterfaceC0596b>() { // from class: rx.c.c.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: b */
-            public b.InterfaceC0601b call(b.InterfaceC0601b interfaceC0601b) {
-                return f.cPz().cPD().a(interfaceC0601b);
+            public b.InterfaceC0596b call(b.InterfaceC0596b interfaceC0596b) {
+                return f.cPz().cPD().a(interfaceC0596b);
             }
         };
         cPw();

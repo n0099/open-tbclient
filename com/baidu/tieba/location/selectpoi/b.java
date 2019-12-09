@@ -30,27 +30,27 @@ public class b extends BaseAdapter {
         }
     }
 
-    private ArrayList<Object> h(List<a.C0521a> list, String str) {
+    private ArrayList<Object> h(List<a.C0516a> list, String str) {
         if (list == null || list.size() <= 0) {
             return null;
         }
         ArrayList<Object> arrayList = new ArrayList<>();
-        a.C0521a c0521a = null;
-        for (a.C0521a c0521a2 : list) {
-            if (c0521a2 != null && !TextUtils.isEmpty(c0521a2.getName())) {
-                if (TextUtils.equals(c0521a2.getName(), str)) {
-                    c0521a = c0521a2;
+        a.C0516a c0516a = null;
+        for (a.C0516a c0516a2 : list) {
+            if (c0516a2 != null && !TextUtils.isEmpty(c0516a2.getName())) {
+                if (TextUtils.equals(c0516a2.getName(), str)) {
+                    c0516a = c0516a2;
                 } else {
-                    arrayList.add(c0521a2);
+                    arrayList.add(c0516a2);
                 }
             }
         }
-        if (c0521a != null) {
-            arrayList.add(0, c0521a);
+        if (c0516a != null) {
+            arrayList.add(0, c0516a);
         } else {
-            a.C0521a c0521a3 = new a.C0521a();
-            c0521a3.setName(str);
-            arrayList.add(0, c0521a3);
+            a.C0516a c0516a3 = new a.C0516a();
+            c0516a3.setName(str);
+            arrayList.add(0, c0516a3);
         }
         if (this.hkX != null) {
             arrayList.add(0, this.hkX.getPageContext().getString(R.string.select_position_no_location));
@@ -64,7 +64,7 @@ public class b extends BaseAdapter {
         if (item instanceof String) {
             return 0;
         }
-        if (item instanceof a.C0521a) {
+        if (item instanceof a.C0516a) {
             return 1;
         }
         return 2;
@@ -113,42 +113,42 @@ public class b extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.location.selectpoi.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0464b {
+    public static class C0459b {
         View eyu;
         ImageView hkY;
         TextView title;
 
-        private C0464b() {
+        private C0459b() {
         }
     }
 
     private View c(View view, int i, boolean z) {
-        C0464b c0464b;
+        C0459b c0459b;
         View view2;
         Object item = getItem(i);
         if (item instanceof String) {
             String str = (String) item;
-            if (view == null || !(view.getTag() instanceof C0464b)) {
+            if (view == null || !(view.getTag() instanceof C0459b)) {
                 View inflate = LayoutInflater.from(this.hkX.getPageContext().getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
-                c0464b = new C0464b();
-                c0464b.title = (TextView) inflate.findViewById(R.id.select_location_title);
-                c0464b.hkY = (ImageView) inflate.findViewById(R.id.select_location_tick);
-                c0464b.eyu = inflate.findViewById(R.id.select_location_line);
-                inflate.setTag(c0464b);
+                c0459b = new C0459b();
+                c0459b.title = (TextView) inflate.findViewById(R.id.select_location_title);
+                c0459b.hkY = (ImageView) inflate.findViewById(R.id.select_location_tick);
+                c0459b.eyu = inflate.findViewById(R.id.select_location_line);
+                inflate.setTag(c0459b);
                 view2 = inflate;
             } else {
-                c0464b = (C0464b) view.getTag();
+                c0459b = (C0459b) view.getTag();
                 view2 = view;
             }
             if (i == 0 && !this.isShowLocation) {
-                c0464b.hkY.setVisibility(0);
-                am.setImageResource(c0464b.hkY, R.drawable.icon_site_ok);
+                c0459b.hkY.setVisibility(0);
+                am.setImageResource(c0459b.hkY, R.drawable.icon_site_ok);
             } else {
-                c0464b.hkY.setVisibility(4);
+                c0459b.hkY.setVisibility(4);
             }
-            c0464b.title.setText(str);
-            am.setBackgroundColor(c0464b.eyu, R.color.cp_bg_line_c);
-            am.setViewTextColor(c0464b.title, R.color.cp_link_tip_a, 1);
+            c0459b.title.setText(str);
+            am.setBackgroundColor(c0459b.eyu, R.color.cp_bg_line_c);
+            am.setViewTextColor(c0459b.title, R.color.cp_link_tip_a, 1);
             am.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
             return view2;
         }
@@ -169,9 +169,9 @@ public class b extends BaseAdapter {
     private View d(View view, int i, boolean z) {
         a aVar;
         Object item = getItem(i);
-        if (item instanceof a.C0521a) {
-            a.C0521a c0521a = (a.C0521a) item;
-            if (view == null || !(view.getTag() instanceof C0464b)) {
+        if (item instanceof a.C0516a) {
+            a.C0516a c0516a = (a.C0516a) item;
+            if (view == null || !(view.getTag() instanceof C0459b)) {
                 view = LayoutInflater.from(this.hkX.getPageContext().getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
                 a aVar2 = new a();
                 aVar2.bFm = (TextView) view.findViewById(R.id.select_location_name);
@@ -182,16 +182,16 @@ public class b extends BaseAdapter {
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.hkQ.setText(c0521a.getAddr());
+            aVar.hkQ.setText(c0516a.getAddr());
             if (this.isShowLocation && i == 1) {
                 aVar.hkY.setVisibility(0);
-                if (TextUtils.isEmpty(c0521a.getAddr())) {
+                if (TextUtils.isEmpty(c0516a.getAddr())) {
                     aVar.hkQ.setText(R.string.select_location_current);
                 }
             } else {
                 aVar.hkY.setVisibility(4);
             }
-            aVar.bFm.setText(c0521a.getName());
+            aVar.bFm.setText(c0516a.getName());
             this.hkX.getLayoutMode().setNightMode(z);
             this.hkX.getLayoutMode().onModeChanged(view);
             am.setBackgroundResource(view, R.drawable.home_recommend_item_bg);

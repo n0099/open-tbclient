@@ -220,7 +220,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             InputStream inputStream = this.socket.getInputStream();
             this.ostream = this.socket.getOutputStream();
             sendHandshake();
-            this.writeThread = new Thread(new RunnableC0597a());
+            this.writeThread = new Thread(new RunnableC0592a());
             this.writeThread.start();
             byte[] bArr = new byte[c.kwx];
             while (!isClosing() && !isClosed() && (read = inputStream.read(bArr)) != -1) {
@@ -366,8 +366,8 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
 
     /* renamed from: org.java_websocket.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class RunnableC0597a implements Runnable {
-        private RunnableC0597a() {
+    private class RunnableC0592a implements Runnable {
+        private RunnableC0592a() {
         }
 
         @Override // java.lang.Runnable

@@ -18,11 +18,11 @@ public class a {
     private final String mMediaId;
     private final String mSource;
 
-    private a(C0567a c0567a) {
-        this.mMediaId = c0567a.mMediaId;
-        this.kms = c0567a.kms;
-        this.kmt = c0567a.kmt;
-        this.mSource = c0567a.mSource;
+    private a(C0562a c0562a) {
+        this.mMediaId = c0562a.mMediaId;
+        this.kms = c0562a.kms;
+        this.kmt = c0562a.kmt;
+        this.mSource = c0562a.mSource;
     }
 
     public String getMediaId() {
@@ -122,25 +122,25 @@ public class a {
         }
     }
 
-    public static C0567a GM(String str) {
-        return new C0567a(str);
+    public static C0562a GM(String str) {
+        return new C0562a(str);
     }
 
     /* renamed from: com.facebook.imagepipeline.request.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0567a {
+    public static class C0562a {
         private List<b> kms;
         private boolean kmt;
         private final String mMediaId;
         private String mSource;
 
-        private C0567a(String str) {
+        private C0562a(String str) {
             this.kmt = false;
             this.mSource = "request";
             this.mMediaId = str;
         }
 
-        public C0567a a(Uri uri, int i, int i2, ImageRequest.CacheChoice cacheChoice) {
+        public C0562a a(Uri uri, int i, int i2, ImageRequest.CacheChoice cacheChoice) {
             if (this.kms == null) {
                 this.kms = new ArrayList();
             }
@@ -148,12 +148,12 @@ public class a {
             return this;
         }
 
-        public C0567a sm(boolean z) {
+        public C0562a sm(boolean z) {
             this.kmt = z;
             return this;
         }
 
-        public C0567a GN(String str) {
+        public C0562a GN(String str) {
             this.mSource = str;
             return this;
         }

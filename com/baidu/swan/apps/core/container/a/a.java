@@ -8,7 +8,7 @@ public class a implements i {
 
     /* renamed from: com.baidu.swan.apps.core.container.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0175a {
+    private static class C0170a {
         public static final a aJR = new a();
     }
 
@@ -16,7 +16,7 @@ public class a implements i {
     }
 
     public static a Er() {
-        return C0175a.aJR;
+        return C0170a.aJR;
     }
 
     @Override // com.baidu.swan.apps.b.c.i

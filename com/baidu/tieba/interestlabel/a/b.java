@@ -66,20 +66,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0451b c0451b;
+        C0446b c0446b;
         View view2;
         if (view == null) {
             view2 = LayoutInflater.from(this.haE.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
-            C0451b c0451b2 = new C0451b();
-            c0451b2.haJ = (TextView) view2;
-            view2.setTag(c0451b2);
-            c0451b = c0451b2;
+            C0446b c0446b2 = new C0446b();
+            c0446b2.haJ = (TextView) view2;
+            view2.setTag(c0446b2);
+            c0446b = c0446b2;
         } else {
-            c0451b = (C0451b) view.getTag();
+            c0446b = (C0446b) view.getTag();
             view2 = view;
         }
-        c0451b.haJ.setOnClickListener(new a(i));
-        a(c0451b.haJ, getItem(i));
+        c0446b.haJ.setOnClickListener(new a(i));
+        a(c0446b.haJ, getItem(i));
         return view2;
     }
 
@@ -105,10 +105,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    class C0451b {
+    class C0446b {
         TextView haJ;
 
-        C0451b() {
+        C0446b() {
         }
     }
 

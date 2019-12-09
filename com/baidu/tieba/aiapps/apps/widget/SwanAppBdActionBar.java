@@ -24,7 +24,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class SwanAppBdActionBar extends RelativeLayout {
     private static final int[] dtn = {8, 0, 4};
-    private a.InterfaceC0208a biJ;
+    private a.InterfaceC0203a biJ;
     private boolean buo;
     private ImageView buv;
     private ImageView buw;
@@ -653,8 +653,8 @@ public class SwanAppBdActionBar extends RelativeLayout {
         this.dtu = bVar;
     }
 
-    public void setOnMenuItemsUpdateListener(a.InterfaceC0208a interfaceC0208a) {
-        this.biJ = interfaceC0208a;
+    public void setOnMenuItemsUpdateListener(a.InterfaceC0203a interfaceC0203a) {
+        this.biJ = interfaceC0203a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

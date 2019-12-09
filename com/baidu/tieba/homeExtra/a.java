@@ -8,14 +8,14 @@ import com.baidu.tieba.homepage.framework.c;
 /* loaded from: classes6.dex */
 class a extends CustomMessageTask {
     public a() {
-        super(CmdConfigCustom.CMD_RECOMMEND_FRS_INIT_CONTROL_MODEL, new C0423a());
+        super(CmdConfigCustom.CMD_RECOMMEND_FRS_INIT_CONTROL_MODEL, new C0418a());
         setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
     }
 
     /* renamed from: com.baidu.tieba.homeExtra.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C0423a implements CustomMessageTask.CustomRunnable<c> {
-        private C0423a() {
+    private static class C0418a implements CustomMessageTask.CustomRunnable<c> {
+        private C0418a() {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

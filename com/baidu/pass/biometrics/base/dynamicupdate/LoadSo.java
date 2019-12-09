@@ -2,8 +2,8 @@ package com.baidu.pass.biometrics.base.dynamicupdate;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.baidu.android.common.logging.Log;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class LoadSo {
     private Context context;
     private StatService statService;
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [69=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [71=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean load(Context context, Bundle bundle) {
         this.context = context;
@@ -45,6 +45,7 @@ public class LoadSo {
             return true;
         } catch (Throwable th) {
             try {
+                th.printStackTrace();
                 this.statService.exceptionInfo = Log.getStackTraceString(th);
                 this.statService.execptionZipVersion = this.statService.zipVersion;
                 this.statService.loadSoSuccess = false;

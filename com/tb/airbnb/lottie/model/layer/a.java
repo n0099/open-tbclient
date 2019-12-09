@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a {
+public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0572a {
     private final String hk;
     private List<a> hq;
     final p ksA;
@@ -88,7 +88,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
             this.hf.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
         this.ksA = layer.cLY().cLA();
-        this.ksA.a((a.InterfaceC0577a) this);
+        this.ksA.a((a.InterfaceC0572a) this);
         if (layer.bL() != null && !layer.bL().isEmpty()) {
             this.ktU = new com.tb.airbnb.lottie.a.b.g(layer.bL());
             for (com.tb.airbnb.lottie.a.b.a<h, Path> aVar : this.ktU.bM()) {
@@ -103,7 +103,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
         db();
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0577a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0572a
     public void bt() {
         invalidateSelf();
     }
@@ -132,8 +132,8 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0577a
         if (!this.ktT.df().isEmpty()) {
             final com.tb.airbnb.lottie.a.b.c cVar = new com.tb.airbnb.lottie.a.b.c(this.ktT.df());
             cVar.bH();
-            cVar.b(new a.InterfaceC0577a() { // from class: com.tb.airbnb.lottie.model.layer.a.1
-                @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0577a
+            cVar.b(new a.InterfaceC0572a() { // from class: com.tb.airbnb.lottie.model.layer.a.1
+                @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0572a
                 public void bt() {
                     a.this.setVisible(cVar.getValue().floatValue() == 1.0f);
                 }

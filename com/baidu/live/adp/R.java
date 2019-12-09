@@ -58,9 +58,9 @@ public final class R {
 
     /* loaded from: classes6.dex */
     public static final class color {
-        public static final int sdk_swipe_layout_night_bg = 0x7f0d075a;
-        public static final int sdk_swipe_layout_normal_bg = 0x7f0d075b;
-        public static final int sdk_transparent = 0x7f0d0763;
+        public static final int sdk_swipe_layout_night_bg = 0x7f0d0762;
+        public static final int sdk_swipe_layout_normal_bg = 0x7f0d0763;
+        public static final int sdk_transparent = 0x7f0d076b;
     }
 
     /* loaded from: classes6.dex */
@@ -70,27 +70,27 @@ public final class R {
 
     /* loaded from: classes6.dex */
     public static final class drawable {
-        public static final int sdk_bg_switch_close = 0x7f021569;
-        public static final int sdk_bg_switch_open = 0x7f02156a;
-        public static final int sdk_btn_handle = 0x7f02157c;
-        public static final int sdk_listview_pull_refresh01 = 0x7f02162d;
-        public static final int sdk_listview_pull_refresh02 = 0x7f02162e;
+        public static final int sdk_bg_switch_close = 0x7f021572;
+        public static final int sdk_bg_switch_open = 0x7f021573;
+        public static final int sdk_btn_handle = 0x7f021585;
+        public static final int sdk_listview_pull_refresh01 = 0x7f021636;
+        public static final int sdk_listview_pull_refresh02 = 0x7f021637;
     }
 
     /* loaded from: classes6.dex */
     public static final class id {
         public static final int common = 0x7f0f0151;
-        public static final int pull_content = 0x7f0f1928;
+        public static final int pull_content = 0x7f0f1933;
         public static final int pull_image = 0x7f0f090c;
-        public static final int pull_root = 0x7f0f1926;
-        public static final int pull_text = 0x7f0f1929;
-        public static final int pull_time = 0x7f0f192a;
+        public static final int pull_root = 0x7f0f1931;
+        public static final int pull_text = 0x7f0f1934;
+        public static final int pull_time = 0x7f0f1935;
         public static final int shader = 0x7f0f0152;
     }
 
     /* loaded from: classes6.dex */
     public static final class layout {
-        public static final int sdk_pull_view = 0x7f0305f6;
+        public static final int sdk_pull_view = 0x7f0305f8;
     }
 
     /* loaded from: classes6.dex */
@@ -120,11 +120,11 @@ public final class R {
 
     /* loaded from: classes6.dex */
     public static final class style {
-        public static final int sdk_AppBaseTheme = 0x7f0a0249;
-        public static final int sdk_AppTheme = 0x7f0a024a;
-        public static final int sdk_DialogTheme = 0x7f0a024c;
+        public static final int sdk_AppBaseTheme = 0x7f0a024e;
+        public static final int sdk_AppTheme = 0x7f0a024f;
+        public static final int sdk_DialogTheme = 0x7f0a0251;
         public static final int sdk_swipeback_activity_style = 0x7f0a009b;
-        public static final int sdk_window_translucent = 0x7f0a0262;
+        public static final int sdk_window_translucent = 0x7f0a0267;
     }
 
     /* loaded from: classes6.dex */

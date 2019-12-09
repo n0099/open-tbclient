@@ -17,7 +17,7 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffec
 /* loaded from: classes6.dex */
 public class a {
     private AlaEnterEffectData eAe;
-    private InterfaceC0388a eAk;
+    private InterfaceC0383a eAk;
     private TextView eAn;
     private TextView eAo;
     private TextView eAp;
@@ -31,7 +31,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0388a {
+    public interface InterfaceC0383a {
         void qy();
     }
 
@@ -137,7 +137,7 @@ public class a {
         return this.mRootView;
     }
 
-    public void a(InterfaceC0388a interfaceC0388a) {
-        this.eAk = interfaceC0388a;
+    public void a(InterfaceC0383a interfaceC0383a) {
+        this.eAk = interfaceC0383a;
     }
 }

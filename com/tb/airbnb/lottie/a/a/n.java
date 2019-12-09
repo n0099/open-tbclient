@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 /* loaded from: classes6.dex */
-public class n implements d, i, k, a.InterfaceC0577a {
+public class n implements d, i, k, a.InterfaceC0572a {
     private final com.tb.airbnb.lottie.a.b.p ksA;
     private c ksB;
     private final com.tb.airbnb.lottie.model.layer.a ksx;
@@ -99,7 +99,7 @@ public class n implements d, i, k, a.InterfaceC0577a {
         this.ksB.b(str, str2, colorFilter);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0577a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0572a
     public void bt() {
         this.lottieDrawable.invalidateSelf();
     }

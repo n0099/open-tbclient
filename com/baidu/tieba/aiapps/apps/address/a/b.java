@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class b extends BaseAdapter implements a.InterfaceC0325a {
+public class b extends BaseAdapter implements a.InterfaceC0320a {
     private EditText dmq;
     private a dms;
     private Context mContext;
@@ -106,7 +106,7 @@ public class b extends BaseAdapter implements a.InterfaceC0325a {
         if (item.dmI) {
             editText.setInputType(2);
         }
-        editText.addTextChangedListener(new C0323b(editText));
+        editText.addTextChangedListener(new C0318b(editText));
         if (TextUtils.equals(item.type, "region")) {
             editText.setFocusable(false);
             imageView.setVisibility(0);
@@ -134,7 +134,7 @@ public class b extends BaseAdapter implements a.InterfaceC0325a {
         cVar.dmA.setBackgroundColor(Color.parseColor("#222222"));
     }
 
-    @Override // com.baidu.tieba.aiapps.apps.address.view.a.InterfaceC0325a
+    @Override // com.baidu.tieba.aiapps.apps.address.view.a.InterfaceC0320a
     public void aZ(List<d> list) {
         if (list != null && list.size() == 3) {
             this.dmq.setTag(R.id.region_province, list.get(0));
@@ -153,11 +153,11 @@ public class b extends BaseAdapter implements a.InterfaceC0325a {
 
     /* renamed from: com.baidu.tieba.aiapps.apps.address.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0323b implements TextWatcher {
+    private class C0318b implements TextWatcher {
         private String dmw;
         private EditText mEditText;
 
-        public C0323b(EditText editText) {
+        public C0318b(EditText editText) {
             this.mEditText = editText;
             this.dmw = this.mEditText.getText().toString();
         }

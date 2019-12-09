@@ -242,8 +242,8 @@ public class PersonCardActivity extends BaseFragmentActivity {
 
     private void dv() {
         this.esA = new com.baidu.tieba.ala.person.c.a(getPageContext());
-        this.esA.a(new a.InterfaceC0379a() { // from class: com.baidu.tieba.ala.person.PersonCardActivity.1
-            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0379a
+        this.esA.a(new a.InterfaceC0374a() { // from class: com.baidu.tieba.ala.person.PersonCardActivity.1
+            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0374a
             public void b(PersonUserData personUserData) {
                 if (personUserData != null) {
                     if (personUserData.user_info != null) {
@@ -256,17 +256,17 @@ public class PersonCardActivity extends BaseFragmentActivity {
                 }
             }
 
-            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0379a
+            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0374a
             public void a(com.baidu.tieba.ala.person.a.d dVar) {
                 PersonCardActivity.this.esC = dVar;
             }
 
-            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0379a
+            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0374a
             public void b(com.baidu.tieba.ala.person.a.d dVar) {
                 PersonCardActivity.this.esD = dVar;
             }
 
-            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0379a
+            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0374a
             public void onFail(String str) {
                 PersonCardActivity.this.showToast(str);
             }

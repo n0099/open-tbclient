@@ -10,16 +10,16 @@ import android.widget.LinearLayout;
 public class a {
     private final ViewGroup biA;
     private int biB;
-    private final InterfaceC0213a biz;
+    private final InterfaceC0208a biz;
 
     /* renamed from: com.baidu.swan.apps.res.widget.floatlayer.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0213a {
+    public interface InterfaceC0208a {
         a AE();
     }
 
-    public a(@NonNull InterfaceC0213a interfaceC0213a, @NonNull ViewGroup viewGroup, int i) {
-        this.biz = interfaceC0213a;
+    public a(@NonNull InterfaceC0208a interfaceC0208a, @NonNull ViewGroup viewGroup, int i) {
+        this.biz = interfaceC0208a;
         this.biA = viewGroup;
         this.biB = i;
     }

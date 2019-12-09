@@ -34,8 +34,8 @@ public class a extends BaseAdapter {
     private int jRW = 6;
     private boolean jRX = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    private InterfaceC0544a jRY = new InterfaceC0544a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
-        @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0544a
+    private InterfaceC0539a jRY = new InterfaceC0539a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
+        @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0539a
         public void BH(int i) {
             if (a.this.chosedFiles != null) {
                 if (a.this.chosedFiles.size() - 1 >= i) {
@@ -67,7 +67,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.write.view.PhotoLiveView.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    protected interface InterfaceC0544a {
+    protected interface InterfaceC0539a {
         void BH(int i);
     }
 
