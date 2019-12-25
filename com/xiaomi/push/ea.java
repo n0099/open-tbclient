@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ea extends dx {
     public ea(Context context, int i) {
         super(context, i);
@@ -86,19 +86,19 @@ public class ea extends dx {
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo140a() {
+    public int mo143a() {
         return 23;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hi mo140a() {
+    public hi mo143a() {
         return hi.Storage;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo140a() {
+    public String mo143a() {
         return "ram:" + b() + Constants.ACCEPT_TIME_SEPARATOR_SP + "rom:" + c();
     }
 }

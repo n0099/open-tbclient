@@ -4,38 +4,38 @@ import android.view.View;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class e {
-    private com.baidu.tieba.ala.guardclub.view.b dLv;
-    private h.a dLx = new h.a() { // from class: com.baidu.tieba.ala.guardclub.e.1
+    private com.baidu.tieba.ala.guardclub.view.b ezH;
+    private h.a ezJ = new h.a() { // from class: com.baidu.tieba.ala.guardclub.e.1
     };
-    private BdUniqueId afK = BdUniqueId.gen();
-    private com.baidu.tieba.ala.guardclub.model.h dLw = new com.baidu.tieba.ala.guardclub.model.h(this.afK, this.dLx);
+    private BdUniqueId anM = BdUniqueId.gen();
+    private com.baidu.tieba.ala.guardclub.model.h ezI = new com.baidu.tieba.ala.guardclub.model.h(this.anM, this.ezJ);
 
     public e(BaseActivity baseActivity, String str, BdUniqueId bdUniqueId) {
-        this.dLv = new com.baidu.tieba.ala.guardclub.view.b(baseActivity, bdUniqueId);
-        this.dLv.setOtherParams(str);
-        this.dLw.a(this.dLv);
-        this.dLv.f(this.dLw);
+        this.ezH = new com.baidu.tieba.ala.guardclub.view.b(baseActivity, bdUniqueId);
+        this.ezH.setOtherParams(str);
+        this.ezI.a(this.ezH);
+        this.ezH.f(this.ezI);
     }
 
     public View getView() {
-        return this.dLv.getView();
+        return this.ezH.getView();
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.dLv != null) {
-            this.dLv.notifyDataSetInvalidated();
+        if (this.ezH != null) {
+            this.ezH.notifyDataSetInvalidated();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aLo() {
-        if (this.dLw != null) {
-            this.dLw.onDestory();
+    public void anO() {
+        if (this.ezI != null) {
+            this.ezI.onDestory();
         }
-        if (this.dLv != null) {
-            this.dLv.aLn();
+        if (this.ezH != null) {
+            this.ezH.bcx();
         }
     }
 }

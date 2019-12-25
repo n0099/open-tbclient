@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.d;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.adp.framework.a.a {
     public a() {
         super(CmdConfigCustom.MEMORY_CHANGED);

@@ -2,11 +2,12 @@ package com.baidu.live.im.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.util.TbEnum;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a extends HttpMessage {
     private String appId;
     private com.baidu.live.im.data.b barrageCardInfo;
     private String barrageId;
+    private int barrageType;
     private String content;
     private int groupId;
     private String[] imEffect;
@@ -32,19 +33,19 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short tm() {
+    public short vh() {
         return this.msgType;
     }
 
-    public void cK(String str) {
+    public void dB(String str) {
         this.liveId = str;
     }
 
-    public void cL(String str) {
+    public void dC(String str) {
         this.roomId = str;
     }
 
-    public String tn() {
+    public String vi() {
         return this.otherParams;
     }
 
@@ -52,23 +53,31 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long tp() {
+    public long vj() {
         return this.price;
     }
 
-    public void A(long j) {
+    public void C(long j) {
         this.price = j;
     }
 
-    public String tj() {
+    public int vd() {
+        return this.barrageType;
+    }
+
+    public void bK(int i) {
+        this.barrageType = i;
+    }
+
+    public String ve() {
         return this.barrageId;
     }
 
-    public void cJ(String str) {
+    public void dA(String str) {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.b tk() {
+    public com.baidu.live.im.data.b vf() {
         return this.barrageCardInfo;
     }
 
@@ -76,7 +85,7 @@ public class a extends HttpMessage {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] tl() {
+    public String[] vg() {
         return this.imEffect;
     }
 

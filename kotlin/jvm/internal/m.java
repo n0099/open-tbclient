@@ -3,32 +3,32 @@ package kotlin.jvm.internal;
 import java.lang.annotation.Annotation;
 import java.util.List;
 import kotlin.jvm.KotlinReflectionNotSupportedError;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class m implements l, kotlin.reflect.c<Object> {
-    private final Class<?> kvj;
+    private final Class<?> mZe;
 
     public m(Class<?> cls) {
-        p.i(cls, "jClass");
-        this.kvj = cls;
+        p.j(cls, "jClass");
+        this.mZe = cls;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> cMU() {
-        return this.kvj;
+    public Class<?> dEP() {
+        return this.mZe;
     }
 
     @Override // kotlin.reflect.a
     public List<Annotation> getAnnotations() {
-        cMV();
+        dEQ();
         throw null;
     }
 
-    private final Void cMV() {
+    private final Void dEQ() {
         throw new KotlinReflectionNotSupportedError();
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof m) && p.f(kotlin.jvm.a.a(this), kotlin.jvm.a.a((kotlin.reflect.c) obj));
+        return (obj instanceof m) && p.h(kotlin.jvm.a.a(this), kotlin.jvm.a.a((kotlin.reflect.c) obj));
     }
 
     public int hashCode() {
@@ -36,6 +36,6 @@ public final class m implements l, kotlin.reflect.c<Object> {
     }
 
     public String toString() {
-        return cMU().toString() + " (Kotlin reflection is not available)";
+        return dEP().toString() + " (Kotlin reflection is not available)";
     }
 }

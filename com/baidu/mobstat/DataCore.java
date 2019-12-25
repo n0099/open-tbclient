@@ -9,7 +9,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DataCore {
     private static JSONObject a = new JSONObject();
     private static DataCore b = new DataCore();
@@ -100,7 +100,7 @@ public class DataCore {
                 jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.c.toString()));
             }
             synchronized (this.d) {
-                jSONObject.put(Config.EVENT_PART, new JSONArray(this.d.toString()));
+                jSONObject.put("ev", new JSONArray(this.d.toString()));
             }
             synchronized (a) {
                 jSONObject.put(Config.HEADER_PART, new JSONObject(a.toString()));
@@ -198,7 +198,7 @@ public class DataCore {
                         } catch (Exception e2) {
                         }
                         try {
-                            JSONArray jSONArray2 = jSONObject.getJSONArray(Config.EVENT_PART);
+                            JSONArray jSONArray2 = jSONObject.getJSONArray("ev");
                             if (jSONArray2 != null) {
                                 for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
                                     JSONObject jSONObject3 = jSONArray2.getJSONObject(i2);
@@ -252,7 +252,7 @@ public class DataCore {
             try {
                 jSONObject.put(Config.PRINCIPAL_PART, jSONArray);
                 try {
-                    jSONObject.put(Config.EVENT_PART, jSONArray);
+                    jSONObject.put("ev", jSONArray);
                     try {
                         jSONObject.put(Config.EXCEPTION_PART, jSONArray);
                         return jSONObject.toString();
@@ -450,7 +450,7 @@ public class DataCore {
             if (!it.hasNext()) {
                 z = true;
                 break;
-            } else if (((JSONObject) it.next()).getLong(Config.TRACE_VISIT_RECENT_DAY) == j) {
+            } else if (((JSONObject) it.next()).getLong("day") == j) {
                 z = false;
                 break;
             }
@@ -458,7 +458,7 @@ public class DataCore {
         if (z) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(Config.TRACE_VISIT_RECENT_DAY, j);
+                jSONObject.put("day", j);
                 jSONObject.put("count", j2);
                 arrayList.add(jSONObject);
             } catch (Exception e2) {
@@ -527,7 +527,7 @@ public class DataCore {
                         jSONObject2.put(Config.PRINCIPAL_PART, this.c);
                         synchronized (this.d) {
                             try {
-                                jSONObject2.put(Config.EVENT_PART, this.d);
+                                jSONObject2.put("ev", this.d);
                                 try {
                                     jSONObject2.put(Config.EXCEPTION_PART, new JSONArray());
                                     a(context, jSONObject2, z2);

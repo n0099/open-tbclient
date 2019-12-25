@@ -2,7 +2,7 @@ package kotlin;
 
 import java.io.Serializable;
 import kotlin.jvm.internal.p;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class Triple<A, B, C> implements Serializable {
     private final A first;
     private final B second;
@@ -43,7 +43,7 @@ public final class Triple<A, B, C> implements Serializable {
         if (this != obj) {
             if (obj instanceof Triple) {
                 Triple triple = (Triple) obj;
-                if (!p.f(this.first, triple.first) || !p.f(this.second, triple.second) || !p.f(this.third, triple.third)) {
+                if (!p.h(this.first, triple.first) || !p.h(this.second, triple.second) || !p.h(this.third, triple.third)) {
                 }
             }
             return false;

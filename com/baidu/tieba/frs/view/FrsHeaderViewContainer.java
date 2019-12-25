@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FrsHeaderViewContainer extends LinearLayout {
     public FrsHeaderViewContainer(Context context) {
         super(context);

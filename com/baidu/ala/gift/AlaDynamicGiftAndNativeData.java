@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaDynamicGiftAndNativeData {
     public AlaDynamicGift mAlaDynamicGift;
     private ArrayList<String> unZipFilesPathList;

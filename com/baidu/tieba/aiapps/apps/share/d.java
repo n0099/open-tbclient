@@ -12,22 +12,22 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
-import com.baidu.swan.apps.u.b.u;
+import com.baidu.swan.apps.w.b.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class d implements u {
-    u.a dsa;
-    private CustomMessageListener dsb = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
+/* loaded from: classes9.dex */
+public class d implements k {
+    k.a ebQ;
+    private CustomMessageListener ebR = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.dsa != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.ebQ != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.dsa.Ki();
+                    d.this.ebQ.Sx();
                 } else {
-                    d.this.dsa.Kj();
+                    d.this.ebQ.Sy();
                 }
             }
         }
@@ -35,13 +35,13 @@ public class d implements u {
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.dsb);
+        MessageManager.getInstance().registerListener(this.ebR);
     }
 
-    @Override // com.baidu.swan.apps.u.b.u
-    public void a(Context context, JSONObject jSONObject, final u.a aVar) {
+    @Override // com.baidu.swan.apps.w.b.k
+    public void a(Context context, JSONObject jSONObject, final k.a aVar) {
         if (context instanceof Activity) {
-            this.dsa = aVar;
+            this.ebQ = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");
@@ -66,9 +66,9 @@ public class d implements u {
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.isOk()) {
                         if (delegateResult.mResult.getBoolean("share_result")) {
-                            aVar.Ki();
+                            aVar.Sx();
                         } else {
-                            aVar.Kj();
+                            aVar.Sy();
                         }
                     }
                 }

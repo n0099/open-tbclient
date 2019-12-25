@@ -7,12 +7,12 @@ import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class g extends h {
     @Nullable
-    private f dEi;
+    private f eph;
     @Nullable
-    private f dEj;
+    private f epi;
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.h
     @Nullable
@@ -172,17 +172,17 @@ public class g extends h {
 
     @NonNull
     private f c(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.dEi == null || this.dEi.mLayoutManager != layoutManager) {
-            this.dEi = f.b(layoutManager);
+        if (this.eph == null || this.eph.mLayoutManager != layoutManager) {
+            this.eph = f.b(layoutManager);
         }
-        return this.dEi;
+        return this.eph;
     }
 
     @NonNull
     private f d(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.dEj == null || this.dEj.mLayoutManager != layoutManager) {
-            this.dEj = f.a(layoutManager);
+        if (this.epi == null || this.epi.mLayoutManager != layoutManager) {
+            this.epi = f.a(layoutManager);
         }
-        return this.dEj;
+        return this.epi;
     }
 }

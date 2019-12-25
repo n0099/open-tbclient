@@ -17,10 +17,9 @@ import java.net.HttpURLConnection;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.zip.GZIPOutputStream;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class s {
     private static String a;
     private static s b;
@@ -152,7 +151,7 @@ public class s {
         d.setDoOutput(true);
         d.setInstanceFollowRedirects(false);
         d.setUseCaches(false);
-        d.setRequestProperty(HTTP.CONTENT_ENCODING, "gzip");
+        d.setRequestProperty("Content-Encoding", "gzip");
         try {
             JSONObject jSONObject = new JSONObject(str2).getJSONArray("payload").getJSONObject(0).getJSONObject(Config.HEADER_PART);
             d.setRequestProperty("Content-Type", "gzip");

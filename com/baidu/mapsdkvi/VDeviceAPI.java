@@ -23,9 +23,8 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
-import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.sapi2.activity.SlideActiviy;
-import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -139,7 +138,7 @@ public class VDeviceAPI {
     }
 
     public static String getOsVersion() {
-        return "android";
+        return PraiseDataPassUtil.KEY_FROM_OS;
     }
 
     public static int getScreenBrightness() {
@@ -255,7 +254,7 @@ public class VDeviceAPI {
     }
 
     public static void makeCall(String str) {
-        b.a().startActivity(new Intent("android.intent.action.DIAL", Uri.parse(UrlSchemaHelper.SCHEMA_TYPE_PONE + str)));
+        b.a().startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)));
     }
 
     public static native void onNetworkStateChanged();
@@ -272,7 +271,7 @@ public class VDeviceAPI {
                 intent.putExtra(SlideActiviy.ADDRESS_PAGE_NAME, str);
                 intent.putExtra("subject", str2);
                 intent.putExtra("sms_body", str3);
-                intent.putExtra("android.intent.extra.STREAM", Uri.parse(SkiaImageDecoder.FILE_PREFIX + str4));
+                intent.putExtra("android.intent.extra.STREAM", Uri.parse("file://" + str4));
                 intent.setType(mimeTypeFromExtension);
                 b.a().startActivity(intent);
                 return 0;

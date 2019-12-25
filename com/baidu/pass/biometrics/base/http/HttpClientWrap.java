@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.http.utils.HttpUtils;
 import com.baidu.pass.biometrics.base.restnet.RestNameValuePair;
@@ -20,6 +19,7 @@ import com.baidu.pass.http.HttpHashMap;
 import com.baidu.pass.http.HttpResponseHandler;
 import com.baidu.pass.http.PassHttpClient;
 import com.baidu.pass.http.PassHttpParamDTO;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpCookie;
 import java.net.URLEncoder;
@@ -30,10 +30,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class HttpClientWrap {
     private static final String KEY_REQID = "reqid";
     private static final String PARAM_CUID_2 = "cuid_2";
@@ -171,7 +170,7 @@ public class HttpClientWrap {
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(str3).append("=").append(URLEncoder.encode(str4, HTTP.UTF_8)).append("&");
+                    sb.append(str3).append(ETAG.EQUAL).append(URLEncoder.encode(str4, "UTF-8")).append(ETAG.ITEM_SEPARATOR);
                 }
             } catch (UnsupportedEncodingException e) {
                 Log.e(e);
@@ -195,10 +194,10 @@ public class HttpClientWrap {
     public static Map<String, String> appendCertification(Context context) {
         HashMap hashMap = new HashMap();
         hashMap.put(PARAM_ENCODE, "utf-8");
-        hashMap.put(PARAM_UA, PassBiometricUtil.getUA(context, BeanConstants.tpl));
+        hashMap.put("ua", PassBiometricUtil.getUA(context, BeanConstants.tpl));
         hashMap.put("time", String.valueOf(System.currentTimeMillis() / 1000));
         hashMap.put("appid", BeanConstants.appid);
-        hashMap.put(TableDefine.PaSubscribeColumns.COLUMN_TPL, BeanConstants.tpl);
+        hashMap.put("tpl", BeanConstants.tpl);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(PARAM_CUID_2, PhoneUtils.getCUID2(context));

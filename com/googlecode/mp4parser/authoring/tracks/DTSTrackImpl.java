@@ -1,7 +1,5 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
-import android.support.v4.internal.view.SupportMenu;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.coremedia.iso.boxes.AbstractMediaHeaderBox;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -21,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DTSTrackImpl extends AbstractTrack {
     int bcCoreBitRate;
     int bcCoreChannelMask;
@@ -90,7 +88,7 @@ public class DTSTrackImpl extends AbstractTrack {
         this.bcCoreBitRate = 0;
         this.bcCoreChannelMask = 0;
         this.lsbTrimPercent = 0;
-        this.type = IXAdSystemUtils.NT_NONE;
+        this.type = "none";
         this.lang = "eng";
         this.lang = str;
         this.dataSource = dataSource;
@@ -125,7 +123,7 @@ public class DTSTrackImpl extends AbstractTrack {
         this.bcCoreBitRate = 0;
         this.bcCoreChannelMask = 0;
         this.lsbTrimPercent = 0;
-        this.type = IXAdSystemUtils.NT_NONE;
+        this.type = "none";
         this.lang = "eng";
         this.dataSource = dataSource;
         parse();
@@ -239,7 +237,7 @@ public class DTSTrackImpl extends AbstractTrack {
         this.maxSampleRate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & 65535);
         this.numFramesTotal = byteBuffer.getInt();
         this.samplesPerFrameAtMaxFs = byteBuffer.getShort();
-        this.numSamplesOrigAudioAtMaxFs = (byteBuffer.get() << 32) | (byteBuffer.getInt() & SupportMenu.USER_MASK);
+        this.numSamplesOrigAudioAtMaxFs = (byteBuffer.get() << 32) | (byteBuffer.getInt() & 65535);
         this.channelMask = byteBuffer.getShort();
         this.codecDelayAtMaxFs = byteBuffer.getShort();
         int i2 = 21;
@@ -1207,10 +1205,10 @@ public class DTSTrackImpl extends AbstractTrack {
         return false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:72:0x0143, code lost:
-        r22.samplerate = com.baidu.ala.livePlayer.StreamConfig.Audio.AUDIO_RTC_FREQUENCY_16K;
+        r22.samplerate = 16000;
      */
     /* JADX WARN: Code restructure failed: missing block: B:73:0x014a, code lost:
-        r22.samplerate = com.baidu.ala.livePlayer.StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K;
+        r22.samplerate = com.baidu.ala.player.StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K;
      */
     /* JADX WARN: Code restructure failed: missing block: B:74:0x0151, code lost:
         r22.samplerate = com.baidu.live.tbadk.core.data.RequestResponseCode.REQUEST_LOGIN_PB_AT;
@@ -1219,7 +1217,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.samplerate = 22050;
      */
     /* JADX WARN: Code restructure failed: missing block: B:76:0x015f, code lost:
-        r22.samplerate = com.baidu.ala.livePlayer.StreamConfig.Audio.AUDIO_FREQUENCY;
+        r22.samplerate = com.baidu.ala.player.StreamConfig.Audio.AUDIO_FREQUENCY;
      */
     /* JADX WARN: Code restructure failed: missing block: B:77:0x0167, code lost:
         r22.samplerate = 12000;
@@ -1228,7 +1226,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.samplerate = 24000;
      */
     /* JADX WARN: Code restructure failed: missing block: B:79:0x0175, code lost:
-        r22.samplerate = com.baidu.ala.livePlayer.StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+        r22.samplerate = com.baidu.ala.player.StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
      */
     /* JADX WARN: Code restructure failed: missing block: B:80:0x017d, code lost:
         r22.bitrate = 32;
@@ -1255,7 +1253,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.bitrate = 128;
      */
     /* JADX WARN: Code restructure failed: missing block: B:89:0x01b0, code lost:
-        r22.bitrate = 192;
+        r22.bitrate = com.baidu.down.manage.DownloadConstants.STATUS_RUNNING;
      */
     /* JADX WARN: Code restructure failed: missing block: B:90:0x01b7, code lost:
         r22.bitrate = 224;

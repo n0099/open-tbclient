@@ -4,12 +4,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class QuickReply implements Parcelable {
     public static final Parcelable.Creator<QuickReply> CREATOR = new Parcelable.Creator<QuickReply>() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +53,7 @@ public class QuickReply implements Parcelable {
             quickReply.setTimeStamp(jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING));
             quickReply.setRefreshTime(jSONObject.getLong("menu_refresh_ts"));
             quickReply.setMenuName(jSONObject.getString("name"));
-            quickReply.setPaName(jSONObject.optString("src"));
+            quickReply.setPaName(jSONObject.optString(UserAccountActionItem.KEY_SRC));
             JSONArray jSONArray = jSONObject.getJSONArray("button_list");
             ArrayList<ReplyContent> arrayList = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
@@ -183,7 +184,7 @@ public class QuickReply implements Parcelable {
         parcel.writeTypedList(this.mButtonList);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class ReplyContent implements Parcelable {
         public static final Parcelable.Creator<ReplyContent> CREATOR = new Parcelable.Creator<ReplyContent>() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.ReplyContent.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -239,7 +240,7 @@ public class QuickReply implements Parcelable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class Act implements Parcelable {
         public static final Parcelable.Creator<Act> CREATOR = new Parcelable.Creator<Act>() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.Act.1
             /* JADX DEBUG: Method merged with bridge method */

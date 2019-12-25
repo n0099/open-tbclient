@@ -1,15 +1,15 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId jfq = BdUniqueId.gen();
-    public List<bh> jfr;
+    public static final BdUniqueId jZD = BdUniqueId.gen();
+    public List<bj> jZE;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return jfq;
+        return jZD;
     }
 }

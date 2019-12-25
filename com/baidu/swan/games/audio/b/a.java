@@ -1,178 +1,178 @@
 package com.baidu.swan.games.audio.b;
 
-import android.media.MediaPlayer;
-/* loaded from: classes2.dex */
-public class a implements c {
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
+import com.baidu.swan.games.audio.f;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+/* loaded from: classes9.dex */
+public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private MediaPlayer aUW;
-    private MediaPlayer.OnPreparedListener bxF;
-    private boolean bxG;
+    private static volatile a cfS;
+    private HashMap<String, ArrayList<InterfaceC0318a>> cfT = new HashMap<>();
+    final ExecutorService cfU = Executors.newCachedThreadPool();
+    private Object mLock = new Object();
+    private String cfV = f.aiM() + f.aiN();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a() {
-        create();
+    /* renamed from: com.baidu.swan.games.audio.b.a$a  reason: collision with other inner class name */
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0318a {
+        void aiQ();
+
+        void success(String str);
     }
 
-    private void create() {
-        LV();
+    private a() {
     }
 
-    private synchronized MediaPlayer LV() {
-        if (this.aUW == null) {
-            this.aUW = new MediaPlayer();
-            this.aUW.setAudioStreamType(3);
-            this.aUW.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.swan.games.audio.b.a.1
-                @Override // android.media.MediaPlayer.OnPreparedListener
-                public void onPrepared(MediaPlayer mediaPlayer) {
-                    try {
-                        if (a.this.bxF != null) {
-                            a.this.bxF.onPrepared(a.this.aUW);
-                        }
-                    } catch (Exception e) {
-                        if (a.DEBUG) {
-                            e.printStackTrace();
-                        }
+    public static a aiR() {
+        if (cfS == null) {
+            synchronized (a.class) {
+                if (cfS == null) {
+                    cfS = new a();
+                }
+            }
+        }
+        return cfS;
+    }
+
+    public void a(final JsArrayBuffer jsArrayBuffer, final InterfaceC0318a interfaceC0318a) {
+        this.cfU.execute(new Runnable() { // from class: com.baidu.swan.games.audio.b.a.1
+            @Override // java.lang.Runnable
+            public void run() {
+                String y = a.this.y(jsArrayBuffer.buffer());
+                File file = new File(y);
+                if (!file.exists()) {
+                    if (!a.this.a(y, interfaceC0318a)) {
+                        a.this.g(y, jsArrayBuffer.buffer());
                     }
-                }
-            });
-        }
-        return this.aUW;
-    }
-
-    @Override // com.baidu.swan.games.audio.b.c
-    public void setSrc(String str) throws Exception {
-        if (VU()) {
-            this.aUW.setDataSource(str);
-            this.aUW.prepareAsync();
-        }
-    }
-
-    @Override // com.baidu.swan.games.audio.b.c
-    public void dd(boolean z) {
-        if (VU()) {
-            this.aUW.setLooping(z);
-        }
-    }
-
-    @Override // com.baidu.swan.games.audio.b.c
-    public void setVolume(float f) {
-        if (VU()) {
-            this.aUW.setVolume(f, f);
-        }
-    }
-
-    @Override // com.baidu.swan.games.audio.b.c
-    public void setOnPreparedListener(MediaPlayer.OnPreparedListener onPreparedListener) {
-        this.bxF = onPreparedListener;
-    }
-
-    @Override // com.baidu.swan.games.audio.b.c
-    public void setOnCompletionListener(final MediaPlayer.OnCompletionListener onCompletionListener) {
-        LV().setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.swan.games.audio.b.a.2
-            @Override // android.media.MediaPlayer.OnCompletionListener
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                if (a.this.aUW != null && !a.this.aUW.isLooping()) {
-                    a.this.destroy();
-                }
-                if (onCompletionListener != null) {
-                    onCompletionListener.onCompletion(null);
+                } else if (!file.isDirectory()) {
+                    interfaceC0318a.success(y);
+                } else {
+                    interfaceC0318a.aiQ();
                 }
             }
         });
     }
 
-    @Override // com.baidu.swan.games.audio.b.c
-    public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        LV().setOnInfoListener(onInfoListener);
-    }
-
-    @Override // com.baidu.swan.games.audio.b.c
-    public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        LV().setOnErrorListener(onErrorListener);
-    }
-
-    @Override // com.baidu.swan.games.audio.b.c
-    public void a(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener) {
-        LV().setOnSeekCompleteListener(onSeekCompleteListener);
-    }
-
-    @Override // com.baidu.swan.games.audio.b.c
-    public void a(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener) {
-        LV().setOnBufferingUpdateListener(onBufferingUpdateListener);
-    }
-
-    @Override // com.baidu.swan.games.audio.b.c
-    public boolean VT() {
-        return this.bxG;
-    }
-
-    @Override // com.baidu.swan.games.audio.a
-    public void play() {
-        if (VU()) {
-            this.aUW.start();
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x00bb */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
+    public void g(String str, byte[] bArr) {
+        FileOutputStream fileOutputStream;
+        File file = new File(this.cfV);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        ?? r1 = ".bdsave";
+        File file2 = new File(str + ".bdsave");
+        try {
+            try {
+                fileOutputStream = new FileOutputStream(file2);
+                try {
+                    fileOutputStream.write(bArr);
+                    fileOutputStream.flush();
+                    File file3 = new File(str);
+                    if (file3.exists() && !file3.isDirectory()) {
+                        file3.delete();
+                    }
+                    if (file2.renameTo(file3)) {
+                        if (DEBUG) {
+                            Log.e("AudioBufferManager", "buffer load rename success path = " + str);
+                        }
+                        mE(str);
+                    } else {
+                        if (DEBUG) {
+                            Log.e("AudioBufferManager", "buffer load rename error path = " + str);
+                        }
+                        file2.delete();
+                        mE(null);
+                    }
+                    com.baidu.swan.d.c.closeSafely(fileOutputStream);
+                } catch (Exception e) {
+                    e = e;
+                    if (DEBUG) {
+                        e.printStackTrace();
+                    }
+                    if (file2 != null && file2.exists()) {
+                        file2.delete();
+                    }
+                    mE(null);
+                    com.baidu.swan.d.c.closeSafely(fileOutputStream);
+                }
+            } catch (Throwable th) {
+                th = th;
+                com.baidu.swan.d.c.closeSafely(r1);
+                throw th;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            fileOutputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            r1 = 0;
+            com.baidu.swan.d.c.closeSafely(r1);
+            throw th;
         }
     }
 
-    @Override // com.baidu.swan.games.audio.a
-    public void pause() {
-        if (VU()) {
-            this.aUW.pause();
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean a(String str, InterfaceC0318a interfaceC0318a) {
+        ArrayList<InterfaceC0318a> arrayList;
+        boolean z;
+        synchronized (this.mLock) {
+            ArrayList<InterfaceC0318a> arrayList2 = this.cfT.get(str);
+            if (arrayList2 != null) {
+                arrayList = arrayList2;
+                z = true;
+            } else {
+                arrayList = new ArrayList<>();
+                this.cfT.put(str, arrayList);
+                z = false;
+            }
+            arrayList.add(interfaceC0318a);
         }
+        return z;
     }
 
-    @Override // com.baidu.swan.games.audio.a
-    public void seek(float f) {
-        if (VU()) {
-            this.aUW.seekTo((int) f);
-        }
-    }
-
-    @Override // com.baidu.swan.games.audio.a
-    public void stop() {
-        if (VU()) {
-            this.aUW.stop();
-        }
-    }
-
-    @Override // com.baidu.swan.games.audio.a
-    public void destroy() {
-        if (this.aUW != null) {
-            synchronized (this.aUW) {
-                unregisterListener();
-                this.aUW.release();
-                this.aUW = null;
+    private void mE(String str) {
+        synchronized (this.mLock) {
+            ArrayList<InterfaceC0318a> arrayList = this.cfT.get(str);
+            if (arrayList != null) {
+                boolean isEmpty = TextUtils.isEmpty(str);
+                Iterator<InterfaceC0318a> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    InterfaceC0318a next = it.next();
+                    if (!isEmpty) {
+                        if (DEBUG) {
+                            Log.e("AudioBufferManager", "save success path: " + str);
+                        }
+                        next.success(str);
+                    } else {
+                        next.aiQ();
+                    }
+                }
+                this.cfT.remove(str);
             }
         }
-        this.bxG = true;
     }
 
-    private boolean VU() {
-        return (this.aUW == null || this.bxG) ? false : true;
-    }
-
-    private void unregisterListener() {
-        if (this.aUW != null) {
-            this.aUW.setOnPreparedListener(null);
-            this.aUW.setOnCompletionListener(null);
-            this.aUW.setOnInfoListener(null);
-            this.aUW.setOnErrorListener(null);
-            this.aUW.setOnSeekCompleteListener(null);
-            this.aUW.setOnBufferingUpdateListener(null);
+    /* JADX INFO: Access modifiers changed from: private */
+    public String y(byte[] bArr) {
+        String x = f.x(bArr);
+        StringBuilder append = new StringBuilder().append(this.cfV).append(bArr.length);
+        if (TextUtils.isEmpty(x)) {
+            x = "";
         }
-    }
-
-    @Override // com.baidu.swan.games.audio.a
-    public int getDuration() {
-        return LV().getDuration();
-    }
-
-    @Override // com.baidu.swan.games.audio.a
-    public int getCurrentTime() {
-        return LV().getCurrentPosition();
-    }
-
-    @Override // com.baidu.swan.games.audio.a
-    public boolean isPaused() {
-        return !LV().isPlaying();
+        return append.append(x).toString();
     }
 }

@@ -1,40 +1,42 @@
 package com.baidu.adp.lib.stats;
+
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 /* loaded from: classes.dex */
-public class BdStatisticsSwitchStatic extends com.baidu.adp.lib.b.a {
+public class BdStatisticsSwitchStatic extends com.baidu.adp.lib.featureSwitch.a {
     static {
-        com.baidu.adp.lib.b.d.ft().f(BdStatisticsSwitchStatic.class);
+        SwitchManager.getInstance().registerSwitch(BdStatisticsSwitchStatic.class);
     }
 
     public static boolean isOn() {
-        return com.baidu.adp.lib.b.d.ft().af("newUrlForPerf") == 1;
+        return SwitchManager.getInstance().findType("newUrlForPerf") == 1;
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected void C(int i) {
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected void changeSettingByType(int i) {
     }
 
-    @Override // com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.featureSwitch.a
     protected String getName() {
         return "newUrlForPerf";
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] fi() {
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected String[] getCrashKeys() {
         return null;
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected int fj() {
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected int getDefaultType() {
         return 1;
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected int fk() {
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected int getOffType() {
         return 0;
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected int fl() {
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected int getMaxCrashTimes() {
         return 10;
     }
 }

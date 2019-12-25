@@ -9,7 +9,7 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
     private List<Post> postList;
     private ExcellentPbThreadInfo threadInfo;
@@ -53,9 +53,9 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null && bArr.length > 0) {
-            l<byte[]> nk = com.baidu.tbadk.core.d.a.akL().nk("tb.pb_normal");
-            nk.remove("chosen_pb_page_cache");
-            nk.setForever("chosen_pb_page_cache", bArr);
+            l<byte[]> sw = com.baidu.tbadk.core.c.a.aBV().sw("tb.pb_normal");
+            sw.remove("chosen_pb_page_cache");
+            sw.setForever("chosen_pb_page_cache", bArr);
         }
     }
 

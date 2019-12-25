@@ -14,7 +14,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -190,7 +189,7 @@ public class HttpClient {
                             return;
                         }
                         r1 = this.a.getInputStream();
-                        bufferedReader = new BufferedReader(new InputStreamReader((InputStream) r1, HTTP.UTF_8));
+                        bufferedReader = new BufferedReader(new InputStreamReader((InputStream) r1, "UTF-8"));
                         try {
                             StringBuffer stringBuffer = new StringBuffer();
                             while (true) {

@@ -8,20 +8,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.special_forum.data.e> {
-    private a dCj;
+    private a eni;
 
     public b(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.dCj = new a(getView());
+        this.eni = new a(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.setViewTextColor(this.dCj.textView, (int) R.color.cp_cont_d);
-        am.setBackgroundColor(this.dCj.cfh, R.color.cp_bg_line_c);
+        am.setViewTextColor(this.eni.textView, (int) R.color.cp_cont_d);
+        am.setBackgroundColor(this.eni.cRG, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -38,17 +38,17 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
     public void onClick(View view) {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a extends v.a {
-        public View bFk;
-        public View cfh;
+        public View cRG;
+        public View cpR;
         public TextView textView;
 
         public a(View view) {
             super(view);
-            this.bFk = view;
-            this.textView = (TextView) this.bFk.findViewById(R.id.tv_empty);
-            this.cfh = this.bFk.findViewById(R.id.devider_line);
+            this.cpR = view;
+            this.textView = (TextView) this.cpR.findViewById(R.id.tv_empty);
+            this.cRG = this.cpR.findViewById(R.id.devider_line);
         }
     }
 }

@@ -1,121 +1,70 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.xiaomi.mipush.sdk.Constants;
-import org.json.JSONObject;
-import tbclient.TaskInfo;
+import tbclient.SimpleForum;
 /* loaded from: classes.dex */
-public class bf {
-    private long cam;
-    private String can;
-    private String cao;
-    private long endTime;
-    private long forumId;
-    private String forumName;
-    private int mHeight;
-    private int mWidth;
-    private String obj_id;
-    private long taskId;
-    private long threadId;
+public class bf implements com.baidu.tbadk.core.view.commonLike.forum.b {
+    public String avatar;
+    private boolean cMA;
+    public w cMB;
+    private boolean cMz;
+    public String forumId;
+    private int forumLevel;
+    public String forumName;
+    public boolean isBrandForum;
+    public int memberNum;
+    public int postNum;
 
+    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
     public String getForumName() {
         return this.forumName;
     }
 
-    public String getForumId() {
-        return this.forumId + "";
+    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
+    public void fm(boolean z) {
+        this.cMA = z;
     }
 
-    public long ahX() {
-        return this.cam;
+    public boolean ayT() {
+        return this.cMA;
     }
 
-    public long ahY() {
-        return this.endTime;
+    public String getAvatar() {
+        return this.avatar;
     }
 
-    public String getTaskId() {
-        return this.taskId + "";
+    public int ayU() {
+        return this.forumLevel;
     }
 
-    public String getThreadId() {
-        return this.threadId + "";
+    @Override // com.baidu.tbadk.core.view.commonLike.a
+    public boolean getIsLike() {
+        return this.cMz;
     }
 
-    public String getThreadImgUrl() {
-        return this.cao;
+    @Override // com.baidu.tbadk.core.view.commonLike.a
+    public void setIsLike(boolean z) {
+        this.cMz = z;
     }
 
-    public int ahZ() {
-        return this.mWidth;
-    }
-
-    public int aia() {
-        return this.mHeight;
-    }
-
-    public String aib() {
-        return this.obj_id;
-    }
-
-    public void a(TaskInfo taskInfo) {
-        if (taskInfo != null) {
-            this.forumName = taskInfo.forum_name;
-            this.forumId = taskInfo.forum_id.longValue();
-            this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
-            this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
-            this.can = taskInfo.bgimg;
-            this.cao = taskInfo.thread_img;
-            this.cam = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
-            this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
-            String str = taskInfo.thread_img_size;
-            if (str != null) {
-                try {
-                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.mWidth = com.baidu.adp.lib.g.b.toInt(split[0], 1);
-                    this.mHeight = com.baidu.adp.lib.g.b.toInt(split[1], 1);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
+    public void parserProtobuf(SimpleForum simpleForum) {
+        if (simpleForum != null) {
+            this.forumId = String.valueOf(simpleForum.id);
+            this.forumName = simpleForum.name;
+            this.avatar = simpleForum.avatar;
+            this.cMz = simpleForum.is_liked.intValue() == 1;
+            this.forumLevel = simpleForum.level_id.intValue();
+            if (simpleForum.multi_forum_perm != null) {
+                this.cMB = new w();
+                this.cMB.a(simpleForum.multi_forum_perm);
             }
-            if (this.mWidth <= 0) {
-                this.mWidth = 1;
-            }
-            if (this.mHeight <= 0) {
-                this.mHeight = 1;
-            }
-            this.obj_id = taskInfo.obj_id;
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.forumName = jSONObject.optString("forum_name");
-                this.forumId = jSONObject.optLong("forum_id");
-                this.taskId = jSONObject.optLong("task_id");
-                this.threadId = jSONObject.optLong("thread_id");
-                this.can = jSONObject.optString("bgimg");
-                this.cam = jSONObject.optLong("start_time");
-                this.endTime = jSONObject.optLong("end_time");
-                this.cao = jSONObject.optString("thread_img");
-                String optString = jSONObject.optString("thread_img_size");
-                if (optString != null && optString.length() > 0) {
-                    String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    if (split.length > 1) {
-                        this.mWidth = Integer.valueOf(split[0]).intValue();
-                        this.mHeight = Integer.valueOf(split[1]).intValue();
-                    }
-                }
-                if (this.mWidth <= 0) {
-                    this.mWidth = 1;
-                }
-                if (this.mHeight <= 0) {
-                    this.mHeight = 1;
-                }
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
+            this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
+            this.memberNum = simpleForum.member_num.intValue();
+            this.postNum = simpleForum.post_num.intValue();
         }
     }
 }

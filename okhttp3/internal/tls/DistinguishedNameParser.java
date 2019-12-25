@@ -1,7 +1,8 @@
 package okhttp3.internal.tls;
 
+import com.baidu.down.manage.DownloadConstants;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class DistinguishedNameParser {
     private int beg;
     private char[] chars;
@@ -215,7 +216,7 @@ final class DistinguishedNameParser {
             this.pos++;
             int i6 = getByte(this.pos);
             this.pos++;
-            if ((i6 & 192) != 128) {
+            if ((i6 & DownloadConstants.STATUS_RUNNING) != 128) {
                 return '?';
             }
             i4 = (i4 << 6) + (i6 & 63);

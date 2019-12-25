@@ -10,13 +10,13 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class aj {
     private static final ByteBuffer c = ByteBuffer.allocate(0);
     private a a;
     private b b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a();
 
@@ -73,7 +73,7 @@ public class aj {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b extends cc {
         public b(URI uri, int i, Socket socket) throws InterruptedException {
             super(uri, new cf(), null, i);
@@ -170,7 +170,7 @@ public class aj {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class c extends IOException {
         public c(Throwable th) {
             super(th.getMessage());

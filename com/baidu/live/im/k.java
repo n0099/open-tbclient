@@ -1,89 +1,93 @@
 package com.baidu.live.im;
 
 import com.baidu.live.data.AlaLiveMarkData;
-import com.baidu.live.data.af;
-import com.baidu.live.data.ao;
+import com.baidu.live.data.ak;
+import com.baidu.live.data.av;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class k {
-    private int aep;
-    private List<AlaLiveMarkData> afL;
-    private boolean agn;
+    private List<AlaLiveMarkData> anN;
+    private boolean aon;
+    private String aoo;
 
-    public static k sN() {
-        return a.ago;
+    public static k uF() {
+        return a.aop;
     }
 
-    public ao[] sO() {
-        ao[] aoVarArr;
-        boolean z = false;
-        af afVar = com.baidu.live.l.a.uB().aku;
-        if (afVar == null || afVar.TO == null || !afVar.TO.UR || afVar.TK == null) {
-            aoVarArr = null;
+    public av[] uG() {
+        return aO(false);
+    }
+
+    public av[] aO(boolean z) {
+        ArrayList arrayList;
+        av[] avVarArr;
+        ak akVar = com.baidu.live.r.a.wA().asy;
+        if (akVar == null || akVar.aaK == null || !akVar.aaK.ach || akVar.aaH == null) {
+            arrayList = null;
         } else {
-            aoVarArr = afVar.TK.Uo;
-            if (aoVarArr != null && aoVarArr.length > 0) {
-                z = true;
+            av[] avVarArr2 = akVar.aaH.abw;
+            arrayList = (avVarArr2 == null || avVarArr2.length <= 0) ? null : new ArrayList(Arrays.asList(avVarArr2));
+            if (com.baidu.live.r.a.wA().arE != null && com.baidu.live.r.a.wA().arE.YO && ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled()) && (avVarArr = akVar.aaH.abC) != null && avVarArr.length > 0)) {
+                if (arrayList == null) {
+                    arrayList = new ArrayList(Arrays.asList(avVarArr));
+                } else {
+                    arrayList.addAll(z ? 0 : arrayList.size(), Arrays.asList(avVarArr));
+                }
             }
         }
-        if (z) {
-            return aoVarArr;
+        if (arrayList == null || arrayList.isEmpty()) {
+            return null;
         }
-        return null;
+        return (av[]) arrayList.toArray(new av[arrayList.size()]);
     }
 
-    public boolean sP() {
-        return this.agn;
+    public boolean uH() {
+        return this.aon;
     }
 
-    public void ax(boolean z) {
-        if (z && !this.agn) {
-            setSelect(0);
+    public void setSwitchStatus(boolean z) {
+        this.aon = z;
+    }
+
+    public String uI() {
+        return this.aoo;
+    }
+
+    public void setSelectId(String str) {
+        this.aoo = str;
+    }
+
+    public List<AlaLiveMarkData> uJ() {
+        return this.anN;
+    }
+
+    public void D(List<AlaLiveMarkData> list) {
+        if (this.anN == null) {
+            this.anN = new ArrayList();
         }
-        if (!z) {
-            setSelect(-1);
-        }
-        this.agn = z;
-    }
-
-    public int getSelect() {
-        return this.aep;
-    }
-
-    public void setSelect(int i) {
-        this.aep = i;
-    }
-
-    public List<AlaLiveMarkData> sQ() {
-        return this.afL;
-    }
-
-    public void F(List<AlaLiveMarkData> list) {
-        if (this.afL == null) {
-            this.afL = new ArrayList();
-        }
-        this.afL.clear();
+        this.anN.clear();
         if (list != null && !list.isEmpty()) {
-            this.afL.addAll(list);
+            this.anN.addAll(list);
         }
     }
 
     public void release() {
-        this.agn = false;
-        this.aep = -1;
-        if (this.afL != null) {
-            this.afL.clear();
+        this.aon = false;
+        this.aoo = null;
+        if (this.anN != null) {
+            this.anN.clear();
         }
     }
 
     private k() {
-        this.agn = false;
-        this.aep = -1;
+        this.aon = false;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private static class a {
-        private static final k ago = new k();
+        private static final k aop = new k();
     }
 }

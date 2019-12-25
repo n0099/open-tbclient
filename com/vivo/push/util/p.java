@@ -1,10 +1,11 @@
 package com.vivo.push.util;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+import com.baidu.android.util.devices.NetWorkUtils;
+/* loaded from: classes5.dex */
 public final class p {
     public static final o a = new n();
-    private static boolean b = z.b("persist.sys.log.ctrl", "no").equals("yes");
+    private static boolean b = z.b("persist.sys.log.ctrl", NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).equals("yes");
     private static boolean c;
 
     public static boolean a() {

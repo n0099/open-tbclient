@@ -11,14 +11,13 @@ import java.net.Socket;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a dfp;
+    private static a dTa;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean dfq = false;
+    private boolean dTb = false;
     private byte[] mBuffer = new byte[1024];
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
@@ -28,7 +27,7 @@ public class a {
             r3 = e;
          */
         /* JADX WARN: Code restructure failed: missing block: B:63:0x021d, code lost:
-            com.baidu.tieba.VideoCacheClient.d.au(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
+            com.baidu.tieba.VideoCacheClient.d.aJ(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
          */
         /* JADX WARN: Code restructure failed: missing block: B:64:0x023c, code lost:
             if (r15.exists() != false) goto L79;
@@ -55,7 +54,7 @@ public class a {
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:87:0x028d, code lost:
-            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").bS("errormsg", "预加载文件失败").bS(com.baidu.live.adp.lib.stats.BdStatsConstant.StatsType.ERROR, r3.getMessage()).bS("url", r14));
+            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").cp("errormsg", "预加载文件失败").cp(com.baidu.live.adp.lib.stats.BdStatsConstant.StatsType.ERROR, r3.getMessage()).cp("url", r14));
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:88:0x02b7, code lost:
@@ -107,7 +106,7 @@ public class a {
             int i3;
             long j2;
             String readLine;
-            while (!a.this.dfq) {
+            while (!a.this.dTb) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -115,14 +114,14 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.dfq) {
-                    String aCN = a.this.aCN();
-                    if (aCN != null && !aCN.isEmpty()) {
-                        File file = new File(c.dfe + b.qV(aCN) + "/header_downloaded");
+                if (!a.this.dTb) {
+                    String aUG = a.this.aUG();
+                    if (aUG != null && !aUG.isEmpty()) {
+                        File file = new File(c.dSQ + b.we(aUG) + "/header_downloaded");
                         if (file.exists()) {
-                            d.au(a.TAG, "header exists " + aCN);
+                            d.aJ(a.TAG, "header exists " + aUG);
                         } else {
-                            d.au(a.TAG, "client preload start: " + aCN);
+                            d.aJ(a.TAG, "client preload start: " + aUG);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -141,8 +140,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aCN);
-                                    int port = b.aCO().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aUG);
+                                    int port = b.aUH().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -162,7 +161,7 @@ public class a {
                                                 try {
                                                     try {
                                                         readLine = bufferedReader.readLine();
-                                                        if (i2 == 0 && readLine != null && readLine.startsWith(HTTP.CONTENT_LEN)) {
+                                                        if (i2 == 0 && readLine != null && readLine.startsWith("Content-Length")) {
                                                             String[] split = readLine.split(":");
                                                             if (split.length > 1) {
                                                                 j2 = Long.parseLong(split[1].trim());
@@ -199,7 +198,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.au(a.TAG, "client preload check1: " + aCN);
+                                            d.aJ(a.TAG, "client preload check1: " + aUG);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -251,7 +250,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.au(a.TAG, "client preload end: " + aCN);
+                            d.aJ(a.TAG, "client preload end: " + aUG);
                         }
                     }
                 } else {
@@ -294,23 +293,23 @@ public class a {
         this.mThread.start();
     }
 
-    public static a aCM() {
-        if (dfp == null) {
+    public static a aUF() {
+        if (dTa == null) {
             synchronized (a.class) {
-                if (dfp == null) {
-                    dfp = new a();
+                if (dTa == null) {
+                    dTa = new a();
                 }
             }
         }
-        return dfp;
+        return dTa;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String aCN() {
+    public synchronized String aUG() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void qW(String str) {
+    public synchronized void wf(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

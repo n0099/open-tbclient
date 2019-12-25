@@ -5,9 +5,9 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private com.baidu.tieba.c.d hTS;
+    private com.baidu.tieba.c.d iID;
     private TbPageContext mPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -15,34 +15,34 @@ public class e {
     }
 
     public void hideTip() {
-        if (this.hTS != null) {
-            this.hTS.uQ();
+        if (this.iID != null) {
+            this.iID.wP();
         }
     }
 
     public void c(EditorTools editorTools) {
-        View jI;
-        if (editorTools != null && editorTools.cEw != null && this.mPageContext != null && (jI = editorTools.cEw.jI(26)) != null) {
-            if (this.hTS == null) {
-                this.hTS = new com.baidu.tieba.c.d(this.mPageContext, jI);
-                this.hTS.bB(R.drawable.bg_tip_blue_down);
-                this.hTS.bA(32);
-                this.hTS.pe(2);
-                this.hTS.c(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.e.1
+        View lV;
+        if (editorTools != null && editorTools.dsq != null && this.mPageContext != null && (lV = editorTools.dsq.lV(26)) != null) {
+            if (this.iID == null) {
+                this.iID = new com.baidu.tieba.c.d(this.mPageContext, lV);
+                this.iID.bT(R.drawable.bg_tip_blue_down);
+                this.iID.bS(32);
+                this.iID.rl(2);
+                this.iID.c(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.e.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        e.this.hTS.uQ();
+                        e.this.iID.wP();
                     }
                 });
                 int dimensionPixelSize = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds10);
                 int dimensionPixelSize2 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
                 int dimensionPixelSize3 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds4);
-                this.hTS.t(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
-                this.hTS.pg(0);
-                this.hTS.setYOffset(-dimensionPixelSize3);
-                this.hTS.bC(3000);
+                this.iID.x(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
+                this.iID.rn(0);
+                this.iID.setYOffset(-dimensionPixelSize3);
+                this.iID.bU(3000);
             }
-            this.hTS.R(this.mPageContext.getResources().getString(R.string.hot_topic_tip), SharedPrefConfig.KEY_SHOW_HOTTOPIC_TIP);
+            this.iID.Z(this.mPageContext.getResources().getString(R.string.hot_topic_tip), SharedPrefConfig.KEY_SHOW_HOTTOPIC_TIP);
         }
     }
 }

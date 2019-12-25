@@ -12,56 +12,56 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f {
-    private View gXe;
-    private LinearLayout gXf;
-    private ImageView gXg;
-    private HeadImageView gzV;
-    private TextView gzW;
-    private MessageRedDotView gzZ;
+    private View hLf;
+    private LinearLayout hLg;
+    private ImageView hLh;
+    private HeadImageView hob;
+    private TextView hoc;
+    private MessageRedDotView hof;
     private int mIcon;
 
     public f(TbPageContext tbPageContext) {
-        this.gXe = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.reply_and_at_item, (ViewGroup) null, false);
-        this.gXf = (LinearLayout) this.gXe.findViewById(R.id.reply_and_at_item);
-        this.gXg = (ImageView) this.gXe.findViewById(R.id.arrow_view);
-        this.gzV = (HeadImageView) this.gXe.findViewById(R.id.reply_and_at_head);
-        this.gzV.setIsRound(true);
-        this.gzV.setDrawBorder(false);
-        this.gzZ = (MessageRedDotView) this.gXe.findViewById(R.id.new_message);
-        this.gzW = (TextView) this.gXe.findViewById(R.id.desc_view);
+        this.hLf = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.reply_and_at_item, (ViewGroup) null, false);
+        this.hLg = (LinearLayout) this.hLf.findViewById(R.id.reply_and_at_item);
+        this.hLh = (ImageView) this.hLf.findViewById(R.id.arrow_view);
+        this.hob = (HeadImageView) this.hLf.findViewById(R.id.reply_and_at_head);
+        this.hob.setIsRound(true);
+        this.hob.setDrawBorder(false);
+        this.hof = (MessageRedDotView) this.hLf.findViewById(R.id.new_message);
+        this.hoc = (TextView) this.hLf.findViewById(R.id.desc_view);
     }
 
-    public void aS(String str, int i) {
-        this.gzW.setText(str);
+    public void bb(String str, int i) {
+        this.hoc.setText(str);
         this.mIcon = i;
-        bno();
+        bEM();
     }
 
-    public void K(int i, boolean z) {
+    public void M(int i, boolean z) {
         if (i > 0) {
             if (z) {
                 i = 0;
             }
-            this.gzZ.refresh(i);
-            this.gzZ.setVisibility(0);
+            this.hof.refresh(i);
+            this.hof.setVisibility(0);
             return;
         }
-        this.gzZ.setVisibility(8);
+        this.hof.setVisibility(8);
     }
 
-    public void bno() {
-        am.setViewTextColor(this.gzW, R.color.cp_cont_b, 1);
-        this.gXe.setBackgroundDrawable(am.is(R.color.cp_bg_line_e));
-        SvgManager.amL().a(this.gXg, R.drawable.icon_pure_list_arrow16_right_tint_n_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        am.setImageResource(this.gzV, this.mIcon);
-        if (this.gzZ != null) {
-            this.gzZ.onChangeSkinType();
+    public void bEM() {
+        am.setViewTextColor(this.hoc, R.color.cp_cont_b, 1);
+        this.hLf.setBackgroundDrawable(am.ke(R.color.cp_bg_line_e));
+        SvgManager.aDW().a(this.hLh, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        am.setImageResource(this.hob, this.mIcon);
+        if (this.hof != null) {
+            this.hof.onChangeSkinType();
         }
     }
 
     public View getView() {
-        return this.gXe;
+        return this.hLf;
     }
 }

@@ -13,8 +13,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.x;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ClientStartStatic {
     static {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
@@ -31,17 +30,17 @@ public class ClientStartStatic {
                             this.mTimeStamp = SystemClock.elapsedRealtime();
                             return;
                         }
-                        if (SystemClock.elapsedRealtime() - this.mTimeStamp > StatisticConfig.MIN_UPLOAD_INTERVAL) {
+                        if (SystemClock.elapsedRealtime() - this.mTimeStamp > 30000) {
                             new a().execute(new Void[0]);
                         }
-                        TiebaStatic.log(new an(TbadkCoreStatisticKey.HOST_START).O("obj_param1", 1));
+                        TiebaStatic.log(new an(TbadkCoreStatisticKey.HOST_START).Z("obj_param1", 1));
                     }
                 }
             });
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a extends BdAsyncTask<Void, Void, Void> {
         private a() {
             setPriority(1);

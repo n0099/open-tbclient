@@ -34,17 +34,17 @@ public class g extends j {
                 return;
             }
             this.mBitmapRect.set(0, 0, cVar.getWidth(), cVar.getHeight());
-            cVar.tu.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
+            cVar.we.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
         } else if (cVar.isBdImgAvailable()) {
             if (this.isPathAvailable) {
-                drawPathClip(canvas, cVar.tu.getRawBitmap());
+                drawPathClip(canvas, cVar.we.getRawBitmap());
                 return;
             }
             this.mBitmapRect.set(0, 0, cVar.getWidth(), cVar.getHeight());
-            cVar.tu.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
+            cVar.we.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
         } else {
             this.mBitmapRect.set(0, 0, cVar.getWidth(), cVar.getHeight());
-            cVar.tu.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
+            cVar.we.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
         }
     }
 

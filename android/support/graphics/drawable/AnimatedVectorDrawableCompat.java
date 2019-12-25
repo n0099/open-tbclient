@@ -34,7 +34,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implements Animatable2Compat {
     private static final String ANIMATED_VECTOR = "animated-vector";
     private static final boolean DBG_ANIMATION_VECTOR_DRAWABLE = false;
@@ -366,7 +366,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                         this.mAnimatedVectorState.mVectorDrawable = create;
                     }
                     obtainAttributes.recycle();
-                } else if (TARGET.equals(name)) {
+                } else if ("target".equals(name)) {
                     TypedArray obtainAttributes2 = resources.obtainAttributes(attributeSet, AndroidResources.STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET);
                     String string = obtainAttributes2.getString(0);
                     int resourceId2 = obtainAttributes2.getResourceId(1, 0);
@@ -408,9 +408,10 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
         return false;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(24)
-    /* loaded from: classes2.dex */
-    private static class AnimatedVectorDrawableDelegateState extends Drawable.ConstantState {
+    /* loaded from: classes4.dex */
+    public static class AnimatedVectorDrawableDelegateState extends Drawable.ConstantState {
         private final Drawable.ConstantState mDelegateState;
 
         public AnimatedVectorDrawableDelegateState(Drawable.ConstantState constantState) {
@@ -453,7 +454,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class AnimatedVectorDrawableCompatState extends Drawable.ConstantState {
         AnimatorSet mAnimatorSet;
         private ArrayList<Animator> mAnimators;

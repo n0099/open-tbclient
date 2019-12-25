@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLivePerfBaseData implements Serializable {
     public static final int ALA_LIVE_TYPE_CAMERA_AUTO = 3;
     public static final int ALA_LIVE_TYPE_CAMERA_LANDSCAPE = 2;
@@ -23,6 +23,7 @@ public class AlaLivePerfBaseData implements Serializable {
     public static final int ALA_LIVE_TYPE_SCREEN_LANDSCAPE = 5;
     public static final int ALA_LIVE_TYPE_SCREEN_PORTRAIT = 4;
     public static final int ALA_SIMPLE_MAX_NUM = 50;
+    private static final long SAMPLE_TIME_MIN_INTERVAL = 2000;
     private static final long serialVersionUID = 2553722034441138777L;
     public long IMFlow;
     public long dataFlow;
@@ -92,7 +93,7 @@ public class AlaLivePerfBaseData implements Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private class PerfAsyncTask extends BdAsyncTask<String, Integer, Boolean> implements Serializable {
         private static final long serialVersionUID = 736604043413032431L;
 
@@ -150,7 +151,7 @@ public class AlaLivePerfBaseData implements Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private class MyHanlder extends Handler implements Serializable {
         private static final long serialVersionUID = -6005043708305598215L;
 

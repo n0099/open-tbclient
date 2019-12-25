@@ -2,19 +2,20 @@ package com.baidu.tbadk.core.voice.service;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import java.util.Date;
 /* loaded from: classes.dex */
 public class Voice implements Parcelable {
     public static final Parcelable.Creator<Voice> CREATOR = new Parcelable.Creator<Voice>() { // from class: com.baidu.tbadk.core.voice.service.Voice.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: jd */
+        /* renamed from: lq */
         public Voice[] newArray(int i) {
             return new Voice[i];
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: K */
+        /* renamed from: U */
         public Voice createFromParcel(Parcel parcel) {
             Voice voice = new Voice();
             voice.setDuration((int) parcel.readLong());
@@ -22,8 +23,12 @@ public class Voice implements Parcelable {
             return voice;
         }
     };
+    private Date createDate;
     private int duration;
+    private int id;
     private String name;
+    private long sob;
+    private int stas;
 
     public String getName() {
         return this.name;

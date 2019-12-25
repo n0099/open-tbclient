@@ -1,22 +1,51 @@
 package com.baidu.tieba.pb;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class e<T> {
-    private T data;
-    private int type;
+public class e {
+    private long forumId;
+    private long iud;
+    private BdUniqueId mPageId;
+    private int source;
+    private long threadId;
 
-    public int getType() {
-        return this.type;
+    public void em(long j) {
+        this.iud = j;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setForumId(long j) {
+        this.forumId = j;
     }
 
-    public T getData() {
-        return this.data;
+    public void r(BdUniqueId bdUniqueId) {
+        this.mPageId = bdUniqueId;
     }
 
-    public void setData(T t) {
-        this.data = t;
+    public void yk(int i) {
+        this.source = i;
+    }
+
+    public void setThreadId(long j) {
+        this.threadId = j;
+    }
+
+    public BdUniqueId chq() {
+        return this.mPageId;
+    }
+
+    public int chr() {
+        return this.source;
+    }
+
+    public long chs() {
+        return this.iud;
+    }
+
+    public long getForumId() {
+        return this.forumId;
+    }
+
+    public long getThreadId() {
+        return this.threadId;
     }
 }

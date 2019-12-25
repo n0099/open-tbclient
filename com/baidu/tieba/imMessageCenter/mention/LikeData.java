@@ -5,7 +5,7 @@ import com.baidu.tbadk.data.GodUserData;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LikeData implements Serializable {
     private static final long serialVersionUID = 1250162253971653314L;
     private GodUserData mGodData;

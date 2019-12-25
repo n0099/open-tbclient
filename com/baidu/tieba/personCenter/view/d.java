@@ -14,41 +14,42 @@ import com.baidu.tieba.personCenter.data.j;
 import com.baidu.tieba.personCenter.data.k;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d extends com.baidu.tieba.card.a<j> {
-    private BdBaseViewPager cso;
-    private TbTabLayout fSO;
-    private List<com.baidu.tieba.personCenter.data.c> ilS;
-    private List<PersonCenterSmartAppPageView> ilT;
-    private View ilU;
-    private a ilV;
-    private PersonCenterSmartAppPageView ilW;
+    private BdBaseViewPager dgc;
+    private TbTabLayout gHn;
+    private List<com.baidu.tieba.personCenter.data.c> jdO;
+    private List<PersonCenterSmartAppPageView> jdP;
+    private View jdQ;
+    private a jdR;
+    private PersonCenterSmartAppPageView jdS;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         View view = getView();
-        this.cso = (BdBaseViewPager) view.findViewById(R.id.vp_person_center_smart_app_banner);
-        this.fSO = (TbTabLayout) view.findViewById(R.id.tl_person_center_smart_app_banner);
-        this.ilU = view.findViewById(R.id.blank_view_below_person_center_smart_app_banner);
-        this.fSO.setTabMode(1);
-        this.ilT = new ArrayList();
-        this.ilV = new a(this.ilT);
-        this.cso.setAdapter(this.ilV);
-        this.fSO.setupWithViewPager(this.cso);
+        this.dgc = (BdBaseViewPager) view.findViewById(R.id.vp_person_center_smart_app_banner);
+        this.gHn = (TbTabLayout) view.findViewById(R.id.tl_person_center_smart_app_banner);
+        this.jdQ = view.findViewById(R.id.blank_view_below_person_center_smart_app_banner);
+        this.gHn.setTabMode(1);
+        this.jdP = new ArrayList();
+        this.jdR = new a(this.jdP);
+        this.dgc.setAdapter(this.jdR);
+        this.gHn.setupWithViewPager(this.dgc);
+        this.jdQ.setVisibility(8);
         onChangeSkinType(getTbPageContext(), this.mSkinType);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        for (PersonCenterSmartAppPageView personCenterSmartAppPageView : this.ilT) {
+        for (PersonCenterSmartAppPageView personCenterSmartAppPageView : this.jdP) {
             if (personCenterSmartAppPageView != null) {
                 personCenterSmartAppPageView.onChangeSkinType();
             }
         }
         am.setBackgroundColor(getView(), R.color.cp_bg_line_e);
-        this.fSO.setSelectedTabIndicatorColor(am.getColor(R.color.cp_indicator_b));
-        this.fSO.setBackgroundDrawable(am.Z(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds3), am.getColor(R.color.cp_indicator_a)));
-        am.setBackgroundColor(this.ilU, R.color.cp_bg_line_c);
+        this.gHn.setSelectedTabIndicatorColor(am.getColor(R.color.cp_indicator_b));
+        this.gHn.setBackgroundDrawable(am.au(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds3), am.getColor(R.color.cp_indicator_a)));
+        am.setBackgroundColor(this.jdQ, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -64,36 +65,36 @@ public class d extends com.baidu.tieba.card.a<j> {
             return;
         }
         setVisibility(0);
-        this.ilT.clear();
-        this.ilS = jVar.getData();
-        this.ilW = new PersonCenterSmartAppPageView(getContext());
-        this.ilT.add(this.ilW);
-        int min = Math.min(7, this.ilS.size());
+        this.jdP.clear();
+        this.jdO = jVar.getData();
+        this.jdS = new PersonCenterSmartAppPageView(getContext());
+        this.jdP.add(this.jdS);
+        int min = Math.min(7, this.jdO.size());
         for (int i = 0; i < min; i++) {
-            a((com.baidu.tieba.personCenter.data.c) v.getItem(this.ilS, i));
+            a((com.baidu.tieba.personCenter.data.c) v.getItem(this.jdO, i));
         }
-        if (this.ilS.isEmpty()) {
+        if (this.jdO.isEmpty()) {
             setVisibility(8);
         } else {
             a(new k());
         }
-        if (this.ilT.size() <= 1) {
-            this.fSO.setVisibility(8);
+        if (this.jdP.size() <= 1) {
+            this.gHn.setVisibility(8);
         } else {
-            this.fSO.setVisibility(0);
+            this.gHn.setVisibility(0);
         }
-        this.ilV.ed(this.ilT);
+        this.jdR.dT(this.jdP);
         onChangeSkinType(getTbPageContext(), this.mSkinType);
     }
 
     private void a(com.baidu.tieba.personCenter.data.c cVar) {
-        if (this.ilW.bZt()) {
-            this.ilW.c(cVar);
+        if (this.jdS.csL()) {
+            this.jdS.c(cVar);
             return;
         }
-        this.ilW = new PersonCenterSmartAppPageView(getContext());
-        this.ilT.add(this.ilW);
-        this.ilW.c(cVar);
+        this.jdS = new PersonCenterSmartAppPageView(getContext());
+        this.jdP.add(this.jdS);
+        this.jdS.c(cVar);
     }
 
     @Override // android.view.View.OnClickListener
@@ -101,22 +102,22 @@ public class d extends com.baidu.tieba.card.a<j> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends PagerAdapter {
-        private List<PersonCenterSmartAppPageView> ilX;
+        private List<PersonCenterSmartAppPageView> mViewList;
 
         public a(List<PersonCenterSmartAppPageView> list) {
-            this.ilX = list;
+            this.mViewList = list;
         }
 
-        public void ed(List<PersonCenterSmartAppPageView> list) {
-            this.ilX = list;
+        public void dT(List<PersonCenterSmartAppPageView> list) {
+            this.mViewList = list;
             notifyDataSetChanged();
         }
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            return this.ilX.size();
+            return this.mViewList.size();
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -126,7 +127,7 @@ public class d extends com.baidu.tieba.card.a<j> {
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            PersonCenterSmartAppPageView personCenterSmartAppPageView = this.ilX.get(i);
+            PersonCenterSmartAppPageView personCenterSmartAppPageView = this.mViewList.get(i);
             viewGroup.addView(personCenterSmartAppPageView);
             return personCenterSmartAppPageView;
         }
@@ -138,7 +139,7 @@ public class d extends com.baidu.tieba.card.a<j> {
 
         @Override // android.support.v4.view.PagerAdapter
         public int getItemPosition(Object obj) {
-            int indexOf = this.ilX.indexOf(obj);
+            int indexOf = this.mViewList.indexOf(obj);
             if (indexOf == -1) {
                 return -2;
             }

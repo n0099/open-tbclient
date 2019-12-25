@@ -14,32 +14,32 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a wx;
-    private final LinkedHashMap<String, PluginStatus> wy = new LinkedHashMap<>(10);
+    private static a yX;
+    private final LinkedHashMap<String, PluginStatus> yY = new LinkedHashMap<>(10);
 
     private a() {
     }
 
-    public static a jv() {
-        if (wx == null) {
+    public static a jN() {
+        if (yX == null) {
             synchronized (a.class) {
-                if (wx == null) {
-                    wx = new a();
+                if (yX == null) {
+                    yX = new a();
                 }
             }
         }
-        return wx;
+        return yX;
     }
 
-    public void bg(String str) {
-        PluginStatus bi = jv().bi(str);
-        if (bi != null) {
-            bi.wu = PluginPackageManager.PluginStatus.NROMAL;
+    public void bq(String str) {
+        PluginStatus bs = jN().bs(str);
+        if (bs != null) {
+            bs.yU = PluginPackageManager.PluginStatus.NROMAL;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_SUCCESS, bi));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_SUCCESS, bs));
     }
 
-    public void h(String str, String str2, String str3) {
+    public void j(String str, String str2, String str3) {
         String string;
         String string2;
         int i = 1;
@@ -77,37 +77,37 @@ public class a {
         } else {
             return;
         }
-        PluginStatus bi = bi(str);
-        if (bi == null) {
-            bi = new PluginStatus();
+        PluginStatus bs = bs(str);
+        if (bs == null) {
+            bs = new PluginStatus();
         }
-        bi.wu = PluginPackageManager.PluginStatus.ERROR;
-        bi.errorMsg = string;
-        bi.wv = string2;
-        bi.errorCode = i;
-        bi.ww = false;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_FAIL, bi));
+        bs.yU = PluginPackageManager.PluginStatus.ERROR;
+        bs.errorMsg = string;
+        bs.yV = string2;
+        bs.errorCode = i;
+        bs.yW = false;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_FAIL, bs));
     }
 
-    public void bh(String str) {
-        PluginStatus bi = bi(str);
-        if (bi == null) {
-            bi = new PluginStatus();
+    public void br(String str) {
+        PluginStatus bs = bs(str);
+        if (bs == null) {
+            bs = new PluginStatus();
         }
-        bi.wu = PluginPackageManager.PluginStatus.ERROR;
-        bi.errorCode = 100;
-        bi.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-        bi.wv = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_LOAD_FAIL, bi));
+        bs.yU = PluginPackageManager.PluginStatus.ERROR;
+        bs.errorCode = 100;
+        bs.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
+        bs.yV = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_LOAD_FAIL, bs));
     }
 
-    public List<PluginStatus> jw() {
+    public List<PluginStatus> jO() {
         ArrayList arrayList;
         PluginStatus value;
-        synchronized (this.wy) {
-            arrayList = new ArrayList(this.wy.size());
-            for (Map.Entry<String, PluginStatus> entry : this.wy.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null && value.wu == PluginPackageManager.PluginStatus.ERROR) {
+        synchronized (this.yY) {
+            arrayList = new ArrayList(this.yY.size());
+            for (Map.Entry<String, PluginStatus> entry : this.yY.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null && value.yU == PluginPackageManager.PluginStatus.ERROR) {
                     arrayList.add(value);
                 }
             }
@@ -115,17 +115,17 @@ public class a {
         return arrayList;
     }
 
-    public PluginStatus bi(String str) {
+    public PluginStatus bs(String str) {
         PluginStatus pluginStatus;
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.wy) {
-            pluginStatus = this.wy.get(str);
+        synchronized (this.yY) {
+            pluginStatus = this.yY.get(str);
             if (pluginStatus == null) {
                 pluginStatus = new PluginStatus();
                 pluginStatus.pkgName = str;
-                this.wy.put(str, pluginStatus);
+                this.yY.put(str, pluginStatus);
             }
         }
         return pluginStatus;

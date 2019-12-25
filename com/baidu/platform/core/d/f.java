@@ -1,6 +1,5 @@
 package com.baidu.platform.core.d;
 
-import android.net.http.Headers;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
@@ -98,7 +97,7 @@ public class f extends com.baidu.platform.base.d {
                                                         indoorStepNode.setDetail(optJSONObject6.optString("detail"));
                                                         indoorStepNode.setName(optJSONObject6.optString("name"));
                                                         indoorStepNode.setType(optJSONObject6.optInt("type"));
-                                                        indoorStepNode.setLocation(a(optJSONObject6, Headers.LOCATION));
+                                                        indoorStepNode.setLocation(a(optJSONObject6, "location"));
                                                         arrayList4.add(indoorStepNode);
                                                     }
                                                 }

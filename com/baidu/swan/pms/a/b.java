@@ -1,7 +1,49 @@
 package com.baidu.swan.pms.a;
-/* loaded from: classes2.dex */
-public interface b extends d {
-    void aaS();
 
-    void af(String str, String str2);
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import okio.BufferedSource;
+/* loaded from: classes9.dex */
+public abstract class b<T> implements c<T> {
+    @Override // com.baidu.swan.pms.a.c
+    public void H(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.c
+    public void G(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.c
+    public void F(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.c
+    public void E(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.c
+    public void a(T t, com.baidu.swan.pms.model.a aVar) {
+    }
+
+    @Override // com.baidu.swan.pms.a.c
+    public void W(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.c
+    public com.baidu.swan.pms.model.a a(T t, BufferedSource bufferedSource, File file, long j) throws IOException {
+        return new com.baidu.swan.pms.model.a(2302, "业务层默认不处理下载流");
+    }
+
+    @Override // com.baidu.swan.pms.a.c
+    public Map<String, Object> aqI() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("queue_priority", Integer.valueOf(getPriority()));
+        return hashMap;
+    }
+
+    protected int getPriority() {
+        return 100;
+    }
 }

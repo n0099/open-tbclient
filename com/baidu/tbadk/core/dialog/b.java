@@ -21,7 +21,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final HashMap<Integer, Integer[]> sBtnStyleMap = new HashMap<>(2);
-    private a cen;
+    private a cQO;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.e<?> mContext;
@@ -57,13 +57,13 @@ public class b {
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
     }
 
-    public b no(String str) {
+    public b sA(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public b hX(int i) {
-        return no(this.mActivity.getResources().getString(i));
+    public b jJ(int i) {
+        return sA(this.mActivity.getResources().getString(i));
     }
 
     public b a(CharSequence[] charSequenceArr, a aVar) {
@@ -77,18 +77,18 @@ public class b {
         if (list != null && list.size() > 0) {
             this.mItems = list;
             if (aVar != null) {
-                this.cen = aVar;
+                this.cQO = aVar;
             }
         }
         return this;
     }
 
-    public b hY(int i) {
+    public b jK(int i) {
         this.mAnimationStyleId = i;
         return this;
     }
 
-    public b hZ(int i) {
+    public b jL(int i) {
         this.mDialogGravity = i;
         return this;
     }
@@ -116,16 +116,16 @@ public class b {
         return this;
     }
 
-    public b akN() {
+    public b aBX() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.mDialog != null) {
-            com.baidu.adp.lib.g.g.showDialog(this.mDialog, this.mActivity);
+            com.baidu.adp.lib.f.g.showDialog(this.mDialog, this.mActivity);
         } else {
             this.mDialog = new AlertDialog.Builder(this.mActivity, R.style.NoBackDimEnableDialog).create();
             this.mDialog.setCanceledOnTouchOutside(true);
-            if (com.baidu.adp.lib.g.g.showDialog(this.mDialog, this.mActivity)) {
+            if (com.baidu.adp.lib.f.g.showDialog(this.mDialog, this.mActivity)) {
                 Window window = this.mDialog.getWindow();
                 if (this.mAnimationStyleId == -1) {
                     this.mAnimationStyleId = R.style.dialog_ani_b2t;
@@ -154,7 +154,7 @@ public class b {
 
     public void dismiss() {
         if (this.mDialog != null) {
-            com.baidu.adp.lib.g.g.dismissDialog(this.mDialog, this.mActivity);
+            com.baidu.adp.lib.f.g.dismissDialog(this.mDialog, this.mActivity);
         }
     }
 
@@ -189,11 +189,11 @@ public class b {
         } else {
             am.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
         }
-        if (this.cen != null) {
+        if (this.cQO != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.cen.a(b.this, i, textView);
+                    b.this.cQO.a(b.this, i, textView);
                 }
             });
         }

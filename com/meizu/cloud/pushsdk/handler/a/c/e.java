@@ -4,10 +4,9 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.coloros.mcssdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class e extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     public e(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -30,7 +29,7 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(g gVar, com.meizu.cloud.pushsdk.notification.c cVar) {
-        NotificationManager notificationManager = (NotificationManager) c().getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+        NotificationManager notificationManager = (NotificationManager) c().getSystemService("notification");
         if (notificationManager != null) {
             com.meizu.cloud.a.a.e("AbstractMessageHandler", "start cancel notification id " + gVar.b());
             notificationManager.cancel(gVar.b());

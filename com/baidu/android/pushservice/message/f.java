@@ -10,15 +10,16 @@ import android.view.WindowManager;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.live.adp.lib.util.BdNetTypeUtil;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
+import com.baidu.webkit.internal.GlobalConstants;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class f extends d {
     public f(Context context) {
         super(context);
@@ -125,11 +126,11 @@ public class f extends d {
                 case 1:
                     return "wifi";
                 case 2:
-                    return BdNetTypeUtil.NET_TYPENAME_2G;
+                    return "2g";
                 case 3:
-                    return BdNetTypeUtil.NET_TYPENAME_3G;
+                    return "3g";
                 case 4:
-                    return BdNetTypeUtil.NET_TYPENAME_4G;
+                    return "4g";
                 default:
                     return null;
             }
@@ -232,7 +233,7 @@ public class f extends d {
         String str = null;
         try {
             jSONObject.put("channel_token", com.baidu.android.pushservice.i.a(this.a).b());
-            jSONObject.put("channel_id", com.baidu.android.pushservice.i.a(this.a).a());
+            jSONObject.put(SharedPrefConfig.CHANNEL_ID, com.baidu.android.pushservice.i.a(this.a).a());
             if (com.baidu.android.pushservice.b.d.b(this.a)) {
                 jSONObject.put("new_channel_token", com.baidu.android.pushservice.i.a(this.a).d());
                 jSONObject.put("new_channel_id", com.baidu.android.pushservice.i.a(this.a).c());
@@ -253,7 +254,7 @@ public class f extends d {
             }
             jSONObject.put("app_alone_conn", com.baidu.android.pushservice.a.d(this.a) ? 1 : 0);
             jSONObject.put(PushConstants.PACKAGE_NAME, this.a.getPackageName());
-            if (this.a.getPackageName().equals("com.baidu.searchbox")) {
+            if (this.a.getPackageName().equals(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
                 jSONObject.put("pkg_version", com.baidu.android.pushservice.i.l.b(this.a));
             }
             jSONObject.put("tiny_msghead", 1);

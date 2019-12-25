@@ -56,11 +56,30 @@ public class PluginSetting implements Serializable, Cloneable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = aY(str);
+        this.cmdRangeInt = cmdRange2Int(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] aY(String str) {
+    private String cmdRange2String(int[] iArr) {
+        if (iArr == null || iArr.length == 0 || iArr.length % 2 != 0) {
+            return null;
+        }
+        int length = iArr.length;
+        StringBuilder sb = new StringBuilder(50);
+        for (int i = 0; i < length; i++) {
+            sb.append(iArr[i]);
+            if (i != length - 1) {
+                if (i % 2 == 0) {
+                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                } else {
+                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+    private int[] cmdRange2Int(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) == null) {
             return null;
@@ -77,8 +96,8 @@ public class PluginSetting implements Serializable, Cloneable {
                 BdLog.e("cmdRange2Int split by '-' error");
                 return null;
             }
-            int i2 = com.baidu.adp.lib.g.b.toInt(split2[0], -1);
-            int i3 = com.baidu.adp.lib.g.b.toInt(split2[1], -1);
+            int i2 = com.baidu.adp.lib.f.b.toInt(split2[0], -1);
+            int i3 = com.baidu.adp.lib.f.b.toInt(split2[1], -1);
             if (i2 < 0 || i3 < 0 || i2 > i3) {
                 BdLog.e("cmdRange2Int split  toInt error");
                 return null;

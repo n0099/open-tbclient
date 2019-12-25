@@ -3,13 +3,13 @@ package rx.internal.util.atomic;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class c<E> extends a<E> {
-    private static final Integer kDL = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    private static final Integer MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     final AtomicLong consumerIndex;
-    long kDM;
-    final int kDN;
+    final int lookAheadStep;
     final AtomicLong producerIndex;
+    long producerLookAhead;
 
     @Override // rx.internal.util.atomic.a, java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
     public /* bridge */ /* synthetic */ void clear() {
@@ -25,7 +25,7 @@ public final class c<E> extends a<E> {
         super(i);
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();
-        this.kDN = Math.min(i / 4, kDL.intValue());
+        this.lookAheadStep = Math.min(i / 4, MAX_LOOK_AHEAD_STEP.intValue());
     }
 
     @Override // java.util.Queue
@@ -33,73 +33,73 @@ public final class c<E> extends a<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<E> atomicReferenceArray = this.kDI;
+        AtomicReferenceArray<E> atomicReferenceArray = this.niN;
         int i = this.mask;
         long j = this.producerIndex.get();
-        int x = x(j, i);
-        if (j >= this.kDM) {
-            int i2 = this.kDN;
-            if (a(atomicReferenceArray, x(i2 + j, i)) == null) {
-                this.kDM = i2 + j;
-            } else if (a(atomicReferenceArray, x) != null) {
+        int calcElementOffset = calcElementOffset(j, i);
+        if (j >= this.producerLookAhead) {
+            int i2 = this.lookAheadStep;
+            if (b(atomicReferenceArray, calcElementOffset(i2 + j, i)) == null) {
+                this.producerLookAhead = i2 + j;
+            } else if (b(atomicReferenceArray, calcElementOffset) != null) {
                 return false;
             }
         }
-        a(atomicReferenceArray, x, e);
-        eu(1 + j);
+        a(atomicReferenceArray, calcElementOffset, e);
+        soProducerIndex(1 + j);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex.get();
-        int et = et(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.kDI;
-        E a = a(atomicReferenceArray, et);
-        if (a == null) {
+        int calcElementOffset = calcElementOffset(j);
+        AtomicReferenceArray<E> atomicReferenceArray = this.niN;
+        E b = b(atomicReferenceArray, calcElementOffset);
+        if (b == null) {
             return null;
         }
-        a(atomicReferenceArray, et, null);
-        ev(j + 1);
-        return a;
+        a(atomicReferenceArray, calcElementOffset, null);
+        soConsumerIndex(j + 1);
+        return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return Du(et(this.consumerIndex.get()));
+        return lvElement(calcElementOffset(this.consumerIndex.get()));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cPl = cPl();
+        long dEb = dEb();
         while (true) {
-            long cPm = cPm();
-            long cPl2 = cPl();
-            if (cPl == cPl2) {
-                return (int) (cPm - cPl2);
+            long dEa = dEa();
+            long dEb2 = dEb();
+            if (dEb == dEb2) {
+                return (int) (dEa - dEb2);
             }
-            cPl = cPl2;
+            dEb = dEb2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cPm() == cPl();
+        return dEa() == dEb();
     }
 
-    private void eu(long j) {
+    private void soProducerIndex(long j) {
         this.producerIndex.lazySet(j);
     }
 
-    private void ev(long j) {
+    private void soConsumerIndex(long j) {
         this.consumerIndex.lazySet(j);
     }
 
-    private long cPl() {
+    private long dEb() {
         return this.consumerIndex.get();
     }
 
-    private long cPm() {
+    private long dEa() {
         return this.producerIndex.get();
     }
 }

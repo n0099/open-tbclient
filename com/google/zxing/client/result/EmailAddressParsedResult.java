@@ -1,5 +1,7 @@
 package com.google.zxing.client.result;
-/* loaded from: classes5.dex */
+
+import com.baidu.webkit.sdk.WebView;
+/* loaded from: classes7.dex */
 public final class EmailAddressParsedResult extends ParsedResult {
     private final String[] bccs;
     private final String body;
@@ -52,7 +54,7 @@ public final class EmailAddressParsedResult extends ParsedResult {
 
     @Deprecated
     public String getMailtoURI() {
-        return "mailto:";
+        return WebView.SCHEME_MAILTO;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult

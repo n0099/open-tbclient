@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
+import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.mobstat.au;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class aw {
     private static aw b = new aw();
     public a a;
@@ -25,7 +26,7 @@ public class aw {
     private JSONArray j = new JSONArray();
     private JSONArray k = new JSONArray();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(JSONObject jSONObject);
     }
@@ -58,7 +59,7 @@ public class aw {
                     }
                     if (jSONObject != null) {
                         try {
-                            optJSONArray = jSONObject.optJSONArray(Config.EVENT_PART);
+                            optJSONArray = jSONObject.optJSONArray("ev");
                             optJSONArray2 = jSONObject.optJSONArray(Config.PRINCIPAL_PART);
                             optJSONArray3 = jSONObject.optJSONArray(Config.FEED_LIST_PART);
                             optJSONArray4 = jSONObject.optJSONArray("sv");
@@ -169,7 +170,7 @@ public class aw {
             } catch (Exception e3) {
             }
             try {
-                jSONObject.put(Config.EVENT_PART, this.h);
+                jSONObject.put("ev", this.h);
             } catch (Exception e4) {
             }
             try {
@@ -189,7 +190,7 @@ public class aw {
             } catch (Exception e8) {
             }
             try {
-                jSONObject.put(Config.FEED_LIST_MAPPING, au.a().a(au.a.c));
+                jSONObject.put("sd", au.a().a(au.a.c));
             } catch (Exception e9) {
             }
             c(context, jSONObject);
@@ -225,12 +226,12 @@ public class aw {
         try {
             jSONObject.put(Config.HEADER_PART, new JSONObject(this.g.toString()));
             jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.i.toString()));
-            jSONObject.put(Config.EVENT_PART, new JSONArray(this.h.toString()));
+            jSONObject.put("ev", new JSONArray(this.h.toString()));
             jSONObject.put(Config.FEED_LIST_PART, new JSONArray(this.j.toString()));
             jSONObject.put("sv", new JSONArray(this.k.toString()));
             jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.b));
             jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.a));
-            jSONObject.put(Config.FEED_LIST_MAPPING, au.a().a(au.a.c));
+            jSONObject.put("sd", au.a().a(au.a.c));
         } catch (Exception e) {
         }
         String jSONObject2 = jSONObject.toString();
@@ -627,7 +628,7 @@ public class aw {
         if (optLong <= optLong2) {
             long j2 = optLong2 - optLong;
             StringBuilder sb = new StringBuilder();
-            String[] split = optString4.split("\\|");
+            String[] split = optString4.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
             if (split == null || split.length == 0) {
                 long j3 = 0;
                 try {
@@ -652,7 +653,7 @@ public class aw {
         } else {
             long j5 = optLong - optLong2;
             StringBuilder sb2 = new StringBuilder();
-            String[] split2 = optString2.split("\\|");
+            String[] split2 = optString2.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
             if (split2 == null || split2.length == 0) {
                 long j6 = 0;
                 try {

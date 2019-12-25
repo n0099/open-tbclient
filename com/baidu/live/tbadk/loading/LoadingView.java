@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class LoadingView extends AbsAttachView {
     private static final long DELAY_TIME = 200;
     private final int arrayLength;
@@ -48,7 +48,7 @@ public class LoadingView extends AbsAttachView {
                     return;
                 }
                 LoadingView.this.textView.setText(LoadingView.this.textArray[LoadingView.this.getNextIndex()]);
-                TbadkCoreApplication.getInst().handler.postDelayed(LoadingView.this.runnable, LoadingView.DELAY_TIME);
+                TbadkCoreApplication.getInst().handler.postDelayed(LoadingView.this.runnable, 200L);
             }
         };
         this.imgView = (ImageView) this.attachedView.findViewById(a.g.loading_animate_view);
@@ -95,7 +95,7 @@ public class LoadingView extends AbsAttachView {
         SkinManager.setBackgroundColor(this.attachedView, a.d.sdk_cp_bg_line_d, this.mSkinType);
         this.textView.setText(this.textArray[0]);
         TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
-        TbadkCoreApplication.getInst().handler.postDelayed(this.runnable, DELAY_TIME);
+        TbadkCoreApplication.getInst().handler.postDelayed(this.runnable, 200L);
         this.attachedView.setClickable(true);
     }
 

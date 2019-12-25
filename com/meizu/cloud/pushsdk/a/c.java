@@ -8,12 +8,11 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.WindowManager;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static final String a = c.class.getSimpleName();
     private HashMap<String, String> b;
@@ -21,7 +20,7 @@ public class c {
     private HashMap<String, Object> d;
     private HashMap<String, Object> e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         private Context a = null;
 
@@ -121,7 +120,7 @@ public class c {
     }
 
     public void a(int i, int i2) {
-        this.c.put(b.l, Integer.toString(i) + DefaultConfig.TOKEN_SEPARATOR + Integer.toString(i2));
+        this.c.put(b.l, Integer.toString(i) + "." + Integer.toString(i2));
     }
 
     public void a(Context context) {

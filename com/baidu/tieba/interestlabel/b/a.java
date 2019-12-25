@@ -1,7 +1,7 @@
 package com.baidu.tieba.interestlabel.b;
 
 import tbclient.GetTagList.ResponseTagInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     public boolean isFollow;
     public int labelId;

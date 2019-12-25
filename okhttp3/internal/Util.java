@@ -1,6 +1,6 @@
 package okhttp3.internal;
 
-import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.google.android.exoplayer2.Format;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -38,8 +38,8 @@ import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+import org.apache.commons.base.CharEncoding;
+/* loaded from: classes4.dex */
 public final class Util {
     private static final Pattern VERIFY_AS_IP_ADDRESS;
     private static final Method addSuppressedExceptionMethod;
@@ -52,10 +52,10 @@ public final class Util {
     private static final ByteString UTF_16_LE_BOM = ByteString.decodeHex("fffe");
     private static final ByteString UTF_32_BE_BOM = ByteString.decodeHex("0000ffff");
     private static final ByteString UTF_32_LE_BOM = ByteString.decodeHex("ffff0000");
-    public static final Charset UTF_8 = Charset.forName(HTTP.UTF_8);
+    public static final Charset UTF_8 = Charset.forName("UTF-8");
     public static final Charset ISO_8859_1 = Charset.forName("ISO-8859-1");
-    private static final Charset UTF_16_BE = Charset.forName("UTF-16BE");
-    private static final Charset UTF_16_LE = Charset.forName("UTF-16LE");
+    private static final Charset UTF_16_BE = Charset.forName(CharEncoding.UTF_16BE);
+    private static final Charset UTF_16_LE = Charset.forName(CharEncoding.UTF_16LE);
     private static final Charset UTF_32_BE = Charset.forName("UTF-32BE");
     private static final Charset UTF_32_LE = Charset.forName("UTF-32LE");
     public static final TimeZone UTC = TimeZone.getTimeZone("GMT");
@@ -155,21 +155,21 @@ public final class Util {
             while (source.read(buffer, 8192L) != -1) {
                 buffer.clear();
             }
-            if (deadlineNanoTime == Long.MAX_VALUE) {
+            if (deadlineNanoTime == Format.OFFSET_SAMPLE_RELATIVE) {
                 source.timeout().clearDeadline();
             } else {
                 source.timeout().deadlineNanoTime(deadlineNanoTime + nanoTime);
             }
             return true;
         } catch (InterruptedIOException e) {
-            if (deadlineNanoTime == Long.MAX_VALUE) {
+            if (deadlineNanoTime == Format.OFFSET_SAMPLE_RELATIVE) {
                 source.timeout().clearDeadline();
             } else {
                 source.timeout().deadlineNanoTime(deadlineNanoTime + nanoTime);
             }
             return false;
         } catch (Throwable th) {
-            if (deadlineNanoTime == Long.MAX_VALUE) {
+            if (deadlineNanoTime == Format.OFFSET_SAMPLE_RELATIVE) {
                 source.timeout().clearDeadline();
             } else {
                 source.timeout().deadlineNanoTime(deadlineNanoTime + nanoTime);
@@ -327,13 +327,8 @@ public final class Util {
     }
 
     public static String canonicalizeHost(String str) {
-        InetAddress decodeIpv6;
         if (str.contains(":")) {
-            if (str.startsWith("[") && str.endsWith("]")) {
-                decodeIpv6 = decodeIpv6(str, 1, str.length() - 1);
-            } else {
-                decodeIpv6 = decodeIpv6(str, 0, str.length());
-            }
+            InetAddress decodeIpv6 = (str.startsWith("[") && str.endsWith("]")) ? decodeIpv6(str, 1, str.length() - 1) : decodeIpv6(str, 0, str.length());
             if (decodeIpv6 == null) {
                 return null;
             }
@@ -496,7 +491,7 @@ public final class Util {
                         if (str.regionMatches(i5, ":", 0, 1)) {
                             i5++;
                         } else {
-                            if (str.regionMatches(i5, DefaultConfig.TOKEN_SEPARATOR, 0, 1) && decodeIpv4Suffix(str, i6, i2, bArr, i8 - 2)) {
+                            if (str.regionMatches(i5, ".", 0, 1) && decodeIpv4Suffix(str, i6, i2, bArr, i8 - 2)) {
                                 i8 += 2;
                             }
                             return null;

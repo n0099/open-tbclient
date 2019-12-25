@@ -1,7 +1,4 @@
 package kotlin.text;
-/* loaded from: classes2.dex */
-public interface h {
-    kotlin.b.c cNh();
-
-    h cNi();
+/* loaded from: classes4.dex */
+public interface h extends g {
 }

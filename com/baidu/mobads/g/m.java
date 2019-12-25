@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 class m implements IOAdEventListener {
     final /* synthetic */ double a;
     final /* synthetic */ l b;
@@ -39,7 +39,7 @@ class m implements IOAdEventListener {
             this.b.a.b.k = new e((String) iOAdEvent.getData().get("message"));
             double a = com.baidu.mobads.a.b.a();
             l = this.b.a.b.l();
-            float f = l.getFloat("__badApkVersion__8.8079", 0.0f);
+            float f = l.getFloat("__badApkVersion__8.8146", 0.0f);
             eVar = this.b.a.b.k;
             Boolean valueOf = Boolean.valueOf(((float) eVar.b()) == f);
             eVar2 = this.b.a.b.k;

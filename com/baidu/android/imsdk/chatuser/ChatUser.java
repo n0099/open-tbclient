@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.PinYinUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYinObject {
     public static final Parcelable.Creator<ChatUser> CREATOR = new Parcelable.Creator<ChatUser>() { // from class: com.baidu.android.imsdk.chatuser.ChatUser.1
         /* JADX DEBUG: Method merged with bridge method */

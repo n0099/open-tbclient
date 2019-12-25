@@ -3,172 +3,183 @@ package com.baidu.tieba.ala.liveroom.c;
 import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.live.data.g;
+import com.baidu.live.data.k;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.data.AlaBroadcastGiftToastData;
 import com.baidu.tieba.ala.liveroom.data.i;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveRoomBlurPageLayout;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c {
-    private com.baidu.tieba.ala.liveroom.data.a dWC;
-    private short dXH = 0;
-    private b dXI;
-    private e dXJ;
-    private i dXg;
+    private i eMR;
+    private boolean eMW;
+    private com.baidu.tieba.ala.liveroom.data.a eMj;
+    private short eNC = 0;
+    private b eND;
+    private e eNE;
     private String otherParams;
 
-    public void b(short s) {
+    public void c(short s) {
         if (1 == s) {
-            if (this.dXI != null && !(this.dXI instanceof a)) {
-                this.dXI.onDestory();
-                this.dXI = null;
+            if (this.eND != null && !(this.eND instanceof a)) {
+                this.eND.onDestory();
+                this.eND = null;
             }
-            if (this.dXI == null) {
-                this.dXI = new a();
-                this.dXH = (short) 0;
-                this.dXI.a(this.dWC);
-                this.dXI.a(this.dXJ);
-                this.dWC.eeQ = false;
-                this.dXI.setOtherParams(this.otherParams);
-                this.dXI.init();
+            if (this.eND == null) {
+                this.eND = new a();
+                this.eNC = (short) 0;
+                this.eND.a(this.eMj);
+                this.eND.a(this.eNE);
+                this.eMj.eUK = false;
+                this.eND.setOtherParams(this.otherParams);
+                this.eND.init();
             }
         } else if (2 == s) {
-            if (this.dXI != null && !(this.dXI instanceof d)) {
-                this.dXI.onDestory();
-                this.dXI = null;
+            if (this.eND != null && !(this.eND instanceof d)) {
+                this.eND.onDestory();
+                this.eND = null;
             }
-            if (this.dXI == null) {
-                this.dXI = new d();
-                this.dXH = (short) 0;
-                this.dXI.a(this.dWC);
-                this.dXI.a(this.dXJ);
-                this.dWC.eeQ = false;
-                this.dXI.setOtherParams(this.otherParams);
-                this.dXI.init();
+            if (this.eND == null) {
+                this.eND = new d();
+                this.eNC = (short) 0;
+                this.eND.a(this.eMj);
+                this.eND.a(this.eNE);
+                this.eMj.eUK = false;
+                this.eND.setOtherParams(this.otherParams);
+                this.eND.init();
             }
         }
-        this.dXI.aOP();
-        this.dXI.a(this.dXg);
+        this.eND.bgn();
+        this.eND.iE(this.eMW);
+        this.eND.a(this.eMR);
     }
 
     public void a(TbPageContext tbPageContext, AlaLiveView alaLiveView, View view, ViewGroup viewGroup, com.baidu.tieba.ala.liveroom.m.c cVar, String str, boolean z, long j, ArrayList<AlaBroadcastGiftToastData> arrayList, i iVar) {
-        if (this.dWC == null) {
-            this.dWC = new com.baidu.tieba.ala.liveroom.data.a();
+        if (this.eMj == null) {
+            this.eMj = new com.baidu.tieba.ala.liveroom.data.a();
         }
-        this.dWC.pageContext = tbPageContext;
-        this.dWC.eeM = alaLiveView;
-        this.dWC.eeK = view;
-        this.dWC.eeN = viewGroup;
-        this.dWC.eeL = cVar;
-        this.dWC.fromType = str;
-        this.dWC.enterTime = j;
-        this.dWC.eeO = z;
-        this.dWC.eeR = arrayList;
-        this.dWC.eeS = false;
-        this.dXg = iVar;
+        this.eMj.pageContext = tbPageContext;
+        this.eMj.eUG = alaLiveView;
+        this.eMj.eUE = view;
+        this.eMj.eUH = viewGroup;
+        this.eMj.eUF = cVar;
+        this.eMj.fromType = str;
+        this.eMj.enterTime = j;
+        this.eMj.eUI = z;
+        this.eMj.eUL = arrayList;
+        this.eMj.eUM = false;
+        this.eMR = iVar;
+    }
+
+    public void iE(boolean z) {
+        this.eMW = z;
+        if (this.eND != null) {
+            this.eND.iE(z);
+        }
     }
 
     public void a(e eVar) {
-        this.dXJ = eVar;
-        if (this.dXI != null) {
-            this.dXI.a(this.dXJ);
+        this.eNE = eVar;
+        if (this.eND != null) {
+            this.eND.a(this.eNE);
         }
     }
 
     public void b(AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout) {
-        if (this.dWC != null) {
-            this.dWC.eeN = alaLiveRoomBlurPageLayout;
+        if (this.eMj != null) {
+            this.eMj.eUH = alaLiveRoomBlurPageLayout;
         }
     }
 
-    public void hx(boolean z) {
-        if (this.dXH != 1) {
-            if (this.dWC != null) {
-                this.dWC.eeQ = false;
+    public void iL(boolean z) {
+        if (this.eNC != 1) {
+            if (this.eMj != null) {
+                this.eMj.eUK = false;
             }
-            if (this.dXI != null) {
-                this.dXI.uN();
-                if ((this.dXI instanceof d) && z) {
-                    ((d) this.dXI).hz(true);
+            if (this.eND != null) {
+                this.eND.wL();
+                if ((this.eND instanceof d) && z) {
+                    ((d) this.eND).iN(true);
                 }
             }
-            this.dXH = (short) 1;
+            this.eNC = (short) 1;
         }
     }
 
-    public void aS(int i) {
-        this.dWC.eeS = true;
-        if (this.dXI != null) {
-            this.dXI.aS(i);
+    public void bd(int i) {
+        this.eMj.eUM = true;
+        if (this.eND != null) {
+            this.eND.bd(i);
         }
     }
 
-    public void aPB() {
-        if (this.dWC != null) {
-            this.dWC.eeP = true;
+    public void bhd() {
+        if (this.eMj != null) {
+            this.eMj.eUJ = true;
         }
     }
 
-    public void b(com.baidu.live.data.i iVar) {
-        if (this.dXI != null) {
-            this.dXI.a(iVar);
+    public void a(k kVar) {
+        if (this.eND != null) {
+            this.eND.b(kVar);
         }
     }
 
-    public void c(com.baidu.live.data.e eVar) {
-        if (this.dXI != null) {
-            this.dXI.b(eVar);
+    public void d(g gVar) {
+        if (this.eND != null) {
+            this.eND.c(gVar);
         }
     }
 
-    public void hy(boolean z) {
-        if (this.dXH != 3) {
-            if (this.dWC != null) {
-                this.dWC.eeQ = false;
+    public void iM(boolean z) {
+        if (this.eNC != 3) {
+            if (this.eMj != null) {
+                this.eMj.eUK = false;
             }
-            if (this.dXI != null) {
-                this.dXI.hp(z);
+            if (this.eND != null) {
+                this.eND.iz(z);
             }
-            this.dXH = (short) 3;
+            this.eNC = (short) 3;
         }
     }
 
-    public void aPC() {
-        if (this.dXH != 4) {
-            if (this.dWC != null) {
-                this.dWC.eeQ = true;
+    public void bhe() {
+        if (this.eNC != 4) {
+            if (this.eMj != null) {
+                this.eMj.eUK = true;
             }
-            if (this.dXI != null) {
-                this.dXI.aOF();
+            if (this.eND != null) {
+                this.eND.bgb();
             }
-            this.dXg = null;
-            this.dXH = (short) 4;
+            this.eMR = null;
+            this.eNC = (short) 4;
         }
     }
 
-    public boolean aPD() {
-        return this.dXI != null && this.dXI.aOI();
+    public boolean bhf() {
+        return this.eND != null && this.eND.bge();
     }
 
-    public boolean aPE() {
-        if (this.dXI == null || !this.dXI.dXr) {
-            if (this.dXH != 5) {
-                if (this.dWC != null) {
-                    this.dWC.eeQ = false;
+    public boolean bhg() {
+        if (this.eND == null || !this.eND.eNe) {
+            if (this.eNC != 5) {
+                if (this.eMj != null) {
+                    this.eMj.eUK = false;
                 }
-                if (this.dXI != null) {
-                    boolean aPp = this.dXI.aPp();
-                    if (aPp) {
-                        this.dXI.dXq = true;
-                        return aPp;
+                if (this.eND != null) {
+                    boolean bgS = this.eND.bgS();
+                    if (bgS) {
+                        this.eND.eNd = true;
+                        return bgS;
                     }
-                    return aPp;
+                    return bgS;
                 }
-                this.dXH = (short) 5;
+                this.eNC = (short) 5;
             }
-            if (this.dXI != null) {
-                this.dXI.dXq = true;
+            if (this.eND != null) {
+                this.eND.eNd = true;
             }
             return true;
         }
@@ -176,50 +187,50 @@ public class c {
     }
 
     public void onDestory() {
-        if (this.dXI != null) {
-            this.dXI.onDestory();
+        if (this.eND != null) {
+            this.eND.onDestory();
         }
     }
 
     public void enterBackground() {
-        if (this.dXI != null) {
-            this.dXI.aPq();
+        if (this.eND != null) {
+            this.eND.bgT();
         }
     }
 
     public void enterForeground() {
-        if (this.dXI != null) {
-            this.dXI.aPr();
+        if (this.eND != null) {
+            this.eND.bgU();
         }
     }
 
-    public void aPF() {
-        if (this.dXI != null) {
-            this.dXI.aOM();
+    public void bhh() {
+        if (this.eND != null) {
+            this.eND.bgk();
         }
     }
 
-    public void aPG() {
-        if (this.dXI != null) {
-            this.dXI.aON();
+    public void bhi() {
+        if (this.eND != null) {
+            this.eND.bgl();
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.dXI != null) {
-            this.dXI.onActivityResult(i, i2, intent);
+        if (this.eND != null) {
+            this.eND.onActivityResult(i, i2, intent);
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.dXI != null) {
-            this.dXI.onKeyboardVisibilityChanged(z);
+        if (this.eND != null) {
+            this.eND.onKeyboardVisibilityChanged(z);
         }
     }
 
     public void E(int i, int i2, int i3) {
-        if (this.dXI != null) {
-            this.dXI.E(i, i2, i3);
+        if (this.eND != null) {
+            this.eND.E(i, i2, i3);
         }
     }
 

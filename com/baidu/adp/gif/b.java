@@ -4,7 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 /* loaded from: classes.dex */
 public interface b {
-    int A(int i);
+    boolean B(int i);
+
+    int C(int i);
 
     boolean a(Bitmap bitmap, Canvas canvas);
 
@@ -15,6 +17,4 @@ public interface b {
     int getHeight();
 
     int getWidth();
-
-    boolean z(int i);
 }

@@ -9,23 +9,23 @@ import rx.internal.schedulers.d;
 import rx.internal.schedulers.e;
 import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> kEW = new AtomicReference<>();
-    private final g kET;
-    private final g kEU;
-    private final g kEV;
+    private static final AtomicReference<Schedulers> ndD = new AtomicReference<>();
+    private final g njM;
+    private final g njN;
+    private final g njO;
 
-    private static Schedulers cPN() {
+    private static Schedulers dHu() {
         Schedulers schedulers;
         while (true) {
-            schedulers = kEW.get();
+            schedulers = ndD.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (kEW.compareAndSet(null, schedulers)) {
+                if (ndD.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.cPP();
+                schedulers.dHw();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g cPE = f.cPz().cPE();
-        g cPI = cPE.cPI();
-        if (cPI != null) {
-            this.kET = cPI;
+        rx.c.g dHl = f.dHg().dHl();
+        g dHp = dHl.dHp();
+        if (dHp != null) {
+            this.njM = dHp;
         } else {
-            this.kET = rx.c.g.cPF();
+            this.njM = rx.c.g.dHm();
         }
-        g cPJ = cPE.cPJ();
-        if (cPJ != null) {
-            this.kEU = cPJ;
+        g dHq = dHl.dHq();
+        if (dHq != null) {
+            this.njN = dHq;
         } else {
-            this.kEU = rx.c.g.cPG();
+            this.njN = rx.c.g.dHn();
         }
-        g cPK = cPE.cPK();
-        if (cPK != null) {
-            this.kEV = cPK;
+        g dHr = dHl.dHr();
+        if (dHr != null) {
+            this.njO = dHr;
         } else {
-            this.kEV = rx.c.g.cPH();
+            this.njO = rx.c.g.dHo();
         }
     }
 
     public static g immediate() {
-        return e.kCE;
+        return e.nhS;
     }
 
     public static g trampoline() {
-        return j.kDe;
+        return j.nir;
     }
 
     public static g newThread() {
-        return c.i(cPN().kEV);
+        return c.k(dHu().njO);
     }
 
     public static g computation() {
-        return c.g(cPN().kET);
+        return c.i(dHu().njM);
     }
 
     public static g io() {
-        return c.h(cPN().kEU);
+        return c.j(dHu().njN);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = kEW.getAndSet(null);
+        Schedulers andSet = ndD.getAndSet(null);
         if (andSet != null) {
-            andSet.cPP();
+            andSet.dHw();
         }
     }
 
     public static void start() {
-        Schedulers cPN = cPN();
-        cPN.cPO();
-        synchronized (cPN) {
-            d.kCB.start();
+        Schedulers dHu = dHu();
+        dHu.dHv();
+        synchronized (dHu) {
+            d.nhQ.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers cPN = cPN();
-        cPN.cPP();
-        synchronized (cPN) {
-            d.kCB.shutdown();
+        Schedulers dHu = dHu();
+        dHu.dHw();
+        synchronized (dHu) {
+            d.nhQ.shutdown();
         }
     }
 
-    synchronized void cPO() {
-        if (this.kET instanceof h) {
-            ((h) this.kET).start();
+    synchronized void dHv() {
+        if (this.njM instanceof h) {
+            ((h) this.njM).start();
         }
-        if (this.kEU instanceof h) {
-            ((h) this.kEU).start();
+        if (this.njN instanceof h) {
+            ((h) this.njN).start();
         }
-        if (this.kEV instanceof h) {
-            ((h) this.kEV).start();
+        if (this.njO instanceof h) {
+            ((h) this.njO).start();
         }
     }
 
-    synchronized void cPP() {
-        if (this.kET instanceof h) {
-            ((h) this.kET).shutdown();
+    synchronized void dHw() {
+        if (this.njM instanceof h) {
+            ((h) this.njM).shutdown();
         }
-        if (this.kEU instanceof h) {
-            ((h) this.kEU).shutdown();
+        if (this.njN instanceof h) {
+            ((h) this.njN).shutdown();
         }
-        if (this.kEV instanceof h) {
-            ((h) this.kEV).shutdown();
+        if (this.njO instanceof h) {
+            ((h) this.njO).shutdown();
         }
     }
 }

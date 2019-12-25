@@ -8,7 +8,7 @@ import android.view.ActionMode;
 import android.view.Window;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(23)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AppCompatDelegateImplV23 extends AppCompatDelegateImplV14 {
     private final UiModeManager mUiModeManager;
 
@@ -32,7 +32,7 @@ public class AppCompatDelegateImplV23 extends AppCompatDelegateImplV14 {
         return super.mapNightMode(i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     class AppCompatWindowCallbackV23 extends AppCompatDelegateImplV14.AppCompatWindowCallbackV14 {
         /* JADX INFO: Access modifiers changed from: package-private */
         public AppCompatWindowCallbackV23(Window.Callback callback) {

@@ -1,44 +1,44 @@
 package com.xiaomi.push;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class av {
 
     /* renamed from: a  reason: collision with other field name */
-    private static byte[] f133a;
+    private static byte[] f138a;
     private static final String a = System.getProperty("line.separator");
 
     /* renamed from: a  reason: collision with other field name */
-    private static char[] f134a = new char[64];
+    private static char[] f139a = new char[64];
 
     static {
         char c = 'A';
         int i = 0;
         while (c <= 'Z') {
-            f134a[i] = c;
+            f139a[i] = c;
             c = (char) (c + 1);
             i++;
         }
         char c2 = 'a';
         while (c2 <= 'z') {
-            f134a[i] = c2;
+            f139a[i] = c2;
             c2 = (char) (c2 + 1);
             i++;
         }
         char c3 = '0';
         while (c3 <= '9') {
-            f134a[i] = c3;
+            f139a[i] = c3;
             c3 = (char) (c3 + 1);
             i++;
         }
         int i2 = i + 1;
-        f134a[i] = '+';
+        f139a[i] = '+';
         int i3 = i2 + 1;
-        f134a[i2] = '/';
-        f133a = new byte[128];
-        for (int i4 = 0; i4 < f133a.length; i4++) {
-            f133a[i4] = -1;
+        f139a[i2] = '/';
+        f138a = new byte[128];
+        for (int i4 = 0; i4 < f138a.length; i4++) {
+            f138a[i4] = -1;
         }
         for (int i5 = 0; i5 < 64; i5++) {
-            f133a[f134a[i5]] = (byte) i5;
+            f138a[f139a[i5]] = (byte) i5;
         }
     }
 
@@ -88,10 +88,10 @@ public class av {
             if (c3 > 127 || c4 > 127 || c > 127 || c2 > 127) {
                 throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
             }
-            byte b = f133a[c3];
-            byte b2 = f133a[c4];
-            byte b3 = f133a[c];
-            byte b4 = f133a[c2];
+            byte b = f138a[c3];
+            byte b2 = f138a[c4];
+            byte b3 = f138a[c];
+            byte b4 = f138a[c2];
             if (b < 0 || b2 < 0 || b3 < 0 || b4 < 0) {
                 throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
             }
@@ -151,12 +151,12 @@ public class av {
             int i13 = ((i3 & 15) << 2) | (i5 >>> 6);
             int i14 = i5 & 63;
             int i15 = i8 + 1;
-            cArr[i8] = f134a[i11];
+            cArr[i8] = f139a[i11];
             int i16 = i15 + 1;
-            cArr[i15] = f134a[i12];
-            cArr[i16] = i16 < i6 ? f134a[i13] : '=';
+            cArr[i15] = f139a[i12];
+            cArr[i16] = i16 < i6 ? f139a[i13] : '=';
             int i17 = i16 + 1;
-            cArr[i17] = i17 < i6 ? f134a[i14] : '=';
+            cArr[i17] = i17 < i6 ? f139a[i14] : '=';
             i8 = i17 + 1;
             i = i4;
         }

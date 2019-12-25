@@ -3,7 +3,7 @@ package com.baidu.tieba.tblauncherInterestGuide.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class InterestFrsData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 3148930531307087667L;
     private String errmsg;
@@ -30,7 +30,7 @@ public class InterestFrsData extends OrmObject implements Serializable {
         return this.tag_list;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Tag extends OrmObject implements Serializable {
         private static final long serialVersionUID = -161320459489433271L;
         private String bdesc;
@@ -70,7 +70,7 @@ public class InterestFrsData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Card extends OrmObject implements Serializable {
         private static final long serialVersionUID = -6381883030119073721L;
         private String avatar;

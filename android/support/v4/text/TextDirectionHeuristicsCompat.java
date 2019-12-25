@@ -2,7 +2,7 @@ package android.support.v4.text;
 
 import java.nio.CharBuffer;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class TextDirectionHeuristicsCompat {
     private static final int STATE_FALSE = 1;
     private static final int STATE_TRUE = 0;
@@ -15,7 +15,7 @@ public final class TextDirectionHeuristicsCompat {
     public static final TextDirectionHeuristicCompat LOCALE = TextDirectionHeuristicLocale.INSTANCE;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface TextDirectionAlgorithm {
         int checkRtl(CharSequence charSequence, int i, int i2);
     }
@@ -48,13 +48,13 @@ public final class TextDirectionHeuristicsCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static abstract class TextDirectionHeuristicImpl implements TextDirectionHeuristicCompat {
         private final TextDirectionAlgorithm mAlgorithm;
 
         protected abstract boolean defaultIsRtl();
 
-        public TextDirectionHeuristicImpl(TextDirectionAlgorithm textDirectionAlgorithm) {
+        TextDirectionHeuristicImpl(TextDirectionAlgorithm textDirectionAlgorithm) {
             this.mAlgorithm = textDirectionAlgorithm;
         }
 
@@ -83,7 +83,7 @@ public final class TextDirectionHeuristicsCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class TextDirectionHeuristicInternal extends TextDirectionHeuristicImpl {
         private final boolean mDefaultIsRtl;
 
@@ -98,9 +98,9 @@ public final class TextDirectionHeuristicsCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class FirstStrong implements TextDirectionAlgorithm {
-        public static final FirstStrong INSTANCE = new FirstStrong();
+        static final FirstStrong INSTANCE = new FirstStrong();
 
         @Override // android.support.v4.text.TextDirectionHeuristicsCompat.TextDirectionAlgorithm
         public int checkRtl(CharSequence charSequence, int i, int i2) {
@@ -117,11 +117,11 @@ public final class TextDirectionHeuristicsCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class AnyStrong implements TextDirectionAlgorithm {
         private final boolean mLookForRtl;
-        public static final AnyStrong INSTANCE_RTL = new AnyStrong(true);
-        public static final AnyStrong INSTANCE_LTR = new AnyStrong(false);
+        static final AnyStrong INSTANCE_RTL = new AnyStrong(true);
+        static final AnyStrong INSTANCE_LTR = new AnyStrong(false);
 
         @Override // android.support.v4.text.TextDirectionHeuristicsCompat.TextDirectionAlgorithm
         public int checkRtl(CharSequence charSequence, int i, int i2) {
@@ -157,11 +157,11 @@ public final class TextDirectionHeuristicsCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class TextDirectionHeuristicLocale extends TextDirectionHeuristicImpl {
-        public static final TextDirectionHeuristicLocale INSTANCE = new TextDirectionHeuristicLocale();
+        static final TextDirectionHeuristicLocale INSTANCE = new TextDirectionHeuristicLocale();
 
-        public TextDirectionHeuristicLocale() {
+        TextDirectionHeuristicLocale() {
             super(null);
         }
 

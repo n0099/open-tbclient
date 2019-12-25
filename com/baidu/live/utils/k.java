@@ -1,61 +1,124 @@
 package com.baidu.live.utils;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.support.v4.view.ViewCompat;
-/* loaded from: classes6.dex */
+import android.content.Context;
+import android.content.res.Resources;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.ViewConfiguration;
+import android.view.WindowManager;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.tbadk.extraparams.interfaces.IExtraParams;
+import com.baidu.live.tbadk.widget.TbImageView;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
+import java.lang.reflect.Method;
+import org.apache.http.HttpHost;
+/* loaded from: classes2.dex */
 public class k {
-    public static Bitmap b(Bitmap bitmap, int i, int i2) {
+    private static boolean hasNavBar(Context context) {
+        Resources resources = context.getResources();
+        int identifier = resources.getIdentifier("config_showNavigationBar", "bool", PraiseDataPassUtil.KEY_FROM_OS);
+        if (identifier != 0) {
+            boolean z = resources.getBoolean(identifier);
+            String navBarOverride = getNavBarOverride();
+            if ("1".equals(navBarOverride)) {
+                return false;
+            }
+            if ("0".equals(navBarOverride)) {
+                return true;
+            }
+            return z;
+        }
+        return ViewConfiguration.get(context).hasPermanentMenuKey() ? false : true;
+    }
+
+    private static String getNavBarOverride() {
         try {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(createBitmap);
-            canvas.drawARGB(0, 0, 0, 0);
-            Paint paint = new Paint();
-            paint.setAntiAlias(true);
-            paint.setColor(ViewCompat.MEASURED_STATE_MASK);
-            canvas.drawRoundRect(new RectF(0.0f, 0.0f, width, height), i, i, paint);
-            int i3 = i2 ^ 15;
-            if ((i3 & 1) != 0) {
-                a(canvas, paint, i, width, height);
-            }
-            if ((i3 & 2) != 0) {
-                b(canvas, paint, i, width, height);
-            }
-            if ((i3 & 4) != 0) {
-                c(canvas, paint, i, width, height);
-            }
-            if ((i3 & 8) != 0) {
-                d(canvas, paint, i, width, height);
-            }
-            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-            Rect rect = new Rect(0, 0, width, height);
-            canvas.drawBitmap(bitmap, rect, rect, paint);
-            return createBitmap;
-        } catch (Exception e) {
-            return bitmap;
+            Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
+            declaredMethod.setAccessible(true);
+            return (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+        } catch (Throwable th) {
+            return null;
         }
     }
 
-    private static void a(Canvas canvas, Paint paint, int i, int i2, int i3) {
-        canvas.drawRect(new Rect(0, 0, i, i), paint);
+    public static int getNavigationBarHeight(Context context) {
+        Resources resources;
+        int identifier;
+        if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier("navigation_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS)) <= 0) {
+            return 0;
+        }
+        return resources.getDimensionPixelSize(identifier);
     }
 
-    private static void b(Canvas canvas, Paint paint, int i, int i2, int i3) {
-        canvas.drawRect(new Rect(i2 - i, 0, i2, i), paint);
+    public static int getVirtualBarHeight(Context context) {
+        WindowManager windowManager = (WindowManager) context.getSystemService("window");
+        Display defaultDisplay = windowManager.getDefaultDisplay();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        try {
+            Class.forName("android.view.Display").getMethod("getRealMetrics", DisplayMetrics.class).invoke(defaultDisplay, displayMetrics);
+            return displayMetrics.heightPixels - windowManager.getDefaultDisplay().getHeight();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
-    private static void c(Canvas canvas, Paint paint, int i, int i2, int i3) {
-        canvas.drawRect(new Rect(0, i3 - i, i, i3), paint);
+    public static void a(TbImageView tbImageView, String str, boolean z, boolean z2) {
+        if (tbImageView != null && !TextUtils.isEmpty(str)) {
+            if (str.toLowerCase().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                tbImageView.startLoad(str, 10, false);
+            } else if (z) {
+                tbImageView.startLoad(str, 25, false);
+            } else {
+                tbImageView.startLoad(str, 12, false);
+            }
+        }
     }
 
-    private static void d(Canvas canvas, Paint paint, int i, int i2, int i3) {
-        canvas.drawRect(new Rect(i2 - i, i3 - i, i2, i3), paint);
+    public static float[] getPhysicalScreenSize(Context context) {
+        float[] fArr = new float[2];
+        if (context != null) {
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            if (displayMetrics.xdpi != 0.0f && displayMetrics.ydpi != 0.0f) {
+                fArr[0] = displayMetrics.widthPixels / displayMetrics.xdpi;
+                fArr[1] = displayMetrics.heightPixels / displayMetrics.ydpi;
+            }
+        }
+        return fArr;
+    }
+
+    public static boolean dQ(String str) {
+        if (str.contains("·") || str.contains("•")) {
+            if (str.matches("^[\\u4e00-\\u9fa5]+[·•][\\u4e00-\\u9fa5]+$")) {
+                return true;
+            }
+        } else if (str.matches("^[\\u4e00-\\u9fa5]+$")) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean yr() {
+        if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu()) {
+            return !ExtraParamsManager.getSaveFlowStatus();
+        }
+        IExtraParams buildParamsExtra = ExtraParamsManager.getInstance().buildParamsExtra();
+        if (buildParamsExtra != null) {
+            return buildParamsExtra.isShouldShowNotWifiToastByAudience();
+        }
+        return true;
+    }
+
+    public static boolean ys() {
+        if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu()) {
+            return !ExtraParamsManager.getSaveFlowStatus();
+        }
+        IExtraParams buildParamsExtra = ExtraParamsManager.getInstance().buildParamsExtra();
+        if (buildParamsExtra != null) {
+            return buildParamsExtra.isShouldShowNotWifiToastByMaster();
+        }
+        return true;
     }
 }

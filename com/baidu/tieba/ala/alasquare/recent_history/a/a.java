@@ -10,13 +10,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class a extends BaseAdapter {
-    protected int dzQ;
+    protected int ekQ;
     protected Context mContext;
     protected List<com.baidu.tieba.ala.alasquare.recent_history.b.b> mData = new ArrayList();
     protected TbPageContext mPageContext;
@@ -41,7 +41,7 @@ public abstract class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mi */
+    /* renamed from: or */
     public com.baidu.tieba.ala.alasquare.recent_history.b.b getItem(int i) {
         return this.mData.get(i);
     }
@@ -52,18 +52,18 @@ public abstract class a extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(TbPageContext<?> tbPageContext, bh bhVar, String str) {
-        if (tbPageContext != null && bhVar != null && bhVar.aiE() != null && bhVar.aiX() != null) {
+    public void a(TbPageContext<?> tbPageContext, bj bjVar, String str) {
+        if (tbPageContext != null && bjVar != null && bjVar.azE() != null && bjVar.azX() != null) {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bhVar.aiE().getUserId();
+                String userId = bjVar.azE().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bhVar.aiX());
-            alaLiveInfoCoreData.userName = bhVar.aiE().getUserName();
+            alaLiveInfoCoreData.fillWithInfoData(bjVar.azX());
+            alaLiveInfoCoreData.userName = bjVar.azE().getUserName();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, str2, z, "")));
         }
     }

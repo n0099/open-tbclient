@@ -14,7 +14,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CarUUID {
     private static final Pattern a = Pattern.compile("(\\w{32})");
 
@@ -63,7 +63,7 @@ public class CarUUID {
         List<ApplicationInfo> installedApplications = context.getPackageManager().getInstalledApplications(0);
         ApplicationInfo applicationInfo = context.getApplicationInfo();
         for (ApplicationInfo applicationInfo2 : installedApplications) {
-            if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, "files"), "libdueros_uuid.so"))) != null) {
+            if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, com.baidu.fsg.face.base.b.c.g), "libdueros_uuid.so"))) != null) {
                 return a2;
             }
         }

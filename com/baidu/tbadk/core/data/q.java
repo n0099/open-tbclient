@@ -1,54 +1,35 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
-/* loaded from: classes3.dex */
+import tbclient.FrsPage.ColorEgg;
+/* loaded from: classes.dex */
 public class q {
-    private String bXC;
-    private int bXD;
-    private ArrayList<s> bXE = new ArrayList<>();
-    private int height;
-    private String obj_id;
-    private int width;
+    private ArrayList<String> cJT = new ArrayList<>();
+    private int cJU;
 
-    public ArrayList<s> agU() {
-        return this.bXE;
+    public ArrayList<String> axM() {
+        return this.cJT;
     }
 
-    public void r(ArrayList<s> arrayList) {
-        this.bXE = arrayList;
+    public int axN() {
+        return this.cJU;
     }
 
-    public String agV() {
-        return this.obj_id;
-    }
-
-    public void a(ActivityHead activityHead) {
-        if (activityHead != null) {
-            this.bXD = activityHead.activity_type.intValue();
-            this.bXC = activityHead.activity_title;
-            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
-            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
-            this.obj_id = activityHead.obj_id;
-            ap(activityHead.head_imgs);
+    public boolean a(ColorEgg colorEgg) {
+        this.cJU = 0;
+        if (colorEgg == null || colorEgg.holiday_words == null || colorEgg.holiday_words.size() <= 0) {
+            return false;
         }
-    }
-
-    public void ap(List<HeadImgs> list) {
-        if (!com.baidu.tbadk.core.util.v.isEmpty(list)) {
-            for (HeadImgs headImgs : list) {
-                a(headImgs);
+        for (String str : colorEgg.holiday_words) {
+            if (!StringUtils.isNull(str)) {
+                this.cJT.add(str);
             }
         }
-    }
-
-    public void a(HeadImgs headImgs) {
-        if (headImgs != null) {
-            s sVar = new s();
-            sVar.b(headImgs);
-            this.bXE.add(sVar);
+        if (this.cJT.size() <= 0) {
+            return false;
         }
+        this.cJU = colorEgg.style_flag.intValue();
+        return true;
     }
 }

@@ -1,21 +1,21 @@
 package com.baidu.tieba.pb.chosen;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.f.b;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.util.ba;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RecommendsStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PbChosenActivityConfig.class, PbChosenActivity.class);
-        bwf();
+        bNw();
     }
 
-    private static void bwf() {
-        ba.amO().a(new ba.a() { // from class: com.baidu.tieba.pb.chosen.RecommendsStatic.1
+    private static void bNw() {
+        ba.aEa().a(new ba.a() { // from class: com.baidu.tieba.pb.chosen.RecommendsStatic.1
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length <= 0) {

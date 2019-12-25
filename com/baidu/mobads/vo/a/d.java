@@ -7,15 +7,16 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
 import com.baidu.mobads.utils.m;
 import com.baidu.mobads.vo.a.a;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d extends a {
     private String o;
     private HashMap<String, String> p;
 
     public d(String str, IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo, HashMap<String, String> hashMap) {
-        super(new a.C0107a(iXAdInstanceInfo, iXAdProdInfo));
+        super(new a.C0123a(iXAdInstanceInfo, iXAdProdInfo));
         this.o = "";
         this.p = null;
         this.o = str;
@@ -33,7 +34,7 @@ public class d extends a {
     public String a(Context context) {
         HashMap<String, String> c = c();
         try {
-            StringBuilder sb = new StringBuilder("type=" + this.o + "&");
+            StringBuilder sb = new StringBuilder("type=" + this.o + ETAG.ITEM_SEPARATOR);
             StringBuilder sb2 = new StringBuilder();
             e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
             for (String str : c.keySet()) {
@@ -42,9 +43,9 @@ public class d extends a {
                     String encodeURIComponent = commonUtils.encodeURIComponent(str);
                     String encodeURIComponent2 = commonUtils.encodeURIComponent(str2);
                     sb.append(encodeURIComponent);
-                    sb.append("=");
+                    sb.append(ETAG.EQUAL);
                     sb.append(encodeURIComponent2);
-                    sb.append("&");
+                    sb.append(ETAG.ITEM_SEPARATOR);
                     sb2.append(encodeURIComponent2);
                     sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }

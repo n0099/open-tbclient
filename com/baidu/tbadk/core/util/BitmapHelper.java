@@ -20,7 +20,6 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -1145,9 +1144,9 @@ public class BitmapHelper {
 
     public static int readPictureDegree(String str) {
         try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
+            switch (new ExifInterface(str).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1)) {
                 case 3:
-                    return SubsamplingScaleImageView.ORIENTATION_180;
+                    return 180;
                 case 4:
                 case 5:
                 case 7:
@@ -1156,7 +1155,7 @@ public class BitmapHelper {
                 case 6:
                     return 90;
                 case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
+                    return 270;
             }
         } catch (IOException e) {
             return 0;

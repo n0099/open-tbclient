@@ -2,12 +2,12 @@ package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.TbConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b extends HttpMessage {
-    private long aju;
+    private long arv;
 
     public void setLiveId(long j) {
-        this.aju = j;
+        this.arv = j;
     }
 
     public b() {
@@ -15,7 +15,7 @@ public class b extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("live_id", this.aju);
+        addParam("live_id", this.arv);
         addParam("subapp_type", TbConfig.getSubappType());
     }
 }

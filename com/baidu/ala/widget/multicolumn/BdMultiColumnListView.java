@@ -21,7 +21,7 @@ import com.huewu.pla.lib.internal.PLA_AbsListView;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
 import com.huewu.pla.lib.internal.a;
 import java.security.InvalidParameterException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdMultiColumnListView extends MultiColumnListView {
     private static final int REFRESH_DELAY = 100;
     private BdSimplePreLoadListAdapter mBdListAdpter;
@@ -38,7 +38,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
     private PLA_AdapterView.d mOnItemLongClickListener;
     private PLA_AdapterView.e mOnItemSelectedListener;
     private OnItemWillVisibleListener mOnItemWillVisibleListener;
-    private PLA_AbsListView.d mOnScrollListener;
+    private PLA_AbsListView.c mOnScrollListener;
     private OnScrollStopDelayedListener mOnScrollStopDelayedListener;
     private long mOnScrollStopDelayedMillis;
     private OnScrollToBottomListener mOnScrollToBottomListener;
@@ -52,37 +52,37 @@ public class BdMultiColumnListView extends MultiColumnListView {
     private Runnable preLoadRunnable;
     private Runnable refreshRunnable;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnFooterClickListener {
         void onClick(View view);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnHeaderClickListener {
         void onClick(View view);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnItemWillVisibleListener {
         void onItemWillVisible(int i, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnScrollStopDelayedListener {
         void onScrollStop(int i, int i2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnScrollToBottomListener {
         void onScrollToBottom();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnScrollToPullListener {
         void onScrollToPull(boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnScrollToTopListener {
         void onScrollToTop();
     }
@@ -452,8 +452,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
             }
         });
-        super.setOnScrollListener(new PLA_AbsListView.d() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.7
-            @Override // com.huewu.pla.lib.internal.PLA_AbsListView.d
+        super.setOnScrollListener(new PLA_AbsListView.c() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.7
+            @Override // com.huewu.pla.lib.internal.PLA_AbsListView.c
             public void onScrollStateChanged(PLA_AbsListView pLA_AbsListView, int i) {
                 h Z = i.Z(BdMultiColumnListView.this.getContext());
                 if (Z != null) {
@@ -482,7 +482,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
             }
 
-            @Override // com.huewu.pla.lib.internal.PLA_AbsListView.d
+            @Override // com.huewu.pla.lib.internal.PLA_AbsListView.c
             public void onScroll(PLA_AbsListView pLA_AbsListView, int i, int i2, int i3) {
                 BdMultiColumnListView.this.mFirstVisibleItemIndex = i;
                 if (BdMultiColumnListView.this.mOnScrollListener != null) {
@@ -586,8 +586,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_AbsListView
-    public void setOnScrollListener(PLA_AbsListView.d dVar) {
-        this.mOnScrollListener = dVar;
+    public void setOnScrollListener(PLA_AbsListView.c cVar) {
+        this.mOnScrollListener = cVar;
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_AdapterView
@@ -749,7 +749,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
         if (this.mPullRefresh != null && this.mPullRefresh.getBdIListPullView() != null) {
             this.mPullRefresh.mBdIListPullView.onCompletePullRefresh();
         }
-        com.baidu.adp.lib.g.e.fZ().postDelayed(new Runnable() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.10
+        com.baidu.adp.lib.f.e.gy().postDelayed(new Runnable() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.10
             @Override // java.lang.Runnable
             public void run() {
                 if (BdMultiColumnListView.this.mPullRefresh == null) {
@@ -796,7 +796,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
         return this.mPullRefresh == null || this.mPullRefresh.mState == 3;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private static class PullRefresh {
         public static final int DEFAULT_REFRESH_DURATION_TIME = 800;
         private static final int DONE = 3;

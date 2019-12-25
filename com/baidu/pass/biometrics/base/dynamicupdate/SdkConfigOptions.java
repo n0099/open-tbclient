@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SdkConfigOptions {
     public static final String HOST_VERSION = "3.0.0";
     private static final String KEY_DISTRIBUTED_SDK = "distributedSdk";
@@ -65,19 +65,19 @@ public class SdkConfigOptions {
                     sdkConfigOptions.globalEnable = jSONObject.optBoolean(KEY_GLOBAL_ENABLE, true);
                     sdkConfigOptions.hostVersion = jSONObject2.optString("host_version");
                     sdkConfigOptions.zipVersion = jSONObject2.optString("zip_version");
-                    sdkConfigOptions.enable = jSONObject2.optBoolean(KEY_SO_ENABLE, true);
-                    sdkConfigOptions.grayThreshold = jSONObject2.optInt(KEY_GRAY);
-                    JSONArray jSONArray = jSONObject2.optJSONObject(KEY_SO_FILES).getJSONArray("file");
+                    sdkConfigOptions.enable = jSONObject2.optBoolean("enable", true);
+                    sdkConfigOptions.grayThreshold = jSONObject2.optInt("gray");
+                    JSONArray jSONArray = jSONObject2.optJSONObject("files").getJSONArray("file");
                     if (jSONArray != null) {
                         String cpuType = PassBiometricUtil.getCpuType();
-                        if (PassBiometricUtil.CPU_TYPE_ARMEABI.equals(cpuType)) {
-                            cpuType = PassBiometricUtil.CPU_TYPE_ARMEABI_V7A;
+                        if ("armeabi".equals(cpuType)) {
+                            cpuType = "armeabi-v7a";
                         }
                         int length2 = jSONArray.length();
                         while (true) {
                             if (i < length2) {
                                 JSONObject jSONObject3 = jSONArray.getJSONObject(i);
-                                if (jSONObject3 != null && cpuType.equals(jSONObject3.optString(KEY_SO_CPU))) {
+                                if (jSONObject3 != null && cpuType.equals(jSONObject3.optString("cpu"))) {
                                     break;
                                 }
                                 i++;
@@ -88,7 +88,7 @@ public class SdkConfigOptions {
                     }
                 }
             } catch (JSONException e) {
-                Log.e(TAG, e);
+                Log.e("SdkConfigOptions", e);
             }
         }
         return sdkConfigOptions;
@@ -98,11 +98,11 @@ public class SdkConfigOptions {
         SdkConfigOptions sdkConfigOptions = new SdkConfigOptions();
         sdkConfigOptions.hostVersion = jSONObject.optString("host_version");
         sdkConfigOptions.zipVersion = jSONObject.optString("zip_version");
-        sdkConfigOptions.updateFail = jSONObject.optBoolean(KEY_UPDATE_FAIL);
+        sdkConfigOptions.updateFail = jSONObject.optBoolean("updateFail");
         sdkConfigOptions.globalEnable = jSONObject.optBoolean(KEY_GLOBAL_ENABLE);
-        sdkConfigOptions.enable = jSONObject.optBoolean(KEY_SO_ENABLE);
-        sdkConfigOptions.grayThreshold = jSONObject.optInt(KEY_GRAY);
-        sdkConfigOptions.distributedSdk = DistributedFile.fromJSON(jSONObject.optJSONObject(KEY_DISTRIBUTED_SDK));
+        sdkConfigOptions.enable = jSONObject.optBoolean("enable");
+        sdkConfigOptions.grayThreshold = jSONObject.optInt("gray");
+        sdkConfigOptions.distributedSdk = DistributedFile.fromJSON(jSONObject.optJSONObject("distributedSdk"));
         sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject.optJSONObject(KEY_LIVENESS_CONFIG_OPTION));
         return sdkConfigOptions;
     }
@@ -112,11 +112,11 @@ public class SdkConfigOptions {
         try {
             jSONObject.put(HOST_VERSION, this.hostVersion);
             jSONObject.put("zip_version", this.zipVersion);
-            jSONObject.put(KEY_UPDATE_FAIL, this.updateFail);
+            jSONObject.put("updateFail", this.updateFail);
             jSONObject.put(KEY_GLOBAL_ENABLE, this.globalEnable);
-            jSONObject.put(KEY_SO_ENABLE, this.enable);
-            jSONObject.put(KEY_GRAY, this.grayThreshold);
-            jSONObject.put(KEY_DISTRIBUTED_SDK, this.distributedSdk == null ? "" : this.distributedSdk.toJSON());
+            jSONObject.put("enable", this.enable);
+            jSONObject.put("gray", this.grayThreshold);
+            jSONObject.put("distributedSdk", this.distributedSdk == null ? "" : this.distributedSdk.toJSON());
             jSONObject.put(KEY_LIVENESS_CONFIG_OPTION, this.livenessConfigOption == null ? "" : this.livenessConfigOption.toJSON());
             return jSONObject;
         } catch (JSONException e) {
@@ -124,7 +124,7 @@ public class SdkConfigOptions {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class DistributedFile {
         private static final String KEY_FILE_DOWNLOAD_URL = "url";
         private static final String KEY_FILE_HASH = "hash";
@@ -157,7 +157,7 @@ public class SdkConfigOptions {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LivenessConfigOption {
         private static final String CROP_FACE_RATIO = "crop_face_ratio";
         private static final String CROP_FACE_SIZE = "crop_face_size";

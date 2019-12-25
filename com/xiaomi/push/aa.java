@@ -3,8 +3,9 @@ package com.xiaomi.push;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
+import com.baidu.down.statistic.ConfigSpeedStat;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class aa {
     public static long a() {
         File externalStorageDirectory;
@@ -20,7 +21,7 @@ public class aa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m106a() {
+    public static boolean m109a() {
         try {
             return Environment.getExternalStorageState().equals("removed");
         } catch (Exception e) {
@@ -39,10 +40,10 @@ public class aa {
     }
 
     public static boolean c() {
-        return a() <= 102400;
+        return a() <= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT;
     }
 
     public static boolean d() {
-        return (b() || c() || m106a()) ? false : true;
+        return (b() || c() || m109a()) ? false : true;
     }
 }

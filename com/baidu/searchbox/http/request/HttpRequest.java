@@ -18,13 +18,19 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
 public abstract class HttpRequest<T extends HttpRequestBuilder> {
+    public static final int REQUESTFROM_FEED = 1;
+    public static final int REQUESTFROM_FRESCO = 2;
+    public static final int REQUESTFROM_NONE = 0;
+    public static final int REQUESTFROM_UBC = 3;
     protected OkHttpClient client;
     protected int connectionTimeout;
     protected CookieManager cookieManager;
     protected Handler deliver;
     protected boolean enableRetry;
+    protected JSONObject extraUserLog;
     protected Headers headers;
     protected AbstractHttpManager httpManager;
     protected HttpUrl httpUrl;
@@ -39,6 +45,7 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
     protected Object originTag;
     protected IAsyncRequestParamsHandler paramsHandler;
     protected int readTimeout;
+    protected int requestFrom;
     protected RequestHandler requestHandler;
     protected NetworkStatRecord requestNetStat;
     protected Object tag;
@@ -61,6 +68,7 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         this.enableRetry = true;
         this.paramsHandler = null;
         this.requestNetStat = null;
+        this.requestFrom = 0;
         this.httpManager = t.httpManager;
         this.client = this.httpManager.getOkHttpClient();
         this.requestHandler = this.httpManager.getRequestHandler();
@@ -79,6 +87,8 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         this.cookieManager = t.cookieManager;
         this.paramsHandler = t.paramsHandler;
         this.isReqNetStatEnable = t.isReqNetStatEnable;
+        this.requestFrom = t.requestFrom;
+        this.extraUserLog = t.extraUserLog;
         if (this.httpUrl == null) {
             throw new IllegalArgumentException(" url not set, please check");
         }
@@ -111,6 +121,14 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
 
     public NetworkStatRecord getRequestNetStat() {
         return this.requestNetStat;
+    }
+
+    public int getRequestFrom() {
+        return this.requestFrom;
+    }
+
+    public JSONObject getExtraUserLog() {
+        return this.extraUserLog;
     }
 
     private void initOkRequest(T t) {

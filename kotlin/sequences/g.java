@@ -2,12 +2,12 @@ package kotlin.sequences;
 
 import java.util.Iterator;
 import kotlin.jvm.internal.p;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class g<T, R> implements c<R> {
-    private final kotlin.jvm.a.b<T, R> kvG;
-    private final c<T> kvu;
+    private final kotlin.jvm.a.b<T, R> mZB;
+    private final c<T> mZp;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements Iterator<R> {
         private final Iterator<T> iterator;
 
@@ -18,12 +18,12 @@ public final class g<T, R> implements c<R> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.iterator = g.this.kvu.iterator();
+            this.iterator = g.this.mZp.iterator();
         }
 
         @Override // java.util.Iterator
         public R next() {
-            return (R) g.this.kvG.invoke(this.iterator.next());
+            return (R) g.this.mZB.invoke(this.iterator.next());
         }
 
         @Override // java.util.Iterator
@@ -36,10 +36,10 @@ public final class g<T, R> implements c<R> {
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.jvm.a.b<? super T, ? extends R> */
     /* JADX WARN: Multi-variable type inference failed */
     public g(c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
-        p.i(cVar, "sequence");
-        p.i(bVar, "transformer");
-        this.kvu = cVar;
-        this.kvG = bVar;
+        p.j(cVar, "sequence");
+        p.j(bVar, "transformer");
+        this.mZp = cVar;
+        this.mZB = bVar;
     }
 
     @Override // kotlin.sequences.c

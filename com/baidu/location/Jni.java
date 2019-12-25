@@ -1,9 +1,5 @@
 package com.baidu.location;
-
-import com.baidu.android.common.so.SoLoader;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class Jni {
     private static int a = 0;
     private static int b = 1;
@@ -19,11 +15,7 @@ public class Jni {
     static {
         j = false;
         try {
-            if (f.getServiceContext() != null) {
-                SoLoader.load(f.getServiceContext(), "liblocSDK7b.so");
-            } else {
-                System.loadLibrary("locSDK7b");
-            }
+            System.loadLibrary("locSDK7b");
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
             j = true;
@@ -46,7 +38,7 @@ public class Jni {
             i2 = a;
         } else if (str.equals("bd09ll")) {
             i2 = b;
-        } else if (str.equals(CoordinateType.GCJ02)) {
+        } else if (str.equals("gcj02")) {
             i2 = c;
         } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {
             i2 = d;
@@ -119,7 +111,7 @@ public class Jni {
             return null;
         }
         try {
-            str2 = new String(str.getBytes(), HTTP.UTF_8);
+            str2 = new String(str.getBytes(), "UTF-8");
         } catch (Exception e2) {
             str2 = "";
         }
@@ -140,7 +132,7 @@ public class Jni {
             return "err!";
         }
         try {
-            str2 = new String(str.getBytes(), HTTP.UTF_8);
+            str2 = new String(str.getBytes(), "UTF-8");
         } catch (Exception e2) {
             str2 = "";
         }
@@ -160,7 +152,7 @@ public class Jni {
             return "err!";
         }
         try {
-            str2 = new String(str.getBytes(), HTTP.UTF_8);
+            str2 = new String(str.getBytes(), "UTF-8");
         } catch (Exception e2) {
             str2 = "";
         }

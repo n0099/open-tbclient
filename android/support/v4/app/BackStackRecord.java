@@ -1,6 +1,5 @@
 package android.support.v4.app;
 
-import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentManagerImpl;
@@ -14,7 +13,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class BackStackRecord extends FragmentTransaction implements FragmentManager.BackStackEntry, FragmentManagerImpl.OpGenerator {
     static final int OP_ADD = 1;
     static final int OP_ATTACH = 7;
@@ -26,7 +25,6 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     static final int OP_SET_PRIMARY_NAV = 8;
     static final int OP_SHOW = 5;
     static final int OP_UNSET_PRIMARY_NAV = 9;
-    static final boolean SUPPORTS_TRANSITIONS;
     static final String TAG = "FragmentManager";
     boolean mAddToBackStack;
     int mBreadCrumbShortTitleRes;
@@ -50,12 +48,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     int mIndex = -1;
     boolean mReorderingAllowed = false;
 
-    static {
-        SUPPORTS_TRANSITIONS = Build.VERSION.SDK_INT >= 21;
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Op {
         int cmd;
         int enterAnim;
@@ -363,7 +357,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     @Override // android.support.v4.app.FragmentTransaction
     public FragmentTransaction addSharedElement(View view, String str) {
-        if (SUPPORTS_TRANSITIONS) {
+        if (FragmentTransition.supportsTransition()) {
             String transitionName = ViewCompat.getTransitionName(view);
             if (transitionName == null) {
                 throw new IllegalArgumentException("Unique transitionNames are required for all sharedElements");

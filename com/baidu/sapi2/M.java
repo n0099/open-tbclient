@@ -1,7 +1,7 @@
 package com.baidu.sapi2;
 
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class M extends HttpHandlerWrap {
     final /* synthetic */ N a;
 

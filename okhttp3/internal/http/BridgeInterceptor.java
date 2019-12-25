@@ -1,5 +1,6 @@
 package okhttp3.internal.http;
 
+import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.util.List;
 import okhttp3.Cookie;
@@ -15,7 +16,7 @@ import okio.GzipSource;
 import okio.Okio;
 import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class BridgeInterceptor implements Interceptor {
     private final CookieJar cookieJar;
 
@@ -36,36 +37,36 @@ public final class BridgeInterceptor implements Interceptor {
             }
             long contentLength = body.contentLength();
             if (contentLength != -1) {
-                newBuilder.header(HTTP.CONTENT_LEN, Long.toString(contentLength));
-                newBuilder.removeHeader(HTTP.TRANSFER_ENCODING);
+                newBuilder.header("Content-Length", Long.toString(contentLength));
+                newBuilder.removeHeader("Transfer-Encoding");
             } else {
-                newBuilder.header(HTTP.TRANSFER_ENCODING, HTTP.CHUNK_CODING);
-                newBuilder.removeHeader(HTTP.CONTENT_LEN);
+                newBuilder.header("Transfer-Encoding", HTTP.CHUNK_CODING);
+                newBuilder.removeHeader("Content-Length");
             }
         }
-        if (request.header(HTTP.TARGET_HOST) == null) {
-            newBuilder.header(HTTP.TARGET_HOST, Util.hostHeader(request.url(), false));
+        if (request.header("Host") == null) {
+            newBuilder.header("Host", Util.hostHeader(request.url(), false));
         }
         if (request.header(HTTP.CONN_DIRECTIVE) == null) {
             newBuilder.header(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
         }
-        if (request.header("Accept-Encoding") == null && request.header("Range") == null) {
+        if (request.header(Headers.ACCEPT_ENCODING) == null && request.header(Headers.RANGE) == null) {
             z = true;
-            newBuilder.header("Accept-Encoding", "gzip");
+            newBuilder.header(Headers.ACCEPT_ENCODING, "gzip");
         }
         List<Cookie> loadForRequest = this.cookieJar.loadForRequest(request.url());
         if (!loadForRequest.isEmpty()) {
             newBuilder.header(SM.COOKIE, cookieHeader(loadForRequest));
         }
-        if (request.header(HTTP.USER_AGENT) == null) {
-            newBuilder.header(HTTP.USER_AGENT, Version.userAgent());
+        if (request.header("User-Agent") == null) {
+            newBuilder.header("User-Agent", Version.userAgent());
         }
         Response proceed = chain.proceed(newBuilder.build());
         HttpHeaders.receiveHeaders(this.cookieJar, request.url(), proceed.headers());
         Response.Builder request2 = proceed.newBuilder().request(request);
-        if (z && "gzip".equalsIgnoreCase(proceed.header(HTTP.CONTENT_ENCODING)) && HttpHeaders.hasBody(proceed)) {
+        if (z && "gzip".equalsIgnoreCase(proceed.header("Content-Encoding")) && HttpHeaders.hasBody(proceed)) {
             GzipSource gzipSource = new GzipSource(proceed.body().source());
-            request2.headers(proceed.headers().newBuilder().removeAll(HTTP.CONTENT_ENCODING).removeAll(HTTP.CONTENT_LEN).build());
+            request2.headers(proceed.headers().newBuilder().removeAll("Content-Encoding").removeAll("Content-Length").build());
             request2.body(new RealResponseBody(proceed.header("Content-Type"), -1L, Okio.buffer(gzipSource)));
         }
         return request2.build();

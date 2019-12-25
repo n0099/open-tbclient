@@ -1,24 +1,30 @@
 package com.baidu.mobads;
 
-import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
-import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-import com.baidu.mobads.utils.XAdSDKFoundationFacade;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.mobads.CpuInfoManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class j implements IOAdEventListener {
-    final /* synthetic */ d aAm;
+/* loaded from: classes7.dex */
+public final class j implements Runnable {
+    final /* synthetic */ Context a;
+    final /* synthetic */ CpuInfoManager.UrlListener aKi;
+    final /* synthetic */ int b;
+    final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(d dVar) {
-        this.aAm = dVar;
+    public j(Context context, int i, String str, CpuInfoManager.UrlListener urlListener) {
+        this.a = context;
+        this.b = i;
+        this.c = str;
+        this.aKi = urlListener;
     }
 
-    @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
-    public void run(IOAdEvent iOAdEvent) {
-        e eVar;
-        eVar = this.aAm.aAg;
-        if (eVar != null) {
-            XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new k(this, iOAdEvent));
+    @Override // java.lang.Runnable
+    public void run() {
+        String a = new com.baidu.mobads.production.b.c(this.a.getApplicationContext(), this.b, this.c).a();
+        if (this.aKi != null) {
+            new Handler(Looper.getMainLooper()).post(new k(this, a));
         }
     }
 }

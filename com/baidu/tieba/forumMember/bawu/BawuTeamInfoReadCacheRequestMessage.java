@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.bawu;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BawuTeamInfoReadCacheRequestMessage extends CustomMessage<Object> {
     private String cacheKey;
 

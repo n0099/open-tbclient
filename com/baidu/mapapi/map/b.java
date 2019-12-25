@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.view.MotionEvent;
 import android.view.View;
+import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.InfoWindow;
 import com.baidu.mapapi.model.CoordUtil;
@@ -118,7 +119,7 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
         BaiduMap.OnMapClickListener onMapClickListener2;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONArray("dataset").optJSONObject(0);
+            JSONObject optJSONObject = jSONObject.optJSONArray(ActionJsonData.TAG_DATASET).optJSONObject(0);
             eVar = this.a.i;
             GeoPoint b = eVar.b(jSONObject.optInt("px"), jSONObject.optInt("py"));
             int optInt = optJSONObject.optInt(Config.EXCEPTION_CRASH_CHANNEL);
@@ -313,7 +314,7 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
         List list;
         Marker marker2;
         try {
-            JSONObject optJSONObject = new JSONObject(str).optJSONArray("dataset").optJSONObject(0);
+            JSONObject optJSONObject = new JSONObject(str).optJSONArray(ActionJsonData.TAG_DATASET).optJSONObject(0);
             if (optJSONObject.optInt(Config.EXCEPTION_CRASH_CHANNEL) == 90909) {
                 String optString = optJSONObject.optString("marker_id");
                 marker = this.a.I;

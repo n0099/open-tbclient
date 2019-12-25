@@ -2,9 +2,11 @@ package com.baidu.tieba.videoEasterEgg.a;
 
 import android.content.Intent;
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    void ae(Intent intent);
+    void A(BdUniqueId bdUniqueId);
+
+    void Z(Intent intent);
 
     String getID();
 
@@ -21,6 +23,4 @@ public interface a {
     String getShareUrl();
 
     String getVideoUrl();
-
-    void z(BdUniqueId bdUniqueId);
 }

@@ -10,9 +10,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends AlertDialog {
-    private TextView cep;
-    private CircleView ceq;
-    private FrameLayout cer;
+    private TextView cQQ;
+    private CircleView cQR;
+    private FrameLayout cqP;
     private String mMessage;
     private TextView mTextView;
 
@@ -25,17 +25,17 @@ public class c extends AlertDialog {
         super.show();
         Window window = getWindow();
         if (window != null) {
-            window.setContentView(R.layout.progress_dialog);
-            this.cer = (FrameLayout) window.findViewById(R.id.frame_progress_dialog);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cer.getLayoutParams();
+            window.setContentView(R.layout.post_video_progress_dialog);
+            this.cqP = (FrameLayout) window.findViewById(R.id.frame_progress_dialog);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cqP.getLayoutParams();
             layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
-            this.cer.setLayoutParams(layoutParams);
+            this.cqP.setLayoutParams(layoutParams);
             if (!StringUtils.isNull(this.mMessage)) {
-                this.cep = (TextView) window.findViewById(R.id.text_progress_dialog_message);
-                this.cep.setText(this.mMessage);
+                this.cQQ = (TextView) window.findViewById(R.id.text_progress_dialog_message);
+                this.cQQ.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
-            this.ceq = (CircleView) window.findViewById(R.id.circle_progress_dialog);
+            this.cQR = (CircleView) window.findViewById(R.id.circle_progress_dialog);
         }
     }
 
@@ -43,15 +43,15 @@ public class c extends AlertDialog {
         if (this.mTextView != null) {
             this.mTextView.setText(i + "%");
         }
-        if (this.ceq != null) {
-            this.ceq.setProgress(i);
+        if (this.cQR != null) {
+            this.cQR.setProgress(i);
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.cep != null) {
-            this.cep.setText(this.mMessage);
+        if (this.cQQ != null) {
+            this.cQQ.setText(this.mMessage);
         }
     }
 }

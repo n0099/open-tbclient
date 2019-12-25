@@ -1,34 +1,26 @@
 package com.baidu.tbadk.util;
 
-import android.content.Context;
-import android.text.style.ClickableSpan;
-import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
 /* loaded from: classes.dex */
-public class n extends ClickableSpan {
-    private Context mContext;
-
-    public n(Context context) {
-        this.mContext = null;
-        this.mContext = context;
+public class n {
+    public static void aPp() {
+        if (!com.baidu.adp.lib.util.l.isMainThread()) {
+            com.baidu.adp.lib.f.e.gy().post(new Runnable() { // from class: com.baidu.tbadk.util.n.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    n.aPq();
+                }
+            });
+        } else {
+            aPq();
+        }
     }
 
-    public Context getContext() {
-        return this.mContext;
-    }
-
-    public void qo(String str) {
-        com.baidu.tbadk.browser.a.startWebActivity(this.mContext, str);
-    }
-
-    public void qp(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
-    }
-
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
+    public static void aPq() {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InitUserNameDialogActivityConfig(TbadkCoreApplication.getInst().getContext())));
     }
 }

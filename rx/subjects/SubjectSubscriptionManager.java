@@ -8,7 +8,7 @@ import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
 import rx.j;
 import rx.subscriptions.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implements d.a<T> {
     private static final long serialVersionUID = 6035251036011671568L;
     boolean active;
@@ -23,11 +23,11 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     public SubjectSubscriptionManager() {
-        super(a.kFv);
+        super(a.nkm);
         this.active = true;
-        this.onStart = Actions.cOt();
-        this.onAdded = Actions.cOt();
-        this.onTerminated = Actions.cOt();
+        this.onStart = Actions.dGo();
+        this.onAdded = Actions.dGo();
+        this.onTerminated = Actions.dGo();
     }
 
     public void call(j<? super T> jVar) {
@@ -59,7 +59,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     b<T>[] observers() {
-        return get().kFs;
+        return get().nkj;
     }
 
     boolean add(b<T> bVar) {
@@ -89,34 +89,34 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] next(Object obj) {
         setLatest(obj);
-        return get().kFs;
+        return get().nkj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] terminate(Object obj) {
         setLatest(obj);
         this.active = false;
-        return get().terminated ? a.kFt : getAndSet(a.kFu).kFs;
+        return get().terminated ? a.nkk : getAndSet(a.nkl).nkj;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T> {
-        static final b[] kFt = new b[0];
-        static final a kFu = new a(true, kFt);
-        static final a kFv = new a(false, kFt);
-        final b[] kFs;
+        static final b[] nkk = new b[0];
+        static final a nkl = new a(true, nkk);
+        static final a nkm = new a(false, nkk);
+        final b[] nkj;
         final boolean terminated;
 
         public a(boolean z, b[] bVarArr) {
             this.terminated = z;
-            this.kFs = bVarArr;
+            this.nkj = bVarArr;
         }
 
         public a b(b bVar) {
-            int length = this.kFs.length;
+            int length = this.nkj.length;
             b[] bVarArr = new b[length + 1];
-            System.arraycopy(this.kFs, 0, bVarArr, 0, length);
+            System.arraycopy(this.nkj, 0, bVarArr, 0, length);
             bVarArr[length] = bVar;
             return new a(this.terminated, bVarArr);
         }
@@ -124,10 +124,10 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         public a c(b bVar) {
             b[] bVarArr;
             int i;
-            b[] bVarArr2 = this.kFs;
+            b[] bVarArr2 = this.nkj;
             int length = bVarArr2.length;
             if (length == 1 && bVarArr2[0] == bVar) {
-                return kFv;
+                return nkm;
             }
             if (length != 0) {
                 b[] bVarArr3 = new b[length - 1];
@@ -147,7 +147,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                     i3 = i;
                 }
                 if (i3 == 0) {
-                    return kFv;
+                    return nkm;
                 }
                 if (i3 < length - 1) {
                     bVarArr = new b[i3];
@@ -162,13 +162,13 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class b<T> implements rx.e<T> {
         final j<? super T> actual;
         boolean emitting;
+        boolean fastPath;
         boolean first = true;
-        List<Object> kFw;
-        boolean kFx;
+        List<Object> kXz;
 
         public b(j<? super T> jVar) {
             this.actual = jVar;
@@ -190,25 +190,25 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void bB(Object obj) {
-            if (!this.kFx) {
+        public void cf(Object obj) {
+            if (!this.fastPath) {
                 synchronized (this) {
                     this.first = false;
                     if (this.emitting) {
-                        if (this.kFw == null) {
-                            this.kFw = new ArrayList();
+                        if (this.kXz == null) {
+                            this.kXz = new ArrayList();
                         }
-                        this.kFw.add(obj);
+                        this.kXz.add(obj);
                         return;
                     }
-                    this.kFx = true;
+                    this.fastPath = true;
                 }
             }
             NotificationLite.a(this.actual, obj);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void bC(Object obj) {
+        public void cg(Object obj) {
             synchronized (this) {
                 if (this.first && !this.emitting) {
                     this.first = false;
@@ -232,7 +232,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                 if (list != null) {
                     try {
                         for (Object obj2 : list) {
-                            bD(obj2);
+                            accept(obj2);
                         }
                     } catch (Throwable th) {
                         th = th;
@@ -245,14 +245,14 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                     }
                 }
                 if (z3) {
-                    bD(obj);
+                    accept(obj);
                     z3 = false;
                 }
                 try {
                     synchronized (this) {
                         try {
-                            list = this.kFw;
-                            this.kFw = null;
+                            list = this.kXz;
+                            this.kXz = null;
                             if (list == null) {
                                 this.emitting = false;
                                 return;
@@ -277,7 +277,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
             }
         }
 
-        void bD(Object obj) {
+        void accept(Object obj) {
             if (obj != null) {
                 NotificationLite.a(this.actual, obj);
             }

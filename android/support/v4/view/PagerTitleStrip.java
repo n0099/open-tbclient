@@ -6,6 +6,8 @@ import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.FloatRange;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.TextViewCompat;
 import android.text.TextUtils;
@@ -18,7 +20,7 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 import java.util.Locale;
 @ViewPager.DecorView
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PagerTitleStrip extends ViewGroup {
     private static final float SIDE_ALPHA = 0.6f;
     private static final int TEXT_SPACING = 16;
@@ -40,7 +42,7 @@ public class PagerTitleStrip extends ViewGroup {
     private static final int[] TEXT_ATTRS = {16843660};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SingleLineAllCapsTransform extends SingleLineTransformationMethod {
         private Locale mLocale;
 
@@ -62,12 +64,12 @@ public class PagerTitleStrip extends ViewGroup {
         textView.setTransformationMethod(new SingleLineAllCapsTransform(textView.getContext()));
     }
 
-    public PagerTitleStrip(Context context) {
+    public PagerTitleStrip(@NonNull Context context) {
         this(context, null);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PagerTitleStrip(Context context, AttributeSet attributeSet) {
+    public PagerTitleStrip(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         boolean z = false;
         this.mLastKnownCurrentPage = -1;
@@ -134,7 +136,7 @@ public class PagerTitleStrip extends ViewGroup {
 
     public void setNonPrimaryAlpha(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         this.mNonPrimaryAlpha = ((int) (255.0f * f)) & 255;
-        int i = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);
+        int i = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & 16777215);
         this.mPrevText.setTextColor(i);
         this.mNextText.setTextColor(i);
     }
@@ -142,7 +144,7 @@ public class PagerTitleStrip extends ViewGroup {
     public void setTextColor(@ColorInt int i) {
         this.mTextColor = i;
         this.mCurrText.setTextColor(i);
-        int i2 = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);
+        int i2 = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & 16777215);
         this.mPrevText.setTextColor(i2);
         this.mNextText.setTextColor(i2);
     }
@@ -333,7 +335,7 @@ public class PagerTitleStrip extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class PageListener extends DataSetObserver implements ViewPager.OnAdapterChangeListener, ViewPager.OnPageChangeListener {
         private int mScrollState;
 

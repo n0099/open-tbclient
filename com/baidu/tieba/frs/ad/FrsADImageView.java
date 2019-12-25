@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.widget.TbImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FrsADImageView extends TbImageView {
     public FrsADImageView(Context context) {
         super(context);

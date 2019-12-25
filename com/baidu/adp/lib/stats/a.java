@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -94,7 +95,7 @@ public class a {
                 this.mStringBuilder.append('&');
             }
             this.mStringBuilder.append(str);
-            this.mStringBuilder.append("=");
+            this.mStringBuilder.append(ETAG.EQUAL);
             try {
                 this.mStringBuilder.append(URLEncoder.encode(valueEscapeSpace(str2), "utf-8"));
             } catch (Throwable th) {
@@ -113,6 +114,6 @@ public class a {
     }
 
     public static String valueEscapeSpace(String str) {
-        return str.replace(HanziToPinyin.Token.SEPARATOR, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("[", "(").replace("]", ")").replace("&", "|");
+        return str.replace(HanziToPinyin.Token.SEPARATOR, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("[", "(").replace("]", ")").replace(ETAG.ITEM_SEPARATOR, "|");
     }
 }

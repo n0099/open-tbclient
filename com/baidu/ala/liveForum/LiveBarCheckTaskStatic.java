@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbSingleton;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class LiveBarCheckTaskStatic implements CustomMessageTask.CustomRunnable<Long> {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_ALA_CHECK_LIVE_FORUM_BY_FID, new LiveBarCheckTaskStatic());

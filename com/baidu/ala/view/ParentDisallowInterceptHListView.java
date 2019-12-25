@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.tieba.horizonalList.widget.HListView;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ParentDisallowInterceptHListView extends HListView {
     public ParentDisallowInterceptHListView(Context context) {
         super(context);

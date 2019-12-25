@@ -63,7 +63,7 @@ public class a {
             i2 = 0;
             i3 = -1;
         } else {
-            C0120a b2 = b(i);
+            C0136a b2 = b(i);
             i3 = b2.a;
             i2 = b2.b;
         }
@@ -73,8 +73,8 @@ public class a {
         a = i3;
     }
 
-    private C0120a b(int i) {
-        C0120a c0120a = new C0120a();
+    private C0136a b(int i) {
+        C0136a c0136a = new C0136a();
         int i2 = (i / 10) * 10;
         int i3 = 0;
         while (true) {
@@ -83,12 +83,12 @@ public class a {
             } else if (i2 < b[i3] || i2 % b[i3] != 0) {
                 i3++;
             } else {
-                c0120a.a = c(b[i3]);
-                c0120a.b = i2 / b[i3];
+                c0136a.a = c(b[i3]);
+                c0136a.b = i2 / b[i3];
                 break;
             }
         }
-        return c0120a;
+        return c0136a;
     }
 
     private int c(int i) {
@@ -136,46 +136,46 @@ public class a {
 
     public int a(int i) {
         if (i == 0 || i == 1 || i == 2) {
-            return R.drawable.aiapps_loading;
+            return R.drawable.aiapps_entry_guide_nightmode_mask;
         }
         if (i == 3) {
-            return R.drawable.aiapps_loading_bg;
+            return R.drawable.aiapps_favorite_guide_add_bg;
         }
         if (i == 4) {
-            return R.drawable.aiapps_loading_light_image_view;
+            return R.drawable.aiapps_favorite_guide_arrow;
         }
         if (i == 5) {
-            return R.drawable.aiapps_icon_route_st;
+            return R.drawable.aiapps_empty_icon_error;
         }
         if (i == 6) {
-            return R.drawable.aiapps_keyboard_non_number_item_selector;
+            return R.drawable.aiapps_enter_fullscreen;
         }
         if (i == 7) {
-            return R.drawable.aiapps_keyboard_delete_selector;
+            return R.drawable.aiapps_emptyview_btn_bg_pressed;
         }
         if (i == 8) {
-            return R.drawable.aiapps_icon_route_en;
+            return R.drawable.aiapps_discovery_home_menu_item_selector;
         }
         if (i == 9) {
-            return R.drawable.aiapps_keyboard_delete_normal;
+            return R.drawable.aiapps_emptyview_btn_bg;
         }
         if (i == 10) {
-            return R.drawable.aiapps_keyboard_arrow_down;
+            return R.drawable.aiapps_empty_icon_network;
         }
         if (i == 11) {
-            return R.drawable.aiapps_loading_dark_image_view;
+            return R.drawable.aiapps_favorite_guide_add_text;
         }
         if (i == 12) {
-            return R.drawable.aiapps_icon_line_node;
+            return R.drawable.aiapps_discovery_feedback_menu_bg;
         }
         if (i == 13) {
-            return R.drawable.aiapps_home_fragment_button_selector;
+            return R.drawable.aiapps_dialog_btn_bg_day_right;
         }
         if (i == 14) {
-            return R.drawable.aiapps_keyboard_number_item_selector;
+            return R.drawable.aiapps_entry_guide_bg;
         }
         if (i == 15) {
-            return R.drawable.aiapps_keyboard_delete_pressed;
+            return R.drawable.aiapps_emptyview_btn_bg_default;
         }
         return -1;
     }
@@ -183,11 +183,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0120a {
+    public class C0136a {
         public int a;
         public int b;
 
-        C0120a() {
+        C0136a() {
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.platform.core.d;
 
-import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -197,7 +196,7 @@ public class a extends com.baidu.platform.base.d {
                     }
                     poiInfo.uid = jSONObject2.optString("uid");
                     poiInfo.name = jSONObject2.optString("name");
-                    JSONObject optJSONObject = jSONObject2.optJSONObject(Headers.LOCATION);
+                    JSONObject optJSONObject = jSONObject2.optJSONObject("location");
                     if (optJSONObject != null) {
                         poiInfo.location = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
                         if (SDKInitializer.getCoordType() == CoordType.GCJ02) {

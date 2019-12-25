@@ -4,7 +4,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ImageOperation implements Serializable {
     public String actionName;
     public String actionParam;

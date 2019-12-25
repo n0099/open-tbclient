@@ -12,13 +12,13 @@ import com.baidu.live.adp.lib.cache.BdCacheNSItem;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdCacheService extends CustomMessageListener {
-    private static volatile BdCacheService nv;
+    private static volatile BdCacheService pU;
     private HashMap<String, l<byte[]>> blobCaches;
     private Context context;
     private final String databaseFile;
     private boolean debugMode;
-    private com.baidu.adp.base.a.b nn;
-    private p nw;
+    private com.baidu.adp.base.a.b pN;
+    private p pV;
     private HashMap<String, l<String>> textCaches;
 
     /* loaded from: classes.dex */
@@ -53,71 +53,71 @@ public class BdCacheService extends CustomMessageListener {
         return this.context == null ? BdBaseApplication.getInst().getApp() : this.context;
     }
 
-    public static BdCacheService fe() {
-        if (nv == null) {
+    public static BdCacheService fz() {
+        if (pU == null) {
             synchronized (BdCacheService.class) {
-                if (nv == null) {
-                    nv = new BdCacheService("baidu_adp.db");
+                if (pU == null) {
+                    pU = new BdCacheService("baidu_adp.db");
                 }
             }
         }
-        return nv;
+        return pU;
     }
 
-    public static BdCacheService X(String str) {
+    public static BdCacheService ac(String str) {
         return new BdCacheService(str);
     }
 
     public synchronized String a(c<?> cVar, String str, String str2, int i) {
-        h Z;
+        h ae;
         int cacheVersion = cVar.getCacheVersion();
-        p ff = ff();
-        Z = ff.Z(str);
-        if (Z == null) {
-            Z = new h();
-            Z.nameSpace = str;
-            Z.cacheVersion = cacheVersion;
-            Z.cacheType = str2;
-            Z.maxSize = i;
-            Z.lastActiveTime = System.currentTimeMillis();
-            Z.tableName = cVar.onNewNameSpaceCreated(str);
-            ff.a(Z);
-        } else if (!str2.equalsIgnoreCase(Z.cacheType)) {
-            throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + Z.cacheType);
+        p fA = fA();
+        ae = fA.ae(str);
+        if (ae == null) {
+            ae = new h();
+            ae.nameSpace = str;
+            ae.cacheVersion = cacheVersion;
+            ae.cacheType = str2;
+            ae.maxSize = i;
+            ae.lastActiveTime = System.currentTimeMillis();
+            ae.tableName = cVar.onNewNameSpaceCreated(str);
+            fA.a(ae);
+        } else if (!str2.equalsIgnoreCase(ae.cacheType)) {
+            throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + ae.cacheType);
         } else {
-            Z.maxSize = i;
-            Z.lastActiveTime = System.currentTimeMillis();
-            if (cacheVersion != Z.cacheVersion) {
-                cVar.onNameSpaceUpgraded(str, Z.tableName, cacheVersion, Z.cacheVersion);
+            ae.maxSize = i;
+            ae.lastActiveTime = System.currentTimeMillis();
+            if (cacheVersion != ae.cacheVersion) {
+                cVar.onNameSpaceUpgraded(str, ae.tableName, cacheVersion, ae.cacheVersion);
             }
-            ff.a(Z);
+            fA.a(ae);
         }
-        return Z.tableName;
+        return ae.tableName;
     }
 
     public synchronized l<String> a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         l<String> lVar;
-        e fc;
+        e fx;
         r qVar;
         boolean z;
         lVar = this.textCaches.get(str);
         if (lVar == null) {
             if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
-                fc = f.e(i, false);
+                fx = f.e(i, false);
             } else if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_INSERT) {
-                fc = f.e(i, true);
+                fx = f.e(i, true);
             } else {
-                fc = f.fc();
+                fx = f.fx();
             }
             if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                qVar = new r(fa());
+                qVar = new r(fv());
                 z = false;
             } else {
-                qVar = new q(fa(), com.baidu.live.adp.lib.cache.BdCacheService.SHARED_TEXT_TABLE);
+                qVar = new q(fv(), com.baidu.live.adp.lib.cache.BdCacheService.SHARED_TEXT_TABLE);
                 z = true;
             }
-            qVar.a(fc, a(qVar, str, "text", i));
-            lVar = a(str, new j(qVar, fc, z));
+            qVar.a(fx, a(qVar, str, "text", i));
+            lVar = a(str, new j(qVar, fx, z));
         }
         return lVar;
     }
@@ -134,9 +134,9 @@ public class BdCacheService extends CustomMessageListener {
                 boolean z = lVar instanceof l.c;
                 nVar2 = lVar;
                 if (z) {
-                    k<String> fg = ((l.c) lVar).fg();
+                    k<String> fB = ((l.c) lVar).fB();
                     nVar2 = lVar;
-                    if (fg != kVar) {
+                    if (fB != kVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + kVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
                 }
@@ -156,27 +156,27 @@ public class BdCacheService extends CustomMessageListener {
 
     public synchronized l<byte[]> b(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         l<byte[]> lVar;
-        e fc;
+        e fx;
         b aVar;
         boolean z;
         lVar = this.blobCaches.get(str);
         if (lVar == null) {
             if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
-                fc = f.e(i, false);
+                fx = f.e(i, false);
             } else if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_INSERT) {
-                fc = f.e(i, true);
+                fx = f.e(i, true);
             } else {
-                fc = f.fc();
+                fx = f.fx();
             }
             if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                aVar = new b(fa());
+                aVar = new b(fv());
                 z = false;
             } else {
-                aVar = new a(fa(), com.baidu.live.adp.lib.cache.BdCacheService.SHARED_BLOB_TABLE);
+                aVar = new a(fv(), com.baidu.live.adp.lib.cache.BdCacheService.SHARED_BLOB_TABLE);
                 z = true;
             }
-            aVar.a(fc, a(aVar, str, BdCacheNSItem.CACHE_TYPE_BLOB, i));
-            lVar = b(str, new j(aVar, fc, z));
+            aVar.a(fx, a(aVar, str, BdCacheNSItem.CACHE_TYPE_BLOB, i));
+            lVar = b(str, new j(aVar, fx, z));
         }
         return lVar;
     }
@@ -193,9 +193,9 @@ public class BdCacheService extends CustomMessageListener {
                 boolean z = lVar instanceof l.c;
                 nVar2 = lVar;
                 if (z) {
-                    k<byte[]> fg = ((l.c) lVar).fg();
+                    k<byte[]> fB = ((l.c) lVar).fB();
                     nVar2 = lVar;
-                    if (fg != kVar) {
+                    if (fB != kVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + kVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
                 }
@@ -224,18 +224,18 @@ public class BdCacheService extends CustomMessageListener {
         }
     }
 
-    public p ff() {
-        if (this.nw == null) {
-            this.nw = new p(getContext(), fa());
+    public p fA() {
+        if (this.pV == null) {
+            this.pV = new p(getContext(), fv());
         }
-        return this.nw;
+        return this.pV;
     }
 
-    public com.baidu.adp.base.a.b fa() {
-        if (this.nn == null) {
-            this.nn = new com.baidu.adp.base.a.b(new i(getContext(), this.databaseFile));
+    public com.baidu.adp.base.a.b fv() {
+        if (this.pN == null) {
+            this.pN = new com.baidu.adp.base.a.b(new i(getContext(), this.databaseFile));
         }
-        return this.nn;
+        return this.pN;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

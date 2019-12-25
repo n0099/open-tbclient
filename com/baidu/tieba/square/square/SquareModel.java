@@ -4,56 +4,56 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SquareModel extends BdBaseModel<Object> {
-    private long fcl;
-    private long fcm;
-    private long fcn;
-    private long fco;
-    private b jem;
-    private f jen;
-    private a jeo;
+    private long fQP;
+    private long fQQ;
+    private long fQR;
+    private long fQS;
+    private a jYA;
+    private b jYy;
+    private h jYz;
     private long mTimeStamp;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void a(boolean z, String str, f fVar);
+        void a(boolean z, String str, h hVar);
     }
 
     public SquareModel(TbPageContext<Object> tbPageContext) {
         super(tbPageContext);
-        this.jem = null;
-        this.jen = null;
-        this.jeo = null;
-        this.fcl = 0L;
-        this.fcm = 0L;
-        this.fcn = 0L;
-        this.fco = 0L;
-        this.jen = new f();
+        this.jYy = null;
+        this.jYz = null;
+        this.jYA = null;
+        this.fQP = 0L;
+        this.fQQ = 0L;
+        this.fQR = 0L;
+        this.fQS = 0L;
+        this.jYz = new h();
     }
 
-    public long beJ() {
-        return this.fco;
+    public long bwd() {
+        return this.fQS;
     }
 
-    public long beK() {
-        return this.fcm;
+    public long bwe() {
+        return this.fQQ;
     }
 
-    public long beL() {
-        return this.fcn;
+    public long bwf() {
+        return this.fQR;
     }
 
-    public long beM() {
-        return this.fcl;
+    public long bwg() {
+        return this.fQP;
     }
 
-    public f cna() {
-        return this.jen;
+    public h cHg() {
+        return this.jYz;
     }
 
     public void a(a aVar) {
-        this.jeo = aVar;
+        this.jYA = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -63,40 +63,40 @@ public class SquareModel extends BdBaseModel<Object> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.jem != null) {
-            this.jem.cancel();
+        if (this.jYy != null) {
+            this.jYy.cancel();
             return false;
         }
         return false;
     }
 
-    public boolean cnb() {
-        return zD(1);
+    public boolean cHh() {
+        return BZ(1);
     }
 
-    public boolean cnc() {
-        return zD(0);
+    public boolean cHi() {
+        return BZ(0);
     }
 
-    public boolean zD(int i) {
-        if (this.jem != null) {
+    public boolean BZ(int i) {
+        if (this.jYy != null) {
             return false;
         }
-        this.jem = new b(i);
-        this.jem.execute(new Object[0]);
+        this.jYy = new b(i);
+        this.jYy.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<Object, f, f> {
-        private int jeq;
-        private com.baidu.tieba.square.a.a jep = null;
-        private l<String> jer = null;
+    /* loaded from: classes7.dex */
+    public class b extends BdAsyncTask<Object, h, h> {
+        private int jYC;
+        private com.baidu.tieba.square.a.a jYB = null;
+        private l<String> jYD = null;
 
         public b(int i) {
-            this.jeq = 1;
-            this.jeq = i;
+            this.jYC = 1;
+            this.jYC = i;
             setPriority(3);
         }
 
@@ -104,88 +104,88 @@ public class SquareModel extends BdBaseModel<Object> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: F */
-        public f doInBackground(Object... objArr) {
-            f fVar;
+        public h doInBackground(Object... objArr) {
+            h hVar;
             String str = null;
-            this.jep = new com.baidu.tieba.square.a.a();
-            this.jer = com.baidu.tbadk.core.d.a.akL().nl("tb.square");
-            if (this.jeq == 0) {
-                String str2 = this.jer.get("square_cache_key");
+            this.jYB = new com.baidu.tieba.square.a.a();
+            this.jYD = com.baidu.tbadk.core.c.a.aBV().sx("tb.square");
+            if (this.jYC == 0) {
+                String str2 = this.jYD.get("square_cache_key");
                 if (str2 == null) {
                     return null;
                 }
-                f fVar2 = new f();
-                fVar2.parserJson(str2);
-                SquareModel.this.mTimeStamp = fVar2.getTimeStamp();
-                if (fVar2.isEmpty()) {
+                h hVar2 = new h();
+                hVar2.parserJson(str2);
+                SquareModel.this.mTimeStamp = hVar2.getTimeStamp();
+                if (hVar2.isEmpty()) {
                     SquareModel.this.mTimeStamp = 0L;
                 }
-                if (!fVar2.cmU()) {
-                    this.jeq = 1;
+                if (!hVar2.cHa()) {
+                    this.jYC = 1;
                     str = str2;
-                    fVar = fVar2;
+                    hVar = hVar2;
                 } else {
-                    return fVar2;
+                    return hVar2;
                 }
             } else {
-                fVar = null;
+                hVar = null;
             }
-            if (this.jeq == 1) {
-                SquareModel.this.fcl = System.currentTimeMillis();
-                this.jep.addPostData("prevtime", SquareModel.this.mTimeStamp + "");
-                str = this.jep.cmv();
-                SquareModel.this.fcm = this.jep.cmw();
-                SquareModel.this.fcn = this.jep.cmx();
-                SquareModel.this.fco = System.currentTimeMillis();
+            if (this.jYC == 1) {
+                SquareModel.this.fQP = System.currentTimeMillis();
+                this.jYB.addPostData("prevtime", SquareModel.this.mTimeStamp + "");
+                str = this.jYB.cGE();
+                SquareModel.this.fQQ = this.jYB.cGF();
+                SquareModel.this.fQR = this.jYB.cGG();
+                SquareModel.this.fQS = System.currentTimeMillis();
             }
-            if (this.jep.isRequestSuccess()) {
-                f fVar3 = new f();
-                fVar3.parserJson(str);
-                Long valueOf = Long.valueOf(fVar3.getTimeStamp());
+            if (this.jYB.isRequestSuccess()) {
+                h hVar3 = new h();
+                hVar3.parserJson(str);
+                Long valueOf = Long.valueOf(hVar3.getTimeStamp());
                 if (valueOf.longValue() > SquareModel.this.mTimeStamp) {
-                    this.jer.set("square_cache_key", str, 86400000L);
-                    fVar = fVar3;
+                    this.jYD.set("square_cache_key", str, 86400000L);
+                    hVar = hVar3;
                 } else {
-                    String str3 = this.jer.get("square_cache_key");
+                    String str3 = this.jYD.get("square_cache_key");
                     if (str3 != null) {
-                        f fVar4 = new f();
-                        fVar4.parserJson(str3);
-                        fVar4.aI(fVar3.cmX());
-                        fVar4.setTimeStamp(valueOf.longValue());
-                        this.jer.set("square_cache_key", fVar4.cmY(), 86400000L);
-                        fVar = fVar4;
+                        h hVar4 = new h();
+                        hVar4.parserJson(str3);
+                        hVar4.aS(hVar3.cHd());
+                        hVar4.setTimeStamp(valueOf.longValue());
+                        this.jYD.set("square_cache_key", hVar4.cHe(), 86400000L);
+                        hVar = hVar4;
                     } else {
-                        this.jer.set("square_cache_key", str, 86400000L);
-                        fVar = fVar3;
+                        this.jYD.set("square_cache_key", str, 86400000L);
+                        hVar = hVar3;
                     }
                 }
                 SquareModel.this.mTimeStamp = valueOf.longValue();
             }
-            return fVar;
+            return hVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            if (this.jep != null) {
-                this.jep.cancel();
+            if (this.jYB != null) {
+                this.jYB.cancel();
             }
-            SquareModel.this.jem = null;
+            SquareModel.this.jYy = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public void onPostExecute(f fVar) {
-            SquareModel.this.jem = null;
-            SquareModel.this.jen = fVar;
-            if (SquareModel.this.jeo != null) {
-                if (this.jeq == 0 || this.jep.isRequestSuccess()) {
-                    SquareModel.this.jeo.a(true, null, fVar);
+        public void onPostExecute(h hVar) {
+            SquareModel.this.jYy = null;
+            SquareModel.this.jYz = hVar;
+            if (SquareModel.this.jYA != null) {
+                if (this.jYC == 0 || this.jYB.isRequestSuccess()) {
+                    SquareModel.this.jYA.a(true, null, hVar);
                     return;
                 }
-                SquareModel.this.jeo.a(false, this.jep.agm(), fVar);
+                SquareModel.this.jYA.a(false, this.jYB.axd(), hVar);
             }
         }
     }

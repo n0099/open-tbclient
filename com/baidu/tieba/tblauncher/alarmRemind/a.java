@@ -13,13 +13,13 @@ import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
-    public static boolean cho() {
+    public static boolean cBr() {
         return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append(SharedPrefConfig.REMIND_RECOMMEND_SERVER_SWITCH).toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage Eo(String str) {
+    public static RemindRecommendMessage Jd(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -53,7 +53,7 @@ public class a {
         }
     }
 
-    public static long dV(long j) {
+    public static long eC(long j) {
         int i;
         int i2;
         int i3;
@@ -68,9 +68,9 @@ public class a {
             i2 = 5;
             i3 = 12;
         } else {
-            i3 = com.baidu.adp.lib.g.b.toInt(split[0], 12);
-            i2 = com.baidu.adp.lib.g.b.toInt(split[1], 5);
-            i = com.baidu.adp.lib.g.b.toInt(split[2], 0);
+            i3 = com.baidu.adp.lib.f.b.toInt(split[0], 12);
+            i2 = com.baidu.adp.lib.f.b.toInt(split[1], 5);
+            i = com.baidu.adp.lib.f.b.toInt(split[2], 0);
         }
         if (i3 < 0 || i3 > 23 || i2 < 0 || i2 > 59 || i < 0 || i > 59) {
             i = 0;
@@ -98,8 +98,8 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long cqB() {
-        return dV(System.currentTimeMillis());
+    public static long cKG() {
+        return eC(System.currentTimeMillis());
     }
 
     public static boolean isTaday(long j) {
@@ -112,7 +112,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean cqC() {
-        return com.baidu.tbadk.core.sharedPref.b.alP().getInt(SharedPrefConfig.SYNC_LOCAL_DOALOG, 1) == 1;
+    public static boolean cKH() {
+        return com.baidu.tbadk.core.sharedPref.b.aCY().getInt(SharedPrefConfig.SYNC_LOCAL_DOALOG, 1) == 1;
     }
 }

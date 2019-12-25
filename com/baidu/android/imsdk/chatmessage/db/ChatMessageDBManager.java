@@ -34,6 +34,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.live.tbadk.log.LogConfig;
+import com.google.android.exoplayer2.Format;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -42,14 +43,14 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ChatMessageDBManager extends DBBase {
     private static final long CAST_RELIABLE_MSG_EXPIRED_TIME = 172800;
     private static final String TAG = ChatMessageDBManager.class.getSimpleName();
     private static ChatMessageDBManager mInstance = null;
     private List<ChatMessageDbOberser> mObservers = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface ChatMessageDbOberser {
         void notifyDbChange(int i, ChatSession chatSession);
     }
@@ -1792,7 +1793,7 @@ public class ChatMessageDBManager extends DBBase {
     public ArrayList<ChatMsg> fetchMsg(ChatObject chatObject, long j, long j2) {
         ArrayList<ChatMsg> fetchMsg;
         synchronized (mSyncLock) {
-            fetchMsg = fetchMsg(chatObject, j, j2, j == 0 ? -1L : Long.MAX_VALUE, false);
+            fetchMsg = fetchMsg(chatObject, j, j2, j == 0 ? -1L : Format.OFFSET_SAMPLE_RELATIVE, false);
         }
         return fetchMsg;
     }
@@ -1836,7 +1837,7 @@ public class ChatMessageDBManager extends DBBase {
             if (delMsgsOfCertainContacter < 0) {
                 return -1009;
             }
-            ArrayList<ChatMsg> fetchMsg = fetchMsg(chatObject, Long.MAX_VALUE, 2L, -1L);
+            ArrayList<ChatMsg> fetchMsg = fetchMsg(chatObject, Format.OFFSET_SAMPLE_RELATIVE, 2L, -1L);
             if (fetchMsg == null || fetchMsg.size() <= 0) {
                 return delMsgsOfCertainContacter;
             }
@@ -3170,13 +3171,13 @@ public class ChatMessageDBManager extends DBBase {
                     j3 = -2;
                 } else if (j4 > 0) {
                     str2 = " > ";
-                    if (j3 == Long.MAX_VALUE) {
+                    if (j3 == Format.OFFSET_SAMPLE_RELATIVE) {
                         j3 = 0;
                     }
                 } else {
                     str2 = " < ";
                     if (j3 == -1) {
-                        j3 = Long.MAX_VALUE;
+                        j3 = Format.OFFSET_SAMPLE_RELATIVE;
                     }
                 }
                 if (j3 != -2) {

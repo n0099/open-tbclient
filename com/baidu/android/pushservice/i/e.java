@@ -4,7 +4,7 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class e {
     byte[] a = new byte[8];
     private DataInputStream b;

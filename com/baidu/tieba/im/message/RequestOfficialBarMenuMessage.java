@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.ForumMenu.DataReq;
 import tbclient.ForumMenu.ForumMenuReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class RequestOfficialBarMenuMessage extends TbSocketMessage {
     private String forum_id;
     private long timestamp;
@@ -32,7 +32,7 @@ public class RequestOfficialBarMenuMessage extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.forum_id = Integer.valueOf(com.baidu.adp.lib.g.b.toInt(getForum_id(), 0));
+        builder.forum_id = Integer.valueOf(com.baidu.adp.lib.f.b.toInt(getForum_id(), 0));
         builder.update_time = Integer.valueOf((int) getTimestamp());
         ForumMenuReqIdl.Builder builder2 = new ForumMenuReqIdl.Builder();
         builder2.data = builder.build(false);

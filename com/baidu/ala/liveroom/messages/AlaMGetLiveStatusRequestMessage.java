@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaMGetLiveStatusRequestMessage extends NetMessage {
     private long mAudienceCount;
     private List<Long> mIds;
@@ -45,7 +45,7 @@ public class AlaMGetLiveStatusRequestMessage extends NetMessage {
         builder.live_ids = this.mIds;
         builder.audience_count = Long.valueOf(this.mAudienceCount);
         if (z) {
-            r.a(builder, true);
+            t.a(builder, true);
         }
         AlaMgetLiveStatusReqIdl.Builder builder2 = new AlaMgetLiveStatusReqIdl.Builder();
         builder2.data = builder.build(false);

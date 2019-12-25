@@ -10,12 +10,11 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.text.TextUtils;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
 import com.vivo.vms.IPCInvoke;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class b implements ServiceConnection {
     private static final Object a = new Object();
     private static Map<String, b> b = new HashMap();
@@ -182,7 +181,7 @@ public final class b implements ServiceConnection {
             return false;
         }
         this.j.removeMessages(2);
-        this.j.sendEmptyMessageDelayed(2, StatisticConfig.MIN_UPLOAD_INTERVAL);
+        this.j.sendEmptyMessageDelayed(2, 30000L);
         this.g.asyncCall(bundle, null);
         return true;
     }

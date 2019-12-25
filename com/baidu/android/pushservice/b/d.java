@@ -11,10 +11,11 @@ import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.g;
 import com.baidu.android.pushservice.i.i;
 import com.baidu.android.pushservice.i.l;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.down.utils.Constants;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.sapi2.SapiContext;
 import com.coloros.mcssdk.PushManager;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +29,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class d extends b {
     private static boolean e;
     private static d f;
@@ -41,7 +42,7 @@ public class d extends b {
     private String k;
     private Map<String, c> l;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
     }
@@ -174,14 +175,14 @@ public class d extends b {
                         str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, fVar.a());
                     }
                     if (str.equalsIgnoreCase("HUAWEI") && !l.f() && !str2.matches("\\d+\\.\\d+$") && Build.VERSION.SDK_INT >= 21 && PushSettings.l(this.a)) {
-                        str2 = "3.1";
+                        str2 = Constants.SDK_VER;
                     }
-                    if (str.equalsIgnoreCase("OPPO") && PushSettings.j(this.a) && !j(this.a)) {
+                    if (str.equalsIgnoreCase(RomUtils.ROM_OPPO) && PushSettings.j(this.a) && !j(this.a)) {
                         str2 = "V1.0";
                     }
                     Matcher matcher = Pattern.compile(fVar.c()).matcher(str2);
                     if (matcher.find()) {
-                        Double valueOf = Double.valueOf(str.equalsIgnoreCase("OPPO") ? matcher.group(1) : matcher.group());
+                        Double valueOf = Double.valueOf(str.equalsIgnoreCase(RomUtils.ROM_OPPO) ? matcher.group(1) : matcher.group());
                         Double valueOf2 = Double.valueOf(fVar.b());
                         if (fVar.d() == 0) {
                             if (valueOf.doubleValue() >= valueOf2.doubleValue()) {
@@ -512,7 +513,7 @@ public class d extends b {
                             }
                             hashMap.put("manufacture", Build.MANUFACTURER);
                             hashMap.put("cuid", DeviceId.getCUID(d.this.a));
-                            hashMap.put(Constants.PACKAGE_NAME, d.this.a.getPackageName());
+                            hashMap.put("package_name", d.this.a.getPackageName());
                             String a2 = d.this.a(hashMap);
                             if (!TextUtils.isEmpty(a2) && (jSONObject = (JSONObject) new JSONObject(a2).get("response_params")) != null) {
                                 if (jSONObject.getInt("status") == 1) {

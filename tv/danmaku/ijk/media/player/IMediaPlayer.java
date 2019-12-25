@@ -9,55 +9,55 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface IMediaPlayer {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface OnBufferingUpdateListener {
         void onBufferingUpdate(IMediaPlayer iMediaPlayer, int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface OnCompletionListener {
         void onCompletion(IMediaPlayer iMediaPlayer);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface OnErrorListener {
         boolean onError(IMediaPlayer iMediaPlayer, int i, int i2, int i3);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface OnHandleOppoErrorListener {
         void handleOppoError(String str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface OnInfoListener {
         boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface OnPreparedListener {
         void onPrepared(IMediaPlayer iMediaPlayer);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface OnSeekCompleteListener {
         void onSeekComplete(IMediaPlayer iMediaPlayer);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface OnSpeedWhenInvokingErrorListener {
         void onSpeed(long j);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface OnSubErrorInfoListener {
         void onSubError(int i, int i2, String str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface OnVideoSizeChangedListener {
         void onVideoSizeChanged(IMediaPlayer iMediaPlayer, int i, int i2, int i3, int i4);
     }

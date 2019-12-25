@@ -10,11 +10,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class cy {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a extends cx {
         public a() {
             super(1);
@@ -56,7 +55,7 @@ public abstract class cy {
             return 0;
         }
         try {
-            return str.getBytes(HTTP.UTF_8).length;
+            return str.getBytes("UTF-8").length;
         } catch (UnsupportedEncodingException e) {
             return 0;
         }
@@ -87,7 +86,7 @@ public abstract class cy {
             try {
                 ArrayList<String> arrayList = new ArrayList<>();
                 cq cqVar = null;
-                if (z && (cqVar = cu.a().m190a(str)) != null) {
+                if (z && (cqVar = cu.a().m193a(str)) != null) {
                     arrayList = cqVar.a(str);
                 }
                 if (!arrayList.contains(str)) {
@@ -106,7 +105,7 @@ public abstract class cy {
                         }
                         e.printStackTrace();
                     }
-                    if (!cxVar.m199a(context, next, (List<ar>) arrayList2)) {
+                    if (!cxVar.m202a(context, next, (List<ar>) arrayList2)) {
                         return str2;
                     }
                     str2 = cxVar.a(context, next, (List<ar>) arrayList2);

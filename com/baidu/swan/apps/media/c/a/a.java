@@ -1,250 +1,248 @@
 package com.baidu.swan.apps.media.c.a;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.BuildConfig;
+import com.baidu.android.util.media.MimeType;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.ab.a;
-import com.baidu.swan.apps.ae.b;
-import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.scheme.actions.z;
-import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.apps.w.e;
-import org.json.JSONException;
+import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.setting.oauth.a.b;
+import java.io.File;
+import java.net.URI;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class a extends z {
-    public a(j jVar) {
-        super(jVar, "/swan/recorder");
+import rx.schedulers.Schedulers;
+/* loaded from: classes9.dex */
+public class a extends ab {
+    public a(com.baidu.swan.apps.scheme.j jVar) {
+        super(jVar, "/swanAPI/saveVideoToPhotosAlbum");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b bVar) {
-        if (DEBUG) {
-            Log.d("AudioRecordAction", "handle entity: " + unitedSchemeEntity.toString());
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        final File file;
+        if (eVar == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
-        }
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str, final b bVar) {
-        if (DEBUG) {
-            Log.d("AudioRecordAction", "handleSubAction subAction: " + str);
-        }
-        if (bVar == null) {
-            c.e("record", "param is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+        } else if (eVar.GS()) {
             if (DEBUG) {
-                Log.d("AudioRecordAction", "record --- illegal swanApp");
+                Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
-            return false;
-        } else if (TextUtils.isEmpty(bVar.id)) {
-            c.e("record", "aiapp id is invalid");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none swanApp id");
-            if (DEBUG) {
-                Log.d("AudioRecordAction", "record --- none swanApp id");
-            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
             return false;
         } else {
-            JSONObject fT = fT(unitedSchemeEntity.getParam("params"));
-            if (TextUtils.equals(str, "/swan/recorder/start") && fT == null) {
-                c.e("record", "none params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
+            JSONObject b = b(unitedSchemeEntity, "params");
+            if (b == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params");
                 return false;
             }
-            final com.baidu.swan.apps.media.c.a a = com.baidu.swan.apps.media.c.a.a(fT, com.baidu.swan.apps.media.c.c.a.Mh().Mj());
-            if (a == null) {
-                c.e("record", "error params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "error cb");
-                return false;
-            }
-            JSONObject Mg = a.Mg();
-            if (Mg != null) {
-                c.e("record", "error params");
-                unitedSchemeEntity.result = Mg;
-                return false;
-            }
-            final com.baidu.swan.apps.media.c.b a2 = com.baidu.swan.apps.media.c.b.a(callbackHandler, unitedSchemeEntity, a.aVU, com.baidu.swan.apps.media.c.c.a.Mh().Mk());
-            if (a2 == null) {
-                c.e("record", "error cb");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "error cb");
-                return false;
-            }
-            final String ik = com.baidu.swan.apps.storage.b.ik(bVar.id);
-            if (TextUtils.isEmpty(ik)) {
-                c.e("record", "none tmp path");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!(context instanceof Activity)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                c.e("record", "handle action, but context is not Activity");
-                return false;
-            } else {
-                bVar.Rf().a((Activity) context, "mapp_record", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.media.c.a.a.1
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.swan.apps.an.d.a
-                    /* renamed from: b */
-                    public void B(Boolean bool) {
-                        if (bool.booleanValue()) {
-                            a.this.a(context, unitedSchemeEntity, callbackHandler, str, a, a2, ik, bVar.id);
-                            return;
-                        }
-                        c.e("record", "record authorize failure");
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 1001);
-                        if (a2 != null) {
-                            a2.r(2004, "error user deny");
-                        }
+            String optString = b.optString("filePath");
+            try {
+                File file2 = null;
+                if ("bdfile".equalsIgnoreCase(URI.create(optString).getScheme())) {
+                    String bf = com.baidu.swan.apps.storage.b.bf(optString, eVar.id);
+                    if (!TextUtils.isEmpty(bf)) {
+                        file2 = new File(bf);
                     }
-                });
-                if (DEBUG) {
-                    Log.d("AudioRecordAction", "subAction is : " + str);
+                    file = file2;
+                } else {
+                    String a = com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion());
+                    if (TextUtils.isEmpty(a)) {
+                        file = null;
+                    } else {
+                        file = new File(a);
+                    }
                 }
-                return true;
+                if (file == null || !file.exists() || !file.isFile()) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not find such file : " + file);
+                    return false;
+                }
+                final String optString2 = b.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                    return false;
+                } else if (!(context instanceof Activity)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
+                    return false;
+                } else {
+                    eVar.aac().b(context, "mapp_images", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.media.c.a.a.1
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // com.baidu.swan.apps.as.d.b
+                        /* renamed from: a */
+                        public void B(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                            if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
+                                a.this.a(context, file, unitedSchemeEntity, callbackHandler, optString2);
+                            } else {
+                                com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString2);
+                            }
+                        }
+                    });
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    return true;
+                }
+            } catch (Exception e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "Illegal file_path : " + optString);
+                return false;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str, final com.baidu.swan.apps.media.c.a aVar, final com.baidu.swan.apps.media.c.b bVar, final String str2, final String str3) {
-        if (com.baidu.swan.apps.media.c.c.a.Mh().aP(context)) {
-            if (DEBUG) {
-                Log.d("AudioRecordAction", "record --- had system permission");
-            }
-            a(callbackHandler, unitedSchemeEntity, str, context, aVar, bVar, str2, str3);
-            return;
-        }
-        e.LE().a(2, new String[]{"android.permission.RECORD_AUDIO"}, new a.InterfaceC0147a() { // from class: com.baidu.swan.apps.media.c.a.a.2
-            @Override // com.baidu.swan.apps.ab.a.InterfaceC0147a
-            public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-                if (i != 2 || iArr.length <= 0) {
-                    if (a.DEBUG) {
-                        Log.d("AudioRecordAction", "record --- wrong requestCode");
-                    }
-                    c.e("record", "none permission");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (bVar != null) {
-                        bVar.r(2002, "error execute");
-                        return;
-                    }
-                    return;
-                }
-                boolean z = true;
-                int length = iArr.length;
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= length) {
-                        break;
-                    } else if (iArr[i2] == -1) {
-                        z = false;
-                        break;
-                    } else {
-                        i2++;
-                    }
-                }
-                if (!z) {
-                    if (a.DEBUG) {
-                        Log.d("AudioRecordAction", "record --- permission is not granted");
-                    }
-                    c.e("record", "none permission");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (bVar != null) {
-                        bVar.r(2002, "error execute");
-                        return;
-                    }
-                    return;
-                }
+    public void a(@NonNull final Context context, @NonNull final File file, @NonNull final UnitedSchemeEntity unitedSchemeEntity, @NonNull final CallbackHandler callbackHandler, @NonNull final String str) {
+        com.baidu.swan.apps.af.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.af.b() { // from class: com.baidu.swan.apps.media.c.a.a.2
+            @Override // com.baidu.swan.apps.af.b
+            public void fl(String str2) {
                 if (a.DEBUG) {
-                    Log.d("AudioRecordAction", "record --- permission is granted ~");
+                    Log.d("SwanAppAction", str2 + "");
                 }
-                a.this.a(callbackHandler, unitedSchemeEntity, str, context, aVar, bVar, str2, str3);
+                a.this.a(context, file, callbackHandler, str);
+            }
+
+            @Override // com.baidu.swan.apps.af.b
+            public void q(int i, String str2) {
+                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10005, str2).toString(), str);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, Context context, com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.b bVar, String str2, String str3) {
-        char c = 65535;
-        switch (str.hashCode()) {
-            case 302900500:
-                if (str.equals("/swan/recorder/pause")) {
-                    c = 1;
-                    break;
+    public void a(@NonNull final Context context, @NonNull File file, @NonNull final CallbackHandler callbackHandler, @NonNull final String str) {
+        if (file == null) {
+            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
+        } else {
+            rx.d.bS(file).d(new rx.functions.f<File, File>() { // from class: com.baidu.swan.apps.media.c.a.a.4
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // rx.functions.f
+                /* renamed from: u */
+                public File call(File file2) {
+                    String lG = com.baidu.swan.apps.storage.b.lG(com.baidu.swan.apps.runtime.e.ZU());
+                    if (!TextUtils.isEmpty(lG) && file2.getPath().startsWith(lG)) {
+                        return a.this.i(context, file2);
+                    }
+                    return null;
                 }
-                break;
-            case 306217856:
-                if (str.equals("/swan/recorder/start")) {
-                    c = 0;
-                    break;
+            }).d(Schedulers.io()).c(rx.a.b.a.dGl()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.c.a.a.3
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // rx.functions.b
+                /* renamed from: t */
+                public void call(File file2) {
+                    if (file2 == null) {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "output file create fail").toString());
+                        return;
+                    }
+                    Uri fromFile = Uri.fromFile(file2);
+                    a.this.d(context, file2.getPath(), -1L);
+                    context.sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", fromFile));
+                    if (a.DEBUG) {
+                        Log.i("SaveVideoAction", "saveToAlbum : file = " + file2);
+                    }
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
-                break;
-            case 425520420:
-                if (str.equals("/swan/recorder/stop")) {
-                    c = 3;
-                    break;
-                }
-                break;
-            case 860875983:
-                if (str.equals("/swan/recorder/resume")) {
-                    c = 2;
-                    break;
-                }
-                break;
+            });
         }
-        switch (c) {
-            case 0:
-                a(context, aVar, bVar, str2, str3);
-                break;
-            case 1:
-                c.i("record", "pause");
-                pauseRecord();
-                break;
-            case 2:
-                c.i("record", "resume");
-                resumeRecord();
-                break;
-            case 3:
-                c.i("record", "stop");
-                stopRecord();
-                break;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d(Context context, String str, long j) {
+        if (checkFile(str)) {
+            long ak = ak(j);
+            ContentValues k = k(str, ak);
+            k.put("datetaken", Long.valueOf(ak));
+            k.put("mime_type", getVideoMimeType(str));
+            context.getContentResolver().insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, k);
         }
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
-    private void a(Context context, com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.b bVar, String str, String str2) {
-        c.i("record", "init");
-        com.baidu.swan.apps.media.c.c.a.Mh().a(str, aVar, context, bVar, str2);
-        c.i("record", "start");
-        com.baidu.swan.apps.media.c.c.a.Mh().aY(true);
+    private ContentValues k(String str, long j) {
+        ContentValues contentValues = new ContentValues();
+        File file = new File(str);
+        long ak = ak(j);
+        contentValues.put("title", file.getName());
+        contentValues.put("_display_name", file.getName());
+        contentValues.put("date_modified", Long.valueOf(ak));
+        contentValues.put("date_added", Long.valueOf(ak));
+        contentValues.put("_data", file.getAbsolutePath());
+        contentValues.put("_size", Long.valueOf(file.length()));
+        return contentValues;
     }
 
-    private void pauseRecord() {
-        com.baidu.swan.apps.media.c.c.a.Mh().pauseRecord();
+    private String getVideoMimeType(String str) {
+        String lowerCase = str.toLowerCase();
+        if (lowerCase.endsWith("mp4") || lowerCase.endsWith("mpeg4")) {
+            return MimeType.Video.MP4;
+        }
+        if (lowerCase.endsWith("3gp")) {
+            return "video/3gp";
+        }
+        return MimeType.Video.MP4;
     }
 
-    private void resumeRecord() {
-        com.baidu.swan.apps.media.c.c.a.Mh().resumeRecord();
+    private long ak(long j) {
+        if (j <= 0) {
+            return System.currentTimeMillis();
+        }
+        return j;
     }
 
-    private void stopRecord() {
-        com.baidu.swan.apps.media.c.c.a.Mh().stopRecord();
-        com.baidu.swan.apps.media.c.c.a.release();
+    private boolean checkFile(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return new File(str).exists();
     }
 
-    private JSONObject fT(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                return new JSONObject(str);
-            } catch (JSONException e) {
-                if (DEBUG) {
-                    Log.d("AudioRecordAction", Log.getStackTraceString(e));
-                }
+    /* JADX INFO: Access modifiers changed from: private */
+    public File i(Context context, @NonNull File file) {
+        File ck = ck(context);
+        if (ck == null) {
+            return null;
+        }
+        File file2 = new File(ck, file.getName());
+        if (com.baidu.swan.d.c.copyFile(file, file2) <= 0) {
+            file2 = null;
+        }
+        return file2;
+    }
+
+    public static File ck(Context context) {
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath());
+        if (file.exists()) {
+            String str = "Video";
+            if (!new File(file, "Video").exists() && new File(file, "video").exists()) {
+                str = "video";
+            }
+            File file2 = new File(file, str);
+            if ((file2.exists() || file2.mkdirs()) && file2.canWrite()) {
+                return file2;
             }
         }
-        return null;
+        File file3 = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + BuildConfig.FLAVOR + File.separator + "searchbox" + File.separator + "Video");
+        if (!file3.exists() && !file3.mkdirs()) {
+            File externalFilesDir = context.getExternalFilesDir(null);
+            if (externalFilesDir != null) {
+                File file4 = new File(externalFilesDir.getPath() + File.separator + "Video");
+                if (file4.exists() || file4.mkdirs()) {
+                    return file4;
+                }
+            }
+            File file5 = new File(context.getFilesDir().getPath() + File.separator + "Video");
+            if (file5.exists() || file5.mkdirs()) {
+                return file5;
+            }
+            return null;
+        }
+        return file3;
     }
 }

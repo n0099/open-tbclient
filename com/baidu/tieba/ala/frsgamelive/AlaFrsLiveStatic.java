@@ -22,9 +22,9 @@ import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
 import com.baidu.tieba.ala.frsgamelive.mvc.a;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
-import com.baidu.tieba.frs.ab;
 import com.baidu.tieba.frs.ac;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.frs.ad;
+/* loaded from: classes2.dex */
 public class AlaFrsLiveStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaFrsStoryLiveGatherActivityConfig.class, AlaFrsStoryLiveGatherActivity.class);
@@ -51,16 +51,16 @@ public class AlaFrsLiveStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
-                    if (data instanceof ac) {
-                        ac acVar = (ac) data;
+                    if (data instanceof ad) {
+                        ad adVar = (ad) data;
                         a aVar = new a(true);
-                        aVar.avx().type = 2;
-                        aVar.setForumId(acVar.getForumId());
-                        aVar.setForumName(acVar.getForumName());
-                        aVar.setForumGameLabel(acVar.getForumGameLabel());
+                        aVar.aNf().type = 2;
+                        aVar.setForumId(adVar.getForumId());
+                        aVar.setForumName(adVar.getForumName());
+                        aVar.setForumGameLabel(adVar.getForumGameLabel());
                         aVar.setFromType(1);
-                        aVar.ha(false);
-                        acVar.b(aVar);
+                        aVar.ih(false);
+                        adVar.b(aVar);
                     }
                 }
             }
@@ -71,17 +71,17 @@ public class AlaFrsLiveStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
-                    if (data instanceof ab) {
-                        ab abVar = (ab) data;
+                    if (data instanceof ac) {
+                        ac acVar = (ac) data;
                         a aVar = new a(true);
-                        aVar.avx().type = 9;
-                        aVar.setForumId(abVar.getForumId());
-                        aVar.setForumName(abVar.getForumName());
-                        aVar.setForumGameLabel(abVar.getForumGameLabel());
+                        aVar.aNf().type = 9;
+                        aVar.setForumId(acVar.getForumId());
+                        aVar.setForumName(acVar.getForumName());
+                        aVar.setForumGameLabel(acVar.getForumGameLabel());
                         aVar.setFromType(1);
-                        aVar.ha(true);
-                        if (abVar.qL(9)) {
-                            abVar.b(aVar);
+                        aVar.ih(true);
+                        if (acVar.sR(9)) {
+                            acVar.b(aVar);
                         }
                     }
                 }
@@ -93,16 +93,16 @@ public class AlaFrsLiveStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
-                    if (data instanceof ac) {
-                        ac acVar = (ac) data;
+                    if (data instanceof ad) {
+                        ad adVar = (ad) data;
                         a aVar = new a(false);
-                        aVar.avx().type = 1;
-                        aVar.setForumId(acVar.getForumId());
-                        aVar.setForumName(acVar.getForumName());
-                        aVar.setForumGameLabel(acVar.getForumGameLabel());
+                        aVar.aNf().type = 1;
+                        aVar.setForumId(adVar.getForumId());
+                        aVar.setForumName(adVar.getForumName());
+                        aVar.setForumGameLabel(adVar.getForumGameLabel());
                         aVar.setFromType(2);
-                        aVar.ha(false);
-                        acVar.b(aVar);
+                        aVar.ih(false);
+                        adVar.b(aVar);
                     }
                 }
             }
@@ -113,14 +113,14 @@ public class AlaFrsLiveStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
-                    if (data instanceof ac) {
-                        ac acVar = (ac) data;
+                    if (data instanceof ad) {
+                        ad adVar = (ad) data;
                         com.baidu.tieba.ala.gamefrslivetab.video.a aVar = new com.baidu.tieba.ala.gamefrslivetab.video.a();
-                        aVar.avx().type = 3;
-                        aVar.setForumId(acVar.getForumId());
-                        aVar.setForumName(acVar.getForumName());
-                        aVar.hb(false);
-                        acVar.b(aVar);
+                        aVar.aNf().type = 3;
+                        aVar.setForumId(adVar.getForumId());
+                        aVar.setForumName(adVar.getForumName());
+                        aVar.ii(false);
+                        adVar.b(aVar);
                     }
                 }
             }
@@ -131,16 +131,16 @@ public class AlaFrsLiveStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
-                    if (data instanceof ab) {
-                        ab abVar = (ab) data;
+                    if (data instanceof ac) {
+                        ac acVar = (ac) data;
                         com.baidu.tieba.ala.gamefrslivetab.video.a aVar = new com.baidu.tieba.ala.gamefrslivetab.video.a();
-                        aVar.avx().type = 8;
-                        aVar.avx().textResId = R.string.ala_video;
-                        aVar.setForumId(abVar.getForumId());
-                        aVar.setForumName(abVar.getForumName());
-                        aVar.hb(true);
-                        if (abVar.qL(8)) {
-                            abVar.b(aVar);
+                        aVar.aNf().type = 8;
+                        aVar.aNf().textResId = R.string.ala_video;
+                        aVar.setForumId(acVar.getForumId());
+                        aVar.setForumName(acVar.getForumName());
+                        aVar.ii(true);
+                        if (acVar.sR(8)) {
+                            acVar.b(aVar);
                         }
                     }
                 }
@@ -152,13 +152,13 @@ public class AlaFrsLiveStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
-                    if (data instanceof ab) {
-                        ab abVar = (ab) data;
+                    if (data instanceof ac) {
+                        ac acVar = (ac) data;
                         com.baidu.tieba.ala.gamebar.a aVar = new com.baidu.tieba.ala.gamebar.a();
-                        aVar.setForumId(abVar.getForumId());
-                        aVar.setForumName(abVar.getForumName());
-                        aVar.setForumGameLabel(abVar.getForumGameLabel());
-                        aVar.a(abVar);
+                        aVar.setForumId(acVar.getForumId());
+                        aVar.setForumName(acVar.getForumName());
+                        aVar.setForumGameLabel(acVar.getForumGameLabel());
+                        aVar.a(acVar);
                     }
                 }
             }

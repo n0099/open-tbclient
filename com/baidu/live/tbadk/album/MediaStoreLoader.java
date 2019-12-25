@@ -14,6 +14,7 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.img.ImageFileInfo;
+import com.baidu.searchbox.picture.component.BaseBrowseView;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,7 +22,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class MediaStoreLoader {
     public static final int LOEDER_TYPE_ALL = 0;
     public static final int LOEDER_TYPE_NOT_IMAGE = 1;
@@ -133,7 +134,7 @@ public class MediaStoreLoader {
             long j = cursor.getLong(cursor.getColumnIndex("date_added"));
             int i = cursor.getInt(cursor.getColumnIndex("_size"));
             long j2 = cursor.getLong(cursor.getColumnIndex("date_modified"));
-            boolean endsWith = string4.endsWith("gif");
+            boolean endsWith = string4.endsWith(BaseBrowseView.IMG_TYPE_GIF);
             if (!endsWith || i <= MAX_GIF_FILE_SIZE) {
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setAlbumnId(string);
@@ -270,7 +271,7 @@ public class MediaStoreLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class MediaLoadAsyncTask extends BdAsyncTask<Object, Integer, ResutMediaStore> {
         private final MediaStoreLoadCallback mCallBack;
 

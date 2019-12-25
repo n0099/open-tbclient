@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.fsg.base.statistics.h;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.PushManager;
@@ -21,7 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c {
     private static int a(Context context) {
         if (MzSystemUtils.isMeizu(context)) {
@@ -91,7 +92,7 @@ public class c {
         hashMap.put("taskId", str3);
         hashMap.put("deviceId", str2);
         hashMap.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        hashMap.put(com.xiaomi.mipush.sdk.Constants.PACKAGE_NAME, str);
+        hashMap.put("package_name", str);
         hashMap.put("pushsdk_version", str4);
         hashMap.put("push_info", str5);
         hashMap.put("push_info_type", String.valueOf(i));
@@ -100,7 +101,7 @@ public class c {
 
     public static void a(Context context, boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
         HashMap hashMap = new HashMap();
-        hashMap.put("en", str5);
+        hashMap.put(h.a, str5);
         hashMap.put(Config.FEED_LIST_PART, str3);
         hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, str2);
         if (TextUtils.isEmpty(str6)) {

@@ -3,6 +3,7 @@ package com.meizu.cloud.pushsdk.b.a;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.widget.ImageView;
+import com.baidubce.AbstractBceClient;
 import com.meizu.cloud.pushsdk.b.a.b;
 import com.meizu.cloud.pushsdk.b.c.b;
 import com.meizu.cloud.pushsdk.b.c.c;
@@ -18,13 +19,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.Executor;
-import org.apache.http.entity.mime.MIME;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b<T extends b> {
     private static final String a = b.class.getSimpleName();
-    private static final g w = g.a("application/json; charset=utf-8");
+    private static final g w = g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
     private static final g x = g.a("text/x-markdown; charset=utf-8");
     private static final Object z = new Object();
     private com.meizu.cloud.pushsdk.b.c.a A;
@@ -62,7 +62,7 @@ public class b<T extends b> {
     private File v;
     private g y;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a<T extends a> {
         private String b;
         private Object c;
@@ -88,8 +88,8 @@ public class b<T extends b> {
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0566b<T extends C0566b> {
+    /* loaded from: classes5.dex */
+    public static class C0677b<T extends C0677b> {
         private int b;
         private String c;
         private Object d;
@@ -104,7 +104,7 @@ public class b<T extends b> {
         private HashMap<String, String> j = new HashMap<>();
         private HashMap<String, String> k = new HashMap<>();
 
-        public C0566b(String str) {
+        public C0677b(String str) {
             this.b = 0;
             this.c = str;
             this.b = 0;
@@ -124,7 +124,7 @@ public class b<T extends b> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class c<T extends c> {
         private String b;
         private Object c;
@@ -162,7 +162,7 @@ public class b<T extends b> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class d<T extends d> {
         private int b;
         private String c;
@@ -235,7 +235,7 @@ public class b<T extends b> {
         this.K = aVar.k;
     }
 
-    public b(C0566b c0566b) {
+    public b(C0677b c0677b) {
         this.i = new HashMap<>();
         this.j = new HashMap<>();
         this.k = new HashMap<>();
@@ -254,19 +254,19 @@ public class b<T extends b> {
         this.K = null;
         this.L = null;
         this.d = 0;
-        this.b = c0566b.b;
-        this.c = c0566b.a;
-        this.e = c0566b.c;
-        this.g = c0566b.d;
-        this.i = c0566b.i;
-        this.F = c0566b.e;
-        this.H = c0566b.g;
-        this.G = c0566b.f;
-        this.I = c0566b.h;
-        this.m = c0566b.j;
-        this.n = c0566b.k;
-        this.J = c0566b.l;
-        this.K = c0566b.m;
+        this.b = c0677b.b;
+        this.c = c0677b.a;
+        this.e = c0677b.c;
+        this.g = c0677b.d;
+        this.i = c0677b.i;
+        this.F = c0677b.e;
+        this.H = c0677b.g;
+        this.G = c0677b.f;
+        this.I = c0677b.h;
+        this.m = c0677b.j;
+        this.n = c0677b.k;
+        this.J = c0677b.l;
+        this.K = c0677b.m;
     }
 
     public b(c cVar) {
@@ -510,12 +510,12 @@ public class b<T extends b> {
         h.a a2 = new h.a().a(h.e);
         try {
             for (Map.Entry<String, String> entry : this.l.entrySet()) {
-                a2.a(com.meizu.cloud.pushsdk.b.c.c.a(MIME.CONTENT_DISPOSITION, "form-data; name=\"" + entry.getKey() + "\""), j.a((g) null, entry.getValue()));
+                a2.a(com.meizu.cloud.pushsdk.b.c.c.a("Content-Disposition", "form-data; name=\"" + entry.getKey() + "\""), j.a((g) null, entry.getValue()));
             }
             for (Map.Entry<String, File> entry2 : this.o.entrySet()) {
                 if (entry2.getValue() != null) {
                     String name = entry2.getValue().getName();
-                    a2.a(com.meizu.cloud.pushsdk.b.c.c.a(MIME.CONTENT_DISPOSITION, "form-data; name=\"" + entry2.getKey() + "\"; filename=\"" + name + "\""), j.a(g.a(com.meizu.cloud.pushsdk.b.i.b.a(name)), entry2.getValue()));
+                    a2.a(com.meizu.cloud.pushsdk.b.c.c.a("Content-Disposition", "form-data; name=\"" + entry2.getKey() + "\"; filename=\"" + name + "\""), j.a(g.a(com.meizu.cloud.pushsdk.b.i.b.a(name)), entry2.getValue()));
                     if (this.y != null) {
                         a2.a(this.y);
                     }

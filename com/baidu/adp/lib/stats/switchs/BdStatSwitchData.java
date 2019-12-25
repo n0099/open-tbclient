@@ -71,32 +71,32 @@ public class BdStatSwitchData implements Serializable {
                     BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
                     bdStatisticsUploadConfigItem.type = "dbg";
                     this.uploadConfig.item.put(bdStatisticsUploadConfigItem.type, bdStatisticsUploadConfigItem);
-                    a(optJSONObject.optJSONArray("debug"), bdStatisticsWriteConfigItem, bdStatisticsUploadConfigItem);
+                    parserCommonData(optJSONObject.optJSONArray("debug"), bdStatisticsWriteConfigItem, bdStatisticsUploadConfigItem);
                     BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem2 = new BdStatisticsWriteConfig.BdStatisticsWriteConfigItem();
                     bdStatisticsWriteConfigItem2.type = "stat";
                     this.writeConfig.item.put(bdStatisticsWriteConfigItem2.type, bdStatisticsWriteConfigItem2);
                     BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem2 = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
                     bdStatisticsUploadConfigItem2.type = "stat";
                     this.uploadConfig.item.put(bdStatisticsUploadConfigItem2.type, bdStatisticsUploadConfigItem2);
-                    a(optJSONObject.optJSONArray("stat"), bdStatisticsWriteConfigItem2, bdStatisticsUploadConfigItem2);
+                    parserCommonData(optJSONObject.optJSONArray("stat"), bdStatisticsWriteConfigItem2, bdStatisticsUploadConfigItem2);
                     BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem3 = new BdStatisticsWriteConfig.BdStatisticsWriteConfigItem();
                     bdStatisticsWriteConfigItem3.type = BdStatsConstant.StatsType.ERROR;
                     this.writeConfig.item.put(bdStatisticsWriteConfigItem3.type, bdStatisticsWriteConfigItem3);
                     BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem3 = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
                     bdStatisticsUploadConfigItem3.type = BdStatsConstant.StatsType.ERROR;
                     this.uploadConfig.item.put(bdStatisticsUploadConfigItem3.type, bdStatisticsUploadConfigItem3);
-                    a(optJSONObject.optJSONArray(BdStatsConstant.StatsType.ERROR), bdStatisticsWriteConfigItem3, bdStatisticsUploadConfigItem3);
+                    parserCommonData(optJSONObject.optJSONArray(BdStatsConstant.StatsType.ERROR), bdStatisticsWriteConfigItem3, bdStatisticsUploadConfigItem3);
                     BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem4 = new BdStatisticsWriteConfig.BdStatisticsWriteConfigItem();
                     bdStatisticsWriteConfigItem4.type = BdStatsConstant.StatsType.PERFORMANCE;
                     this.writeConfig.item.put(bdStatisticsWriteConfigItem4.type, bdStatisticsWriteConfigItem4);
                     BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem4 = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
                     bdStatisticsUploadConfigItem4.type = BdStatsConstant.StatsType.PERFORMANCE;
                     this.uploadConfig.item.put(bdStatisticsUploadConfigItem4.type, bdStatisticsUploadConfigItem4);
-                    a(optJSONObject.optJSONArray("performance"), bdStatisticsWriteConfigItem4, bdStatisticsUploadConfigItem4);
+                    parserCommonData(optJSONObject.optJSONArray("performance"), bdStatisticsWriteConfigItem4, bdStatisticsUploadConfigItem4);
                     BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem5 = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
                     bdStatisticsUploadConfigItem5.type = "alert";
                     this.uploadConfig.item.put(bdStatisticsUploadConfigItem5.type, bdStatisticsUploadConfigItem5);
-                    a(optJSONObject.optJSONArray("alert"), null, bdStatisticsUploadConfigItem5);
+                    parserCommonData(optJSONObject.optJSONArray("alert"), null, bdStatisticsUploadConfigItem5);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -104,7 +104,7 @@ public class BdStatSwitchData implements Serializable {
         }
     }
 
-    private void a(JSONArray jSONArray, BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem, BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem) {
+    private void parserCommonData(JSONArray jSONArray, BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem, BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem) {
         if (jSONArray != null) {
             JSONObject optJSONObject = jSONArray.optJSONObject(0);
             ArrayList<String> arrayList = new ArrayList<>();

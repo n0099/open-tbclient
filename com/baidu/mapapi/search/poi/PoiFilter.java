@@ -3,6 +3,8 @@ package com.baidu.mapapi.search.poi;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
@@ -24,19 +26,19 @@ public final class PoiFilter implements Parcelable {
         private String e;
 
         public Builder() {
-            PoiFilter.f.put(SortName.HotelSortName.DEFAULT, "default");
-            PoiFilter.f.put(SortName.HotelSortName.HOTEL_LEVEL, "level");
+            PoiFilter.f.put(SortName.HotelSortName.DEFAULT, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
+            PoiFilter.f.put(SortName.HotelSortName.HOTEL_LEVEL, ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_PRICE, "price");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_DISTANCE, "distance");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_HEALTH_SCORE, "health_score");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_TOTAL_SCORE, "total_score");
-            PoiFilter.f.put(SortName.CaterSortName.DEFAULT, "default");
+            PoiFilter.f.put(SortName.CaterSortName.DEFAULT, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
             PoiFilter.f.put(SortName.CaterSortName.CATER_DISTANCE, "distance");
             PoiFilter.f.put(SortName.CaterSortName.CATER_PRICE, "price");
             PoiFilter.f.put(SortName.CaterSortName.CATER_OVERALL_RATING, "overall_rating");
             PoiFilter.f.put(SortName.CaterSortName.CATER_SERVICE_RATING, "service_rating");
             PoiFilter.f.put(SortName.CaterSortName.CATER_TASTE_RATING, "taste_rating");
-            PoiFilter.f.put(SortName.LifeSortName.DEFAULT, "default");
+            PoiFilter.f.put(SortName.LifeSortName.DEFAULT, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
             PoiFilter.f.put(SortName.LifeSortName.PRICE, "price");
             PoiFilter.f.put(SortName.LifeSortName.LIFE_COMMENT_RATING, "comment_num");
             PoiFilter.f.put(SortName.LifeSortName.LIFE_OVERALL_RATING, "overall_rating");
@@ -48,14 +50,14 @@ public final class PoiFilter implements Parcelable {
         }
 
         public Builder industryType(IndustryType industryType) {
-            switch (d.a[industryType.ordinal()]) {
-                case 1:
+            switch (industryType) {
+                case HOTEL:
                     this.a = "hotel";
                     break;
-                case 2:
+                case CATER:
                     this.a = "cater";
                     break;
-                case 3:
+                case LIFE:
                     this.a = "life";
                     break;
                 default:

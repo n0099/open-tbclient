@@ -17,7 +17,7 @@ import com.google.zxing.pdf417.detector.Detector;
 import com.google.zxing.pdf417.detector.PDF417DetectorResult;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class PDF417Reader implements Reader, MultipleBarcodeReader {
     @Override // com.google.zxing.Reader
     public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException, FormatException, ChecksumException {

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
-import android.net.http.Headers;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -15,10 +14,9 @@ import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.android.bbalbs.common.util.CommonParam;
 import com.baidu.android.imsdk.BuildConfig;
-import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.webkit.internal.ETAG;
 import com.tencent.open.SocialOperation;
 import java.util.Date;
 import java.util.HashMap;
@@ -49,8 +47,8 @@ public class f {
     static String p = "";
     static String q = "";
     static String r = "";
-    static String u = LivenessStat.TYPE_STRING_DEFAULT;
-    static String v = LivenessStat.TYPE_STRING_DEFAULT;
+    static String u = "-1";
+    static String v = "-1";
     public static final int x = Integer.parseInt(Build.VERSION.SDK);
     public static float y = 1.0f;
     private static boolean C = true;
@@ -84,7 +82,7 @@ public class f {
 
     public static Bundle b() {
         Bundle bundle = new Bundle();
-        bundle.putString("cpu", p);
+        bundle.putString(com.baidu.fsg.face.base.b.c.i, p);
         bundle.putString("resid", a);
         bundle.putString("channel", n);
         bundle.putString("glr", q);
@@ -143,7 +141,7 @@ public class f {
         f(context);
         try {
             try {
-                LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
+                LocationManager locationManager = (LocationManager) context.getSystemService("location");
                 D = locationManager.isProviderEnabled("gps") ? 1 : 0;
                 E = locationManager.isProviderEnabled("network") ? 1 : 0;
                 F.put("resid", AppMD5.encodeUrlParamsValue(a));
@@ -211,7 +209,7 @@ public class f {
         F.put("ctm", AppMD5.encodeUrlParamsValue(String.format("%f", Double.valueOf(((seconds % 1000) / 1000.0d) + (seconds / 1000)))));
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : F.entrySet()) {
-            sb.append("&").append(entry.getKey()).append("=").append(entry.getValue());
+            sb.append(ETAG.ITEM_SEPARATOR).append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
         }
         return sb.toString();
     }
@@ -221,7 +219,7 @@ public class f {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
             e = VersionInfo.getApiVersion();
             if (e != null && !e.equals("")) {
-                e = e.replace('_', BdFileHelper.EXTENSION_SEPARATOR);
+                e = e.replace('_', '.');
             }
             f = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
@@ -274,7 +272,7 @@ public class f {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putString("cpu", p);
+        bundle.putString(com.baidu.fsg.face.base.b.c.i, p);
         bundle.putString("resid", a);
         bundle.putString("channel", n);
         bundle.putString("glr", q);

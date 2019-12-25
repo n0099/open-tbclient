@@ -61,7 +61,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ChatMsgManagerImpl {
     private static final String TAG = ChatMsgManagerImpl.class.getSimpleName();
     private static final int USER_NICKNAME_UPDATE_TIME = 86400000;
@@ -172,7 +172,7 @@ public class ChatMsgManagerImpl {
         MessageFactory.getInstance().addType(90, IMBindPushMsg.class);
         MessageFactory.getInstance().addType(190, IMSyncPushMsg.class);
         MessageFactory.getInstance().addType(92, IMUnBindPushMsg.class);
-        MessageFactory.getInstance().addType(Constants.METHOD_IM_FETCH_CONFIG_MSG, IMFetchConfigMsg.class);
+        MessageFactory.getInstance().addType(193, IMFetchConfigMsg.class);
     }
 
     private void registerListeners() {
@@ -803,7 +803,7 @@ public class ChatMsgManagerImpl {
 
     public void fetchConfigMsg(Context context, long j, long j2) {
         LogUtils.i(TAG, " limit: " + j2 + " cursor: " + j);
-        Intent creatMethodIntent = Utility.creatMethodIntent(context, Constants.METHOD_IM_FETCH_CONFIG_MSG);
+        Intent creatMethodIntent = Utility.creatMethodIntent(context, 193);
         creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_CURSOR, j);
         creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_LIMIT, j2);
         try {

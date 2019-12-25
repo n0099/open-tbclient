@@ -22,6 +22,7 @@ import com.baidu.platform.comapi.walknavi.WalkNaviModeSwitchListener;
 import com.baidu.platform.comapi.walknavi.widget.ArCameraView;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import com.baidu.platform.comapi.wnplatform.walkmap.WNaviBaiduMap;
+import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class a {
@@ -117,11 +118,11 @@ public class a {
             this.g.onSuccess();
         } else if (i == 2) {
             if (Build.VERSION.SDK_INT >= 23) {
-                if (activity.checkSelfPermission("android.permission.CAMERA") == 0) {
+                if (activity.checkSelfPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0) {
                     b(activity);
                     return;
                 } else {
-                    activity.requestPermissions(new String[]{"android.permission.CAMERA"}, 3001);
+                    activity.requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 3001);
                     return;
                 }
             }

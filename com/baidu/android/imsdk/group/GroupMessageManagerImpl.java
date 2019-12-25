@@ -26,7 +26,7 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GroupMessageManagerImpl {
     private static Context mContext;
     private static GroupMessageManagerImpl mInstance;

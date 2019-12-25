@@ -2,7 +2,6 @@ package com.baidu.sapi2;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
@@ -47,12 +46,14 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
+import com.baidu.webkit.internal.ETAG;
 import com.tencent.open.SocialOperation;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class SapiAccountService implements com.baidu.sapi2.service.interfaces.a {
     private static final String a = "native";
     private SapiConfiguration b = SapiAccountManager.getInstance().getSapiConfiguration();
@@ -61,12 +62,12 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     /* JADX INFO: Access modifiers changed from: package-private */
     public String b() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new PassNameValuePair("client", "android"));
+        arrayList.add(new PassNameValuePair("client", PraiseDataPassUtil.KEY_FROM_OS));
         arrayList.add(new PassNameValuePair("clientfrom", a));
         arrayList.add(new PassNameValuePair("adapter", "3"));
         arrayList.add(new PassNameValuePair("banner", "1"));
         arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
-        return this.c.p() + "?" + a(false) + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.p() + "?" + a(false) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -106,7 +107,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         arrayList.add(new PassNameValuePair("adapter", "3"));
         arrayList.add(new PassNameValuePair("banner", "1"));
         arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
-        return this.c.r() + "?" + a(false) + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.r() + "?" + a(false) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     public void extendSysWebViewMethodCheck(SapiCallback<SapiResult> sapiCallback, String str, String str2) {
@@ -122,7 +123,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         if (TextUtils.isEmpty(sapiConfiguration.clientId)) {
             sapiConfiguration.clientId = SapiUtils.getClientId(sapiConfiguration.context);
         }
-        return str + "?" + g() + "&" + SapiUtils.createRequestParams(arrayList);
+        return str + "?" + g() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     public void faceLoginSwitch(SapiCallback<SapiResult> sapiCallback, String str, boolean z, String str2) {
@@ -190,7 +191,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     public String h() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new PassNameValuePair("adapter", "3"));
-        return this.c.o() + "?" + g() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.o() + "?" + g() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -214,11 +215,11 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     /* JADX INFO: Access modifiers changed from: package-private */
     public String k() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new PassNameValuePair(TableDefine.PaSubscribeColumns.COLUMN_TPL, SapiAccountManager.getInstance().getSapiConfiguration().tpl));
+        arrayList.add(new PassNameValuePair("tpl", SapiAccountManager.getInstance().getSapiConfiguration().tpl));
         arrayList.add(new PassNameValuePair("showtype", "phone"));
         arrayList.add(new PassNameValuePair(Config.DEVICE_PART, "wap"));
         arrayList.add(new PassNameValuePair("adapter", "apps"));
-        return this.c.l() + g() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.l() + g() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -236,7 +237,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         ArrayList arrayList = new ArrayList();
         arrayList.add(new PassNameValuePair("adapter", "3"));
         arrayList.add(new PassNameValuePair("banner", "1"));
-        return this.c.s() + "?" + a(false) + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.s() + "?" + a(false) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -323,7 +324,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         if (bindWidgetAction != null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new PassNameValuePair("adapter", "3"));
-            return this.c.a(bindWidgetAction) + "?" + g() + "&" + SapiUtils.createRequestParams(arrayList);
+            return this.c.a(bindWidgetAction) + "?" + g() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
         }
         throw new IllegalArgumentException("BindWidgetAction can't be null");
     }
@@ -393,7 +394,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     public String a(SocialType socialType) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new PassNameValuePair("type", socialType.getName()));
-        return this.c.n() + "?" + g() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.n() + "?" + g() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -403,7 +404,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         arrayList.add(new PassNameValuePair("type", socialType.getType() + ""));
         arrayList.add(new PassNameValuePair("guidebind", "1"));
         arrayList.add(new PassNameValuePair("expSid", this.b.sidValue));
-        return this.c.j() + "?" + g() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.j() + "?" + g() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     @Override // com.baidu.sapi2.service.interfaces.a
@@ -435,15 +436,15 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         } else {
             b = this.c.b();
         }
-        return b + "?" + a(false) + "&" + SapiUtils.createRequestParams(arrayList);
+        return b + "?" + a(false) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     String a(boolean z) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new PassNameValuePair("clientfrom", a));
-        arrayList.add(new PassNameValuePair(TableDefine.PaSubscribeColumns.COLUMN_TPL, this.b.tpl));
+        arrayList.add(new PassNameValuePair("tpl", this.b.tpl));
         arrayList.add(new PassNameValuePair("login_share_strategy", this.b.loginShareStrategy().getStrValue()));
-        arrayList.add(new PassNameValuePair("client", "android"));
+        arrayList.add(new PassNameValuePair("client", PraiseDataPassUtil.KEY_FROM_OS));
         if (z) {
             arrayList.add(new PassNameValuePair("adapter", this.b.customActionBarEnabled ? "3" : ""));
         }
@@ -458,7 +459,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
             arrayList.add(new PassNameValuePair("connect", "1"));
         }
         if (this.b.language == Language.ENGLISH) {
-            arrayList.add(new PassNameValuePair("lang", "en"));
+            arrayList.add(new PassNameValuePair("lang", com.baidu.fsg.base.statistics.h.a));
         }
         arrayList.add(new PassNameValuePair("suppcheck", "1"));
         if (this.b.supportFaceLogin) {
@@ -487,7 +488,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         arrayList.add(new PassNameValuePair("access_token", str));
         arrayList.add(new PassNameValuePair("osuid", str2));
         arrayList.add(new PassNameValuePair("expSid", this.b.sidValue));
-        return this.c.i() + "?" + g() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.i() + "?" + g() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -499,7 +500,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         arrayList.add(new PassNameValuePair("osuid", str2));
         arrayList.add(new PassNameValuePair(SocialOperation.GAME_UNION_ID, str3));
         arrayList.add(new PassNameValuePair("expSid", this.b.sidValue));
-        return this.c.i() + "?" + g() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.i() + "?" + g() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -518,7 +519,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         arrayList.add(new PassNameValuePair("appid", this.b.wxAppID));
         arrayList.add(new PassNameValuePair(LogConfig.KEY_DISPLAY, a));
         arrayList.add(new PassNameValuePair("expSid", this.b.sidValue));
-        return this.c.i() + "?" + g() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.i() + "?" + g() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     boolean a(SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2) {

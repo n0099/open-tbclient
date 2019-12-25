@@ -1,0 +1,48 @@
+package com.baidu.searchbox.config;
+/* loaded from: classes11.dex */
+public class QuickPersistConfigConst {
+    public static final String KEY_ACTIVITY_TRACE_ENABLE = "activity_trace_enable";
+    public static final String KEY_BUNDLE_PRESET = "rn_bundle_preset_installed";
+    public static final String KEY_BUNDLE_PRESET_VERSION = "rn_bundle_last_preset_version";
+    public static final String KEY_CURRENT_LOGIN_STATE = "current_login_state";
+    public static final String KEY_DEVELOPMENT_SETTINGS = "dev_settings";
+    public static final String KEY_ENABLE_MULTIPLE_PROCESS = "enable_multiple_process";
+    public static final String KEY_FIRSET_INIT_ID = "app_init";
+    public static final String KEY_FLOW_HANDLE = "ubc_key_flow_handle";
+    public static final String KEY_HTTPS_UBC_LOG = "key_https_log";
+    public static final String KEY_INTRODUCTION_VERSION = "introduction_version";
+    public static final String KEY_INTRODUCTION_WARM = "splash_warm_agree";
+    public static final String KEY_KERNEL_WEBKIT_STATE = "kernel_webkit_state";
+    public static final String KEY_LAST_TMP_USE_HTTP_TS = "key_last_tmp_http_ts";
+    public static final String KEY_MAINACTIVITY_INPUTMODE_ADJUSTPAN = "key_keyboard_adjust";
+    public static final String KEY_MESSAGE_FOLLOW_VERSION = "message_follow_version_code";
+    public static final String KEY_NA2_WEB_ENABLE = "use_na2.0_h5_zeus";
+    public static final boolean KEY_NA2_WEB_ENABLE_DEFAULT = false;
+    public static final String KEY_OPPO_R7_T7_MEM_CTL = "t7_mem_ctl";
+    public static final String KEY_PERSONAL_ITEM_DATA_VERSION = "psersonalcenter_item_data_version";
+    public static final String KEY_PERSONAL_ITEM_NEW_TIP_VERSION = "psersonal_item_new_tip_version";
+    public static final String KEY_PRESET_TABDATA_META_DATA_ID = "preset_tabdata_meta_data_id";
+    public static final String KEY_SEARCHBOX_SERVER_USE_HTTPS = "key_box_use_https";
+    public static final String KEY_SESSION_ID = "key_session_id";
+    public static final String KEY_SESSION_REFRESH_COUNT = "key_session_refresh_count";
+    public static final String KEY_SOURCE_GOOGLE = "source_google";
+    public static final String KEY_SPLASH_HEADER_VERSION = "splash_version";
+    public static final String KEY_SPLASH_ID = "act_id";
+    public static final String KEY_SPLASH_SORT = "sort";
+    public static final String KEY_SPLASH_SOURCE_TYPE = "splash_source_type";
+    public static final String KEY_SPLASH_SPLIT_TIME = "_SPLIT_TIME_KEY_";
+    public static final String KEY_TABBAR_SKIN_DATA = "tabbar_skin_data";
+    public static final String KEY_TEXT_SIZE = "key_text_size";
+    public static final String KEY_TMP_USE_HTTP = "key_tmp_use_http";
+    public static final String KEY_USE_SYS_WEBKIT = "use_sys_webkit";
+    public static final String KEY_VIRTUAL_RUNTIME_CHECKED = "virtual_runtime_checked";
+    public static final String KEY_WEBKIT_DO_BUILDIN_INSTALL = "webkit_do_buildin_install";
+    public static final String KEY_WEBKIT_SLIENT_INSTALL = "webkit_install_type_silent";
+    public static final String KEY_XLIS_LOG_ENABLE = "xlis_lg_enable";
+    public static final String KEY_ZEUS_MODE_NOADS_SETTING = "zeus_mode_noads_user_set";
+    public static final String KEY_ZEUS_SPDY_SETTING = "zeus_spdy_setting";
+    public static final String OLD_VIDEO_HISTORY_EXECUTE = "old_video_history_execute";
+    public static final boolean SEARCHBOX_SERVER_USE_HTTPS_DEFAULT = true;
+    public static final int TMP_USE_HTTP_DEAFULT = 0;
+    public static final boolean USE_SYS_WEBKIT_DEFAULT = false;
+}

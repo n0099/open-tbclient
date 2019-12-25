@@ -7,19 +7,19 @@ import com.baidu.tieba.R;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.TimeZone;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long jBg = BdKVCache.MILLS_1Hour;
+    private static long kuX = BdKVCache.MILLS_1Hour;
     private Context context;
-    private a jBn;
+    private a kve;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat jBi = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat jBh = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat kuZ = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat kuY = new SimpleDateFormat("HH:mm:ss");
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void eD(List<d> list);
+        void ev(List<d> list);
     }
 
     public b(Context context) {
@@ -27,12 +27,12 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(R.dimen.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.jBi.setTimeZone(timeZone);
-        this.jBh.setTimeZone(timeZone);
+        this.kuZ.setTimeZone(timeZone);
+        this.kuY.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.jBn = aVar;
+        this.kve = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,21 +40,21 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: c */
     public List<d> doInBackground(Void... voidArr) {
-        List<d> eh = e.eh(this.context);
-        e.c("/sdcard", eh, false);
-        e.c("/sdcard/DCIM", eh, true);
-        e.eF(eh);
-        return eh;
+        List<d> fz = e.fz(this.context);
+        e.b("/sdcard", fz, false);
+        e.b("/sdcard/DCIM", fz, true);
+        e.ex(fz);
+        return fz;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: p */
+    /* renamed from: o */
     public void onPostExecute(List<d> list) {
         super.onPostExecute(list);
-        if (this.jBn != null) {
-            this.jBn.eD(list);
+        if (this.kve != null) {
+            this.kve.ev(list);
         }
     }
 }

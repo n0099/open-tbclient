@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import android.widget.RelativeLayout;
 import com.baidu.mobads.RsplashType;
+import com.baidu.mobads.SplashAd;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdContainer;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
@@ -28,10 +29,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Observer;
 import org.apache.http.client.methods.HttpHead;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.mobads.production.b {
     private static boolean D = false;
     private static int E = 0;
@@ -94,7 +94,7 @@ public class a extends com.baidu.mobads.production.b {
         m();
         a(this.x);
         try {
-            new WebView(getActivity()).loadDataWithBaseURL(null, "", "text/html", HTTP.UTF_8, null);
+            new WebView(getActivity()).loadDataWithBaseURL(null, "", "text/html", "UTF-8", null);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -148,8 +148,8 @@ public class a extends com.baidu.mobads.production.b {
         if (!this.z) {
             HashMap hashMap3 = new HashMap();
             if (iXAdContainer.getAdContainerContext() != null && iXAdContainer.getAdContainerContext().getAdInstanceInfo() != null) {
-                hashMap3.put(com.baidu.mobads.d.aAe, Integer.valueOf(iXAdContainer.getAdContainerContext().getAdInstanceInfo().getPattern()));
-                hashMap3.put(com.baidu.mobads.d.aAf, Float.valueOf(iXAdContainer.getAdContainerContext().getAdInstanceInfo().getBtnPosition()));
+                hashMap3.put(SplashAd.RSPLASH_PATTERN, Integer.valueOf(iXAdContainer.getAdContainerContext().getAdInstanceInfo().getPattern()));
+                hashMap3.put(SplashAd.RSPLASH_BTN_POS, Float.valueOf(iXAdContainer.getAdContainerContext().getAdInstanceInfo().getBtnPosition()));
             }
             dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_LOADED, hashMap3));
             start();
@@ -234,8 +234,9 @@ public class a extends com.baidu.mobads.production.b {
         return e(iXAdInstanceInfo);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.mobads.production.b
-    protected void e(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+    public void e(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
         super.e(iXAdContainer, hashMap);
         if (hashMap != null) {
             try {
@@ -280,8 +281,9 @@ public class a extends com.baidu.mobads.production.b {
         return true;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.mobads.production.b
-    protected void a() {
+    public void a() {
         if (e()) {
             this.A = XAdSDKFoundationFacade.getInstance().getIoUtils().getStoreagePath(this.y);
             this.B = XAdSDKFoundationFacade.getInstance().getCommonUtils().md5("http://mobads.baidu.com/ads/img/3d_bg.jpg");

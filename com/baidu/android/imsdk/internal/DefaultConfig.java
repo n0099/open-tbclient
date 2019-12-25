@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DefaultConfig implements IIMConfig {
     public static final String TOKEN_SEPARATOR = ".";
     private boolean mRootComplete = true;
@@ -32,7 +32,7 @@ public class DefaultConfig implements IIMConfig {
         if (chatObject == null) {
             return null;
         }
-        return chatObject.getCategory() + TOKEN_SEPARATOR + chatObject.getContacter() + TOKEN_SEPARATOR + chatObject.getType();
+        return chatObject.getCategory() + "." + chatObject.getContacter() + "." + chatObject.getType();
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig

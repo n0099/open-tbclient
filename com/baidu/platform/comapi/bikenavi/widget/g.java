@@ -22,9 +22,9 @@ public class g extends com.baidu.platform.comapi.walknavi.g.b.b {
     }
 
     private void a(View view) {
-        this.c = (ImageView) view.findViewById(R.raw.refresh_load);
-        this.d = (TextView) view.findViewById(R.raw.rim_video_lrc_tip);
-        this.e = view.findViewById(R.raw.mime_1);
+        this.c = (ImageView) view.findViewById(R.raw.lottie_full_screen_refresh_1);
+        this.d = (TextView) view.findViewById(R.raw.lottie_full_screen_refresh_2);
+        this.e = view.findViewById(R.raw.lottie_full_screen_refresh);
         this.e.setVisibility(8);
     }
 
@@ -47,7 +47,7 @@ public class g extends com.baidu.platform.comapi.walknavi.g.b.b {
     }
 
     public void a(int i, String str) {
-        if (i == R.drawable.abc_btn_radio_to_on_mtrl_000 || i == R.drawable.abc_btn_borderless_material) {
+        if (i == R.drawable.abc_btn_radio_material || i == R.drawable.abc_action_bar_item_background_material) {
             this.d.setVisibility(8);
         } else {
             this.d.setVisibility(0);

@@ -1,6 +1,9 @@
 package okio;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.DownloadConstants;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
+import com.google.android.exoplayer2.Format;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -18,7 +21,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class Buffer implements Cloneable, ByteChannel, BufferedSink, BufferedSource {
     private static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     static final int REPLACEMENT_CHARACTER = 65533;
@@ -209,7 +212,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
     }
 
     public Buffer readFrom(InputStream inputStream) throws IOException {
-        readFrom(inputStream, Long.MAX_VALUE, true);
+        readFrom(inputStream, Format.OFFSET_SAMPLE_RELATIVE, true);
         return this;
     }
 
@@ -658,15 +661,18 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
 
     @Override // okio.BufferedSource
     public String readUtf8LineStrict() throws EOFException {
-        return readUtf8LineStrict(Long.MAX_VALUE);
+        return readUtf8LineStrict(Format.OFFSET_SAMPLE_RELATIVE);
     }
 
     @Override // okio.BufferedSource
     public String readUtf8LineStrict(long j) throws EOFException {
+        long j2 = Format.OFFSET_SAMPLE_RELATIVE;
         if (j < 0) {
             throw new IllegalArgumentException("limit < 0: " + j);
         }
-        long j2 = j != Long.MAX_VALUE ? j + 1 : Long.MAX_VALUE;
+        if (j != Format.OFFSET_SAMPLE_RELATIVE) {
+            j2 = j + 1;
+        }
         long indexOf = indexOf((byte) 10, 0L, j2);
         if (indexOf != -1) {
             return readUtf8Line(indexOf);
@@ -899,7 +905,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
                 writableSegment.limit += i5;
                 this.size += i5;
             } else if (charAt < 2048) {
-                writeByte((charAt >> 6) | 192);
+                writeByte((charAt >> 6) | DownloadConstants.STATUS_RUNNING);
                 writeByte((charAt & '?') | 128);
                 i3 = i + 1;
             } else if (charAt < 55296 || charAt > 57343) {
@@ -932,7 +938,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         if (i < 128) {
             writeByte(i);
         } else if (i < 2048) {
-            writeByte((i >> 6) | 192);
+            writeByte((i >> 6) | DownloadConstants.STATUS_RUNNING);
             writeByte((i & 63) | 128);
         } else if (i < 65536) {
             if (i >= 55296 && i <= 57343) {
@@ -1172,7 +1178,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
                 } else {
                     i = j2 < 1000 ? 3 : 4;
                 }
-            } else if (j2 < 1000000) {
+            } else if (j2 < TimeUtils.NANOS_PER_MS) {
                 i = j2 < 100000 ? 5 : 6;
             } else {
                 i = j2 < 10000000 ? 7 : 8;
@@ -1314,12 +1320,12 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
 
     @Override // okio.BufferedSource
     public long indexOf(byte b) {
-        return indexOf(b, 0L, Long.MAX_VALUE);
+        return indexOf(b, 0L, Format.OFFSET_SAMPLE_RELATIVE);
     }
 
     @Override // okio.BufferedSource
     public long indexOf(byte b, long j) {
-        return indexOf(b, j, Long.MAX_VALUE);
+        return indexOf(b, j, Format.OFFSET_SAMPLE_RELATIVE);
     }
 
     @Override // okio.BufferedSource
@@ -1757,7 +1763,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return unsafeCursor;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class UnsafeCursor implements Closeable {
         public Buffer buffer;
         public byte[] data;

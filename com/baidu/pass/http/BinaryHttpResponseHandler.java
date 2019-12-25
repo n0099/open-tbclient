@@ -2,14 +2,15 @@ package com.baidu.pass.http;
 
 import android.os.Looper;
 import android.util.Log;
+import com.baidu.android.util.media.MimeType;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class BinaryHttpResponseHandler extends HttpResponseHandler {
     private String[] a;
 
     public BinaryHttpResponseHandler(Looper looper) {
         super(looper);
-        this.a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
+        this.a = new String[]{MimeType.Image.PNG, MimeType.Image.JPEG, "image/jpg", "image/gif"};
     }
 
     public BinaryHttpResponseHandler(Looper looper, String[] strArr) {
@@ -18,7 +19,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler {
 
     public BinaryHttpResponseHandler(Looper looper, String[] strArr, boolean z) {
         super(looper);
-        this.a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
+        this.a = new String[]{MimeType.Image.PNG, MimeType.Image.JPEG, "image/jpg", "image/gif"};
         this.a = strArr;
         this.executCallbackInChildThread = z;
     }

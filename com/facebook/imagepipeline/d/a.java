@@ -2,43 +2,40 @@ package com.facebook.imagepipeline.d;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class a implements e {
-    private final Executor khm;
-    private final Executor khn;
-    private final Executor kho;
-    private final Executor khp;
+    private final Executor lNo;
+    private final Executor lNp;
+    private final Executor lNn = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
+    private final Executor lNq = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
 
     public a(int i) {
-        k kVar = new k(10);
-        this.khm = Executors.newFixedThreadPool(2);
-        this.khn = Executors.newFixedThreadPool(i, kVar);
-        this.kho = Executors.newFixedThreadPool(i, kVar);
-        this.khp = Executors.newFixedThreadPool(1, kVar);
+        this.lNo = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
+        this.lNp = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cGc() {
-        return this.khm;
+    public Executor dmg() {
+        return this.lNn;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cGd() {
-        return this.khm;
+    public Executor dmh() {
+        return this.lNn;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cGe() {
-        return this.khn;
+    public Executor dmi() {
+        return this.lNo;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cGf() {
-        return this.kho;
+    public Executor dmj() {
+        return this.lNp;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cGg() {
-        return this.khp;
+    public Executor dmk() {
+        return this.lNq;
     }
 }

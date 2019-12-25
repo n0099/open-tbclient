@@ -4,15 +4,15 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.sdk.a.g;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a implements CustomMessageTask.CustomRunnable {
     @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage customMessage) {
         if (customMessage != null && (customMessage.getData() instanceof String)) {
             String str = (String) customMessage.getData();
-            g chF = com.baidu.tieba.sdk.c.a.chz().chF();
-            if (chF != null) {
-                chF.zc(str);
+            g cBI = com.baidu.tieba.sdk.c.a.cBC().cBI();
+            if (cBI != null) {
+                cBI.DK(str);
                 return null;
             }
             return null;

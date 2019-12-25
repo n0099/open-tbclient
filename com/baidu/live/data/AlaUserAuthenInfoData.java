@@ -1,9 +1,10 @@
 package com.baidu.live.data;
 
+import com.baidu.fsg.base.restnet.beans.business.core.PayUtils;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaUserAuthenInfoData implements Serializable {
     public String bank_card;
     public String card_portrait;
@@ -20,7 +21,7 @@ public class AlaUserAuthenInfoData implements Serializable {
             this.real_name = jSONObject.optString("real_name");
             this.id_card_number = jSONObject.optString("id_card_number");
             this.bank_card = jSONObject.optString("bank_card");
-            this.phone_number = jSONObject.optString("phone_number");
+            this.phone_number = jSONObject.optString(PayUtils.KEY_PHONE_NUMBER);
             this.card_portrait = jSONObject.optString("card_portrait");
             this.card_portrait_back = jSONObject.optString("card_portrait_back");
             this.reason = jSONObject.optString(TiebaInitialize.LogFields.REASON);

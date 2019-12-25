@@ -33,20 +33,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BaiduStatJSInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface IWebviewPageLoadCallback {
         void onPageFinished(WebView webView, String str, bl blVar);
 
         void onPageStarted(WebView webView, String str, bl blVar);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class CustomWebViewClient extends WebViewClient {
         private WeakReference<Context> a;
         private WebViewClient b;
@@ -64,7 +63,7 @@ public class BaiduStatJSInterface {
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             String str2;
             try {
-                str2 = URLDecoder.decode(str, HTTP.UTF_8);
+                str2 = URLDecoder.decode(str, "UTF-8");
                 try {
                     if (!TextUtils.isEmpty(str2) && str2.startsWith("bmtj:")) {
                         a(str2.substring(5));
@@ -320,7 +319,7 @@ public class BaiduStatJSInterface {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class CustomWebChromeViewClient extends WebChromeClient {
         private WeakReference<Context> a;
         private WebChromeClient b;

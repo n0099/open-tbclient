@@ -4,7 +4,7 @@ import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.Iterator;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class SequencesKt___SequencesKt$flatMap$1 extends Lambda implements kotlin.jvm.a.b<c<? extends R>, Iterator<? extends R>> {
     public static final SequencesKt___SequencesKt$flatMap$1 INSTANCE = new SequencesKt___SequencesKt$flatMap$1();
 
@@ -17,7 +17,7 @@ final class SequencesKt___SequencesKt$flatMap$1 extends Lambda implements kotlin
     /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.jvm.a.b
     public final Iterator<R> invoke(c<? extends R> cVar) {
-        p.i(cVar, AdvanceSetting.NETWORK_TYPE);
+        p.j(cVar, AdvanceSetting.NETWORK_TYPE);
         return cVar.iterator();
     }
 }

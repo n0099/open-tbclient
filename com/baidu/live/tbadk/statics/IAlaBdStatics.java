@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.statics;
 
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface IAlaBdStatics {
     void onStatic(String str, String str2);
 

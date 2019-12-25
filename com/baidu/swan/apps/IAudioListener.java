@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface IAudioListener extends IInterface {
     void onCanPlay() throws RemoteException;
 
@@ -17,15 +17,23 @@ public interface IAudioListener extends IInterface {
 
     void onError(int i) throws RemoteException;
 
+    void onNext() throws RemoteException;
+
     void onPause() throws RemoteException;
 
     void onPlay() throws RemoteException;
+
+    void onPrev() throws RemoteException;
+
+    void onSeekEnd() throws RemoteException;
+
+    void onSeeking() throws RemoteException;
 
     void onStop() throws RemoteException;
 
     void onTimeUpdate(int i, int i2) throws RemoteException;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Stub extends Binder implements IAudioListener {
         private static final String DESCRIPTOR = "com.baidu.swan.apps.IAudioListener";
         static final int TRANSACTION_onCanPlay = 1;
@@ -33,8 +41,12 @@ public interface IAudioListener extends IInterface {
         static final int TRANSACTION_onDownloadProgress = 9;
         static final int TRANSACTION_onEnded = 5;
         static final int TRANSACTION_onError = 8;
+        static final int TRANSACTION_onNext = 11;
         static final int TRANSACTION_onPause = 3;
         static final int TRANSACTION_onPlay = 2;
+        static final int TRANSACTION_onPrev = 10;
+        static final int TRANSACTION_onSeekEnd = 13;
+        static final int TRANSACTION_onSeeking = 12;
         static final int TRANSACTION_onStop = 4;
         static final int TRANSACTION_onTimeUpdate = 7;
 
@@ -106,6 +118,26 @@ public interface IAudioListener extends IInterface {
                     onDownloadProgress(parcel.readInt());
                     parcel2.writeNoException();
                     return true;
+                case 10:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onPrev();
+                    parcel2.writeNoException();
+                    return true;
+                case 11:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onNext();
+                    parcel2.writeNoException();
+                    return true;
+                case 12:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onSeeking();
+                    parcel2.writeNoException();
+                    return true;
+                case 13:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onSeekEnd();
+                    parcel2.writeNoException();
+                    return true;
                 case 1598968902:
                     parcel2.writeString(DESCRIPTOR);
                     return true;
@@ -114,7 +146,7 @@ public interface IAudioListener extends IInterface {
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes9.dex */
         private static class Proxy implements IAudioListener {
             private IBinder mRemote;
 
@@ -255,6 +287,62 @@ public interface IAudioListener extends IInterface {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeInt(i);
                     this.mRemote.transact(9, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.swan.apps.IAudioListener
+            public void onPrev() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(10, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.swan.apps.IAudioListener
+            public void onNext() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(11, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.swan.apps.IAudioListener
+            public void onSeeking() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(12, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.swan.apps.IAudioListener
+            public void onSeekEnd() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(13, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

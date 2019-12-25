@@ -3,28 +3,28 @@ package com.baidu.tieba.pb.pb.main.view;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-/* loaded from: classes4.dex */
+import com.baidu.tieba.pb.pb.main.PbFragment;
+/* loaded from: classes6.dex */
 public class b {
-    public final View cNA;
-    private PbActivity hNh;
-    public final View hZv;
+    public final View dBy;
+    public final View iOJ;
+    private PbFragment iyA;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == b.this.cNA && b.this.hNh != null) {
-                b.this.hNh.finish();
+            if (view == b.this.dBy && b.this.iyA != null && b.this.iyA.getBaseFragmentActivity() != null) {
+                b.this.iyA.getBaseFragmentActivity().finish();
             }
         }
     };
     public final TextView mTitleView;
 
-    public b(PbActivity pbActivity) {
-        this.hNh = pbActivity;
-        this.cNA = this.hNh.findViewById(R.id.manga_navigation_bar_back);
-        this.mTitleView = (TextView) this.hNh.findViewById(R.id.manga_navigation_bar_title);
-        this.hZv = this.hNh.findViewById(R.id.manga_browser_navigation_bar);
-        this.cNA.setOnClickListener(this.mClickListener);
+    public b(PbFragment pbFragment) {
+        this.iyA = pbFragment;
+        this.dBy = this.iyA.getBaseFragmentActivity().findViewById(R.id.manga_navigation_bar_back);
+        this.mTitleView = (TextView) this.iyA.getBaseFragmentActivity().findViewById(R.id.manga_navigation_bar_title);
+        this.iOJ = this.iyA.getBaseFragmentActivity().findViewById(R.id.manga_browser_navigation_bar);
+        this.dBy.setOnClickListener(this.mClickListener);
     }
 
     public void setTitle(String str) {
@@ -32,6 +32,6 @@ public class b {
     }
 
     public void show() {
-        this.hZv.setVisibility(0);
+        this.iOJ.setVisibility(0);
     }
 }

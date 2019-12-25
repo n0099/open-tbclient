@@ -10,14 +10,14 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.data.Config;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c extends b {
     public c(Context context) {
         super(context);
@@ -109,7 +109,7 @@ public class c extends b {
         JSONObject jSONObject = new JSONObject();
         String a = PushSettings.a(context);
         String cuid = DeviceId.getCUID(context);
-        jSONObject.put("channel_id", a);
+        jSONObject.put(SharedPrefConfig.CHANNEL_ID, a);
         jSONObject.put("cuid", cuid);
         jSONObject.put("aksinfo", c);
         return com.baidu.android.pushservice.j.b.a(BaiduAppSSOJni.encryptR(jSONObject.toString().getBytes(), 2), "utf-8");
@@ -132,7 +132,7 @@ public class c extends b {
                     int i3 = 0;
                     while (i3 < length) {
                         JSONObject jSONObject2 = (JSONObject) jSONArray.get(i3);
-                        String string2 = jSONObject2.getString(Constants.PACKAGE_NAME);
+                        String string2 = jSONObject2.getString("package_name");
                         if (r.contains(string2)) {
                             String string3 = jSONObject2.getString(TableDefine.ZhiDaColumns.COLUMN_APIKEY);
                             if (!TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !l.x(this.a, string2)) {

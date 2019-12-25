@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class fo {
     public static int a(Throwable th) {
         Throwable a = (!(th instanceof fx) || ((fx) th).a() == null) ? th : ((fx) th).a();

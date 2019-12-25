@@ -2,12 +2,11 @@ package com.baidu.android.pushservice.message;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class j extends c {
     private Context b;
 
@@ -62,8 +61,8 @@ public class j extends c {
                 eVar2.a(bArr4);
                 try {
                     JSONObject jSONObject = new JSONObject(new String(bArr4));
-                    if (!jSONObject.isNull(Constants.PACKAGE_NAME)) {
-                        String string = jSONObject.getString(Constants.PACKAGE_NAME);
+                    if (!jSONObject.isNull("package_name")) {
+                        String string = jSONObject.getString("package_name");
                         if (!TextUtils.isEmpty(string)) {
                             kVar.b(string);
                         }

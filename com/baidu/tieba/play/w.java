@@ -1,13 +1,70 @@
 package com.baidu.tieba.play;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.animation.ObjectAnimator;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.play.VideoLoadingProgressView;
 /* loaded from: classes.dex */
 public class w {
-    public static void a(String str, String str2, boolean z, int i, int i2) {
-        com.baidu.tbadk.core.e.a.a("video", -1L, -1, str, 0, "", "account", TbadkCoreApplication.getCurrentAccount(), "origin_url", str2, "is_use_cache", String.valueOf(z ? 1 : 0), "video_size", String.valueOf(i), "video_duration", String.valueOf(i2));
+    private ViewGroup jrJ;
+    private ImageView jrK;
+    private VideoLoadingProgressView jrL;
+    ObjectAnimator jrM;
+    ObjectAnimator jrN;
+    ObjectAnimator jrO;
+
+    public w(ViewGroup viewGroup) {
+        this.jrJ = viewGroup;
+        this.jrK = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
+        this.jrL = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
+        init();
     }
 
-    public static void v(String str, int i, int i2) {
-        com.baidu.tbadk.core.e.a.a("video", -1L, -1, "cache_download", 0, "", "account", TbadkCoreApplication.getCurrentAccount(), "origin_url", str, "current_get_size", String.valueOf(i), "video_size", String.valueOf(i2));
+    private void init() {
+        this.jrM = ObjectAnimator.ofFloat(this.jrK, "alpha", 1.0f, 0.5f);
+        this.jrN = ObjectAnimator.ofFloat(this.jrK, "alpha", 0.5f, 0.0f);
+        this.jrO = ObjectAnimator.ofFloat(this.jrL, "alpha", 1.0f, 0.0f);
+        this.jrM.setDuration(50L);
+        this.jrN.setDuration(50L);
+        this.jrO.setDuration(50L);
+    }
+
+    public void startLoading() {
+        cancelAnimator();
+        this.jrK.setAlpha(1.0f);
+        this.jrL.setAlpha(1.0f);
+        this.jrJ.setVisibility(0);
+        this.jrL.startLoading();
+        this.jrM.start();
+    }
+
+    public void cwI() {
+        cancelAnimator();
+        this.jrL.cwI();
+    }
+
+    public void cwJ() {
+        cancelAnimator();
+        this.jrN.start();
+        this.jrO.start();
+    }
+
+    public void cwK() {
+        cancelAnimator();
+        this.jrJ.setVisibility(8);
+        this.jrL.cwK();
+    }
+
+    private void cancelAnimator() {
+        this.jrM.cancel();
+        this.jrN.cancel();
+        this.jrO.cancel();
+    }
+
+    public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
+        if (this.jrL != null) {
+            this.jrL.setLoadingAnimationListener(aVar);
+        }
     }
 }

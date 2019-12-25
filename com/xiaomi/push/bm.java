@@ -4,7 +4,7 @@ import android.content.Context;
 import com.xiaomi.push.ai;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class bm extends ai.a {
     final /* synthetic */ bk a;
 
@@ -15,7 +15,7 @@ public class bm extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo140a() {
+    public int mo143a() {
         return 10054;
     }
 
@@ -26,9 +26,9 @@ public class bm extends ai.a {
         Context context2;
         com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
         c = this.a.c();
-        context = this.a.f148a;
+        context = this.a.f153a;
         bp bpVar = new bp(c, new WeakReference(context));
-        context2 = this.a.f148a;
+        context2 = this.a.f153a;
         bw.a(context2).a(bpVar);
         this.a.b("check_time");
     }

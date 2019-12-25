@@ -3,7 +3,6 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.xiaomi.push.ai;
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,20 +11,20 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ec extends ai.a {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f246a;
+    private SharedPreferences f251a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.push.service.ag f247a;
+    private com.xiaomi.push.service.ag f252a;
 
     public ec(Context context) {
         this.a = context;
-        this.f246a = context.getSharedPreferences("mipush_extra", 0);
-        this.f247a = com.xiaomi.push.service.ag.a(context);
+        this.f251a = context.getSharedPreferences("mipush_extra", 0);
+        this.f252a = com.xiaomi.push.service.ag.a(context);
     }
 
     private List<ho> a(File file) {
@@ -38,8 +37,8 @@ public class ec extends ai.a {
         r1 = null;
         fileInputStream2 = null;
         FileLock fileLock2 = null;
-        dk m206a = dl.a().m206a();
-        String a = m206a == null ? "" : m206a.a();
+        dk m209a = dl.a().m209a();
+        String a = m209a == null ? "" : m209a.a();
         if (TextUtils.isEmpty(a)) {
             return null;
         }
@@ -48,7 +47,7 @@ public class ec extends ai.a {
         synchronized (dq.a) {
             try {
                 File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m551a(file2);
+                y.m554a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -129,13 +128,13 @@ public class ec extends ai.a {
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f246a.edit();
+        SharedPreferences.Editor edit = this.f251a.edit();
         edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m211a() {
+    private boolean m214a() {
         if (as.d(this.a)) {
             return false;
         }
@@ -146,22 +145,22 @@ public class ec extends ai.a {
     }
 
     private boolean b() {
-        if (this.f247a.a(hl.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f246a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f247a.a(hl.Upload3GFrequency.a(), 432000)));
+        if (this.f252a.a(hl.Upload3GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f251a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f252a.a(hl.Upload3GFrequency.a(), 432000)));
         }
         return false;
     }
 
     private boolean c() {
-        if (this.f247a.a(hl.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f246a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f247a.a(hl.Upload4GFrequency.a(), 259200)));
+        if (this.f252a.a(hl.Upload4GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f251a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f252a.a(hl.Upload4GFrequency.a(), 259200)));
         }
         return false;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo140a() {
+    public int mo143a() {
         return 1;
     }
 
@@ -172,7 +171,7 @@ public class ec extends ai.a {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (m211a() || !file.exists()) {
+        } else if (m214a() || !file.exists()) {
         } else {
             List<ho> a = a(file);
             if (!ad.a(a)) {
@@ -183,17 +182,17 @@ public class ec extends ai.a {
                 hz hzVar = new hz();
                 hzVar.a(a);
                 byte[] a2 = y.a(iq.a(hzVar));
-                Cif cif = new Cif(LivenessStat.TYPE_STRING_DEFAULT, false);
-                cif.c(hq.DataCollection.f489a);
+                Cif cif = new Cif("-1", false);
+                cif.c(hq.DataCollection.f494a);
                 cif.a(a2);
-                dk m206a = dl.a().m206a();
-                if (m206a != null) {
-                    m206a.a(cif, hg.Notification, null);
+                dk m209a = dl.a().m209a();
+                if (m209a != null) {
+                    m209a.a(cif, hg.Notification, null);
                 }
                 a();
             }
             file.delete();
-            this.f246a.edit().remove("ltapn").commit();
+            this.f251a.edit().remove("ltapn").commit();
         }
     }
 }

@@ -1,14 +1,17 @@
 package com.baidu.swan.pms.model;
-
-import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class h extends e {
-    public String appId;
-    public boolean bLn;
-    public String pkgName;
+    public String appKey;
+    public String appName;
+    public String domains;
+    public long maxAge;
+    public String token;
 
-    @Override // com.baidu.swan.pms.model.e
-    public boolean abf() {
-        return super.abf() && !TextUtils.isEmpty(this.pkgName);
+    public long ara() {
+        return System.currentTimeMillis() / 1000;
+    }
+
+    public boolean arb() {
+        return ara() - this.updateTime > this.maxAge;
     }
 }

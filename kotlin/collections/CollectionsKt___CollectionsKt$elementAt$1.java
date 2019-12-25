@@ -1,8 +1,7 @@
 package kotlin.collections;
 
-import com.baidu.live.adp.lib.util.BdFileHelper;
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class CollectionsKt___CollectionsKt$elementAt$1 extends Lambda implements kotlin.jvm.a.b {
     final /* synthetic */ int $index;
 
@@ -18,6 +17,6 @@ final class CollectionsKt___CollectionsKt$elementAt$1 extends Lambda implements 
     }
 
     public final Void invoke(int i) {
-        throw new IndexOutOfBoundsException("Collection doesn't contain element at index " + this.$index + BdFileHelper.EXTENSION_SEPARATOR);
+        throw new IndexOutOfBoundsException("Collection doesn't contain element at index " + this.$index + '.');
     }
 }

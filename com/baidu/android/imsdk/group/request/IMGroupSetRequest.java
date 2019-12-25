@@ -17,7 +17,7 @@ import com.baidu.android.pushservice.PushConstants;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMGroupSetRequest extends IMUserBaseHttpRequest {
     private long mAppid;
     private int mDisturb;

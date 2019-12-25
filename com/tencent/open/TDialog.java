@@ -17,6 +17,8 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
+import com.baidu.swan.apps.core.container.NgWebView;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.a;
@@ -28,7 +30,7 @@ import com.tencent.tauth.UiError;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class TDialog extends b {
     static final FrameLayout.LayoutParams c = new FrameLayout.LayoutParams(-1, -1);
     static Toast d = null;
@@ -43,7 +45,7 @@ public class TDialog extends b {
     private boolean m;
     private QQToken n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     private class THandler extends Handler {
         private OnTimeListener b;
 
@@ -81,7 +83,7 @@ public class TDialog extends b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     private static class OnTimeListener implements IUiListener {
         String a;
         String b;
@@ -204,7 +206,7 @@ public class TDialog extends b {
             settings.setJavaScriptEnabled(true);
             if (this.e != null && this.e.get() != null) {
                 settings.setDatabaseEnabled(true);
-                settings.setDatabasePath(this.e.get().getApplicationContext().getDir("databases", 0).getPath());
+                settings.setDatabasePath(this.e.get().getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
             }
             settings.setDomStorageEnabled(true);
             this.a.a(new JsListener(), "sdk_js_if");
@@ -216,7 +218,7 @@ public class TDialog extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class JsListener extends a.b {
         private JsListener() {
         }
@@ -232,7 +234,7 @@ public class TDialog extends b {
 
         public void onCancelAddShare(String str) {
             f.e("openSDK_LOG.TDialog", "JsListener onCancelAddShare" + str);
-            onCancel("cancel");
+            onCancel(UgcUBCUtils.UGC_TIME_CANCEL);
         }
 
         public void onCancelLogin() {
@@ -266,7 +268,7 @@ public class TDialog extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class FbWebViewClient extends WebViewClient {
         private FbWebViewClient() {
         }

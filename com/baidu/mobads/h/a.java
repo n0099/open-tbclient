@@ -19,11 +19,12 @@ import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
+import com.baidu.webkit.internal.ETAG;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static Method d = null;
     private static Method e = null;
@@ -34,7 +35,7 @@ public class a {
     private TelephonyManager b;
     private WifiManager h;
     private String m;
-    private C0104a c = new C0104a();
+    private C0120a c = new C0120a();
     private b i = null;
     private long j = 0;
     private String k = null;
@@ -54,7 +55,7 @@ public class a {
         } catch (Exception e2) {
             str = null;
         }
-        this.m = "&" + packageName + "&" + str;
+        this.m = ETAG.ITEM_SEPARATOR + packageName + ETAG.ITEM_SEPARATOR + str;
         this.h = (WifiManager) this.a.getSystemService("wifi");
     }
 
@@ -73,7 +74,7 @@ public class a {
             i = 3;
         }
         try {
-            C0104a b2 = b();
+            C0120a b2 = b();
             if (b2 == null || !b2.b()) {
                 a(this.b.getCellLocation());
             } else {
@@ -106,7 +107,7 @@ public class a {
     private void a(CellLocation cellLocation) {
         int i = 0;
         if (cellLocation != null && this.b != null) {
-            C0104a c0104a = new C0104a();
+            C0120a c0120a = new C0120a();
             String networkOperator = this.b.getNetworkOperator();
             if (networkOperator != null && networkOperator.length() > 0) {
                 try {
@@ -115,7 +116,7 @@ public class a {
                         if (intValue < 0) {
                             intValue = this.c.c;
                         }
-                        c0104a.c = intValue;
+                        c0120a.c = intValue;
                     }
                     String substring = networkOperator.substring(3);
                     if (substring != null) {
@@ -128,16 +129,16 @@ public class a {
                     if (intValue2 < 0) {
                         intValue2 = this.c.d;
                     }
-                    c0104a.d = intValue2;
+                    c0120a.d = intValue2;
                 } catch (Exception e2) {
                 }
             }
             if (cellLocation instanceof GsmCellLocation) {
-                c0104a.a = ((GsmCellLocation) cellLocation).getLac();
-                c0104a.b = ((GsmCellLocation) cellLocation).getCid();
-                c0104a.e = 'g';
+                c0120a.a = ((GsmCellLocation) cellLocation).getLac();
+                c0120a.b = ((GsmCellLocation) cellLocation).getCid();
+                c0120a.e = 'g';
             } else if (cellLocation instanceof CdmaCellLocation) {
-                c0104a.e = 'w';
+                c0120a.e = 'w';
                 if (g == null) {
                     try {
                         g = Class.forName("android.telephony.cdma.CdmaCellLocation");
@@ -155,21 +156,21 @@ public class a {
                         if (intValue3 < 0) {
                             intValue3 = this.c.d;
                         }
-                        c0104a.d = intValue3;
-                        c0104a.b = ((Integer) d.invoke(cellLocation, new Object[0])).intValue();
-                        c0104a.a = ((Integer) e.invoke(cellLocation, new Object[0])).intValue();
+                        c0120a.d = intValue3;
+                        c0120a.b = ((Integer) d.invoke(cellLocation, new Object[0])).intValue();
+                        c0120a.a = ((Integer) e.invoke(cellLocation, new Object[0])).intValue();
                     } catch (Exception e4) {
                         return;
                     }
                 }
             }
-            if (c0104a.b()) {
-                this.c = c0104a;
+            if (c0120a.b()) {
+                this.c = c0120a;
             }
         }
     }
 
-    private C0104a b() {
+    private C0120a b() {
         if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return null;
         }
@@ -179,11 +180,11 @@ public class a {
                 if (allCellInfo == null || allCellInfo.size() <= 0) {
                     return null;
                 }
-                C0104a c0104a = null;
+                C0120a c0120a = null;
                 for (CellInfo cellInfo : allCellInfo) {
                     try {
                         if (cellInfo.isRegistered()) {
-                            C0104a a = a(cellInfo);
+                            C0120a a = a(cellInfo);
                             if (a != null) {
                                 try {
                                     if (!a.b()) {
@@ -194,13 +195,13 @@ public class a {
                                     return a;
                                 }
                             }
-                            c0104a = a;
+                            c0120a = a;
                         }
                     } catch (Exception e3) {
-                        return c0104a;
+                        return c0120a;
                     }
                 }
-                return c0104a;
+                return c0120a;
             } catch (NoSuchMethodError e4) {
                 return null;
             }
@@ -209,51 +210,51 @@ public class a {
         }
     }
 
-    private C0104a a(CellInfo cellInfo) {
+    private C0120a a(CellInfo cellInfo) {
         int intValue = Integer.valueOf(Build.VERSION.SDK_INT).intValue();
         if (intValue < 17) {
             return null;
         }
-        C0104a c0104a = new C0104a();
+        C0120a c0120a = new C0120a();
         boolean z = false;
         if (cellInfo instanceof CellInfoGsm) {
             CellIdentityGsm cellIdentity = ((CellInfoGsm) cellInfo).getCellIdentity();
-            c0104a.c = b(cellIdentity.getMcc());
-            c0104a.d = b(cellIdentity.getMnc());
-            c0104a.a = b(cellIdentity.getLac());
-            c0104a.b = b(cellIdentity.getCid());
-            c0104a.e = 'g';
+            c0120a.c = b(cellIdentity.getMcc());
+            c0120a.d = b(cellIdentity.getMnc());
+            c0120a.a = b(cellIdentity.getLac());
+            c0120a.b = b(cellIdentity.getCid());
+            c0120a.e = 'g';
             z = true;
         } else if (cellInfo instanceof CellInfoCdma) {
             CellIdentityCdma cellIdentity2 = ((CellInfoCdma) cellInfo).getCellIdentity();
-            c0104a.d = b(cellIdentity2.getSystemId());
-            c0104a.a = b(cellIdentity2.getNetworkId());
-            c0104a.b = b(cellIdentity2.getBasestationId());
-            c0104a.e = 'w';
+            c0120a.d = b(cellIdentity2.getSystemId());
+            c0120a.a = b(cellIdentity2.getNetworkId());
+            c0120a.b = b(cellIdentity2.getBasestationId());
+            c0120a.e = 'w';
             z = true;
         } else if (cellInfo instanceof CellInfoLte) {
             CellIdentityLte cellIdentity3 = ((CellInfoLte) cellInfo).getCellIdentity();
-            c0104a.c = b(cellIdentity3.getMcc());
-            c0104a.d = b(cellIdentity3.getMnc());
-            c0104a.a = b(cellIdentity3.getTac());
-            c0104a.b = b(cellIdentity3.getCi());
-            c0104a.e = 'g';
+            c0120a.c = b(cellIdentity3.getMcc());
+            c0120a.d = b(cellIdentity3.getMnc());
+            c0120a.a = b(cellIdentity3.getTac());
+            c0120a.b = b(cellIdentity3.getCi());
+            c0120a.e = 'g';
             z = true;
         }
         if (intValue >= 18 && !z) {
             try {
                 if (cellInfo instanceof CellInfoWcdma) {
                     CellIdentityWcdma cellIdentity4 = ((CellInfoWcdma) cellInfo).getCellIdentity();
-                    c0104a.c = b(cellIdentity4.getMcc());
-                    c0104a.d = b(cellIdentity4.getMnc());
-                    c0104a.a = b(cellIdentity4.getLac());
-                    c0104a.b = b(cellIdentity4.getCid());
-                    c0104a.e = 'g';
+                    c0120a.c = b(cellIdentity4.getMcc());
+                    c0120a.d = b(cellIdentity4.getMnc());
+                    c0120a.a = b(cellIdentity4.getLac());
+                    c0120a.b = b(cellIdentity4.getCid());
+                    c0120a.e = 'g';
                 }
             } catch (Exception e2) {
             }
         }
-        return c0104a;
+        return c0120a;
     }
 
     private int b(int i) {
@@ -265,15 +266,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mobads.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C0104a {
+    /* loaded from: classes7.dex */
+    public class C0120a {
         public int a;
         public int b;
         public int c;
         public int d;
         public char e;
 
-        private C0104a() {
+        private C0120a() {
             this.a = -1;
             this.b = -1;
             this.c = -1;
@@ -302,7 +303,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b {
         public List<ScanResult> a;
         private long c;

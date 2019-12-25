@@ -6,15 +6,15 @@ import android.support.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class FocusStrategy {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface BoundsAdapter<T> {
         void obtainBounds(T t, Rect rect);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface CollectionAdapter<T, V> {
         V get(T t, int i);
 
@@ -65,7 +65,7 @@ class FocusStrategy {
         return null;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class SequentialComparator<T> implements Comparator<T> {
         private final BoundsAdapter<T> mAdapter;
         private final boolean mIsLayoutRtl;

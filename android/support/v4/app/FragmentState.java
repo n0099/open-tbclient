@@ -1,12 +1,13 @@
 package android.support.v4.app;
 
+import android.arch.lifecycle.z;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class FragmentState implements Parcelable {
     public static final Parcelable.Creator<FragmentState> CREATOR = new Parcelable.Creator<FragmentState>() { // from class: android.support.v4.app.FragmentState.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,6 +37,7 @@ public final class FragmentState implements Parcelable {
     Bundle mSavedFragmentState;
     final String mTag;
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public FragmentState(Fragment fragment) {
         this.mClassName = fragment.getClass().getName();
         this.mIndex = fragment.mIndex;
@@ -49,7 +51,7 @@ public final class FragmentState implements Parcelable {
         this.mHidden = fragment.mHidden;
     }
 
-    public FragmentState(Parcel parcel) {
+    FragmentState(Parcel parcel) {
         this.mClassName = parcel.readString();
         this.mIndex = parcel.readInt();
         this.mFromLayout = parcel.readInt() != 0;
@@ -63,7 +65,7 @@ public final class FragmentState implements Parcelable {
         this.mSavedFragmentState = parcel.readBundle();
     }
 
-    public Fragment instantiate(FragmentHostCallback fragmentHostCallback, FragmentContainer fragmentContainer, Fragment fragment, FragmentManagerNonConfig fragmentManagerNonConfig) {
+    public Fragment instantiate(FragmentHostCallback fragmentHostCallback, FragmentContainer fragmentContainer, Fragment fragment, FragmentManagerNonConfig fragmentManagerNonConfig, z zVar) {
         if (this.mInstance == null) {
             Context context = fragmentHostCallback.getContext();
             if (this.mArguments != null) {
@@ -93,6 +95,7 @@ public final class FragmentState implements Parcelable {
             }
         }
         this.mInstance.mChildNonConfig = fragmentManagerNonConfig;
+        this.mInstance.mViewModelStore = zVar;
         return this.mInstance;
     }
 

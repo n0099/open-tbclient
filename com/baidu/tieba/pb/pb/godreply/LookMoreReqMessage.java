@@ -4,11 +4,11 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LookMoreReqMessage extends NetMessage {
     public int is_comm_reverse;
     public Long kz;
@@ -61,7 +61,7 @@ public class LookMoreReqMessage extends NetMessage {
             builder.st_type = Integer.valueOf(this.st_type);
             builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
             if (z) {
-                r.a(builder, true);
+                t.a(builder, true);
             }
             GetPostListReqIdl.Builder builder2 = new GetPostListReqIdl.Builder();
             builder2.data = builder.build(false);

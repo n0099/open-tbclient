@@ -35,11 +35,11 @@ import android.util.Xml;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Stack;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class VectorDrawableCompat extends VectorDrawableCommon {
     private static final boolean DBG_VECTOR_DRAWABLE = false;
     static final PorterDuff.Mode DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
@@ -461,10 +461,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             case 15:
                 return PorterDuff.Mode.SCREEN;
             case 16:
-                if (Build.VERSION.SDK_INT >= 11) {
-                    return PorterDuff.Mode.ADD;
-                }
-                return mode;
+                return PorterDuff.Mode.ADD;
         }
     }
 
@@ -505,15 +502,15 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         boolean z;
         VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
         VPathRenderer vPathRenderer = vectorDrawableCompatState.mVPathRenderer;
-        Stack stack = new Stack();
-        stack.push(vPathRenderer.mRootGroup);
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.push(vPathRenderer.mRootGroup);
         int eventType = xmlPullParser.getEventType();
         int depth = xmlPullParser.getDepth() + 1;
         boolean z2 = true;
         while (eventType != 1 && (xmlPullParser.getDepth() >= depth || eventType != 3)) {
             if (eventType == 2) {
                 String name = xmlPullParser.getName();
-                VGroup vGroup = (VGroup) stack.peek();
+                VGroup vGroup = (VGroup) arrayDeque.peek();
                 if ("path".equals(name)) {
                     VFullPath vFullPath = new VFullPath();
                     vFullPath.inflate(resources, attributeSet, theme, xmlPullParser);
@@ -537,7 +534,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                         VGroup vGroup2 = new VGroup();
                         vGroup2.inflate(resources, attributeSet, theme, xmlPullParser);
                         vGroup.mChildren.add(vGroup2);
-                        stack.push(vGroup2);
+                        arrayDeque.push(vGroup2);
                         if (vGroup2.getGroupName() != null) {
                             vPathRenderer.mVGTargetsMap.put(vGroup2.getGroupName(), vGroup2);
                         }
@@ -547,17 +544,12 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 }
                 z2 = z;
             } else if (eventType == 3 && "group".equals(xmlPullParser.getName())) {
-                stack.pop();
+                arrayDeque.pop();
             }
             eventType = xmlPullParser.next();
         }
         if (z2) {
-            StringBuffer stringBuffer = new StringBuffer();
-            if (stringBuffer.length() > 0) {
-                stringBuffer.append(" or ");
-            }
-            stringBuffer.append("path");
-            throw new XmlPullParserException("no " + ((Object) stringBuffer) + " defined");
+            throw new XmlPullParserException("no path defined");
         }
     }
 
@@ -643,7 +635,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(24)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class VectorDrawableDelegateState extends Drawable.ConstantState {
         private final Drawable.ConstantState mDelegateState;
 
@@ -684,7 +676,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class VectorDrawableCompatState extends Drawable.ConstantState {
         boolean mAutoMirrored;
         boolean mCacheDirty;
@@ -790,7 +782,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class VPathRenderer {
         private static final Matrix IDENTITY_MATRIX = new Matrix();
         float mBaseHeight;
@@ -981,7 +973,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class VGroup {
         int mChangingConfigurations;
         final ArrayList<Object> mChildren;
@@ -1186,7 +1178,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class VPath {
         int mChangingConfigurations;
         protected PathParser.PathDataNode[] mNodes;
@@ -1259,7 +1251,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class VClipPath extends VPath {
         public VClipPath() {
         }
@@ -1294,8 +1286,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class VFullPath extends VPath {
+        private static final int FILL_TYPE_WINDING = 0;
         float mFillAlpha;
         int mFillColor;
         int mFillRule;

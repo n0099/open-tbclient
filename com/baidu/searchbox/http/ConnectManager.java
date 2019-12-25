@@ -4,10 +4,10 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
-import com.baidu.live.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
-/* loaded from: classes2.dex */
+import com.baidu.webkit.net.BdNetEngine;
+/* loaded from: classes11.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
     private static final String TAG = "ConnectManager";
@@ -45,13 +45,13 @@ public class ConnectManager {
             if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                 this.mUseWap = true;
                 this.mApn = lowerCase;
-                this.mProxy = "10.0.0.172";
+                this.mProxy = BdNetEngine.URI_PROXY_CMWAP;
                 this.mPort = 80;
                 return;
             } else if (lowerCase.startsWith("ctwap")) {
                 this.mUseWap = true;
                 this.mApn = lowerCase;
-                this.mProxy = "10.0.0.200";
+                this.mProxy = BdNetEngine.URI_PROXY_CTWAP;
                 this.mPort = 80;
                 return;
             } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
@@ -64,11 +64,11 @@ public class ConnectManager {
         int defaultPort = Proxy.getDefaultPort();
         if (defaultHost != null && defaultHost.length() > 0) {
             this.mProxy = defaultHost;
-            if ("10.0.0.172".equals(this.mProxy.trim())) {
+            if (BdNetEngine.URI_PROXY_CMWAP.equals(this.mProxy.trim())) {
                 this.mUseWap = true;
                 this.mPort = 80;
                 return;
-            } else if ("10.0.0.200".equals(this.mProxy.trim())) {
+            } else if (BdNetEngine.URI_PROXY_CTWAP.equals(this.mProxy.trim())) {
                 this.mUseWap = true;
                 this.mPort = 80;
                 return;
@@ -132,14 +132,14 @@ public class ConnectManager {
     public static String getNetworkInfo(Context context) {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return "no";
+            return NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED;
         }
         if (activeNetworkInfo.getType() == 1) {
             return "wifi";
         }
         if (activeNetworkInfo.getType() == 0) {
             int subtype = activeNetworkInfo.getSubtype();
-            String lowerCase = activeNetworkInfo.getExtraInfo() == null ? IXAdSystemUtils.NT_NONE : activeNetworkInfo.getExtraInfo().toLowerCase();
+            String lowerCase = activeNetworkInfo.getExtraInfo() == null ? "none" : activeNetworkInfo.getExtraInfo().toLowerCase();
             StringBuilder sb = new StringBuilder();
             String subtypeName = activeNetworkInfo.getSubtypeName();
             switch (subtype) {
@@ -148,7 +148,7 @@ public class ConnectManager {
                 case 4:
                 case 7:
                 case 11:
-                    sb.append(BdNetTypeUtil.NET_TYPENAME_2G);
+                    sb.append("2g");
                     break;
                 case 3:
                 case 5:
@@ -159,10 +159,10 @@ public class ConnectManager {
                 case 12:
                 case 14:
                 case 15:
-                    sb.append(BdNetTypeUtil.NET_TYPENAME_3G);
+                    sb.append("3g");
                     break;
                 case 13:
-                    sb.append(BdNetTypeUtil.NET_TYPENAME_4G);
+                    sb.append("4g");
                     break;
                 default:
                     sb.append(activeNetworkInfo.getTypeName());

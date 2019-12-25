@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
+import com.baidu.android.util.time.DateTimeUtil;
 import com.meizu.cloud.pushsdk.NotificationService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
@@ -18,12 +19,11 @@ import com.meizu.cloud.pushsdk.notification.model.styleenum.BaseStyleModel;
 import com.meizu.cloud.pushsdk.notification.model.styleenum.InnerStyleLayout;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c extends a<MessageV3> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -35,7 +35,7 @@ public class c extends a<MessageV3> {
             return null;
         }
         try {
-            return new JSONObject(selfDefineContentString).getString(Constants.PACKAGE_NAME);
+            return new JSONObject(selfDefineContentString).getString("package_name");
         } catch (JSONException e) {
             com.meizu.cloud.a.a.e("AbstractMessageHandler", "no quick json message");
             return null;
@@ -198,7 +198,7 @@ public class c extends a<MessageV3> {
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SCHEDULE_NOTIFICATION);
         PendingIntent service = PendingIntent.getService(c(), 0, intent, MinSdkChecker.isSupportSetDrawableSmallIcon() ? 67108864 : 1073741824);
         String startShowTime = messageV3.getmTimeDisplaySetting().getStartShowTime();
-        String format = TextUtils.isEmpty(startShowTime) ? null : new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(Long.valueOf(startShowTime).longValue()));
+        String format = TextUtils.isEmpty(startShowTime) ? null : new SimpleDateFormat(DateTimeUtil.TIME_FORMAT).format(new Date(Long.valueOf(startShowTime).longValue()));
         long longValue = Long.valueOf(startShowTime).longValue() - System.currentTimeMillis();
         com.meizu.cloud.a.a.i("AbstractMessageHandler", "after " + (longValue / 1000) + " seconds Notification AlarmManager execute At " + format);
         if (Build.VERSION.SDK_INT < 19) {

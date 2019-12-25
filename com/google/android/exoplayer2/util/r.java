@@ -1,0 +1,10 @@
+package com.google.android.exoplayer2.util;
+
+import android.os.SystemClock;
+/* loaded from: classes4.dex */
+final class r implements b {
+    @Override // com.google.android.exoplayer2.util.b
+    public long dwM() {
+        return SystemClock.elapsedRealtime();
+    }
+}

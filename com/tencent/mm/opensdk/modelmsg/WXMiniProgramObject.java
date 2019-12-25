@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class WXMiniProgramObject implements WXMediaMessage.IMediaObject {
     public static final int MINIPROGRAM_TYPE_PREVIEW = 2;
     public static final int MINIPROGRAM_TYPE_TEST = 1;
@@ -18,10 +18,10 @@ public class WXMiniProgramObject implements WXMediaMessage.IMediaObject {
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if (d.b(this.webpageUrl)) {
+        if (d.a(this.webpageUrl)) {
             Log.e(TAG, "webPageUrl is null");
             return false;
-        } else if (d.b(this.userName)) {
+        } else if (d.a(this.userName)) {
             Log.e(TAG, "userName is null");
             return false;
         } else if (this.miniprogramType < 0 || this.miniprogramType > 2) {

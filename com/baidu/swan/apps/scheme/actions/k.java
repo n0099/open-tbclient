@@ -1,44 +1,63 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.storage.PathType;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class k extends z {
-    private com.baidu.swan.apps.b.c.c blz;
-
+/* loaded from: classes9.dex */
+public class k extends ab {
     public k(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/getSlaveIdSync");
+        super(jVar, "/swanAPI/getLocalImgData");
     }
 
-    public void f(com.baidu.swan.apps.b.c.c cVar) {
-        this.blz = cVar;
-    }
-
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (DEBUG) {
-            Log.d("GetSlaveIdSyncAction", "handle entity: " + unitedSchemeEntity.toString());
-        }
-        if (this.blz == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (eVar == null) {
+            com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "illegal swanApp");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("slaveId", this.blz.Cu());
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            return true;
-        } catch (JSONException e) {
-            if (DEBUG) {
-                Log.d("GetSlaveIdSyncAction", Log.getStackTraceString(e));
+        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+        if (optParamsAsJo == null) {
+            com.baidu.swan.apps.console.c.e("SwanAppAction", "illegal params");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        }
+        String optString = optParamsAsJo.optString("filePath");
+        if (TextUtils.isEmpty(optString)) {
+            com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "GetLocalImgDataAction bdfile path null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        } else if (com.baidu.swan.apps.storage.b.lI(optString) != PathType.BD_FILE) {
+            com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "invalid path : " + optString);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND, com.baidu.swan.apps.scheme.f.getErrMessage(UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND));
+            return false;
+        } else {
+            String bf = com.baidu.swan.apps.storage.b.bf(optString, eVar.id);
+            if (TextUtils.isEmpty(bf)) {
+                com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "GetLocalImgDataAction realPath null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("filePath", bf);
+                com.baidu.swan.apps.console.c.i("GetLocalImgDataAction", "getLocalImgData success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
+            } catch (JSONException e) {
+                com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "getLocalImgData failed");
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
         }
     }
 }

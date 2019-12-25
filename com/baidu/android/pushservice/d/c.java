@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.d;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class c extends a {
     public c(l lVar, Context context) {
         super(lVar, context);

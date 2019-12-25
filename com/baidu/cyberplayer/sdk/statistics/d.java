@@ -16,7 +16,6 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class d {
     private static d a;
@@ -223,7 +222,7 @@ public class d {
         int i = 1;
         try {
             FileInputStream fileInputStream = new FileInputStream(str);
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, HTTP.UTF_8);
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             z = true;
             while (true) {

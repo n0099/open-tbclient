@@ -1,10 +1,10 @@
 package com.baidu.android.imsdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class R {
     private R() {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class drawable {
         public static int ic_launcher = com.baidu.tieba.R.dimen.pass_liveness_face_round_height;
 
@@ -12,7 +12,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class string {
         public static int app_name = 2132082689;
 

@@ -5,18 +5,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class e {
-    public TbPageContext ceu;
-    protected final String iNr;
-    protected com.baidu.tieba.recapp.report.b iNs;
-    protected AdvertAppInfo iNt;
-    protected com.baidu.tieba.lego.card.b.b iNu;
+    public TbPageContext cQU;
+    protected final String jHF;
+    protected com.baidu.tieba.recapp.report.b jHG;
+    protected AdvertAppInfo jHH;
+    protected com.baidu.tieba.lego.card.b.b jHI;
     protected final View mRootView;
 
     public e(View view, String str) {
         this.mRootView = view;
-        this.iNr = str;
+        this.jHF = str;
     }
 
     public void a(AdCard.f fVar) {
@@ -26,32 +26,32 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final <T> T yv(int i) {
+    public final <T> T AR(int i) {
         return (T) this.mRootView.findViewById(i);
     }
 
-    public void cgN() {
+    public void cAQ() {
         this.mRootView.setVisibility(0);
-        if (this.iNs != null) {
-            this.iNs.yo(303);
-            com.baidu.tieba.recapp.report.c.cgG().a(this.iNs);
+        if (this.jHG != null) {
+            this.jHG.AK(303);
+            com.baidu.tieba.recapp.report.c.cAJ().a(this.jHG);
         }
     }
 
-    public void cgO() {
+    public void cAR() {
         this.mRootView.setVisibility(8);
     }
 
     public void e(com.baidu.tieba.recapp.report.b bVar) {
-        this.iNs = bVar;
+        this.jHG = bVar;
     }
 
     public void c(com.baidu.tieba.lego.card.b.b bVar) {
-        this.iNu = bVar;
+        this.jHI = bVar;
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
-        this.ceu = tbPageContext;
+        this.cQU = tbPageContext;
     }
 
     public void setDownloadAppCallback(com.baidu.tieba.lego.card.c cVar) {
@@ -60,10 +60,10 @@ public class e {
     public void setTimeoutListener(CountDownTextView.b bVar) {
     }
 
-    public void qg(boolean z) {
+    public void rP(boolean z) {
     }
 
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
-        this.iNt = advertAppInfo;
+        this.jHH = advertAppInfo;
     }
 }

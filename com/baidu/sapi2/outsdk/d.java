@@ -8,7 +8,7 @@ import com.baidu.pass.biometrics.base.utils.PassBioEnv;
 import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.enums.Domain;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class d {
     public void a(SapiConfiguration sapiConfiguration) {
         String str;

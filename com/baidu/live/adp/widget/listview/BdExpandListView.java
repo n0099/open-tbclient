@@ -10,7 +10,7 @@ import android.view.ViewConfiguration;
 import android.widget.AbsListView;
 import android.widget.Scroller;
 import com.baidu.live.adp.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdExpandListView extends BdListView {
     private static final int DURATION_MS = 200;
     private float currentX;
@@ -27,7 +27,7 @@ public class BdExpandListView extends BdListView {
     private TouchTool tool;
     private final int touchSlop;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface ExpandListRefreshListener {
         void onExpandingDegree(float f);
 
@@ -163,7 +163,7 @@ public class BdExpandListView extends BdListView {
         this.mRefreshListener.onExpandingDegree(360.0f - ((f * 360.0f) / this.expandDis));
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class TouchTool {
         public int endX;
         public int endY;

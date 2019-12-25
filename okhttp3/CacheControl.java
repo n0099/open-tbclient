@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.internal.http.HttpHeaders;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class CacheControl {
     @Nullable
     String headerValue;
@@ -129,7 +129,7 @@ public final class CacheControl {
             }
             String name = headers.name(i5);
             String value = headers.value(i5);
-            if (name.equalsIgnoreCase("Cache-Control")) {
+            if (name.equalsIgnoreCase(com.baidubce.http.Headers.CACHE_CONTROL)) {
                 if (str2 != null) {
                     z10 = false;
                 } else {
@@ -250,7 +250,7 @@ public final class CacheControl {
         return sb.toString();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         boolean immutable;
         int maxAgeSeconds = -1;
@@ -272,47 +272,29 @@ public final class CacheControl {
         }
 
         public Builder maxAge(int i, TimeUnit timeUnit) {
-            int i2;
             if (i < 0) {
                 throw new IllegalArgumentException("maxAge < 0: " + i);
             }
             long seconds = timeUnit.toSeconds(i);
-            if (seconds > 2147483647L) {
-                i2 = Integer.MAX_VALUE;
-            } else {
-                i2 = (int) seconds;
-            }
-            this.maxAgeSeconds = i2;
+            this.maxAgeSeconds = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
             return this;
         }
 
         public Builder maxStale(int i, TimeUnit timeUnit) {
-            int i2;
             if (i < 0) {
                 throw new IllegalArgumentException("maxStale < 0: " + i);
             }
             long seconds = timeUnit.toSeconds(i);
-            if (seconds > 2147483647L) {
-                i2 = Integer.MAX_VALUE;
-            } else {
-                i2 = (int) seconds;
-            }
-            this.maxStaleSeconds = i2;
+            this.maxStaleSeconds = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
             return this;
         }
 
         public Builder minFresh(int i, TimeUnit timeUnit) {
-            int i2;
             if (i < 0) {
                 throw new IllegalArgumentException("minFresh < 0: " + i);
             }
             long seconds = timeUnit.toSeconds(i);
-            if (seconds > 2147483647L) {
-                i2 = Integer.MAX_VALUE;
-            } else {
-                i2 = (int) seconds;
-            }
-            this.minFreshSeconds = i2;
+            this.minFreshSeconds = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
             return this;
         }
 

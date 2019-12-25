@@ -83,7 +83,7 @@ public class m {
         } else if (f.a.GPS == f) {
             this.b.a("coord_type", CoordinateType.WGS84);
         } else if (f.a.COMMON == f) {
-            this.b.a("coord_type", CoordinateType.GCJ02);
+            this.b.a("coord_type", "gcj02");
         } else {
             this.b.a("coord_type", "bd09ll");
         }

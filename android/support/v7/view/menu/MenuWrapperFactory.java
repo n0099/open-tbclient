@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class MenuWrapperFactory {
     private MenuWrapperFactory() {
     }

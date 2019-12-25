@@ -4,133 +4,78 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.support.v4.view.accessibility.AccessibilityNodeProviderCompatJellyBean;
-import android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat;
+import android.view.accessibility.AccessibilityNodeInfo;
+import android.view.accessibility.AccessibilityNodeProvider;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AccessibilityNodeProviderCompat {
     public static final int HOST_VIEW_ID = -1;
-    private static final AccessibilityNodeProviderImpl IMPL;
     private final Object mProvider;
 
-    /* loaded from: classes2.dex */
-    interface AccessibilityNodeProviderImpl {
-        Object newAccessibilityNodeProviderBridge(AccessibilityNodeProviderCompat accessibilityNodeProviderCompat);
-    }
-
-    /* loaded from: classes2.dex */
-    static class AccessibilityNodeProviderStubImpl implements AccessibilityNodeProviderImpl {
-        AccessibilityNodeProviderStubImpl() {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityNodeProviderCompat.AccessibilityNodeProviderImpl
-        public Object newAccessibilityNodeProviderBridge(AccessibilityNodeProviderCompat accessibilityNodeProviderCompat) {
-            return null;
-        }
-    }
-
     @RequiresApi(16)
-    /* loaded from: classes2.dex */
-    private static class AccessibilityNodeProviderJellyBeanImpl extends AccessibilityNodeProviderStubImpl {
-        AccessibilityNodeProviderJellyBeanImpl() {
+    /* loaded from: classes4.dex */
+    static class AccessibilityNodeProviderApi16 extends AccessibilityNodeProvider {
+        final AccessibilityNodeProviderCompat mCompat;
+
+        AccessibilityNodeProviderApi16(AccessibilityNodeProviderCompat accessibilityNodeProviderCompat) {
+            this.mCompat = accessibilityNodeProviderCompat;
         }
 
-        @Override // android.support.v4.view.accessibility.AccessibilityNodeProviderCompat.AccessibilityNodeProviderStubImpl, android.support.v4.view.accessibility.AccessibilityNodeProviderCompat.AccessibilityNodeProviderImpl
-        public Object newAccessibilityNodeProviderBridge(final AccessibilityNodeProviderCompat accessibilityNodeProviderCompat) {
-            return AccessibilityNodeProviderCompatJellyBean.newAccessibilityNodeProviderBridge(new AccessibilityNodeProviderCompatJellyBean.AccessibilityNodeInfoBridge() { // from class: android.support.v4.view.accessibility.AccessibilityNodeProviderCompat.AccessibilityNodeProviderJellyBeanImpl.1
-                @Override // android.support.v4.view.accessibility.AccessibilityNodeProviderCompatJellyBean.AccessibilityNodeInfoBridge
-                public boolean performAction(int i, int i2, Bundle bundle) {
-                    return accessibilityNodeProviderCompat.performAction(i, i2, bundle);
-                }
+        @Override // android.view.accessibility.AccessibilityNodeProvider
+        public AccessibilityNodeInfo createAccessibilityNodeInfo(int i) {
+            AccessibilityNodeInfoCompat createAccessibilityNodeInfo = this.mCompat.createAccessibilityNodeInfo(i);
+            if (createAccessibilityNodeInfo == null) {
+                return null;
+            }
+            return createAccessibilityNodeInfo.unwrap();
+        }
 
-                @Override // android.support.v4.view.accessibility.AccessibilityNodeProviderCompatJellyBean.AccessibilityNodeInfoBridge
-                public List<Object> findAccessibilityNodeInfosByText(String str, int i) {
-                    List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText = accessibilityNodeProviderCompat.findAccessibilityNodeInfosByText(str, i);
-                    if (findAccessibilityNodeInfosByText == null) {
-                        return null;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    int size = findAccessibilityNodeInfosByText.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.add(findAccessibilityNodeInfosByText.get(i2).unwrap());
-                    }
-                    return arrayList;
-                }
+        @Override // android.view.accessibility.AccessibilityNodeProvider
+        public List<AccessibilityNodeInfo> findAccessibilityNodeInfosByText(String str, int i) {
+            List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText = this.mCompat.findAccessibilityNodeInfosByText(str, i);
+            if (findAccessibilityNodeInfosByText == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            int size = findAccessibilityNodeInfosByText.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                arrayList.add(findAccessibilityNodeInfosByText.get(i2).unwrap());
+            }
+            return arrayList;
+        }
 
-                @Override // android.support.v4.view.accessibility.AccessibilityNodeProviderCompatJellyBean.AccessibilityNodeInfoBridge
-                public Object createAccessibilityNodeInfo(int i) {
-                    AccessibilityNodeInfoCompat createAccessibilityNodeInfo = accessibilityNodeProviderCompat.createAccessibilityNodeInfo(i);
-                    if (createAccessibilityNodeInfo == null) {
-                        return null;
-                    }
-                    return createAccessibilityNodeInfo.unwrap();
-                }
-            });
+        @Override // android.view.accessibility.AccessibilityNodeProvider
+        public boolean performAction(int i, int i2, Bundle bundle) {
+            return this.mCompat.performAction(i, i2, bundle);
         }
     }
 
     @RequiresApi(19)
-    /* loaded from: classes2.dex */
-    private static class AccessibilityNodeProviderKitKatImpl extends AccessibilityNodeProviderStubImpl {
-        AccessibilityNodeProviderKitKatImpl() {
+    /* loaded from: classes4.dex */
+    static class AccessibilityNodeProviderApi19 extends AccessibilityNodeProviderApi16 {
+        AccessibilityNodeProviderApi19(AccessibilityNodeProviderCompat accessibilityNodeProviderCompat) {
+            super(accessibilityNodeProviderCompat);
         }
 
-        @Override // android.support.v4.view.accessibility.AccessibilityNodeProviderCompat.AccessibilityNodeProviderStubImpl, android.support.v4.view.accessibility.AccessibilityNodeProviderCompat.AccessibilityNodeProviderImpl
-        public Object newAccessibilityNodeProviderBridge(final AccessibilityNodeProviderCompat accessibilityNodeProviderCompat) {
-            return AccessibilityNodeProviderCompatKitKat.newAccessibilityNodeProviderBridge(new AccessibilityNodeProviderCompatKitKat.AccessibilityNodeInfoBridge() { // from class: android.support.v4.view.accessibility.AccessibilityNodeProviderCompat.AccessibilityNodeProviderKitKatImpl.1
-                @Override // android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat.AccessibilityNodeInfoBridge
-                public boolean performAction(int i, int i2, Bundle bundle) {
-                    return accessibilityNodeProviderCompat.performAction(i, i2, bundle);
-                }
-
-                @Override // android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat.AccessibilityNodeInfoBridge
-                public List<Object> findAccessibilityNodeInfosByText(String str, int i) {
-                    List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText = accessibilityNodeProviderCompat.findAccessibilityNodeInfosByText(str, i);
-                    if (findAccessibilityNodeInfosByText == null) {
-                        return null;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    int size = findAccessibilityNodeInfosByText.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.add(findAccessibilityNodeInfosByText.get(i2).unwrap());
-                    }
-                    return arrayList;
-                }
-
-                @Override // android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat.AccessibilityNodeInfoBridge
-                public Object createAccessibilityNodeInfo(int i) {
-                    AccessibilityNodeInfoCompat createAccessibilityNodeInfo = accessibilityNodeProviderCompat.createAccessibilityNodeInfo(i);
-                    if (createAccessibilityNodeInfo == null) {
-                        return null;
-                    }
-                    return createAccessibilityNodeInfo.unwrap();
-                }
-
-                @Override // android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat.AccessibilityNodeInfoBridge
-                public Object findFocus(int i) {
-                    AccessibilityNodeInfoCompat findFocus = accessibilityNodeProviderCompat.findFocus(i);
-                    if (findFocus == null) {
-                        return null;
-                    }
-                    return findFocus.unwrap();
-                }
-            });
-        }
-    }
-
-    static {
-        if (Build.VERSION.SDK_INT >= 19) {
-            IMPL = new AccessibilityNodeProviderKitKatImpl();
-        } else if (Build.VERSION.SDK_INT >= 16) {
-            IMPL = new AccessibilityNodeProviderJellyBeanImpl();
-        } else {
-            IMPL = new AccessibilityNodeProviderStubImpl();
+        @Override // android.view.accessibility.AccessibilityNodeProvider
+        public AccessibilityNodeInfo findFocus(int i) {
+            AccessibilityNodeInfoCompat findFocus = this.mCompat.findFocus(i);
+            if (findFocus == null) {
+                return null;
+            }
+            return findFocus.unwrap();
         }
     }
 
     public AccessibilityNodeProviderCompat() {
-        this.mProvider = IMPL.newAccessibilityNodeProviderBridge(this);
+        if (Build.VERSION.SDK_INT >= 19) {
+            this.mProvider = new AccessibilityNodeProviderApi19(this);
+        } else if (Build.VERSION.SDK_INT >= 16) {
+            this.mProvider = new AccessibilityNodeProviderApi16(this);
+        } else {
+            this.mProvider = null;
+        }
     }
 
     public AccessibilityNodeProviderCompat(Object obj) {

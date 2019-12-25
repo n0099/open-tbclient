@@ -1,43 +1,167 @@
 package com.baidu.swan.apps.ab;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.support.annotation.NonNull;
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import android.util.SparseArray;
+import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.b;
-import java.util.Arrays;
-/* loaded from: classes2.dex */
-public final class a {
-    private static final boolean DEBUG = b.DEBUG;
-    private SparseArray<InterfaceC0147a> bat = new SparseArray<>();
+import com.baidu.swan.apps.runtime.d;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.view.SwanAppActionBar;
+import com.baidu.swan.menu.h;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class a {
+    private static boolean DEBUG = b.DEBUG;
 
-    /* renamed from: com.baidu.swan.apps.ab.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0147a {
-        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
+    public static void a(final Context context, final SwanAppActionBar swanAppActionBar, final String str) {
+        ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.ab.a.1
+            @Override // java.lang.Runnable
+            public void run() {
+                a.b(context, swanAppActionBar, str);
+            }
+        }, "getRefreshTips", 1);
     }
 
-    @TargetApi(23)
-    public void a(Activity activity, int i, @NonNull String[] strArr, InterfaceC0147a interfaceC0147a) {
-        if (interfaceC0147a != null) {
-            this.bat.put(i, interfaceC0147a);
-            activity.requestPermissions(strArr, i);
-            if (DEBUG) {
-                Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void b(Context context, final SwanAppActionBar swanAppActionBar, String str) {
+        final JSONObject aa = com.baidu.swan.apps.w.a.RT().aa(context, str);
+        if (aa != null && swanAppActionBar != null) {
+            d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.ab.a.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    a.a(swanAppActionBar, a.aq(aa));
+                }
+            });
+        }
+    }
+
+    public static void a(SwanAppActionBar swanAppActionBar, int i) {
+        if (DEBUG) {
+            Log.i("messageRefresh", "update_red_dots:" + i);
+        }
+        if (swanAppActionBar != null) {
+            swanAppActionBar.setRightRedDotVisibility(i > 0);
+        }
+    }
+
+    public static void a(final Context context, final h hVar, final String str) {
+        ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.ab.a.3
+            @Override // java.lang.Runnable
+            public void run() {
+                a.b(context, hVar, str);
+            }
+        }, "getMenuToolRefreshTips", 1);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void b(Context context, final h hVar, String str) {
+        JSONObject aa = com.baidu.swan.apps.w.a.RT().aa(context, str);
+        if (aa != null && hVar != null) {
+            aq(aa);
+            final JSONArray optJSONArray = aa.optJSONArray("un_read_list");
+            d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.ab.a.4
+                @Override // java.lang.Runnable
+                public void run() {
+                    int length = optJSONArray.length();
+                    if (optJSONArray != null && length != 0) {
+                        for (int i = 0; i < length; i++) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                            if (optJSONObject != null) {
+                                hVar.bK(optJSONObject);
+                                a.ar(optJSONObject);
+                            }
+                        }
+                        hVar.aqe();
+                    }
+                }
+            });
+        }
+    }
+
+    public static boolean cN(boolean z) {
+        if (e.ZT() == null) {
+            return false;
+        }
+        e ZT = e.ZT();
+        PMSAppInfo Tm = e.ZT().ZV().Tm();
+        if (ZT.aaj() || Tm == null || TextUtils.isEmpty(Tm.paNumber)) {
+            return false;
+        }
+        if (z) {
+            return true;
+        }
+        return ZT.aai().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static int aq(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return 0;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("un_read_list");
+        int length = optJSONArray.length();
+        if (optJSONArray == null || length == 0) {
+            return 0;
+        }
+        int i = 0;
+        for (int i2 = 0; i2 < length; i2++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            int optInt = optJSONObject.optInt("pa_type");
+            if (optInt == 7) {
+                i += optJSONObject.optInt("pa_unread_sums");
+            }
+            if (ai.aeA() && (optInt == 27 || optInt == 17)) {
+                i += optJSONObject.optInt("pa_unread_sums");
             }
         }
+        if (i == 0) {
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
+                int optInt2 = optJSONObject2.optInt("pa_type");
+                if (optInt2 == 888 || optInt2 == 666 || optInt2 == 999) {
+                    i += optJSONObject2.optInt("pa_unread_sums");
+                }
+            }
+        }
+        if (e.ZT() != null) {
+            e.ZT().aai().a("key_unread_counts_message", Integer.valueOf(i));
+            return i;
+        }
+        return i;
     }
 
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        InterfaceC0147a interfaceC0147a = this.bat.get(i);
-        if (interfaceC0147a != null) {
-            interfaceC0147a.onRequestPermissionsResult(i, strArr, iArr);
-            this.bat.remove(i);
+    public static void VH() {
+        if (e.ZT() != null) {
+            e.ZT().aai().a("key_unread_counts_message", (Integer) 0);
         }
-        if (DEBUG) {
-            Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
-            Log.d("SwanAppPermission", "onRequestPermissionsResult grantResults: " + Arrays.toString(iArr));
+    }
+
+    public static void ar(JSONObject jSONObject) {
+        if (jSONObject != null && Long.valueOf(jSONObject.optLong("pa_unread_sums")).longValue() > 0) {
+            String str = "";
+            switch (jSONObject.optInt("pa_type")) {
+                case 7:
+                    str = "customerService";
+                    break;
+                case 666:
+                    str = LogConfig.KEY_NOTICE;
+                    break;
+                case 888:
+                    str = PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE;
+                    break;
+                case 999:
+                    str = "message";
+                    break;
+            }
+            if (!TextUtils.isEmpty(str)) {
+                com.baidu.swan.apps.aa.a.B(str, "1", "show");
+            }
         }
     }
 }

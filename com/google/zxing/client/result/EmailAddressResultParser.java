@@ -1,10 +1,11 @@
 package com.google.zxing.client.result;
 
+import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class EmailAddressResultParser extends ResultParser {
     private static final Pattern COMMA = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
 
@@ -16,7 +17,7 @@ public final class EmailAddressResultParser extends ResultParser {
         String[] strArr;
         String str3;
         String massagedText = getMassagedText(result);
-        if (massagedText.startsWith("mailto:") || massagedText.startsWith("MAILTO:")) {
+        if (massagedText.startsWith(WebView.SCHEME_MAILTO) || massagedText.startsWith("MAILTO:")) {
             String substring = massagedText.substring(7);
             int indexOf = substring.indexOf(63);
             if (indexOf >= 0) {

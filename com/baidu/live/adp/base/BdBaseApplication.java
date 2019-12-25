@@ -6,8 +6,7 @@ import android.content.ContextWrapper;
 import android.content.res.Resources;
 import com.baidu.live.adp.lib.util.BdBitmapHelper;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdBaseApplication extends ContextWrapper {
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
     private static BdBaseApplication sApp = null;
@@ -72,7 +71,7 @@ public class BdBaseApplication extends ContextWrapper {
     public void onAppMemoryLow() {
         BdActivityStack.getInst().releaseAllPossibleAcitivities();
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.lastGcTime > StatisticConfig.MIN_UPLOAD_INTERVAL) {
+        if (currentTimeMillis - this.lastGcTime > 30000) {
             this.lastGcTime = currentTimeMillis;
             System.gc();
         }

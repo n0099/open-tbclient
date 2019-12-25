@@ -3,9 +3,8 @@ package com.tencent.mm.opensdk.modelmsg;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.utils.Log;
-import com.tencent.mm.opensdk.utils.d;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class WXMediaMessage {
     public static final String ACTION_WXAPPMESSAGE = "com.tencent.mm.sdk.openapi.Intent.ACTION_WXAPPMESSAGE";
     public static final int DESCRIPTION_LENGTH_LIMIT = 1024;
@@ -14,7 +13,7 @@ public final class WXMediaMessage {
     public static final int MESSAGE_EXT_LENGTH_LIMIT = 2048;
     public static final int MINI_PROGRAM__THUMB_LENGHT = 131072;
     private static final String TAG = "MicroMsg.SDK.WXMediaMessage";
-    public static final int THUMB_LENGTH_LIMIT = 65536;
+    public static final int THUMB_LENGTH_LIMIT = 32768;
     public static final int TITLE_LENGTH_LIMIT = 512;
     public String description;
     public IMediaObject mediaObject;
@@ -25,7 +24,7 @@ public final class WXMediaMessage {
     public byte[] thumbData;
     public String title;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         public static final String KEY_IDENTIFIER = "_wxobject_identifier_";
 
@@ -38,7 +37,7 @@ public final class WXMediaMessage {
             wXMediaMessage.mediaTagName = bundle.getString("_wxobject_mediatagname");
             wXMediaMessage.messageAction = bundle.getString("_wxobject_message_action");
             wXMediaMessage.messageExt = bundle.getString("_wxobject_message_ext");
-            String pathOldToNew = pathOldToNew(bundle.getString(KEY_IDENTIFIER));
+            String pathOldToNew = pathOldToNew(bundle.getString("_wxobject_identifier_"));
             if (pathOldToNew == null || pathOldToNew.length() <= 0) {
                 return wXMediaMessage;
             }
@@ -81,7 +80,7 @@ public final class WXMediaMessage {
             bundle.putString("_wxobject_description", wXMediaMessage.description);
             bundle.putByteArray("_wxobject_thumbdata", wXMediaMessage.thumbData);
             if (wXMediaMessage.mediaObject != null) {
-                bundle.putString(KEY_IDENTIFIER, pathNewToOld(wXMediaMessage.mediaObject.getClass().getName()));
+                bundle.putString("_wxobject_identifier_", pathNewToOld(wXMediaMessage.mediaObject.getClass().getName()));
                 wXMediaMessage.mediaObject.serialize(bundle);
             }
             bundle.putString("_wxobject_mediatagname", wXMediaMessage.mediaTagName);
@@ -91,11 +90,10 @@ public final class WXMediaMessage {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface IMediaObject {
         public static final int TYPE_APPBRAND = 33;
         public static final int TYPE_APPDATA = 7;
-        public static final int TYPE_BUSINESS_CARD = 45;
         public static final int TYPE_CARD_SHARE = 16;
         public static final int TYPE_DESIGNER_SHARED = 25;
         public static final int TYPE_DEVICE_ACCESS = 12;
@@ -115,8 +113,6 @@ public final class WXMediaMessage {
         public static final int TYPE_NOTE = 24;
         public static final int TYPE_OLD_TV = 14;
         public static final int TYPE_OPENSDK_APPBRAND = 36;
-        public static final int TYPE_OPENSDK_APPBRAND_WEISHIVIDEO = 46;
-        public static final int TYPE_OPENSDK_WEWORK_OBJECT = 49;
         public static final int TYPE_PRODUCT = 10;
         public static final int TYPE_RECORD = 19;
         public static final int TYPE_TEXT = 1;
@@ -148,10 +144,10 @@ public final class WXMediaMessage {
         if (getType() == 8 && (this.thumbData == null || this.thumbData.length == 0)) {
             Log.e(TAG, "checkArgs fail, thumbData should not be null when send emoji");
             return false;
-        } else if (d.a(getType()) && (this.thumbData == null || this.thumbData.length > 131072)) {
+        } else if (getType() == 36 && (this.thumbData == null || this.thumbData.length > 131072)) {
             Log.e(TAG, "checkArgs fail, thumbData should not be null or exceed 128kb");
             return false;
-        } else if (!d.a(getType()) && this.thumbData != null && this.thumbData.length > 65536) {
+        } else if (getType() != 36 && this.thumbData != null && this.thumbData.length > 32768) {
             Log.e(TAG, "checkArgs fail, thumbData is invalid");
             return false;
         } else if (this.title != null && this.title.length() > 512) {

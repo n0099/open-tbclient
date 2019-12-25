@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.message;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HistoryMessage extends CustomResponsedMessage<Boolean> {
     public BaseActivity Activity;
     public long cartoonId;

@@ -3,7 +3,6 @@ package com.baidu.tbadk.coreExtra.data;
 import android.content.Intent;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.Serializable;
@@ -11,6 +10,12 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class VideoInfo extends OrmObject implements Serializable {
     public static final String DRAFT_JSON_NAME = "new_video_info";
+    private static final String KEY_VIDEO_DURATION = "video_l";
+    private static final String KEY_VIDEO_HEIGHT = "video_h";
+    private static final String KEY_VIDEO_PATH = "video";
+    private static final String KEY_VIDEO_THUMB_PATH = "image";
+    private static final String KEY_VIDEO_WIDTH = "video_w";
+    private static final String VIDEO_CONTENT_PREFFIX = "#(movideo,";
     public static final int VIDEO_TYPE_RECORD = 1;
     public static final int VIDEO_TYPE_UPLOAD = 2;
     private static final long serialVersionUID = 4168698601975684150L;
@@ -19,7 +24,7 @@ public class VideoInfo extends OrmObject implements Serializable {
     private List<String> mFilterListInfo;
     private List<String> mMusicListInfo;
     private List<String> mStickListInfo;
-    private long thumbId;
+    private String thumbId;
     private String thumbPath;
     private int videoDuration;
     private int videoHeight;
@@ -38,12 +43,12 @@ public class VideoInfo extends OrmObject implements Serializable {
         this.videoPath = str;
     }
 
-    public long getThumbId() {
+    public String getThumbId() {
         return this.thumbId;
     }
 
-    public void setThumbId(long j) {
-        this.thumbId = j;
+    public void setThumbId(String str) {
+        this.thumbId = str;
     }
 
     public boolean isCompressedVideo() {
@@ -131,16 +136,16 @@ public class VideoInfo extends OrmObject implements Serializable {
     }
 
     public boolean needUploadThunmb() {
-        return !StringUtils.isNull(this.thumbPath) && this.thumbId <= 0;
+        return !StringUtils.isNull(this.thumbPath) && StringUtils.isNull(this.thumbId);
     }
 
     public void parseFromIntent(Intent intent) {
         if (intent != null) {
             this.videoPath = intent.getStringExtra("video");
             this.thumbPath = intent.getStringExtra("image");
-            this.videoDuration = (int) (intent.getLongExtra("video_l", 8000L) / 1000);
-            this.videoHeight = intent.getIntExtra("video_h", CameraInterface.DEFAULT_PREVIEW_HEIGHT);
-            this.videoWidth = intent.getIntExtra("video_w", CameraInterface.DEFAULT_PREVIEW_HEIGHT);
+            this.videoDuration = (int) (intent.getLongExtra(KEY_VIDEO_DURATION, 8000L) / 1000);
+            this.videoHeight = intent.getIntExtra(KEY_VIDEO_HEIGHT, 480);
+            this.videoWidth = intent.getIntExtra(KEY_VIDEO_WIDTH, 480);
         }
     }
 
@@ -165,7 +170,7 @@ public class VideoInfo extends OrmObject implements Serializable {
 
     public String buildContent() {
         StringBuilder sb = new StringBuilder();
-        sb.append("#(movideo,").append(this.thumbId).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append(VIDEO_CONTENT_PREFFIX).append(this.thumbId).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         sb.append(this.videoWidth).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         sb.append(this.videoHeight).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         sb.append(this.videoMd5).append(Constants.ACCEPT_TIME_SEPARATOR_SP);

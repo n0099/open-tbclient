@@ -3,10 +3,10 @@ package kotlin.coroutines.experimental.jvm.internal;
 import kotlin.TypeCastException;
 import kotlin.coroutines.experimental.b;
 import kotlin.coroutines.experimental.d;
-import kotlin.e;
+import kotlin.g;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class CoroutineImpl extends Lambda implements b<Object> {
     private final d _context;
     private b<Object> _facade;
@@ -27,7 +27,7 @@ public abstract class CoroutineImpl extends Lambda implements b<Object> {
     public d getContext() {
         d dVar = this._context;
         if (dVar == null) {
-            p.cMW();
+            p.dER();
         }
         return dVar;
     }
@@ -36,13 +36,13 @@ public abstract class CoroutineImpl extends Lambda implements b<Object> {
         if (this._facade == null) {
             d dVar = this._context;
             if (dVar == null) {
-                p.cMW();
+                p.dER();
             }
             this._facade = a.a(dVar, this);
         }
         b<Object> bVar = this._facade;
         if (bVar == null) {
-            p.cMW();
+            p.dER();
         }
         return bVar;
     }
@@ -51,11 +51,11 @@ public abstract class CoroutineImpl extends Lambda implements b<Object> {
     public void resume(Object obj) {
         b<Object> bVar = this.completion;
         if (bVar == null) {
-            p.cMW();
+            p.dER();
         }
         try {
             Object doResume = doResume(obj, null);
-            if (doResume != kotlin.coroutines.experimental.a.a.cMT()) {
+            if (doResume != kotlin.coroutines.experimental.a.a.dEN()) {
                 if (bVar == null) {
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.coroutines.experimental.Continuation<kotlin.Any?>");
                 }
@@ -68,14 +68,14 @@ public abstract class CoroutineImpl extends Lambda implements b<Object> {
 
     @Override // kotlin.coroutines.experimental.b
     public void resumeWithException(Throwable th) {
-        p.i(th, "exception");
+        p.j(th, com.baidu.fsg.base.statistics.b.k);
         b<Object> bVar = this.completion;
         if (bVar == null) {
-            p.cMW();
+            p.dER();
         }
         try {
             Object doResume = doResume(null, th);
-            if (doResume != kotlin.coroutines.experimental.a.a.cMT()) {
+            if (doResume != kotlin.coroutines.experimental.a.a.dEN()) {
                 if (bVar == null) {
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.coroutines.experimental.Continuation<kotlin.Any?>");
                 }
@@ -86,13 +86,13 @@ public abstract class CoroutineImpl extends Lambda implements b<Object> {
         }
     }
 
-    public b<e> create(b<?> bVar) {
-        p.i(bVar, "completion");
+    public b<g> create(b<?> bVar) {
+        p.j(bVar, "completion");
         throw new IllegalStateException("create(Continuation) has not been overridden");
     }
 
-    public b<e> create(Object obj, b<?> bVar) {
-        p.i(bVar, "completion");
+    public b<g> create(Object obj, b<?> bVar) {
+        p.j(bVar, "completion");
         throw new IllegalStateException("create(Any?;Continuation) has not been overridden");
     }
 }

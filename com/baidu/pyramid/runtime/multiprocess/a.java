@@ -13,11 +13,11 @@ import java.io.InputStreamReader;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile int aCk = 0;
+    private static volatile int aQm = 0;
     private static volatile String sProcessName;
 
-    public static int zZ() {
-        int i = aCk;
+    public static int BW() {
+        int i = aQm;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = e.getAppContext().getPackageName();
@@ -26,13 +26,13 @@ public class a {
             } else {
                 i |= 4;
             }
-            aCk = i;
+            aQm = i;
         }
         return i;
     }
 
-    public static boolean Aa() {
-        return (zZ() & 2) != 0;
+    public static boolean BX() {
+        return (BW() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -42,7 +42,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = e.getAppContext();
-                    str = Ac();
+                    str = BZ();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -53,7 +53,7 @@ public class a {
         return str;
     }
 
-    public static int Ab() {
+    public static int BY() {
         Context appContext = e.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -87,7 +87,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String Ac() {
+    private static String BZ() {
         BufferedReader bufferedReader;
         Exception exc;
         String str;
@@ -103,7 +103,7 @@ public class a {
                         } catch (Exception e) {
                             str = readLine;
                             exc = e;
-                            c("MultiProcess", exc);
+                            d("MultiProcess", exc);
                             if (bufferedReader != null) {
                                 try {
                                     bufferedReader.close();
@@ -152,6 +152,6 @@ public class a {
         return str;
     }
 
-    private static void c(String str, Exception exc) {
+    private static void d(String str, Exception exc) {
     }
 }

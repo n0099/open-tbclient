@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.data;
 
 import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.log.LogConfig;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,6 +22,7 @@ public class AlaInfoData implements Serializable {
     public int duration;
     public int frsLiveStageType;
     public long group_id;
+    public boolean haveRedpkg;
     public String hls_url;
     public e label;
     public String label_name;
@@ -56,7 +56,7 @@ public class AlaInfoData implements Serializable {
             try {
                 this.live_id = jSONObject.optLong("live_id");
                 this.cover = jSONObject.optString("cover");
-                this.session_id = jSONObject.optString(LogConfig.LOG_SESSION_ID);
+                this.session_id = jSONObject.optString("session_id");
                 this.rtmp_url = jSONObject.optString("rtmp_url");
                 this.hls_url = jSONObject.optString("hls_url");
                 this.group_id = jSONObject.optLong("group_id");
@@ -103,6 +103,7 @@ public class AlaInfoData implements Serializable {
                 this.frsLiveStageType = jSONObject.optInt("frs_toplive_type");
                 this.liveStagePicUrl = jSONObject.optString("frs_toplive_pic");
                 this.liveStageForceTop = jSONObject.optInt("frs_toplive_force", 0) == 1;
+                this.haveRedpkg = "1".equals(jSONObject.optString("red_packet", ""));
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

@@ -7,32 +7,32 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d vS;
-    private PluginNetConfigInfos vT = new PluginNetConfigInfos();
-    private b vU;
+    private static volatile d yu;
+    private PluginNetConfigInfos yv = new PluginNetConfigInfos();
+    private b yw;
 
-    public static d jj() {
-        if (vS == null) {
+    public static d jB() {
+        if (yu == null) {
             synchronized (d.class) {
-                if (vS == null) {
-                    vS = new d();
+                if (yu == null) {
+                    yu = new d();
                 }
             }
         }
-        return vS;
+        return yu;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, final a aVar) {
         c b = b(pluginSettings);
-        if (this.vU != null) {
-            this.vU.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
+        if (this.yw != null) {
+            this.yw.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
                 @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
-                public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos) {
+                public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos, String str) {
                     if (z2) {
-                        d.this.vT = pluginNetConfigInfos;
+                        d.this.yv = pluginNetConfigInfos;
                     }
                     if (aVar != null) {
-                        aVar.a(z2, cVar, d.this.vT);
+                        aVar.a(z2, cVar, d.this.yv, str);
                     }
                 }
             });
@@ -50,15 +50,15 @@ public class d {
                 }
             }
         }
-        cVar.k(arrayList);
+        cVar.j(arrayList);
         return cVar;
     }
 
-    public PluginNetConfigInfos jk() {
-        return this.vT;
+    public PluginNetConfigInfos jC() {
+        return this.yv;
     }
 
     public void a(b bVar) {
-        this.vU = bVar;
+        this.yw = bVar;
     }
 }

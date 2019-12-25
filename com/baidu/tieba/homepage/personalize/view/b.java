@@ -1,34 +1,34 @@
 package com.baidu.tieba.homepage.personalize.view;
 
 import android.content.Context;
-import com.baidu.card.t;
-/* loaded from: classes4.dex */
-public class b extends t {
-    private d gmw;
+import com.baidu.card.x;
+/* loaded from: classes6.dex */
+public class b extends x {
+    private d gZY;
 
     public b(Context context) {
         super(context);
     }
 
-    @Override // com.baidu.card.t, com.baidu.card.ac
-    protected com.baidu.tieba.play.operableVideoView.a lM() {
-        this.gmw = new d(this.mContext, this.GV);
-        return this.gmw;
+    @Override // com.baidu.card.x, com.baidu.card.al
+    protected com.baidu.tieba.play.operableVideoView.a mK() {
+        this.gZY = new d(this.mContext, this.Mf);
+        return this.gZY;
     }
 
-    @Override // com.baidu.card.ac
+    @Override // com.baidu.card.al
     public void onPause() {
         super.onPause();
-        if (this.gmw != null) {
-            this.gmw.onPause();
+        if (this.gZY != null) {
+            this.gZY.onPause();
         }
     }
 
-    @Override // com.baidu.card.ac
+    @Override // com.baidu.card.al
     public void onResume() {
         super.onResume();
-        if (this.gmw != null) {
-            this.gmw.onResume();
+        if (this.gZY != null) {
+            this.gZY.onResume();
         }
     }
 }

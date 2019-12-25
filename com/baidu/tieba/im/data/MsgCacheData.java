@@ -7,11 +7,11 @@ import java.io.Serializable;
 /* loaded from: classes.dex */
 public class MsgCacheData extends OrmObject implements Serializable {
     private static final long serialVersionUID = -100392737471140589L;
-    private transient VoiceData.VoiceModel gDW;
-    private transient TbRichText gDX;
     private int is_left;
     private int is_show_time;
     private long lastMsgTime;
+    private transient TbRichText rich_content;
+    private transient VoiceData.VoiceModel voice_model;
     private int voice_status;
 
     public int getIs_left() {
@@ -19,11 +19,11 @@ public class MsgCacheData extends OrmObject implements Serializable {
     }
 
     public VoiceData.VoiceModel getVoice_model() {
-        return this.gDW;
+        return this.voice_model;
     }
 
     public void setVoice_model(VoiceData.VoiceModel voiceModel) {
-        this.gDW = voiceModel;
+        this.voice_model = voiceModel;
     }
 
     public void setIs_left(int i) {
@@ -47,11 +47,11 @@ public class MsgCacheData extends OrmObject implements Serializable {
     }
 
     public TbRichText getRich_content() {
-        return this.gDX;
+        return this.rich_content;
     }
 
     public void setRich_content(TbRichText tbRichText) {
-        this.gDX = tbRichText;
+        this.rich_content = tbRichText;
     }
 
     public long getLastMsgTime() {

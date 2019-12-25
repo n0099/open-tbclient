@@ -1,38 +1,45 @@
 package com.baidu.live.gift.a;
 
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
+import com.baidu.live.gift.g;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+/* loaded from: classes2.dex */
 public class a {
-    private boolean WA;
-    private String Wz;
-    private ArrayList<Integer> aau;
-    private int categoryId;
+    public String YP;
+    public int adB;
+    public int aeM;
+    public String aej;
+    public String aiA = TbadkCoreApplication.getCurrentTbs();
+    public g aip;
+    public long aiz;
+    public String liveId;
+    public String mGiftName;
+    public String otherParams;
+    public String roomId;
+    public String sceneFrom;
+    public String userId;
+    public String userName;
 
-    public void setCategoryId(int i) {
-        this.categoryId = i;
+    public a(g gVar, long j, String str, String str2, String str3, String str4, String str5, String str6) {
+        this.aiz = j;
+        this.YP = gVar.qx();
+        this.userId = str;
+        this.userName = str2;
+        this.liveId = str3;
+        this.roomId = str4;
+        this.aej = str5;
+        this.mGiftName = gVar.qy();
+        this.aeM = gVar.adK;
+        this.adB = gVar.qD();
+        this.sceneFrom = gVar.getSceneFrom();
+        this.aip = gVar;
+        this.otherParams = str6;
     }
 
-    public void setCategoryName(String str) {
-        this.Wz = str;
+    public boolean qI() {
+        return this.adB == 6;
     }
 
-    public void g(ArrayList<Integer> arrayList) {
-        this.aau = arrayList;
-    }
-
-    public String getCategoryName() {
-        return this.Wz;
-    }
-
-    public int getCategoryId() {
-        return this.categoryId;
-    }
-
-    public ArrayList<Integer> qC() {
-        return this.aau;
-    }
-
-    public void ah(boolean z) {
-        this.WA = z;
+    public boolean sm() {
+        return this.adB == 7;
     }
 }

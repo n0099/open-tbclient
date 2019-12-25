@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.data.d;
 import com.baidu.tieba.barselect.data.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class VotedAreaLayout extends CardBasicLayout {
-    private TextView eIt;
+    private TextView fAq;
     private Context mContext;
 
     public VotedAreaLayout(Context context) {
@@ -37,33 +37,33 @@ public class VotedAreaLayout extends CardBasicLayout {
         setMinimumWidth(l.getDimens(getContext(), R.dimen.tbds172));
         setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.voted_area_layout, (ViewGroup) this, true);
-        md();
+        na();
     }
 
-    private void md() {
-        this.eIt = (TextView) findViewById(R.id.vote_num);
+    private void na() {
+        this.fAq = (TextView) findViewById(R.id.vote_num);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.eEy == null || this.eIk == null || this.status < 0) {
+        if (this.fww == null || this.fAh == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.eIt.setText(aq.numFormatOverWan(this.eIk.aZk()) + "票");
-        mD(TbadkCoreApplication.getInst().getSkinType());
+        this.fAq.setText(aq.numFormatOverWan(this.fAh.bro()) + "票");
+        oT(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setMyRecordData(d dVar) {
         if (dVar != null) {
-            this.eIk = dVar;
-            this.eIt.setText(aq.numFormatOverWan(this.eIk.aZk()) + "票");
+            this.fAh = dVar;
+            this.fAq.setText(aq.numFormatOverWan(this.fAh.bro()) + "票");
         }
     }
 
-    public void mD(int i) {
-        am.setViewTextColor(this.eIt, R.color.cp_cont_b, 1, i);
+    public void oT(int i) {
+        am.setViewTextColor(this.fAq, R.color.cp_cont_b, 1, i);
         am.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i);
     }
 }

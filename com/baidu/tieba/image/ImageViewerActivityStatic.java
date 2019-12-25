@@ -8,8 +8,8 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.t.ae;
-/* loaded from: classes3.dex */
+import com.baidu.tbadk.switchs.IdentifyImageSwitch;
+/* loaded from: classes5.dex */
 public class ImageViewerActivityStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<ImageViewerConfig>() { // from class: com.baidu.tieba.image.ImageViewerActivityStatic.1
@@ -17,7 +17,7 @@ public class ImageViewerActivityStatic {
             public CustomResponsedMessage<?> run(CustomMessage<ImageViewerConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
                     ImageViewerConfig data = customMessage.getData();
-                    if (ae.isOn()) {
+                    if (IdentifyImageSwitch.isOn()) {
                         data.setIsIdentifyImage(true);
                     } else {
                         data.setIsIdentifyImage(false);

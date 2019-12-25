@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import com.baidu.searchbox.http.RequestHandler;
+import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.request.DeleteRequest;
 import com.baidu.searchbox.http.request.GetRequest;
 import com.baidu.searchbox.http.request.HeadRequest;
@@ -19,7 +20,6 @@ import com.baidu.searchbox.http.request.PostStringRequest;
 import com.baidu.searchbox.http.request.PutBodyRequest;
 import com.baidu.searchbox.http.request.PutFormRequest;
 import com.baidu.searchbox.http.statistics.NetworkStat;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.net.ProxySelector;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public abstract class AbstractHttpManager {
     private static final String TAG = "HttpManager";
     private static List<Class<? extends Interceptor>> sExternalInterceptorClass;
@@ -39,6 +39,7 @@ public abstract class AbstractHttpManager {
     private static ProxySelector sProxySelector;
     protected Context context;
     protected Handler deliver;
+    private ConnectionPool ipv4OnlyConnectionPool;
     private NetworkStat<Request> networkStat;
     protected OkHttpClient okHttpClient;
     private RequestHandler requestHandler;
@@ -48,11 +49,11 @@ public abstract class AbstractHttpManager {
     public AbstractHttpManager(Context context) {
         if (HttpRuntime.getHttpContext() != null) {
             HttpRuntime.getHttpContext().init();
+            this.sHttpDns = HttpRuntime.getHttpContext().getNewHttpDns();
         }
         this.context = context.getApplicationContext();
         this.deliver = new Handler(Looper.getMainLooper());
         this.requestHandler = new RequestHandler.Default();
-        this.sHttpDns = HttpRuntime.getHttpContext().getNewHttpDns();
         this.okHttpClient = initClient();
     }
 
@@ -74,8 +75,10 @@ public abstract class AbstractHttpManager {
                 }
             }
         }
-        if (cls != null && !sExternalNetworkInterceptorClass.contains(cls)) {
-            sExternalNetworkInterceptorClass.add(cls);
+        if (cls != null) {
+            if (sExternalNetworkInterceptorClass.isEmpty() || !sExternalNetworkInterceptorClass.contains(cls)) {
+                sExternalNetworkInterceptorClass.add(cls);
+            }
         }
     }
 
@@ -200,11 +203,22 @@ public abstract class AbstractHttpManager {
         return this.okHttpClient;
     }
 
+    public ConnectionPool getIPv4OnlyConnectionPool() {
+        if (this.ipv4OnlyConnectionPool == null) {
+            synchronized (AbstractHttpManager.class) {
+                if (this.ipv4OnlyConnectionPool == null) {
+                    this.ipv4OnlyConnectionPool = new ConnectionPool(10, 5L, TimeUnit.MINUTES);
+                }
+            }
+        }
+        return this.ipv4OnlyConnectionPool;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     public OkHttpClient initClient() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         try {
-            builder.connectTimeout(StatisticConfig.MIN_UPLOAD_INTERVAL, TimeUnit.MILLISECONDS).readTimeout(StatisticConfig.MIN_UPLOAD_INTERVAL, TimeUnit.MILLISECONDS).writeTimeout(StatisticConfig.MIN_UPLOAD_INTERVAL, TimeUnit.MILLISECONDS).connectionPool(new ConnectionPool(10, 5L, TimeUnit.MINUTES));
+            builder.connectTimeout(30000L, TimeUnit.MILLISECONDS).readTimeout(30000L, TimeUnit.MILLISECONDS).writeTimeout(30000L, TimeUnit.MILLISECONDS).connectionPool(new ConnectionPool(10, 5L, TimeUnit.MINUTES));
             if (this.sHttpDns != null && (this.sHttpDns instanceof Dns)) {
                 builder.dns((Dns) this.sHttpDns);
             }
@@ -253,6 +267,10 @@ public abstract class AbstractHttpManager {
 
     public void setRequestHandler(RequestHandler requestHandler) {
         this.requestHandler = requestHandler;
+    }
+
+    public CookieManager getCookieManager(boolean z, boolean z2) {
+        return HttpRuntime.getHttpContext().getCookieManager(z, z2);
     }
 
     public static void setProductUserAgent(ProductUserAgentHandler productUserAgentHandler) {

@@ -3,26 +3,30 @@ package com.baidu.swan.impl.map.location.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.sapi2.activity.SlideActiviy;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class SelectedLocationInfo implements Parcelable {
+    private static final String ADDRESS = "address";
     public static final Parcelable.Creator<SelectedLocationInfo> CREATOR = new Parcelable.Creator<SelectedLocationInfo>() { // from class: com.baidu.swan.impl.map.location.model.SelectedLocationInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: x */
+        /* renamed from: H */
         public SelectedLocationInfo createFromParcel(Parcel parcel) {
             return new SelectedLocationInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: go */
+        /* renamed from: hT */
         public SelectedLocationInfo[] newArray(int i) {
             return new SelectedLocationInfo[i];
         }
     };
+    private static final String LATITUDE = "latitude";
+    public static final String LOCATION_KEY = "SelectedLocationInfo";
+    private static final String LONGITUDE = "longitude";
+    private static final String NAME = "name";
     public String mAddress;
     public double mLatitude;
     public double mLongitude;
@@ -61,9 +65,9 @@ public class SelectedLocationInfo implements Parcelable {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("name", this.mName);
-            jSONObject.put(SlideActiviy.ADDRESS_PAGE_NAME, this.mAddress);
-            jSONObject.put("latitude", this.mLatitude);
-            jSONObject.put("longitude", this.mLongitude);
+            jSONObject.put("address", this.mAddress);
+            jSONObject.put(LATITUDE, this.mLatitude);
+            jSONObject.put(LONGITUDE, this.mLongitude);
         } catch (JSONException e) {
             e.printStackTrace();
         }

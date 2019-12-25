@@ -4,30 +4,30 @@ import android.app.Dialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class c extends Dialog {
-    private boolean aKl;
+    private boolean mImmersionEnabled;
 
     public c(@NonNull Context context, @StyleRes int i) {
         super(context, i);
-        this.aKl = com.baidu.swan.apps.res.widget.a.bgQ;
+        this.mImmersionEnabled = com.baidu.swan.apps.res.widget.a.SUPPORT_IMMERSION;
     }
 
-    public void cp(boolean z) {
-        this.aKl = com.baidu.swan.apps.res.widget.a.bgQ && z;
+    public void setEnableImmersion(boolean z) {
+        this.mImmersionEnabled = com.baidu.swan.apps.res.widget.a.SUPPORT_IMMERSION && z;
     }
 
     @Override // android.app.Dialog
     public void show() {
-        if (this.aKl) {
-            com.baidu.swan.apps.res.widget.a.b(this);
+        if (this.mImmersionEnabled) {
+            com.baidu.swan.apps.res.widget.a.setDialogImmersion(this);
         }
-        boolean c = com.baidu.swan.apps.res.widget.a.c(this);
-        if (c) {
+        boolean b = com.baidu.swan.apps.res.widget.a.b(this);
+        if (b) {
             getWindow().setFlags(8, 8);
         }
         super.show();
-        if (c) {
+        if (b) {
             getWindow().clearFlags(8);
         }
     }

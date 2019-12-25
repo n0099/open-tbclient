@@ -9,11 +9,11 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BawuManagerApplyInfoView extends RelativeLayout {
-    private TextView fqa;
-    private TextView fqb;
-    private TextView fqc;
+    private TextView gex;
+    private TextView gey;
+    private TextView gez;
     private Context mContext;
     private View mRoot;
 
@@ -37,32 +37,32 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
 
     private void initView() {
         this.mRoot = LayoutInflater.from(this.mContext).inflate(R.layout.bawu_manager_apply_layout, this);
-        this.fqa = (TextView) this.mRoot.findViewById(R.id.imageview_apply_btn);
-        this.fqb = (TextView) this.mRoot.findViewById(R.id.textview_manager_apply);
-        this.fqc = (TextView) this.mRoot.findViewById(R.id.textview_manager_left_num);
+        this.gex = (TextView) this.mRoot.findViewById(R.id.imageview_apply_btn);
+        this.gey = (TextView) this.mRoot.findViewById(R.id.textview_manager_apply);
+        this.gez = (TextView) this.mRoot.findViewById(R.id.textview_manager_left_num);
     }
 
-    public void aq(String str, int i) {
-        this.fqb.setText(str);
+    public void az(String str, int i) {
+        this.gey.setText(str);
         if (i > 0) {
-            this.fqc.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(i)));
-            this.fqa.setEnabled(true);
-            this.fqa.setClickable(true);
-            am.setViewTextColor(this.fqb, R.color.cp_link_tip_a, 1);
-            am.setViewTextColor(this.fqc, R.color.cp_cont_d, 1);
-            am.setBackgroundResource(this.fqa, R.drawable.bg_manager_apply);
+            this.gez.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(i)));
+            this.gex.setEnabled(true);
+            this.gex.setClickable(true);
+            am.setViewTextColor(this.gey, R.color.cp_link_tip_a, 1);
+            am.setViewTextColor(this.gez, R.color.cp_cont_d, 1);
+            am.setBackgroundResource(this.gex, R.drawable.bg_manager_apply);
             return;
         }
-        this.fqc.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-        this.fqa.setEnabled(false);
-        this.fqa.setClickable(false);
-        am.setViewTextColor(this.fqb, R.color.cp_cont_d, 1);
-        am.setViewTextColor(this.fqc, R.color.cp_cont_d, 1);
-        am.setBackgroundResource(this.fqa, R.drawable.icon_number_add_d);
+        this.gez.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+        this.gex.setEnabled(false);
+        this.gex.setClickable(false);
+        am.setViewTextColor(this.gey, R.color.cp_cont_d, 1);
+        am.setViewTextColor(this.gez, R.color.cp_cont_d, 1);
+        am.setBackgroundResource(this.gex, R.drawable.icon_number_add_d);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.fqa.setOnClickListener(onClickListener);
+        this.gex.setOnClickListener(onClickListener);
     }
 }

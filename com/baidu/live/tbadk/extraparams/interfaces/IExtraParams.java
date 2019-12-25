@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.extraparams.interfaces;
 
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface IExtraParams {
     String getCuid();
 

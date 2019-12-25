@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class er implements en {
     private void a(Service service, Intent intent) {
         if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {

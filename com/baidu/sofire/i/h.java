@@ -4,6 +4,7 @@ import android.accounts.NetworkErrorException;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.sofire.ac.F;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
@@ -12,7 +13,7 @@ import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class h {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x02c3: ARRAY_LENGTH  (r5v1 int A[REMOVE]) = (r3v9 byte[]))] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x02d2: ARRAY_LENGTH  (r4v9 int A[REMOVE]) = (r1v22 byte[]))] */
@@ -79,7 +80,7 @@ public final class h {
             byte[] rd = F.getInstance().rd(decode, bytes2);
             new StringBuilder().append(rd == null ? "null" : new StringBuilder().append(rd.length).toString());
             com.baidu.sofire.b.a();
-            String optString2 = jSONObject.optString("response");
+            String optString2 = jSONObject.optString(IIntercepter.TYPE_RESPONSE);
             new StringBuilder().append(jSONObject.optString("request_id"));
             com.baidu.sofire.b.a();
             new StringBuilder().append(optString2);

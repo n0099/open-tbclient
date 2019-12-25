@@ -11,10 +11,10 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.android.common.others.IStringUtil;
+import com.baidu.android.util.devices.IDevices;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.Config;
-import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.ac.U;
 import com.baidu.sofire.i.o;
@@ -40,7 +40,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class g {
     private String c;
     private boolean d;
@@ -418,7 +418,7 @@ public final class g {
             packageInfo.versionName = optJSONObject.optString("v");
             ApplicationInfo applicationInfo = new ApplicationInfo();
             applicationInfo.className = optJSONObject.optString("n");
-            if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
+            if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
                 applicationInfo.className = packageInfo.packageName + applicationInfo.className;
             }
             applicationInfo.theme = optJSONObject.optInt("t");
@@ -431,7 +431,7 @@ public final class g {
                     if (jSONObject2 != null) {
                         ActivityInfo activityInfo = new ActivityInfo();
                         activityInfo.name = jSONObject2.optString("n");
-                        if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
+                        if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(".")) {
                             activityInfo.name = packageInfo.packageName + activityInfo.name;
                         }
                         activityInfo.packageName = packageInfo.packageName;
@@ -697,7 +697,7 @@ public final class g {
         if (apkInfo == null) {
             return "";
         }
-        String replace = (!z || TextUtils.isEmpty(apkInfo.versionName)) ? "" : apkInfo.versionName.replace(DefaultConfig.TOKEN_SEPARATOR, "");
+        String replace = (!z || TextUtils.isEmpty(apkInfo.versionName)) ? "" : apkInfo.versionName.replace(".", "");
         try {
             try {
                 zipFile = new ZipFile(apkInfo.pkgPath);
@@ -730,7 +730,7 @@ public final class g {
                         try {
                             ZipEntry nextElement = entries.nextElement();
                             String name = nextElement.getName();
-                            if (name.contains("..")) {
+                            if (name.contains(IStringUtil.TOP_PATH)) {
                                 try {
                                     zipFile.close();
                                     return "";
@@ -889,8 +889,8 @@ public final class g {
                         }
                     }
                 }
-                if (!d && collection.contains(PassBiometricUtil.CPU_TYPE_ARMEABI) && Build.SUPPORTED_ABIS != null && Build.SUPPORTED_ABIS.length > 0 && !"mips".equals(Build.SUPPORTED_ABIS[0])) {
-                    return PassBiometricUtil.CPU_TYPE_ARMEABI;
+                if (!d && collection.contains("armeabi") && Build.SUPPORTED_ABIS != null && Build.SUPPORTED_ABIS.length > 0 && !IDevices.ABI_MIPS.equals(Build.SUPPORTED_ABIS[0])) {
+                    return "armeabi";
                 }
             } else {
                 return p;
@@ -901,8 +901,8 @@ public final class g {
             if (collection.contains(Build.CPU_ABI2)) {
                 return Build.CPU_ABI2;
             }
-            if (collection.contains(PassBiometricUtil.CPU_TYPE_ARMEABI) && !"mips".equals(Build.CPU_ABI)) {
-                return PassBiometricUtil.CPU_TYPE_ARMEABI;
+            if (collection.contains("armeabi") && !IDevices.ABI_MIPS.equals(Build.CPU_ABI)) {
+                return "armeabi";
             }
         }
         return "";
@@ -1045,7 +1045,7 @@ public final class g {
                 ZipEntry nextEntry = zipInputStream.getNextEntry();
                 if (nextEntry != null) {
                     String name = nextEntry.getName();
-                    if (!name.contains("..")) {
+                    if (!name.contains(IStringUtil.TOP_PATH)) {
                         if (name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) && !nextEntry.isDirectory() && z) {
                             String[] split = name.split("/");
                             if (split.length != 3) {

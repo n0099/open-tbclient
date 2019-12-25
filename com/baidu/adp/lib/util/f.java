@@ -3,8 +3,6 @@ package com.baidu.adp.lib.util;
 import android.os.Environment;
 import android.os.StatFs;
 import com.baidu.android.imsdk.BuildConfig;
-import com.baidu.android.imsdk.internal.DefaultConfig;
-import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -187,102 +185,105 @@ public class f {
         FileChannel fileChannel;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
-        Throwable th;
-        Closeable closeable;
-        FileChannel fileChannel2;
-        FileOutputStream fileOutputStream2;
-        FileChannel channel;
+        FileChannel fileChannel2 = null;
         if (file2.exists() && file2.isDirectory()) {
             throw new IOException("Destination '" + file2 + "' exists but is a directory");
         }
         try {
             FileInputStream fileInputStream2 = new FileInputStream(file);
             try {
-                fileOutputStream = new FileOutputStream(file2);
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
                 try {
-                    fileChannel2 = fileInputStream2.getChannel();
+                    FileChannel channel = fileInputStream2.getChannel();
                     try {
+                        FileChannel channel2 = fileOutputStream2.getChannel();
                         try {
-                            channel = fileOutputStream.getChannel();
-                        } catch (Error e) {
-                            fileOutputStream2 = fileOutputStream;
-                            fileInputStream = fileInputStream2;
-                            try {
+                            long size = channel.size();
+                            for (long j = 0; j < size; j += channel2.transferFrom(channel, j, size - j > 31457280 ? 31457280L : size - j)) {
+                            }
+                            n.close(channel2);
+                            n.close((OutputStream) fileOutputStream2);
+                            n.close(channel);
+                            n.close((InputStream) fileInputStream2);
+                            if (file.length() != file2.length()) {
                                 throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
-                            } catch (Throwable th2) {
-                                fileOutputStream = fileOutputStream2;
-                                fileChannel = fileChannel2;
-                                closeable = null;
-                                th = th2;
-                                n.close(closeable);
-                                n.close((OutputStream) fileOutputStream);
+                            }
+                            if (z) {
+                                file2.setLastModified(file.lastModified());
+                            }
+                        } catch (Error e) {
+                            fileOutputStream = fileOutputStream2;
+                            fileInputStream = fileInputStream2;
+                            fileChannel = channel2;
+                            e = e;
+                            fileChannel2 = channel;
+                            try {
+                                throw new IOException("Failed Error to copy contents from '" + file + "' to '" + file2 + "' with " + e.toString());
+                            } catch (Throwable th) {
+                                th = th;
                                 n.close(fileChannel);
+                                n.close((OutputStream) fileOutputStream);
+                                n.close(fileChannel2);
                                 n.close((InputStream) fileInputStream);
                                 throw th;
                             }
+                        } catch (Throwable th2) {
+                            fileOutputStream = fileOutputStream2;
+                            fileInputStream = fileInputStream2;
+                            fileChannel = channel2;
+                            th = th2;
+                            fileChannel2 = channel;
+                            n.close(fileChannel);
+                            n.close((OutputStream) fileOutputStream);
+                            n.close(fileChannel2);
+                            n.close((InputStream) fileInputStream);
+                            throw th;
                         }
+                    } catch (Error e2) {
+                        e = e2;
+                        fileOutputStream = fileOutputStream2;
+                        fileInputStream = fileInputStream2;
+                        fileChannel2 = channel;
+                        fileChannel = null;
                     } catch (Throwable th3) {
-                        fileInputStream = fileInputStream2;
                         th = th3;
-                        fileChannel = fileChannel2;
-                        closeable = null;
-                    }
-                    try {
-                        long size = fileChannel2.size();
-                        for (long j = 0; j < size; j += channel.transferFrom(fileChannel2, j, size - j > 31457280 ? 31457280L : size - j)) {
-                        }
-                        n.close(channel);
-                        n.close((OutputStream) fileOutputStream);
-                        n.close(fileChannel2);
-                        n.close((InputStream) fileInputStream2);
-                        if (file.length() != file2.length()) {
-                            throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
-                        }
-                        if (z) {
-                            file2.setLastModified(file.lastModified());
-                        }
-                    } catch (Throwable th4) {
+                        fileOutputStream = fileOutputStream2;
                         fileInputStream = fileInputStream2;
-                        th = th4;
-                        fileChannel = fileChannel2;
-                        closeable = channel;
-                        n.close(closeable);
-                        n.close((OutputStream) fileOutputStream);
-                        n.close(fileChannel);
-                        n.close((InputStream) fileInputStream);
-                        throw th;
+                        fileChannel2 = channel;
+                        fileChannel = null;
                     }
-                } catch (Error e2) {
-                    fileChannel2 = null;
-                    fileOutputStream2 = fileOutputStream;
-                    fileInputStream = fileInputStream2;
-                } catch (Throwable th5) {
+                } catch (Error e3) {
+                    e = e3;
                     fileChannel = null;
+                    fileOutputStream = fileOutputStream2;
                     fileInputStream = fileInputStream2;
-                    closeable = null;
-                    th = th5;
+                } catch (Throwable th4) {
+                    th = th4;
+                    fileChannel = null;
+                    fileOutputStream = fileOutputStream2;
+                    fileInputStream = fileInputStream2;
                 }
-            } catch (Error e3) {
-                fileChannel2 = null;
-                fileOutputStream2 = null;
-                fileInputStream = fileInputStream2;
-            } catch (Throwable th6) {
+            } catch (Error e4) {
+                e = e4;
                 fileChannel = null;
                 fileOutputStream = null;
                 fileInputStream = fileInputStream2;
-                th = th6;
-                closeable = null;
+            } catch (Throwable th5) {
+                th = th5;
+                fileChannel = null;
+                fileOutputStream = null;
+                fileInputStream = fileInputStream2;
             }
-        } catch (Error e4) {
-            fileChannel2 = null;
-            fileOutputStream2 = null;
-            fileInputStream = null;
-        } catch (Throwable th7) {
+        } catch (Error e5) {
+            e = e5;
             fileChannel = null;
             fileOutputStream = null;
             fileInputStream = null;
-            th = th7;
-            closeable = null;
+        } catch (Throwable th6) {
+            th = th6;
+            fileChannel = null;
+            fileOutputStream = null;
+            fileInputStream = null;
         }
     }
 
@@ -335,16 +336,16 @@ public class f {
                     j = fileInputStream.available();
                 } catch (Exception e) {
                     fileInputStream2 = fileInputStream;
-                    com.baidu.adp.lib.g.a.close((InputStream) fileInputStream2);
+                    com.baidu.adp.lib.f.a.close((InputStream) fileInputStream2);
                     return j;
                 } catch (Throwable th) {
                     fileInputStream2 = fileInputStream;
                     th = th;
-                    com.baidu.adp.lib.g.a.close((InputStream) fileInputStream2);
+                    com.baidu.adp.lib.f.a.close((InputStream) fileInputStream2);
                     throw th;
                 }
             }
-            com.baidu.adp.lib.g.a.close((InputStream) fileInputStream);
+            com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
         } catch (Exception e2) {
         } catch (Throwable th2) {
             th = th2;
@@ -413,7 +414,7 @@ public class f {
                 cleanDirectory(file);
             }
             if (!file.delete()) {
-                throw new IOException("Unable to delete directory " + file + DefaultConfig.TOKEN_SEPARATOR);
+                throw new IOException("Unable to delete directory " + file + ".");
             }
         }
     }

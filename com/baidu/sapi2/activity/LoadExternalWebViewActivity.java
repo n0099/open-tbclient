@@ -3,7 +3,8 @@ package com.baidu.sapi2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.d.a.a;
+import com.baidu.fsg.base.BaiduRimConstants;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccount;
@@ -14,11 +15,10 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.utils.enums.AccountType;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {
     public static final String EXTRA_BUSINESS_TYPE = "business_type";
     public static final String EXTRA_EXTERNAL_TITLE = "extra_external_title";
@@ -73,8 +73,8 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         super.finish();
         if (PassportSDK.getInstance().getExtendSysWebViewMethodCallback() != null) {
             ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
-            extendSysWebViewMethodResult.params.put("retCode", -301);
-            extendSysWebViewMethodResult.params.put("retMsg", SapiResult.ERROR_MSG_PROCESSED_END);
+            extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, -301);
+            extendSysWebViewMethodResult.params.put("retMsg", "您已取消操作");
             PassportSDK.getInstance().getExtendSysWebViewMethodCallback().onFinish(extendSysWebViewMethodResult);
         }
     }

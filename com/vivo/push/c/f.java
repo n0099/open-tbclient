@@ -8,7 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class f extends com.vivo.push.v {
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(com.vivo.push.y yVar) {

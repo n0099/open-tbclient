@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class x {
     private String checkUrl;
 
-    public String apq() {
+    public String aGP() {
         return this.checkUrl;
     }
 

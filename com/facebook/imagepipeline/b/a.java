@@ -1,14 +1,23 @@
 package com.facebook.imagepipeline.b;
 
 import android.annotation.TargetApi;
+import android.graphics.Bitmap;
+import com.facebook.imagepipeline.nativecode.Bitmaps;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class a extends f {
-    private final com.facebook.imagepipeline.memory.c kfA;
+    private final com.facebook.imagepipeline.memory.c lLQ;
 
     public a(com.facebook.imagepipeline.memory.c cVar) {
-        this.kfA = cVar;
+        this.lLQ = cVar;
+    }
+
+    @Override // com.facebook.imagepipeline.b.f
+    public com.facebook.common.references.a<Bitmap> c(int i, int i2, Bitmap.Config config) {
+        Bitmap bitmap = this.lLQ.get(com.facebook.d.a.e(i, i2, config));
+        Bitmaps.a(bitmap, i, i2, config);
+        return com.facebook.common.references.a.a(bitmap, this.lLQ);
     }
 }

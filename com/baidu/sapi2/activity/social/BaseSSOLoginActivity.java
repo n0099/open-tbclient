@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
-import com.baidu.d.a.a.a.a;
+import com.baidu.i.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
@@ -21,7 +21,6 @@ import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.dto.WebRegDTO;
 import com.baidu.sapi2.dto.WebSocialLoginDTO;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.share.SapiShareClient;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
@@ -37,13 +36,13 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BaseSSOLoginActivity extends SocialLoginBase {
-    private Handler aAX;
     protected int businessFrom;
-    protected RelativeLayout ebP;
     private boolean isClose;
     protected Dialog loadingDialog;
+    private Handler mainHandler;
+    protected RelativeLayout rootView;
     protected WebAuthResult webAuthResult = new WebAuthResult() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.1
         @Override // com.baidu.sapi2.shell.result.WebAuthResult
         public void finishActivity() {
@@ -152,7 +151,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         super.init();
         this.businessFrom = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
         this.webAuthResult.activity = this;
-        this.aAX = new Handler();
+        this.mainHandler = new Handler();
     }
 
     private void setOrientationToUndefined() {
@@ -192,12 +191,12 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         if (i == 2001) {
             Intent intent = new Intent();
             intent.putExtra("result_code", -301);
-            intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, SapiResult.ERROR_MSG_PROCESSED_END);
+            intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, "您已取消操作");
             setActivtyResult(1002, intent);
         } else if (PassportSDK.getInstance().getWebAuthListener() != null) {
             this.isClose = true;
             this.webAuthResult.setResultCode(-301);
-            this.webAuthResult.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+            this.webAuthResult.setResultMsg("您已取消操作");
             PassportSDK.getInstance().getWebAuthListener().onFailure(this.webAuthResult);
             PassportSDK.getInstance().release();
         }
@@ -209,7 +208,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public void handleOpenApiAuthorizeResponse(final SocialResponse socialResponse, HashMap<String, String> hashMap) {
         if (socialResponse.errorCode == 302) {
             ViewUtility.dismissDialog(this, this.loadingDialog);
-            RelativeLayout relativeLayout = this.ebP;
+            RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(0);
             }
@@ -224,7 +223,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
         if (this.authorizationListener != null) {
             if (socialResponse.errorCode != 0 && socialResponse.errorCode != 110000) {
-                this.aAX.post(new Runnable() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.6
+                this.mainHandler.post(new Runnable() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.6
                     @Override // java.lang.Runnable
                     public void run() {
                         BaseSSOLoginActivity baseSSOLoginActivity = BaseSSOLoginActivity.this;
@@ -235,7 +234,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                     }
                 });
             } else {
-                this.aAX.post(new Runnable() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.5
+                this.mainHandler.post(new Runnable() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.5
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
@@ -274,13 +273,13 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
         super.onCreate(bundle);
         try {
-            setContentView(a.C0054a.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.b.layout_sapi_sdk_webview_with_title_bar);
             initData();
         } catch (Throwable th) {
             reportWebviewError(th);
             if (PassportSDK.getInstance().getWebAuthListener() != null) {
                 this.webAuthResult.setResultCode(-202);
-                this.webAuthResult.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
+                this.webAuthResult.setResultMsg("网络连接失败，请检查网络设置");
                 PassportSDK.getInstance().getWebAuthListener().onFailure(this.webAuthResult);
             }
             PassportSDK.getInstance().release();
@@ -314,7 +313,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public void setupViews() {
         super.setupViews();
         configTitle();
-        this.ebP = (RelativeLayout) findViewById(a.c.root_view);
+        this.rootView = (RelativeLayout) findViewById(a.C0070a.root_view);
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {

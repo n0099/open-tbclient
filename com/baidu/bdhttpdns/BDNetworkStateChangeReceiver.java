@@ -39,28 +39,28 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
             } catch (SocketException e2) {
                 BDNetworkStateChangeReceiver.this.e = false;
             }
-            f.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.this.f), Boolean.valueOf(BDNetworkStateChangeReceiver.this.e));
+            l.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.this.f), Boolean.valueOf(BDNetworkStateChangeReceiver.this.e));
             return null;
         }
     }
 
     private void a(Context context) {
-        f.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.b), Boolean.valueOf(this.c));
-        i lD = i.lD();
-        lD.b();
+        l.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.b), Boolean.valueOf(this.c));
+        i lU = i.lU();
+        lU.b();
         BDHttpDns ag = BDHttpDns.ag(context);
         refreshIpReachable();
-        ArrayList<String> b = ag.lu().b();
+        ArrayList<String> b = ag.lL().b();
         if (this.b) {
-            ag.lu().a();
-            ag.lv().a();
+            ag.lL().a();
+            ag.lM().a();
         }
         if (this.c) {
             if (isIPv6Only()) {
-                f.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
+                l.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
             } else if (b == null || b.isEmpty()) {
             } else {
-                lD.a(b, new e(context));
+                lU.a(b, new k(context));
             }
         }
     }
@@ -103,7 +103,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
         str = (networkInfo == null || networkInfo.getState() != NetworkInfo.State.CONNECTED) ? (networkInfo2 == null || networkInfo2.getState() != NetworkInfo.State.CONNECTED) ? "" : networkInfo2.getExtraInfo().toString() : networkInfo.getExtraInfo().toString();
         try {
             if (!this.d.equals(str) && str != "") {
-                f.a("Current net type: %s.", str);
+                l.a("Current net type: %s.", str);
                 a(context);
             }
         } catch (RuntimeException e3) {

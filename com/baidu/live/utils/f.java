@@ -1,28 +1,48 @@
 package com.baidu.live.utils;
 
-import android.content.Context;
-import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.k.a;
-import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes6.dex */
+import android.text.Html;
+import android.text.ParcelableSpan;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.URLSpan;
+import java.util.ArrayList;
+/* loaded from: classes2.dex */
 public class f {
-    public static int au(Context context) {
-        int av = av(context);
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            return av + UtilHelper.getStatusBarHeight();
+    public static SpannableStringBuilder s(String str, int i) {
+        SpannableStringBuilder valueOf;
+        try {
+            valueOf = (SpannableStringBuilder) Html.fromHtml(str);
+        } catch (Exception e) {
+            valueOf = SpannableStringBuilder.valueOf(str);
         }
-        return av;
-    }
-
-    public static int av(Context context) {
-        return context.getResources().getDimensionPixelSize(a.e.sdk_ds142) * 2;
-    }
-
-    public static int aw(Context context) {
-        return ((BdUtilHelper.getScreenDimensions(context)[0] / 2) * 4) / 3;
-    }
-
-    public static int ax(Context context) {
-        return BdUtilHelper.getScreenDimensions(context)[0] / 2;
+        SpannableStringBuilder valueOf2 = SpannableStringBuilder.valueOf(valueOf.toString());
+        ParcelableSpan[] parcelableSpanArr = (ParcelableSpan[]) valueOf.getSpans(0, valueOf.length(), ParcelableSpan.class);
+        ArrayList arrayList = new ArrayList();
+        for (int i2 = 0; i2 < parcelableSpanArr.length; i2++) {
+            if ((parcelableSpanArr[i2] instanceof URLSpan) && i2 - 1 >= 0 && (parcelableSpanArr[i2 - 1] instanceof ForegroundColorSpan)) {
+                b bVar = new b((ForegroundColorSpan) parcelableSpanArr[i2 - 1]);
+                bVar.a((URLSpan) parcelableSpanArr[i2]);
+                bVar.ayD = valueOf.getSpanStart(parcelableSpanArr[i2]);
+                bVar.ayE = valueOf.getSpanEnd(parcelableSpanArr[i2]);
+                arrayList.add(bVar);
+            } else if ((parcelableSpanArr[i2] instanceof ForegroundColorSpan) && ((i2 + 1 < parcelableSpanArr.length && !(parcelableSpanArr[i2 + 1] instanceof URLSpan)) || i2 == parcelableSpanArr.length - 1)) {
+                b bVar2 = new b((ForegroundColorSpan) parcelableSpanArr[i2]);
+                bVar2.ayD = valueOf.getSpanStart(parcelableSpanArr[i2]);
+                bVar2.ayE = valueOf.getSpanEnd(parcelableSpanArr[i2]);
+                arrayList.add(bVar2);
+            }
+        }
+        valueOf2.setSpan(new ForegroundColorSpan(i), 0, valueOf.length(), 33);
+        for (int i3 = 0; i3 < arrayList.size(); i3++) {
+            b bVar3 = (b) arrayList.get(i3);
+            if (bVar3 != null) {
+                if (bVar3.ayG) {
+                    valueOf2.setSpan(new a(bVar3.mUrl, bVar3.ayF), bVar3.ayD, bVar3.ayE, 33);
+                } else {
+                    valueOf2.setSpan(new ForegroundColorSpan(bVar3.ayF), bVar3.ayD, bVar3.ayE, 33);
+                }
+            }
+        }
+        return valueOf2;
     }
 }

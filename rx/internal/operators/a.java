@@ -1,40 +1,41 @@
 package rx.internal.operators;
 
+import com.google.android.exoplayer2.Format;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.util.UtilityFunctions;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class a {
-    public static long a(AtomicLong atomicLong, long j) {
+    public static long e(AtomicLong atomicLong, long j) {
         long j2;
         do {
             j2 = atomicLong.get();
-        } while (!atomicLong.compareAndSet(j2, D(j2, j)));
+        } while (!atomicLong.compareAndSet(j2, ad(j2, j)));
         return j2;
     }
 
-    public static long C(long j, long j2) {
+    public static long ae(long j, long j2) {
         long j3 = j * j2;
         if (((j | j2) >>> 31) != 0 && j2 != 0 && j3 / j2 != j) {
-            return Long.MAX_VALUE;
+            return Format.OFFSET_SAMPLE_RELATIVE;
         }
         return j3;
     }
 
-    public static long D(long j, long j2) {
+    public static long ad(long j, long j2) {
         long j3 = j + j2;
         if (j3 < 0) {
-            return Long.MAX_VALUE;
+            return Format.OFFSET_SAMPLE_RELATIVE;
         }
         return j3;
     }
 
     public static <T> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super T> jVar) {
-        a(atomicLong, queue, jVar, UtilityFunctions.cPg());
+        a(atomicLong, queue, jVar, UtilityFunctions.dGR());
     }
 
     public static <T> boolean a(AtomicLong atomicLong, long j, Queue<T> queue, rx.j<? super T> jVar) {
-        return a(atomicLong, j, queue, jVar, UtilityFunctions.cPg());
+        return a(atomicLong, j, queue, jVar, UtilityFunctions.dGR());
     }
 
     public static <T, R> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super R> jVar, rx.functions.f<? super T, ? extends R> fVar) {
@@ -62,7 +63,7 @@ public final class a {
         do {
             j2 = atomicLong.get();
             j3 = Long.MIN_VALUE & j2;
-        } while (!atomicLong.compareAndSet(j2, D(Long.MAX_VALUE & j2, j) | j3));
+        } while (!atomicLong.compareAndSet(j2, ad(Format.OFFSET_SAMPLE_RELATIVE & j2, j) | j3));
         if (j2 != Long.MIN_VALUE) {
             return j3 == 0;
         }
@@ -74,7 +75,7 @@ public final class a {
     /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
     static <T, R> void b(AtomicLong atomicLong, Queue<T> queue, rx.j<? super R> jVar, rx.functions.f<? super T, ? extends R> fVar) {
         long j = atomicLong.get();
-        if (j == Long.MAX_VALUE) {
+        if (j == Format.OFFSET_SAMPLE_RELATIVE) {
             while (!jVar.isUnsubscribed()) {
                 Object poll = queue.poll();
                 if (poll == null) {
@@ -114,7 +115,7 @@ public final class a {
                 }
                 j2 = atomicLong.get();
                 if (j2 == j3) {
-                    long addAndGet = atomicLong.addAndGet(-(j3 & Long.MAX_VALUE));
+                    long addAndGet = atomicLong.addAndGet(-(j3 & Format.OFFSET_SAMPLE_RELATIVE));
                     if (addAndGet == Long.MIN_VALUE) {
                         return;
                     }
@@ -127,13 +128,13 @@ public final class a {
         }
     }
 
-    public static long b(AtomicLong atomicLong, long j) {
+    public static long c(AtomicLong atomicLong, long j) {
         long j2;
         long j3;
         do {
             j2 = atomicLong.get();
-            if (j2 == Long.MAX_VALUE) {
-                return Long.MAX_VALUE;
+            if (j2 == Format.OFFSET_SAMPLE_RELATIVE) {
+                return Format.OFFSET_SAMPLE_RELATIVE;
             }
             j3 = j2 - j;
             if (j3 < 0) {
@@ -143,7 +144,7 @@ public final class a {
         return j3;
     }
 
-    public static boolean en(long j) {
+    public static boolean validate(long j) {
         if (j < 0) {
             throw new IllegalArgumentException("n >= 0 required but it was " + j);
         }

@@ -20,7 +20,7 @@ public class x implements View.OnClickListener {
         if (aVar != null) {
             System.out.println("mBarQuitBtn onClick showQuitDialog");
             aVar2 = this.a.m;
-            aVar2.a(false, R.string.abc_action_bar_home_description_format);
+            aVar2.a(false, R.string.abc_action_bar_up_description);
         }
     }
 }

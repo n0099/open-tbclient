@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.apache.http.entity.FileEntity;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMUpLoadFileEntity extends FileEntity {
     IUploadTransferListener mListener;
 

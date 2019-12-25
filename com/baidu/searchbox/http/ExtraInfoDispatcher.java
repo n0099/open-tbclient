@@ -3,7 +3,7 @@ package com.baidu.searchbox.http;
 import com.baidu.searchbox.http.callback.ExtraInfoCallback;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class ExtraInfoDispatcher {
     private List<ExtraInfoCallback> mExtraCallbacks = new CopyOnWriteArrayList();
 

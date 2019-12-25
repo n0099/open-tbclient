@@ -1,176 +1,68 @@
 package com.facebook.imagepipeline.producers;
 
 import android.net.Uri;
-import com.facebook.imagepipeline.producers.af;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Locale;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import okhttp3.internal.http.StatusLine;
-/* loaded from: classes2.dex */
-public class t extends c<s> {
-    private final ExecutorService btb;
+import java.util.Map;
+import javax.annotation.Nullable;
+/* loaded from: classes9.dex */
+public class t {
+    private final k<com.facebook.imagepipeline.g.e> lQX;
+    private final ak lRe;
+    private long lRf = 0;
+    private int lRg;
+    @Nullable
+    private com.facebook.imagepipeline.common.a lRh;
 
-    public t() {
-        this(Executors.newFixedThreadPool(3));
+    public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
+        this.lQX = kVar;
+        this.lRe = akVar;
     }
 
-    t(ExecutorService executorService) {
-        this.btb = executorService;
+    public k<com.facebook.imagepipeline.g.e> dpj() {
+        return this.lQX;
     }
 
-    @Override // com.facebook.imagepipeline.producers.af
-    public s d(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        return new s(jVar, ajVar);
+    public ak dpk() {
+        return this.lRe;
     }
 
-    @Override // com.facebook.imagepipeline.producers.af
-    public void a(final s sVar, final af.a aVar) {
-        final Future<?> submit = this.btb.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
-            @Override // java.lang.Runnable
-            public void run() {
-                t.this.b(sVar, aVar);
-            }
-        });
-        sVar.cIT().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
-            @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void cIM() {
-                if (submit.cancel(false)) {
-                    aVar.cCF();
-                }
-            }
-        });
+    public String getId() {
+        return this.lRe.getId();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [90=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0044 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x000c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0038  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0033 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.net.HttpURLConnection, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r1v2, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r1v7 */
-    /* JADX WARN: Type inference failed for: r5v0, types: [com.facebook.imagepipeline.producers.af$a] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    void b(s sVar, af.a aVar) {
-        HttpURLConnection httpURLConnection;
-        ?? r1 = 0;
-        r1 = 0;
-        InputStream inputStream = null;
-        try {
-            try {
-                httpURLConnection = b(sVar.getUri(), 5);
-                if (httpURLConnection != null) {
-                    try {
-                        r1 = httpURLConnection.getInputStream();
-                        aVar.f(r1, -1);
-                        inputStream = r1;
-                    } catch (IOException e) {
-                        e = e;
-                        aVar.B(e);
-                        if (r1 != 0) {
-                            try {
-                                r1.close();
-                            } catch (IOException e2) {
-                            }
-                        }
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
-                            return;
-                        }
-                        return;
-                    }
-                }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e3) {
-                    }
-                }
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (0 != 0) {
-                    try {
-                        r1.close();
-                    } catch (IOException e4) {
-                    }
-                }
-                if (0 != 0) {
-                    r1.disconnect();
-                }
-                throw th;
-            }
-        } catch (IOException e5) {
-            e = e5;
-            httpURLConnection = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (0 != 0) {
-            }
-            if (0 != 0) {
-            }
-            throw th;
-        }
+    public am doY() {
+        return this.lRe.doY();
     }
 
-    private HttpURLConnection b(Uri uri, int i) throws IOException {
-        HttpURLConnection M = M(uri);
-        int responseCode = M.getResponseCode();
-        if (!CO(responseCode)) {
-            if (CP(responseCode)) {
-                String headerField = M.getHeaderField("Location");
-                M.disconnect();
-                Uri parse = headerField == null ? null : Uri.parse(headerField);
-                String scheme = uri.getScheme();
-                if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
-                    return b(parse, i - 1);
-                }
-                throw new IOException(i == 0 ? l("URL %s follows too many redirects", uri.toString()) : l("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
-            }
-            M.disconnect();
-            throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
-        }
-        return M;
+    public Uri getUri() {
+        return this.lRe.doX().dpN();
     }
 
-    static HttpURLConnection M(Uri uri) throws IOException {
-        return (HttpURLConnection) new URL(uri.toString()).openConnection();
+    public long dpl() {
+        return this.lRf;
     }
 
-    private static boolean CO(int i) {
-        return i >= 200 && i < 300;
+    public void fg(long j) {
+        this.lRf = j;
     }
 
-    private static boolean CP(int i) {
-        switch (i) {
-            case 300:
-            case 301:
-            case 302:
-            case 303:
-            case 307:
-            case StatusLine.HTTP_PERM_REDIRECT /* 308 */:
-                return true;
-            case 304:
-            case 305:
-            case 306:
-            default:
-                return false;
-        }
+    public int dpm() {
+        return this.lRg;
     }
 
-    private static String l(String str, Object... objArr) {
-        return String.format(Locale.getDefault(), str, objArr);
+    public void Ix(int i) {
+        this.lRg = i;
+    }
+
+    @Nullable
+    public com.facebook.imagepipeline.common.a dpn() {
+        return this.lRh;
+    }
+
+    public void c(com.facebook.imagepipeline.common.a aVar) {
+        this.lRh = aVar;
+    }
+
+    public Map<String, String> dpo() {
+        return this.lRe.doX().dpo();
     }
 }

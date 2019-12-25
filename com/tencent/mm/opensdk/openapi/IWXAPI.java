@@ -4,7 +4,7 @@ import android.content.Intent;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.ILog;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface IWXAPI {
     void detach();
 
@@ -13,6 +13,8 @@ public interface IWXAPI {
     boolean handleIntent(Intent intent, IWXAPIEventHandler iWXAPIEventHandler);
 
     boolean isWXAppInstalled();
+
+    boolean isWXAppSupportAPI();
 
     boolean openWXApp();
 

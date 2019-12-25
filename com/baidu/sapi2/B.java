@@ -2,6 +2,7 @@ package com.baidu.sapi2;
 
 import android.os.Looper;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.callback.FillUsernameCallback;
@@ -13,7 +14,7 @@ import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.SapiUtils;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class B extends HttpHandlerWrap {
     final /* synthetic */ FillUsernameCallback a;
     final /* synthetic */ FillUsernameResult b;
@@ -58,7 +59,7 @@ public class B extends HttpHandlerWrap {
         this.b.setResultCode(b);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.b.setResultMsg(jSONObject.optString("errmsg"));
+            this.b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
             JSONObject jSONObject2 = new JSONObject(this.c.decrypt(jSONObject.optString(TableDefine.DB_TABLE_USERINFO)));
             if (b == 0 || b == 110000) {
                 SapiAccount sapiAccount = new SapiAccount();
@@ -72,7 +73,7 @@ public class B extends HttpHandlerWrap {
                 sapiAccount.app = SapiUtils.getAppName(sapiConfiguration.context);
                 sapiAccount.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(jSONObject2).tplStokenMap);
                 sapiConfiguration2 = this.d.c;
-                sapiAccount.putExtra(TableDefine.PaSubscribeColumns.COLUMN_TPL, sapiConfiguration2.tpl);
+                sapiAccount.putExtra("tpl", sapiConfiguration2.tpl);
                 SapiShareClient.getInstance().validate(sapiAccount);
                 this.b.session = sapiAccount;
                 this.a.onSuccess(this.b);

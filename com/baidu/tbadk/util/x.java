@@ -1,24 +1,35 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class x {
-    private static String mThreadId;
+public class x extends Thread {
+    private int dCv;
+    private int imageNum;
+    private String type = null;
 
-    public static void qr(String str) {
-        mThreadId = str;
+    public x(int i, int i2) {
+        this.imageNum = 0;
+        this.dCv = 0;
+        this.imageNum = i;
+        this.dCv = i2;
     }
 
-    public static String axN() {
-        if (StringUtils.isNull(mThreadId)) {
-            return null;
-        }
-        return mThreadId;
+    public void setType(String str) {
+        this.type = str;
     }
 
-    public static void axO() {
-        if (mThreadId != null) {
-            mThreadId = null;
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
+            com.baidu.tbadk.core.util.x xVar = new com.baidu.tbadk.core.util.x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
+            xVar.addPostData("img_num", String.valueOf(this.imageNum));
+            xVar.addPostData("img_total", String.valueOf(this.dCv));
+            if (this.type != null) {
+                xVar.addPostData("img_type", this.type);
+            }
+            xVar.postNetData();
         }
     }
 }

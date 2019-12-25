@@ -18,23 +18,23 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.gift.panel.GiftPanelFragmentPagerAdapter;
 import com.baidu.live.gift.panel.GiftPanelTabBaseFragment;
 import com.baidu.live.gift.panel.b;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.baidu.live.utils.g;
+import com.baidu.live.utils.h;
 import com.baidu.live.utils.q;
 import com.baidu.live.view.ScrollEnableViewPager;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnTouchListener, b.a {
-    private ScrollEnableViewPager YC;
-    private ViewTreeObserver.OnGlobalLayoutListener YD;
-    private int YE;
-    private boolean YF;
-    private com.baidu.live.gift.panel.b YG;
-    private boolean YH = false;
-    private boolean YI = false;
-    private boolean YJ = false;
+    private ScrollEnableViewPager agA;
+    private ViewTreeObserver.OnGlobalLayoutListener agB;
+    private int agC;
+    private boolean agD;
+    private com.baidu.live.gift.panel.b agE;
+    private boolean agF = false;
+    private boolean agG = false;
+    private boolean agH = false;
     private View mRootView;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -48,7 +48,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
             getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(a.d.sdk_transparent)));
         }
         initView();
-        qh();
+        rO();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
@@ -78,45 +78,45 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     protected void addGlobalLayoutListener() {
-        this.YD = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.1
+        this.agB = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Rect rect = new Rect();
                 AlaGiftTabActivity.this.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
                 int statusBarHeight = BdUtilHelper.getStatusBarHeight(AlaGiftTabActivity.this.getPageContext().getPageActivity());
                 int[] screenDimensions = BdUtilHelper.getScreenDimensions(AlaGiftTabActivity.this.getPageContext().getPageActivity());
-                boolean z = AlaGiftTabActivity.this.YE != rect.bottom;
-                AlaGiftTabActivity.this.YE = rect.bottom;
-                if (screenDimensions[1] - rect.bottom > screenDimensions[1] / 4 && (!AlaGiftTabActivity.this.YF || z)) {
-                    AlaGiftTabActivity.this.YF = true;
+                boolean z = AlaGiftTabActivity.this.agC != rect.bottom;
+                AlaGiftTabActivity.this.agC = rect.bottom;
+                if (screenDimensions[1] - rect.bottom > screenDimensions[1] / 4 && (!AlaGiftTabActivity.this.agD || z)) {
+                    AlaGiftTabActivity.this.agD = true;
                     AlaGiftTabActivity.this.onKeyboardVisibilityChanged(true);
-                } else if (screenDimensions[1] - rect.height() <= statusBarHeight && AlaGiftTabActivity.this.YF) {
-                    AlaGiftTabActivity.this.YF = false;
+                } else if (screenDimensions[1] - rect.height() <= statusBarHeight && AlaGiftTabActivity.this.agD) {
+                    AlaGiftTabActivity.this.agD = false;
                     AlaGiftTabActivity.this.onKeyboardVisibilityChanged(false);
                 }
             }
         };
-        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.YD);
+        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.agB);
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        GiftPanelTabBaseFragment qi = qi();
-        return qi != null && qi.onTouch(view, motionEvent);
+        GiftPanelTabBaseFragment rP = rP();
+        return rP != null && rP.onTouch(view, motionEvent);
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
-        GiftPanelTabBaseFragment qi = qi();
-        if (qi != null) {
-            qi.onKeyboardVisibilityChanged(z);
+        GiftPanelTabBaseFragment rP = rP();
+        if (rP != null) {
+            rP.onKeyboardVisibilityChanged(z);
         }
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onBackPressed() {
-        GiftPanelTabBaseFragment qi = qi();
-        if (qi == null || !qi.onBackPressed()) {
+        GiftPanelTabBaseFragment rP = rP();
+        if (rP == null || !rP.onBackPressed()) {
             super.onBackPressed();
         }
     }
@@ -125,14 +125,14 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     public void a(int i, Fragment... fragmentArr) {
         GiftPanelFragmentPagerAdapter giftPanelFragmentPagerAdapter = new GiftPanelFragmentPagerAdapter(getSupportFragmentManager());
         giftPanelFragmentPagerAdapter.a(fragmentArr);
-        this.YC.setAdapter(giftPanelFragmentPagerAdapter);
-        this.YC.setCurrentItem(i, false);
+        this.agA.setAdapter(giftPanelFragmentPagerAdapter);
+        this.agA.setCurrentItem(i, false);
     }
 
     @Override // com.baidu.live.gift.panel.b.a
-    public void bh(int i) {
-        if (this.YC != null && this.YC.getAdapter() != null && this.YC.getAdapter().getCount() > i) {
-            this.YC.setCurrentItem(i, false);
+    public void bt(int i) {
+        if (this.agA != null && this.agA.getAdapter() != null && this.agA.getAdapter().getCount() > i) {
+            this.agA.setCurrentItem(i, false);
         }
     }
 
@@ -145,12 +145,12 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.YG != null) {
-            this.YG.release();
+        if (this.agE != null) {
+            this.agE.release();
         }
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.YD);
-        if (this.YG != null) {
-            this.YG.release();
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.agB);
+        if (this.agE != null) {
+            this.agE.release();
         }
     }
 
@@ -161,15 +161,15 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     private void initView() {
         setContentView(a.h.live_gift_activity_panel);
         this.mRootView = findViewById(a.g.layout_root);
-        this.YC = (ScrollEnableViewPager) findViewById(a.g.vp);
-        this.YC.setScrollEnabled(false);
+        this.agA = (ScrollEnableViewPager) findViewById(a.g.vp);
+        this.agA.setScrollEnabled(false);
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            g.P(findViewById(a.g.layout_root));
+            h.Q(findViewById(a.g.layout_root));
             q.d(getActivity(), false);
         }
         addGlobalLayoutListener();
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-        this.YI = false;
+        this.agG = false;
         this.mRootView.setVisibility(4);
     }
 
@@ -177,20 +177,20 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.YH) {
+        if (!this.agF) {
             this.mRootView.setVisibility(0);
-            qf();
-            this.YH = true;
+            rM();
+            this.agF = true;
         }
     }
 
-    private void qf() {
+    private void rM() {
         Animation loadAnimation;
-        this.YI = true;
+        this.agG = true;
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0068a.sdk_in_from_right);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0086a.sdk_in_from_right);
         } else {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0068a.sdk_in_from_bottom);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0086a.sdk_in_from_bottom);
         }
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.2
             @Override // android.view.animation.Animation.AnimationListener
@@ -199,7 +199,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaGiftTabActivity.this.YI = false;
+                AlaGiftTabActivity.this.agG = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -209,13 +209,13 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void qg() {
+    private void rN() {
         Animation loadAnimation;
-        if (!this.YJ && !this.YI) {
+        if (!this.agH && !this.agG) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0068a.sdk_out_to_right);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0086a.sdk_out_to_right);
             } else {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0068a.sdk_out_to_bottom);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0086a.sdk_out_to_bottom);
             }
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.3
                 @Override // android.view.animation.Animation.AnimationListener
@@ -232,25 +232,25 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.YJ = true;
+            this.agH = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        qg();
+        rN();
     }
 
-    private void qh() {
-        this.YG = new com.baidu.live.gift.panel.b(getPageContext());
-        this.YG.a(getIntent(), this);
+    private void rO() {
+        this.agE = new com.baidu.live.gift.panel.b(getPageContext());
+        this.agE.a(getIntent(), this);
     }
 
-    private GiftPanelTabBaseFragment qi() {
-        PagerAdapter adapter = this.YC.getAdapter();
+    private GiftPanelTabBaseFragment rP() {
+        PagerAdapter adapter = this.agA.getAdapter();
         if (adapter instanceof GiftPanelFragmentPagerAdapter) {
-            Fragment fragment = ((GiftPanelFragmentPagerAdapter) adapter).adp;
+            Fragment fragment = ((GiftPanelFragmentPagerAdapter) adapter).aln;
             return fragment instanceof GiftPanelTabBaseFragment ? (GiftPanelTabBaseFragment) fragment : null;
         }
         return null;

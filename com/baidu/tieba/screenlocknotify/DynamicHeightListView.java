@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class DynamicHeightListView extends BdListView {
     private int maxHeight;
 

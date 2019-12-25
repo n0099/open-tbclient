@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework.message;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PerformanceData {
     public long mQueneTime = 0;
     public long mNetConTime = 0;
@@ -14,7 +14,7 @@ public class PerformanceData {
     public long mHttpRetryNum = 0;
     public long mHttpRetryCostTime = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class SOCKET_ERR_NO {
         public static final int CMD_110004_NO = 8;
         public static final int IS_NOT_ONLIEN_OR_NO_LONG_CON_ERR_NO = 2;

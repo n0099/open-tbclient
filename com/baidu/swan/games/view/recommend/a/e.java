@@ -5,27 +5,27 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.http.callback.StringResponseCallback;
 import com.baidu.searchbox.http.request.PostFormRequest;
+import com.baidu.webkit.internal.ETAG;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static void a(int i, @NonNull ResponseCallback responseCallback) {
-        com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
-        if (Ra == null) {
+        com.baidu.swan.apps.runtime.e ZS = com.baidu.swan.apps.runtime.e.ZS();
+        if (ZS == null) {
             responseCallback.onFail(new Exception("framework error: swan app is null."));
             return;
         }
-        Ra.Ri().getRequest().cookieManager(com.baidu.swan.apps.u.a.JG().Ke()).url(com.baidu.swan.apps.u.a.Jv().Cc()).addUrlParam("app_key", Ra.getAppKey()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).build().executeAsync(responseCallback);
+        ZS.aaf().getRequest().cookieManager(com.baidu.swan.apps.w.a.RI().FH()).url(com.baidu.swan.apps.w.a.Rw().Fy()).addUrlParam("app_key", ZS.getAppKey()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).build().executeAsync(responseCallback);
     }
 
-    public static void A(int i, String str) {
-        com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
-        if (Ra != null) {
-            String Cd = com.baidu.swan.apps.u.a.Jv().Cd();
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) Ra.Ri().postFormRequest().cookieManager(com.baidu.swan.apps.u.a.JG().Ke())).url(Cd)).addParams(a(Ra, i, str)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.view.recommend.a.e.1
+    public static void H(int i, String str) {
+        com.baidu.swan.apps.runtime.e ZS = com.baidu.swan.apps.runtime.e.ZS();
+        if (ZS != null) {
+            String Fz = com.baidu.swan.apps.w.a.Rw().Fz();
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ZS.aaf().postFormRequest().cookieManager(com.baidu.swan.apps.w.a.RI().FH())).url(Fz)).addParams(a(ZS, i, str)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.view.recommend.a.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
-                /* renamed from: x */
                 public void onSuccess(String str2, int i2) {
                 }
 
@@ -36,25 +36,25 @@ public class e {
         }
     }
 
-    private static Map<String, String> a(@NonNull com.baidu.swan.apps.ae.b bVar, int i, String str) {
+    private static Map<String, String> a(@NonNull com.baidu.swan.apps.runtime.e eVar, int i, String str) {
         TreeMap treeMap = new TreeMap();
-        treeMap.put("app_key", bVar.getAppKey());
+        treeMap.put("app_key", eVar.getAppKey());
         treeMap.put("to_app_key", str);
         treeMap.put("source", String.valueOf(i));
-        treeMap.put("timestamp", YY());
+        treeMap.put("timestamp", aou());
         StringBuilder sb = new StringBuilder();
         for (String str2 : treeMap.keySet()) {
             sb.append(str2);
-            sb.append("=");
+            sb.append(ETAG.EQUAL);
             sb.append((String) treeMap.get(str2));
-            sb.append("&");
+            sb.append(ETAG.ITEM_SEPARATOR);
         }
         sb.append("dsb9Ao44");
-        treeMap.put("sign", com.baidu.swan.c.b.toMd5(sb.toString().getBytes(), false));
+        treeMap.put("sign", com.baidu.swan.d.d.toMd5(sb.toString().getBytes(), false));
         return treeMap;
     }
 
-    private static String YY() {
+    private static String aou() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 }

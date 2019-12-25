@@ -20,7 +20,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if ("callNativeSMS".equals(str2)) {
-                mE(str3);
+                rS(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("copyToClipboard".equals(str2)) {
@@ -28,11 +28,11 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("setBlockPopInfo".equals(str2)) {
-                mF(str3);
+                rT(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("bindMobileNumber".equals(str2)) {
-                mG(str3);
+                rU(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else {
@@ -42,7 +42,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         return false;
     }
 
-    private void mE(String str) {
+    private void rS(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), jSONObject.optString("phoneNumber"), jSONObject.optString("content"));
@@ -59,7 +59,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    private void mF(String str) {
+    private void rT(String str) {
         try {
             BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
             JSONObject jSONObject = new JSONObject(str);
@@ -77,7 +77,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    private void mG(String str) {
+    private void rU(String str) {
         try {
             MessageManager.getInstance().sendMessage(new CustomMessage(2921372, AuthVerifyData.createDataForBindMobile(String.valueOf(System.currentTimeMillis()))));
         } catch (Exception e) {

@@ -1,9 +1,9 @@
 package com.baidu.swan.game.ad.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface i {
-    void a();
+    void ej(boolean z);
 
-    void a(g gVar);
+    void onError(String str);
 
-    void a(String str);
+    void onLoad();
 }

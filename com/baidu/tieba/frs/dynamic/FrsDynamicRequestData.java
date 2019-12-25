@@ -3,14 +3,16 @@ package com.baidu.tieba.frs.dynamic;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.mvc.b.e;
 import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import java.util.HashMap;
 import tbclient.CommonReq;
 import tbclient.StarTrends.DataReq;
 import tbclient.StarTrends.StarTrendsReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FrsDynamicRequestData extends OrmObject implements e, h {
-    public CommonReq common;
+
+    /* renamed from: common  reason: collision with root package name */
+    public CommonReq f977common;
     public long forumId;
     public long lastThreadId;
     public int qType;
@@ -19,12 +21,12 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
     public int scrW;
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String avI() {
+    public String aNs() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean avJ() {
+    public boolean aNt() {
         return false;
     }
 
@@ -39,17 +41,17 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> avL() {
+    public HashMap<String, Object> aNv() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> avM() {
+    public HashMap<String, String> aNw() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object fq(boolean z) {
+    public Object gB(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.forumId);
         builder.scr_w = Integer.valueOf(this.scrW);
@@ -58,7 +60,7 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
         builder.q_type = Integer.valueOf(this.qType);
         builder.last_thread_id = Long.valueOf(this.lastThreadId);
         builder.rn = 30;
-        r.a(builder, true, false, true);
+        t.a(builder, true, false, true);
         StarTrendsReqIdl.Builder builder2 = new StarTrendsReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

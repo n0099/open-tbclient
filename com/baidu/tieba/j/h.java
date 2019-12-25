@@ -1,25 +1,25 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface h {
-    void au(int i, String str);
+    void EA(String str);
 
-    void av(int i, String str);
+    void EB(String str);
 
-    void aw(int i, String str);
+    void aJ(int i, String str);
 
-    void ax(int i, String str);
+    void aK(int i, String str);
 
-    void bMA();
+    void aL(int i, String str);
 
-    void bMB();
+    void aM(int i, String str);
 
-    void bMC();
+    void cdL();
 
-    void bMz();
+    void cdM();
 
-    void h(int i, int i2, String str);
+    void cdN();
 
-    void zS(String str);
+    void cdO();
 
-    void zT(String str);
+    void j(int i, int i2, String str);
 }

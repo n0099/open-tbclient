@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core;
 
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.sapi2.share.p;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class OpCode {
     private static int BASE_ERROR_NO = -100000000;
     public static final int ONLINE_SUCC = BASE_ERROR_NO - 1000;

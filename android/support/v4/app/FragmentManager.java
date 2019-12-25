@@ -10,11 +10,11 @@ import android.view.View;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class FragmentManager {
     public static final int POP_BACK_STACK_INCLUSIVE = 1;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface BackStackEntry {
         CharSequence getBreadCrumbShortTitle();
 
@@ -31,7 +31,7 @@ public abstract class FragmentManager {
         String getName();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnBackStackChangedListener {
         void onBackStackChanged();
     }
@@ -94,7 +94,7 @@ public abstract class FragmentManager {
         FragmentManagerImpl.DEBUG = z;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class FragmentLifecycleCallbacks {
         public void onFragmentPreAttached(FragmentManager fragmentManager, Fragment fragment, Context context) {
         }

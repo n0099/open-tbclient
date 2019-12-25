@@ -1,46 +1,58 @@
 package com.facebook.imagepipeline.common;
 
-import com.facebook.common.internal.g;
-/* loaded from: classes2.dex */
+import android.graphics.Bitmap;
+import javax.annotation.Nullable;
+/* loaded from: classes11.dex */
 public class c {
-    public final int height;
-    public final float khg;
-    public final float khh;
-    public final int width;
+    private boolean lNc;
+    private boolean lNd;
+    private boolean lNe;
+    private boolean lNf;
+    @Nullable
+    private com.facebook.imagepipeline.decoder.b lNg;
+    private int lNb = 100;
+    private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public c(int i, int i2) {
-        this(i, i2, 2048.0f);
+    public int dlS() {
+        return this.lNb;
     }
 
-    public c(int i, int i2, float f) {
-        this(i, i2, f, 0.6666667f);
+    public c uX(boolean z) {
+        this.lNc = z;
+        return this;
     }
 
-    public c(int i, int i2, float f, float f2) {
-        g.checkArgument(i > 0);
-        g.checkArgument(i2 > 0);
-        this.width = i;
-        this.height = i2;
-        this.khg = f;
-        this.khh = f2;
+    public boolean dlT() {
+        return this.lNc;
     }
 
-    public int hashCode() {
-        return com.facebook.common.util.a.hashCode(this.width, this.height);
+    public boolean dlU() {
+        return this.lNd;
     }
 
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (obj instanceof c) {
-            c cVar = (c) obj;
-            return this.width == cVar.width && this.height == cVar.height;
-        }
-        return false;
+    public boolean dlV() {
+        return this.lNe;
     }
 
-    public String toString() {
-        return String.format(null, "%dx%d", Integer.valueOf(this.width), Integer.valueOf(this.height));
+    public c uY(boolean z) {
+        this.lNf = z;
+        return this;
+    }
+
+    @Nullable
+    public com.facebook.imagepipeline.decoder.b dlW() {
+        return this.lNg;
+    }
+
+    public boolean dlX() {
+        return this.lNf;
+    }
+
+    public Bitmap.Config dlY() {
+        return this.mBitmapConfig;
+    }
+
+    public b dlZ() {
+        return new b(this);
     }
 }

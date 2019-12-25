@@ -1,186 +1,216 @@
 package com.baidu.location.d;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.location.Jni;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.HashMap;
-import java.util.Locale;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.util.Log;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public final class f {
-    private static final String d = String.format(Locale.US, "DELETE FROM LOG WHERE timestamp NOT IN (SELECT timestamp FROM LOG ORDER BY timestamp DESC LIMIT %d);", 3000);
-    private static final String e = String.format(Locale.US, "SELECT * FROM LOG ORDER BY timestamp DESC LIMIT %d;", 3);
-    private final SQLiteDatabase b;
-    private String a = null;
-    private final a c = new a(this);
-
-    /* loaded from: classes3.dex */
-    private class a extends com.baidu.location.g.e {
-        private int b;
-        private long c;
-        private String d = null;
-        private boolean e = false;
-        private boolean f = false;
-        private f q;
-
-        a(f fVar) {
-            this.q = fVar;
-            this.k = new HashMap();
-            this.b = 0;
-            this.c = -1L;
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void b() {
-            if (this.e) {
-                return;
-            }
-            this.d = this.q.b();
-            if (this.c != -1 && this.c + 86400000 <= System.currentTimeMillis()) {
-                this.b = 0;
-                this.c = -1L;
-            }
-            if (this.d == null || this.b >= 2) {
-                return;
-            }
-            this.e = true;
-            b("https://ofloc.map.baidu.com/offline_loc");
-        }
-
-        @Override // com.baidu.location.g.e
-        public void a() {
-            this.k.clear();
-            this.k.put("qt", "ofbh");
-            this.k.put("req", this.d);
-            this.h = d.b;
-        }
-
-        @Override // com.baidu.location.g.e
-        public void a(boolean z) {
-            this.f = false;
-            if (z && this.j != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(this.j);
-                    if (jSONObject != null && jSONObject.has(BdStatsConstant.StatsType.ERROR) && jSONObject.getInt(BdStatsConstant.StatsType.ERROR) == 161) {
-                        this.f = true;
-                    }
-                } catch (Exception e) {
-                }
-            }
-            if (!this.f) {
-                this.b++;
-                this.c = System.currentTimeMillis();
-            }
-            this.q.a(this.f);
-            this.e = false;
-        }
-    }
+/* loaded from: classes5.dex */
+public class f extends Thread {
+    final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(SQLiteDatabase sQLiteDatabase) {
-        this.b = sQLiteDatabase;
-        if (this.b == null || !this.b.isOpen()) {
+    public f(e eVar) {
+        this.a = eVar;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:101:0x009b A[EDGE_INSN: B:101:0x009b->B:26:0x009b ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0109  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0121 A[LOOP:0: B:3:0x001b->B:61:0x0121, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x010e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x0113 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // java.lang.Thread, java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        InputStream inputStream;
+        ByteArrayOutputStream byteArrayOutputStream;
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream2;
+        boolean z;
+        boolean z2;
+        ByteArrayOutputStream byteArrayOutputStream2;
+        InputStream inputStream3;
+        ByteArrayOutputStream byteArrayOutputStream3;
+        ByteArrayOutputStream byteArrayOutputStream4 = null;
+        this.a.h = j.c();
+        this.a.b();
+        this.a.a();
+        HttpURLConnection httpURLConnection2 = null;
+        int i = this.a.i;
+        while (i > 0) {
+            try {
+                HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL(this.a.h).openConnection();
+                try {
+                    httpURLConnection3.setRequestMethod("GET");
+                    httpURLConnection3.setDoInput(true);
+                    httpURLConnection3.setDoOutput(true);
+                    httpURLConnection3.setUseCaches(false);
+                    httpURLConnection3.setConnectTimeout(a.b);
+                    httpURLConnection3.setReadTimeout(a.b);
+                    httpURLConnection3.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+                    httpURLConnection3.setRequestProperty("Accept-Charset", "UTF-8");
+                    if (httpURLConnection3.getResponseCode() == 200) {
+                        inputStream = httpURLConnection3.getInputStream();
+                        try {
+                            byteArrayOutputStream3 = new ByteArrayOutputStream();
+                        } catch (Exception e) {
+                            inputStream2 = inputStream;
+                            httpURLConnection = httpURLConnection3;
+                            byteArrayOutputStream = null;
+                        } catch (Throwable th) {
+                            httpURLConnection2 = httpURLConnection3;
+                            th = th;
+                        }
+                        try {
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = inputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                byteArrayOutputStream3.write(bArr, 0, read);
+                            }
+                            inputStream.close();
+                            byteArrayOutputStream3.close();
+                            this.a.j = new String(byteArrayOutputStream3.toByteArray(), "utf-8");
+                            this.a.a(true);
+                            httpURLConnection3.disconnect();
+                            inputStream3 = inputStream;
+                            byteArrayOutputStream2 = byteArrayOutputStream3;
+                            z2 = true;
+                        } catch (Exception e2) {
+                            inputStream2 = inputStream;
+                            httpURLConnection = httpURLConnection3;
+                            byteArrayOutputStream = byteArrayOutputStream3;
+                            try {
+                                Log.d(a.a, "NetworkCommunicationException!");
+                                if (httpURLConnection != null) {
+                                    httpURLConnection.disconnect();
+                                }
+                                if (inputStream2 != null) {
+                                    try {
+                                        inputStream2.close();
+                                    } catch (Exception e3) {
+                                        e3.printStackTrace();
+                                    }
+                                }
+                                if (byteArrayOutputStream != null) {
+                                    try {
+                                        byteArrayOutputStream.close();
+                                        z = false;
+                                        httpURLConnection2 = httpURLConnection;
+                                    } catch (Exception e4) {
+                                        e4.printStackTrace();
+                                        z = false;
+                                        httpURLConnection2 = httpURLConnection;
+                                    }
+                                } else {
+                                    z = false;
+                                    httpURLConnection2 = httpURLConnection;
+                                }
+                                if (!z) {
+                                }
+                            } catch (Throwable th2) {
+                                byteArrayOutputStream4 = byteArrayOutputStream;
+                                th = th2;
+                                InputStream inputStream4 = inputStream2;
+                                httpURLConnection2 = httpURLConnection;
+                                inputStream = inputStream4;
+                                if (httpURLConnection2 != null) {
+                                    httpURLConnection2.disconnect();
+                                }
+                                if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (Exception e5) {
+                                        e5.printStackTrace();
+                                    }
+                                }
+                                if (byteArrayOutputStream4 != null) {
+                                    try {
+                                        byteArrayOutputStream4.close();
+                                    } catch (Exception e6) {
+                                        e6.printStackTrace();
+                                    }
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            byteArrayOutputStream4 = byteArrayOutputStream3;
+                            httpURLConnection2 = httpURLConnection3;
+                            th = th3;
+                            if (httpURLConnection2 != null) {
+                            }
+                            if (inputStream != null) {
+                            }
+                            if (byteArrayOutputStream4 != null) {
+                            }
+                            throw th;
+                        }
+                    } else {
+                        httpURLConnection3.disconnect();
+                        z2 = false;
+                        byteArrayOutputStream2 = null;
+                        inputStream3 = null;
+                    }
+                    if (httpURLConnection3 != null) {
+                        httpURLConnection3.disconnect();
+                    }
+                    if (inputStream3 != null) {
+                        try {
+                            inputStream3.close();
+                        } catch (Exception e7) {
+                            e7.printStackTrace();
+                        }
+                    }
+                    if (byteArrayOutputStream2 != null) {
+                        try {
+                            byteArrayOutputStream2.close();
+                            boolean z3 = z2;
+                            httpURLConnection2 = httpURLConnection3;
+                            z = z3;
+                        } catch (Exception e8) {
+                            e8.printStackTrace();
+                            boolean z4 = z2;
+                            httpURLConnection2 = httpURLConnection3;
+                            z = z4;
+                        }
+                    } else {
+                        boolean z5 = z2;
+                        httpURLConnection2 = httpURLConnection3;
+                        z = z5;
+                    }
+                } catch (Exception e9) {
+                    inputStream2 = null;
+                    httpURLConnection = httpURLConnection3;
+                    byteArrayOutputStream = null;
+                } catch (Throwable th4) {
+                    inputStream = null;
+                    httpURLConnection2 = httpURLConnection3;
+                    th = th4;
+                }
+            } catch (Exception e10) {
+                byteArrayOutputStream = null;
+                httpURLConnection = httpURLConnection2;
+                inputStream2 = null;
+            } catch (Throwable th5) {
+                th = th5;
+                inputStream = null;
+            }
+            if (!z) {
+                break;
+            }
+            i--;
+        }
+        if (i > 0) {
+            e.p = 0;
             return;
         }
-        try {
-            this.b.execSQL("CREATE TABLE IF NOT EXISTS LOG(timestamp LONG PRIMARY KEY, log VARCHAR(4000))");
-        } catch (Exception e2) {
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        if (z && this.a != null) {
-            String format = String.format("DELETE FROM LOG WHERE timestamp in (%s);", this.a);
-            try {
-                if (this.a.length() > 0) {
-                    this.b.execSQL(format);
-                }
-            } catch (Exception e2) {
-            }
-        }
-        this.a = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String b() {
-        Cursor cursor;
-        Throwable th;
-        String str = null;
-        JSONArray jSONArray = new JSONArray();
-        JSONObject jSONObject = new JSONObject();
-        try {
-            cursor = this.b.rawQuery(e, null);
-            if (cursor != null) {
-                try {
-                    if (cursor.getCount() > 0) {
-                        StringBuffer stringBuffer = new StringBuffer();
-                        cursor.moveToFirst();
-                        while (!cursor.isAfterLast()) {
-                            jSONArray.put(cursor.getString(1));
-                            if (stringBuffer.length() != 0) {
-                                stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                            }
-                            stringBuffer.append(cursor.getLong(0));
-                            cursor.moveToNext();
-                        }
-                        try {
-                            jSONObject.put("ofloc", jSONArray);
-                            str = jSONObject.toString();
-                        } catch (JSONException e2) {
-                        }
-                        this.a = stringBuffer.toString();
-                    }
-                } catch (Exception e3) {
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e4) {
-                        }
-                    }
-                    return str;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e5) {
-                        }
-                    }
-                    throw th;
-                }
-            }
-            if (cursor != null) {
-                try {
-                    cursor.close();
-                } catch (Exception e6) {
-                }
-            }
-        } catch (Exception e7) {
-            cursor = null;
-        } catch (Throwable th3) {
-            cursor = null;
-            th = th3;
-        }
-        return str;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a() {
-        this.c.b();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(String str) {
-        try {
-            this.b.execSQL(String.format(Locale.US, "INSERT OR IGNORE INTO LOG VALUES (%d,\"%s\");", Long.valueOf(System.currentTimeMillis()), Jni.encodeOfflineLocationUpdateRequest(str)));
-            this.b.execSQL(d);
-        } catch (Exception e2) {
-        }
+        e.p++;
+        this.a.j = null;
+        this.a.a(false);
     }
 }

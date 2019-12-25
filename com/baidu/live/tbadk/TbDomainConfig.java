@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TbDomainConfig {
     public static final String DOMAIN_HTTPS_BAIDU = "http://www.baidu.com/";
     public static final String DOMAIN_HTTPS_BCS_CDN = "http://bcscdn.baidu.com/";
@@ -12,6 +12,8 @@ public class TbDomainConfig {
     public static final String DOMAIN_HTTPS_TB_HI_IMAGE = "https://himg.baidu.com/";
     public static final String DOMAIN_HTTPS_TIEBA = "http://tieba.baidu.com/";
     public static final String DOMAIN_HTTPS_TIEBAC = "https://tiebac.baidu.com/";
+    public static final String DOMAIN_HTTP_SERVER_ADDRESS = "http://tiebac.baidu.com/";
+    public static final String DOMAIN_HTTP_SERVER_HOST = "http://sv.baidu.com/";
     public static final String DOMAIN_HTTP_TIEBA = "https://tieba.baidu.com/";
     public static final String DOMAIN_HTTP_TIEBAC = "http://tiebac.baidu.com/";
 }

@@ -1,13 +1,15 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.DownloadConstants;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class a implements b, c, Cloneable {
     private static final byte[] c = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     i a;
@@ -54,7 +56,7 @@ public final class a implements b, c, Cloneable {
         if (i < 128) {
             b(i);
         } else if (i < 2048) {
-            b((i >> 6) | 192);
+            b((i >> 6) | DownloadConstants.STATUS_RUNNING);
             b((i & 63) | 128);
         } else if (i < 65536) {
             if (i >= 55296 && i <= 57343) {
@@ -127,7 +129,7 @@ public final class a implements b, c, Cloneable {
                 c2.c += i5;
                 this.b += i5;
             } else if (charAt < 2048) {
-                b((charAt >> 6) | 192);
+                b((charAt >> 6) | DownloadConstants.STATUS_RUNNING);
                 b((charAt & '?') | 128);
                 i3 = i + 1;
             } else if (charAt < 55296 || charAt > 57343) {
@@ -342,7 +344,7 @@ public final class a implements b, c, Cloneable {
             z = false;
             j2 = j;
         }
-        int i = j2 < 100000000 ? j2 < 10000 ? j2 < 100 ? j2 < 10 ? 1 : 2 : j2 < 1000 ? 3 : 4 : j2 < 1000000 ? j2 < 100000 ? 5 : 6 : j2 < 10000000 ? 7 : 8 : j2 < 1000000000000L ? j2 < 10000000000L ? j2 < 1000000000 ? 9 : 10 : j2 < 100000000000L ? 11 : 12 : j2 < 1000000000000000L ? j2 < 10000000000000L ? 13 : j2 < 100000000000000L ? 14 : 15 : j2 < 100000000000000000L ? j2 < 10000000000000000L ? 16 : 17 : j2 < 1000000000000000000L ? 18 : 19;
+        int i = j2 < 100000000 ? j2 < 10000 ? j2 < 100 ? j2 < 10 ? 1 : 2 : j2 < 1000 ? 3 : 4 : j2 < TimeUtils.NANOS_PER_MS ? j2 < 100000 ? 5 : 6 : j2 < 10000000 ? 7 : 8 : j2 < 1000000000000L ? j2 < 10000000000L ? j2 < 1000000000 ? 9 : 10 : j2 < 100000000000L ? 11 : 12 : j2 < 1000000000000000L ? j2 < 10000000000000L ? 13 : j2 < 100000000000000L ? 14 : 15 : j2 < 100000000000000000L ? j2 < 10000000000000000L ? 16 : 17 : j2 < 1000000000000000000L ? 18 : 19;
         if (z) {
             i++;
         }

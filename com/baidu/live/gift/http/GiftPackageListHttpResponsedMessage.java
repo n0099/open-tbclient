@@ -1,19 +1,19 @@
 package com.baidu.live.gift.http;
 
-import com.baidu.live.gift.a.a;
-import com.baidu.live.gift.a.b;
+import com.baidu.live.data.c;
+import com.baidu.live.data.d;
 import com.baidu.live.gift.g;
-import com.baidu.live.gift.h;
+import com.baidu.live.gift.i;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.core.atomData.MangaCategoryActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private ArrayList<a> YN;
-    private ArrayList<b> YO;
-    private ArrayList<h> abQ;
+    private ArrayList<c> agL;
+    private ArrayList<d> agM;
+    private ArrayList<i> akV;
     private String scene_from;
 
     public GiftPackageListHttpResponsedMessage() {
@@ -24,11 +24,11 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1021150) {
-            w(jSONObject);
+            s(jSONObject);
         }
     }
 
-    public void w(JSONObject jSONObject) {
+    public void s(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
             this.scene_from = optJSONObject.optString("scene_from");
@@ -39,8 +39,8 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
 
     private void j(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.abQ = new ArrayList<>();
-            this.YN = new ArrayList<>();
+            this.akV = new ArrayList<>();
+            this.agL = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("category_id");
@@ -52,12 +52,12 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         arrayList.add(Integer.valueOf(optJSONArray.optInt(i2)));
                     }
-                    a aVar = new a();
-                    aVar.setCategoryId(optInt);
-                    aVar.setCategoryName(optString);
-                    aVar.g(arrayList);
-                    aVar.ah(z);
-                    this.YN.add(aVar);
+                    c cVar = new c();
+                    cVar.setCategoryId(optInt);
+                    cVar.setCategoryName(optString);
+                    cVar.e(arrayList);
+                    cVar.at(z);
+                    this.agL.add(cVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -68,18 +68,18 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                             g gVar = new g();
                             gVar.parseJson(optJSONObject2);
                             gVar.setSceneFrom(this.scene_from);
-                            gVar.u(optJSONObject2);
-                            if (gVar.Wo != null && gVar.Wo.Ws > 0) {
+                            gVar.q(optJSONObject2);
+                            if (gVar.adR != null && gVar.adR.adY > 0) {
                                 arrayList2.add(gVar);
                             }
                         }
                     }
-                    h hVar = new h();
-                    hVar.setCategoryId(optInt);
-                    hVar.setCategoryName(optString);
-                    hVar.s(arrayList2);
-                    hVar.ah(z);
-                    this.abQ.add(hVar);
+                    i iVar = new i();
+                    iVar.setCategoryId(optInt);
+                    iVar.setCategoryName(optString);
+                    iVar.r(arrayList2);
+                    iVar.at(z);
+                    this.akV.add(iVar);
                 }
             }
         }
@@ -87,27 +87,27 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.YO = new ArrayList<>();
+            this.agM = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    b bVar = new b();
-                    bVar.parser(optJSONObject);
-                    this.YO.add(bVar);
+                    d dVar = new d();
+                    dVar.parser(optJSONObject);
+                    this.agM.add(dVar);
                 }
             }
         }
     }
 
-    public ArrayList<h> qY() {
-        return this.abQ;
+    public ArrayList<i> sY() {
+        return this.akV;
     }
 
-    public ArrayList<a> getCategoryList() {
-        return this.YN;
+    public ArrayList<c> getCategoryList() {
+        return this.agL;
     }
 
-    public ArrayList<b> qZ() {
-        return this.YO;
+    public ArrayList<d> sZ() {
+        return this.agM;
     }
 }

@@ -4,26 +4,26 @@ import android.content.Context;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
 public class f extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public f(Context context) {
-        super(context, com.baidu.live.im.a.aeq);
+        super(context, com.baidu.live.im.a.amq);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void ta() {
-        if (tb()) {
-            tc();
+    protected void uU() {
+        if (uV()) {
+            uW();
         } else {
-            td();
+            uX();
         }
     }
 
     @Override // com.baidu.live.im.a.b
     protected int getColor() {
-        if (tb()) {
+        if (uV()) {
             return -1;
         }
         return this.mContext.getResources().getColor(a.d.sdk_common_color_10034);
@@ -32,8 +32,8 @@ public class f extends b {
     @Override // com.baidu.live.im.a.b
     protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, com.baidu.live.im.c cVar) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        boolean equals = aVar instanceof com.baidu.live.im.a ? ((com.baidu.live.im.a) aVar).sd().equals(aVar.tf().userId) : false;
-        a(spannableStringBuilder, aVar.tf(), cVar, equals, true, true);
+        boolean equals = aVar instanceof com.baidu.live.im.a ? ((com.baidu.live.im.a) aVar).tU().equals(aVar.uZ().userId) : false;
+        a(spannableStringBuilder, aVar.uZ(), cVar, equals, true, true);
         String content = aVar.getContent();
         SpannableString valueOf = SpannableString.valueOf(content);
         if (content != null) {

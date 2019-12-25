@@ -1,0 +1,61 @@
+package com.baidu.searchbox.ui.animview.util;
+
+import com.baidu.searchbox.ui.animview.base.IResourceProvider;
+import java.util.Set;
+import java.util.TreeSet;
+/* loaded from: classes11.dex */
+public class PraiseLevelUtil {
+    private static Set<IResourceProvider.PraiseLevelConfig> sLevelConfigSet;
+
+    public static void updateLevelConfig(Set<IResourceProvider.PraiseLevelConfig> set) {
+        if (set == null || set.isEmpty()) {
+            genDefaultLevelConfig();
+            return;
+        }
+        if (sLevelConfigSet == null) {
+            sLevelConfigSet = new TreeSet(new IResourceProvider.PraiseLevelConfig.DefaultComparator());
+        } else {
+            sLevelConfigSet.clear();
+        }
+        for (IResourceProvider.PraiseLevelConfig praiseLevelConfig : set) {
+            if (praiseLevelConfig.mBound > 0 && praiseLevelConfig.mTextCount > 0 && praiseLevelConfig.mLevelImgIndex > 0) {
+                if (praiseLevelConfig.mTextCount > 4) {
+                    sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(praiseLevelConfig.mBound, 4, praiseLevelConfig.mLevelImgIndex));
+                } else {
+                    sLevelConfigSet.add(praiseLevelConfig);
+                }
+            }
+        }
+        if (sLevelConfigSet.isEmpty()) {
+            genDefaultLevelConfig();
+        } else {
+            sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(2147483647L, Integer.MAX_VALUE, Integer.MAX_VALUE));
+        }
+    }
+
+    private static void genDefaultLevelConfig() {
+        if (sLevelConfigSet == null) {
+            sLevelConfigSet = new TreeSet(new IResourceProvider.PraiseLevelConfig.DefaultComparator());
+        } else {
+            sLevelConfigSet.clear();
+        }
+        sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(9L, 1, 1));
+        sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(99L, 2, 2));
+        sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(499L, 3, 3));
+        sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(999L, 3, 4));
+        sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(1499L, 4, 5));
+        sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(2147483647L, Integer.MAX_VALUE, Integer.MAX_VALUE));
+    }
+
+    public static IResourceProvider.PraiseLevelConfig matchPraiseLevel(long j) {
+        if (sLevelConfigSet == null || sLevelConfigSet.isEmpty()) {
+            genDefaultLevelConfig();
+        }
+        for (IResourceProvider.PraiseLevelConfig praiseLevelConfig : sLevelConfigSet) {
+            if (j <= praiseLevelConfig.mBound) {
+                return praiseLevelConfig;
+            }
+        }
+        return new IResourceProvider.PraiseLevelConfig(2147483647L, Integer.MAX_VALUE, Integer.MAX_VALUE);
+    }
+}

@@ -3,7 +3,7 @@ package com.baidu.searchbox.v8engine.thread;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.searchbox.v8engine.V8Engine;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
     private Thread jsThread = null;
     private Handler mHandler;
@@ -17,12 +17,12 @@ public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
     public void startV8Engine(V8Engine v8Engine) {
         if (this.jsThread == null) {
             this.jsThread = new Thread(new V8EngineRunnable());
-            this.jsThread.setName("V8JavaScriptContext");
+            this.jsThread.setName(v8Engine.threadName());
             this.jsThread.start();
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     class V8EngineRunnable implements Runnable {
         V8EngineRunnable() {
         }
@@ -47,6 +47,13 @@ public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
     public void doDelegateRunnable(Runnable runnable, long j) {
         if (this.mHandler != null) {
             this.mHandler.postDelayed(runnable, j);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+    public void doDelegateRunnableDirectly(Runnable runnable) {
+        if (this.mHandler != null) {
+            this.mHandler.post(runnable);
         }
     }
 

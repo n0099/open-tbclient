@@ -18,7 +18,8 @@ import com.baidu.android.pushservice.i.k;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.mobstat.Config;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.webkit.internal.ETAG;
 import com.coloros.mcssdk.callback.PushCallback;
 import com.coloros.mcssdk.mode.SubscribeResult;
 import java.util.HashMap;
@@ -27,7 +28,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static Handler j;
     public static int a = -1;
@@ -43,7 +44,7 @@ public class e {
     private static int l = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a extends Handler {
         public a(Context context) {
             super(context.getMainLooper());
@@ -59,7 +60,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class b implements Runnable {
         private Context a;
 
@@ -162,7 +163,7 @@ public class e {
     public static String a(String str, String str2, String str3, String str4, String str5) throws JSONException {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("appid", str2);
-        jSONObject.put("channel_id", str3);
+        jSONObject.put(SharedPrefConfig.CHANNEL_ID, str3);
         if (!TextUtils.isEmpty(str4)) {
             jSONObject.put("new_channel_id", str4);
         }
@@ -181,7 +182,7 @@ public class e {
         boolean z = sharedPreferences.getBoolean("bind_status", false);
         String string = sharedPreferences.getString("request_id", "");
         String string2 = sharedPreferences.getString("appid", "");
-        String string3 = sharedPreferences.getString("channel_id", "");
+        String string3 = sharedPreferences.getString(SharedPrefConfig.CHANNEL_ID, "");
         String string4 = sharedPreferences.getString("new_channel_id", "");
         String string5 = sharedPreferences.getString("user_id", "");
         boolean l2 = com.baidu.android.pushservice.b.d.l(context);
@@ -275,7 +276,7 @@ public class e {
             }
             if (z) {
                 jSONObject2.put("token", str);
-                jSONObject.put(Config.LAUNCH_INFO, jSONObject2);
+                jSONObject.put("info", jSONObject2);
                 j.a(context, b2, str);
             }
             a2.putExtra("push_proxy", jSONObject.toString());
@@ -465,7 +466,7 @@ public class e {
                     if (!TextUtils.isEmpty(fragment) && (split = fragment.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) != null && split.length > 0) {
                         while (true) {
                             if (i2 < split.length) {
-                                if (split[i2].contains("S.bdpush_hwmsgid") && (split2 = split[i2].split("=")) != null && 1 < split2.length) {
+                                if (split[i2].contains("S.bdpush_hwmsgid") && (split2 = split[i2].split(ETAG.EQUAL)) != null && 1 < split2.length) {
                                     stringExtra2 = split2[1];
                                     intent.putExtra("bdpush_hwmsgid", stringExtra2);
                                     break;

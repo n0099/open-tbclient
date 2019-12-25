@@ -3,13 +3,14 @@ package android.support.v7.widget;
 import android.support.annotation.Nullable;
 import android.support.v4.os.TraceCompat;
 import android.support.v7.widget.RecyclerView;
+import com.google.android.exoplayer2.Format;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class GapWorker implements Runnable {
     static final ThreadLocal<GapWorker> sGapWorker = new ThreadLocal<>();
     static Comparator<Task> sTaskComparator = new Comparator<Task>() { // from class: android.support.v7.widget.GapWorker.1
@@ -39,7 +40,7 @@ public final class GapWorker implements Runnable {
     private ArrayList<Task> mTasks = new ArrayList<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Task {
         public int distanceToItem;
         public boolean immediate;
@@ -60,7 +61,7 @@ public final class GapWorker implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutPrefetchRegistryImpl implements RecyclerView.LayoutManager.LayoutPrefetchRegistry {
         int mCount;
         int[] mPrefetchArray;
@@ -256,7 +257,7 @@ public final class GapWorker implements Runnable {
     }
 
     private void flushTaskWithDeadline(Task task, long j) {
-        RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.view, task.position, task.immediate ? Long.MAX_VALUE : j);
+        RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.view, task.position, task.immediate ? Format.OFFSET_SAMPLE_RELATIVE : j);
         if (prefetchPositionWithDeadline != null && prefetchPositionWithDeadline.mNestedRecyclerView != null && prefetchPositionWithDeadline.isBound() && !prefetchPositionWithDeadline.isInvalid()) {
             prefetchInnerRecyclerViewWithDeadline(prefetchPositionWithDeadline.mNestedRecyclerView.get(), j);
         }

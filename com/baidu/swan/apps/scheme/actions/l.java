@@ -1,32 +1,43 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class l extends z {
+@Deprecated
+/* loaded from: classes9.dex */
+public class l extends ab {
+    private com.baidu.swan.apps.adaptation.b.c bMk;
+
     public l(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/isLoginSync");
+        super(jVar, "/swanAPI/getSlaveIdSync");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (bVar == null) {
-            com.baidu.swan.apps.console.c.e("isLogin", "swanApp is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+    public void f(com.baidu.swan.apps.adaptation.b.c cVar) {
+        this.bMk = cVar;
+    }
+
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (DEBUG) {
+            Log.d("GetSlaveIdSyncAction", "handle entity: " + unitedSchemeEntity.toString());
+        }
+        if (this.bMk == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        boolean isLogin = bVar.Rg().isLogin(context);
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("isLogin", isLogin);
+            jSONObject.put("slaveId", this.bMk.Ge());
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             return true;
         } catch (JSONException e) {
-            com.baidu.swan.apps.console.c.e("isLogin", "json parse fail");
+            if (DEBUG) {
+                Log.d("GetSlaveIdSyncAction", Log.getStackTraceString(e));
+            }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }

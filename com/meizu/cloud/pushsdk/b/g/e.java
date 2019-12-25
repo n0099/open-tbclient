@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class e implements k {
     private final k a;
 

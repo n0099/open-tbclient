@@ -17,7 +17,7 @@ import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobads.interfaces.utils.IXAdViewUtils;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XAdSDKFoundationFacade {
     private static final XAdSDKFoundationFacade o = new XAdSDKFoundationFacade();
     private i a;
@@ -144,7 +144,7 @@ public class XAdSDKFoundationFacade {
     }
 
     public String getProxyVer() {
-        return "8.8079";
+        return "8.8146";
     }
 
     public void downloadApp(IXAdInstanceInfo iXAdInstanceInfo) {

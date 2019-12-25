@@ -1,35 +1,94 @@
 package com.airbnb.lottie.c;
 
-import android.graphics.PointF;
+import android.util.JsonReader;
 import com.baidu.mobstat.Config;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
+import java.io.IOException;
+/* loaded from: classes4.dex */
 public class b {
-    public static PointF a(JSONObject jSONObject, float f) {
-        return new PointF(l(jSONObject.opt(Config.EVENT_HEAT_X)) * f, l(jSONObject.opt("y")) * f);
+    public static com.airbnb.lottie.model.a.k c(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+        jsonReader.beginObject();
+        com.airbnb.lottie.model.a.k kVar = null;
+        while (jsonReader.hasNext()) {
+            String nextName = jsonReader.nextName();
+            char c = 65535;
+            switch (nextName.hashCode()) {
+                case 97:
+                    if (nextName.equals(Config.APP_VERSION_CODE)) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    kVar = d(jsonReader, eVar);
+                    break;
+                default:
+                    jsonReader.skipValue();
+                    break;
+            }
+        }
+        jsonReader.endObject();
+        if (kVar == null) {
+            return new com.airbnb.lottie.model.a.k(null, null, null, null);
+        }
+        return kVar;
     }
 
-    public static PointF a(JSONArray jSONArray, float f) {
-        if (jSONArray.length() < 2) {
-            throw new IllegalArgumentException("Unable to parse point for " + jSONArray);
+    private static com.airbnb.lottie.model.a.k d(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+        com.airbnb.lottie.model.a.b bVar = null;
+        jsonReader.beginObject();
+        com.airbnb.lottie.model.a.b bVar2 = null;
+        com.airbnb.lottie.model.a.a aVar = null;
+        com.airbnb.lottie.model.a.a aVar2 = null;
+        while (jsonReader.hasNext()) {
+            String nextName = jsonReader.nextName();
+            char c = 65535;
+            switch (nextName.hashCode()) {
+                case 116:
+                    if (nextName.equals("t")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3261:
+                    if (nextName.equals("fc")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 3664:
+                    if (nextName.equals(Config.STAT_SDK_CHANNEL)) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 3684:
+                    if (nextName.equals("sw")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    aVar2 = d.l(jsonReader, eVar);
+                    break;
+                case 1:
+                    aVar = d.l(jsonReader, eVar);
+                    break;
+                case 2:
+                    bVar2 = d.f(jsonReader, eVar);
+                    break;
+                case 3:
+                    bVar = d.f(jsonReader, eVar);
+                    break;
+                default:
+                    jsonReader.skipValue();
+                    break;
+            }
         }
-        return new PointF(((float) jSONArray.optDouble(0, 1.0d)) * f, ((float) jSONArray.optDouble(1, 1.0d)) * f);
-    }
-
-    public static float l(Object obj) {
-        if (obj instanceof Float) {
-            return ((Float) obj).floatValue();
-        }
-        if (obj instanceof Integer) {
-            return ((Integer) obj).intValue();
-        }
-        if (obj instanceof Double) {
-            return (float) ((Double) obj).doubleValue();
-        }
-        if (obj instanceof JSONArray) {
-            return (float) ((JSONArray) obj).optDouble(0);
-        }
-        return 0.0f;
+        jsonReader.endObject();
+        return new com.airbnb.lottie.model.a.k(aVar2, aVar, bVar2, bVar);
     }
 }

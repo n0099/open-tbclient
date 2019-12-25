@@ -7,26 +7,24 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.apps.view.container.SwanAppNAViewContainer;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class c extends a {
     public c(j jVar) {
-        super(jVar, "/swan/camera/remove");
+        super(jVar, "/swanAPI/camera/remove");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (!(context instanceof Activity)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.model.a.a.a b = b(unitedSchemeEntity);
-        if (com.baidu.swan.apps.w.e.LE().fN(b.aXp) != null) {
-            SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(b, null);
-            if (a != null) {
-                a.Va();
+        com.baidu.swan.apps.component.components.c.a aVar = (com.baidu.swan.apps.component.components.c.a) com.baidu.swan.apps.component.container.a.d(c(unitedSchemeEntity));
+        if (aVar != null) {
+            com.baidu.swan.apps.component.b.c HU = aVar.HU();
+            if (!HU.isSuccess()) {
+                com.baidu.swan.apps.console.c.e("CameraRemoveAction", "remove camera fail: " + HU.msg);
             }
-            com.baidu.swan.apps.camera.a.CE().dU(b.aXp);
             a(unitedSchemeEntity, callbackHandler, true);
             return true;
         }
@@ -35,11 +33,11 @@ public class c extends a {
     }
 
     @Override // com.baidu.swan.apps.camera.a.a
-    protected com.baidu.swan.apps.model.a.a.a b(UnitedSchemeEntity unitedSchemeEntity) {
-        String a = a(unitedSchemeEntity);
+    protected com.baidu.swan.apps.component.b.b c(UnitedSchemeEntity unitedSchemeEntity) {
+        String b = b(unitedSchemeEntity);
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("CameraRemoveAction", "parseData:" + a);
+            Log.d("CameraRemoveAction", "parseData:" + b);
         }
-        return new com.baidu.swan.apps.camera.d.a(a);
+        return new com.baidu.swan.apps.camera.d.a(b);
     }
 }

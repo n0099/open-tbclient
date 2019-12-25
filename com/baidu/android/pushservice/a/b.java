@@ -8,12 +8,14 @@ import com.baidu.android.pushservice.i.i;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.browser.sailor.platform.BdSailorPlatform;
+import com.baidu.webkit.internal.GlobalConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class b {
     private static volatile b b;
     private Context c;
@@ -148,7 +150,7 @@ public final class b {
                     str2 = m.a(v, resolveInfo.activityInfo.packageName + ".self_push_sync", "bindinfo");
                 }
                 if ((TextUtils.isEmpty(str3) || TextUtils.isEmpty(str2)) && l.m(this.c, str6) > 50) {
-                    if (!TextUtils.equals(this.c.getPackageName(), "com.baidu.searchbox") && !TextUtils.equals(this.c.getPackageName(), "com.baidu.searchbox.lite")) {
+                    if (!TextUtils.equals(this.c.getPackageName(), GlobalConstants.SEARCHBOX_PACKAGE_NAME) && !TextUtils.equals(this.c.getPackageName(), BdSailorPlatform.LITE_PACKAGE_NAME)) {
                         str3 = com.baidu.android.pushservice.c.d.e(this.c, str6);
                     }
                     f = com.baidu.android.pushservice.c.d.f(this.c, str6);

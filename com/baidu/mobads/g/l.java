@@ -4,9 +4,10 @@ import android.os.Build;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class l implements Runnable {
     final /* synthetic */ k a;
 
@@ -29,7 +30,7 @@ public class l implements Runnable {
             m mVar = new m(this, d);
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("v", "" + d);
-            hashMap.put("os", "android");
+            hashMap.put("os", PraiseDataPassUtil.KEY_FROM_OS);
             hashMap.put(IXAdRequestInfo.PHONE_TYPE, XAdSDKFoundationFacade.getInstance().getCommonUtils().getTextEncoder(Build.MODEL));
             hashMap.put(IXAdRequestInfo.BDR, XAdSDKFoundationFacade.getInstance().getCommonUtils().getTextEncoder(Build.VERSION.SDK));
             str = g.i;

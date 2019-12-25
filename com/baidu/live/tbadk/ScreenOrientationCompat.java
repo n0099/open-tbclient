@@ -8,7 +8,7 @@ import android.util.Log;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ScreenOrientationCompat {
     public static final boolean DEBUG = true;
     private static final String TAG = "ScreenOrientationCompat";

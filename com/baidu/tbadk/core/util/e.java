@@ -18,7 +18,7 @@ public class e {
         }
     };
 
-    public static e alU() {
+    public static e aDg() {
         return new e();
     }
 
@@ -35,12 +35,12 @@ public class e {
                         mToast.setText(trim);
                     } catch (RuntimeException e) {
                         BdLog.e(e);
-                        mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 0);
+                        mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
                         mToast.setText(trim);
                         mToast.setGravity(17, 0, i2);
                     }
                 } else {
-                    mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 0);
+                    mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
                     mToast.setText(trim);
                     mToast.setGravity(17, 0, i2);
                 }

@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import tbclient.LiveSquare.FunctionListInfo;
 import tbclient.LiveSquare.HeadLiveInfo;
 import tbclient.LiveSquare.LiveSquareResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
     private LinkedList<a> categoryList;
     private LinkedList<FunctionListInfo> functionList;
@@ -34,7 +34,7 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
         if (!hasError()) {
             this.functionList = new LinkedList<>();
             this.categoryList = new LinkedList<>();
-            this.categoryList.addAll(com.baidu.tieba.ala.alasquare.a.a.bf(liveSquareResIdl.data.live_with_category));
+            this.categoryList.addAll(com.baidu.tieba.ala.alasquare.a.a.be(liveSquareResIdl.data.live_with_category));
             this.functionList.addAll(liveSquareResIdl.data.function_list_info);
             this.headLiveInfo = liveSquareResIdl.data.head_live_info;
             this.isSmallFollow = liveSquareResIdl.data.is_small_follow.intValue();
@@ -46,7 +46,7 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         l<byte[]> b;
-        if (!hasError() && !v.isEmpty(this.categoryList) && this.mPn == 1 && (b = BdCacheService.fe().b("ala_square_space", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20)) != null) {
+        if (!hasError() && !v.isEmpty(this.categoryList) && this.mPn == 1 && (b = BdCacheService.fz().b("ala_square_space", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20)) != null) {
             b.set("ala_square_live_key", bArr, 604800000L);
         }
     }

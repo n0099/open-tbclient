@@ -2,25 +2,25 @@ package kotlin.jvm.internal;
 
 import java.util.NoSuchElementException;
 import kotlin.collections.w;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class e extends w {
     private int index;
-    private final float[] kvd;
+    private final float[] mYZ;
 
     public e(float[] fArr) {
-        p.i(fArr, "array");
-        this.kvd = fArr;
+        p.j(fArr, "array");
+        this.mYZ = fArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.kvd.length;
+        return this.index < this.mYZ.length;
     }
 
     @Override // kotlin.collections.w
-    public float cML() {
+    public float dgN() {
         try {
-            float[] fArr = this.kvd;
+            float[] fArr = this.mYZ;
             int i = this.index;
             this.index = i + 1;
             return fArr[i];

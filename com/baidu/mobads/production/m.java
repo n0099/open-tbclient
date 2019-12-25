@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import dalvik.system.DexClassLoader;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class m implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ Uri b;

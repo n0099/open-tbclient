@@ -1,68 +1,69 @@
 package bolts;
 
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.util.Locale;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class b {
-    private static final b bT = new b();
-    private final ExecutorService bV;
-    private final ScheduledExecutorService bW;
-    private final Executor bX;
+    private static final b cU = new b();
+    private final ExecutorService cV;
+    private final ScheduledExecutorService cW;
+    private final Executor cX;
 
-    private static boolean aB() {
+    private static boolean aN() {
         String property = System.getProperty("java.runtime.name");
         if (property == null) {
             return false;
         }
-        return property.toLowerCase(Locale.US).contains("android");
+        return property.toLowerCase(Locale.US).contains(PraiseDataPassUtil.KEY_FROM_OS);
     }
 
     private b() {
-        this.bV = !aB() ? Executors.newCachedThreadPool() : bolts.a.az();
-        this.bW = Executors.newSingleThreadScheduledExecutor();
-        this.bX = new a();
+        this.cV = !aN() ? Executors.newCachedThreadPool() : bolts.a.aL();
+        this.cW = Executors.newSingleThreadScheduledExecutor();
+        this.cX = new a();
     }
 
-    public static ExecutorService aC() {
-        return bT.bV;
+    public static ExecutorService aO() {
+        return cU.cV;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Executor aD() {
-        return bT.bX;
+    public static Executor aP() {
+        return cU.cX;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class a implements Executor {
-        private ThreadLocal<Integer> bY;
+        private ThreadLocal<Integer> cY;
 
         private a() {
-            this.bY = new ThreadLocal<>();
+            this.cY = new ThreadLocal<>();
         }
 
-        private int aE() {
-            Integer num = this.bY.get();
+        private int aQ() {
+            Integer num = this.cY.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() + 1;
-            this.bY.set(Integer.valueOf(intValue));
+            this.cY.set(Integer.valueOf(intValue));
             return intValue;
         }
 
-        private int aF() {
-            Integer num = this.bY.get();
+        private int aR() {
+            Integer num = this.cY.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() - 1;
             if (intValue == 0) {
-                this.bY.remove();
+                this.cY.remove();
             } else {
-                this.bY.set(Integer.valueOf(intValue));
+                this.cY.set(Integer.valueOf(intValue));
             }
             return intValue;
         }
@@ -70,13 +71,13 @@ final class b {
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
             try {
-                if (aE() <= 15) {
+                if (aQ() <= 15) {
                     runnable.run();
                 } else {
-                    b.aC().execute(runnable);
+                    b.aO().execute(runnable);
                 }
             } finally {
-                aF();
+                aR();
             }
         }
     }

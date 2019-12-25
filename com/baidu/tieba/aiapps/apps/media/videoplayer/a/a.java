@@ -1,7 +1,17 @@
 package com.baidu.tieba.aiapps.apps.media.videoplayer.a;
 
-import com.baidu.tieba.play.g;
-/* loaded from: classes4.dex */
-public interface a extends g.a, g.b, g.e, g.f, g.InterfaceC0493g {
-    void gs(boolean z);
+import com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView;
+/* loaded from: classes9.dex */
+public interface a {
+    void a(SwanVideoView swanVideoView);
+
+    void f(int i, int i2, String str);
+
+    void hv(boolean z);
+
+    void onEnd();
+
+    void onPrepared();
+
+    void onSeekEnd();
 }

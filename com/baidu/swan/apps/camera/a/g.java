@@ -2,40 +2,39 @@ package com.baidu.swan.apps.camera.a;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.ab.a;
-import com.baidu.swan.apps.camera.view.CameraPreview;
+import com.baidu.smallgame.sdk.permission.PermissionProxy;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.apps.view.container.SwanAppNAViewContainer;
-/* loaded from: classes2.dex */
+import com.baidu.swan.apps.setting.oauth.a.b;
+import com.baidu.swan.apps.setting.oauth.h;
+import com.baidu.webkit.sdk.PermissionRequest;
+/* loaded from: classes9.dex */
 public class g extends a {
     public g(j jVar) {
-        super(jVar, "/swan/camera/update");
+        super(jVar, "/swanAPI/camera/update");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (!(context instanceof Activity)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "handle action, but context is not Activity");
             return false;
         }
-        bVar.Rf().a((Activity) context, "mapp_camera", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.camera.a.g.1
+        eVar.aac().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.an.d.a
-            /* renamed from: b */
-            public void B(Boolean bool) {
-                com.baidu.swan.apps.camera.d.a aVar = (com.baidu.swan.apps.camera.d.a) g.this.b(unitedSchemeEntity);
-                if (bool.booleanValue()) {
+            @Override // com.baidu.swan.apps.as.d.b
+            /* renamed from: a */
+            public void B(h<b.d> hVar) {
+                com.baidu.swan.apps.camera.d.a aVar = (com.baidu.swan.apps.camera.d.a) g.this.c(unitedSchemeEntity);
+                if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     g.this.a(context, unitedSchemeEntity, callbackHandler, aVar);
                     return;
                 }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) UIMsg.f_FUN.FUN_ID_VOICE_SCH_ACTION);
+                com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
                 com.baidu.swan.apps.console.c.e("SwanAppCamera", "camera authorize failure");
             }
         });
@@ -43,71 +42,52 @@ public class g extends a {
     }
 
     @Override // com.baidu.swan.apps.camera.a.a
-    protected com.baidu.swan.apps.model.a.a.a b(UnitedSchemeEntity unitedSchemeEntity) {
-        return new com.baidu.swan.apps.camera.d.a(a(unitedSchemeEntity));
+    protected com.baidu.swan.apps.component.b.b c(UnitedSchemeEntity unitedSchemeEntity) {
+        return new com.baidu.swan.apps.camera.d.a(b(unitedSchemeEntity));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.camera.d.a aVar) {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "handleAuthorized start");
-        if (com.baidu.swan.apps.camera.a.CE().aO(context)) {
-            a(unitedSchemeEntity, callbackHandler, a(aVar));
-            com.baidu.swan.apps.console.c.e("SwanAppCamera", "has authorize");
-            return;
-        }
-        com.baidu.swan.apps.w.e.LE().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0147a() { // from class: com.baidu.swan.apps.camera.a.g.2
-            @Override // com.baidu.swan.apps.ab.a.InterfaceC0147a
-            public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-                boolean z = false;
-                if (i != 1) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) UIMsg.f_FUN.FUN_ID_VOICE_SCH_OPTION);
-                    com.baidu.swan.apps.console.c.e("SwanAppCamera", "handleAuthorized end, failure");
-                    return;
-                }
-                int length = iArr.length;
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= length) {
-                        z = true;
-                        break;
-                    } else if (iArr[i2] == -1) {
-                        break;
-                    } else {
-                        i2++;
-                    }
-                }
-                if (z) {
-                    g.this.a(unitedSchemeEntity, callbackHandler, g.this.a(aVar));
-                    return;
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) UIMsg.f_FUN.FUN_ID_VOICE_SCH_OPTION);
-                com.baidu.swan.apps.console.c.e("SwanAppCamera", "user want not authorize");
+        com.baidu.swan.apps.af.a.a(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new com.baidu.swan.apps.af.b() { // from class: com.baidu.swan.apps.camera.a.g.2
+            @Override // com.baidu.swan.apps.af.b
+            public void fl(String str) {
+                g.this.a(unitedSchemeEntity, callbackHandler, g.this.a(aVar));
+                com.baidu.swan.apps.console.c.e("SwanAppCamera", str + "");
+            }
+
+            @Override // com.baidu.swan.apps.af.b
+            public void q(int i, String str) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 10005);
+                com.baidu.swan.apps.console.c.e("SwanAppCamera", str + "");
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(com.baidu.swan.apps.camera.d.a aVar) {
+        boolean z = false;
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "handle update camera instruction start");
         if (aVar == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "Model is null");
-            return false;
+        } else {
+            String str = aVar.baS;
+            com.baidu.swan.apps.model.a.a.a aVar2 = aVar.bdl;
+            if (TextUtils.isEmpty(str) || aVar2 == null || !aVar2.isValid()) {
+                com.baidu.swan.apps.console.c.e("SwanAppCamera", "cameraId = " + str + " ; position = " + (aVar2 == null));
+            } else {
+                com.baidu.swan.apps.component.components.c.a aVar3 = (com.baidu.swan.apps.component.components.c.a) com.baidu.swan.apps.component.container.a.d(aVar);
+                if (aVar3 == null) {
+                    com.baidu.swan.apps.console.c.e("SwanAppCamera", "update camera with a null component");
+                } else {
+                    com.baidu.swan.apps.component.b.c a = aVar3.a((com.baidu.swan.apps.component.components.c.a) aVar);
+                    z = a.isSuccess();
+                    if (!z) {
+                        com.baidu.swan.apps.console.c.e("SwanAppCamera", "update camera fail: " + a.msg);
+                    }
+                }
+            }
         }
-        String str = aVar.aFc;
-        com.baidu.swan.apps.model.a.a.b bVar = aVar.aXr;
-        if (TextUtils.isEmpty(str) || bVar == null || !bVar.isValid()) {
-            com.baidu.swan.apps.console.c.e("SwanAppCamera", "cameraId = " + str + " ; position = " + (bVar == null));
-            return false;
-        }
-        CameraPreview dT = com.baidu.swan.apps.camera.a.CE().dT(aVar.aXp);
-        if (dT != null) {
-            dT.b(aVar);
-        }
-        com.baidu.swan.apps.console.c.i("SwanAppCamera", "handle update camera instruction end");
-        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(aVar, null);
-        if (a == null || !a.a(aVar)) {
-            r0 = false;
-        }
-        return r0;
+        return z;
     }
 }

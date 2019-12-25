@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.liveroom.data;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class i {
-    public boolean efr;
-    public boolean efs;
-    public String eft;
-    public int efu;
-    public int efv;
-    public long efw;
-    public long efx;
-    public String efy;
+    public boolean eVl;
+    public boolean eVm;
+    public String eVn;
+    public int eVo;
+    public int eVp;
+    public long eVq;
+    public long eVr;
+    public String eVs;
     public boolean hasInit;
 }

@@ -5,19 +5,19 @@ import android.app.Application;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.live.im.n;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks MW;
+    private static Application.ActivityLifecycleCallbacks TS;
 
-    public static void b(Application application) {
-        if (MW == null) {
-            MW = new C0056a();
+    public static void d(Application application) {
+        if (TS == null) {
+            TS = new C0073a();
         }
-        application.registerActivityLifecycleCallbacks(MW);
+        application.registerActivityLifecycleCallbacks(TS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean p(Activity activity) {
+    public static boolean s(Activity activity) {
         String className = activity.getComponentName().getClassName();
         if (className.contains("AlaMasterLiveRoomActivity") || className.contains("LivePlayerActivity") || className.contains("AlaLiveEndActivity")) {
             return true;
@@ -32,11 +32,11 @@ public class a {
     }
 
     /* renamed from: com.baidu.live.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    private static class C0056a implements Application.ActivityLifecycleCallbacks {
-        private n MX;
+    /* loaded from: classes2.dex */
+    private static class C0073a implements Application.ActivityLifecycleCallbacks {
+        private n TT;
 
-        private C0056a() {
+        private C0073a() {
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -45,11 +45,11 @@ public class a {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
-            if (a.p(activity)) {
-                if (this.MX == null) {
-                    this.MX = new n();
+            if (a.s(activity)) {
+                if (this.TT == null) {
+                    this.TT = new n();
                 }
-                this.MX.init(String.valueOf(activity.hashCode()));
+                this.TT.init(String.valueOf(activity.hashCode()));
             }
         }
 
@@ -71,8 +71,8 @@ public class a {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
-            if (a.p(activity) && this.MX != null) {
-                this.MX.cI(String.valueOf(activity.hashCode()));
+            if (a.s(activity) && this.TT != null) {
+                this.TT.destroy(String.valueOf(activity.hashCode()));
             }
         }
     }

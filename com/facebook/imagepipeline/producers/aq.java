@@ -1,42 +1,54 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes2.dex */
-public class aq<T> implements ai<T> {
-    private final ar khy;
-    private final ai<T> kkh;
 
-    public aq(ai<T> aiVar, ar arVar) {
-        this.kkh = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
-        this.khy = arVar;
+import java.util.Map;
+/* loaded from: classes9.dex */
+public abstract class aq<T> extends com.facebook.common.b.h<T> {
+    private final am lQB;
+    private final k<T> lQX;
+    private final String lSi;
+    private final String mRequestId;
+
+    @Override // com.facebook.common.b.h
+    protected abstract void aP(T t);
+
+    public aq(k<T> kVar, am amVar, String str, String str2) {
+        this.lQX = kVar;
+        this.lQB = amVar;
+        this.lSi = str;
+        this.mRequestId = str2;
+        this.lQB.fc(this.mRequestId, this.lSi);
     }
 
-    @Override // com.facebook.imagepipeline.producers.ai
-    public void a(final j<T> jVar, final aj ajVar) {
-        final al cIG = ajVar.cIG();
-        final String id = ajVar.getId();
-        final ao<T> aoVar = new ao<T>(jVar, cIG, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.aq.1
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.facebook.imagepipeline.producers.ao, com.facebook.common.b.e
-            public void onSuccess(T t) {
-                cIG.a(id, "BackgroundThreadHandoffProducer", null);
-                aq.this.kkh.a(jVar, ajVar);
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.facebook.common.b.h
+    public void onSuccess(T t) {
+        this.lQB.a(this.mRequestId, this.lSi, this.lQB.OF(this.mRequestId) ? bq(t) : null);
+        this.lQX.g(t, 1);
+    }
 
-            @Override // com.facebook.imagepipeline.producers.ao, com.facebook.common.b.e
-            protected void aw(T t) {
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.facebook.common.b.h
+    public void onFailure(Exception exc) {
+        this.lQB.a(this.mRequestId, this.lSi, exc, this.lQB.OF(this.mRequestId) ? n(exc) : null);
+        this.lQX.D(exc);
+    }
 
-            @Override // com.facebook.common.b.e
-            protected T getResult() throws Exception {
-                return null;
-            }
-        };
-        ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.aq.2
-            @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void cIM() {
-                aoVar.cancel();
-                aq.this.khy.t(aoVar);
-            }
-        });
-        this.khy.s(aoVar);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.facebook.common.b.h
+    public void dim() {
+        this.lQB.b(this.mRequestId, this.lSi, this.lQB.OF(this.mRequestId) ? dpK() : null);
+        this.lQX.dim();
+    }
+
+    protected Map<String, String> bq(T t) {
+        return null;
+    }
+
+    protected Map<String, String> n(Exception exc) {
+        return null;
+    }
+
+    protected Map<String, String> dpK() {
+        return null;
     }
 }

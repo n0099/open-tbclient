@@ -18,15 +18,14 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_5 = null;
     protected int algorithmId;
     List<CencSampleAuxiliaryDataFormat> entries;
     protected int ivSize;
@@ -57,7 +56,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
 
     public int getOffsetToFirstIV() {
         RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this));
-        return (getSize() > IjkMediaMeta.AV_CH_WIDE_RIGHT ? 16 : 8) + (isOverrideTrackEncryptionBoxParameters() ? this.kid.length + 4 : 0) + 4;
+        return (getSize() > 4294967296L ? 16 : 8) + (isOverrideTrackEncryptionBoxParameters() ? this.kid.length + 4 : 0) + 4;
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox

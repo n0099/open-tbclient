@@ -1,7 +1,7 @@
 package com.baidu.mobads.openad.interfaces.download;
 
 import java.util.Observer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IOAdDownloader {
     void addObserver(Observer observer);
 
@@ -35,7 +35,7 @@ public interface IOAdDownloader {
 
     void start();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum DownloadStatus {
         NONE(-1, "未开始"),
         INITING(0, "下载准备中"),

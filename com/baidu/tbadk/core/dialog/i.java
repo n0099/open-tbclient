@@ -21,61 +21,61 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class i extends Dialog {
-    private boolean abA;
-    private com.baidu.adp.base.e ceS;
-    private float ceT;
-    private boolean ceU;
-    private k ceV;
-    private CustomMessageListener ceW;
+    private com.baidu.adp.base.e cRq;
+    private float cRr;
+    private k cRs;
+    private CustomMessageListener cRt;
     private Context context;
+    private boolean isDismissing;
+    private boolean isShowing;
     protected View mContentView;
     private LinearLayout mRootView;
 
     public i(com.baidu.adp.base.e eVar, k kVar) {
         super(eVar.getPageActivity(), 16973835);
-        this.ceT = 0.3f;
-        this.ceU = false;
-        this.abA = false;
-        this.ceW = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
+        this.cRr = 0.3f;
+        this.isDismissing = false;
+        this.isShowing = false;
+        this.cRt = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.ceV != null) {
-                    i.this.ceV.onChangeSkinType();
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.cRs != null) {
+                    i.this.cRs.onChangeSkinType();
                 }
             }
         };
-        this.ceS = eVar;
+        this.cRq = eVar;
         this.context = eVar.getPageActivity();
-        this.ceV = kVar;
-        this.mContentView = kVar.alc();
+        this.cRs = kVar;
+        this.mContentView = kVar.aCm();
     }
 
     public i(com.baidu.adp.base.e eVar) {
         super(eVar.getPageActivity(), 16973835);
-        this.ceT = 0.3f;
-        this.ceU = false;
-        this.abA = false;
-        this.ceW = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
+        this.cRr = 0.3f;
+        this.isDismissing = false;
+        this.isShowing = false;
+        this.cRt = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.ceV != null) {
-                    i.this.ceV.onChangeSkinType();
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.cRs != null) {
+                    i.this.cRs.onChangeSkinType();
                 }
             }
         };
         this.context = eVar.getPageActivity();
-        this.ceS = eVar;
+        this.cRq = eVar;
     }
 
-    public void ab(float f) {
-        this.ceT = f;
+    public void ag(float f) {
+        this.cRr = f;
     }
 
     public void a(k kVar) {
-        this.ceV = kVar;
-        this.mContentView = kVar.alc();
+        this.cRs = kVar;
+        this.mContentView = kVar.aCm();
     }
 
     @Override // android.app.Dialog
@@ -84,18 +84,18 @@ public class i extends Dialog {
     }
 
     public void a(String str, String[] strArr, k.c cVar) {
-        this.ceV = new k(this.context);
+        this.cRs = new k(this.context);
         if (!StringUtils.isNull(str)) {
-            this.ceV.setTitleText(str);
+            this.cRs.setTitleText(str);
         }
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < strArr.length; i++) {
-            arrayList.add(new g(i, strArr[i], this.ceV));
+            arrayList.add(new g(i, strArr[i], this.cRs));
         }
-        this.ceV.at(arrayList);
-        this.ceV.a(cVar);
+        this.cRs.aA(arrayList);
+        this.cRs.a(cVar);
         setCanceledOnTouchOutside(true);
-        this.mContentView = this.ceV.alc();
+        this.mContentView = this.cRs.aCm();
     }
 
     @Override // android.app.Dialog
@@ -108,7 +108,7 @@ public class i extends Dialog {
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
         getWindow().setBackgroundDrawableResource(R.color.transparent);
-        getWindow().setDimAmount(this.ceT);
+        getWindow().setDimAmount(this.cRr);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(0);
         setCanceledOnTouchOutside(true);
@@ -135,11 +135,11 @@ public class i extends Dialog {
     }
 
     public void showDialog() {
-        this.ceU = false;
+        this.isDismissing = false;
         if (isShowing()) {
             super.dismiss();
         }
-        com.baidu.adp.lib.g.g.a(this, this.ceS);
+        com.baidu.adp.lib.f.g.a(this, this.cRq);
         if (this.mRootView != null) {
             Animation loadAnimation = AnimationUtils.loadAnimation(this.context, R.anim.pop_enter_anim);
             loadAnimation.setFillAfter(true);
@@ -165,29 +165,34 @@ public class i extends Dialog {
     @Override // android.app.Dialog
     public void show() {
         super.show();
-        this.ceS.registerListener(this.ceW);
+        this.cRq.registerListener(this.cRt);
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
-        if (this.mRootView != null && !this.ceU && isShowing()) {
+        if (this.mRootView != null && !this.isDismissing && isShowing()) {
             Animation loadAnimation = AnimationUtils.loadAnimation(this.context, R.anim.pop_exit_anim);
             loadAnimation.setFillAfter(true);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.core.dialog.i.4
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
-                    i.this.ceU = true;
+                    i.this.isDismissing = true;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    i.this.ceU = false;
-                    if (i.this.ceS != null && i.this.ceS.getPageActivity() != null) {
-                        Activity pageActivity = i.this.ceS.getPageActivity();
-                        if (!pageActivity.isFinishing() && pageActivity.getWindow() != null) {
-                            i.super.dismiss();
+                    i.this.isDismissing = false;
+                    i.this.mRootView.post(new Runnable() { // from class: com.baidu.tbadk.core.dialog.i.4.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            if (i.this.cRq != null && i.this.cRq.getPageActivity() != null) {
+                                Activity pageActivity = i.this.cRq.getPageActivity();
+                                if (!pageActivity.isFinishing() && pageActivity.getWindow() != null) {
+                                    i.super.dismiss();
+                                }
+                            }
                         }
-                    }
+                    });
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -195,7 +200,7 @@ public class i extends Dialog {
                 }
             });
             this.mRootView.startAnimation(loadAnimation);
-            MessageManager.getInstance().unRegisterListener(this.ceW);
+            MessageManager.getInstance().unRegisterListener(this.cRt);
         }
     }
 

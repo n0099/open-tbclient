@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.SetCommonForumState.SetCommonForumStateResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ResponseSetCommForumStateSocketMessage extends SocketResponsedMessage {
     private SetCommonForumStateResIdl mResponseData;
 

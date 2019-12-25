@@ -1,7 +1,6 @@
 package com.baidu.afd;
 
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -77,7 +76,7 @@ public class f {
                 throw new ParseError(1, "adInfo has no extraParam info");
             }
             if (z) {
-                return a.B(str2, str);
+                return a.F(str2, str);
             }
             JSONArray optJSONArray3 = optJSONObject.optJSONArray("material");
             if (optJSONArray3 == null || optJSONArray3.length() == 0) {
@@ -88,7 +87,7 @@ public class f {
                 throw new ParseError(1, "adInfo has no material info");
             }
             try {
-                JSONArray jSONArray = new JSONArray(optJSONObject3.optString(Config.LAUNCH_INFO));
+                JSONArray jSONArray = new JSONArray(optJSONObject3.optString("info"));
                 if (jSONArray.length() == 0) {
                     throw new ParseError(1, "material has no info array");
                 }
@@ -97,8 +96,8 @@ public class f {
                     throw new ParseError(1, "info array has no first element");
                 }
                 e eVar = new e();
-                eVar.Am = z;
-                eVar.An = com.baidu.tieba.lego.card.b.yP(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.CQ = z;
+                eVar.CT = com.baidu.tieba.lego.card.b.Dy(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

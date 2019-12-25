@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.a.a;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c {
     private int a;
     private String b;

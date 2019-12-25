@@ -5,6 +5,7 @@ import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.mapapi.map.WinRound;
 import com.baidu.mapapi.model.inner.Point;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 /* loaded from: classes5.dex */
 public class ab {
     private static final String t = ab.class.getSimpleName();
@@ -66,7 +67,7 @@ public class ab {
             this.c = -45;
         }
         Bundle bundle = new Bundle();
-        bundle.putDouble("level", this.a);
+        bundle.putDouble(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, this.a);
         bundle.putDouble("rotation", this.b);
         bundle.putDouble("overlooking", this.c);
         bundle.putDouble("centerptx", this.d);
@@ -103,7 +104,7 @@ public class ab {
     }
 
     public void a(Bundle bundle) {
-        this.a = (float) bundle.getDouble("level");
+        this.a = (float) bundle.getDouble(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
         this.b = (int) bundle.getDouble("rotation");
         this.c = (int) bundle.getDouble("overlooking");
         this.d = bundle.getDouble("centerptx");

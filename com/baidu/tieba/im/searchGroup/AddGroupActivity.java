@@ -8,7 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.c;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.f.b;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.BaseActivity;
@@ -20,28 +20,28 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import com.baidu.tieba.im.model.SearchGroupModel;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
-    private a gPc = null;
-    private SearchGroupModel gPd = null;
-    private c gPe = new c(CmdConfigSocket.CMD_REQUEST_SEARCH_GROUP) { // from class: com.baidu.tieba.im.searchGroup.AddGroupActivity.1
+    private a hDg = null;
+    private SearchGroupModel hDh = null;
+    private c hDi = new c(CmdConfigSocket.CMD_REQUEST_SEARCH_GROUP) { // from class: com.baidu.tieba.im.searchGroup.AddGroupActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            AddGroupActivity.this.gPc.ma(false);
+            AddGroupActivity.this.hDg.showProgressBar(false);
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
-                AddGroupActivity.this.bDT();
+                AddGroupActivity.this.bVf();
             } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
-                AddGroupActivity.this.bDT();
+                AddGroupActivity.this.bVf();
             } else {
                 ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) socketResponsedMessage;
                 if (responseSearchGroupMessage.getError() != 0) {
-                    AddGroupActivity.this.aA(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
+                    AddGroupActivity.this.aJ(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
                     return;
                 }
                 List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
                 if (searchResult == null || searchResult.size() <= 0) {
-                    AddGroupActivity.this.bDT();
+                    AddGroupActivity.this.bVf();
                 } else {
                     AddGroupActivity.this.a(searchResult.get(0));
                 }
@@ -53,31 +53,31 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gPc = new a(this);
-        this.gPd = new SearchGroupModel(this);
-        registerListener(this.gPe);
+        this.hDg = new a(this);
+        this.hDh = new SearchGroupModel(this);
+        registerListener(this.hDi);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gPc.changeSkinType(i);
+        this.hDg.changeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.gPc.bDV()) {
+        if (view == this.hDg.bVh()) {
             finish();
-        } else if (view == this.gPc.bDU()) {
+        } else if (view == this.hDg.bVg()) {
             TiebaStatic.log("add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
-                yl((String) view.getTag());
+                CU((String) view.getTag());
             }
-        } else if (view == this.gPc.bzv()) {
-            this.gPc.bDX();
-        } else if (view == this.gPc.bDW()) {
+        } else if (view == this.hDg.bQL()) {
+            this.hDg.bVj();
+        } else if (view == this.hDg.bVi()) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ZXING_CAPTURE, new IntentConfig(getPageContext().getPageActivity())));
         }
     }
@@ -95,20 +95,20 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        if (this.gPd != null) {
-            this.gPd.cancelLoadData();
+        if (this.hDh != null) {
+            this.hDh.cancelLoadData();
         }
     }
 
-    public void yl(String str) {
+    public void CU(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
-                this.gPc.ma(true);
-                this.gPd.sendMessage(b.toLong(str, 0L));
+                this.hDg.showProgressBar(true);
+                this.hDh.sendMessage(b.toLong(str, 0L));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                this.gPc.ma(false);
+                this.hDg.showProgressBar(false);
                 showToast(R.string.groupid_error);
                 return;
             }
@@ -117,7 +117,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDT() {
+    public void bVf() {
         showToast(R.string.add_group_toast_noresult);
     }
 
@@ -129,7 +129,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aA(String str, int i) {
+    public void aJ(String str, int i) {
         if (i < 0) {
             showToast(R.string.neterror);
         } else if (!TextUtils.isEmpty(str)) {

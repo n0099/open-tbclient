@@ -2,8 +2,8 @@ package com.baidu.platform.comapi.walknavi.d.a.f;
 
 import android.os.AsyncTask;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.platform.comapi.walknavi.d.a.g.k;
+import com.baidubce.http.Headers;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -101,7 +101,7 @@ public class b extends AsyncTask<String, Integer, String> {
         if (!file.exists() || !file.isDirectory()) {
             file.mkdirs();
         }
-        String str2 = a + File.separator + (k.a(str) + DefaultConfig.TOKEN_SEPARATOR + "zip");
+        String str2 = a + File.separator + (k.a(str) + ".zip");
         File file2 = new File(str2);
         if (file2.exists()) {
             try {
@@ -146,7 +146,7 @@ public class b extends AsyncTask<String, Integer, String> {
         try {
             URLConnection openConnection = new URL(str).openConnection();
             openConnection.setConnectTimeout(10000);
-            openConnection.setRequestProperty("Range", "bytes=0-" + b);
+            openConnection.setRequestProperty(Headers.RANGE, "bytes=0-" + b);
             randomAccessFile = new RandomAccessFile(str2, "rw");
             try {
                 randomAccessFile.seek(0L);

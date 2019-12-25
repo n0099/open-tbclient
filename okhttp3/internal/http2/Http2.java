@@ -3,7 +3,7 @@ package okhttp3.internal.http2;
 import java.io.IOException;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class Http2 {
     static final byte FLAG_ACK = 1;
     static final byte FLAG_COMPRESSED = 32;

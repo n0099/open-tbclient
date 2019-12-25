@@ -4,58 +4,58 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.SurfaceView;
 import android.view.View;
-import com.baidu.c.a.d.a;
+import com.baidu.g.a.d.a;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.ala.zan.IAlaBdZan;
 import com.baidu.live.tbadk.ala.zan.IGetZanViewCallback;
 import com.baidu.live.tbadk.ala.zan.IZanResponseCallback;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c implements IAlaBdZan {
-    private View auC;
-    private IGetZanViewCallback auD;
-    private IZanResponseCallback auF;
-    private a.InterfaceC0043a auG = new a.InterfaceC0043a() { // from class: com.baidu.live.widget.c.1
-        @Override // com.baidu.c.a.d.a.InterfaceC0043a
+    private View aCv;
+    private IGetZanViewCallback aCw;
+    private IZanResponseCallback aCy;
+    private a.InterfaceC0068a aCz = new a.InterfaceC0068a() { // from class: com.baidu.live.widget.c.1
+        @Override // com.baidu.g.a.d.a.InterfaceC0068a
         public void b(int i, View view) {
             if (i == 0 && (view instanceof View)) {
-                c.this.auC = view;
-                if (c.this.auC instanceof SurfaceView) {
-                    ((SurfaceView) c.this.auC).setZOrderOnTop(true);
-                    ((SurfaceView) c.this.auC).getHolder().setFormat(-3);
+                c.this.aCv = view;
+                if (c.this.aCv instanceof SurfaceView) {
+                    ((SurfaceView) c.this.aCv).setZOrderOnTop(true);
+                    ((SurfaceView) c.this.aCv).getHolder().setFormat(-3);
                 }
-                if (c.this.auD != null) {
-                    c.this.auD.onGetZanView(c.this.auC);
+                if (c.this.aCw != null) {
+                    c.this.aCw.onGetZanView(c.this.aCv);
                 }
             }
         }
     };
-    private com.baidu.c.a.d.a auA = com.baidu.c.b.a.aB(TbadkCoreApplication.getInst().getContext()).xg();
-    private com.baidu.c.a.c.a auB = com.baidu.c.b.a.aB(TbadkCoreApplication.getInst().getContext()).xf();
-    private com.baidu.c.a.c.b auE = new com.baidu.c.a.c.b() { // from class: com.baidu.live.widget.c.2
-        @Override // com.baidu.c.a.c.b
+    private com.baidu.g.a.d.a aCt = com.baidu.g.b.a.aL(TbadkCoreApplication.getInst().getContext()).ze();
+    private com.baidu.g.a.c.a aCu = com.baidu.g.b.a.aL(TbadkCoreApplication.getInst().getContext()).zd();
+    private com.baidu.g.a.c.b aCx = new com.baidu.g.a.c.b() { // from class: com.baidu.live.widget.c.2
+        @Override // com.baidu.g.a.c.b
         public void onResult(int i, long j, long j2) {
-            if (c.this.auF != null) {
-                c.this.auF.onResult(i, j, j2);
+            if (c.this.aCy != null) {
+                c.this.aCy.onResult(i, j, j2);
             }
         }
     };
 
     @Override // com.baidu.live.tbadk.ala.zan.IAlaBdZan
     public void prepareZanView(Activity activity) {
-        if (activity != null && this.auA != null) {
-            this.auA.a(activity, this.auG);
+        if (activity != null && this.aCt != null) {
+            this.aCt.a(activity, this.aCz);
         }
     }
 
     @Override // com.baidu.live.tbadk.ala.zan.IAlaBdZan
     public View getZanView() {
-        return this.auC;
+        return this.aCv;
     }
 
     @Override // com.baidu.live.tbadk.ala.zan.IAlaBdZan
     public void postZan(Context context, String str, String str2, int i) {
-        if (this.auB != null && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+        if (this.aCu != null && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             int i2 = 0;
             if (TbadkCoreApplication.getInst().isTieba()) {
                 i2 = 1;
@@ -64,24 +64,24 @@ public class c implements IAlaBdZan {
             } else if (TbadkCoreApplication.getInst().isQuanmin()) {
                 i2 = 3;
             }
-            this.auB.a(context, str, str2, i, i2, this.auE);
+            this.aCu.a(context, str, str2, i, i2, this.aCx);
         }
     }
 
     @Override // com.baidu.live.tbadk.ala.zan.IAlaBdZan
     public void addHeart(int i) {
-        if (this.auA != null && this.auC != null) {
-            this.auA.e(this.auC, i);
+        if (this.aCt != null && this.aCv != null) {
+            this.aCt.e(this.aCv, i);
         }
     }
 
     @Override // com.baidu.live.tbadk.ala.zan.IAlaBdZan
     public void setGetZanViewCallback(IGetZanViewCallback iGetZanViewCallback) {
-        this.auD = iGetZanViewCallback;
+        this.aCw = iGetZanViewCallback;
     }
 
     @Override // com.baidu.live.tbadk.ala.zan.IAlaBdZan
     public void setZanResponseCallback(IZanResponseCallback iZanResponseCallback) {
-        this.auF = iZanResponseCallback;
+        this.aCy = iZanResponseCallback;
     }
 }

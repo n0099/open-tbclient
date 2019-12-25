@@ -1,13 +1,14 @@
 package com.baidu.live.tbadk.statics;
 
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaStaticsManager {
     private IAlaBdStatics mIAlaBdStatics;
     private IAlaBdStaticsBuilder mIAlaBdStaticsBuilder;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class InstanceHolder {
         private static final AlaStaticsManager sInst = new AlaStaticsManager();
     }
@@ -20,7 +21,7 @@ public class AlaStaticsManager {
     }
 
     public void setBuilder(IAlaBdStaticsBuilder iAlaBdStaticsBuilder) {
-        if (iAlaBdStaticsBuilder != null) {
+        if (iAlaBdStaticsBuilder != null && !TbadkCoreApplication.getInst().isMobileBaidu()) {
             if (this.mIAlaBdStaticsBuilder == null || this.mIAlaBdStatics == null) {
                 this.mIAlaBdStaticsBuilder = iAlaBdStaticsBuilder;
                 this.mIAlaBdStatics = this.mIAlaBdStaticsBuilder.build();

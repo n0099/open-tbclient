@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class RopeByteString extends ByteString {
     private static final int[] minLengthByDepth;
     private int hash;
@@ -325,7 +325,7 @@ public class RopeByteString extends ByteString {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class Balancer {
         private final Stack<ByteString> prefixesStack;
 
@@ -388,7 +388,7 @@ public class RopeByteString extends ByteString {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class PieceIterator implements Iterator<LiteralByteString> {
         private final Stack<RopeByteString> breadCrumbs;
         private LiteralByteString next;
@@ -450,7 +450,7 @@ public class RopeByteString extends ByteString {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class RopeByteIterator implements ByteString.ByteIterator {
         private ByteString.ByteIterator bytes;
         int bytesRemaining;
@@ -491,7 +491,7 @@ public class RopeByteString extends ByteString {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     private class RopeInputStream extends InputStream {
         private LiteralByteString currentPiece;
         private int currentPieceIndex;

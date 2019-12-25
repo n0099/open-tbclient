@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class j implements Application.ActivityLifecycleCallbacks {
     final /* synthetic */ SapiShareClient a;
 

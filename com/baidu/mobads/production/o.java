@@ -2,7 +2,7 @@ package com.baidu.mobads.production;
 
 import com.baidu.mobads.interfaces.IXAdContainerContext;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class o implements Runnable {
     final /* synthetic */ IXAdContainerContext a;
     final /* synthetic */ b b;

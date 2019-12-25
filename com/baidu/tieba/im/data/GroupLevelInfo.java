@@ -2,7 +2,7 @@ package com.baidu.tieba.im.data;
 
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class GroupLevelInfo implements Serializable {
     private static final long serialVersionUID = -1233726007002267351L;
     private int activeDay;
@@ -65,7 +65,7 @@ public class GroupLevelInfo implements Serializable {
         this.vipLevelInfos = list;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class LevelInfo implements Serializable {
         private static final long serialVersionUID = -3336118486107034728L;
         private int grade;

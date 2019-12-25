@@ -2,7 +2,7 @@ package com.baidu.tieba.launcherGuide.tblauncher;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ShowNewUserGuideResponseMessage extends JsonHttpResponsedMessage {
     public int isJump;
 

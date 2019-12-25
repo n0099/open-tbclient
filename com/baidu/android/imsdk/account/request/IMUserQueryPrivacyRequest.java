@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMUserQueryPrivacyRequest extends IMUserBaseHttpRequest {
     private long mAppid;
 

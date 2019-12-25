@@ -5,13 +5,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.down.common.intercepter.IIntercepter;
 import com.tencent.connect.common.AssistActivity;
 import com.tencent.connect.common.Constants;
 import com.tencent.connect.common.UIListenerManager;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.h;
 import com.tencent.open.utils.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class AuthActivity extends Activity {
     public static final String ACTION_KEY = "action";
     public static final String ACTION_SHARE_PRIZE = "sharePrize";
@@ -79,7 +80,7 @@ public class AuthActivity extends Activity {
             finish();
         } else if (string.equals(ACTION_SHARE_PRIZE)) {
             Intent launchIntentForPackage = getPackageManager().getLaunchIntentForPackage(getPackageName());
-            String string2 = a2.getString("response");
+            String string2 = a2.getString(IIntercepter.TYPE_RESPONSE);
             String str = "";
             try {
                 str = j.d(string2).getString("activityid");

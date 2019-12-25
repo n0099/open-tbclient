@@ -4,38 +4,38 @@ import android.text.TextUtils;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private String aSM;
-    private boolean aXk;
+    private boolean bAs;
     private String mBaseUrl;
+    private String mPage;
     private String mParams;
 
     public String getPage() {
-        return this.aSM;
+        return this.mPage;
     }
 
     public String getParams() {
         return this.mParams;
     }
 
-    public String Ln() {
+    public String TN() {
         return this.mBaseUrl;
     }
 
-    public void Fq() {
-        this.aXk = false;
+    public void LA() {
+        this.bAs = false;
     }
 
-    public String Mp() {
+    public String toJSONString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("page", this.aSM);
+            jSONObject.put("page", this.mPage);
             jSONObject.put("params", this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.aXk);
+            jSONObject.put("isFirstPage", this.bAs);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -44,17 +44,17 @@ public final class c {
         return jSONObject.toString();
     }
 
-    public static c gb(String str) {
+    public static c je(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             c cVar = new c();
             JSONObject jSONObject = new JSONObject(str);
-            cVar.aSM = jSONObject.optString("page");
+            cVar.mPage = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString("params");
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.aXk = jSONObject.optBoolean("isFirstPage");
+            cVar.bAs = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -65,32 +65,32 @@ public final class c {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        private c aKe = new c();
+        private c biu = new c();
 
-        public a gc(String str) {
-            this.aKe.aSM = str;
+        public a jf(String str) {
+            this.biu.mPage = str;
             return this;
         }
 
-        public a gd(String str) {
-            this.aKe.mParams = str;
+        public a jg(String str) {
+            this.biu.mParams = str;
             return this;
         }
 
-        public a ge(String str) {
-            this.aKe.mBaseUrl = str;
+        public a jh(String str) {
+            this.biu.mBaseUrl = str;
             return this;
         }
 
-        public a bS(boolean z) {
-            this.aKe.aXk = z;
+        public a cO(boolean z) {
+            this.biu.bAs = z;
             return this;
         }
 
-        public c Mq() {
-            return this.aKe;
+        public c VI() {
+            return this.biu;
         }
     }
 }

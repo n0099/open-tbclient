@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import com.baidu.minivideo.effect.core.entity.AEffectParams;
 import com.squareup.wire.UnknownFieldMap;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -152,7 +153,7 @@ public abstract class Message {
             TYPES_BY_NAME.put("sfixed32", SFIXED32);
             TYPES_BY_NAME.put("fixed64", FIXED64);
             TYPES_BY_NAME.put("sfixed64", SFIXED64);
-            TYPES_BY_NAME.put("float", FLOAT);
+            TYPES_BY_NAME.put(AEffectParams.VALUE_TYPE_FLOAT, FLOAT);
             TYPES_BY_NAME.put("double", DOUBLE);
         }
 

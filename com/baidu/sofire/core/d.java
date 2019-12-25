@@ -10,7 +10,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.util.FieldUtil;
 import com.baidu.mobstat.Config;
@@ -31,7 +30,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class d implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static Context b;
     private static d e;
@@ -228,7 +227,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                             packageInfo.versionName = optJSONObject2.optString("v");
                             ApplicationInfo applicationInfo = new ApplicationInfo();
                             applicationInfo.className = optJSONObject2.optString("n");
-                            if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
+                            if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
                                 applicationInfo.className = packageInfo.packageName + applicationInfo.className;
                             }
                             applicationInfo.theme = optJSONObject2.optInt("t");
@@ -241,7 +240,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                                     if (jSONObject2 != null) {
                                         ActivityInfo activityInfo = new ActivityInfo();
                                         activityInfo.name = jSONObject2.optString("n");
-                                        if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
+                                        if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(".")) {
                                             activityInfo.name = packageInfo.packageName + activityInfo.name;
                                         }
                                         activityInfo.packageName = packageInfo.packageName;
@@ -935,7 +934,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                 if (callback != null) {
                     callback.onError(1);
                 }
-                hashMap.put("3", com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+                hashMap.put("3", "11");
                 com.baidu.sofire.i.d.a(b, "1003141", hashMap);
                 return;
             }

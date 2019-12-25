@@ -1,7 +1,7 @@
 package com.baidu.live.liveroom.d;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface b {
-    a ar(Context context);
+    a aC(Context context);
 }

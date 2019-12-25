@@ -1,5 +1,5 @@
 package com.baidu.pass.http;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 enum Method {
     GET,
     POST

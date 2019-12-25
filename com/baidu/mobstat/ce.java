@@ -3,7 +3,6 @@ package com.baidu.mobstat;
 import com.baidu.mobstat.by;
 import com.baidu.mobstat.cd;
 import com.baidu.mobstat.cq;
-import com.tencent.connect.common.Constants;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
@@ -13,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ce extends cd {
     static final /* synthetic */ boolean f;
     private ByteBuffer g;
@@ -24,7 +23,7 @@ public class ce extends cd {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends Throwable {
         private int b;
 
@@ -142,7 +141,7 @@ public class ce extends cd {
     public ct a(ct ctVar) {
         ctVar.a("Upgrade", "websocket");
         ctVar.a(HTTP.CONN_DIRECTIVE, "Upgrade");
-        ctVar.a("Sec-WebSocket-Version", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO);
+        ctVar.a("Sec-WebSocket-Version", "8");
         byte[] bArr = new byte[16];
         this.h.nextBytes(bArr);
         ctVar.a("Sec-WebSocket-Key", db.a(bArr));

@@ -6,59 +6,59 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
-import com.airbnb.lottie.model.i;
+import com.airbnb.lottie.model.h;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private final AssetManager fu;
+    private final AssetManager assetManager;
     @Nullable
-    private com.airbnb.lottie.b fv;
-    private final i<String> fq = new i<>();
-    private final Map<i<String>, Typeface> fs = new HashMap();
-    private final Map<String, Typeface> ft = new HashMap();
-    private String fw = ".ttf";
+    private com.airbnb.lottie.b hf;
+    private final h<String> hb = new h<>();
+    private final Map<h<String>, Typeface> hc = new HashMap();
+    private final Map<String, Typeface> hd = new HashMap();
+    private String hg = ".ttf";
 
     public a(Drawable.Callback callback, @Nullable com.airbnb.lottie.b bVar) {
-        this.fv = bVar;
+        this.hf = bVar;
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
-            this.fu = null;
+            this.assetManager = null;
             return;
         }
-        this.fu = ((View) callback).getContext().getAssets();
+        this.assetManager = ((View) callback).getContext().getAssets();
     }
 
     public void a(@Nullable com.airbnb.lottie.b bVar) {
-        this.fv = bVar;
+        this.hf = bVar;
     }
 
     public Typeface g(String str, String str2) {
-        this.fq.set(str, str2);
-        Typeface typeface = this.fs.get(this.fq);
+        this.hb.set(str, str2);
+        Typeface typeface = this.hc.get(this.hb);
         if (typeface == null) {
-            Typeface a = a(K(str), str2);
-            this.fs.put(this.fq, a);
+            Typeface a = a(M(str), str2);
+            this.hc.put(this.hb, a);
             return a;
         }
         return typeface;
     }
 
-    private Typeface K(String str) {
-        String C;
-        Typeface typeface = this.ft.get(str);
+    private Typeface M(String str) {
+        String E;
+        Typeface typeface = this.hd.get(str);
         if (typeface == null) {
             typeface = null;
-            if (this.fv != null) {
-                typeface = this.fv.B(str);
+            if (this.hf != null) {
+                typeface = this.hf.D(str);
             }
-            if (this.fv != null && typeface == null && (C = this.fv.C(str)) != null) {
-                typeface = Typeface.createFromAsset(this.fu, C);
+            if (this.hf != null && typeface == null && (E = this.hf.E(str)) != null) {
+                typeface = Typeface.createFromAsset(this.assetManager, E);
             }
             if (typeface == null) {
-                typeface = Typeface.createFromAsset(this.fu, "fonts/" + str + this.fw);
+                typeface = Typeface.createFromAsset(this.assetManager, "fonts/" + str + this.hg);
             }
-            this.ft.put(str, typeface);
+            this.hd.put(str, typeface);
         }
         return typeface;
     }

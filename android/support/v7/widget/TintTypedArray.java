@@ -7,7 +7,6 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
@@ -16,9 +15,8 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.util.TypedValue;
-import android.widget.TextView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TintTypedArray {
     private final Context mContext;
     private TypedValue mTypedValue;
@@ -55,7 +53,7 @@ public class TintTypedArray {
     }
 
     @Nullable
-    public Typeface getFont(@StyleableRes int i, int i2, @NonNull TextView textView) {
+    public Typeface getFont(@StyleableRes int i, int i2, @Nullable ResourcesCompat.FontCallback fontCallback) {
         int resourceId = this.mWrapped.getResourceId(i, 0);
         if (resourceId == 0) {
             return null;
@@ -63,7 +61,7 @@ public class TintTypedArray {
         if (this.mTypedValue == null) {
             this.mTypedValue = new TypedValue();
         }
-        return ResourcesCompat.getFont(this.mContext, resourceId, this.mTypedValue, i2, textView);
+        return ResourcesCompat.getFont(this.mContext, resourceId, this.mTypedValue, i2, fontCallback);
     }
 
     public int length() {

@@ -1,7 +1,7 @@
 package com.baidu.live.data;
 
 import android.text.TextUtils;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -9,14 +9,14 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveStreamSessionInfo implements Serializable {
-    private static aa Pq = null;
     public static final String STREAM_LEVEL_DEFAULT = "L0";
     public static final String STREAM_LEVEL_HIGH = "L3";
     public static final String STREAM_LEVEL_LOW = "L1";
     public static final String STREAM_LEVEL_MEDIUM = "L2";
     public static final String STREAM_LEVEL_SUPER_HIGH = "L4";
+    private static ad iReplaceUrl;
     public String defaultLine;
     public String flvUrl;
     public String hlsUrl;
@@ -25,7 +25,7 @@ public class AlaLiveStreamSessionInfo implements Serializable {
     private String pushUrl;
     public String rtmpUrl;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class AlaLiveStreamSessionLine implements Serializable {
         public String flvUrl;
         public String hslUrl;
@@ -33,7 +33,7 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         public String rtmpUrl;
     }
 
-    private AlaLiveStreamSessionLine n(JSONObject jSONObject) {
+    private AlaLiveStreamSessionLine parseSessionLine(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -45,7 +45,7 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         return alaLiveStreamSessionLine;
     }
 
-    private static JSONObject a(AlaLiveStreamSessionLine alaLiveStreamSessionLine) {
+    private static JSONObject sessionLineToJson(AlaLiveStreamSessionLine alaLiveStreamSessionLine) {
         JSONObject jSONObject = new JSONObject();
         if (alaLiveStreamSessionLine == null) {
             return null;
@@ -90,27 +90,27 @@ public class AlaLiveStreamSessionInfo implements Serializable {
             this.mLines = new HashMap();
             JSONObject optJSONObject = jSONObject.optJSONObject(STREAM_LEVEL_LOW);
             if (optJSONObject != null) {
-                AlaLiveStreamSessionLine n = n(optJSONObject);
-                if (!TextUtils.isEmpty(this.rtmpUrl) && n != null && this.rtmpUrl.equals(n.rtmpUrl)) {
+                AlaLiveStreamSessionLine parseSessionLine = parseSessionLine(optJSONObject);
+                if (!TextUtils.isEmpty(this.rtmpUrl) && parseSessionLine != null && this.rtmpUrl.equals(parseSessionLine.rtmpUrl)) {
                     this.defaultLine = STREAM_LEVEL_LOW;
                 }
-                this.mLines.put(STREAM_LEVEL_LOW, n(optJSONObject));
+                this.mLines.put(STREAM_LEVEL_LOW, parseSessionLine(optJSONObject));
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject(STREAM_LEVEL_MEDIUM);
             if (optJSONObject != null) {
-                AlaLiveStreamSessionLine n2 = n(optJSONObject);
-                if (!TextUtils.isEmpty(this.rtmpUrl) && n2 != null && this.rtmpUrl.equals(n2.rtmpUrl)) {
+                AlaLiveStreamSessionLine parseSessionLine2 = parseSessionLine(optJSONObject);
+                if (!TextUtils.isEmpty(this.rtmpUrl) && parseSessionLine2 != null && this.rtmpUrl.equals(parseSessionLine2.rtmpUrl)) {
                     this.defaultLine = STREAM_LEVEL_LOW;
                 }
-                this.mLines.put(STREAM_LEVEL_MEDIUM, n(optJSONObject2));
+                this.mLines.put(STREAM_LEVEL_MEDIUM, parseSessionLine(optJSONObject2));
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject(STREAM_LEVEL_HIGH);
             if (optJSONObject != null) {
-                AlaLiveStreamSessionLine n3 = n(optJSONObject);
-                if (!TextUtils.isEmpty(this.rtmpUrl) && n3 != null && this.rtmpUrl.equals(n3.rtmpUrl)) {
+                AlaLiveStreamSessionLine parseSessionLine3 = parseSessionLine(optJSONObject);
+                if (!TextUtils.isEmpty(this.rtmpUrl) && parseSessionLine3 != null && this.rtmpUrl.equals(parseSessionLine3.rtmpUrl)) {
                     this.defaultLine = STREAM_LEVEL_LOW;
                 }
-                this.mLines.put(STREAM_LEVEL_HIGH, n(optJSONObject3));
+                this.mLines.put(STREAM_LEVEL_HIGH, parseSessionLine(optJSONObject3));
             }
         }
     }
@@ -123,8 +123,8 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         } else {
             str2 = sessionLine.flvUrl;
         }
-        if (Pq != null) {
-            return Pq.replaceFlvUrl(str2);
+        if (iReplaceUrl != null) {
+            return iReplaceUrl.replaceFlvUrl(str2);
         }
         return str2;
     }
@@ -137,8 +137,8 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         } else {
             str2 = sessionLine.rtmpUrl;
         }
-        if (Pq != null) {
-            return Pq.replaceRtmpUrl(str2);
+        if (iReplaceUrl != null) {
+            return iReplaceUrl.replaceRtmpUrl(str2);
         }
         return str2;
     }
@@ -151,8 +151,8 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         } else {
             str2 = sessionLine.hslUrl;
         }
-        if (Pq != null) {
-            return Pq.replaceHslUrl(str2);
+        if (iReplaceUrl != null) {
+            return iReplaceUrl.replaceHslUrl(str2);
         }
         return str2;
     }
@@ -184,7 +184,7 @@ public class AlaLiveStreamSessionInfo implements Serializable {
                 if (alaLiveStreamSessionInfo.mLines != null) {
                     Iterator<String> it = alaLiveStreamSessionInfo.mLines.keySet().iterator();
                     while (it.hasNext()) {
-                        jSONObject.put(it.next(), a(alaLiveStreamSessionInfo.mLines.get(it.next())));
+                        jSONObject.put(it.next(), sessionLineToJson(alaLiveStreamSessionInfo.mLines.get(it.next())));
                     }
                 }
                 return jSONObject;
@@ -213,14 +213,14 @@ public class AlaLiveStreamSessionInfo implements Serializable {
     }
 
     public String getPushUrl() {
-        return Pq != null ? Pq.replacePushUrl(this.pushUrl) : this.pushUrl;
+        return iReplaceUrl != null ? iReplaceUrl.replacePushUrl(this.pushUrl) : this.pushUrl;
     }
 
-    public static aa getIReplaceUrl() {
-        return Pq;
+    public static ad getIReplaceUrl() {
+        return iReplaceUrl;
     }
 
-    public static void setIReplaceUrl(aa aaVar) {
-        Pq = aaVar;
+    public static void setIReplaceUrl(ad adVar) {
+        iReplaceUrl = adVar;
     }
 }

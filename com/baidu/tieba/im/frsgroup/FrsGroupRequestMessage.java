@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupsByFid.DataReq;
 import protobuf.QueryGroupsByFid.QueryGroupsByFidReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FrsGroupRequestMessage extends TbSocketMessage {
     public static final int CARD_HOT = 2;
     public static final int CARD_OFFICIAL = 3;
@@ -33,7 +33,7 @@ public class FrsGroupRequestMessage extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     protected Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.forumId = Integer.valueOf(com.baidu.adp.lib.g.b.toInt(getForumId(), 0));
+        builder.forumId = Integer.valueOf(com.baidu.adp.lib.f.b.toInt(getForumId(), 0));
         builder.offset = Integer.valueOf(this.offset);
         builder.rn = Integer.valueOf(this.rn);
         builder.type = Integer.valueOf(this.type);

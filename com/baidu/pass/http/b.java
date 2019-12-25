@@ -8,7 +8,7 @@ import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.webkit.internal.ETAG;
 import java.net.HttpCookie;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.SimpleTimeZone;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class b {
     private static final String a = b.class.getSimpleName();
     private static final String b = "Set-Cookie";
@@ -74,7 +74,7 @@ class b {
                                     } else {
                                         httpCookie = httpCookie2;
                                     }
-                                    str = !httpCookie.hasExpired() ? str3 + httpCookie.getName() + "=" + httpCookie.getValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : str3;
+                                    str = !httpCookie.hasExpired() ? str3 + httpCookie.getName() + ETAG.EQUAL + httpCookie.getValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : str3;
                                     c.a(a, "httpCookie webview item name:" + httpCookie.getName() + ",value:" + httpCookie.getValue());
                                 }
                             }
@@ -85,7 +85,7 @@ class b {
                 }
                 if (list != null) {
                     for (HttpCookie httpCookie4 : list) {
-                        str3 = a(passHttpParamDTO.url, httpCookie4) ? str3 + httpCookie4.getName() + "=" + httpCookie4.getValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : str3;
+                        str3 = a(passHttpParamDTO.url, httpCookie4) ? str3 + httpCookie4.getName() + ETAG.EQUAL + httpCookie4.getValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : str3;
                     }
                 }
                 if (!TextUtils.isEmpty(str3)) {
@@ -104,7 +104,7 @@ class b {
         calendar.setTimeInMillis(j);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(c, Locale.US);
         simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-        return str2 + "=" + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(calendar.getTime()) + ";httponly" + (z ? ";secure" : "");
+        return str2 + ETAG.EQUAL + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(calendar.getTime()) + ";httponly" + (z ? ";secure" : "");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -169,7 +169,7 @@ class b {
         if (str.equals(str2)) {
             return true;
         }
-        return (str.endsWith(str2) && str.charAt((str.length() - str2.length()) + (-1)) == '.' && !c.b(str)) || str.endsWith(str2) || str2.startsWith(DefaultConfig.TOKEN_SEPARATOR) || !c.b(str);
+        return (str.endsWith(str2) && str.charAt((str.length() - str2.length()) + (-1)) == '.' && !c.b(str)) || str.endsWith(str2) || str2.startsWith(".") || !c.b(str);
     }
 
     private static boolean b(String str, String str2) {

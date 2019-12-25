@@ -24,7 +24,7 @@ import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Transformation;
 import android.widget.AbsListView;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
     private static final int ALPHA_ANIMATION_DURATION = 300;
     private static final int ANIMATE_TO_START_DURATION = 200;
@@ -88,7 +88,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
     private static final String LOG_TAG = BdSwipeRefreshLayout.class.getSimpleName();
     private static final int[] LAYOUT_ATTRS = {16842766};
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface IProgressView {
         long getCompleteAnimTime();
 
@@ -107,12 +107,12 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         void onReleaseToRefresh();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnChildScrollUpCallback {
         boolean canChildScrollUp(BdSwipeRefreshLayout bdSwipeRefreshLayout, @Nullable View view);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnRefreshListener {
         void onRefresh();
     }
@@ -739,9 +739,8 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
                 int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
                 if (findPointerIndex >= 0) {
                     if (this.mIsBeingDragged) {
-                        float y = (motionEvent.getY(findPointerIndex) - this.mInitialMotionY) * DRAG_RATE;
                         this.mIsBeingDragged = false;
-                        finishSpinner(y, "onTouchEvent(ACTION_UP)");
+                        finishSpinner((motionEvent.getY(findPointerIndex) - this.mInitialMotionY) * 0.5f, "onTouchEvent(ACTION_UP)");
                     }
                     this.mActivePointerId = -1;
                     return false;
@@ -752,10 +751,10 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
                 if (findPointerIndex2 < 0) {
                     return false;
                 }
-                float y2 = motionEvent.getY(findPointerIndex2);
-                startDragging(y2, "onTouchEvent");
+                float y = motionEvent.getY(findPointerIndex2);
+                startDragging(y, "onTouchEvent");
                 if (this.mIsBeingDragged) {
-                    float f = (y2 - this.mInitialMotionY) * DRAG_RATE;
+                    float f = (y - this.mInitialMotionY) * 0.5f;
                     if (f > 0.0f) {
                         moveSpinner(f, "onTouchEvent(ACTION_MOVE)");
                         break;
@@ -908,7 +907,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class DefaultProgressView implements IProgressView {
         private static final int CIRCLE_BG_LIGHT = -328966;
         public static final long COMPLETE_ANIM_TIME = 0;
@@ -965,7 +964,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         public void onPullPercentChange(float f, float f2) {
             this.mProgress.setStartEndTrim(0.0f, Math.min((float) BdSwipeRefreshLayout.MAX_PROGRESS_ANGLE, f * BdSwipeRefreshLayout.MAX_PROGRESS_ANGLE));
             this.mProgress.setArrowScale(Math.min(1.0f, f));
-            this.mProgress.setProgressRotation(((-0.25f) + (0.4f * f) + (2.0f * f2)) * BdSwipeRefreshLayout.DRAG_RATE);
+            this.mProgress.setProgressRotation(((-0.25f) + (0.4f * f) + (2.0f * f2)) * 0.5f);
         }
 
         @Override // com.baidu.live.adp.widget.refresh.BdSwipeRefreshLayout.IProgressView

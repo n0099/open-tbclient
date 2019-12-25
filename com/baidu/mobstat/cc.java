@@ -11,8 +11,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.NotYetConnectedException;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class cc extends bz implements by, Runnable {
     static final /* synthetic */ boolean c;
     private ca a;
@@ -144,7 +143,7 @@ public abstract class cc extends bz implements by, Runnable {
         }
         cv cvVar = new cv();
         cvVar.a(rawPath);
-        cvVar.a(HTTP.TARGET_HOST, this.b.getHost() + (h() != 80 ? ":" + h : ""));
+        cvVar.a("Host", this.b.getHost() + (h() != 80 ? ":" + h : ""));
         if (this.j != null) {
             for (Map.Entry<String, String> entry : this.j.entrySet()) {
                 cvVar.a(entry.getKey(), entry.getValue());
@@ -230,7 +229,7 @@ public abstract class cc extends bz implements by, Runnable {
     public void b(cq cqVar) {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     class a implements Runnable {
         private a() {
         }

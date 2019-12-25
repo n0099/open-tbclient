@@ -3,28 +3,28 @@ package com.baidu.swan.games.e;
 import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d byS;
+    private static volatile d cim;
     private final Lock mLock = new ReentrantLock();
-    private ArrayList<i> mListeners = new ArrayList<>();
+    private ArrayList<j> mListeners = new ArrayList<>();
 
     private d() {
     }
 
-    public static d WG() {
-        if (byS == null) {
+    public static d akU() {
+        if (cim == null) {
             synchronized (d.class) {
-                if (byS == null) {
-                    byS = new d();
+                if (cim == null) {
+                    cim = new d();
                 }
             }
         }
-        return byS;
+        return cim;
     }
 
-    private Object[] WH() {
+    private Object[] akV() {
         Object[] objArr = null;
         try {
             this.mLock.lock();
@@ -39,70 +39,70 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void h(a aVar) {
-        Object[] WH = WH();
-        if (WH != null) {
-            for (Object obj : WH) {
-                ((i) obj).o(aVar);
+        Object[] akV = akV();
+        if (akV != null) {
+            for (Object obj : akV) {
+                ((j) obj).o(aVar);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void i(a aVar) {
-        Object[] WH = WH();
-        if (WH != null) {
-            for (Object obj : WH) {
-                ((i) obj).c(aVar);
+        Object[] akV = akV();
+        if (akV != null) {
+            for (Object obj : akV) {
+                ((j) obj).c(aVar);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void j(a aVar) {
-        Object[] WH = WH();
-        if (WH != null) {
-            for (Object obj : WH) {
-                ((i) obj).p(aVar);
+        Object[] akV = akV();
+        if (akV != null) {
+            for (Object obj : akV) {
+                ((j) obj).p(aVar);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void k(a aVar) {
-        Object[] WH = WH();
-        if (WH != null) {
-            for (Object obj : WH) {
-                ((i) obj).q(aVar);
+        Object[] akV = akV();
+        if (akV != null) {
+            for (Object obj : akV) {
+                ((j) obj).q(aVar);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void l(a aVar) {
-        Object[] WH = WH();
-        if (WH != null) {
-            for (Object obj : WH) {
-                ((i) obj).r(aVar);
+        Object[] akV = akV();
+        if (akV != null) {
+            for (Object obj : akV) {
+                ((j) obj).r(aVar);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void m(a aVar) {
-        Object[] WH = WH();
-        if (WH != null) {
-            for (Object obj : WH) {
-                ((i) obj).s(aVar);
+        Object[] akV = akV();
+        if (akV != null) {
+            for (Object obj : akV) {
+                ((j) obj).s(aVar);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void n(a aVar) {
-        Object[] WH = WH();
-        if (WH != null) {
-            for (Object obj : WH) {
-                ((i) obj).t(aVar);
+        Object[] akV = akV();
+        if (akV != null) {
+            for (Object obj : akV) {
+                ((j) obj).t(aVar);
             }
         }
     }

@@ -5,23 +5,23 @@ import android.os.Build;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class h {
-    public static int rB;
-    public static int rC = 3;
-    private static final String[] rD = {"meizu"};
+    public static int uw;
+    public static int ux = 3;
+    private static final String[] uy = {"meizu"};
 
     public static String getString(int i) {
         Application app = BdBaseApplication.getInst().getApp();
         return app == null ? "" : app.getString(i);
     }
 
-    public static boolean hh() {
+    public static boolean hE() {
         String str = Build.BRAND;
         if (str == null) {
             return false;
         }
         String lowerCase = str.toLowerCase();
-        for (int i = 0; i < rD.length; i++) {
-            if (rD[i].equals(lowerCase)) {
+        for (int i = 0; i < uy.length; i++) {
+            if (uy[i].equals(lowerCase)) {
                 return true;
             }
         }

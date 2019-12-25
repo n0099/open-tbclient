@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AggregateException extends Exception {
+    private static final String DEFAULT_MESSAGE = "There were multiple errors.";
     private static final long serialVersionUID = 1;
     private List<Throwable> innerThrowables;
 
@@ -21,7 +22,7 @@ public class AggregateException extends Exception {
     }
 
     public AggregateException(List<? extends Throwable> list) {
-        this("There were multiple errors.", list);
+        this(DEFAULT_MESSAGE, list);
     }
 
     public List<Throwable> getInnerThrowables() {

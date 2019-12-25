@@ -1,5 +1,5 @@
 package com.baidu.mobads.production;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BaiduXAdSDKContext {
     protected static Boolean isRemoteLoadSuccess = false;
     public static com.baidu.mobads.g.g mApkLoader;

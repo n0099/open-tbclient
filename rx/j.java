@@ -1,5 +1,7 @@
 package rx;
-/* loaded from: classes2.dex */
+
+import com.google.android.exoplayer2.Format;
+/* loaded from: classes4.dex */
 public abstract class j<T> implements e<T>, k {
     private static final long NOT_SET = Long.MIN_VALUE;
     private f producer;
@@ -62,7 +64,7 @@ public abstract class j<T> implements e<T>, k {
         }
         long j2 = this.requested + j;
         if (j2 < 0) {
-            this.requested = Long.MAX_VALUE;
+            this.requested = Format.OFFSET_SAMPLE_RELATIVE;
         } else {
             this.requested = j2;
         }
@@ -81,7 +83,7 @@ public abstract class j<T> implements e<T>, k {
         if (z) {
             this.subscriber.setProducer(this.producer);
         } else if (j == Long.MIN_VALUE) {
-            this.producer.request(Long.MAX_VALUE);
+            this.producer.request(Format.OFFSET_SAMPLE_RELATIVE);
         } else {
             this.producer.request(j);
         }

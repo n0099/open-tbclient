@@ -36,7 +36,7 @@ public class g {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final h q(Object obj) {
+    public static final h r(Object obj) {
         ObjectOutputStream objectOutputStream;
         Throwable th;
         Exception e;

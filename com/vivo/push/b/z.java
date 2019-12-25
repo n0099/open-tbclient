@@ -1,7 +1,7 @@
 package com.vivo.push.b;
 
 import com.baidu.mapapi.UIMsg;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class z extends com.vivo.push.y {
     public z() {
         super(UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE);

@@ -11,7 +11,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LogFileUtil {
     public static final String ANALYTICS_FILE_NAME = "app_logs";
     private static final String ANALYTICS_FILE_SUFFIX = ".txt";
@@ -29,7 +29,7 @@ public class LogFileUtil {
         if (LogReport.getPackageName() != null) {
             str2 = MD5.hexdigest(LogReport.getPackageName()) + "/";
         }
-        return getSDPath() + SDCARD_WEIBO_ANALYTICS_DIR + str2 + str + ANALYTICS_FILE_SUFFIX;
+        return getSDPath() + SDCARD_WEIBO_ANALYTICS_DIR + str2 + str + ".txt";
     }
 
     private static String getSDPath() {

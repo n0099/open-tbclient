@@ -6,11 +6,12 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.picture.component.BaseBrowseView;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TempletMsg extends NormalMsg {
     public static final Parcelable.Creator<TempletMsg> CREATOR = new Parcelable.Creator<TempletMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -226,7 +227,7 @@ public class TempletMsg extends NormalMsg {
                 Commodity commodity = new Commodity();
                 commodity.setName(jSONObject2.getString("name"));
                 commodity.setValue(jSONObject2.optString("value", ""));
-                commodity.setColor(jSONObject2.optString("color", "#000000"));
+                commodity.setColor(jSONObject2.optString("color", BaseBrowseView.ROOT_VIEW_COLOR));
                 this.mCommodity[i] = commodity;
             }
         }
@@ -293,7 +294,7 @@ public class TempletMsg extends NormalMsg {
         return z;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class Commodity implements Parcelable, NoProGuard {
         public static final Parcelable.Creator<Commodity> CREATOR = new Parcelable.Creator<Commodity>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Commodity.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -365,7 +366,7 @@ public class TempletMsg extends NormalMsg {
         return !TextUtils.isEmpty(this.mTitle) ? this.mTitle : "";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class Link implements Parcelable {
         public static final Parcelable.Creator<Link> CREATOR = new Parcelable.Creator<Link>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Link.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -420,7 +421,7 @@ public class TempletMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class Image implements Parcelable {
         public static final Parcelable.Creator<Image> CREATOR = new Parcelable.Creator<Image>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Image.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -482,7 +483,7 @@ public class TempletMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class Video implements Parcelable {
         public static final Parcelable.Creator<Video> CREATOR = new Parcelable.Creator<Video>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Video.1
             /* JADX DEBUG: Method merged with bridge method */

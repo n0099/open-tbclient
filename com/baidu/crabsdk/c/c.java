@@ -3,24 +3,25 @@ package com.baidu.crabsdk.c;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.crabsdk.b.o;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class c {
-    private static SimpleDateFormat JW;
-    private static PackageManager JX;
+    private static PackageManager QB;
+    private static SimpleDateFormat Qz;
 
     public static String a(Date date) {
-        if (JW == null) {
-            JW = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (Qz == null) {
+            Qz = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return JW.format(date);
+        return Qz.format(date);
     }
 
     public static void a(SharedPreferences.Editor editor, boolean z) {
@@ -31,7 +32,7 @@ public final class c {
         }
     }
 
-    public static byte[] by(String str) {
+    public static byte[] cf(String str) {
         Deflater deflater;
         DeflaterOutputStream deflaterOutputStream;
         byte[] bArr = null;
@@ -44,7 +45,7 @@ public final class c {
                             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                             deflaterOutputStream = new DeflaterOutputStream(byteArrayOutputStream, deflater);
                             try {
-                                deflaterOutputStream.write(str.getBytes(HTTP.UTF_8));
+                                deflaterOutputStream.write(str.getBytes("UTF-8"));
                                 deflaterOutputStream.close();
                                 deflater.end();
                                 bArr = byteArrayOutputStream.toByteArray();
@@ -116,7 +117,18 @@ public final class c {
         return bArr;
     }
 
-    public static String f(Throwable th) {
+    public static boolean g(Context context, String str) {
+        if (QB == null) {
+            QB = context.getPackageManager();
+        }
+        try {
+            return QB.checkPermission(str, context.getPackageName()) == 0;
+        } catch (RuntimeException e) {
+            return false;
+        }
+    }
+
+    public static String i(Throwable th) {
         if (th == null) {
             a.w("getErrorLine thr is null.");
             return "";
@@ -125,7 +137,7 @@ public final class c {
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
-    public static String g(Throwable th) {
+    public static String j(Throwable th) {
         if (th == null) {
             a.w("getErrorOriginalLine thr is null.");
             return "";
@@ -143,22 +155,11 @@ public final class c {
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
-    public static boolean g(Context context, String str) {
-        if (JX == null) {
-            JX = context.getPackageManager();
-        }
-        try {
-            return JX.checkPermission(str, context.getPackageName()) == 0;
-        } catch (RuntimeException e) {
-            return false;
-        }
+    public static String nC() {
+        return new SimpleDateFormat(DateTimeUtil.DAY_FORMAT).format(new Date(System.currentTimeMillis()));
     }
 
-    public static String mt() {
-        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
-    }
-
-    public static String p(long j) {
-        return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / 1000000 > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
+    public static String r(long j) {
+        return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 }

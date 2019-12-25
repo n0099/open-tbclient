@@ -2,21 +2,23 @@ package com.baidu.swan.apps.env.a;
 
 import android.support.annotation.Nullable;
 import android.util.Log;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class c implements a {
     @Override // com.baidu.swan.apps.env.a.a
     @Nullable
-    public List<String> S(@Nullable List<String> list) {
+    public List<String> T(@Nullable List<String> list) {
         if (list == null) {
             return null;
         }
-        List<com.baidu.swan.apps.database.a> Hx = com.baidu.swan.apps.database.favorite.a.Hx();
-        if (Hx.size() != 0) {
+        List<SwanFavorItemData> Pu = SwanFavorDataManager.Pt().Pu();
+        if (Pu.size() != 0) {
             HashSet hashSet = new HashSet();
-            for (com.baidu.swan.apps.database.a aVar : Hx) {
-                hashSet.add(aVar.appId);
+            for (SwanFavorItemData swanFavorItemData : Pu) {
+                hashSet.add(swanFavorItemData.getAppKey());
             }
             list.removeAll(hashSet);
             if (DEBUG) {

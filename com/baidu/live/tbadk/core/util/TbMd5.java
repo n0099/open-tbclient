@@ -3,12 +3,11 @@ package com.baidu.live.tbadk.core.util;
 import android.content.pm.PackageInfo;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.Md5;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TbMd5 {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
@@ -16,7 +15,7 @@ public class TbMd5 {
         long j = 0;
         String signMd5 = getSignMd5(packageInfo);
         if (signMd5 == null || signMd5.length() < 32) {
-            return LivenessStat.TYPE_STRING_DEFAULT;
+            return "-1";
         }
         String substring = signMd5.substring(8, 24);
         long j2 = 0;

@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.multiConcern;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.MultiConcern.MultiConcernResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MultiConcernHttpResponseMessage extends TbHttpResponsedMessage {
     public MultiConcernHttpResponseMessage(int i) {
         super(i);

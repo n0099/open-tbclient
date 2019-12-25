@@ -7,14 +7,14 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.ServiceManager;
+import com.baidu.webkit.internal.ETAG;
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
 import java.util.Collections;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SapiDeviceUtils {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class DeviceCrypto implements com.baidu.sapi2.c {
         public static String base64Encode(byte[] bArr) {
             int i;
@@ -51,7 +51,7 @@ public class SapiDeviceUtils {
             }
             int i6 = length % 3;
             for (int i7 = 0; i7 < i6; i7++) {
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
             }
             return sb.toString();
         }
@@ -102,7 +102,7 @@ public class SapiDeviceUtils {
 
     public static String b() {
         try {
-            return URLEncoder.encode(TextUtils.isEmpty(Build.BRAND) ? "" : Build.BRAND, HTTP.UTF_8);
+            return URLEncoder.encode(TextUtils.isEmpty(Build.BRAND) ? "" : Build.BRAND, "UTF-8");
         } catch (Exception e) {
             return "";
         }
@@ -220,7 +220,7 @@ public class SapiDeviceUtils {
 
     public static String a() {
         try {
-            return URLEncoder.encode(TextUtils.isEmpty(Build.MODEL) ? "" : Build.MODEL, HTTP.UTF_8);
+            return URLEncoder.encode(TextUtils.isEmpty(Build.MODEL) ? "" : Build.MODEL, "UTF-8");
         } catch (Exception e) {
             return "";
         }

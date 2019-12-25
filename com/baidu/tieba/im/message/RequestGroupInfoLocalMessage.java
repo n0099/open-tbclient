@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import protobuf.QueryGroupDetail.DataReq;
 import protobuf.QueryGroupDetail.QueryGroupDetailReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RequestGroupInfoLocalMessage extends CustomMessage<Object> {
     private int bigHeight;
     private int bigWidth;

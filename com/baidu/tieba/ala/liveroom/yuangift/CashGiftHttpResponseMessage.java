@@ -4,20 +4,20 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.gift.g;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
-    public int Ul;
-    public int Um;
-    public int Un;
+    public int abt;
+    public int abu;
+    public int abv;
     public long dubi;
-    public g erC;
-    public String erD;
-    public int erE;
-    public int erF;
-    public int erG;
+    public g fhU;
+    public String fhV;
+    public int fhW;
     public String iconId;
     public long nonMemberT;
+    public int photoHeight;
     public String photoUrl;
+    public int photoWidth;
     public int previewGiftId;
     public String productId;
 
@@ -33,8 +33,8 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("gift_info");
             if (optJSONObject3 != null) {
-                this.erC = new g();
-                this.erC.parseJson(optJSONObject3);
+                this.fhU = new g();
+                this.fhU.parseJson(optJSONObject3);
             }
             this.previewGiftId = optJSONObject.optInt("preview_gift_id");
             this.photoUrl = optJSONObject.optString("photo_url");
@@ -42,14 +42,14 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
             this.iconId = optJSONObject.optString("icon_id");
             this.nonMemberT = optJSONObject.optLong("non_member_t");
             this.dubi = optJSONObject.optLong("dubi");
-            this.erF = optJSONObject.optInt("photo_width");
-            this.erE = optJSONObject.optInt("photo_height");
-            this.erD = optJSONObject.optString("back_ground");
-            this.erG = optJSONObject.optInt("premium_user");
+            this.photoWidth = optJSONObject.optInt("photo_width");
+            this.photoHeight = optJSONObject.optInt("photo_height");
+            this.fhV = optJSONObject.optString("back_ground");
+            this.fhW = optJSONObject.optInt("premium_user");
             if (optJSONObject.has("cash_gift") && (optJSONObject2 = optJSONObject.optJSONObject("cash_gift")) != null) {
-                this.Ul = optJSONObject2.optInt("show_times_daily");
-                this.Um = optJSONObject2.optInt("continue_show_times");
-                this.Un = optJSONObject2.optInt("condition");
+                this.abt = optJSONObject2.optInt("show_times_daily");
+                this.abu = optJSONObject2.optInt("continue_show_times");
+                this.abv = optJSONObject2.optInt("condition");
             }
         }
     }

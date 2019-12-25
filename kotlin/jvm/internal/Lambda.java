@@ -1,5 +1,5 @@
 package kotlin.jvm.internal;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class Lambda implements FunctionBase {
     private final int arity;
 

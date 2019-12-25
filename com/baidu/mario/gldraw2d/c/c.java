@@ -1,7 +1,7 @@
 package com.baidu.mario.gldraw2d.c;
 
 import com.baidu.mario.gldraw2d.d.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface c {
     void a(d dVar, com.baidu.mario.gldraw2d.d.c cVar);
 

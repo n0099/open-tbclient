@@ -4,21 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c implements g {
-    private final int Aa;
-    private final int Ab;
-    private final int Ac;
-    private final String Ae;
-    private int Af;
-    private HashMap Ag;
+    private final int CF;
+    private final int CG;
+    private final int CH;
+    private final String CI;
+    private int CJ;
+    private HashMap CK;
     private final String tabName;
 
     private c(int i, int i2, int i3, String str, String str2, int i4) {
-        this.Aa = i;
-        this.Ab = i2;
-        this.Ac = i3;
-        this.Ae = str;
+        this.CF = i;
+        this.CG = i2;
+        this.CH = i3;
+        this.CI = str;
         this.tabName = str2;
-        this.Af = i4;
+        this.CJ = i4;
     }
 
     public static g a(int i, int i2, int i3, String str, String str2, int i4) {
@@ -26,27 +26,27 @@ public class c implements g {
     }
 
     @Override // com.baidu.afd.g
-    public int jY() {
-        return this.Aa;
+    public int kp() {
+        return this.CF;
     }
 
     @Override // com.baidu.afd.g
-    public int jZ() {
-        return this.Ab;
+    public int kq() {
+        return this.CG;
     }
 
     @Override // com.baidu.afd.g
-    public int ka() {
-        return this.Af;
+    public int kr() {
+        return this.CJ;
     }
 
     @Override // com.baidu.afd.g
-    public Map<String, String> kb() {
-        return this.Ag;
+    public Map<String, String> ks() {
+        return this.CK;
     }
 
     @Override // com.baidu.afd.g
-    public void k(HashMap hashMap) {
-        this.Ag = hashMap;
+    public void j(HashMap hashMap) {
+        this.CK = hashMap;
     }
 }

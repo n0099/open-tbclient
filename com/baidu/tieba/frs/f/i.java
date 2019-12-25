@@ -18,11 +18,12 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.core.util.al;
@@ -39,29 +40,29 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i {
-    private static void wy(String str) {
+    private static void Bn(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
         Map<String, String> paramPair = ba.getParamPair(str);
         if (paramPair != null) {
             an anVar = new an("c10320");
-            anVar.bS("obj_locate", paramPair.get("obj_locate"));
-            anVar.O("obj_type", 1);
-            anVar.bS("fname", paramPair.get("kw"));
-            anVar.bS("obj_source", paramPair.get("obj_source"));
-            anVar.bS(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
-            anVar.O(TiebaInitialize.Params.OBJ_TO, 2);
-            anVar.bS("obj_id", paramPair.get("bdid"));
+            anVar.cp("obj_locate", paramPair.get("obj_locate"));
+            anVar.Z("obj_type", 1);
+            anVar.cp("fname", paramPair.get("kw"));
+            anVar.cp("obj_source", paramPair.get("obj_source"));
+            anVar.cp(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
+            anVar.Z(TiebaInitialize.Params.OBJ_TO, 2);
+            anVar.cp("obj_id", paramPair.get("bdid"));
             if (!aq.isEmpty(paramPair.get(LogConfig.LOG_EXT_LOG))) {
                 try {
                     JSONObject jSONObject = new JSONObject(paramPair.get(LogConfig.LOG_EXT_LOG));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        anVar.bS(next, jSONObject.getString(next));
+                        anVar.cp(next, jSONObject.getString(next));
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -71,7 +72,7 @@ public class i {
         }
     }
 
-    public static d as(Intent intent) {
+    public static d al(Intent intent) {
         int length;
         if (intent == null || intent.getData() == null) {
             return null;
@@ -87,18 +88,18 @@ public class i {
             Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
             if (matcher.find()) {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                    wy(decode);
+                    Bn(decode);
                 }
                 dVar.forumName = matcher.group(2);
             } else {
-                wy(decode);
+                Bn(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf < 0 || (length = indexOf + "kw=".length()) > decode.length()) {
                     return null;
                 }
                 dVar.forumName = decode.substring(length);
                 try {
-                    dVar.fRB = data.getQueryParameter("from");
+                    dVar.gFM = data.getQueryParameter("from");
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -110,7 +111,7 @@ public class i {
         return dVar;
     }
 
-    public static Intent aA(Context context, String str) {
+    public static Intent aR(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
@@ -121,7 +122,7 @@ public class i {
         return intent;
     }
 
-    public static boolean aB(Context context, String str) {
+    public static boolean aS(Context context, String str) {
         Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(10).iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -140,7 +141,7 @@ public class i {
     public static void a(FrsFragment frsFragment, int i, String[] strArr, int[] iArr) {
         if (frsFragment != null && strArr != null && iArr != null && i == 1) {
             if (ab.checkCamera(TbadkCoreApplication.getInst().getApplicationContext())) {
-                al.c(frsFragment.getPageContext());
+                al.e(frsFragment.getPageContext());
             } else {
                 frsFragment.showToast(R.string.system_permission_prompt_camera);
             }
@@ -157,25 +158,25 @@ public class i {
         }
     }
 
-    public static void a(FrsFragment frsFragment, String str, bh bhVar, boolean z) {
-        if (frsFragment != null && bhVar != null && str != null) {
-            if (!(bhVar == null || bhVar.ajA())) {
-                PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bhVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, true, z);
+    public static void a(FrsFragment frsFragment, String str, bj bjVar, boolean z) {
+        if (frsFragment != null && bjVar != null && str != null) {
+            if (!(bjVar == null || bjVar.aAG())) {
+                PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bjVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, true, z);
                 createFromThreadCfg.setVideo_source("frs");
                 createFromThreadCfg.setStartFrom(3);
                 frsFragment.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
                 return;
             }
-            PbActivityConfig createFromThreadCfg2 = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bhVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);
+            PbActivityConfig createFromThreadCfg2 = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bjVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);
             createFromThreadCfg2.setVideo_source("frs");
             createFromThreadCfg2.setStartFrom(3);
             frsFragment.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg2));
         }
     }
 
-    public static void b(FrsFragment frsFragment, String str, bh bhVar, boolean z) {
-        if (frsFragment != null && bhVar != null && str != null) {
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bhVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, false, false, z);
+    public static void b(FrsFragment frsFragment, String str, bj bjVar, boolean z) {
+        if (frsFragment != null && bjVar != null && str != null) {
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bjVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, false, false, z);
             createFromThreadCfg.setVideo_source("frs");
             createFromThreadCfg.setStartFrom(3);
             frsFragment.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
@@ -193,12 +194,12 @@ public class i {
                 if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(str)) {
                     tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(1)));
                 } else {
-                    com.baidu.tbadk.core.f.b.m(tbPageContext.getPageActivity(), 1);
+                    com.baidu.tbadk.core.e.b.v(tbPageContext.getPageActivity(), 1);
                 }
             } else if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(str)) {
                 tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(2)));
             } else {
-                com.baidu.tbadk.core.f.b.m(tbPageContext.getPageActivity(), 2);
+                com.baidu.tbadk.core.e.b.v(tbPageContext.getPageActivity(), 2);
             }
             if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(str)) {
                 tbPageContext.getPageActivity().finish();
@@ -206,39 +207,54 @@ public class i {
         }
     }
 
-    public static void a(FrsFragment frsFragment, bh bhVar, int i, boolean z) {
+    public static void a(FrsFragment frsFragment, bj bjVar, int i, boolean z) {
         String str;
         String str2;
         PbActivityConfig createFromThreadCfg;
-        if (frsFragment != null && bhVar != null) {
-            String valueOf = String.valueOf(bhVar.getFid());
-            if (bhVar.cdv == null) {
+        if (frsFragment != null && bjVar != null) {
+            String valueOf = String.valueOf(bjVar.getFid());
+            if (bjVar.cPN == null) {
                 str = valueOf;
                 str2 = null;
             } else {
-                str = bhVar.cdv.id;
+                str = bjVar.cPN.id;
                 str2 = valueOf;
             }
-            if (bhVar.aja() > 0 && com.baidu.tieba.tbadkCore.util.e.cpq()) {
-                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bhVar.getTid(), String.valueOf(bhVar.aja()), false, true, "frs_page");
+            if (bjVar.aAa() > 0 && com.baidu.tieba.tbadkCore.util.e.cJw()) {
+                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bjVar.getTid(), String.valueOf(bjVar.aAa()), false, true, "frs_page");
             } else {
-                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bhVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);
+                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bjVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);
             }
             if (i == 4) {
                 createFromThreadCfg.setVideo_source(ConstantData.VideoLocationType.FRS_5FLOOR);
             } else {
                 createFromThreadCfg.setVideo_source("frs");
             }
-            createFromThreadCfg.setFromSmartFrs(bhVar.ajM());
+            createFromThreadCfg.setFromSmartFrs(bjVar.aAR());
             createFromThreadCfg.setSmartFrsPosition(i);
             createFromThreadCfg.setForumId(str);
             createFromThreadCfg.setFromForumId(str2);
             createFromThreadCfg.setStartFrom(3);
             createFromThreadCfg.setFrom("from_frs");
-            if (bhVar.ajD() && createFromThreadCfg.getIntent() != null) {
+            if (bjVar.aAJ() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
+            }
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && t(bjVar)) {
+                createFromThreadCfg.setNeedPreLoad(true);
+                com.baidu.tieba.frs.i.ah(bjVar);
             }
             frsFragment.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
+    }
+
+    private static boolean t(bj bjVar) {
+        if (bjVar == null || bjVar.isShareThread) {
+            return false;
+        }
+        int i = bjVar.threadType;
+        if (i == 0 || i == 11 || i == 40) {
+            return true;
+        }
+        return bjVar.aBC();
     }
 }

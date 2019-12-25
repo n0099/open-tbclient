@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.g;
 import rx.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class c extends rx.g {
     final Executor executor;
 
@@ -21,13 +21,13 @@ public final class c extends rx.g {
         return new a(this.executor);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class a extends g.a implements Runnable {
         final Executor executor;
-        final ConcurrentLinkedQueue<ScheduledAction> kAD = new ConcurrentLinkedQueue<>();
+        final ConcurrentLinkedQueue<ScheduledAction> nga = new ConcurrentLinkedQueue<>();
         final AtomicInteger wip = new AtomicInteger();
-        final rx.subscriptions.b kCt = new rx.subscriptions.b();
-        final ScheduledExecutorService kCu = d.cOS();
+        final rx.subscriptions.b nhJ = new rx.subscriptions.b();
+        final ScheduledExecutorService nhK = d.dGH();
 
         public a(Executor executor) {
             this.executor = executor;
@@ -36,17 +36,17 @@ public final class c extends rx.g {
         @Override // rx.g.a
         public k c(rx.functions.a aVar) {
             if (isUnsubscribed()) {
-                return rx.subscriptions.e.cQd();
+                return rx.subscriptions.e.dHK();
             }
-            ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.i(aVar), this.kCt);
-            this.kCt.add(scheduledAction);
-            this.kAD.offer(scheduledAction);
+            ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.i(aVar), this.nhJ);
+            this.nhJ.add(scheduledAction);
+            this.nga.offer(scheduledAction);
             if (this.wip.getAndIncrement() == 0) {
                 try {
                     this.executor.execute(this);
                     return scheduledAction;
                 } catch (RejectedExecutionException e) {
-                    this.kCt.a(scheduledAction);
+                    this.nhJ.a(scheduledAction);
                     this.wip.decrementAndGet();
                     rx.c.c.onError(e);
                     throw e;
@@ -57,14 +57,14 @@ public final class c extends rx.g {
 
         @Override // java.lang.Runnable
         public void run() {
-            while (!this.kCt.isUnsubscribed()) {
-                ScheduledAction poll = this.kAD.poll();
+            while (!this.nhJ.isUnsubscribed()) {
+                ScheduledAction poll = this.nga.poll();
                 if (poll != null) {
                     if (!poll.isUnsubscribed()) {
-                        if (!this.kCt.isUnsubscribed()) {
+                        if (!this.nhJ.isUnsubscribed()) {
                             poll.run();
                         } else {
-                            this.kAD.clear();
+                            this.nga.clear();
                             return;
                         }
                     }
@@ -75,7 +75,7 @@ public final class c extends rx.g {
                     return;
                 }
             }
-            this.kAD.clear();
+            this.nga.clear();
         }
 
         @Override // rx.g.a
@@ -84,17 +84,17 @@ public final class c extends rx.g {
                 return c(aVar);
             }
             if (isUnsubscribed()) {
-                return rx.subscriptions.e.cQd();
+                return rx.subscriptions.e.dHK();
             }
             final rx.functions.a i = rx.c.c.i(aVar);
             rx.subscriptions.c cVar = new rx.subscriptions.c();
             final rx.subscriptions.c cVar2 = new rx.subscriptions.c();
             cVar2.f(cVar);
-            this.kCt.add(cVar2);
+            this.nhJ.add(cVar2);
             final k l = rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.schedulers.c.a.1
                 @Override // rx.functions.a
                 public void call() {
-                    a.this.kCt.a(cVar2);
+                    a.this.nhJ.a(cVar2);
                 }
             });
             ScheduledAction scheduledAction = new ScheduledAction(new rx.functions.a() { // from class: rx.internal.schedulers.c.a.2
@@ -111,7 +111,7 @@ public final class c extends rx.g {
             });
             cVar.f(scheduledAction);
             try {
-                scheduledAction.add(this.kCu.schedule(scheduledAction, j, timeUnit));
+                scheduledAction.add(this.nhK.schedule(scheduledAction, j, timeUnit));
                 return l;
             } catch (RejectedExecutionException e) {
                 rx.c.c.onError(e);
@@ -121,13 +121,13 @@ public final class c extends rx.g {
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.kCt.isUnsubscribed();
+            return this.nhJ.isUnsubscribed();
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.kCt.unsubscribe();
-            this.kAD.clear();
+            this.nhJ.unsubscribe();
+            this.nga.clear();
         }
     }
 }

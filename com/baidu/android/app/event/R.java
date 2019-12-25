@@ -1,9 +1,9 @@
 package com.baidu.android.app.event;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public final class R {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public static final class string {
-        public static final int app_name = 0x7f080359;
+        public static final int app_name = 0x7f0803c5;
     }
 }

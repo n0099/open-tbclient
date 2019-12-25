@@ -1,4 +1,7 @@
 package com.facebook.common.g;
-/* loaded from: classes2.dex */
+
+import android.graphics.Bitmap;
+/* loaded from: classes11.dex */
 public interface a {
+    Bitmap a(int i, int i2, Bitmap.Config config);
 }

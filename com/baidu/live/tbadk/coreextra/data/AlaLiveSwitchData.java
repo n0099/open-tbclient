@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveSwitchData extends BaseData {
     public static final String SWITCH_DEFAULT_VALUE = "0";
     public static int isHotLive;
@@ -18,10 +18,12 @@ public class AlaLiveSwitchData extends BaseData {
     public String mFollowBtn;
     public String mGiftPanel;
     public String mGuardFans;
+    public String mGuardThrone;
     public String mLiveSwitch;
     public String mPopupWindow;
     public String mQuickGift;
     public String mRankHour;
+    public String mRedPkg;
     public String mRotaryTable;
     public String mShareBtn;
 
@@ -43,6 +45,8 @@ public class AlaLiveSwitchData extends BaseData {
             this.mFirstCharge = jSONObject.optString("s_firstCharge");
             this.mRotaryTable = jSONObject.optString("s_rotary_table");
             this.mShareBtn = jSONObject.optString("s_shareBtn");
+            this.mRedPkg = jSONObject.optString("f_live_effect_redpacket");
+            this.mGuardThrone = jSONObject.optString("s_guard_seat");
         }
     }
 
@@ -64,6 +68,8 @@ public class AlaLiveSwitchData extends BaseData {
             jSONObject.put("s_firstCharge", this.mFirstCharge);
             jSONObject.put("s_rotary_table", this.mRotaryTable);
             jSONObject.put("s_shareBtn", this.mShareBtn);
+            jSONObject.put("f_live_effect_redpacket", this.mRedPkg);
+            jSONObject.put("s_guard_seat", this.mGuardThrone);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -124,5 +130,13 @@ public class AlaLiveSwitchData extends BaseData {
 
     public boolean isShareBtnUnabled() {
         return TextUtils.equals(this.mShareBtn, "0");
+    }
+
+    public boolean isRedPkgSwitchUnabled() {
+        return TextUtils.equals(this.mRedPkg, "0");
+    }
+
+    public boolean isGuardThroneSwitchUnabled() {
+        return TextUtils.equals(this.mGuardThrone, "0");
     }
 }

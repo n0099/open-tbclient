@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseMediaObject implements Parcelable {
     public static final int MEDIA_TYPE_IMAGE = 2;
     public static final int MEDIA_TYPE_MULITI_IMAGE = 6;

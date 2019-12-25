@@ -19,7 +19,7 @@ import com.baidu.mobads.utils.e;
 import com.baidu.mobads.utils.l;
 import java.io.File;
 import java.net.URL;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends b {
     public a(IXNonLinearAdSlot iXNonLinearAdSlot, IXAdInstanceInfo iXAdInstanceInfo, IXAdResource iXAdResource) {
         super(iXNonLinearAdSlot, iXAdInstanceInfo, iXAdResource);

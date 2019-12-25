@@ -41,7 +41,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ViewPager extends ViewGroup {
     private static final int CLOSE_ENOUGH = 2;
     private static final boolean DEBUG = false;
@@ -136,16 +136,16 @@ public class ViewPager extends ViewGroup {
     @Target({ElementType.TYPE})
     @Inherited
     @Retention(RetentionPolicy.RUNTIME)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface DecorView {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnAdapterChangeListener {
         void onAdapterChanged(@NonNull ViewPager viewPager, @Nullable PagerAdapter pagerAdapter, @Nullable PagerAdapter pagerAdapter2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnPageChangeListener {
         void onPageScrollStateChanged(int i);
 
@@ -154,13 +154,13 @@ public class ViewPager extends ViewGroup {
         void onPageSelected(int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface PageTransformer {
-        void transformPage(View view, float f);
+        void transformPage(@NonNull View view, float f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ItemInfo {
         Object object;
         float offset;
@@ -172,7 +172,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SimpleOnPageChangeListener implements OnPageChangeListener {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -187,7 +187,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    public ViewPager(Context context) {
+    public ViewPager(@NonNull Context context) {
         super(context);
         this.mItems = new ArrayList<>();
         this.mTempItem = new ItemInfo();
@@ -212,7 +212,7 @@ public class ViewPager extends ViewGroup {
         initViewPager();
     }
 
-    public ViewPager(Context context, AttributeSet attributeSet) {
+    public ViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mItems = new ArrayList<>();
         this.mTempItem = new ItemInfo();
@@ -303,7 +303,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    public void setAdapter(PagerAdapter pagerAdapter) {
+    public void setAdapter(@Nullable PagerAdapter pagerAdapter) {
         if (this.mAdapter != null) {
             this.mAdapter.setViewPagerObserver(null);
             this.mAdapter.startUpdate((ViewGroup) this);
@@ -365,6 +365,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
+    @Nullable
     public PagerAdapter getAdapter() {
         return this.mAdapter;
     }
@@ -464,14 +465,14 @@ public class ViewPager extends ViewGroup {
         this.mOnPageChangeListener = onPageChangeListener;
     }
 
-    public void addOnPageChangeListener(OnPageChangeListener onPageChangeListener) {
+    public void addOnPageChangeListener(@NonNull OnPageChangeListener onPageChangeListener) {
         if (this.mOnPageChangeListeners == null) {
             this.mOnPageChangeListeners = new ArrayList();
         }
         this.mOnPageChangeListeners.add(onPageChangeListener);
     }
 
-    public void removeOnPageChangeListener(OnPageChangeListener onPageChangeListener) {
+    public void removeOnPageChangeListener(@NonNull OnPageChangeListener onPageChangeListener) {
         if (this.mOnPageChangeListeners != null) {
             this.mOnPageChangeListeners.remove(onPageChangeListener);
         }
@@ -483,11 +484,11 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    public void setPageTransformer(boolean z, PageTransformer pageTransformer) {
+    public void setPageTransformer(boolean z, @Nullable PageTransformer pageTransformer) {
         setPageTransformer(z, pageTransformer, 2);
     }
 
-    public void setPageTransformer(boolean z, PageTransformer pageTransformer, int i) {
+    public void setPageTransformer(boolean z, @Nullable PageTransformer pageTransformer, int i) {
         boolean z2 = pageTransformer != null;
         boolean z3 = z2 != (this.mPageTransformer != null);
         this.mPageTransformer = pageTransformer;
@@ -545,7 +546,7 @@ public class ViewPager extends ViewGroup {
         return this.mPageMargin;
     }
 
-    public void setPageMarginDrawable(Drawable drawable) {
+    public void setPageMarginDrawable(@Nullable Drawable drawable) {
         this.mMarginDrawable = drawable;
         if (drawable != null) {
             refreshDrawableState();
@@ -615,7 +616,7 @@ public class ViewPager extends ViewGroup {
         } else {
             abs = (int) (((Math.abs(i4) / ((clientWidth * this.mAdapter.getPageWidth(this.mCurItem)) + this.mPageMargin)) + 1.0f) * 100.0f);
         }
-        int min = Math.min(abs, (int) MAX_SETTLE_DURATION);
+        int min = Math.min(abs, 600);
         this.mIsScrollStarted = false;
         this.mScroller.startScroll(scrollX, scrollY, i4, i5, min);
         ViewCompat.postInvalidateOnAnimation(this);
@@ -826,8 +827,8 @@ public class ViewPager extends ViewGroup {
                     }
                 }
                 calculatePageOffsets(addNewItem, i6, itemInfo);
+                this.mAdapter.setPrimaryItem((ViewGroup) this, this.mCurItem, addNewItem.object);
             }
-            this.mAdapter.setPrimaryItem((ViewGroup) this, this.mCurItem, addNewItem != null ? addNewItem.object : null);
             this.mAdapter.finishUpdate((ViewGroup) this);
             int childCount = getChildCount();
             for (int i12 = 0; i12 < childCount; i12++) {
@@ -963,7 +964,7 @@ public class ViewPager extends ViewGroup {
         this.mNeedCalculatePageOffsets = false;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.v4.view.ViewPager.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -989,7 +990,7 @@ public class ViewPager extends ViewGroup {
         ClassLoader loader;
         int position;
 
-        public SavedState(Parcelable parcelable) {
+        public SavedState(@NonNull Parcelable parcelable) {
             super(parcelable);
         }
 
@@ -1197,8 +1198,9 @@ public class ViewPager extends ViewGroup {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (i != i3) {
             recomputeScrollPosition(i, i3, this.mPageMargin, this.mPageMargin);
@@ -2065,7 +2067,7 @@ public class ViewPager extends ViewGroup {
         return super.dispatchKeyEvent(keyEvent) || executeKeyEvent(keyEvent);
     }
 
-    public boolean executeKeyEvent(KeyEvent keyEvent) {
+    public boolean executeKeyEvent(@NonNull KeyEvent keyEvent) {
         if (keyEvent.getAction() != 0) {
             return false;
         }
@@ -2291,7 +2293,7 @@ public class ViewPager extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class MyAccessibilityDelegate extends AccessibilityDelegateCompat {
         MyAccessibilityDelegate() {
         }
@@ -2349,7 +2351,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private class PagerObserver extends DataSetObserver {
         PagerObserver() {
         }
@@ -2365,7 +2367,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         int childIndex;
         public int gravity;
@@ -2389,7 +2391,7 @@ public class ViewPager extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ViewPositionComparator implements Comparator<View> {
         ViewPositionComparator() {
         }

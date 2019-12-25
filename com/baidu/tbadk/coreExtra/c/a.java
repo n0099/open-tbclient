@@ -1,69 +1,40 @@
 package com.baidu.tbadk.coreExtra.c;
 
-import android.net.Uri;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.x;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0282a cxz;
-
-    /* renamed from: com.baidu.tbadk.coreExtra.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0282a {
-        void d(e eVar);
+    public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, a.b bVar, a.b bVar2, String str) {
+        if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
+            return null;
+        }
+        String format = String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.url_notify), str);
+        String string = TbadkCoreApplication.getInst().getContext().getString(R.string.confirm_title);
+        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).sy(string).sz(format).a(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(R.string.cancel), bVar2).b(tbPageContext);
+        b.aBW();
+        return b;
     }
 
-    public void b(e eVar) {
-        new BdAsyncTask<e, Integer, e>() { // from class: com.baidu.tbadk.coreExtra.c.a.1
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: a */
-            public e doInBackground(e... eVarArr) {
-                e eVar2;
-                String str = null;
-                if (eVarArr == null || eVarArr.length < 1 || (eVar2 = eVarArr[0]) == null) {
-                    return null;
-                }
-                String str2 = eVar2.tid;
-                x xVar = new x();
-                xVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
-                xVar.addPostData("thread_id", str2);
-                xVar.addPostData("type", "3");
-                String postNetData = xVar.postNetData();
-                if (aq.isEmpty(postNetData)) {
-                    return eVar2;
-                }
-                try {
-                    str = new JSONObject(postNetData).optString(BigdayActivityConfig.IMG_URL);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                eVar2.cyk = str;
-                eVar2.imageUri = Uri.parse(str);
-                return eVar2;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: c */
-            public void onPostExecute(e eVar2) {
-                super.onPostExecute(eVar2);
-                if (a.this.cxz != null) {
-                    a.this.cxz.d(eVar2);
-                }
-            }
-        }.execute(eVar);
+    public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, int i, int i2, int i3, int i4, a.b bVar, a.b bVar2) {
+        String str = null;
+        if (i >= 0) {
+            str = TbadkCoreApplication.getInst().getContext().getString(i);
+        }
+        return a(tbPageContext, str, TbadkCoreApplication.getInst().getContext().getString(i2), TbadkCoreApplication.getInst().getContext().getString(i3), TbadkCoreApplication.getInst().getContext().getString(i4), bVar, bVar2);
     }
 
-    public void a(InterfaceC0282a interfaceC0282a) {
-        this.cxz = interfaceC0282a;
+    public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, String str, String str2, String str3, String str4, a.b bVar, a.b bVar2) {
+        if (tbPageContext == null) {
+            return null;
+        }
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+        aVar.sy(str);
+        aVar.sz(str2);
+        aVar.a(str3, bVar);
+        aVar.b(str4, bVar2);
+        aVar.b(tbPageContext);
+        return aVar;
     }
 }

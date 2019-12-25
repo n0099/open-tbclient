@@ -6,66 +6,67 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import okhttp3.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class a extends g<C0216a> {
-    protected final boolean bof;
+/* loaded from: classes9.dex */
+public class a extends g<C0282a> {
+    protected final boolean bOZ;
+    private final String bPa;
     protected final Activity mActivity;
     protected final String mScope;
 
-    public a(Activity activity, boolean z, String str) {
+    public a(Activity activity, boolean z, String str, String str2) {
         this.mActivity = activity;
         this.mScope = str;
-        this.bof = z;
+        this.bOZ = z;
+        this.bPa = str2;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean IN() {
+    protected boolean abt() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", Rs().id);
+            jSONObject.put("ma_id", aao().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", Rs().getAppKey());
+            jSONObject2.put("app_key", aao().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String BR = com.baidu.swan.apps.u.a.Jv().BR();
-            if (!TextUtils.isEmpty(BR)) {
-                jSONObject2.put("host_api_key", BR);
+            String Fp = com.baidu.swan.apps.w.a.Rw().Fp();
+            if (!TextUtils.isEmpty(Fp)) {
+                jSONObject2.put("host_api_key", Fp);
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.bof));
+            jSONObject3.put("permit", Boolean.toString(this.bOZ));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
+            if (!TextUtils.isEmpty(this.bPa)) {
+                jSONObject.put("provider_appkey", this.bPa);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        aI("data", jSONObject.toString());
+        bb("data", jSONObject.toString());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.u.a.Jv().e(this.mActivity, gVar.Su());
+        return com.baidu.swan.apps.w.a.Rw().e(this.mActivity, gVar.abO());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: X */
-    public C0216a Y(JSONObject jSONObject) throws JSONException {
+    /* renamed from: aS */
+    public C0282a aN(JSONObject jSONObject) throws JSONException {
         String str;
         JSONObject jSONObject2;
-        JSONObject aE = com.baidu.swan.apps.setting.oauth.c.aE(jSONObject);
-        int optInt = aE.optInt("errno", 11001);
+        JSONObject aP = com.baidu.swan.apps.setting.oauth.c.aP(jSONObject);
+        int optInt = aP.optInt("errno", 10001);
         if (optInt != 0) {
-            if (11001 == optInt) {
-                com.baidu.swan.apps.setting.oauth.c.aD(aE);
-                com.baidu.swan.apps.setting.oauth.c.aH("Accredit", aE.toString());
-            }
-            throw new JSONException("Illegal errno=" + optInt + " errms=" + aE.optString("errms"));
+            throw new JSONException("Illegal errno=" + optInt + " errms=" + aP.optString("errms"));
         }
-        JSONObject jSONObject3 = aE.getJSONObject("data");
+        JSONObject jSONObject3 = aP.getJSONObject("data");
         if (jSONObject3 == null) {
             str = "";
             jSONObject2 = null;
@@ -73,31 +74,31 @@ public class a extends g<C0216a> {
             str = jSONObject3.optString("code", "");
             jSONObject2 = jSONObject3.optJSONObject("opendata");
         }
-        return new C0216a(this.bof, str, jSONObject2);
+        return new C0282a(this.bOZ, str, jSONObject2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.g
-    public void IO() {
-        super.IO();
-        com.baidu.swan.apps.network.c.b.a.Na();
+    public void abL() {
+        super.abL();
+        com.baidu.swan.apps.network.c.b.a.Wz();
     }
 
     /* renamed from: com.baidu.swan.apps.setting.oauth.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0216a {
-        public final boolean bog;
-        public final JSONObject boh;
+    /* loaded from: classes9.dex */
+    public static class C0282a {
+        public final boolean bOw;
+        public final JSONObject bPb;
         public final String code;
 
-        private C0216a(boolean z, String str, JSONObject jSONObject) {
+        private C0282a(boolean z, String str, JSONObject jSONObject) {
             this.code = str == null ? "" : str;
-            this.bog = z;
-            this.boh = jSONObject;
+            this.bOw = z;
+            this.bPb = jSONObject;
         }
 
         public String toString() {
-            return String.format("Result(%b):%s", Boolean.valueOf(this.bog), this.code);
+            return String.format("Result(%b):%s", Boolean.valueOf(this.bOw), this.code);
         }
     }
 }

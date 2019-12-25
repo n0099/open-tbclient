@@ -7,7 +7,7 @@ import android.graphics.PointF;
 import android.support.annotation.RequiresApi;
 import android.util.Property;
 @RequiresApi(21)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class PropertyValuesHolderUtilsApi21 implements PropertyValuesHolderUtilsImpl {
     @Override // android.support.transition.PropertyValuesHolderUtilsImpl
     public PropertyValuesHolder ofPointF(Property<?, PointF> property, Path path) {

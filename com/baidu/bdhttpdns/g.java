@@ -1,31 +1,54 @@
 package com.baidu.bdhttpdns;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import android.content.Context;
+import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.bdhttpdns.f;
+import com.baidu.bdhttpdns.h;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-final class g {
-    private static volatile g EM;
-    private final Executor b = new ThreadPoolExecutor(5, 25, 20, TimeUnit.SECONDS, new LinkedBlockingDeque(50));
+public class g implements f.a {
+    private final BDHttpDns.a Hf;
+    private final BDHttpDns Hm;
+    private final h Hn;
 
-    private g() {
+    public g(Context context, BDHttpDns.a aVar) {
+        this.Hf = aVar;
+        this.Hm = BDHttpDns.ag(context);
+        this.Hn = this.Hm.lM();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static g lF() {
-        if (EM == null) {
-            synchronized (g.class) {
-                if (EM == null) {
-                    EM = new g();
+    @Override // com.baidu.bdhttpdns.f.a
+    public void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str) {
+        switch (i) {
+            case -1:
+                l.a("Async resolve failed, host(%s), dns resolve failed", str);
+                if (this.Hf != null) {
+                    this.Hf.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2));
+                    return;
                 }
-            }
+                return;
+            case 0:
+                Object[] objArr = new Object[4];
+                objArr[0] = str;
+                objArr[1] = arrayList != null ? arrayList.toString() : null;
+                objArr[2] = arrayList2 != null ? arrayList2.toString() : null;
+                objArr[3] = BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS.toString();
+                l.a("Async resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
+                h.a aVar = new h.a();
+                aVar.a(60L);
+                aVar.b(System.currentTimeMillis() / 1000);
+                aVar.a(arrayList);
+                aVar.b(arrayList2);
+                this.Hn.a(str, aVar);
+                if (this.Hf != null) {
+                    this.Hf.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2));
+                    return;
+                }
+                return;
+            default:
+                l.a("Internal error: async dns resolve completion get error ret(%d)", Integer.valueOf(i));
+                return;
         }
-        return EM;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Executor b() {
-        return this.b;
     }
 }

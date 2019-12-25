@@ -1,18 +1,20 @@
 package com.baidu.tieba.ala.liveroom.messages;
 
-import com.baidu.live.data.i;
+import com.baidu.live.data.k;
+import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
+import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
-    private i aaj;
+    private k aio;
 
     public AlaEnterLiveHttpResonseMessage() {
         super(1021005);
     }
 
-    public i uk() {
-        return this.aaj;
+    public k wf() {
+        return this.aio;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -20,14 +22,18 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.aaj = new i();
-            this.aaj.parserJson(optJSONObject);
-            this.aaj.Po = jSONObject.optLong("logid");
-            if (this.aaj.mLiveInfo != null && this.aaj.mLiveInfo.live_id > 0) {
-                com.baidu.live.c.np().putLong("ala_live_room_last_live_id", this.aaj.mLiveInfo.live_id);
+            this.aio = new k();
+            this.aio.parserJson(optJSONObject);
+            this.aio.Wj = jSONObject.optLong("logid");
+            if (this.aio.mLiveInfo != null && this.aio.mLiveInfo.live_id > 0) {
+                com.baidu.live.c.oI().putLong("ala_live_room_last_live_id", this.aio.mLiveInfo.live_id);
             }
-            if (this.aaj.mLiveInfo != null && this.aaj.mLiveInfo.broadGiftMsgId > 0) {
-                com.baidu.live.gift.a.broadGiftMsgId = this.aaj.mLiveInfo.broadGiftMsgId;
+            if (this.aio.mLiveInfo != null && this.aio.mLiveInfo.broadGiftMsgId > 0) {
+                com.baidu.live.gift.a.broadGiftMsgId = this.aio.mLiveInfo.broadGiftMsgId;
+            }
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject("live_info");
+            if (optJSONObject2 != null) {
+                AlaLiveSwitchData.isHotLive = optJSONObject2.optInt(HttpRequest.SDK_LIVE_IS_HOT);
             }
         }
     }

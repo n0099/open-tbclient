@@ -1,5 +1,5 @@
 package tv.danmaku.ijk.media.player;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface ITrackInfo {
     public static final int MEDIA_TRACK_TYPE_AUDIO = 2;
     public static final int MEDIA_TRACK_TYPE_METADATA = 5;

@@ -6,9 +6,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public @interface b {
-    boolean cKg() default true;
+    boolean dyd() default true;
 
     Class<?> value();
 }

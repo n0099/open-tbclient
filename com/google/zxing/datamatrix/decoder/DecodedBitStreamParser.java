@@ -1,23 +1,21 @@
 package com.google.zxing.datamatrix.decoder;
 
-import android.support.v7.widget.helper.ItemTouchHelper;
-import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitSource;
 import com.google.zxing.common.DecoderResult;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class DecodedBitStreamParser {
     private static final char[] C40_BASIC_SET_CHARS = {'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    private static final char[] C40_SHIFT2_SET_CHARS = {'!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', BdFileHelper.EXTENSION_SEPARATOR, '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_'};
+    private static final char[] C40_SHIFT2_SET_CHARS = {'!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_'};
     private static final char[] TEXT_BASIC_SET_CHARS = {'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
     private static final char[] TEXT_SHIFT2_SET_CHARS = C40_SHIFT2_SET_CHARS;
     private static final char[] TEXT_SHIFT3_SET_CHARS = {'`', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '{', '|', '}', '~', 127};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum Mode {
         PAD_ENCODE,
         ASCII_ENCODE,
@@ -371,7 +369,7 @@ final class DecodedBitStreamParser {
         } else if (unrandomize255State2 < 250) {
             unrandomize255State = unrandomize255State2;
         } else {
-            unrandomize255State = ((unrandomize255State2 - 249) * ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION) + unrandomize255State(bitSource.readBits(8), i);
+            unrandomize255State = ((unrandomize255State2 - 249) * 250) + unrandomize255State(bitSource.readBits(8), i);
             i++;
         }
         if (unrandomize255State < 0) {

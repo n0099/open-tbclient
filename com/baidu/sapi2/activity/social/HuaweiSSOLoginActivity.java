@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity.social;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.d.a.a.a.a;
+import com.baidu.i.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.utils.Log;
@@ -15,7 +15,7 @@ import com.huawei.hms.support.api.hwid.HuaweiId;
 import com.huawei.hms.support.api.hwid.HuaweiIdSignInOptions;
 import com.huawei.hms.support.api.hwid.SignInHuaweiId;
 import com.huawei.hms.support.api.hwid.SignInResult;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     private static final int REQUEST_HMS_RESOLVE_ERROR = 1000;
     private static final int REQUEST_SIGN_IN_AUTH = 1003;
@@ -36,7 +36,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         }
         Intent data = signInResult.getData();
         if (data == null) {
-            onFail(signInResult.getStatus().getStatusCode(), getString(a.b.sapi_sdk_third_error_hw));
+            onFail(signInResult.getStatus().getStatusCode(), getString(a.c.sapi_sdk_third_error_hw));
         } else if (signInResult.getStatus().getStatusCode() == 2001) {
             Log.i(TAG, "帐号未登录");
             startActivityForResult(data, 1002);
@@ -48,13 +48,13 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         } else if (signInResult.getStatus().getStatusCode() == 2007) {
             startActivityForResult(data, 2007);
         } else {
-            onFail(signInResult.getStatus().getStatusCode(), getString(a.b.sapi_sdk_third_error_hw));
+            onFail(signInResult.getStatus().getStatusCode(), getString(a.c.sapi_sdk_third_error_hw));
         }
     }
 
     private void loadSSOLogin(String str) {
         if (TextUtils.isEmpty(str)) {
-            onFail(-204, getString(a.b.sapi_sdk_third_error_hw));
+            onFail(-204, getString(a.c.sapi_sdk_third_error_hw));
         } else if (this.sapiWebView != null) {
             this.sapiWebView.loadHuaWeiSSOLogin(str, getStatParamList());
         }
@@ -96,7 +96,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 != -1) {
-            onFail(-202, getString(a.b.sapi_sdk_third_error_hw));
+            onFail(-202, getString(a.c.sapi_sdk_third_error_hw));
         } else if (i == 1002) {
             signIn();
         } else if (i != 1003) {
@@ -114,7 +114,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
                 loadSSOLogin(signInHuaweiId.getAccessToken());
                 return;
             }
-            onFail(signInResultFromIntent.getStatus().getStatusCode(), getString(a.b.sapi_sdk_third_error_hw));
+            onFail(signInResultFromIntent.getStatus().getStatusCode(), getString(a.c.sapi_sdk_third_error_hw));
         }
     }
 
@@ -139,7 +139,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.b.sapi_sdk_title_login_hw);
+        setTitleText(a.c.sapi_sdk_title_login_hw);
         HuaweiApiClient.ConnectionCallbacks connectionCallbacks = new HuaweiApiClient.ConnectionCallbacks() { // from class: com.baidu.sapi2.activity.social.HuaweiSSOLoginActivity.1
             public void onConnected() {
                 Log.e(HuaweiSSOLoginActivity.TAG, "onConnected");
@@ -159,7 +159,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
                 Log.e(HuaweiSSOLoginActivity.TAG, "onConnectionFailed", Integer.valueOf(connectionResult.getErrorCode()));
                 if (!HuaweiSSOLoginActivity.this.mResolvingError) {
                     if (!HuaweiApiAvailability.getInstance().isUserResolvableError(connectionResult.getErrorCode())) {
-                        HuaweiSSOLoginActivity.this.onFail(connectionResult.getErrorCode(), HuaweiSSOLoginActivity.this.getString(a.b.sapi_sdk_third_error_hw));
+                        HuaweiSSOLoginActivity.this.onFail(connectionResult.getErrorCode(), HuaweiSSOLoginActivity.this.getString(a.c.sapi_sdk_third_error_hw));
                         return;
                     }
                     android.util.Log.e("hmssdk", "onConnectionFailed");

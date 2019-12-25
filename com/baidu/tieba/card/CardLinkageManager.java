@@ -3,6 +3,7 @@ package com.baidu.tieba.card;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public enum CardLinkageManager {
             int lastVisiblePosition = ((BdTypeRecyclerView) rVar).getLastVisiblePosition();
             RecyclerView.LayoutManager layoutManager = ((BdTypeRecyclerView) rVar).getLayoutManager();
             if (layoutManager != null) {
-                List<com.baidu.adp.widget.ListView.m> data = rVar.getData();
+                List<m> data = rVar.getData();
                 Object item = com.baidu.tbadk.core.util.v.getItem(data, i);
                 if (item instanceof com.baidu.tieba.card.data.b) {
                     com.baidu.tieba.card.data.b bVar = (com.baidu.tieba.card.data.b) item;
@@ -49,14 +50,14 @@ public enum CardLinkageManager {
             RecyclerView.LayoutManager layoutManager = bdTypeRecyclerView.getLayoutManager();
             if (layoutManager != null) {
                 int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
-                List<com.baidu.adp.widget.ListView.m> data = bdTypeRecyclerView.getData();
+                List<m> data = bdTypeRecyclerView.getData();
                 Object item = com.baidu.tbadk.core.util.v.getItem(data, i - headerViewsCount);
                 if (item instanceof com.baidu.tieba.card.data.b) {
                     com.baidu.tieba.card.data.b bVar = (com.baidu.tieba.card.data.b) item;
                     for (int i2 = firstVisiblePosition; i2 <= lastVisiblePosition; i2++) {
                         Object item2 = com.baidu.tbadk.core.util.v.getItem(data, i2 - headerViewsCount);
                         if (!(item2 instanceof com.baidu.tieba.card.data.b)) {
-                            if ((item2 instanceof com.baidu.adp.widget.ListView.m) && (findViewByPosition2 = layoutManager.findViewByPosition(i2)) != null) {
+                            if ((item2 instanceof m) && (findViewByPosition2 = layoutManager.findViewByPosition(i2)) != null) {
                                 findViewByPosition2.setTranslationY(f);
                             }
                         } else if (bVar.position == ((com.baidu.tieba.card.data.b) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {

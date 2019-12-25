@@ -7,47 +7,47 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class WebViewContainer extends FrameLayout {
-    private int Fb;
-    private float iON;
-    private float iOO;
-    private VelocityTracker iOP;
-    private OnScrollChangedCallback iOQ;
-    private int iOR;
+    private int JM;
+    private float jJb;
+    private float jJc;
+    private VelocityTracker jJd;
+    private OnScrollChangedCallback jJe;
+    private int jJf;
     private GestureDetector mGestureDetector;
     private OverScroller mScroller;
     private int mStyle;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface OnScrollChangedCallback {
         void onScroll(int i, int i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class YScrollDetector extends GestureDetector.SimpleOnGestureListener {
-        private final WebViewContainer iOS;
+        private final WebViewContainer jJg;
 
         public YScrollDetector(WebViewContainer webViewContainer) {
-            this.iOS = webViewContainer;
+            this.jJg = webViewContainer;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onDown(MotionEvent motionEvent) {
-            this.iOS.iOO = motionEvent.getRawY();
+            this.jJg.jJc = motionEvent.getRawY();
             return false;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            if (Math.abs(f2) <= Math.abs(f) || this.iOS == null) {
+            if (Math.abs(f2) <= Math.abs(f) || this.jJg == null) {
                 return false;
             }
             if (f2 > 0.0f) {
-                return this.iOS.Fb > 0;
-            } else if (this.iOS.Fb < this.iOS.iOR) {
-                return this.iOS.Fb > 0 || this.iOS.mStyle != 1;
+                return this.jJg.JM > 0;
+            } else if (this.jJg.JM < this.jJg.jJf) {
+                return this.jJg.JM > 0 || this.jJg.mStyle != 1;
             } else {
                 return false;
             }
@@ -56,24 +56,24 @@ public class WebViewContainer extends FrameLayout {
 
     public WebViewContainer(Context context) {
         super(context);
-        this.Fb = 0;
-        this.iOR = 0;
+        this.JM = 0;
+        this.jJf = 0;
         this.mStyle = 1;
         init(context);
     }
 
     public WebViewContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Fb = 0;
-        this.iOR = 0;
+        this.JM = 0;
+        this.jJf = 0;
         this.mStyle = 1;
         init(context);
     }
 
     public WebViewContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Fb = 0;
-        this.iOR = 0;
+        this.JM = 0;
+        this.jJf = 0;
         this.mStyle = 1;
         init(context);
     }
@@ -88,7 +88,7 @@ public class WebViewContainer extends FrameLayout {
         if (this.mStyle == 2) {
             return false;
         }
-        if (this.Fb > ((int) motionEvent.getY()) || !this.mGestureDetector.onTouchEvent(motionEvent)) {
+        if (this.JM > ((int) motionEvent.getY()) || !this.mGestureDetector.onTouchEvent(motionEvent)) {
             return false;
         }
         if (getParent() != null) {
@@ -102,12 +102,12 @@ public class WebViewContainer extends FrameLayout {
         if (this.mStyle == 2) {
             return false;
         }
-        if (this.Fb <= ((int) motionEvent.getY())) {
+        if (this.JM <= ((int) motionEvent.getY())) {
             super.onTouchEvent(motionEvent);
-            if (this.iOP == null) {
-                this.iOP = VelocityTracker.obtain();
+            if (this.jJd == null) {
+                this.jJd = VelocityTracker.obtain();
             }
-            this.iOP.addMovement(motionEvent);
+            this.jJd.addMovement(motionEvent);
             switch (motionEvent.getAction()) {
                 case 0:
                     if (!this.mScroller.isFinished()) {
@@ -116,19 +116,19 @@ public class WebViewContainer extends FrameLayout {
                     }
                     break;
                 case 1:
-                    this.iOP.computeCurrentVelocity(1000);
-                    int yVelocity = (int) this.iOP.getYVelocity();
-                    if (Math.abs(yVelocity) > 2000 && ((yVelocity > 0 && this.Fb < this.iOR) || (yVelocity < 0 && this.Fb > 0))) {
-                        yB(-yVelocity);
+                    this.jJd.computeCurrentVelocity(1000);
+                    int yVelocity = (int) this.jJd.getYVelocity();
+                    if (Math.abs(yVelocity) > 2000 && ((yVelocity > 0 && this.JM < this.jJf) || (yVelocity < 0 && this.JM > 0))) {
+                        AX(-yVelocity);
                     }
-                    this.iOP.recycle();
-                    this.iOP = null;
+                    this.jJd.recycle();
+                    this.jJd = null;
                     break;
                 case 2:
-                    this.iON = motionEvent.getRawY();
-                    int yC = yC((int) (this.iOO - this.iON));
-                    scrollBy(0, yC);
-                    this.iOO -= yC;
+                    this.jJb = motionEvent.getRawY();
+                    int AY = AY((int) (this.jJc - this.jJb));
+                    scrollBy(0, AY);
+                    this.jJc -= AY;
                     break;
             }
             return true;
@@ -136,25 +136,25 @@ public class WebViewContainer extends FrameLayout {
         return false;
     }
 
-    private void yB(int i) {
+    private void AX(int i) {
         if (this.mScroller != null) {
-            this.mScroller.fling(0, (int) this.iOO, 0, i, 0, 0, -500, 10000);
+            this.mScroller.fling(0, (int) this.jJc, 0, i, 0, 0, -500, 10000);
             invalidate();
         }
     }
 
-    private int yC(int i) {
-        int i2 = this.Fb - i;
+    private int AY(int i) {
+        int i2 = this.JM - i;
         if (i2 < 0) {
-            int i3 = this.Fb;
-            this.Fb = 0;
+            int i3 = this.JM;
+            this.JM = 0;
             return i3;
-        } else if (i2 > this.iOR) {
-            int i4 = this.Fb - this.iOR;
-            this.Fb = this.iOR;
+        } else if (i2 > this.jJf) {
+            int i4 = this.JM - this.jJf;
+            this.JM = this.jJf;
             return i4;
         } else {
-            this.Fb -= i;
+            this.JM -= i;
             return i;
         }
     }
@@ -162,9 +162,9 @@ public class WebViewContainer extends FrameLayout {
     @Override // android.view.View
     public void computeScroll() {
         if (this.mScroller.computeScrollOffset()) {
-            int yC = yC(this.mScroller.getCurrY());
-            scrollBy(0, yC);
-            this.iOO -= yC;
+            int AY = AY(this.mScroller.getCurrY());
+            scrollBy(0, AY);
+            this.jJc -= AY;
             invalidate();
         }
     }
@@ -172,21 +172,21 @@ public class WebViewContainer extends FrameLayout {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.iOQ != null) {
-            this.iOQ.onScroll(i - i3, i2 - i4);
+        if (this.jJe != null) {
+            this.jJe.onScroll(i - i3, i2 - i4);
         }
     }
 
     public void setOnScrollChangeListener(OnScrollChangedCallback onScrollChangedCallback) {
-        this.iOQ = onScrollChangedCallback;
+        this.jJe = onScrollChangedCallback;
     }
 
     public void setTopMargin(int i) {
-        this.Fb = i;
+        this.JM = i;
     }
 
     public void setTopLimit(int i) {
-        this.iOR = i;
+        this.jJf = i;
     }
 
     public void setStyle(int i) {

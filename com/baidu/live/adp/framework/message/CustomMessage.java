@@ -2,7 +2,7 @@ package com.baidu.live.adp.framework.message;
 
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.framework.FrameHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class CustomMessage<T> extends Message<T> {
     private T mData;
 

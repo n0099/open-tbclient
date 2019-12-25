@@ -6,7 +6,7 @@ import android.hardware.SensorEventListener;
 import android.os.Handler;
 import android.os.Message;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a implements SensorEventListener {
     private WeakReference<Handler> mHandler;
 

@@ -1,10 +1,9 @@
 package okio;
 
 import java.nio.charset.Charset;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class Util {
-    public static final Charset UTF_8 = Charset.forName(HTTP.UTF_8);
+    public static final Charset UTF_8 = Charset.forName("UTF-8");
 
     private Util() {
     }

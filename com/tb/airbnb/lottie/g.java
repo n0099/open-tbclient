@@ -1,9 +1,9 @@
 package com.tb.airbnb.lottie;
 
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class g {
-    private final String dD;
+    private final String eK;
     private final String fileName;
     private final int height;
     private final String id;
@@ -14,13 +14,13 @@ public class g {
         this.height = i2;
         this.id = str;
         this.fileName = str2;
-        this.dD = str3;
+        this.eK = str3;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     static class a {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static g cu(JSONObject jSONObject) {
+        public static g dB(JSONObject jSONObject) {
             return new g(jSONObject.optInt("w"), jSONObject.optInt("h"), jSONObject.optString("id"), jSONObject.optString("p"), jSONObject.optString("u"));
         }
     }
@@ -33,7 +33,7 @@ public class g {
         return this.fileName;
     }
 
-    public String bn() {
-        return this.dD;
+    public String bw() {
+        return this.eK;
     }
 }

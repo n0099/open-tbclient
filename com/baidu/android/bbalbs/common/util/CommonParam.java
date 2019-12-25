@@ -1,16 +1,11 @@
 package com.baidu.android.bbalbs.common.util;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class CommonParam {
-    private static final boolean DEBUG = false;
-    private static final String TAG = com.baidu.android.common.util.CommonParam.class.getSimpleName();
-
-    public static String getCUID(Context context) {
-        return com.baidu.android.common.util.DeviceId.getCUID(context);
-    }
+    private static final String a = CommonParam.class.getSimpleName();
 
     public static String a(Context context) {
-        return com.baidu.android.common.util.DeviceId.getCUID(context);
+        return b.a(context);
     }
 }

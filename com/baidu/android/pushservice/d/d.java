@@ -2,9 +2,10 @@ package com.baidu.android.pushservice.d;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class d extends c {
     protected boolean d;
 
@@ -25,7 +26,7 @@ public class d extends c {
             JSONObject jSONObject3 = jSONObject2.getJSONObject("response_params");
             String string2 = jSONObject3.getString("user_id");
             string = jSONObject3.getString("appid");
-            jSONObject3.put("channel_id", com.baidu.android.pushservice.i.a(this.a).a());
+            jSONObject3.put(SharedPrefConfig.CHANNEL_ID, com.baidu.android.pushservice.i.a(this.a).a());
             if (com.baidu.android.pushservice.b.d.b(this.a)) {
                 jSONObject3.put("new_channel_id", com.baidu.android.pushservice.i.a(this.a).c());
             }

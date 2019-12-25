@@ -21,7 +21,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class IMPbGenerator {
     private static final String SDK_NAME = "im";
     private static final List<IMPushPb.Action> actionList = new CopyOnWriteArrayList();

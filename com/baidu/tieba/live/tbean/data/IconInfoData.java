@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IconInfoData extends BaseData {
     public List<DiscountData> discount;
     public int dubi;

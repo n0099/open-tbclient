@@ -3,7 +3,7 @@ package com.baidu.swan.apps.canvas.a.a;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class m extends a {
     private Rect mRect;
 
@@ -11,9 +11,9 @@ public class m extends a {
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 4) {
-                int S = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(0));
-                int S2 = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(1));
-                this.mRect = new Rect(S, S2, com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(2)) + S, com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(3)) + S2);
+                int T = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(0));
+                int T2 = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(1));
+                this.mRect = new Rect(T, T2, com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(2)) + T, com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(3)) + T2);
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {

@@ -1,11 +1,11 @@
 package rx.internal.util.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 abstract class r<E> extends f<E> {
-    private static final Integer kDL = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
-    protected final int kDN;
+    private static final Integer MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    protected final int lookAheadStep;
 
     public r(int i) {
         super(i);
-        this.kDN = Math.min(i / 4, kDL.intValue());
+        this.lookAheadStep = Math.min(i / 4, MAX_LOOK_AHEAD_STEP.intValue());
     }
 }

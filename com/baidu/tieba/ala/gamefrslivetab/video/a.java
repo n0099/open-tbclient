@@ -7,12 +7,12 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.mainTab.b {
-    private AlaGameFrsLiveTabVideoFragment dJN = new AlaGameFrsLiveTabVideoFragment();
+    private AlaGameFrsLiveTabVideoFragment eyb = new AlaGameFrsLiveTabVideoFragment();
 
     public a() {
-        avx().frag = this.dJN;
+        aNf().frag = this.eyb;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -21,7 +21,7 @@ public class a extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c avw() {
+    public c aNe() {
         c cVar = new c();
         cVar.type = 3;
         cVar.textResId = R.string.ala_live;
@@ -30,27 +30,27 @@ public class a extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator cB(Context context) {
-        this.cJk = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.cJk.setTextSize(2.0f);
-        return this.cJk;
+    public TbFragmentTabIndicator dW(Context context) {
+        this.dwU = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.dwU.setTextSize(2.0f);
+        return this.dwU;
     }
 
     public void setForumId(String str) {
-        if (this.dJN != null) {
-            this.dJN.setForumId(str);
+        if (this.eyb != null) {
+            this.eyb.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.dJN != null) {
-            this.dJN.setForumName(str);
+        if (this.eyb != null) {
+            this.eyb.setForumName(str);
         }
     }
 
-    public void hb(boolean z) {
-        if (this.dJN != null) {
-            this.dJN.hb(z);
+    public void ii(boolean z) {
+        if (this.eyb != null) {
+            this.eyb.ii(z);
         }
     }
 }

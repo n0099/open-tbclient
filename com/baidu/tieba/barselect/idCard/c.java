@@ -4,34 +4,34 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c {
-    static Timer eGU = null;
-    private static int eGV = Runtime.getRuntime().availableProcessors();
-    private static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(eGV);
+    static Timer fyR = null;
+    private static int fyS = Runtime.getRuntime().availableProcessors();
+    private static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(fyS);
 
     public static void execute(Runnable runnable) {
         fixedThreadPool.execute(runnable);
     }
 
-    public static Timer l(final Runnable runnable) {
-        if (eGU != null) {
-            return eGU;
+    public static Timer o(final Runnable runnable) {
+        if (fyR != null) {
+            return fyR;
         }
-        eGU = new Timer();
-        eGU.scheduleAtFixedRate(new TimerTask() { // from class: com.baidu.tieba.barselect.idCard.c.1
+        fyR = new Timer();
+        fyR.scheduleAtFixedRate(new TimerTask() { // from class: com.baidu.tieba.barselect.idCard.c.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 runnable.run();
             }
         }, 0L, 2000L);
-        return eGU;
+        return fyR;
     }
 
-    public static void aZT() {
-        if (eGU != null) {
-            eGU.cancel();
-            eGU = null;
+    public static void brW() {
+        if (fyR != null) {
+            fyR.cancel();
+            fyR = null;
         }
     }
 }

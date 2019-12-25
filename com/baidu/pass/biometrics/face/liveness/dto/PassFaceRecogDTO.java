@@ -4,9 +4,10 @@ import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
 import com.baidu.pass.biometrics.face.liveness.beans.BeanDataCache;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
+import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PassFaceRecogDTO extends PassBiometricDto {
     public static final int IMAGE_FLAG_CUT_AND_ORIGIN_IMAGE = 3;
     public static final int IMAGE_FLAG_CUT_IMAGE = 1;
@@ -35,9 +36,9 @@ public class PassFaceRecogDTO extends PassBiometricDto {
         for (Map.Entry<String, String> entry : this.extraParamsMap.entrySet()) {
             if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
                 if (TextUtils.isEmpty(sb.toString())) {
-                    sb.append(entry.getKey()).append("=").append(entry.getValue());
+                    sb.append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
                 } else {
-                    sb.append("&").append(entry.getKey()).append("=").append(entry.getValue());
+                    sb.append(ETAG.ITEM_SEPARATOR).append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
                 }
             }
         }
@@ -61,7 +62,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     }
 
     private int returnImageFlag() {
-        PassBiometricDto cacheData = BeanDataCache.getInstance().getCacheData(BeanDataCache.KEY);
+        PassBiometricDto cacheData = BeanDataCache.getInstance().getCacheData("request_data");
         if (cacheData != null && (cacheData instanceof PassFaceRecogDTO)) {
             PassFaceRecogDTO passFaceRecogDTO = (PassFaceRecogDTO) cacheData;
             if (!TextUtils.isEmpty(passFaceRecogDTO.imageFlag)) {

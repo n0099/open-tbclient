@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class MessageV3 implements Parcelable {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV3.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,7 +122,7 @@ public class MessageV3 implements Parcelable {
             if (NotificationStyle.NOTIFICATION_STYLE.equals(key)) {
                 messageV3.setmNotificationStyle(NotificationStyle.parse(value));
             }
-            if (AdvanceSetting.ADVANCE_SETTING.equals(key)) {
+            if ("as".equals(key)) {
                 messageV3.setmAdvanceSetting(AdvanceSetting.parse(value));
             }
             if ("is".equals(key)) {
@@ -170,8 +170,8 @@ public class MessageV3 implements Parcelable {
                 if (!jSONObject2.isNull("is")) {
                     messageV3.setmAppIconSetting(AppIconSetting.parse(jSONObject2.getJSONObject("is")));
                 }
-                if (!jSONObject2.isNull(AdvanceSetting.ADVANCE_SETTING)) {
-                    messageV3.setmAdvanceSetting(AdvanceSetting.parse(jSONObject2.getJSONObject(AdvanceSetting.ADVANCE_SETTING)));
+                if (!jSONObject2.isNull("as")) {
+                    messageV3.setmAdvanceSetting(AdvanceSetting.parse(jSONObject2.getJSONObject("as")));
                 }
                 if (!jSONObject2.isNull(TimeDisplaySetting.TIME_DISPLAY_SETTING)) {
                     messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(jSONObject2.getJSONObject(TimeDisplaySetting.TIME_DISPLAY_SETTING)));

@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupPermData;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
-    private View.OnClickListener cot;
+    private View.OnClickListener dbH;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cot = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
+        this.dbH = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -44,9 +44,9 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bw */
+    /* renamed from: bs */
     public b b(ViewGroup viewGroup) {
-        return new b(LayoutInflater.from(this.mContext).inflate(R.layout.frs_create_group_item_view, (ViewGroup) null), this.cot);
+        return new b(LayoutInflater.from(this.mContext).inflate(R.layout.frs_create_group_item_view, (ViewGroup) null), this.dbH);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,10 +57,10 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
         this.mPageContext.getLayoutMode().onModeChanged(view);
         bVar.rootView.setTag(Integer.valueOf(i));
         am.setBackgroundResource(bVar.rootView, R.drawable.frs_group_item_bg);
-        am.setBackgroundColor(bVar.gwM, R.color.cp_bg_line_c);
-        am.setViewTextColor(bVar.gFJ, R.color.cp_cont_b, 1);
-        bVar.gFJ.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
-        am.setBackgroundResource(bVar.cfh, R.color.cp_bg_line_c);
+        am.setBackgroundColor(bVar.hkU, R.color.cp_bg_line_c);
+        am.setViewTextColor(bVar.htN, R.color.cp_cont_b, 1);
+        bVar.htN.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
+        am.setBackgroundResource(bVar.cRG, R.color.cp_bg_line_c);
         return view;
     }
 
@@ -73,11 +73,11 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
                     this.mPageContext.showToast(groupPermData.getCreateNormalTip());
                     return;
                 } else {
-                    this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupStepActivityConfig(this.mPageContext.getPageActivity(), 3, com.baidu.adp.lib.g.b.toInt(forumId, 0), 1013, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
+                    this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupStepActivityConfig(this.mPageContext.getPageActivity(), 3, com.baidu.adp.lib.f.b.toInt(forumId, 0), 1013, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
                     return;
                 }
             }
-            this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupMainActivityConfig(this.mPageContext.getPageActivity(), groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), com.baidu.adp.lib.g.b.toInt(forumId, 0), groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
+            this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupMainActivityConfig(this.mPageContext.getPageActivity(), groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), com.baidu.adp.lib.f.b.toInt(forumId, 0), groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
         }
     }
 }

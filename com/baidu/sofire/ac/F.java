@@ -14,9 +14,8 @@ import com.baidu.sofire.i.a;
 import com.baidu.sofire.i.d;
 import com.baidu.sofire.i.s;
 import com.baidu.sofire.jni.Asc;
-import com.tencent.connect.common.Constants;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class F implements FI {
     private static F instance;
     private static Asc sAsc;
@@ -197,7 +196,7 @@ public class F implements FI {
                         d.e("7");
                         byte[] ar = sAsc.ar(bArr, bArr2);
                         if (ar == null || ar.length == 0) {
-                            d.e(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO);
+                            d.e("8");
                             return ar;
                         }
                         return ar;

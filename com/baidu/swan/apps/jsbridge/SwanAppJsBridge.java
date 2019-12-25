@@ -11,10 +11,11 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.searchbox.unitedscheme.moniter.SchemeTimeCostMoniter;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.m.a.d;
+import com.baidu.swan.apps.n.a.d;
 import com.baidu.swan.apps.performance.e;
+import com.baidu.swan.apps.y.f;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class SwanAppJsBridge extends a {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_aiapps_jsbridge";
     private static final String TAG = "SwanAppJsBridge";
@@ -26,14 +27,17 @@ public class SwanAppJsBridge extends a {
     @JavascriptInterface
     public String setData(String str, String str2) {
         int i = 0;
-        e.au("postMessage", "PostMsg setData handle");
+        if (DEBUG) {
+            Log.d(TAG, "slave id: " + str + " data: " + str2);
+        }
+        e.aJ("postMessage", "PostMsg setData handle");
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             i = 202;
         } else {
             d dVar = new d(str, str2);
-            e.au("postMessage", "PostMsg setData start");
-            com.baidu.swan.apps.w.e.LE().a(dVar, false);
-            e.au("postMessage", "PostMsg setData end");
+            e.aJ("postMessage", "PostMsg setData start");
+            f.Uf().a(dVar, false);
+            e.aJ("postMessage", "PostMsg setData end");
         }
         return UnitedSchemeUtility.wrapCallbackParams(i).toString();
     }
@@ -52,7 +56,10 @@ public class SwanAppJsBridge extends a {
             SchemeTimeCostMoniter.getInstance().schemeStart(str);
             this.mMainDispatcher.dispatch(getDispatchContext(), unitedSchemeEntity, this.mCallbackHandler);
             SchemeTimeCostMoniter.getInstance().schemeEnd(str);
-            return unitedSchemeEntity.result.toString();
+            if (unitedSchemeEntity.result != null) {
+                return unitedSchemeEntity.result.toString();
+            }
+            return "";
         }
         return UnitedSchemeUtility.wrapCallbackParams(201).toString();
     }

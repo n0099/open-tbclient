@@ -4,22 +4,22 @@ import java.util.concurrent.TimeUnit;
 import rx.d;
 import rx.functions.Actions;
 import rx.g;
-import rx.internal.operators.o;
-import rx.internal.operators.p;
+import rx.internal.operators.r;
 import rx.internal.operators.s;
-import rx.internal.operators.t;
+import rx.internal.operators.v;
+import rx.internal.operators.w;
 import rx.schedulers.Schedulers;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class h<T> {
-    final a<T> kxI;
+    final a<T> nds;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface a<T> extends rx.functions.b<i<? super T>> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(a<T> aVar) {
-        this.kxI = rx.c.c.b(aVar);
+        this.nds = rx.c.c.b(aVar);
     }
 
     public static <T> h<T> a(a<T> aVar) {
@@ -27,25 +27,25 @@ public class h<T> {
     }
 
     private static <T> d<T> a(h<T> hVar) {
-        return d.a((d.a) new t(hVar.kxI));
+        return d.a((d.a) new w(hVar.nds));
     }
 
-    public static <T> h<T> bi(T t) {
-        return rx.internal.util.h.bx(t);
+    public static <T> h<T> bT(T t) {
+        return rx.internal.util.h.cb(t);
     }
 
-    public final h<T> c(g gVar) {
+    public final h<T> e(g gVar) {
         if (this instanceof rx.internal.util.h) {
-            return ((rx.internal.util.h) this).f(gVar);
+            return ((rx.internal.util.h) this).h(gVar);
         }
         if (gVar == null) {
             throw new NullPointerException("scheduler is null");
         }
-        return a(new s(this.kxI, gVar));
+        return a(new v(this.nds, gVar));
     }
 
-    public final k cNY() {
-        return a(Actions.cOt(), Actions.cOu());
+    public final k dFU() {
+        return a(Actions.dGo(), Actions.dGp());
     }
 
     public final k a(final rx.functions.b<? super T> bVar, final rx.functions.b<Throwable> bVar2) {
@@ -81,24 +81,24 @@ public class h<T> {
             throw new IllegalArgumentException("te is null");
         }
         try {
-            rx.c.c.a(this, this.kxI).call(iVar);
+            rx.c.c.a(this, this.nds).call(iVar);
             return rx.c.c.c(iVar);
         } catch (Throwable th) {
-            rx.exceptions.a.K(th);
+            rx.exceptions.a.I(th);
             try {
-                iVar.onError(rx.c.c.V(th));
-                return rx.subscriptions.e.cQc();
+                iVar.onError(rx.c.c.Y(th));
+                return rx.subscriptions.e.dHJ();
             } catch (Throwable th2) {
-                rx.exceptions.a.K(th2);
+                rx.exceptions.a.I(th2);
                 RuntimeException runtimeException = new RuntimeException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
-                rx.c.c.V(runtimeException);
+                rx.c.c.Y(runtimeException);
                 throw runtimeException;
             }
         }
     }
 
-    public final h<T> d(final g gVar) {
-        return this instanceof rx.internal.util.h ? ((rx.internal.util.h) this).f(gVar) : a(new a<T>() { // from class: rx.h.2
+    public final h<T> f(final g gVar) {
+        return this instanceof rx.internal.util.h ? ((rx.internal.util.h) this).h(gVar) : a(new a<T>() { // from class: rx.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: b */
@@ -135,7 +135,7 @@ public class h<T> {
         });
     }
 
-    public final d<T> cOl() {
+    public final d<T> dGf() {
         return a(this);
     }
 
@@ -143,7 +143,7 @@ public class h<T> {
         if (bVar == null) {
             throw new IllegalArgumentException("onError is null");
         }
-        return a(new p(this, Actions.cOt(), new rx.functions.b<Throwable>() { // from class: rx.h.3
+        return a(new s(this, Actions.dGo(), new rx.functions.b<Throwable>() { // from class: rx.h.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(Throwable th) {
@@ -156,14 +156,14 @@ public class h<T> {
         if (bVar == null) {
             throw new IllegalArgumentException("onSuccess is null");
         }
-        return a(new p(this, bVar, Actions.cOt()));
+        return a(new s(this, bVar, Actions.dGo()));
     }
 
-    public final h<T> b(long j, TimeUnit timeUnit, g gVar) {
-        return a(new o(this.kxI, j, timeUnit, gVar));
+    public final h<T> c(long j, TimeUnit timeUnit, g gVar) {
+        return a(new r(this.nds, j, timeUnit, gVar));
     }
 
-    public final h<T> b(long j, TimeUnit timeUnit) {
-        return b(j, timeUnit, Schedulers.computation());
+    public final h<T> d(long j, TimeUnit timeUnit) {
+        return c(j, timeUnit, Schedulers.computation());
     }
 }

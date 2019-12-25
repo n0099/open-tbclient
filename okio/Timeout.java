@@ -1,9 +1,10 @@
 package okio;
 
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class Timeout {
     public static final Timeout NONE = new Timeout() { // from class: okio.Timeout.1
         @Override // okio.Timeout
@@ -101,8 +102,8 @@ public class Timeout {
                 timeoutNanos = deadlineNanoTime() - nanoTime;
             }
             if (timeoutNanos > 0) {
-                long j2 = timeoutNanos / 1000000;
-                obj.wait(j2, (int) (timeoutNanos - (j2 * 1000000)));
+                long j2 = timeoutNanos / TimeUtils.NANOS_PER_MS;
+                obj.wait(j2, (int) (timeoutNanos - (j2 * TimeUtils.NANOS_PER_MS)));
                 j = System.nanoTime() - nanoTime;
             }
             if (j >= timeoutNanos) {

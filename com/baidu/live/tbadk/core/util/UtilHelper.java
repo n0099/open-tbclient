@@ -17,7 +17,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.LocationManager;
 import android.net.Uri;
-import android.net.http.Headers;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
@@ -37,8 +36,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.base.BdActivityStack;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.base.IScrollableHelper;
@@ -50,7 +49,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.CloseUtil;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.imageview.BdImage;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.browser.BrowserHelper;
@@ -62,6 +61,7 @@ import com.baidu.live.tbadk.core.view.VerticalImageSpan;
 import com.baidu.live.tbadk.pagestayduration.IPageStayDuration;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.compatible.StatusBarUtil;
+import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -83,7 +83,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class UtilHelper {
     private static final String NATIVE_PAY_FROM = "from_type";
     public static final int PROCESS_LIMIT_NONE = 0;
@@ -92,13 +92,13 @@ public class UtilHelper {
     private static final String[] sNativeAdPrefixes = {"http://m.baidu.com/baidu.php?url=", "https://m.baidu.com/baidu.php?url="};
     private static final String[] sNativeAdEncoded = {"http%3a%2f%2fm.baidu.com%2fbaidu.php%3furl%3d", "https%3a%2f%2fm.baidu.com%2fbaidu.php%3furl%3d"};
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class NativePage {
         public String id;
         public NativePageType type = NativePageType.NONE;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum NativePageType {
         NONE,
         FRS,
@@ -158,7 +158,7 @@ public class UtilHelper {
     }
 
     private static String intToIp(int i) {
-        return (i & 255) + DefaultConfig.TOKEN_SEPARATOR + ((i >> 8) & 255) + DefaultConfig.TOKEN_SEPARATOR + ((i >> 16) & 255) + DefaultConfig.TOKEN_SEPARATOR + ((i >> 24) & 255);
+        return (i & 255) + "." + ((i >> 8) & 255) + "." + ((i >> 16) & 255) + "." + ((i >> 24) & 255);
     }
 
     private static String transforIPV6(String str) {
@@ -173,16 +173,16 @@ public class UtilHelper {
                 int i = (8 - length) - length2;
                 if (length > 0) {
                     stringBuffer.append(transforIPV6(substring));
-                    stringBuffer.append(DefaultConfig.TOKEN_SEPARATOR);
+                    stringBuffer.append(".");
                 }
                 for (int i2 = 0; i2 < i; i2++) {
                     stringBuffer.append("0");
                     if (i2 < i - 1) {
-                        stringBuffer.append(DefaultConfig.TOKEN_SEPARATOR);
+                        stringBuffer.append(".");
                     }
                 }
                 if (length2 > 0) {
-                    stringBuffer.append(DefaultConfig.TOKEN_SEPARATOR);
+                    stringBuffer.append(".");
                     stringBuffer.append(transforIPV6(substring2));
                 }
             } else {
@@ -190,7 +190,7 @@ public class UtilHelper {
                 for (int i3 = 0; i3 < split.length; i3++) {
                     stringBuffer.append(String.valueOf(JavaTypesHelper.toInt(split[i3], 0, 16)));
                     if (i3 < split.length - 1) {
-                        stringBuffer.append(DefaultConfig.TOKEN_SEPARATOR);
+                        stringBuffer.append(".");
                     }
                 }
             }
@@ -367,7 +367,7 @@ public class UtilHelper {
         boolean z;
         if (PermissionUtil.checkLocationForGoogle(context)) {
             try {
-                LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
+                LocationManager locationManager = (LocationManager) context.getSystemService("location");
                 if (!locationManager.isProviderEnabled("gps")) {
                     if (!locationManager.isProviderEnabled("network")) {
                         z = false;
@@ -414,9 +414,9 @@ public class UtilHelper {
 
     public static String int2ver(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append((i >> 24) & 255).append(DefaultConfig.TOKEN_SEPARATOR);
-        sb.append((i >> 16) & 255).append(DefaultConfig.TOKEN_SEPARATOR);
-        sb.append((i >> 8) & 255).append(DefaultConfig.TOKEN_SEPARATOR);
+        sb.append((i >> 24) & 255).append(".");
+        sb.append((i >> 16) & 255).append(".");
+        sb.append((i >> 8) & 255).append(".");
         sb.append(i & 255);
         return sb.toString();
     }
@@ -443,7 +443,7 @@ public class UtilHelper {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             } else {
                 sb.append("?");
             }
@@ -466,8 +466,8 @@ public class UtilHelper {
         if (str != null && str2 != null) {
             if (str.indexOf("?") < 0) {
                 str = str + "?";
-            } else if (!str.endsWith("?") && !str.endsWith("&")) {
-                str = str + "&";
+            } else if (!str.endsWith("?") && !str.endsWith(ETAG.ITEM_SEPARATOR)) {
+                str = str + ETAG.ITEM_SEPARATOR;
             }
             return str + str2;
         }
@@ -550,7 +550,7 @@ public class UtilHelper {
     }
 
     public static void callPhone(Context context, String str) {
-        Intent intent = new Intent("android.intent.action.DIAL", Uri.parse(UrlSchemaHelper.SCHEMA_TYPE_PONE + str));
+        Intent intent = new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str));
         intent.addFlags(268435456);
         try {
             context.startActivity(intent);
@@ -1276,7 +1276,7 @@ public class UtilHelper {
     }
 
     public static boolean isNumber(String str) {
-        return Pattern.compile("[0-9]+").matcher(str).matches();
+        return Pattern.compile(EditTextPasteFilterUtils.REGX_NUMBER).matcher(str).matches();
     }
 
     public static boolean isPhoneNumber(String str) {
@@ -1297,14 +1297,14 @@ public class UtilHelper {
             String substring = str.substring(str.lastIndexOf(UrlSchemaHelper.SCHEMA_TYPE_MIDDLE_PAGE) + 11);
             String str3 = "";
             if (substring.startsWith("flag=")) {
-                str3 = substring.substring(5, substring.indexOf("&"));
+                str3 = substring.substring(5, substring.indexOf(ETAG.ITEM_SEPARATOR));
                 substring = substring.substring(str3.length() + 1 + 5);
             }
             if (!"1".equals(str3)) {
                 return false;
             }
             if (substring.startsWith("fid=")) {
-                str2 = substring.substring(substring.lastIndexOf("fid=") + 4, substring.indexOf("&"));
+                str2 = substring.substring(substring.lastIndexOf("fid=") + 4, substring.indexOf(ETAG.ITEM_SEPARATOR));
                 substring = substring.substring(str2.length() + 1 + 4);
             } else {
                 str2 = "";

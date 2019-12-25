@@ -21,11 +21,11 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SkinManager {
     public static final int SKIN_TYPE_NIGHT = 1;
     public static final int SKIN_TYPE_NONE = 3;
@@ -38,7 +38,7 @@ public class SkinManager {
     private static String sPackagename;
     private static int sPacknameLength;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class ViewType {
         public static final int BUTTON = 3;
         public static final int CHECKBOX = 4;

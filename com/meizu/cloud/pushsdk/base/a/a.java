@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.base.a;
 
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a {
     private static HashMap<String, Class<?>> a = new HashMap<>();
     private Class<?> b;

@@ -6,33 +6,34 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class e {
-    private String cbl;
-    private String cbm;
+    private String cNP;
+    private String cNQ;
     private String forumGameLabel;
     private String forumId;
     private String forumName;
-    private List<FrsTabInfo> ftN;
-    private final List<com.baidu.tbadk.mainTab.b> ftO = new LinkedList();
+    private List<FrsTabInfo> gin;
+    private final List<com.baidu.tbadk.mainTab.b> gio = new LinkedList();
     private Context mContext;
+    private String mFrom;
 
     public e(Context context, List<FrsTabInfo> list) {
-        this.ftN = list;
+        this.gin = list;
         this.mContext = context;
     }
 
     public void b(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.avx() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.ftO) {
-                if (bVar2 != null && bVar2.avx() != null && bVar2.avx().type == bVar.avx().type) {
+        if (bVar != null && bVar.aNf() != null) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.gio) {
+                if (bVar2 != null && bVar2.aNf() != null && bVar2.aNf().type == bVar.aNf().type) {
                     return;
                 }
             }
-            this.ftO.add(bVar);
+            this.gio.add(bVar);
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bju() {
-        return this.ftO;
+    public List<com.baidu.tbadk.mainTab.b> bAO() {
+        return this.gio;
     }
 
     public void setForumName(String str) {
@@ -47,15 +48,23 @@ public class e {
         return this.forumId;
     }
 
+    public void setFrom(String str) {
+        this.mFrom = str;
+    }
+
+    public String getFrom() {
+        return this.mFrom;
+    }
+
     public void setForumGameLabel(String str) {
         this.forumGameLabel = str;
     }
 
-    public void nh(String str) {
-        this.cbl = str;
+    public void ss(String str) {
+        this.cNP = str;
     }
 
-    public void ni(String str) {
-        this.cbm = str;
+    public void st(String str) {
+        this.cNQ = str;
     }
 }

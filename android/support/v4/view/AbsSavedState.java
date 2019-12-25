@@ -2,7 +2,9 @@ package android.support.v4.view;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes2.dex */
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+/* loaded from: classes4.dex */
 public abstract class AbsSavedState implements Parcelable {
     private final Parcelable mSuperState;
     public static final AbsSavedState EMPTY_STATE = new AbsSavedState() { // from class: android.support.v4.view.AbsSavedState.1
@@ -36,23 +38,24 @@ public abstract class AbsSavedState implements Parcelable {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public AbsSavedState(Parcelable parcelable) {
+    public AbsSavedState(@NonNull Parcelable parcelable) {
         if (parcelable == null) {
             throw new IllegalArgumentException("superState must not be null");
         }
         this.mSuperState = parcelable == EMPTY_STATE ? null : parcelable;
     }
 
-    protected AbsSavedState(Parcel parcel) {
+    protected AbsSavedState(@NonNull Parcel parcel) {
         this(parcel, null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public AbsSavedState(Parcel parcel, ClassLoader classLoader) {
+    public AbsSavedState(@NonNull Parcel parcel, @Nullable ClassLoader classLoader) {
         Parcelable readParcelable = parcel.readParcelable(classLoader);
         this.mSuperState = readParcelable == null ? EMPTY_STATE : readParcelable;
     }
 
+    @Nullable
     public final Parcelable getSuperState() {
         return this.mSuperState;
     }

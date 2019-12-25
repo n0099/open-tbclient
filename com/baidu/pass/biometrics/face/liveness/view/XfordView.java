@@ -12,7 +12,7 @@ import android.graphics.Xfermode;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.pass.biometrics.face.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class XfordView extends ImageView {
     private Rect destRect;
     private Paint paint;

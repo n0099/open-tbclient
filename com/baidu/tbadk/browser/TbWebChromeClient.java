@@ -12,8 +12,9 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
-import com.baidu.adp.lib.g.g;
+import com.baidu.adp.lib.f.g;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.tbadk.coreExtra.data.q;
 /* loaded from: classes.dex */
 public class TbWebChromeClient extends WebChromeClient {
@@ -91,7 +92,7 @@ public class TbWebChromeClient extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (!q.oL(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
+        if (!q.tO(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
             jsPromptResult.cancel();
         }
         return true;
@@ -104,7 +105,7 @@ public class TbWebChromeClient extends WebChromeClient {
             this.mActivity.refreshTitle(str);
         }
         if (Build.VERSION.SDK_INT < 23 && !StringUtils.isNull(str)) {
-            if ((str.contains("404") || str.contains("500") || str.contains("Error")) && this.mActivity != null) {
+            if ((str.contains("404") || str.contains("500") || str.contains(V8ExceptionInfo.V8_EXCEPTION_ERROR)) && this.mActivity != null) {
                 this.mActivity.onReceivedTitle();
             }
         }

@@ -11,52 +11,52 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.SwanAppErrorActivity;
 import com.baidu.swan.apps.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class c extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.v.b.b aDQ;
+    private com.baidu.swan.apps.x.b.b aVQ;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_error_fragment, viewGroup, false);
-        W(inflate);
-        U(inflate);
-        if (EJ()) {
-            return Y(inflate);
+        initView(inflate);
+        aa(inflate);
+        if (immersionEnabled()) {
+            return initImmersion(inflate);
         }
         return inflate;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.b
-    public void U(View view) {
-        super.U(view);
-        cY(-1);
-        cZ(ViewCompat.MEASURED_STATE_MASK);
-        bv(true);
+    public void aa(View view) {
+        super.aa(view);
+        ec(-1);
+        ed(ViewCompat.MEASURED_STATE_MASK);
+        ce(true);
         setRightZoneVisibility(false);
-        String Hu = this.aDQ == null ? "" : this.aDQ.Hu();
-        if (!TextUtils.isEmpty(Hu)) {
-            eu(Hu);
+        String Op = this.aVQ == null ? "" : this.aVQ.Op();
+        if (!TextUtils.isEmpty(Op)) {
+            gB(Op);
         }
-        this.aKg.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.1
+        this.biw.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                c.this.EE();
+                c.this.onActionBarBackPressed();
             }
         });
     }
 
-    public void W(View view) {
-        if (abT() == null) {
+    public void initView(View view) {
+        if (arR() == null) {
             if (DEBUG) {
                 Log.e("SwanAppErrorFragment", "getIntent() is null");
                 return;
             }
             return;
         }
-        this.aDQ = ((SwanAppErrorActivity) abT()).AK();
-        if (this.aDQ == null) {
+        this.aVQ = ((SwanAppErrorActivity) arR()).Ef();
+        if (this.aVQ == null) {
             if (DEBUG) {
                 Log.e("SwanAppErrorFragment", "launchInfo is null,error");
                 return;
@@ -65,34 +65,34 @@ public class c extends b {
         }
         ((LinearLayout) view.findViewById(a.f.error_layout)).setBackgroundColor(getResources().getColor(a.c.aiapps_error_fragment_background));
         TextView textView = (TextView) view.findViewById(a.f.ai_apps_error_msg);
-        textView.setText(this.aDQ.Ky());
+        textView.setText(this.aVQ.SK());
         textView.setTextColor(getResources().getColor(a.c.aiapps_error_msg_color));
         TextView textView2 = (TextView) view.findViewById(a.f.ai_apps_error_text_one);
-        textView2.setText(this.aDQ.Kx());
+        textView2.setText(this.aVQ.SJ());
         textView2.setTextColor(getResources().getColor(a.c.aiapps_error_detail_color));
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected void Ev() {
+    protected void KI() {
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected boolean CC() {
+    protected boolean Gs() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.b
-    public boolean Ew() {
+    public boolean KJ() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    public boolean Co() {
+    public boolean FX() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected void Eu() {
+    protected void Gv() {
     }
 }

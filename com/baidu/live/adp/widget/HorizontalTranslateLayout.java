@@ -13,12 +13,13 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.widget.FrameLayout;
+import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.R;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HorizontalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String HORIZONTAL = "horizontal";
@@ -58,26 +59,26 @@ public class HorizontalTranslateLayout extends FrameLayout {
     private final Tracker mTracker;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnHorizontalTrackListener {
         void onStartHorizontalTrack(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnLeftAnimationListener {
         void onLeftAnimationEnd();
 
         void onLeftAnimationStart();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     interface OnLeftTrackListener {
         void onLeftTrackStart();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnOpenAnimationListener {
         void onOpenAnimationEnd();
 
@@ -85,20 +86,20 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnRightAnimationListener {
         void onRightAnimationEnd();
 
         void onRightAnimationStart();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     interface OnRightTrackListener {
         void onRightTrackStart();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum TrackDirection {
         left,
         right,
@@ -148,7 +149,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         }
         String string2 = obtainStyledAttributes.getString(R.styleable.sdk_HorizontalTranslateLayout_tapBack);
         if (string2 != null && string2.length() > 0) {
-            String[] split = string2.split("\\|");
+            String[] split = string2.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
             for (String str : split) {
                 BdLog.d("HorizontalTranslateLayout@loadAttrs tap area " + str);
                 if ("left".equals(str) && this.mLeftOffset != -1.0f) {
@@ -471,7 +472,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class AnimationHandler extends Handler {
         private AnimationHandler() {
         }
@@ -502,7 +503,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class Tracker {
         static final float MIN_VELOCITY = 500.0f;
         static final int VELOCITY_UNIT = 200;
@@ -643,7 +644,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class Animator {
         static final String TAG = "Animator";
         static final int VELOCITY = 600;

@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends h<b, c> {
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -17,7 +17,7 @@ public class a extends h<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aB */
+    /* renamed from: ay */
     public c b(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(R.layout.manito_item_header, (ViewGroup) null));
     }
@@ -31,7 +31,7 @@ public class a extends h<b, c> {
             am.setBackgroundColor(cVar.getView(), R.color.cp_bg_line_d);
             am.setViewTextColor(cVar.title, R.color.cp_cont_b, 1);
         }
-        cVar.title.setText(String.format(this.mContext.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.bit())));
+        cVar.title.setText(String.format(this.mContext.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.bzO())));
         cVar.mSkinType = this.mSkinType;
         return view;
     }

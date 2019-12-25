@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.extcore.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    void AU();
+    void OW();
 }

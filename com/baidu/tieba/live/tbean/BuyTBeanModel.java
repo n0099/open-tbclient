@@ -1,11 +1,13 @@
 package com.baidu.tieba.live.tbean;
 
+import android.app.Activity;
 import android.text.TextUtils;
 import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
+import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.live.tbean.data.CustomData;
 import com.baidu.tieba.live.tbean.data.GiftBagWrapperData;
@@ -18,20 +20,22 @@ import com.baidu.tieba.live.tbean.message.GetYinJiRequestMessage;
 import com.baidu.tieba.live.tbean.message.IYinJiResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
+/* loaded from: classes2.dex */
+public class BuyTBeanModel extends BdBaseModel {
     public static final String GET_BIG_TBEAN_WALLET_H5 = "tbmall/getPayUrl";
     public static final String GET_ICON_URL = "tbmall/pay/geticonlist";
     public static final int SUPER_MEMBER = 2;
-    private BuyTBeanActivity mActivity;
+    private Activity activity;
+    private BuyTBeanController buyTBeanController;
     private CallBack mCallBack;
     private List<IAdapterData> mCommodityList;
     private boolean mIsShowUserDifineTBeanItem;
     private UserDefineTbeanWrapperData mUserDefineTbeanWrapperData;
+    private TbPageContext<?> tbPageContext;
     private UserInfoData userInfo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface CallBack {
         void onFailed(String str);
 
@@ -40,10 +44,12 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         void onSuccess();
     }
 
-    public BuyTBeanModel(BuyTBeanActivity buyTBeanActivity, CallBack callBack) {
-        super(buyTBeanActivity.getPageContext());
+    public BuyTBeanModel(TbPageContext<?> tbPageContext, BuyTBeanController buyTBeanController, CallBack callBack) {
+        super(tbPageContext);
         this.mCommodityList = new ArrayList();
-        this.mActivity = buyTBeanActivity;
+        this.tbPageContext = tbPageContext;
+        this.buyTBeanController = buyTBeanController;
+        this.activity = tbPageContext.getPageActivity();
         this.mCallBack = callBack;
     }
 
@@ -108,7 +114,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof GetYinJiHttpResponseMessage)) {
-                    BuyTBeanModel.this.mCallBack.onFailed(BuyTBeanModel.this.mActivity.getPageContext().getString(a.i.sdk_neterror));
+                    BuyTBeanModel.this.mCallBack.onFailed(BuyTBeanModel.this.activity.getString(a.i.sdk_neterror));
                     return;
                 }
                 GetYinJiHttpResponseMessage getYinJiHttpResponseMessage = (GetYinJiHttpResponseMessage) httpResponsedMessage;
@@ -116,10 +122,10 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                     if (!TextUtils.isEmpty(getYinJiHttpResponseMessage.getErrorString())) {
                         BuyTBeanModel.this.mCallBack.onFailed(getYinJiHttpResponseMessage.getErrorString());
                     } else {
-                        BuyTBeanModel.this.mCallBack.onFailed(BuyTBeanModel.this.mActivity.getPageContext().getString(a.i.sdk_neterror));
+                        BuyTBeanModel.this.mCallBack.onFailed(BuyTBeanModel.this.activity.getString(a.i.sdk_neterror));
                     }
-                    if (BuyTBeanModel.this.mActivity != null && getYinJiHttpResponseMessage.getError() == 1990055) {
-                        BuyTBeanModel.this.mActivity.finish();
+                    if (BuyTBeanModel.this.buyTBeanController != null && getYinJiHttpResponseMessage.getError() == 1990055) {
+                        BuyTBeanModel.this.buyTBeanController.finish();
                         return;
                     }
                     return;
@@ -127,7 +133,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 BuyTBeanModel.this.userInfo = getYinJiHttpResponseMessage.getUserInfo();
                 BuyTBeanModel.this.dealResonseData(getYinJiHttpResponseMessage);
                 if (getYinJiHttpResponseMessage.getUserInfo() == null || ListUtils.isEmpty(getYinJiHttpResponseMessage.getIconInfoList())) {
-                    BuyTBeanModel.this.mCallBack.onFailed(BuyTBeanModel.this.mActivity.getPageContext().getString(a.i.sdk_tbn_no_data_tip));
+                    BuyTBeanModel.this.mCallBack.onFailed(BuyTBeanModel.this.activity.getString(a.i.sdk_tbn_no_data_tip));
                 } else {
                     BuyTBeanModel.this.mCallBack.onSuccess();
                 }

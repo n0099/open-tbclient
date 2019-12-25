@@ -1,20 +1,19 @@
 package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class QrLoginUtils {
     public static String getJoinQrLoginPromptInfo(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (SapiContext.getInstance().getCurrentAccount() == null) {
-            return LivenessStat.TYPE_STRING_DEFAULT;
+            return "-1";
         }
         return String.format(SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getJoinQrLoginPrompt(), URLDecoder.decode(SapiUtils.urlParamsToMap(str).get("appName")));
     }

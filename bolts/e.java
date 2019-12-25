@@ -4,19 +4,19 @@ import java.io.Closeable;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ScheduledFuture;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class e implements Closeable {
-    private final List<d> cb;
-    private ScheduledFuture<?> cc;
-    private boolean cd;
     private boolean closed;
+    private final List<d> dc;
+    private ScheduledFuture<?> dd;
+    private boolean de;
     private final Object lock;
 
-    public boolean aG() {
+    public boolean aS() {
         boolean z;
         synchronized (this.lock) {
-            aH();
-            z = this.cd;
+            aT();
+            z = this.de;
         }
         return z;
     }
@@ -25,11 +25,11 @@ public class e implements Closeable {
     public void close() {
         synchronized (this.lock) {
             if (!this.closed) {
-                aI();
-                for (d dVar : this.cb) {
+                aU();
+                for (d dVar : this.dc) {
                     dVar.close();
                 }
-                this.cb.clear();
+                this.dc.clear();
                 this.closed = true;
             }
         }
@@ -38,25 +38,25 @@ public class e implements Closeable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(d dVar) {
         synchronized (this.lock) {
-            aH();
-            this.cb.remove(dVar);
+            aT();
+            this.dc.remove(dVar);
         }
     }
 
     public String toString() {
-        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(aG()));
+        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(aS()));
     }
 
-    private void aH() {
+    private void aT() {
         if (this.closed) {
             throw new IllegalStateException("Object already closed");
         }
     }
 
-    private void aI() {
-        if (this.cc != null) {
-            this.cc.cancel(true);
-            this.cc = null;
+    private void aU() {
+        if (this.dd != null) {
+            this.dd.cancel(true);
+            this.dd = null;
         }
     }
 }

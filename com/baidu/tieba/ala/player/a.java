@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.player;
 
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static String e(AlaLiveInfoData alaLiveInfoData) {
         if (alaLiveInfoData == null || alaLiveInfoData.session_info == null) {

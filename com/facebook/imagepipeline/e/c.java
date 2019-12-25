@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.e;
 
-import com.facebook.imagepipeline.producers.ai;
-import com.facebook.imagepipeline.producers.an;
+import com.facebook.imagepipeline.producers.aj;
+import com.facebook.imagepipeline.producers.ap;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class c<T> extends a<com.facebook.common.references.a<T>> {
-    public static <T> com.facebook.datasource.b<com.facebook.common.references.a<T>> a(ai<com.facebook.common.references.a<T>> aiVar, an anVar, com.facebook.imagepipeline.g.b bVar) {
-        return new c(aiVar, anVar, bVar);
+    public static <T> com.facebook.datasource.b<com.facebook.common.references.a<T>> a(aj<com.facebook.common.references.a<T>> ajVar, ap apVar, com.facebook.imagepipeline.h.c cVar) {
+        return new c(ajVar, apVar, cVar);
     }
 
-    private c(ai<com.facebook.common.references.a<T>> aiVar, an anVar, com.facebook.imagepipeline.g.b bVar) {
-        super(aiVar, anVar, bVar);
+    private c(aj<com.facebook.common.references.a<T>> ajVar, ap apVar, com.facebook.imagepipeline.h.c cVar) {
+        super(ajVar, apVar, cVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
     @Nullable
-    /* renamed from: cHA */
+    /* renamed from: dnM */
     public com.facebook.common.references.a<T> getResult() {
         return com.facebook.common.references.a.b((com.facebook.common.references.a) super.getResult());
     }
@@ -26,16 +26,16 @@ public class c<T> extends a<com.facebook.common.references.a<T>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.datasource.AbstractDataSource
-    /* renamed from: h */
-    public void aB(com.facebook.common.references.a<T> aVar) {
-        com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar);
+    /* renamed from: k */
+    public void aV(com.facebook.common.references.a<T> aVar) {
+        com.facebook.common.references.a.c(aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.e.a
     /* renamed from: a */
-    public void e(com.facebook.common.references.a<T> aVar, boolean z) {
-        super.e(com.facebook.common.references.a.b(aVar), z);
+    public void f(com.facebook.common.references.a<T> aVar, int i) {
+        super.f(com.facebook.common.references.a.b((com.facebook.common.references.a) aVar), i);
     }
 }

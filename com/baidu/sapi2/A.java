@@ -7,7 +7,7 @@ import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.result.GetUserInfoResult;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class A extends HttpHandlerWrap {
     final /* synthetic */ GetUserInfoCallback a;
     final /* synthetic */ GetUserInfoResult b;

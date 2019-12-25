@@ -63,10 +63,9 @@ import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import org.xmlpull.v1.XmlPullParser;
-/* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(14)
-/* loaded from: classes2.dex */
-public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements MenuBuilder.Callback, LayoutInflater.Factory2 {
+/* loaded from: classes4.dex */
+class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements MenuBuilder.Callback, LayoutInflater.Factory2 {
     private static final boolean IS_PRE_LOLLIPOP;
     private ActionMenuPresenterCallback mActionMenuPresenterCallback;
     ActionMode mActionMode;
@@ -771,9 +770,6 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
                 this.mLongPressBackDown = (keyEvent.getFlags() & 128) != 0;
                 break;
         }
-        if (Build.VERSION.SDK_INT < 11) {
-            onKeyShortcut(i, keyEvent);
-        }
         return false;
     }
 
@@ -782,7 +778,17 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
         boolean z;
         boolean shouldInheritContext;
         if (this.mAppCompatViewInflater == null) {
-            this.mAppCompatViewInflater = new AppCompatViewInflater();
+            String string = this.mContext.obtainStyledAttributes(R.styleable.AppCompatTheme).getString(R.styleable.AppCompatTheme_viewInflaterClass);
+            if (string == null || AppCompatViewInflater.class.getName().equals(string)) {
+                this.mAppCompatViewInflater = new AppCompatViewInflater();
+            } else {
+                try {
+                    this.mAppCompatViewInflater = (AppCompatViewInflater) Class.forName(string).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+                } catch (Throwable th) {
+                    Log.i("AppCompatDelegate", "Failed to instantiate custom view inflater " + string + ". Falling back to default.", th);
+                    this.mAppCompatViewInflater = new AppCompatViewInflater();
+                }
+            }
         }
         if (IS_PRE_LOLLIPOP) {
             if (attributeSet instanceof XmlPullParser) {
@@ -844,10 +850,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
         int i = -1;
         if (!panelFeatureState.isOpen && !isDestroyed()) {
             if (panelFeatureState.featureId == 0) {
-                Context context = this.mContext;
-                boolean z = (context.getResources().getConfiguration().screenLayout & 15) == 4;
-                boolean z2 = context.getApplicationInfo().targetSdkVersion >= 11;
-                if (z && z2) {
+                if ((this.mContext.getResources().getConfiguration().screenLayout & 15) == 4) {
                     return;
                 }
             }
@@ -1335,7 +1338,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class ActionModeCallbackWrapperV9 implements ActionMode.Callback {
         private ActionMode.Callback mWrapped;
 
@@ -1390,7 +1393,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public final class PanelMenuPresenterCallback implements MenuPresenter.Callback {
         PanelMenuPresenterCallback() {
         }
@@ -1426,7 +1429,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public final class ActionMenuPresenterCallback implements MenuPresenter.Callback {
         ActionMenuPresenterCallback() {
         }
@@ -1448,7 +1451,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class PanelFeatureState {
         int background;
         View createdPanelView;
@@ -1566,7 +1569,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static class SavedState implements Parcelable {
             public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.v7.app.AppCompatDelegateImplV9.PanelFeatureState.SavedState.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -1622,7 +1625,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class ListMenuDecorView extends ContentFrameLayout {
         public ListMenuDecorView(Context context) {
             super(context);

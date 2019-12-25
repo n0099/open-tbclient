@@ -3,6 +3,8 @@ package android.support.v4.app;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +16,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ListFragment extends Fragment {
     static final int INTERNAL_EMPTY_ID = 16711681;
     static final int INTERNAL_LIST_CONTAINER_ID = 16711683;
@@ -68,7 +70,7 @@ public class ListFragment extends Fragment {
     }
 
     @Override // android.support.v4.app.Fragment
-    public void onViewCreated(View view, Bundle bundle) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
         super.onViewCreated(view, bundle);
         ensureList();
     }

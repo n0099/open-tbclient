@@ -22,7 +22,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class AppCompatDelegate {
     public static final int FEATURE_ACTION_MODE_OVERLAY = 10;
     public static final int FEATURE_SUPPORT_ACTION_BAR = 108;
@@ -37,13 +37,13 @@ public abstract class AppCompatDelegate {
     private static boolean sCompatVectorFromResourcesEnabled = false;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     @interface ApplyableNightMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface NightMode {
     }
 
@@ -122,13 +122,7 @@ public abstract class AppCompatDelegate {
         if (Build.VERSION.SDK_INT >= 23) {
             return new AppCompatDelegateImplV23(context, window, appCompatCallback);
         }
-        if (Build.VERSION.SDK_INT >= 14) {
-            return new AppCompatDelegateImplV14(context, window, appCompatCallback);
-        }
-        if (Build.VERSION.SDK_INT >= 11) {
-            return new AppCompatDelegateImplV11(context, window, appCompatCallback);
-        }
-        return new AppCompatDelegateImplV9(context, window, appCompatCallback);
+        return new AppCompatDelegateImplV14(context, window, appCompatCallback);
     }
 
     public static void setDefaultNightMode(int i) {

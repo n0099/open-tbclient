@@ -3,12 +3,12 @@ package com.tb.airbnb.lottie.model.content;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class MergePaths implements b {
-    private final MergePathsMode ktF;
+    private final MergePathsMode mOy;
     private final String name;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum MergePathsMode {
         Merge,
         Add,
@@ -37,21 +37,21 @@ public class MergePaths implements b {
 
     private MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.ktF = mergePathsMode;
+        this.mOy = mergePathsMode;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public MergePathsMode cLO() {
-        return this.ktF;
+    public MergePathsMode dBX() {
+        return this.mOy;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
     @Nullable
     public com.tb.airbnb.lottie.a.a.b a(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar) {
-        if (fVar.bc()) {
+        if (fVar.bp()) {
             return new com.tb.airbnb.lottie.a.a.j(this);
         }
         Log.w("LOTTIE", "Animation contains merge paths but they are disabled.");
@@ -59,14 +59,14 @@ public class MergePaths implements b {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.ktF + '}';
+        return "MergePaths{mode=" + this.mOy + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static MergePaths cx(JSONObject jSONObject) {
+        public static MergePaths dE(JSONObject jSONObject) {
             return new MergePaths(jSONObject.optString("nm"), MergePathsMode.forId(jSONObject.optInt("mm", 1)));
         }
     }

@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GuardClubRankHttpResponseMessage extends JsonHttpResponsedMessage {
-    public boolean dNt;
-    public k dNv;
-    public List<p> dOb;
-    public c dOc;
+    public boolean eBB;
+    public k eBD;
+    public List<p> eCi;
+    public c eCj;
     public boolean hasMore;
     public int pageIndex;
 
@@ -26,26 +26,26 @@ public class GuardClubRankHttpResponseMessage extends JsonHttpResponsedMessage {
         if (i == 1021146 && jSONObject != null && getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("guard_club_info");
             if (optJSONObject2 != null) {
-                this.dOc = new c();
-                this.dOc.parseJson(optJSONObject2);
+                this.eCj = new c();
+                this.eCj.parseJson(optJSONObject2);
             }
             this.pageIndex = optJSONObject.optInt(Config.PACKAGE_NAME);
             this.hasMore = optJSONObject.optInt("has_more") == 1;
-            this.dNt = optJSONObject.optInt("is_anchor") == 1;
+            this.eBB = optJSONObject.optInt("is_anchor") == 1;
             JSONArray optJSONArray = optJSONObject.optJSONArray("club_rank_list");
             if (optJSONArray != null) {
-                this.dOb = new ArrayList();
+                this.eCi = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    p bL = new p().bL(optJSONArray.optJSONObject(i2));
-                    if (bL != null) {
-                        this.dOb.add(bL);
+                    p cw = new p().cw(optJSONArray.optJSONObject(i2));
+                    if (cw != null) {
+                        this.eCi.add(cw);
                     }
                 }
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("login_member_info");
             if (optJSONObject3 != null) {
-                this.dNv = new k();
-                this.dNv.parseJson(optJSONObject3);
+                this.eBD = new k();
+                this.eBD.parseJson(optJSONObject3);
             }
         }
     }

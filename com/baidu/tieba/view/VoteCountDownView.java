@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class VoteCountDownView extends LinearLayout {
-    private a eJh;
-    private View jKt;
-    private View jKu;
-    private TextView jKv;
-    private TextView jKw;
+    private a fBe;
+    private View kET;
+    private View kEU;
+    private TextView kEV;
+    private TextView kEW;
+    private CountDownTimer kEX;
     private Context mContext;
-    private CountDownTimer timer;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -42,12 +42,12 @@ public class VoteCountDownView extends LinearLayout {
         setClipChildren(false);
         setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.vote_count_down_view, (ViewGroup) this, true);
-        md();
+        na();
     }
 
-    private void eb(long j) {
-        if (this.timer == null) {
-            this.timer = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.VoteCountDownView.1
+    private void cw(long j) {
+        if (this.kEX == null) {
+            this.kEX = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.VoteCountDownView.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j2) {
                     long j3 = j2 + 60000;
@@ -57,53 +57,53 @@ public class VoteCountDownView extends LinearLayout {
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     VoteCountDownView.this.setContent(0L, 0L);
-                    VoteCountDownView.this.cwT();
+                    VoteCountDownView.this.aZa();
                 }
             };
-            this.timer.start();
+            this.kEX.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cwT() {
-        if (this.eJh != null) {
-            this.eJh.onFinished();
+    public void aZa() {
+        if (this.fBe != null) {
+            this.fBe.onFinished();
         }
     }
 
-    private void md() {
-        this.jKt = findViewById(R.id.hour_num_container);
-        this.jKu = findViewById(R.id.minute_num_container);
-        this.jKv = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.jKw = (TextView) findViewById(R.id.minute_num_count_down_view);
+    private void na() {
+        this.kET = findViewById(R.id.hour_num_container);
+        this.kEU = findViewById(R.id.minute_num_container);
+        this.kEV = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.kEW = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public void setContent(long j, long j2) {
-        this.jKw.setText(String.valueOf(j2));
-        this.jKv.setText(String.valueOf(j));
+        this.kEW.setText(String.valueOf(j2));
+        this.kEV.setText(String.valueOf(j));
     }
 
-    public void mD(int i) {
-        am.setBackgroundResource(this.jKt, R.drawable.bg_gradient_round, i);
-        am.setBackgroundResource(this.jKu, R.drawable.bg_gradient_round, i);
-        am.setViewTextColor(this.jKv, R.color.cp_cont_a, 1, i);
-        am.setViewTextColor(this.jKv, R.color.cp_cont_a, 1, i);
+    public void oT(int i) {
+        am.setBackgroundResource(this.kET, R.drawable.bg_gradient_round, i);
+        am.setBackgroundResource(this.kEU, R.drawable.bg_gradient_round, i);
+        am.setViewTextColor(this.kEV, R.color.cp_cont_a, 1, i);
+        am.setViewTextColor(this.kEV, R.color.cp_cont_a, 1, i);
     }
 
     public void setData(long j) {
         long j2 = j + 60000;
         setContent(j2 / BdKVCache.MILLS_1Hour, (j2 % BdKVCache.MILLS_1Hour) / 60000);
-        eb(j);
+        cw(j);
     }
 
     public void setOnCountDownFinished(a aVar) {
-        this.eJh = aVar;
+        this.fBe = aVar;
     }
 
     public void onDestroy() {
-        if (this.timer != null) {
-            this.timer.cancel();
-            this.timer = null;
+        if (this.kEX != null) {
+            this.kEX.cancel();
+            this.kEX = null;
         }
     }
 }

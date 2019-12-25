@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.model.friendAndStrangerSwitch;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class FriendAndStrangerSwitchResMsg extends JsonHttpResponsedMessage {
     public FriendAndStrangerSwitchResMsg() {
         super(1003318);

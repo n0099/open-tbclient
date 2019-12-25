@@ -8,9 +8,9 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d {
-    public static boolean c(File file, String str) {
+    public static boolean e(File file, String str) {
         return a(file, str, true);
     }
 
@@ -32,23 +32,23 @@ public class d {
         try {
             fileOutputStream.write(str.getBytes());
             fileOutputStream.flush();
-            com.baidu.adp.lib.g.a.close((OutputStream) fileOutputStream);
+            com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
             return true;
         } catch (Exception e2) {
             e = e2;
             fileOutputStream2 = fileOutputStream;
             e.printStackTrace();
-            com.baidu.adp.lib.g.a.close((OutputStream) fileOutputStream2);
+            com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream2);
             return false;
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream2 = fileOutputStream;
-            com.baidu.adp.lib.g.a.close((OutputStream) fileOutputStream2);
+            com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream2);
             throw th;
         }
     }
 
-    public static void zL(String str) {
+    public static void Et(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -57,7 +57,7 @@ public class d {
         }
     }
 
-    public static String x(File file) {
+    public static String K(File file) {
         FileInputStream fileInputStream;
         StringBuilder sb = new StringBuilder();
         try {
@@ -72,16 +72,16 @@ public class d {
                         }
                         sb.append(new String(bArr, 0, read));
                     }
-                    com.baidu.adp.lib.g.a.close((InputStream) fileInputStream);
+                    com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
                 } catch (Exception e) {
                     e = e;
                     e.printStackTrace();
-                    com.baidu.adp.lib.g.a.close((InputStream) fileInputStream);
+                    com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
                     return sb.toString();
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.g.a.close((InputStream) fileInputStream);
+                com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
                 throw th;
             }
         } catch (Exception e2) {
@@ -90,27 +90,27 @@ public class d {
         } catch (Throwable th2) {
             th = th2;
             fileInputStream = null;
-            com.baidu.adp.lib.g.a.close((InputStream) fileInputStream);
+            com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
             throw th;
         }
         return sb.toString();
     }
 
-    public static JSONArray zM(String str) {
+    public static JSONArray Eu(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
         }
         File file = new File(str);
         if (file.exists()) {
-            String x = x(file);
-            String[] split = x.split("\n");
+            String K = K(file);
+            String[] split = K.split("\n");
             if (split.length > 0) {
                 for (String str2 : split) {
                     b(str2, jSONArray);
                 }
             } else {
-                b(x, jSONArray);
+                b(K, jSONArray);
             }
             com.baidu.tbadk.core.util.m.deleteFile(file);
             return jSONArray;
@@ -131,9 +131,9 @@ public class d {
         }
     }
 
-    public static void zN(String str) {
+    public static void Ev(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.hwk + g.a.hwb + str));
+            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.ikm + g.a.ikd + str));
         }
     }
 }

@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import com.baidu.mobstat.ActivityLifeObserver;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AutoTrack {
     public static final int JOB_TYPE_BGSEND = 2;
     public static final int JOB_TYPE_SESSIONTIME = 1;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class MyActivityLifeCallback implements ActivityLifeObserver.IActivityLifeCallback {
         private int a;
 

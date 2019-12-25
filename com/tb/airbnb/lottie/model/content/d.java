@@ -8,58 +8,58 @@ import com.tb.airbnb.lottie.model.a.d;
 import com.tb.airbnb.lottie.model.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class d implements b {
-    private final Path.FillType gw;
-    private final com.tb.airbnb.lottie.model.a.d kto;
-    private final GradientType ktt;
-    private final com.tb.airbnb.lottie.model.a.c ktu;
-    private final com.tb.airbnb.lottie.model.a.f ktv;
-    private final com.tb.airbnb.lottie.model.a.f ktw;
+    private final Path.FillType hW;
+    private final com.tb.airbnb.lottie.model.a.d mOg;
+    private final GradientType mOm;
+    private final com.tb.airbnb.lottie.model.a.c mOn;
+    private final com.tb.airbnb.lottie.model.a.f mOo;
+    private final com.tb.airbnb.lottie.model.a.f mOp;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b ktx;
+    private final com.tb.airbnb.lottie.model.a.b mOq;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b kty;
+    private final com.tb.airbnb.lottie.model.a.b mOr;
     private final String name;
 
     private d(String str, GradientType gradientType, Path.FillType fillType, com.tb.airbnb.lottie.model.a.c cVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.f fVar, com.tb.airbnb.lottie.model.a.f fVar2, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2) {
-        this.ktt = gradientType;
-        this.gw = fillType;
-        this.ktu = cVar;
-        this.kto = dVar;
-        this.ktv = fVar;
-        this.ktw = fVar2;
+        this.mOm = gradientType;
+        this.hW = fillType;
+        this.mOn = cVar;
+        this.mOg = dVar;
+        this.mOo = fVar;
+        this.mOp = fVar2;
         this.name = str;
-        this.ktx = bVar;
-        this.kty = bVar2;
+        this.mOq = bVar;
+        this.mOr = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType cLE() {
-        return this.ktt;
+    public GradientType dBN() {
+        return this.mOm;
     }
 
-    public Path.FillType cx() {
-        return this.gw;
+    public Path.FillType cz() {
+        return this.hW;
     }
 
-    public com.tb.airbnb.lottie.model.a.c cLF() {
-        return this.ktu;
+    public com.tb.airbnb.lottie.model.a.c dBO() {
+        return this.mOn;
     }
 
-    public com.tb.airbnb.lottie.model.a.d cLx() {
-        return this.kto;
+    public com.tb.airbnb.lottie.model.a.d dBF() {
+        return this.mOg;
     }
 
-    public com.tb.airbnb.lottie.model.a.f cLG() {
-        return this.ktv;
+    public com.tb.airbnb.lottie.model.a.f dBP() {
+        return this.mOo;
     }
 
-    public com.tb.airbnb.lottie.model.a.f cLH() {
-        return this.ktw;
+    public com.tb.airbnb.lottie.model.a.f dBQ() {
+        return this.mOp;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -68,7 +68,7 @@ public class d implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static d p(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {

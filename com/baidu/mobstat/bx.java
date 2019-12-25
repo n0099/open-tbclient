@@ -3,12 +3,13 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.common.util.CommonParam;
+import com.baidu.android.util.time.DateTimeUtil;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class bx {
     public static String a(Context context) {
         String str = "";
@@ -31,7 +32,7 @@ public final class bx {
 
     public static String a(long j) {
         Date date = new Date(j);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DateTimeUtil.DAY_FORMAT);
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08:00"));
         return simpleDateFormat.format(date);
     }

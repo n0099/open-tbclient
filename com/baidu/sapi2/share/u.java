@@ -11,7 +11,7 @@ import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.UUID;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class u extends GetUserInfoCallback {
     final /* synthetic */ ShareStorage.a a;
     final /* synthetic */ Context b;

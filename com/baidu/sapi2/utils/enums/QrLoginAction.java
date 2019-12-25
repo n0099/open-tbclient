@@ -1,11 +1,12 @@
 package com.baidu.sapi2.utils.enums;
 
 import com.baidu.live.tbadk.log.LogConfig;
-/* loaded from: classes2.dex */
+import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
+/* loaded from: classes4.dex */
 public enum QrLoginAction {
     NOTICE(LogConfig.KEY_NOTICE),
     LOGIN("login"),
-    CANCEL("cancel");
+    CANCEL(UgcUBCUtils.UGC_TIME_CANCEL);
     
     private String b;
 

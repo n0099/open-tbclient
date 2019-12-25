@@ -6,15 +6,14 @@ import android.support.annotation.Keep;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
-import com.baidu.swan.apps.an.ac;
-import com.baidu.swan.apps.an.o;
+import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.as.s;
 import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.u.b.u;
-import com.baidu.swan.ubc.s;
+import com.baidu.swan.apps.w.b.k;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class SwanAppUtilsJavaScriptInterface {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_utils";
@@ -72,7 +71,7 @@ public class SwanAppUtilsJavaScriptInterface {
 
     protected void loadJavaScript(final String str) {
         if (this.mWebView != null) {
-            ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.1
+            ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.1
                 @Override // java.lang.Runnable
                 public void run() {
                     String str2 = str;
@@ -92,21 +91,21 @@ public class SwanAppUtilsJavaScriptInterface {
         if (DEBUG) {
             Log.i(TAG, "callShare");
         }
-        JSONObject dP = o.dP(str2);
+        JSONObject parseString = s.parseString(str2);
         try {
-            dP.put(KEY_SHARE_SNAPSHOT, z);
-            dP.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
+            parseString.put(KEY_SHARE_SNAPSHOT, z);
+            parseString.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.u.a.Jk().a(context, dP, new u.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
-            @Override // com.baidu.swan.apps.u.b.u.a
-            public void Ki() {
+        com.baidu.swan.apps.w.a.Rl().a(context, parseString, new k.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+            @Override // com.baidu.swan.apps.w.b.k.a
+            public void Sx() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));
             }
 
-            @Override // com.baidu.swan.apps.u.b.u.a
-            public void Kj() {
+            @Override // com.baidu.swan.apps.w.b.k.a
+            public void Sy() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str4, String.valueOf(false));
             }
         });
@@ -133,8 +132,8 @@ public class SwanAppUtilsJavaScriptInterface {
                     if (l.longValue() >= UBC_MIN_VERSION) {
                         String optString2 = jSONObject.optString("actionId");
                         String optString3 = jSONObject.optString("value");
-                        if (s.adf() != null) {
-                            s.adf().c(optString2, optString3, 0);
+                        if (com.baidu.swan.ubc.s.atk() != null) {
+                            com.baidu.swan.ubc.s.atk().c(optString2, optString3, 0);
                         }
                     }
                 } catch (NumberFormatException e) {

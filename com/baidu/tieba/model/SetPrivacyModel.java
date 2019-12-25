@@ -8,17 +8,17 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SetPrivacyModel extends BdBaseModel {
     public static final BdUniqueId UNIQUE_ID_SET_PRIVACY_TASK = BdUniqueId.gen();
-    private static final String hvT = TbConfig.SERVER_ADDRESS + TbConfig.URL_SET_PRIVACY;
-    private x bUY;
-    private CardPersonDynamicThreadData hvU;
-    private b hvV;
-    private a hvW;
+    private static final String ijV = TbConfig.SERVER_ADDRESS + TbConfig.URL_SET_PRIVACY;
+    private x cHo;
+    private CardPersonDynamicThreadData ijW;
+    private b ijX;
+    private a ijY;
     private boolean isRunning;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void onError(String str);
 
@@ -27,11 +27,11 @@ public class SetPrivacyModel extends BdBaseModel {
 
     public SetPrivacyModel(e eVar, CardPersonDynamicThreadData cardPersonDynamicThreadData) {
         super(eVar);
-        this.hvU = cardPersonDynamicThreadData;
+        this.ijW = cardPersonDynamicThreadData;
     }
 
     public void a(a aVar) {
-        this.hvW = aVar;
+        this.ijY = aVar;
     }
 
     public boolean isRunning() {
@@ -40,25 +40,25 @@ public class SetPrivacyModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.hvV != null) {
+        if (this.ijX != null) {
             return false;
         }
-        this.hvV = new b();
-        this.hvV.setTag(UNIQUE_ID_SET_PRIVACY_TASK);
-        this.hvV.execute(this.hvU);
+        this.ijX = new b();
+        this.ijX.setTag(UNIQUE_ID_SET_PRIVACY_TASK);
+        this.ijX.execute(this.ijW);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.hvV != null) {
-            this.hvV.cancel();
+        if (this.ijX != null) {
+            this.ijX.cancel();
             return true;
         }
         return false;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     private class b extends BdAsyncTask<CardPersonDynamicThreadData, Integer, Integer> {
         public b() {
             setPriority(3);
@@ -82,15 +82,15 @@ public class SetPrivacyModel extends BdBaseModel {
             CardPersonDynamicThreadData cardPersonDynamicThreadData = cardPersonDynamicThreadDataArr[0];
             if (TbadkCoreApplication.getCurrentAccount() != null) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                SetPrivacyModel.this.bUY = new x(SetPrivacyModel.hvT);
-                SetPrivacyModel.this.bUY.amp().amP().mIsNeedTbs = true;
-                SetPrivacyModel.this.bUY.addPostData("user_id", currentAccount);
-                SetPrivacyModel.this.bUY.addPostData("forum_id", cardPersonDynamicThreadData.forumId);
-                SetPrivacyModel.this.bUY.addPostData("thread_id", cardPersonDynamicThreadData.threadId);
-                SetPrivacyModel.this.bUY.addPostData("post_id", cardPersonDynamicThreadData.postId);
-                SetPrivacyModel.this.bUY.addPostData("is_hide", String.valueOf(cardPersonDynamicThreadData.isPrivacy ? 0 : 1));
-                SetPrivacyModel.this.bUY.postNetData();
-                return Integer.valueOf(SetPrivacyModel.this.bUY.amp().amQ().isRequestSuccess() ? 1 : 0);
+                SetPrivacyModel.this.cHo = new x(SetPrivacyModel.ijV);
+                SetPrivacyModel.this.cHo.aDB().aEb().mIsNeedTbs = true;
+                SetPrivacyModel.this.cHo.addPostData("user_id", currentAccount);
+                SetPrivacyModel.this.cHo.addPostData("forum_id", cardPersonDynamicThreadData.forumId);
+                SetPrivacyModel.this.cHo.addPostData("thread_id", cardPersonDynamicThreadData.threadId);
+                SetPrivacyModel.this.cHo.addPostData("post_id", cardPersonDynamicThreadData.postId);
+                SetPrivacyModel.this.cHo.addPostData("is_hide", String.valueOf(cardPersonDynamicThreadData.isPrivacy ? 0 : 1));
+                SetPrivacyModel.this.cHo.postNetData();
+                return Integer.valueOf(SetPrivacyModel.this.cHo.aDB().aEc().isRequestSuccess() ? 1 : 0);
             }
             return null;
         }
@@ -98,11 +98,11 @@ public class SetPrivacyModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            if (SetPrivacyModel.this.bUY != null) {
-                SetPrivacyModel.this.bUY.cancelNetConnect();
+            if (SetPrivacyModel.this.cHo != null) {
+                SetPrivacyModel.this.cHo.cancelNetConnect();
             }
             SetPrivacyModel.this.isRunning = false;
-            SetPrivacyModel.this.hvV = null;
+            SetPrivacyModel.this.ijX = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -111,12 +111,12 @@ public class SetPrivacyModel extends BdBaseModel {
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
             SetPrivacyModel.this.isRunning = false;
-            SetPrivacyModel.this.hvV = null;
-            if (SetPrivacyModel.this.hvW != null && SetPrivacyModel.this.bUY != null) {
+            SetPrivacyModel.this.ijX = null;
+            if (SetPrivacyModel.this.ijY != null && SetPrivacyModel.this.cHo != null) {
                 if (num.intValue() == 1) {
-                    SetPrivacyModel.this.hvW.onSuccess();
+                    SetPrivacyModel.this.ijY.onSuccess();
                 } else if (num.intValue() == 0) {
-                    SetPrivacyModel.this.hvW.onError(SetPrivacyModel.this.bUY.getErrorString());
+                    SetPrivacyModel.this.ijY.onError(SetPrivacyModel.this.cHo.getErrorString());
                 }
             }
         }

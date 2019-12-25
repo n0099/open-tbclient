@@ -4,7 +4,7 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import android.support.annotation.FloatRange;
 import com.tb.airbnb.lottie.model.content.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static PointF b(PointF pointF, PointF pointF2) {
         return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
@@ -12,25 +12,25 @@ public class e {
 
     public static void a(h hVar, Path path) {
         path.reset();
-        PointF cT = hVar.cT();
-        path.moveTo(cT.x, cT.y);
-        PointF pointF = new PointF(cT.x, cT.y);
+        PointF cW = hVar.cW();
+        path.moveTo(cW.x, cW.y);
+        PointF pointF = new PointF(cW.x, cW.y);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= hVar.cU().size()) {
+            if (i2 >= hVar.cX().size()) {
                 break;
             }
-            com.tb.airbnb.lottie.model.c cVar = hVar.cU().get(i2);
-            PointF bS = cVar.bS();
-            PointF bT = cVar.bT();
-            PointF bU = cVar.bU();
-            if (bS.equals(pointF) && bT.equals(bU)) {
-                path.lineTo(bU.x, bU.y);
+            com.tb.airbnb.lottie.model.c cVar = hVar.cX().get(i2);
+            PointF cd = cVar.cd();
+            PointF ce = cVar.ce();
+            PointF cf = cVar.cf();
+            if (cd.equals(pointF) && ce.equals(cf)) {
+                path.lineTo(cf.x, cf.y);
             } else {
-                path.cubicTo(bS.x, bS.y, bT.x, bT.y, bU.x, bU.y);
+                path.cubicTo(cd.x, cd.y, ce.x, ce.y, cf.x, cf.y);
             }
-            pointF.set(bU.x, bU.y);
+            pointF.set(cf.x, cf.y);
             i = i2 + 1;
         }
         if (hVar.isClosed()) {
@@ -50,15 +50,15 @@ public class e {
         return (int) (i + ((i2 - i) * f));
     }
 
-    public static int k(float f, float f2) {
-        return d((int) f, (int) f2);
+    public static int j(float f, float f2) {
+        return f((int) f, (int) f2);
     }
 
-    public static int d(int i, int i2) {
-        return i - (e(i, i2) * i2);
+    public static int f(int i, int i2) {
+        return i - (g(i, i2) * i2);
     }
 
-    private static int e(int i, int i2) {
+    private static int g(int i, int i2) {
         int i3 = i / i2;
         if ((i ^ i2) < 0 && i3 * i2 != i) {
             return i3 - 1;

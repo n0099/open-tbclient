@@ -12,17 +12,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements View.OnClickListener {
-    private b dgs;
-    private AccountSafeModel dgt;
+    private b dUe;
+    private AccountSafeModel dUf;
     private final BaseActivity mActivity;
     private com.baidu.adp.framework.listener.a mNetMessagelistener = new com.baidu.adp.framework.listener.a(1002501, CmdConfigSocket.CMD_GET_PRIVATE_INFO) { // from class: com.baidu.tieba.account.safeManage.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (a.this.dgt != null) {
-                a.this.dgt.setLoading(false);
+            if (a.this.dUf != null) {
+                a.this.dUf.setLoading(false);
             }
             a.this.mActivity.closeLoadingDialog();
             if (responsedMessage != null) {
@@ -42,11 +42,11 @@ public class a implements View.OnClickListener {
                 if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                     aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
-                if (a.this.dgt != null) {
-                    a.this.dgt.a(aVar);
+                if (a.this.dUf != null) {
+                    a.this.dUf.a(aVar);
                 }
-                if (a.this.dgs != null && a.this.dgt != null && a.this.dgt.aDp() != null) {
-                    a.this.dgs.a(a.this.dgt.aDp().aDu());
+                if (a.this.dUe != null && a.this.dUf != null && a.this.dUf.aVi() != null) {
+                    a.this.dUe.a(a.this.dUf.aVi().aVn());
                 }
             }
         }
@@ -55,38 +55,38 @@ public class a implements View.OnClickListener {
     public a(BaseActivity baseActivity) {
         this.mActivity = baseActivity;
         this.mActivity.registerListener(this.mNetMessagelistener);
-        this.dgs = new b(this.mActivity, this);
-        this.dgt = new AccountSafeModel(this.mActivity);
+        this.dUe = new b(this.mActivity, this);
+        this.dUf = new AccountSafeModel(this.mActivity);
         if (j.isNetWorkAvailable()) {
-            aDv();
+            aVo();
         } else {
             this.mActivity.showToast(R.string.neterror);
         }
     }
 
     public View getRootView() {
-        return this.dgs.getView();
+        return this.dUe.getView();
     }
 
-    private void aDv() {
-        if (this.dgt != null && !this.dgt.isLoading()) {
-            this.dgt.aDs();
+    private void aVo() {
+        if (this.dUf != null && !this.dUf.isLoading()) {
+            this.dUf.aVl();
         }
     }
 
     public void onDestroy() {
         this.mActivity.closeLoadingDialog();
-        if (this.dgt != null) {
-            this.dgt.cancelLoadData();
+        if (this.dUf != null) {
+            this.dUf.cancelLoadData();
         }
-        if (this.dgs != null) {
-            this.dgs.release();
+        if (this.dUe != null) {
+            this.dUe.release();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dgs != null) {
-            this.dgs.jz(i);
+        if (this.dUe != null) {
+            this.dUe.lM(i);
         }
     }
 
@@ -97,10 +97,10 @@ public class a implements View.OnClickListener {
             if (!j.isNetWorkAvailable()) {
                 this.mActivity.showToast(R.string.neterror);
             } else {
-                ba.amO().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                ba.aEa().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == R.id.account_status) {
-            AntiHelper.aT(this.mActivity, this.dgt != null ? this.dgt.aDq() : "");
+            AntiHelper.bk(this.mActivity, this.dUf != null ? this.dUf.aVj() : "");
         }
     }
 }

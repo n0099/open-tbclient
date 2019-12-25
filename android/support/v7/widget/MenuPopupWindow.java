@@ -2,6 +2,7 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
@@ -20,7 +21,7 @@ import android.widget.ListAdapter;
 import android.widget.PopupWindow;
 import java.lang.reflect.Method;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverListener {
     private static final String TAG = "MenuPopupWindow";
     private static Method sSetTouchModalMethod;
@@ -86,7 +87,7 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class MenuDropDownListView extends DropDownListView {
         final int mAdvanceKey;
         private MenuItemHoverListener mHoverListener;
@@ -114,8 +115,28 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
         }
 
         @Override // android.support.v7.widget.DropDownListView
+        public /* bridge */ /* synthetic */ int lookForSelectablePosition(int i, boolean z) {
+            return super.lookForSelectablePosition(i, z);
+        }
+
+        @Override // android.support.v7.widget.DropDownListView
+        public /* bridge */ /* synthetic */ int measureHeightOfChildrenCompat(int i, int i2, int i3, int i4, int i5) {
+            return super.measureHeightOfChildrenCompat(i, i2, i3, i4, i5);
+        }
+
+        @Override // android.support.v7.widget.DropDownListView
         public /* bridge */ /* synthetic */ boolean onForwardedEvent(MotionEvent motionEvent, int i) {
             return super.onForwardedEvent(motionEvent, i);
+        }
+
+        @Override // android.support.v7.widget.DropDownListView, android.widget.AbsListView, android.view.View
+        public /* bridge */ /* synthetic */ boolean onTouchEvent(MotionEvent motionEvent) {
+            return super.onTouchEvent(motionEvent);
+        }
+
+        @Override // android.support.v7.widget.DropDownListView, android.widget.AbsListView
+        public /* bridge */ /* synthetic */ void setSelector(Drawable drawable) {
+            super.setSelector(drawable);
         }
 
         public MenuDropDownListView(Context context, boolean z) {
@@ -155,7 +176,7 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
             }
         }
 
-        @Override // android.view.View
+        @Override // android.support.v7.widget.DropDownListView, android.view.View
         public boolean onHoverEvent(MotionEvent motionEvent) {
             int i;
             MenuAdapter menuAdapter;

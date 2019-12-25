@@ -11,6 +11,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class GroupInfoData extends AbstractImageProvider implements m, ae, Serializable {
     public static final BdUniqueId TYPE_FRS_GROUP = BdUniqueId.gen();
+    private static final int TYPE_USER_MEIZHI_TRUE = 1;
     private static final long serialVersionUID = 5616188082014345808L;
     private long authorId;
     private int authorIsMeizhi;

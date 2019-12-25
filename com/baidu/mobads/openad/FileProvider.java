@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FileProvider extends ContentProvider {
     private static final String[] a = {"_display_name", "_size"};
     private static final File b = new File("/");
@@ -26,7 +26,7 @@ public class FileProvider extends ContentProvider {
     private a d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         Uri a(File file);
 
@@ -197,7 +197,7 @@ public class FileProvider extends ContentProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b implements a {
         private final String a;
         private final HashMap<String, File> b = new HashMap<>();

@@ -7,7 +7,7 @@ import android.text.method.TransformationMethod;
 import android.view.View;
 import java.util.Locale;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AllCapsTransformationMethod implements TransformationMethod {
     private Locale mLocale;
 

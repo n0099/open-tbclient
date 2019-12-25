@@ -43,7 +43,7 @@ public class b {
         if (str.equals("") || str.equals("bd09ll")) {
             return new LatLng(f, f2);
         }
-        if (str.equals("bd09ll") || str.equals(CoordinateType.BD09MC) || str.equals(CoordinateType.GCJ02) || str.equals(CoordinateType.WGS84)) {
+        if (str.equals("bd09ll") || str.equals(CoordinateType.BD09MC) || str.equals("gcj02") || str.equals(CoordinateType.WGS84)) {
             Bundle bundle = new Bundle();
             JNITools.CoordinateEncryptEx(f, f2, str, bundle);
             if (bundle.isEmpty()) {

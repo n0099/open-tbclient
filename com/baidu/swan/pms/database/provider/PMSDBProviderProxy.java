@@ -11,21 +11,21 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import com.baidu.swan.pms.e;
+import com.baidu.swan.pms.d;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class PMSDBProviderProxy extends ContentProvider {
-    private volatile b bKX;
+    private volatile b cwN;
 
-    public b abc() {
-        if (this.bKX == null) {
+    public b aqU() {
+        if (this.cwN == null) {
             synchronized (b.class) {
-                if (this.bKX == null) {
-                    this.bKX = new b(getContext());
+                if (this.cwN == null) {
+                    this.cwN = new b(getContext());
                 }
             }
         }
-        return this.bKX;
+        return this.cwN;
     }
 
     @Override // android.content.ContentProvider
@@ -36,40 +36,39 @@ public class PMSDBProviderProxy extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return abc().getType(uri);
+        return aqU().getType(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return abc().query(uri, strArr, str, strArr2, str2);
+        return aqU().query(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return abc().insert(uri, contentValues);
+        return aqU().insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return abc().delete(uri, str, strArr);
+        return aqU().delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return abc().update(uri, contentValues, str, strArr);
+        return aqU().update(uri, contentValues, str, strArr);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, SGET]}, finally: {[INVOKE, SGET, CONST_STR, CONST_STR, INVOKE, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [105=4, 106=4, 107=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [104=4, 105=4, 106=4] */
     @Override // android.content.ContentProvider
-    @NonNull
     public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
-        SQLiteDatabase writableDatabase = abc().Ho().getWritableDatabase();
+        SQLiteDatabase writableDatabase = aqU().Om().getWritableDatabase();
         try {
             try {
-                if (e.DEBUG) {
+                if (d.DEBUG) {
                     Log.e("PMSDBProviderProxy", "applyBatch beginTransaction");
                 }
                 writableDatabase.beginTransaction();
@@ -77,7 +76,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                 for (ContentProviderResult contentProviderResult : applyBatch) {
                     if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
                         writableDatabase.endTransaction();
-                        if (e.DEBUG) {
+                        if (d.DEBUG) {
                             Log.e("PMSDBProviderProxy", "applyBatch endTransaction");
                             return applyBatch;
                         }
@@ -86,24 +85,24 @@ public class PMSDBProviderProxy extends ContentProvider {
                 }
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-                if (e.DEBUG) {
+                if (d.DEBUG) {
                     Log.e("PMSDBProviderProxy", "applyBatch endTransaction");
                     return applyBatch;
                 }
                 return applyBatch;
             } catch (Exception e) {
-                if (e.DEBUG) {
+                if (d.DEBUG) {
                     Log.e("PMSDBProviderProxy", "applyBatch Exception:" + e.getMessage());
                 }
                 writableDatabase.endTransaction();
-                if (e.DEBUG) {
+                if (d.DEBUG) {
                     Log.e("PMSDBProviderProxy", "applyBatch endTransaction");
                 }
                 return null;
             }
         } catch (Throwable th) {
             writableDatabase.endTransaction();
-            if (e.DEBUG) {
+            if (d.DEBUG) {
                 Log.e("PMSDBProviderProxy", "applyBatch endTransaction");
             }
             throw th;

@@ -13,7 +13,7 @@ import com.sdk.base.module.manager.SDKManager;
 import com.sdk.mobile.manager.login.cucc.UiOauthManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class b {
     private static final int a = 15;
     private static final String b = "login";

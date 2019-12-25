@@ -140,12 +140,12 @@ public class PluginSettings implements Serializable, Cloneable {
         }
         ArrayList arrayList = new ArrayList();
         for (Map.Entry<String, PluginSetting> entry : this.mPlugins.entrySet()) {
-            a(entry.getValue(), arrayList);
+            insertPluginSettings(entry.getValue(), arrayList);
         }
         return arrayList;
     }
 
-    private void a(PluginSetting pluginSetting, List<PluginSetting> list) {
+    private void insertPluginSettings(PluginSetting pluginSetting, List<PluginSetting> list) {
         int i = 0;
         while (true) {
             int i2 = i;

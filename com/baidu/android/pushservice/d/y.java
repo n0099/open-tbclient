@@ -8,22 +8,22 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.d.a;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.mobstat.Config;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class y implements Runnable {
     private Context a;
     private int b = 3;
     private int c;
     private boolean d;
-    private a.C0036a e;
+    private a.C0041a e;
 
-    public y(Context context, a.C0036a c0036a) {
+    public y(Context context, a.C0041a c0041a) {
         this.a = context.getApplicationContext();
-        this.e = c0036a;
+        this.e = c0041a;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.io.Closeable[] */
@@ -44,7 +44,7 @@ public class y implements Runnable {
                     if (b == 200) {
                         JSONObject jSONObject = new JSONObject(com.baidu.android.pushservice.g.a.b.a(inputStream)).getJSONObject("response_params");
                         if (jSONObject != null) {
-                            String string = jSONObject.getString("channel_id");
+                            String string = jSONObject.getString(SharedPrefConfig.CHANNEL_ID);
                             String string2 = com.baidu.android.pushservice.g.f() ? jSONObject.getString("rsa_channel_token") : jSONObject.getString("channel_token");
                             jSONObject.getString("expires_time");
                             if (com.baidu.android.pushservice.b.d.b(this.a)) {
@@ -148,7 +148,7 @@ public class y implements Runnable {
             str2 = str2.substring(0, 127);
         }
         jSONObject.put("manufacturer", str2);
-        hashMap.put(Config.LAUNCH_INFO, jSONObject.toString());
+        hashMap.put("info", jSONObject.toString());
         return hashMap;
     }
 

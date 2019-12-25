@@ -6,9 +6,10 @@ import android.opengl.Matrix;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.baidu.ala.liveRecorder.AlaLiveRecorderConfig;
+import com.baidu.ala.recorder.AlaLiveRecorderConfig;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -16,29 +17,13 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FileReader;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveUtilHelper {
     private static final String ALA_PLUGIN_NAME = "com.baidu.tieba.pluginAla";
     public static final int ALIVE_SDK_PLATFORM = 4;
-    public static final int CONVERT_TYPE_BGRA_YUV420P = 82448;
-    public static final int CONVERT_TYPE_BGRA_YUV420SP = 16912;
-    public static final int CONVERT_TYPE_BGR_YUV420P = 78352;
-    public static final int CONVERT_TYPE_BGR_YUV420SP = 12816;
-    public static final int CONVERT_TYPE_RGBA_YUV420P = 81938;
-    public static final int CONVERT_TYPE_RGBA_YUV420SP = 16402;
-    public static final int CONVERT_TYPE_RGB_YUV420P = 77842;
-    public static final int CONVERT_TYPE_RGB_YUV420SP = 12306;
     public static final int HK_SDK_PLATFORM = 2;
     public static final int QM_SDK_PLATFORM = 3;
     public static final int TB_SDK_PLATFORM = 1;
-
-    public static native String GetNativeLibraryBuildDate();
-
-    public static native String GetNativeLibraryVersion();
-
-    public static native void RGBAConvertToYUV(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
-
-    public static native void SetNativeLibraryLog(int i);
 
     public static boolean loadPluginLibrary(String str) {
         boolean z;
@@ -140,7 +125,7 @@ public class AlaLiveUtilHelper {
                 th.printStackTrace();
             }
         }
-        return (float) (j / 1000000);
+        return (float) (j / TimeUtils.NANOS_PER_MS);
     }
 
     public static float getRamSize() {
@@ -178,7 +163,7 @@ public class AlaLiveUtilHelper {
         return ((float) j) / 1.0737418E9f;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     static class CpuFilter implements FileFilter {
         CpuFilter() {
         }

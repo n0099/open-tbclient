@@ -4,18 +4,17 @@ import android.content.Context;
 import android.graphics.Point;
 import android.hardware.Camera;
 import android.view.WindowManager;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class b {
-    private static final Pattern iDY = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
-    private Point iDZ;
-    private Point iEa;
-    private Point iEb;
+    private static final Pattern jys = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    private Point jyt;
+    private Point jyu;
+    private Point jyv;
     private final Context mContext;
 
     public b(Context context) {
@@ -27,20 +26,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.iDZ = a.dU(this.mContext);
+        this.jyt = a.fm(this.mContext);
         Point point = new Point();
-        point.x = this.iDZ.x;
-        point.y = this.iDZ.y;
-        int dT = a.dT(this.mContext);
-        if (dT == 0) {
-            point.x = this.iDZ.y;
-            point.y = this.iDZ.x;
+        point.x = this.jyt.x;
+        point.y = this.jyt.y;
+        int fl = a.fl(this.mContext);
+        if (fl == 0) {
+            point.x = this.jyt.y;
+            point.y = this.jyt.x;
         }
-        this.iEb = a(parameters, point);
-        if (dT == 0) {
-            this.iEa = new Point(this.iEb.y, this.iEb.x);
+        this.jyv = a(parameters, point);
+        if (fl == 0) {
+            this.jyu = new Point(this.jyv.y, this.jyv.x);
         } else {
-            this.iEa = this.iEb;
+            this.jyu = this.jyv;
         }
     }
 
@@ -48,15 +47,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point ceR() {
-        return this.iEa;
+    public Point cyX() {
+        return this.jyu;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.iEb.x, this.iEb.y);
-        b(parameters);
-        camera.setDisplayOrientation(ceS());
+        parameters.setPreviewSize(this.jyv.x, this.jyv.y);
+        d(parameters);
+        camera.setDisplayOrientation(cyY());
         camera.setParameters(parameters);
     }
 
@@ -71,7 +70,7 @@ final class b {
         return null;
     }
 
-    public int ceS() {
+    public int cyY() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -83,10 +82,10 @@ final class b {
                 i = 90;
                 break;
             case 2:
-                i = SubsamplingScaleImageView.ORIENTATION_180;
+                i = 180;
                 break;
             case 3:
-                i = SubsamplingScaleImageView.ORIENTATION_270;
+                i = 270;
                 break;
             default:
                 i = 0;
@@ -147,7 +146,7 @@ final class b {
     }
 
     private static int a(CharSequence charSequence, int i) {
-        String[] split = iDY.split(charSequence);
+        String[] split = jys.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;
@@ -167,7 +166,7 @@ final class b {
         return i3;
     }
 
-    private void b(Camera.Parameters parameters) {
+    private void d(Camera.Parameters parameters) {
         String str = parameters.get("zoom-supported");
         if (str == null || Boolean.parseBoolean(str)) {
             int i = 27;

@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.img.effect.ImageActionManager;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AsyncLocalImageLoader {
     private Queue<HoldData> imagesWaitingForLoad = new ConcurrentLinkedQueue();
     private volatile LocalImageLoaderTask runningTask;
@@ -63,7 +63,7 @@ public class AsyncLocalImageLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class LocalImageLoaderTask extends BdAsyncTask<Void, HoldData, HoldData> {
         final Queue<HoldData> imagesWaitingForLoadRef;
 
@@ -203,7 +203,7 @@ public class AsyncLocalImageLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class HoldData {
         TbImageCallback callback;
         ImageFileInfo imageInfo;

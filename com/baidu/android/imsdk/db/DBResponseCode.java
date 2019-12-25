@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.db;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DBResponseCode {
     public static final int ERROR_CREATE_TABLE = -7009;
     public static final int ERROR_DB_OPEN = -70003;

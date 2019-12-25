@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PermissionsHelperActivity extends Activity {
     private static final int a = 8000;
     private static final int b = 8001;
@@ -18,7 +18,7 @@ public class PermissionsHelperActivity extends Activity {
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i == a) {
+        if (i == 8000) {
             if (PassPermissions.getInstance().a(PassPermissions.getInstance().getPermissionsDTO().permissions)) {
                 this.d.onSuccess();
                 finish();
@@ -72,7 +72,7 @@ public class PermissionsHelperActivity extends Activity {
                                 }
                                 Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
                                 intent.setData(Uri.fromParts("package", PermissionsHelperActivity.this.getPackageName(), null));
-                                PermissionsHelperActivity.this.startActivityForResult(intent, PermissionsHelperActivity.a);
+                                PermissionsHelperActivity.this.startActivityForResult(intent, 8000);
                             }
                         });
                         dialog.setCancel(false);

@@ -11,9 +11,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
-import org.apache.http.client.utils.URLEncodedUtils;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class HttpRequest {
     private static final String TAG = HttpRequest.class.getSimpleName();
 
@@ -67,7 +65,7 @@ public class HttpRequest {
         StringBuilder sb = new StringBuilder("");
         try {
             try {
-                String str3 = "data=" + URLEncoder.encode(str2, HTTP.UTF_8);
+                String str3 = "data=" + URLEncoder.encode(str2, "UTF-8");
                 HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL(str).openConnection();
                 try {
                     System.setProperty("sun.net.client.defaultConnectTimeout", WbAuthConstants.AUTH_FAILED_NOT_INSTALL_CODE);
@@ -77,7 +75,7 @@ public class HttpRequest {
                     httpURLConnection3.setRequestMethod("POST");
                     httpURLConnection3.setUseCaches(false);
                     httpURLConnection3.setInstanceFollowRedirects(true);
-                    httpURLConnection3.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
+                    httpURLConnection3.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                     httpURLConnection3.connect();
                     outputStream = httpURLConnection3.getOutputStream();
                     try {

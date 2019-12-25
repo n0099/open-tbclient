@@ -1,16 +1,16 @@
 package com.baidu.tieba.frs.loadmore;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LoadMoreRequestMessage extends NetMessage {
     private String forumName;
     private long forum_id;
@@ -76,11 +76,11 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.st_type = Integer.valueOf(this.st_type);
         builder.scr_h = Integer.valueOf(equipmentHeight);
         builder.scr_w = Integer.valueOf(equipmentWidth);
-        builder.q_type = Integer.valueOf(ar.amM().isFrsShowBigImage() ? 2 : 1);
+        builder.q_type = Integer.valueOf(ar.aDX().aDY() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
-        r.a(builder, true, false, true);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.cgB().cgE();
+        t.a(builder, true, false, true);
+        builder.app_pos = com.baidu.tieba.recapp.d.a.cAE().cAH();
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.refresh_count = Integer.valueOf(this.refreshCount);

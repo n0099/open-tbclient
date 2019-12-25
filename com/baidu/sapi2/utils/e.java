@@ -9,7 +9,6 @@ import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SmsService;
 import com.baidu.sapi2.callback.RequestSMSCallback;
-import com.coloros.mcssdk.mode.CommandMessage;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static final String a = "e";
     private static final String b = "file:///android_asset/";
@@ -167,7 +166,7 @@ public class e {
                 String str3 = a;
                 Object[] objArr = new Object[5];
                 objArr[0] = "chmodFile";
-                objArr[1] = CommandMessage.COMMAND;
+                objArr[1] = "command";
                 objArr[2] = str2;
                 objArr[3] = "originPer";
                 objArr[4] = str;

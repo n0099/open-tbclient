@@ -12,7 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LinearLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider, ItemTouchHelper.ViewDropHandler {
     static final boolean DEBUG = false;
     public static final int HORIZONTAL = 0;
@@ -41,6 +41,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     public LinearLayoutManager(Context context, int i, boolean z) {
+        this.mOrientation = 1;
         this.mReverseLayout = false;
         this.mShouldReverseLayout = false;
         this.mStackFromEnd = false;
@@ -53,10 +54,10 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         this.mInitialPrefetchItemCount = 2;
         setOrientation(i);
         setReverseLayout(z);
-        setAutoMeasureEnabled(true);
     }
 
     public LinearLayoutManager(Context context, AttributeSet attributeSet, int i, int i2) {
+        this.mOrientation = 1;
         this.mReverseLayout = false;
         this.mShouldReverseLayout = false;
         this.mStackFromEnd = false;
@@ -71,7 +72,11 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         setOrientation(properties.orientation);
         setReverseLayout(properties.reverseLayout);
         setStackFromEnd(properties.stackFromEnd);
-        setAutoMeasureEnabled(true);
+    }
+
+    @Override // android.support.v7.widget.RecyclerView.LayoutManager
+    public boolean isAutoMeasureEnabled() {
+        return true;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
@@ -169,9 +174,10 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             throw new IllegalArgumentException("invalid orientation:" + i);
         }
         assertNotInLayoutOrScroll(null);
-        if (i != this.mOrientation) {
+        if (i != this.mOrientation || this.mOrientationHelper == null) {
+            this.mOrientationHelper = OrientationHelper.createOrientationHelper(this, i);
+            this.mAnchorInfo.mOrientationHelper = this.mOrientationHelper;
             this.mOrientation = i;
-            this.mOrientationHelper = null;
             requestLayout();
         }
     }
@@ -264,7 +270,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             updateAnchorInfoForLayout(recycler, state, this.mAnchorInfo);
             this.mAnchorInfo.mValid = true;
         } else if (focusedChild != null && (this.mOrientationHelper.getDecoratedStart(focusedChild) >= this.mOrientationHelper.getEndAfterPadding() || this.mOrientationHelper.getDecoratedEnd(focusedChild) <= this.mOrientationHelper.getStartAfterPadding())) {
-            this.mAnchorInfo.assignFromViewAndKeepVisibleRect(focusedChild);
+            this.mAnchorInfo.assignFromViewAndKeepVisibleRect(focusedChild, getPosition(focusedChild));
         }
         int extraLayoutSpace = getExtraLayoutSpace(state);
         if (this.mLayoutState.mLastScrollDelta >= 0) {
@@ -445,7 +451,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         }
         View focusedChild = getFocusedChild();
         if (focusedChild != null && anchorInfo.isViewValidAsAnchor(focusedChild, state)) {
-            anchorInfo.assignFromViewAndKeepVisibleRect(focusedChild);
+            anchorInfo.assignFromViewAndKeepVisibleRect(focusedChild, getPosition(focusedChild));
             return true;
         } else if (this.mLastStackFromEnd == this.mStackFromEnd) {
             if (anchorInfo.mLayoutFromEnd) {
@@ -454,7 +460,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
                 findReferenceChildClosestToStart = findReferenceChildClosestToStart(recycler, state);
             }
             if (findReferenceChildClosestToStart != null) {
-                anchorInfo.assignFromView(findReferenceChildClosestToStart);
+                anchorInfo.assignFromView(findReferenceChildClosestToStart, getPosition(findReferenceChildClosestToStart));
                 if (!state.isPreLayout() && supportsPredictiveItemAnimations()) {
                     if (this.mOrientationHelper.getDecoratedStart(findReferenceChildClosestToStart) >= this.mOrientationHelper.getEndAfterPadding() || this.mOrientationHelper.getDecoratedEnd(findReferenceChildClosestToStart) < this.mOrientationHelper.getStartAfterPadding()) {
                         z = true;
@@ -600,9 +606,6 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     public void ensureLayoutState() {
         if (this.mLayoutState == null) {
             this.mLayoutState = createLayoutState();
-        }
-        if (this.mOrientationHelper == null) {
-            this.mOrientationHelper = OrientationHelper.createOrientationHelper(this, this.mOrientation);
         }
     }
 
@@ -1279,7 +1282,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutState {
         static final int INVALID_LAYOUT = Integer.MIN_VALUE;
         static final int ITEM_DIRECTION_HEAD = -1;
@@ -1390,7 +1393,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v7.widget.LinearLayoutManager.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1448,10 +1451,11 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public class AnchorInfo {
+    /* loaded from: classes4.dex */
+    public static class AnchorInfo {
         int mCoordinate;
         boolean mLayoutFromEnd;
+        OrientationHelper mOrientationHelper;
         int mPosition;
         boolean mValid;
 
@@ -1469,9 +1473,9 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         void assignCoordinateFromPadding() {
             int startAfterPadding;
             if (this.mLayoutFromEnd) {
-                startAfterPadding = LinearLayoutManager.this.mOrientationHelper.getEndAfterPadding();
+                startAfterPadding = this.mOrientationHelper.getEndAfterPadding();
             } else {
-                startAfterPadding = LinearLayoutManager.this.mOrientationHelper.getStartAfterPadding();
+                startAfterPadding = this.mOrientationHelper.getStartAfterPadding();
             }
             this.mCoordinate = startAfterPadding;
         }
@@ -1485,20 +1489,20 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             return !layoutParams.isItemRemoved() && layoutParams.getViewLayoutPosition() >= 0 && layoutParams.getViewLayoutPosition() < state.getItemCount();
         }
 
-        public void assignFromViewAndKeepVisibleRect(View view) {
-            int totalSpaceChange = LinearLayoutManager.this.mOrientationHelper.getTotalSpaceChange();
+        public void assignFromViewAndKeepVisibleRect(View view, int i) {
+            int totalSpaceChange = this.mOrientationHelper.getTotalSpaceChange();
             if (totalSpaceChange >= 0) {
-                assignFromView(view);
+                assignFromView(view, i);
                 return;
             }
-            this.mPosition = LinearLayoutManager.this.getPosition(view);
+            this.mPosition = i;
             if (this.mLayoutFromEnd) {
-                int endAfterPadding = (LinearLayoutManager.this.mOrientationHelper.getEndAfterPadding() - totalSpaceChange) - LinearLayoutManager.this.mOrientationHelper.getDecoratedEnd(view);
-                this.mCoordinate = LinearLayoutManager.this.mOrientationHelper.getEndAfterPadding() - endAfterPadding;
+                int endAfterPadding = (this.mOrientationHelper.getEndAfterPadding() - totalSpaceChange) - this.mOrientationHelper.getDecoratedEnd(view);
+                this.mCoordinate = this.mOrientationHelper.getEndAfterPadding() - endAfterPadding;
                 if (endAfterPadding > 0) {
-                    int decoratedMeasurement = this.mCoordinate - LinearLayoutManager.this.mOrientationHelper.getDecoratedMeasurement(view);
-                    int startAfterPadding = LinearLayoutManager.this.mOrientationHelper.getStartAfterPadding();
-                    int min = decoratedMeasurement - (startAfterPadding + Math.min(LinearLayoutManager.this.mOrientationHelper.getDecoratedStart(view) - startAfterPadding, 0));
+                    int decoratedMeasurement = this.mCoordinate - this.mOrientationHelper.getDecoratedMeasurement(view);
+                    int startAfterPadding = this.mOrientationHelper.getStartAfterPadding();
+                    int min = decoratedMeasurement - (startAfterPadding + Math.min(this.mOrientationHelper.getDecoratedStart(view) - startAfterPadding, 0));
                     if (min < 0) {
                         this.mCoordinate = Math.min(endAfterPadding, -min) + this.mCoordinate;
                         return;
@@ -1507,29 +1511,29 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
                 }
                 return;
             }
-            int decoratedStart = LinearLayoutManager.this.mOrientationHelper.getDecoratedStart(view);
-            int startAfterPadding2 = decoratedStart - LinearLayoutManager.this.mOrientationHelper.getStartAfterPadding();
+            int decoratedStart = this.mOrientationHelper.getDecoratedStart(view);
+            int startAfterPadding2 = decoratedStart - this.mOrientationHelper.getStartAfterPadding();
             this.mCoordinate = decoratedStart;
             if (startAfterPadding2 > 0) {
-                int endAfterPadding2 = (LinearLayoutManager.this.mOrientationHelper.getEndAfterPadding() - Math.min(0, (LinearLayoutManager.this.mOrientationHelper.getEndAfterPadding() - totalSpaceChange) - LinearLayoutManager.this.mOrientationHelper.getDecoratedEnd(view))) - (decoratedStart + LinearLayoutManager.this.mOrientationHelper.getDecoratedMeasurement(view));
+                int endAfterPadding2 = (this.mOrientationHelper.getEndAfterPadding() - Math.min(0, (this.mOrientationHelper.getEndAfterPadding() - totalSpaceChange) - this.mOrientationHelper.getDecoratedEnd(view))) - (decoratedStart + this.mOrientationHelper.getDecoratedMeasurement(view));
                 if (endAfterPadding2 < 0) {
                     this.mCoordinate -= Math.min(startAfterPadding2, -endAfterPadding2);
                 }
             }
         }
 
-        public void assignFromView(View view) {
+        public void assignFromView(View view, int i) {
             if (this.mLayoutFromEnd) {
-                this.mCoordinate = LinearLayoutManager.this.mOrientationHelper.getDecoratedEnd(view) + LinearLayoutManager.this.mOrientationHelper.getTotalSpaceChange();
+                this.mCoordinate = this.mOrientationHelper.getDecoratedEnd(view) + this.mOrientationHelper.getTotalSpaceChange();
             } else {
-                this.mCoordinate = LinearLayoutManager.this.mOrientationHelper.getDecoratedStart(view);
+                this.mCoordinate = this.mOrientationHelper.getDecoratedStart(view);
             }
-            this.mPosition = LinearLayoutManager.this.getPosition(view);
+            this.mPosition = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutChunkResult {
         public int mConsumed;
         public boolean mFinished;

@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.widget.ImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SoftwarePathClipDrawer extends PathClipDrawer {
     protected Rect mRect = new Rect();
 

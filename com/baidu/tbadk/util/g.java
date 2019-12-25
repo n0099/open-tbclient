@@ -1,96 +1,65 @@
 package com.baidu.tbadk.util;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.view.View;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g {
-    private long cNV;
-    private long cNW;
-    private long cNX;
-    private long cNY;
-    private long cNZ;
-    private a cOa;
-    private long startTime;
-    private Handler handler = new Handler(Looper.getMainLooper());
-    private boolean xt = false;
-    private Runnable cOb = new Runnable() { // from class: com.baidu.tbadk.util.g.1
-        @Override // java.lang.Runnable
-        public void run() {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (g.this.cNZ > g.this.cNY) {
-                g.this.cNY = currentTimeMillis - g.this.cNX;
-                g.this.cNZ = g.this.cNY;
+    public static float[] a(Bitmap bitmap, Matrix matrix) {
+        float[] fArr = new float[8];
+        matrix.mapPoints(fArr, new float[]{0.0f, 0.0f, bitmap.getWidth(), 0.0f, 0.0f, bitmap.getHeight(), bitmap.getWidth(), bitmap.getHeight()});
+        return fArr;
+    }
+
+    public static Bitmap be(View view) {
+        Bitmap bitmap = null;
+        if (view == null || view.getWidth() <= 0 || view.getHeight() <= 0) {
+            return null;
+        }
+        try {
+            bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+            view.draw(new Canvas(bitmap));
+            return bitmap;
+        } catch (OutOfMemoryError e) {
+            try {
+                TbadkCoreApplication.getInst().onAppMemoryLow();
+                bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.RGB_565);
+                view.draw(new Canvas(bitmap));
+                return bitmap;
+            } catch (OutOfMemoryError e2) {
+                BdLog.e(e2);
+                return bitmap;
             }
-            long j = currentTimeMillis - g.this.cNY;
-            g.this.cNW += g.this.cNX;
-            if (g.this.cNW < g.this.cNV) {
-                g.this.handler.postDelayed(g.this.cOb, (2 * g.this.cNX) - j);
-                if (g.this.cOa != null) {
-                    g.this.cOa.b(g.this.cNV, g.this.cNV - g.this.cNW);
-                }
-            } else {
-                g.this.cNW = g.this.cNV;
-                g.this.finish();
+        }
+    }
+
+    public static Bitmap a(Bitmap bitmap, Bitmap bitmap2, int i, int i2) {
+        Bitmap bitmap3 = null;
+        if (bitmap == null || bitmap2 == null || i <= 0 || i2 <= 0) {
+            return null;
+        }
+        try {
+            bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap3);
+            canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
+            canvas.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
+            return bitmap3;
+        } catch (OutOfMemoryError e) {
+            try {
+                TbadkCoreApplication.getInst().onAppMemoryLow();
+                bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
+                Canvas canvas2 = new Canvas(bitmap3);
+                canvas2.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
+                canvas2.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
+                return bitmap3;
+            } catch (OutOfMemoryError e2) {
+                BdLog.e(e2);
+                return bitmap3;
             }
-            g.this.cNY = currentTimeMillis;
         }
-    };
-
-    /* loaded from: classes.dex */
-    public interface a {
-        void b(long j, long j2);
-
-        void o(long j);
-    }
-
-    public g(long j, long j2) {
-        this.cNV = j;
-        this.cNX = j2;
-    }
-
-    public void start() {
-        this.startTime = System.currentTimeMillis();
-        this.cNY = this.startTime;
-        if (this.cOa != null) {
-            this.cOa.b(this.cNV, this.cNV - this.cNW);
-        }
-        this.handler.postDelayed(this.cOb, this.cNX);
-    }
-
-    public void pause() {
-        if (!this.xt) {
-            this.xt = true;
-            this.cNZ = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.cOb);
-        }
-    }
-
-    public void resume() {
-        if (this.xt) {
-            this.xt = false;
-            this.handler.postDelayed(this.cOb, this.cNX - (this.cNZ - this.cNY));
-        }
-    }
-
-    public void stop() {
-        this.xt = false;
-        this.cNY = this.startTime;
-        this.cNZ = this.cNY;
-        this.handler.removeCallbacks(this.cOb);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void finish() {
-        if (this.cOa != null) {
-            this.cOa.o(this.cNV);
-        }
-    }
-
-    public void a(a aVar) {
-        this.cOa = aVar;
-    }
-
-    public long axu() {
-        return this.cNW;
     }
 }

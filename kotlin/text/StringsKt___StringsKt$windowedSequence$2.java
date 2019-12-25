@@ -1,7 +1,7 @@
 package kotlin.text;
 
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class StringsKt___StringsKt$windowedSequence$2 extends Lambda implements kotlin.jvm.a.b<Integer, R> {
     final /* synthetic */ int $size;
     final /* synthetic */ kotlin.jvm.a.b $transform;
@@ -23,6 +23,6 @@ final class StringsKt___StringsKt$windowedSequence$2 extends Lambda implements k
 
     /* JADX WARN: Type inference failed for: r0v1, types: [R, java.lang.Object] */
     public final R invoke(int i) {
-        return this.$transform.invoke(this.receiver$0.subSequence(i, kotlin.b.d.cN(this.$size + i, this.receiver$0.length())));
+        return this.$transform.invoke(this.receiver$0.subSequence(i, kotlin.b.d.ep(this.$size + i, this.receiver$0.length())));
     }
 }

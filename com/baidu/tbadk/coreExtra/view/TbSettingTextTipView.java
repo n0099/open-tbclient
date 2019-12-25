@@ -17,51 +17,51 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected ImageView aAU;
-    protected LinearLayout cBh;
-    protected TextView cBi;
-    private boolean cBk;
+    protected LinearLayout doQ;
+    protected TextView doR;
+    private boolean doT;
+    protected ImageView doU;
     protected Context mContext;
     private View mTopLine;
     protected TextView textView;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cBk = true;
+        this.doT = true;
         this.mContext = context;
-        asC();
-        c(attributeSet);
+        aKb();
+        d(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.cBk = true;
+        this.doT = true;
         this.mContext = context;
-        asC();
+        aKb();
     }
 
     public void displayTip() {
-        if (this.cBi != null) {
-            this.cBi.setVisibility(0);
+        if (this.doR != null) {
+            this.doR.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.cBi != null) {
-            this.cBi.setTextColor(i);
+        if (this.doR != null) {
+            this.doR.setTextColor(i);
         }
     }
 
     public void setTipStyle(int i) {
-        if (this.cBi != null) {
+        if (this.doR != null) {
         }
     }
 
-    public void p(int i, int i2, int i3, int i4) {
-        if (this.cBi != null) {
+    public void t(int i, int i2, int i3, int i4) {
+        if (this.doR != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.cBi.setLayoutParams(layoutParams);
+            this.doR.setLayoutParams(layoutParams);
         }
     }
 
@@ -69,7 +69,7 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.aAU.setVisibility(8);
+        this.doU.setVisibility(8);
     }
 
     public void setText(String str) {
@@ -81,27 +81,27 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        this.cBi.setText(str);
+        this.doR.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.cBi.getText();
+        return this.doR.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.cBi.setBackgroundDrawable(drawable);
+        this.doR.setBackgroundDrawable(drawable);
     }
 
-    protected void asC() {
+    protected void aKb() {
         LayoutInflater.from(this.mContext).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.cBh = (LinearLayout) findViewById(R.id.container);
+        this.doQ = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.cBi = (TextView) findViewById(R.id.tip);
-        this.aAU = (ImageView) findViewById(R.id.arrow2);
+        this.doR = (TextView) findViewById(R.id.tip);
+        this.doU = (ImageView) findViewById(R.id.arrow2);
         this.mTopLine = findViewById(R.id.top_line_ll);
     }
 
-    protected void c(AttributeSet attributeSet) {
+    protected void d(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, R.styleable.TbSettingView);
         if (obtainStyledAttributes != null) {
             String string = obtainStyledAttributes.getString(5);
@@ -110,15 +110,15 @@ public class TbSettingTextTipView extends FrameLayout {
                 this.textView.setText(string);
             }
             if (string2 != null) {
-                this.cBi.setText(string2);
+                this.doR.setText(string2);
             }
-            this.cBk = obtainStyledAttributes.getBoolean(2, true);
+            this.doT = obtainStyledAttributes.getBoolean(2, true);
             obtainStyledAttributes.recycle();
         }
-        this.cBh.setClickable(false);
-        this.cBh.setFocusable(false);
-        if (!this.cBk) {
-            this.aAU.setVisibility(4);
+        this.doQ.setClickable(false);
+        this.doQ.setFocusable(false);
+        if (!this.doT) {
+            this.doU.setVisibility(4);
         }
     }
 
@@ -135,28 +135,28 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     private void setTipTextSize(float f) {
-        this.cBi.setTextSize(0, f);
+        this.doR.setTextSize(0, f);
     }
 
-    public void asD() {
+    public void aKc() {
         int dimens = l.getDimens(this.mContext, R.dimen.tbds42);
         int dimens2 = l.getDimens(this.mContext, R.dimen.tbds33);
         setMainTextSize(dimens);
         setTipTextSize(dimens2);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.textView.getLayoutParams();
         layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-        ((LinearLayout.LayoutParams) this.cBi.getLayoutParams()).setMargins(0, 0, l.getDimens(this.mContext, R.dimen.tbds18), 0);
-        this.cBh.getLayoutParams().height = -1;
+        ((LinearLayout.LayoutParams) this.doR.getLayoutParams()).setMargins(0, 0, l.getDimens(this.mContext, R.dimen.tbds18), 0);
+        this.doQ.getLayoutParams().height = -1;
         requestLayout();
     }
 
     public void onChangeSkinType(int i) {
         am.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_e);
         am.setViewTextColor(this.textView, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.cBi, (int) R.color.cp_cont_d);
-        SvgManager.amL().a(this.aAU, R.drawable.icon_pure_list_arrow16_right_tint_n_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        if (this.cBh != null) {
-            this.cBh.setBackgroundDrawable(am.is(R.color.cp_bg_line_e));
+        am.setViewTextColor(this.doR, (int) R.color.cp_cont_d);
+        SvgManager.aDW().a(this.doU, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        if (this.doQ != null) {
+            this.doQ.setBackgroundDrawable(am.ke(R.color.cp_bg_line_e));
         }
     }
 }

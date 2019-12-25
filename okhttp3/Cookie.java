@@ -1,6 +1,6 @@
 package okhttp3;
 
-import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.google.android.exoplayer2.Format;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,7 +16,7 @@ import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.http.cookie.ClientCookie;
 import org.apache.http.cookie.SM;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class Cookie {
     private final String domain;
     private final long expiresAt;
@@ -137,10 +137,8 @@ public final class Cookie {
     @Nullable
     static Cookie parse(long j, HttpUrl httpUrl, String str) {
         long j2;
-        long j3;
         String substring;
         String str2;
-        String str3;
         int length = str.length();
         int delimiterOffset = Util.delimiterOffset(str, 0, length, ';');
         int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, '=');
@@ -155,10 +153,10 @@ public final class Cookie {
         if (Util.indexOfControlOrNonAscii(trimSubstring2) != -1) {
             return null;
         }
-        long j4 = HttpDate.MAX_DATE;
-        long j5 = -1;
+        long j3 = 253402300799999L;
+        long j4 = -1;
+        String str3 = null;
         String str4 = null;
-        String str5 = null;
         boolean z = false;
         boolean z2 = false;
         boolean z3 = true;
@@ -168,83 +166,74 @@ public final class Cookie {
             int delimiterOffset3 = Util.delimiterOffset(str, i, length, ';');
             int delimiterOffset4 = Util.delimiterOffset(str, i, delimiterOffset3, '=');
             String trimSubstring3 = Util.trimSubstring(str, i, delimiterOffset4);
-            if (delimiterOffset4 < delimiterOffset3) {
-                str2 = Util.trimSubstring(str, delimiterOffset4 + 1, delimiterOffset3);
-            } else {
-                str2 = "";
-            }
+            String trimSubstring4 = delimiterOffset4 < delimiterOffset3 ? Util.trimSubstring(str, delimiterOffset4 + 1, delimiterOffset3) : "";
             if (trimSubstring3.equalsIgnoreCase("expires")) {
                 try {
-                    j4 = parseExpires(str2, 0, str2.length());
+                    j3 = parseExpires(trimSubstring4, 0, trimSubstring4.length());
                     z4 = true;
-                    str3 = str4;
+                    str2 = str3;
                 } catch (IllegalArgumentException e) {
-                    str3 = str4;
+                    str2 = str3;
                 }
             } else if (trimSubstring3.equalsIgnoreCase(ClientCookie.MAX_AGE_ATTR)) {
                 try {
-                    j5 = parseMaxAge(str2);
+                    j4 = parseMaxAge(trimSubstring4);
                     z4 = true;
-                    str3 = str4;
+                    str2 = str3;
                 } catch (NumberFormatException e2) {
-                    str3 = str4;
+                    str2 = str3;
                 }
-            } else if (trimSubstring3.equalsIgnoreCase(ClientCookie.DOMAIN_ATTR)) {
+            } else if (trimSubstring3.equalsIgnoreCase("domain")) {
                 try {
-                    str3 = parseDomain(str2);
+                    str2 = parseDomain(trimSubstring4);
                     z3 = false;
                 } catch (IllegalArgumentException e3) {
-                    str3 = str4;
+                    str2 = str3;
                 }
             } else if (trimSubstring3.equalsIgnoreCase("path")) {
-                str5 = str2;
-                str3 = str4;
+                str4 = trimSubstring4;
+                str2 = str3;
             } else if (trimSubstring3.equalsIgnoreCase(ClientCookie.SECURE_ATTR)) {
                 z = true;
-                str3 = str4;
+                str2 = str3;
             } else if (trimSubstring3.equalsIgnoreCase("httponly")) {
                 z2 = true;
-                str3 = str4;
+                str2 = str3;
             } else {
-                str3 = str4;
+                str2 = str3;
             }
-            String str6 = str3;
+            String str5 = str2;
             i = delimiterOffset3 + 1;
-            j4 = j4;
-            str4 = str6;
+            j3 = j3;
+            str3 = str5;
         }
-        if (j5 == Long.MIN_VALUE) {
+        if (j4 == Long.MIN_VALUE) {
             j2 = Long.MIN_VALUE;
-        } else if (j5 != -1) {
-            if (j5 <= 9223372036854775L) {
-                j3 = j5 * 1000;
-            } else {
-                j3 = Long.MAX_VALUE;
-            }
-            j2 = j3 + j;
-            if (j2 < j || j2 > HttpDate.MAX_DATE) {
-                j2 = HttpDate.MAX_DATE;
+        } else if (j4 != -1) {
+            j2 = (j4 <= 9223372036854775L ? j4 * 1000 : Format.OFFSET_SAMPLE_RELATIVE) + j;
+            if (j2 < j || j2 > 253402300799999L) {
+                j2 = 253402300799999L;
             }
         } else {
-            j2 = j4;
+            j2 = j3;
         }
         String host = httpUrl.host();
-        if (str4 == null) {
-            str4 = host;
-        } else if (!domainMatch(host, str4)) {
+        if (str3 == null) {
+            str3 = host;
+        } else if (!domainMatch(host, str3)) {
             return null;
         }
-        if (host.length() != str4.length() && PublicSuffixDatabase.get().getEffectiveTldPlusOne(str4) == null) {
+        if (host.length() != str3.length() && PublicSuffixDatabase.get().getEffectiveTldPlusOne(str3) == null) {
             return null;
         }
-        if (str5 == null || !str5.startsWith("/")) {
+        if (str4 == null || !str4.startsWith("/")) {
             String encodedPath = httpUrl.encodedPath();
             int lastIndexOf = encodedPath.lastIndexOf(47);
             substring = lastIndexOf != 0 ? encodedPath.substring(0, lastIndexOf) : "/";
         } else {
-            substring = str5;
+            substring = str4;
         }
-        return new Cookie(trimSubstring, trimSubstring2, j2, str4, substring, z, z2, z3, z4);
+        return new Cookie(trimSubstring, trimSubstring2, j2, str3, substring, z, z2, z3, z4);
     }
 
     private static long parseExpires(String str, int i, int i2) {
@@ -327,17 +316,20 @@ public final class Cookie {
             return parseLong;
         } catch (NumberFormatException e) {
             if (str.matches("-?\\d+")) {
-                return !str.startsWith(Constants.ACCEPT_TIME_SEPARATOR_SERVER) ? Long.MAX_VALUE : Long.MIN_VALUE;
+                if (str.startsWith(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
+                    return Long.MIN_VALUE;
+                }
+                return Format.OFFSET_SAMPLE_RELATIVE;
             }
             throw e;
         }
     }
 
     private static String parseDomain(String str) {
-        if (str.endsWith(DefaultConfig.TOKEN_SEPARATOR)) {
+        if (str.endsWith(".")) {
             throw new IllegalArgumentException();
         }
-        if (str.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
+        if (str.startsWith(".")) {
             str = str.substring(1);
         }
         String canonicalizeHost = Util.canonicalizeHost(str);
@@ -365,7 +357,7 @@ public final class Cookie {
         return Collections.emptyList();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         String domain;
         boolean hostOnly;
@@ -374,7 +366,7 @@ public final class Cookie {
         boolean persistent;
         boolean secure;
         String value;
-        long expiresAt = HttpDate.MAX_DATE;
+        long expiresAt = 253402300799999L;
         String path = "/";
 
         public Builder name(String str) {
@@ -400,12 +392,8 @@ public final class Cookie {
         }
 
         public Builder expiresAt(long j) {
-            long j2 = HttpDate.MAX_DATE;
-            long j3 = j <= 0 ? Long.MIN_VALUE : j;
-            if (j3 <= HttpDate.MAX_DATE) {
-                j2 = j3;
-            }
-            this.expiresAt = j2;
+            long j2 = j <= 0 ? Long.MIN_VALUE : j;
+            this.expiresAt = j2 <= 253402300799999L ? j2 : 253402300799999L;
             this.persistent = true;
             return this;
         }
@@ -473,7 +461,7 @@ public final class Cookie {
         if (!this.hostOnly) {
             sb.append("; domain=");
             if (z) {
-                sb.append(DefaultConfig.TOKEN_SEPARATOR);
+                sb.append(".");
             }
             sb.append(this.domain);
         }

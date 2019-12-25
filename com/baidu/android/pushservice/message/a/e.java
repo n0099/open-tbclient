@@ -19,11 +19,10 @@ import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.message.CrossPushMessage;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.coloros.mcssdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(final Context context, final CrossPushMessage crossPushMessage, final String str, final byte[] bArr, final byte[] bArr2) {
@@ -65,7 +64,7 @@ public class e {
                     } else if (Build.VERSION.SDK_INT >= 16) {
                         build.bigContentView = remoteViews;
                     }
-                    NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+                    NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
                     if (notificationManager != null) {
                         notificationManager.notify(crossPushMessage.mMsgId, 0, build);
                     }
@@ -77,7 +76,7 @@ public class e {
 
     @SuppressLint({"NewApi"})
     public static void a(Context context, PublicMsg publicMsg, String str) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
         Intent intent = new Intent(context, PushService.class);
         intent.setAction("com.baidu.pushservice.action.publicmsg.CLICK_V2");
         intent.setData(Uri.parse("content://" + str));

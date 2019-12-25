@@ -1,5 +1,8 @@
 package com.facebook.common.time;
-/* loaded from: classes2.dex */
+
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
+/* loaded from: classes11.dex */
 public interface a {
     long now();
 }

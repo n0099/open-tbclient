@@ -1,42 +1,42 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.data.bj;
-import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bo;
 /* loaded from: classes.dex */
-public class x extends bh {
-    public static final BdUniqueId jgE = BdUniqueId.gen();
-    private boolean dBk = false;
-    private bj jgF;
-    private bm jgG;
+public class x extends bj {
+    public static final BdUniqueId kaR = BdUniqueId.gen();
+    private boolean emi = false;
+    private bl kaS;
+    private bo kaT;
 
-    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return jgE;
+        return kaR;
     }
 
-    public boolean btl() {
-        return this.dBk;
+    public boolean cHO() {
+        return this.emi;
     }
 
-    public void qL(boolean z) {
-        this.dBk = z;
+    public void st(boolean z) {
+        this.emi = z;
     }
 
-    public bj cnJ() {
-        return this.jgF;
+    public bl cHP() {
+        return this.kaS;
     }
 
-    public void a(bj bjVar) {
-        this.jgF = bjVar;
+    public void a(bl blVar) {
+        this.kaS = blVar;
     }
 
-    public bm cnK() {
-        return this.jgG;
+    public bo cHQ() {
+        return this.kaT;
     }
 
-    public void a(bm bmVar) {
-        this.jgG = bmVar;
+    public void a(bo boVar) {
+        this.kaT = boVar;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class LocaleHelper {
     LocaleHelper() {
     }

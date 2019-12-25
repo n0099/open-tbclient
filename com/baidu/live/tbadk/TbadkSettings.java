@@ -3,7 +3,7 @@ package com.baidu.live.tbadk;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class TbadkSettings {
     private static TbadkSettings mSettings = new TbadkSettings() { // from class: com.baidu.live.tbadk.TbadkSettings.1
     };

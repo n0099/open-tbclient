@@ -1,6 +1,5 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -18,7 +17,7 @@ public class CheckBaiduSimResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
             this.isSuc = jSONObject.optInt("status") == 0;
-            this.isBaiduSim = jSONObject.optInt(BdStatsConstant.StatsKey.PRODUCT) == 1;
+            this.isBaiduSim = jSONObject.optInt("product") == 1;
         }
     }
 }

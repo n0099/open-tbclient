@@ -16,7 +16,7 @@ public class f implements c {
         return this.map.keySet();
     }
 
-    public Object U(String str) {
+    public Object Z(String str) {
         return this.map.get(str);
     }
 
@@ -27,15 +27,15 @@ public class f implements c {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Object b(String str, Type type) {
-        Object U = U(str);
-        if (U != null) {
+        Object Z = Z(str);
+        if (Z != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h q = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.q(U);
-            if (q != null) {
-                return q.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h r = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.r(Z);
+            if (r != null) {
+                return r.g(cVar);
             }
-            return U;
+            return Z;
         }
-        return U;
+        return Z;
     }
 }

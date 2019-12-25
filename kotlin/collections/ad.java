@@ -1,8 +1,8 @@
 package kotlin.collections;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ad extends ac {
-    public static final int De(int i) {
+    public static final int MO(int i) {
         if (i < 3) {
             return i + 1;
         }

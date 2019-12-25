@@ -1,10 +1,10 @@
 package rx.b;
 
 import rx.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class f {
-    public static <T> j<T> cPv() {
-        return b(a.cPu());
+    public static <T> j<T> dHc() {
+        return b(a.dHb());
     }
 
     public static <T> j<T> b(final rx.e<? super T> eVar) {

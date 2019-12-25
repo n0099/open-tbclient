@@ -6,26 +6,26 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.subtablist.c.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.subtablist.b.b> {
-    private a dCA;
-    private a dCB;
+    private a enA;
+    private a enB;
 
     public f(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.dCA = new a(getTbPageContext());
-        this.dCB = new a(getTbPageContext());
+        this.enA = new a(getTbPageContext());
+        this.enB = new a(getTbPageContext());
         ViewGroup viewGroup2 = (ViewGroup) getView();
         View view = new View(getContext());
-        viewGroup2.addView(this.dCA.getView());
+        viewGroup2.addView(this.enA.getView());
         viewGroup2.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds6), -1));
-        viewGroup2.addView(this.dCB.getView());
+        viewGroup2.addView(this.enB.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.dCA.onChangeSkinType(tbPageContext, i);
-        this.dCB.onChangeSkinType(tbPageContext, i);
+        this.enA.onChangeSkinType(tbPageContext, i);
+        this.enB.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -37,21 +37,21 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.subt
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar) {
         if (bVar != null) {
-            this.dCA.b(bVar.dwA);
-            this.dCB.b(bVar.dwB);
+            this.enA.b(bVar.ehC);
+            this.enB.b(bVar.ehD);
         }
     }
 
     public void a(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, int i) {
         if (bVar != null) {
-            this.dCA.a(bVar.dwA, i);
-            this.dCB.a(bVar.dwB, i);
+            this.enA.a(bVar.ehC, i);
+            this.enB.a(bVar.ehD, i);
         }
     }
 
     public void d(h hVar) {
-        this.dCA.c(hVar);
-        this.dCB.c(hVar);
+        this.enA.c(hVar);
+        this.enB.c(hVar);
     }
 
     @Override // android.view.View.OnClickListener

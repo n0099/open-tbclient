@@ -5,8 +5,7 @@ import com.baidu.android.common.security.Base64;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.pass.biometrics.base.debug.Log;
 import java.util.Random;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PassBioDataEncryptor {
     private static final String TAG = "PassBioDataEncryptor";
 
@@ -15,7 +14,7 @@ public class PassBioDataEncryptor {
             return null;
         }
         try {
-            return new String(Base64.decode(new AES().decrypt(Base64.decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), HTTP.UTF_8).trim();
+            return new String(Base64.decode(new AES().decrypt(Base64.decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), "UTF-8").trim();
         } catch (Throwable th) {
             Log.e(TAG, TAG, th);
             return "";
@@ -27,7 +26,7 @@ public class PassBioDataEncryptor {
             return null;
         }
         try {
-            return Base64.encode(new AES().encrypt(Base64.encode(str.getBytes(), HTTP.UTF_8), new StringBuffer(str2).reverse().toString(), str2), HTTP.UTF_8);
+            return Base64.encode(new AES().encrypt(Base64.encode(str.getBytes(), "UTF-8"), new StringBuffer(str2).reverse().toString(), str2), "UTF-8");
         } catch (Throwable th) {
             Log.e(TAG, TAG, th);
             return "";
@@ -40,9 +39,9 @@ public class PassBioDataEncryptor {
         String randomKey = getRandomKey(16);
         String str3 = "";
         try {
-            str2 = Base64.encode(new AES().encrypt(str, new StringBuffer(randomKey).reverse().toString(), randomKey), HTTP.UTF_8);
+            str2 = Base64.encode(new AES().encrypt(str, new StringBuffer(randomKey).reverse().toString(), randomKey), "UTF-8");
             try {
-                str3 = Base64.encode(RSA.encrypt(randomKey), HTTP.UTF_8);
+                str3 = Base64.encode(RSA.encrypt(randomKey), "UTF-8");
             } catch (Exception e2) {
                 e = e2;
                 Log.e(TAG, TAG, e);

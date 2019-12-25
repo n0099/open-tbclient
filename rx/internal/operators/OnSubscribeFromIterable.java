@@ -1,11 +1,12 @@
 package rx.internal.operators;
 
+import com.google.android.exoplayer2.Format;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class OnSubscribeFromIterable<T> implements d.a<T> {
-    final Iterable<? extends T> kyR;
+    final Iterable<? extends T> neu;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -16,12 +17,12 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
         if (iterable == null) {
             throw new NullPointerException("iterable must not be null");
         }
-        this.kyR = iterable;
+        this.neu = iterable;
     }
 
     public void call(rx.j<? super T> jVar) {
         try {
-            Iterator<? extends T> it = this.kyR.iterator();
+            Iterator<? extends T> it = this.neu.iterator();
             boolean hasNext = it.hasNext();
             if (!jVar.isUnsubscribed()) {
                 if (!hasNext) {
@@ -36,7 +37,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class IterableProducer<T> extends AtomicLong implements rx.f {
         private static final long serialVersionUID = -8730475647105475802L;
         private final Iterator<? extends T> it;
@@ -49,10 +50,10 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
 
         @Override // rx.f
         public void request(long j) {
-            if (get() != Long.MAX_VALUE) {
-                if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
+            if (get() != Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j == Format.OFFSET_SAMPLE_RELATIVE && compareAndSet(0L, Format.OFFSET_SAMPLE_RELATIVE)) {
                     fastPath();
-                } else if (j > 0 && a.a(this, j) == 0) {
+                } else if (j > 0 && a.e(this, j) == 0) {
                     slowPath(j);
                 }
             }
@@ -95,7 +96,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
                 } else {
                     j = get();
                     if (j2 == j) {
-                        j = a.b(this, j2);
+                        j = a.c(this, j2);
                         if (j == 0) {
                             return;
                         }

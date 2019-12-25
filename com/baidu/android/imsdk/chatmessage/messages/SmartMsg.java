@@ -6,10 +6,11 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.picture.component.BaseBrowseView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SmartMsg extends NormalMsg {
     public static final Parcelable.Creator<SmartMsg> CREATOR = new Parcelable.Creator<SmartMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SmartMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -223,7 +224,7 @@ public class SmartMsg extends NormalMsg {
                     Commodity commodity = new Commodity();
                     commodity.setName(jSONObject2.getString("name"));
                     commodity.setValue(jSONObject2.optString("value", ""));
-                    commodity.setColor(jSONObject2.optString("color", "#000000"));
+                    commodity.setColor(jSONObject2.optString("color", BaseBrowseView.ROOT_VIEW_COLOR));
                     this.mCommodity[i] = commodity;
                 }
             }
@@ -240,7 +241,7 @@ public class SmartMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class Commodity implements Parcelable, NoProGuard {
         public static final Parcelable.Creator<Commodity> CREATOR = new Parcelable.Creator<Commodity>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SmartMsg.Commodity.1
             /* JADX DEBUG: Method merged with bridge method */

@@ -14,8 +14,8 @@ public class q extends c<String> {
 
     @Override // com.baidu.adp.lib.cache.c
     public String onNewNameSpaceCreated(String str) {
-        this.nn.execSQLNoException("CREATE TABLE IF NOT EXISTS " + this.sharedTableName + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-        this.nn.execSQLNoException("CREATE INDEX if not exists idx_mi_ns ON " + this.sharedTableName + "(m_ns)");
+        this.pN.execSQLNoException("CREATE TABLE IF NOT EXISTS " + this.sharedTableName + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.pN.execSQLNoException("CREATE INDEX if not exists idx_mi_ns ON " + this.sharedTableName + "(m_ns)");
         return this.sharedTableName;
     }
 
@@ -49,14 +49,14 @@ public class q extends c<String> {
                 gVar.lastHitTime = cursor.getLong(3);
                 gVar.timeToExpire = cursor.getLong(4);
                 gVar.value = cursor.getString(5);
-                com.baidu.adp.lib.g.a.close(cursor);
+                com.baidu.adp.lib.f.a.close(cursor);
             } else {
-                com.baidu.adp.lib.g.a.close(cursor);
+                com.baidu.adp.lib.f.a.close(cursor);
             }
             return gVar;
         } catch (Throwable th3) {
             th = th3;
-            com.baidu.adp.lib.g.a.close(cursor);
+            com.baidu.adp.lib.f.a.close(cursor);
             throw th;
         }
     }
@@ -81,10 +81,10 @@ public class q extends c<String> {
     @Override // com.baidu.adp.lib.cache.c
     protected boolean clearData(String str) {
         try {
-            this.nn.getOpenedDatabase().delete(this.tableName, "m_ns = ?", new String[]{str});
+            this.pN.getOpenedDatabase().delete(this.tableName, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.nn.notifySQLException(th, "clearData");
+            this.pN.notifySQLException(th, "clearData");
             return false;
         }
     }

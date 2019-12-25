@@ -4,32 +4,32 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ek {
     private static volatile ek a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f314a;
+    private int f319a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f315a;
+    private Context f320a;
 
     /* renamed from: a  reason: collision with other field name */
-    private eo f316a;
+    private eo f321a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f317a;
+    private String f322a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<em, en> f318a = new HashMap<>();
+    private HashMap<em, en> f323a = new HashMap<>();
     private String b;
 
     private ek(Context context) {
-        this.f315a = context;
-        this.f318a.put(em.SERVICE_ACTION, new eq());
-        this.f318a.put(em.SERVICE_COMPONENT, new er());
-        this.f318a.put(em.ACTIVITY, new ei());
-        this.f318a.put(em.PROVIDER, new ep());
+        this.f320a = context;
+        this.f323a.put(em.SERVICE_ACTION, new eq());
+        this.f323a.put(em.SERVICE_COMPONENT, new er());
+        this.f323a.put(em.ACTIVITY, new ei());
+        this.f323a.put(em.PROVIDER, new ep());
     }
 
     public static ek a(Context context) {
@@ -45,25 +45,25 @@ public final class ek {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(em emVar, Context context, ej ejVar) {
-        this.f318a.get(emVar).a(context, ejVar);
+        this.f323a.get(emVar).a(context, ejVar);
     }
 
     public int a() {
-        return this.f314a;
+        return this.f319a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public eo m240a() {
-        return this.f316a;
+    public eo m243a() {
+        return this.f321a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m241a() {
-        return this.f317a;
+    public String m244a() {
+        return this.f322a;
     }
 
     public void a(int i) {
-        this.f314a = i;
+        this.f319a = i;
     }
 
     public void a(Context context, String str, int i, String str2, String str3) {
@@ -72,23 +72,23 @@ public final class ek {
             return;
         }
         a(i);
-        ai.a(this.f315a).a(new el(this, str, context, str2, str3));
+        ai.a(this.f320a).a(new el(this, str, context, str2, str3));
     }
 
     public void a(em emVar, Context context, Intent intent, String str) {
         if (emVar != null) {
-            this.f318a.get(emVar).a(context, intent, str);
+            this.f323a.get(emVar).a(context, intent, str);
         } else {
             eg.a(context, "null", 1008, "A receive a incorrect message with empty type");
         }
     }
 
     public void a(eo eoVar) {
-        this.f316a = eoVar;
+        this.f321a = eoVar;
     }
 
     public void a(String str) {
-        this.f317a = str;
+        this.f322a = str;
     }
 
     public void a(String str, String str2, int i, eo eoVar) {

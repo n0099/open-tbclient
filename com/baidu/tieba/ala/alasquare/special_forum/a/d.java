@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.special_forum.data.c, e.a> {
     private TbPageContext mPageContext;
 
@@ -16,7 +16,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: H */
+    /* renamed from: G */
     public e.a b(ViewGroup viewGroup) {
         return new e.a(new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.e(this.mPageContext, viewGroup));
     }
@@ -28,7 +28,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         if (aVar == null || cVar == null) {
             return null;
         }
-        aVar.dCz.a(cVar);
+        aVar.enz.a(cVar);
         return aVar.getView();
     }
 }

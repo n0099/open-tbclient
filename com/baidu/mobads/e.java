@@ -1,17 +1,19 @@
 package com.baidu.mobads;
 
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-public interface e {
-    void a(RsplashType rsplashType, int i);
+import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
+import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
+import com.baidu.mobads.utils.XAdSDKFoundationFacade;
+/* loaded from: classes7.dex */
+class e implements IOAdEventListener {
+    final /* synthetic */ BaiduHybridAdManager aKd;
 
-    void dy(String str);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(BaiduHybridAdManager baiduHybridAdManager) {
+        this.aKd = baiduHybridAdManager;
+    }
 
-    void l(HashMap hashMap);
-
-    void zu();
-
-    void zv();
-
-    void zw();
+    @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
+    public void run(IOAdEvent iOAdEvent) {
+        XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new f(this, iOAdEvent));
+    }
 }

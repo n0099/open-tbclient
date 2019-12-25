@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.support.v4.view.ViewCompat;
 import android.text.Layout;
 import android.text.TextPaint;
 import android.util.SparseArray;
@@ -104,7 +103,7 @@ public class EnvDrawText {
                         }
                     }
                     if (((-16777216) & i5) == 0) {
-                        canvas.drawColor(ViewCompat.MEASURED_SIZE_MASK);
+                        canvas.drawColor(16777215);
                     } else {
                         canvas.drawColor(i5);
                     }
@@ -175,7 +174,7 @@ public class EnvDrawText {
                                 }
                             }
                             if (((-16777216) & i5) == 0) {
-                                canvas.drawColor(ViewCompat.MEASURED_SIZE_MASK);
+                                canvas.drawColor(16777215);
                             } else {
                                 canvas.drawColor(i5);
                             }
@@ -411,7 +410,7 @@ public class EnvDrawText {
                         }
                     }
                     if (((-16777216) & i5) == 0) {
-                        canvas.drawColor(ViewCompat.MEASURED_SIZE_MASK);
+                        canvas.drawColor(16777215);
                     } else {
                         canvas.drawColor(i5);
                     }
@@ -471,7 +470,7 @@ public class EnvDrawText {
                                 }
                             }
                             if (((-16777216) & i5) == 0) {
-                                canvas.drawColor(ViewCompat.MEASURED_SIZE_MASK);
+                                canvas.drawColor(16777215);
                             } else {
                                 canvas.drawColor(i5);
                             }

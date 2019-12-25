@@ -1,65 +1,65 @@
 package com.baidu.tieba.ala.liveroom.data;
 
 import android.view.ViewGroup;
-import com.baidu.ala.liveRecorder.AlaLiveRecorder;
+import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class e {
-    public ViewGroup AE;
-    public com.baidu.tieba.ala.liveroom.m.c eeL;
-    public AlaLiveView eeM;
-    public AlaLiveRecorder efe;
-    public com.baidu.tieba.ala.liveroom.master.a.d eff;
-    public AlaLiveRecorderPerfData efg;
-    public com.baidu.live.tieba.e.b efh;
+    public com.baidu.tieba.ala.liveroom.m.c eUF;
+    public AlaLiveView eUG;
+    public AlaLiveRecorder eUY;
+    public com.baidu.tieba.ala.liveroom.master.a.d eUZ;
+    public AlaLiveRecorderPerfData eVa;
+    public com.baidu.live.tieba.e.b eVb;
     private int liveType;
     public TbPageContext pageContext;
+    public ViewGroup rootView;
 
-    public int aRJ() {
+    public int bjk() {
         return this.liveType;
     }
 
-    public void nw(int i) {
+    public void pN(int i) {
         this.liveType = i;
-        if (this.eff != null) {
-            this.eff.nS(i);
+        if (this.eUZ != null) {
+            this.eUZ.qj(i);
         }
     }
 
-    public void c(short s) {
-        if (this.eff != null) {
-            this.eff.c(s);
+    public void d(short s) {
+        if (this.eUZ != null) {
+            this.eUZ.d(s);
         }
     }
 
-    public void aRK() {
-        if (this.eff != null) {
-            this.eff.aRK();
+    public void bjl() {
+        if (this.eUZ != null) {
+            this.eUZ.bjl();
         }
     }
 
-    public void aRL() {
-        if (this.eff != null) {
-            this.eff.aRL();
+    public void auh() {
+        if (this.eUZ != null) {
+            this.eUZ.auh();
         }
     }
 
-    public void aRM() {
-        if (this.eff != null) {
-            this.eff.aRM();
+    public void bjm() {
+        if (this.eUZ != null) {
+            this.eUZ.bjm();
         }
     }
 
-    public void aRN() {
-        if (this.eff != null) {
-            this.eff.aRN();
+    public void bjn() {
+        if (this.eUZ != null) {
+            this.eUZ.bjn();
         }
     }
 
-    public void aRO() {
-        if (this.eff != null) {
-            this.eff.aRO();
+    public void bjo() {
+        if (this.eUZ != null) {
+            this.eUZ.bjo();
         }
     }
 }

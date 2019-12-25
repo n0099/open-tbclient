@@ -6,7 +6,6 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.http.Headers;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import java.lang.reflect.Array;
@@ -16,7 +15,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class e {
     private static final String a = e.class.getSimpleName();
 
@@ -133,7 +132,7 @@ public class e {
 
     public static Location c(Context context) {
         try {
-            LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
+            LocationManager locationManager = (LocationManager) context.getSystemService("location");
             if (locationManager != null) {
                 Criteria criteria = new Criteria();
                 criteria.setPowerRequirement(1);

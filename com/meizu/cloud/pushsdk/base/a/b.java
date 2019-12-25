@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.base.a;
 
 import com.meizu.cloud.pushsdk.base.h;
 import java.lang.reflect.Constructor;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b {
     private String a = "ReflectConstructor";
     private a b;

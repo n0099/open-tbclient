@@ -1,61 +1,148 @@
 package com.baidu.tieba.ala.live.personcenter.fans;
 
-import com.baidu.live.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class f {
-    public int bZA;
-    public String bZB;
-    public boolean hasMore;
-    public int pageNum;
-    public int type;
-    private ArrayList<a> bZv = new ArrayList<>();
-    private ArrayList<a> bZw = new ArrayList<>();
-    private d dRe = new d();
-    private int bZy = 0;
-    private int bZz = 0;
+import com.baidu.live.adp.BdUniqueId;
+import com.baidu.live.adp.base.BdBaseModel;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.HttpMessageListener;
+import com.baidu.live.adp.framework.message.HttpMessage;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.q.a;
+import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.tbadk.data.Config;
+import com.baidu.live.tbadk.task.TbHttpMessageTask;
+import java.util.HashMap;
+/* loaded from: classes2.dex */
+public class f extends BdBaseModel<PersonListActivity> {
+    public static final BdUniqueId eGM = BdUniqueId.gen();
+    public static final BdUniqueId eGN = BdUniqueId.gen();
+    private boolean anz;
+    private a eGJ;
+    private int eGO;
+    private PersonListActivity eGP;
+    private int eGQ;
+    private int eGR;
+    private String eGS;
+    public HttpMessageListener eGT;
+    private String mId;
+    private int mSex;
 
-    public ArrayList<a> ahB() {
-        return this.bZv;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes2.dex */
+    public interface a {
+        void Y(String str, boolean z);
+
+        e a(e eVar, boolean z);
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                if (jSONObject.optJSONObject("page") != null) {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                    JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            a aVar = new a();
-                            aVar.parserJson(optJSONArray.getJSONObject(i));
-                            this.bZv.add(aVar);
+    public f(PersonListActivity personListActivity, a aVar) {
+        super(personListActivity.getPageContext());
+        this.eGO = 0;
+        this.eGQ = 0;
+        this.eGT = new HttpMessageListener(1002004) { // from class: com.baidu.tieba.ala.live.personcenter.fans.f.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                String errorString;
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002004 && (httpResponsedMessage instanceof ResponseNetPersonListMessage)) {
+                    int statusCode = httpResponsedMessage.getStatusCode();
+                    int error = httpResponsedMessage.getError();
+                    if (statusCode != 200 || error != 0) {
+                        if (f.this.eGJ != null) {
+                            if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                                errorString = f.this.eGP.getResources().getString(a.i.sdk_neterror);
+                            } else {
+                                errorString = httpResponsedMessage.getErrorString();
+                            }
+                            f.this.eGJ.Y(errorString, false);
+                            return;
                         }
+                        return;
                     }
-                    if (optJSONArray2 != null) {
-                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            a aVar2 = new a();
-                            aVar2.parserJson(optJSONArray2.getJSONObject(i2));
-                            aVar2.mAttentionType = 1;
-                            this.bZw.add(aVar2);
+                    e beg = ((ResponseNetPersonListMessage) httpResponsedMessage).beg();
+                    if (beg != null) {
+                        if (!StringUtils.isNull(beg.cLT)) {
+                            f.this.eGS = beg.cLT;
+                            f.this.eGR = beg.type;
                         }
+                        beg.type = f.this.eGR;
+                        beg.cLT = f.this.eGS;
                     }
-                    this.dRe.parserJson(jSONObject.optJSONObject("page"));
-                    if (this.dRe != null) {
-                        this.pageNum = this.dRe.ahw();
-                        this.bZA = this.dRe.ahu();
-                        this.hasMore = this.dRe.ahy() == 1;
+                    if (f.this.eGJ != null) {
+                        f.this.eGJ.a(beg, false);
                     }
-                    this.bZy = jSONObject.optInt("tafriendnum", 0);
-                    this.bZz = jSONObject.optInt("commonfriendnum", 0);
                 }
-                this.type = jSONObject.optInt("type", 0);
-                this.bZB = jSONObject.optString("block_text");
-            } catch (Exception e) {
-                BdLog.detailException(e);
             }
+        };
+        this.eGP = personListActivity;
+        this.anz = false;
+        this.mId = null;
+        this.eGJ = aVar;
+        aZq();
+    }
+
+    public void setId(String str) {
+        this.mId = str;
+    }
+
+    public String getId() {
+        return this.mId;
+    }
+
+    public void setSex(int i) {
+        this.mSex = i;
+    }
+
+    public void is(boolean z) {
+        this.anz = z;
+    }
+
+    public boolean bee() {
+        return this.anz;
+    }
+
+    public void aZq() {
+        String str;
+        MessageManager messageManager = MessageManager.getInstance();
+        if (this.anz) {
+            str = TbConfig.SERVER_ADDRESS + Config.GET_FOLLOW_ADDRESS;
+        } else {
+            str = TbConfig.SERVER_ADDRESS + Config.GET_FANS_ADDRESS;
         }
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002004, str);
+        tbHttpMessageTask.setResponsedClass(ResponseNetPersonListMessage.class);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        messageManager.registerTask(tbHttpMessageTask);
+        registerListener(this.eGT);
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    protected boolean loadData() {
+        return false;
+    }
+
+    public void bef() {
+        HttpMessage httpMessage = new HttpMessage(1002004);
+        HashMap hashMap = new HashMap();
+        if (this.anz) {
+            httpMessage.setTag(eGN);
+        } else {
+            httpMessage.setTag(eGM);
+        }
+        httpMessage.addParam("uid", this.mId);
+        hashMap.put("id", String.valueOf(this.mId));
+        if (this.eGO != 0) {
+            this.eGO++;
+            httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, String.valueOf(this.eGO));
+        }
+        httpMessage.addParam("tab", this.eGQ);
+        hashMap.put("page", String.valueOf(this.eGO));
+        httpMessage.setExtra(hashMap);
+        sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
     }
 }

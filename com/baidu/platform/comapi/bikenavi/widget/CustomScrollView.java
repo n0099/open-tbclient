@@ -76,9 +76,9 @@ public class CustomScrollView extends ScrollView {
         this.top = com.baidu.platform.comapi.wnplatform.o.g.c(context) - com.baidu.platform.comapi.wnplatform.o.g.d(context);
         this.bottom = 0;
         this.c = 3;
-        com.baidu.platform.comapi.wnplatform.o.a.a.a((Activity) getContext(), R.layout.abc_action_mode_bar, this);
-        this.j = (LinearLayout) findViewById(2131165245);
-        this.l = (LinearLayout) findViewById(2131165244);
+        com.baidu.platform.comapi.wnplatform.o.a.a.a((Activity) getContext(), R.layout.abc_action_mode_close_item_material, this);
+        this.j = (LinearLayout) findViewById(R.raw.par_little_flame);
+        this.l = (LinearLayout) findViewById(R.raw.par_jason_flash);
         this.l.setMinimumHeight(this.top);
     }
 

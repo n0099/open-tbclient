@@ -14,7 +14,7 @@ import java.io.FileReader;
 import java.nio.ByteBuffer;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class s {
     public static String a;
     private static s c;
@@ -363,7 +363,7 @@ public class s {
                     }
                     ResolveInfo next = it.next();
                     if (next.serviceInfo != null && next.serviceInfo.applicationInfo != null) {
-                        File file = new File(new File(next.serviceInfo.applicationInfo.dataDir + File.separator + "files"), "libtdidv2.so");
+                        File file = new File(new File(next.serviceInfo.applicationInfo.dataDir + File.separator + com.baidu.fsg.face.base.b.c.g), "libtdidv2.so");
                         if (file.exists() && (a2 = a(file)) != null) {
                             str = a2.a;
                             try {

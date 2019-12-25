@@ -12,12 +12,15 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes10.dex */
 public class b {
-    private String bLi;
-    private ArrayList<String> jLY;
+    private String cwW;
+    private ArrayList<String> kHk;
+    private final String kNy = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
-    public void k(EditText editText) {
+    public void a(EditText editText, boolean z) {
         Editable text;
         Object[] spans;
         if (editText != null && (text = editText.getText()) != null) {
@@ -27,15 +30,18 @@ public class b {
                 }
             }
             com.baidu.tbadk.plugins.b.a(text);
+            if (!z) {
+                c(text);
+            }
             b((Spannable) text);
         }
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.isEmpty(this.jLY)) {
+        if (spannable != null && !v.isEmpty(this.kHk)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.jLY.iterator();
+                Iterator<String> it = this.kHk.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -68,7 +74,7 @@ public class b {
         return (backgroundColorSpanArr == null || backgroundColorSpanArr.length <= 0) ? spanned.length() : spanned.getSpanEnd(backgroundColorSpanArr[0]);
     }
 
-    public boolean l(EditText editText) {
+    public boolean i(EditText editText) {
         Editable text;
         if (editText == null || (text = editText.getText()) == null) {
             return false;
@@ -84,15 +90,15 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.isEmpty(cxw())) {
+        if (v.isEmpty(cRH())) {
             return false;
         }
-        return l(editText) || l(editText2);
+        return i(editText) || i(editText2);
     }
 
     public void b(EditText editText, EditText editText2) {
-        m(editText);
-        m(editText2);
+        b(editText, true);
+        b(editText2, false);
         a(editText, editText2);
     }
 
@@ -100,25 +106,32 @@ public class b {
         b(editText, editText2);
     }
 
-    public void m(EditText editText) {
+    public void b(EditText editText, boolean z) {
         if (editText != null) {
-            k(editText);
+            a(editText, z);
         }
     }
 
-    public void aM(ArrayList<String> arrayList) {
-        this.jLY = arrayList;
+    public void aV(ArrayList<String> arrayList) {
+        this.kHk = arrayList;
     }
 
-    public ArrayList<String> cxw() {
-        return this.jLY;
+    public ArrayList<String> cRH() {
+        return this.kHk;
     }
 
-    public void Fv(String str) {
-        this.bLi = str;
+    public void Kn(String str) {
+        this.cwW = str;
     }
 
-    public String cxA() {
-        return this.bLi;
+    public String cRL() {
+        return this.cwW;
+    }
+
+    private void c(Spannable spannable) {
+        Matcher matcher = Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable);
+        while (matcher.find()) {
+            spannable.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_c)), matcher.start(), matcher.end(), 33);
+        }
     }
 }

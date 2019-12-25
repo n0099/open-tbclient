@@ -1,9 +1,10 @@
 package com.baidu.sapi2;
 
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class u extends HttpHandlerWrap {
     final /* synthetic */ com.baidu.sapi2.callback.a.a a;
     final /* synthetic */ com.baidu.sapi2.result.a.a b;
@@ -44,7 +45,7 @@ public class u extends HttpHandlerWrap {
             JSONObject jSONObject = new JSONObject(str);
             int parseInt = Integer.parseInt(jSONObject.optString("errno"));
             this.b.setResultCode(parseInt);
-            this.b.setResultMsg(jSONObject.optString("errmsg"));
+            this.b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
             if (parseInt == 0) {
                 this.b.a = jSONObject.optInt("push", 0) == 1;
                 this.b.b = jSONObject.optString("url");

@@ -21,7 +21,7 @@ import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PassFaceRecogManager implements PassBiometric {
     private static final long MAX_CALL_INTERNAL_TIME = 300;
     private static PassFaceRecogManager instance;
@@ -139,7 +139,7 @@ public class PassFaceRecogManager implements PassBiometric {
             passFaceRecogDTO.extraParamsMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, passFaceRecogDTO.passProductId);
         }
         passFaceRecogDTO.processid = PassBiometricUtil.getUUID();
-        BeanDataCache.getInstance().addToCache(BeanDataCache.KEY, passFaceRecogDTO);
+        BeanDataCache.getInstance().addToCache("request_data", passFaceRecogDTO);
     }
 
     public PassFaceRecogCallback getPassFaceRecogCallback() {
@@ -151,7 +151,7 @@ public class PassFaceRecogManager implements PassBiometric {
     }
 
     private boolean meetFrequencyControl() {
-        return System.currentTimeMillis() - this.lastCallTime < MAX_CALL_INTERNAL_TIME;
+        return System.currentTimeMillis() - this.lastCallTime < 300;
     }
 
     private void initData() {

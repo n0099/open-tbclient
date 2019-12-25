@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class ConsoleKt$stdin$2 extends Lambda implements kotlin.jvm.a.a<BufferedReader> {
     public static final ConsoleKt$stdin$2 INSTANCE = new ConsoleKt$stdin$2();
 
@@ -30,7 +30,7 @@ final class ConsoleKt$stdin$2 extends Lambda implements kotlin.jvm.a.a<BufferedR
 
             @Override // java.io.InputStream
             public int read(byte[] bArr) {
-                p.i(bArr, "b");
+                p.j(bArr, "b");
                 return System.in.read(bArr);
             }
 
@@ -61,7 +61,7 @@ final class ConsoleKt$stdin$2 extends Lambda implements kotlin.jvm.a.a<BufferedR
 
             @Override // java.io.InputStream
             public int read(byte[] bArr, int i, int i2) {
-                p.i(bArr, "b");
+                p.j(bArr, "b");
                 return System.in.read(bArr, i, i2);
             }
         }));

@@ -1,5 +1,5 @@
 package rx.functions;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface b<T> {
     void call(T t);
 }

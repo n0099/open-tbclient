@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.a.ae;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements d.a<T>, rx.e<T>, rx.k {
     static final PublishProducer<?>[] EMPTY = new PublishProducer[0];
     static final PublishProducer<?>[] TERMINATED = new PublishProducer[0];
@@ -34,7 +34,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
         this.prefetch = i;
         this.delayError = z;
-        if (ae.cPq()) {
+        if (ae.dGX()) {
             this.queue = new rx.internal.util.a.q(i);
         } else {
             this.queue = new rx.internal.util.atomic.c(i);
@@ -131,7 +131,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                                 fVar.request(j2);
                             }
                             for (PublishProducer<T> publishProducer2 : publishProducerArr) {
-                                rx.internal.operators.a.b(publishProducer2, j2);
+                                rx.internal.operators.a.c(publishProducer2, j2);
                             }
                         }
                     } else {
@@ -263,32 +263,32 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T> extends rx.j<T> {
-        final OnSubscribePublishMulticast<T> kzk;
+        final OnSubscribePublishMulticast<T> neN;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
-            this.kzk = onSubscribePublishMulticast;
+            this.neN = onSubscribePublishMulticast;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.kzk.onNext(t);
+            this.neN.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.kzk.onError(th);
+            this.neN.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.kzk.onCompleted();
+            this.neN.onCompleted();
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.kzk.setProducer(fVar);
+            this.neN.setProducer(fVar);
         }
     }
 
@@ -307,7 +307,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class PublishProducer<T> extends AtomicLong implements rx.f, rx.k {
         private static final long serialVersionUID = 960704844171597367L;
         final rx.j<? super T> actual;
@@ -325,7 +325,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             }
             if (j != 0) {
-                rx.internal.operators.a.a(this, j);
+                rx.internal.operators.a.e(this, j);
                 this.parent.drain();
             }
         }

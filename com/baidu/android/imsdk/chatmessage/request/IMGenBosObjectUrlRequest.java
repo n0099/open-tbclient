@@ -22,10 +22,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     private String mContentType;
     private Context mContext;
@@ -174,7 +173,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         sb.append("&content_length=" + new File(this.mFilePath).length());
         if (!TextUtils.isEmpty(this.mContentType)) {
             try {
-                sb.append("&content_type=" + URLEncoder.encode(this.mContentType, HTTP.UTF_8));
+                sb.append("&content_type=" + URLEncoder.encode(this.mContentType, "UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 LogUtils.e("IMGenBosObjectUrlRequest", e.getMessage(), e);
                 sb.append("&content_type=" + URLEncoder.encode(this.mContentType));

@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class LoginManager {
     private static Context mContext;
     private static LoginManager mInstance = null;
@@ -18,7 +18,7 @@ public class LoginManager {
     LoginState mLoginState = LoginState.NOT_LOGIN;
     private int cidTryLoginedTimes = 1;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum LoginState {
         NOT_LOGIN,
         LOGINING,

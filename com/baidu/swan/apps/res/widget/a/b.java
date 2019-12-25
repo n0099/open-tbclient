@@ -2,22 +2,22 @@ package com.baidu.swan.apps.res.widget.a;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class b {
-    protected a biU;
-    private com.baidu.swan.apps.res.widget.a.a biV;
+    protected a bJK;
+    private com.baidu.swan.apps.res.widget.a.a bJL;
     protected Context mContext;
     protected Drawable mIconDrawable;
     protected final int mId;
     protected CharSequence mTitle;
     protected boolean mEnabled = true;
     protected boolean mChecked = false;
-    protected boolean biR = false;
-    protected boolean biS = true;
-    protected long biT = 0;
+    protected boolean mShowTip = false;
+    protected boolean mIsAutoDismiss = true;
+    protected long mDismissDelayTime = 0;
     protected int mIconResId = 0;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void c(b bVar);
     }
@@ -31,7 +31,7 @@ public class b {
     }
 
     public void d(com.baidu.swan.apps.res.widget.a.a aVar) {
-        this.biV = aVar;
+        this.bJL = aVar;
     }
 
     public int getItemId() {
@@ -50,8 +50,8 @@ public class b {
         return this.mTitle;
     }
 
-    public boolean QE() {
-        return this.biS;
+    public boolean isAutoDismiss() {
+        return this.mIsAutoDismiss;
     }
 
     public Drawable getIcon() {
@@ -67,15 +67,15 @@ public class b {
         return null;
     }
 
-    public long QF() {
-        return this.biT;
+    public long getDismissDelayTime() {
+        return this.mDismissDelayTime;
     }
 
-    public a QG() {
-        return this.biU;
+    public a ZI() {
+        return this.bJK;
     }
 
     public void b(a aVar) {
-        this.biU = aVar;
+        this.bJK = aVar;
     }
 }

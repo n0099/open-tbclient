@@ -2,70 +2,69 @@ package com.baidu.tieba.video.editvideo.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.d;
 import com.baidu.tieba.video.c;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private static volatile b jyK;
-    private HashMap<String, String> jyF;
-    private DownloadData jyG;
+    private static volatile b ksC;
+    private HashMap<String, String> ksx;
+    private DownloadData ksy;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void EH(String str);
+        void Jw(String str);
 
-        void csK();
+        void cMM();
 
-        void ef(String str, String str2);
+        void ey(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b cty() {
-        if (jyK == null) {
+    public static b cNz() {
+        if (ksC == null) {
             synchronized (b.class) {
-                if (jyK == null) {
-                    jyK = new b();
+                if (ksC == null) {
+                    ksC = new b();
                 }
             }
         }
-        return jyK;
+        return ksC;
     }
 
-    public String EQ(String str) {
+    public String JE(String str) {
         String nameMd5FromUrl = as.getNameMd5FromUrl(str);
         if (nameMd5FromUrl == null) {
             return null;
         }
-        if (this.jyF == null) {
-            this.jyF = new HashMap<>();
-            ctz();
-            if (this.jyF.size() > 0) {
-                return this.jyF.get(nameMd5FromUrl);
+        if (this.ksx == null) {
+            this.ksx = new HashMap<>();
+            cNA();
+            if (this.ksx.size() > 0) {
+                return this.ksx.get(nameMd5FromUrl);
             }
             return null;
         }
-        return this.jyF.get(nameMd5FromUrl);
+        return this.ksx.get(nameMd5FromUrl);
     }
 
-    public void ctz() {
-        if (this.jyF == null) {
-            this.jyF = new HashMap<>();
+    public void cNA() {
+        if (this.ksx == null) {
+            this.ksx = new HashMap<>();
         } else {
-            this.jyF.clear();
+            this.ksx.clear();
         }
-        File file = new File(c.jwf);
+        File file = new File(c.kqi);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.jyF.put(file2.getName().substring(0, file2.getName().lastIndexOf(DefaultConfig.TOKEN_SEPARATOR)), file2.getAbsolutePath());
+                    this.ksx.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
             }
         }
@@ -74,10 +73,10 @@ public class b {
     public void a(String str, final String str2, final a aVar) {
         String nameMd5FromUrl;
         if (!TextUtils.isEmpty(str2) && (nameMd5FromUrl = as.getNameMd5FromUrl(str2)) != null) {
-            if (this.jyG != null) {
-                d.atT().cancelDownLoadByUrl(this.jyG.getUrl(), true);
+            if (this.ksy != null) {
+                d.aLy().cancelDownLoadByUrl(this.ksy.getUrl(), true);
             }
-            File file = new File(c.jwf);
+            File file = new File(c.kqi);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -85,7 +84,7 @@ public class b {
             downloadData.setType(18);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(c.jwf + nameMd5FromUrl + (DefaultConfig.TOKEN_SEPARATOR + str2.substring(str2.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR) + 1)));
+            downloadData.setPath(c.kqi + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.editvideo.model.b.1
                 @Override // com.baidu.tbadk.download.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -94,11 +93,11 @@ public class b {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (b.this.jyG != null && downloadData2.getUrl().equals(b.this.jyG.getUrl())) {
-                            b.this.jyG = null;
+                        if (b.this.ksy != null && downloadData2.getUrl().equals(b.this.ksy.getUrl())) {
+                            b.this.ksy = null;
                         }
                         if (aVar != null) {
-                            aVar.csK();
+                            aVar.cMM();
                         }
                     }
                 }
@@ -116,12 +115,12 @@ public class b {
                 @Override // com.baidu.tbadk.download.c
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (b.this.jyG != null && downloadData2.getUrl().equals(b.this.jyG.getUrl())) {
-                            b.this.jyG = null;
+                        if (b.this.ksy != null && downloadData2.getUrl().equals(b.this.ksy.getUrl())) {
+                            b.this.ksy = null;
                         }
                         if (aVar != null) {
-                            b.this.jyF.put(downloadData2.getPath().substring(c.jwf.length(), downloadData2.getPath().lastIndexOf(DefaultConfig.TOKEN_SEPARATOR)), downloadData2.getPath());
-                            aVar.ef(str2, downloadData2.getPath());
+                            b.this.ksx.put(downloadData2.getPath().substring(c.kqi.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
+                            aVar.ey(str2, downloadData2.getPath());
                         }
                     }
                 }
@@ -132,16 +131,16 @@ public class b {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (b.this.jyG != null && downloadData2.getUrl().equals(b.this.jyG.getUrl())) {
-                        b.this.jyG = null;
+                    if (b.this.ksy != null && downloadData2.getUrl().equals(b.this.ksy.getUrl())) {
+                        b.this.ksy = null;
                     }
                     if (aVar != null) {
-                        aVar.EH(str3);
+                        aVar.Jw(str3);
                     }
                 }
             });
-            this.jyG = downloadData;
-            d.atT().f(downloadData);
+            this.ksy = downloadData;
+            d.aLy().f(downloadData);
         }
     }
 }

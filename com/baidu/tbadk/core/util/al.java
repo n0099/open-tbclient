@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import java.io.File;
 /* loaded from: classes.dex */
 public class al {
-    public static void c(TbPageContext<?> tbPageContext) {
+    public static void e(TbPageContext<?> tbPageContext) {
         try {
             if (!m.checkSD()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {

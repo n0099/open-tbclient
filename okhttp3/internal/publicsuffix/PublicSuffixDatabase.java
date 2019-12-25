@@ -1,6 +1,5 @@
 package okhttp3.internal.publicsuffix;
 
-import com.baidu.live.adp.lib.util.BdFileHelper;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InterruptedIOException;
@@ -12,7 +11,7 @@ import okhttp3.internal.platform.Platform;
 import okio.BufferedSource;
 import okio.GzipSource;
 import okio.Okio;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class PublicSuffixDatabase {
     private static final byte EXCEPTION_MARKER = 33;
     public static final String PUBLIC_SUFFIX_RESOURCE = "publicsuffixes.gz";
@@ -47,7 +46,7 @@ public final class PublicSuffixDatabase {
         StringBuilder sb = new StringBuilder();
         String[] split2 = str.split("\\.");
         while (length < split2.length) {
-            sb.append(split2[length]).append(BdFileHelper.EXTENSION_SEPARATOR);
+            sb.append(split2[length]).append('.');
             length++;
         }
         sb.deleteCharAt(sb.length() - 1);
@@ -57,8 +56,6 @@ public final class PublicSuffixDatabase {
     private String[] findMatchingRule(String[] strArr) {
         String str;
         String str2;
-        String[] strArr2;
-        String[] strArr3;
         String str3 = null;
         int i = 0;
         if (!this.listRead.get() && this.listRead.compareAndSet(false, true)) {
@@ -122,17 +119,9 @@ public final class PublicSuffixDatabase {
         if (str == null && str2 == null) {
             return PREVAILING_RULE;
         }
-        if (str != null) {
-            strArr2 = str.split("\\.");
-        } else {
-            strArr2 = EMPTY_RULE;
-        }
-        if (str2 != null) {
-            strArr3 = str2.split("\\.");
-        } else {
-            strArr3 = EMPTY_RULE;
-        }
-        return strArr2.length > strArr3.length ? strArr2 : strArr3;
+        String[] split = str != null ? str.split("\\.") : EMPTY_RULE;
+        String[] split2 = str2 != null ? str2.split("\\.") : EMPTY_RULE;
+        return split.length > split2.length ? split : split2;
     }
 
     private static String binarySearchBytes(byte[] bArr, byte[][] bArr2, int i) {
@@ -252,7 +241,7 @@ public final class PublicSuffixDatabase {
     }
 
     private void readTheList() throws IOException {
-        InputStream resourceAsStream = PublicSuffixDatabase.class.getResourceAsStream(PUBLIC_SUFFIX_RESOURCE);
+        InputStream resourceAsStream = PublicSuffixDatabase.class.getResourceAsStream("publicsuffixes.gz");
         if (resourceAsStream != null) {
             BufferedSource buffer = Okio.buffer(new GzipSource(Okio.source(resourceAsStream)));
             try {

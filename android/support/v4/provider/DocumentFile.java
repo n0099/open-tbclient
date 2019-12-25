@@ -3,8 +3,9 @@ package android.support.v4.provider;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.DocumentsContract;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class DocumentFile {
     static final String TAG = "DocumentFile";
     private final DocumentFile mParent;
@@ -59,7 +60,7 @@ public abstract class DocumentFile {
 
     public static DocumentFile fromTreeUri(Context context, Uri uri) {
         if (Build.VERSION.SDK_INT >= 21) {
-            return new TreeDocumentFile(null, context, DocumentsContractApi21.prepareTreeUri(uri));
+            return new TreeDocumentFile(null, context, DocumentsContract.buildDocumentUriUsingTree(uri, DocumentsContract.getTreeDocumentId(uri)));
         }
         return null;
     }

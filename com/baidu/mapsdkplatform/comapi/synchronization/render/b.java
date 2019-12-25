@@ -111,8 +111,8 @@ public class b extends Handler {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.render.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC0096b implements Runnable {
-        private RunnableC0096b() {
+    public class RunnableC0110b implements Runnable {
+        private RunnableC0110b() {
         }
 
         @Override // java.lang.Runnable
@@ -291,7 +291,7 @@ public class b extends Handler {
         this.V = false;
         this.W = 0;
         this.X = false;
-        this.q = new Thread(new RunnableC0096b(), "Car moving");
+        this.q = new Thread(new RunnableC0110b(), "Car moving");
         this.x = new Thread(new c(), "Passenger marker");
         this.B = new Thread(new a(), "Adjust visible span");
     }
@@ -1004,7 +1004,7 @@ public class b extends Handler {
                 this.q.start();
             } else if (Thread.State.TERMINATED == this.q.getState()) {
                 this.q = null;
-                this.q = new Thread(new RunnableC0096b(), "Car moving");
+                this.q = new Thread(new RunnableC0110b(), "Car moving");
                 this.q.start();
             }
         }

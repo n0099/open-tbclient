@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.AddGroup.AddGroupReqIdl;
 import protobuf.AddGroup.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class RequestAddGroupMessage extends TbSocketMessage {
     private String business;
     private int flag;
@@ -118,10 +118,10 @@ public class RequestAddGroupMessage extends TbSocketMessage {
         builder.intro = getIntro();
         builder.portrait = getPortrait();
         builder.position = getPosition();
-        builder.lng = Double.valueOf(com.baidu.adp.lib.g.b.toDouble(getLng(), 0.0d));
+        builder.lng = Double.valueOf(com.baidu.adp.lib.f.b.toDouble(getLng(), 0.0d));
         builder.groupType = Integer.valueOf(getGroupType());
         builder.flag = Integer.valueOf(getFlag());
-        builder.lat = Double.valueOf(com.baidu.adp.lib.g.b.toDouble(getLat(), 0.0d));
+        builder.lat = Double.valueOf(com.baidu.adp.lib.f.b.toDouble(getLat(), 0.0d));
         builder.forumId = Integer.valueOf(getForumId());
         AddGroupReqIdl.Builder builder2 = new AddGroupReqIdl.Builder();
         builder2.data = builder.build(false);

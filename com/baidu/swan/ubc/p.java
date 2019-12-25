@@ -6,40 +6,40 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class p {
-    private String aRF;
-    private int bOZ;
-    private JSONObject bPa;
-    private List<f> bPb = new ArrayList();
+    private String bsu;
+    private int cAT;
+    private JSONObject cAU;
+    private List<f> cAV = new ArrayList();
     private int mThreshold;
 
     public p(String str, JSONObject jSONObject) {
-        this.aRF = str;
-        this.bPa = jSONObject;
+        this.bsu = str;
+        this.cAU = jSONObject;
     }
 
     public String getSign() {
-        return this.aRF;
+        return this.bsu;
     }
 
-    public int acX() {
+    public int atc() {
         return this.mThreshold;
     }
 
-    public int acY() {
-        return this.bOZ;
+    public int atd() {
+        return this.cAT;
     }
 
-    public List<f> acZ() {
-        return this.bPb;
+    public List<f> ate() {
+        return this.cAV;
     }
 
-    public boolean ada() {
+    public boolean atf() {
         try {
-            JSONObject jSONObject = this.bPa;
+            JSONObject jSONObject = this.cAU;
             this.mThreshold = jSONObject.getInt("threshold");
-            this.bOZ = jSONObject.getInt("timeup");
+            this.cAT = jSONObject.getInt("timeup");
             JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -51,21 +51,21 @@ public class p {
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty("1") && !TextUtils.isEmpty("1") && !TextUtils.isEmpty(string3)) {
                     f fVar = new f(string, "1", "1", i2, string3, string2);
                     if (jSONObject2.has("rate")) {
-                        fVar.gT(0);
+                        fVar.iD(jSONObject2.getInt("rate"));
                     }
                     if (jSONObject2.has("c")) {
                         fVar.setCategory(jSONObject2.getString("c"));
                     }
                     if (jSONObject2.has("limitUnit")) {
-                        fVar.gU(jSONObject2.getInt("limitUnit"));
+                        fVar.iE(jSONObject2.getInt("limitUnit"));
                     }
                     if (jSONObject2.has("limitCnt")) {
-                        fVar.gV(jSONObject2.getInt("limitCnt"));
+                        fVar.iF(jSONObject2.getInt("limitCnt"));
                     }
                     if (jSONObject2.has("idtype")) {
-                        fVar.ly(jSONObject2.getString("idtype"));
+                        fVar.qE(jSONObject2.getString("idtype"));
                     }
-                    this.bPb.add(fVar);
+                    this.cAV.add(fVar);
                 }
             }
             return true;

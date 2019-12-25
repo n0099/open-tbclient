@@ -60,6 +60,10 @@ public class MediaData extends OrmObject implements Serializable {
         return this.pic_url;
     }
 
+    public String getSmallPicUrl() {
+        return this.small_pic_url;
+    }
+
     public String getSmallUrl() {
         return this.pic_url;
     }

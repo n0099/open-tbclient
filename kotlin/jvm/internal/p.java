@@ -1,66 +1,65 @@
 package kotlin.jvm.internal;
 
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import java.util.Arrays;
 import java.util.List;
 import kotlin.KotlinNullPointerException;
 import kotlin.UninitializedPropertyAccessException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class p {
     private p() {
     }
 
-    public static void cMW() {
-        throw ((KotlinNullPointerException) E(new KotlinNullPointerException()));
+    public static void dER() {
+        throw ((KotlinNullPointerException) N(new KotlinNullPointerException()));
     }
 
-    public static void GY(String str) {
-        throw ((UninitializedPropertyAccessException) E(new UninitializedPropertyAccessException(str)));
+    public static void Rd(String str) {
+        throw ((UninitializedPropertyAccessException) N(new UninitializedPropertyAccessException(str)));
     }
 
-    public static void GZ(String str) {
-        GY("lateinit property " + str + " has not been initialized");
-    }
-
-    public static void h(Object obj, String str) {
-        if (obj == null) {
-            throw ((IllegalStateException) E(new IllegalStateException(str + " must not be null")));
-        }
+    public static void Re(String str) {
+        Rd("lateinit property " + str + " has not been initialized");
     }
 
     public static void i(Object obj, String str) {
         if (obj == null) {
-            Ha(str);
+            throw ((IllegalStateException) N(new IllegalStateException(str + " must not be null")));
         }
     }
 
-    private static void Ha(String str) {
-        StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-        String className = stackTraceElement.getClassName();
-        throw ((IllegalArgumentException) E(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + DefaultConfig.TOKEN_SEPARATOR + stackTraceElement.getMethodName() + ", parameter " + str)));
+    public static void j(Object obj, String str) {
+        if (obj == null) {
+            Rf(str);
+        }
     }
 
-    public static boolean f(Object obj, Object obj2) {
+    private static void Rf(String str) {
+        StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
+        String className = stackTraceElement.getClassName();
+        throw ((IllegalArgumentException) N(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + "." + stackTraceElement.getMethodName() + ", parameter " + str)));
+    }
+
+    public static boolean h(Object obj, Object obj2) {
         return obj == null ? obj2 == null : obj.equals(obj2);
     }
 
-    public static void cMX() {
-        Hb("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
+    public static void dES() {
+        Rg("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
     }
 
-    public static void Hb(String str) {
+    public static void Rg(String str) {
         throw new UnsupportedOperationException(str);
     }
 
-    public static void aO(int i, String str) {
-        cMX();
+    public static void bf(int i, String str) {
+        dES();
     }
 
-    private static <T extends Throwable> T E(T t) {
-        return (T) d(t, p.class.getName());
+    private static <T extends Throwable> T N(T t) {
+        return (T) c(t, p.class.getName());
     }
 
-    static <T extends Throwable> T d(T t, String str) {
+    static <T extends Throwable> T c(T t, String str) {
         StackTraceElement[] stackTrace = t.getStackTrace();
         int length = stackTrace.length;
         int i = -1;

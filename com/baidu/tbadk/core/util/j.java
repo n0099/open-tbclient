@@ -14,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    public static void nE(String str) {
+    public static void sO(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -42,12 +42,12 @@ public class j {
         }
         if (i > 0) {
             an anVar = new an(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-            anVar.O("obj_param1", i);
+            anVar.Z("obj_param1", i);
             TiebaStatic.log(anVar);
         }
     }
 
-    public static void alY() {
+    public static void aDk() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {
@@ -67,8 +67,8 @@ public class j {
                                 mainDBDatabaseManager.notifySQLException(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.close(cursor);
                                 an anVar = new an(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                                anVar.bS("uid", TbadkCoreApplication.getCurrentAccount());
-                                anVar.O("obj_param1", i);
+                                anVar.cp("uid", TbadkCoreApplication.getCurrentAccount());
+                                anVar.Z("obj_param1", i);
                                 TiebaStatic.log(anVar);
                             } catch (Throwable th3) {
                                 com.baidu.adp.lib.util.n.close(cursor);
@@ -83,8 +83,8 @@ public class j {
                     i = 0;
                 }
                 an anVar2 = new an(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                anVar2.bS("uid", TbadkCoreApplication.getCurrentAccount());
-                anVar2.O("obj_param1", i);
+                anVar2.cp("uid", TbadkCoreApplication.getCurrentAccount());
+                anVar2.Z("obj_param1", i);
                 TiebaStatic.log(anVar2);
             }
         }).start();

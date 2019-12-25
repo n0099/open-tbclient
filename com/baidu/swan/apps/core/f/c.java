@@ -1,9 +1,5 @@
 package com.baidu.swan.apps.core.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface c {
-    void dc(String str);
-
-    boolean dd(String str);
-
-    void goBack();
+    void onScrollChanged(int i, int i2, int i3, int i4);
 }

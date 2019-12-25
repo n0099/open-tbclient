@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ab;
@@ -15,12 +14,12 @@ import com.baidu.tieba.R;
 import java.io.File;
 /* loaded from: classes.dex */
 public class w {
-    public static final void aK(Context context, String str) {
+    public static final void bc(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, (int) R.string.download_error);
             return;
         }
-        File GetFile = com.baidu.tbadk.core.util.m.GetFile(str.replace(DefaultConfig.TOKEN_SEPARATOR, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
+        File GetFile = com.baidu.tbadk.core.util.m.GetFile(str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
         if (GetFile != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
@@ -38,7 +37,7 @@ public class w {
         }
     }
 
-    public static boolean al(Activity activity) {
+    public static boolean aq(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }

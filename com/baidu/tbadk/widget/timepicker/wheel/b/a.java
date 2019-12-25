@@ -1,5 +1,5 @@
 package com.baidu.tbadk.widget.timepicker.wheel.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface a {
-    String aAy();
+    String getPickerViewText();
 }

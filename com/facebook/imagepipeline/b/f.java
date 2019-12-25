@@ -1,15 +1,16 @@
 package com.facebook.imagepipeline.b;
-/* loaded from: classes2.dex */
-public abstract class f {
-    private static a kfH;
 
-    /* loaded from: classes2.dex */
-    public interface a {
+import android.graphics.Bitmap;
+import javax.annotation.Nullable;
+/* loaded from: classes11.dex */
+public abstract class f {
+    public abstract com.facebook.common.references.a<Bitmap> c(int i, int i2, Bitmap.Config config);
+
+    public com.facebook.common.references.a<Bitmap> b(int i, int i2, Bitmap.Config config) {
+        return a(i, i2, config, null);
     }
 
-    public void a(a aVar) {
-        if (kfH == null) {
-            kfH = aVar;
-        }
+    public com.facebook.common.references.a<Bitmap> a(int i, int i2, Bitmap.Config config, @Nullable Object obj) {
+        return c(i, i2, config);
     }
 }

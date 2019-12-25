@@ -6,54 +6,54 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private b bHe;
-    private TextView bHs;
-    private View bHt;
-    private g bHu;
-    private e bHv;
-    private TextView bcf;
+    private TextView csI;
+    private View csJ;
+    private g csK;
+    private e csL;
+    private b csu;
+    private TextView mSubTitle;
 
     public c(View view, b bVar, e eVar) {
         super(view);
         init(view);
-        this.bHe = bVar;
-        this.bHv = eVar;
+        this.csu = bVar;
+        this.csL = eVar;
     }
 
     private void init(View view) {
-        this.bHs = (TextView) view.findViewById(R.id.main_title);
-        this.bcf = (TextView) view.findViewById(R.id.sub_title);
-        this.bHt = view.findViewById(R.id.select);
-        this.bHt.setVisibility(8);
+        this.csI = (TextView) view.findViewById(R.id.main_title);
+        this.mSubTitle = (TextView) view.findViewById(R.id.sub_title);
+        this.csJ = view.findViewById(R.id.select);
+        this.csJ.setVisibility(8);
         this.itemView.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bHe.ZS();
-        this.bHu.isSelected = true;
-        this.bHe.notifyDataSetChanged();
-        if (this.bHv != null) {
-            this.bHv.a(this.bHu);
+        this.csu.apC();
+        this.csK.isSelected = true;
+        this.csu.notifyDataSetChanged();
+        if (this.csL != null) {
+            this.csL.a(this.csK);
         }
     }
 
     public void a(g gVar, String str, boolean z) {
         if (gVar != null) {
-            this.bHu = gVar;
-            this.bHs.setText(z ? bs(gVar.bHz.name, str) : gVar.bHz.name);
-            this.bcf.setVisibility(0);
-            this.bcf.setText(gVar.bHz.address);
-            if (gVar.bHA || TextUtils.isEmpty(gVar.bHz.address)) {
-                this.bcf.setVisibility(8);
+            this.csK = gVar;
+            this.csI.setText(z ? bP(gVar.csP.name, str) : gVar.csP.name);
+            this.mSubTitle.setVisibility(0);
+            this.mSubTitle.setText(gVar.csP.address);
+            if (gVar.csQ || TextUtils.isEmpty(gVar.csP.address)) {
+                this.mSubTitle.setVisibility(8);
             }
-            this.bHt.setVisibility(gVar.isSelected ? 0 : 8);
+            this.csJ.setVisibility(gVar.isSelected ? 0 : 8);
         }
     }
 
-    private CharSequence bs(String str, String str2) {
+    private CharSequence bP(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

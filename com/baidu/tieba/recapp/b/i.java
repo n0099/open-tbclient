@@ -3,24 +3,24 @@ package com.baidu.tieba.recapp.b;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.tbadkCore.data.AppData;
 import com.baidu.tieba.tbadkCore.data.m;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baidu.tieba.recapp.m {
-    protected BaseActivity<?> mActivity;
+    protected BaseFragmentActivity gms;
 
-    public i(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.mActivity = baseActivity;
+    public i(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
+        this.gms = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bZ */
+    /* renamed from: ca */
     public j b(ViewGroup viewGroup) {
-        View view = new View(this.mActivity.getPageContext().getPageActivity());
+        View view = new View(this.gms.getPageContext().getPageActivity());
         view.setVisibility(8);
         return new j(view);
     }
@@ -30,10 +30,10 @@ public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baid
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, m mVar, j jVar) {
         boolean z = false;
-        AppData cob = mVar.cob();
-        if (cob != null) {
-            com.baidu.tbadk.core.data.c cVar = cob.advertAppContext;
-            if (cob.goods != null && cob.goods.goods_style == -1001) {
+        AppData cIh = mVar.cIh();
+        if (cIh != null) {
+            com.baidu.tbadk.core.data.c cVar = cIh.advertAppContext;
+            if (cIh.goods != null && cIh.goods.goods_style == -1001) {
                 z = true;
             }
             com.baidu.tbadk.core.data.c.b(cVar, mVar.getPosition(), z);

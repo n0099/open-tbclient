@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String EXTRA_LIVE_ID = "live_id";
     public static final String EXTRA_ROOM_ID = "room_id";

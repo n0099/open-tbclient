@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.decoder;
 
-import com.facebook.imagepipeline.f.g;
-/* loaded from: classes2.dex */
+import com.facebook.imagepipeline.g.h;
+/* loaded from: classes9.dex */
 public interface d {
-    int Cp(int i);
+    int HT(int i);
 
-    g Cq(int i);
+    h HU(int i);
 }

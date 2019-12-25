@@ -14,17 +14,17 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class b {
-    private static b lF = null;
+    private static b nZ = null;
 
-    public static b eD() {
-        if (lF == null) {
+    public static b eX() {
+        if (nZ == null) {
             synchronized (b.class) {
-                if (lF == null) {
-                    lF = new b();
+                if (nZ == null) {
+                    nZ = new b();
                 }
             }
         }
-        return lF;
+        return nZ;
     }
 
     private b() {
@@ -53,7 +53,7 @@ public class b {
                 encodeInBackGround = compressGzip(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = u.encryptWithAES(d.eE().getSecretKey(), encodeInBackGround);
+                encodeInBackGround = u.encryptWithAES(d.eY().getSecretKey(), encodeInBackGround);
             }
             return a.wrapHeaderIntoBody(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         } catch (Throwable th) {
@@ -62,16 +62,16 @@ public class b {
     }
 
     public c a(c cVar) throws CoderException {
-        if (cVar == null || cVar.lG == null || cVar.body == null) {
+        if (cVar == null || cVar.oa == null || cVar.body == null) {
             throw new CoderException(h.CODEC_INVALID_MSG);
         }
-        a aVar = cVar.lG;
+        a aVar = cVar.oa;
         if (aVar.getEncryptType() && cVar.bodyLength > 0) {
-            if (d.eE().getSecretKey() == null) {
+            if (d.eY().getSecretKey() == null) {
                 throw new CoderException(h.CODEC_SECURE_KEY_NOT_READY);
             }
             try {
-                cVar.body = u.decryptWithAES(d.eE().getSecretKey(), cVar.body, cVar.bodyOffset, cVar.bodyLength);
+                cVar.body = u.decryptWithAES(d.eY().getSecretKey(), cVar.body, cVar.bodyOffset, cVar.bodyLength);
                 cVar.bodyOffset = 0;
                 cVar.bodyLength = cVar.body.length;
             } catch (Exception e) {
@@ -90,17 +90,17 @@ public class b {
         return cVar;
     }
 
-    public c g(byte[] bArr) throws CoderException {
+    public c f(byte[] bArr) throws CoderException {
         int headerLengthInBytes = a.getHeaderLengthInBytes();
         if (bArr == null || bArr.length < headerLengthInBytes) {
             throw new CoderException(h.CODEC_INVALID_MSG);
         }
-        a f = a.f(bArr);
-        if (f == null) {
+        a e = a.e(bArr);
+        if (e == null) {
             throw new CoderException(h.CODEC_INVALID_MSG);
         }
         c cVar = new c();
-        cVar.lG = f;
+        cVar.oa = e;
         cVar.body = bArr;
         cVar.bodyOffset = headerLengthInBytes;
         cVar.bodyLength = bArr.length - headerLengthInBytes;
@@ -157,8 +157,8 @@ public class b {
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.adp.lib.g.a.close((OutputStream) byteArrayOutputStream);
-            com.baidu.adp.lib.g.a.close((InputStream) byteArrayInputStream);
+            com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
+            com.baidu.adp.lib.f.a.close((InputStream) byteArrayInputStream);
         }
     }
 
@@ -170,8 +170,8 @@ public class b {
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.adp.lib.g.a.close((OutputStream) byteArrayOutputStream);
-            com.baidu.adp.lib.g.a.close((InputStream) byteArrayInputStream);
+            com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
+            com.baidu.adp.lib.f.a.close((InputStream) byteArrayInputStream);
         }
     }
 }

@@ -6,22 +6,22 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import com.baidu.live.adp.widget.CenterImageSpan;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class e extends b {
     public e(Context context) {
-        super(context, com.baidu.live.im.a.aeu);
+        super(context, com.baidu.live.im.a.amu);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void ta() {
-        if (tb()) {
-            tc();
+    protected void uU() {
+        if (uV()) {
+            uW();
         } else {
-            td();
+            uX();
         }
     }
 
@@ -36,9 +36,9 @@ public class e extends b {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         a i = i(aVar);
         if (i != null) {
-            String str = i.ahe;
+            String str = i.shareText;
             SpannableString valueOf = SpannableString.valueOf(str);
-            if (tb()) {
+            if (uV()) {
                 if (i.shareType != 3) {
                     valueOf.setSpan(new ForegroundColorSpan(-1647769), 0, valueOf.length(), 33);
                 } else {
@@ -57,12 +57,12 @@ public class e extends b {
                 spannableStringBuilder.append((CharSequence) spannableString);
             }
             if (i.shareType != 3) {
-                a(spannableStringBuilder, aVar.tf(), cVar, false, false);
-                if (tb()) {
-                    tc();
+                a(spannableStringBuilder, aVar.uZ(), cVar, false, false);
+                if (uV()) {
+                    uW();
                 }
             }
-            cVar.aeI.setText(spannableStringBuilder);
+            cVar.amJ.setText(spannableStringBuilder);
         }
         return spannableStringBuilder;
     }
@@ -76,7 +76,7 @@ public class e extends b {
                 jSONObject = new JSONObject(aVar.getContent());
             }
             a aVar2 = new a();
-            aVar2.ahe = jSONObject.optString("share_content");
+            aVar2.shareText = jSONObject.optString("share_content");
             aVar2.shareType = jSONObject.optInt("share_type", 1);
             return aVar2;
         } catch (JSONException e) {
@@ -85,9 +85,9 @@ public class e extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a {
-        public String ahe;
+        public String shareText;
         public int shareType;
 
         private a() {

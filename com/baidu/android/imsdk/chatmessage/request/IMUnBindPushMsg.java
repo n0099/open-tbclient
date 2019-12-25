@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMUnBindPushMsg extends Message {
     public static final String TAG = IMUnBindPushMsg.class.getSimpleName();
     private Context mContext;

@@ -1,10 +1,10 @@
 package com.baidu.ubs.analytics.b;
 
 import com.baidu.live.adp.framework.MessageConfig;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.ubs.analytics.c.g;
 import com.baidu.ubs.analytics.d;
 import com.baidu.ubs.analytics.d.j;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -24,17 +24,17 @@ import java.util.UUID;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class b {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface a<T> {
-        void Gc(String str);
+        void KS(String str);
 
         void a(T t);
     }
 
-    public static String k(String str, Map<String, Object> map) {
+    public static String m(String str, Map<String, Object> map) {
         String str2;
         String stringBuffer;
         if (map.size() <= 0) {
@@ -46,9 +46,9 @@ public final class b {
             } else {
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
                     if (stringBuffer2.length() <= 0) {
-                        stringBuffer2.append(entry.getKey()).append("=").append(entry.getValue());
+                        stringBuffer2.append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
                     } else {
-                        stringBuffer2.append("&").append(entry.getKey()).append("=").append(entry.getValue());
+                        stringBuffer2.append(ETAG.ITEM_SEPARATOR).append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
                     }
                 }
                 stringBuffer = stringBuffer2.toString();
@@ -62,7 +62,7 @@ public final class b {
             httpURLConnection.setReadTimeout(MessageConfig.SOCKET_TIME_OUT_MS_2G);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
-            httpURLConnection.setRequestProperty("token", d.cBb().k());
+            httpURLConnection.setRequestProperty("token", d.cUT().k());
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), "utf-8"));
             printWriter.write(str2);
             printWriter.flush();
@@ -109,7 +109,7 @@ public final class b {
                 httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
                 httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
-                httpURLConnection.setRequestProperty("token", d.cBb().k());
+                httpURLConnection.setRequestProperty("token", d.cUT().k());
                 if (file != null) {
                     DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     StringBuffer stringBuffer = new StringBuffer();
@@ -119,7 +119,7 @@ public final class b {
                     stringBuffer.append("Content-Disposition: form-data; name=\"txt\"; filename=\"" + file.getName() + "\"\r\n");
                     stringBuffer.append("Content-Type: application/octet-stream; charset=utf-8\r\n");
                     stringBuffer.append("\r\n");
-                    dataOutputStream.write(stringBuffer.toString().getBytes(HTTP.UTF_8));
+                    dataOutputStream.write(stringBuffer.toString().getBytes("UTF-8"));
                     fileInputStream = new FileInputStream(file);
                     try {
                         byte[] bArr = new byte[8192];
@@ -131,12 +131,12 @@ public final class b {
                             dataOutputStream.write(bArr, 0, read);
                         }
                         fileInputStream.close();
-                        dataOutputStream.write("\r\n".getBytes(HTTP.UTF_8));
-                        dataOutputStream.write(("--" + uuid + "--\r\n").getBytes(HTTP.UTF_8));
+                        dataOutputStream.write("\r\n".getBytes("UTF-8"));
+                        dataOutputStream.write(("--" + uuid + "--\r\n").getBytes("UTF-8"));
                         dataOutputStream.flush();
                         dataOutputStream.close();
                         if (httpURLConnection.getResponseCode() != 200) {
-                            com.baidu.ubs.analytics.d.b.Gf(file.getAbsolutePath() + "     上传文件失败…………");
+                            com.baidu.ubs.analytics.d.b.KV(file.getAbsolutePath() + "     上传文件失败…………");
                             httpURLConnection.disconnect();
                             try {
                                 fileInputStream.close();
@@ -224,23 +224,23 @@ public final class b {
             httpURLConnection.setRequestProperty("Content-Type", "application/json");
             httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
             httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-            httpURLConnection.setRequestProperty(HTTP.CONTENT_LEN, String.valueOf(str.toString().getBytes(HTTP.UTF_8).length));
+            httpURLConnection.setRequestProperty("Content-Length", String.valueOf(str.toString().getBytes("UTF-8").length));
             httpURLConnection.setReadTimeout(MessageConfig.SOCKET_TIME_OUT_MS_2G);
             httpURLConnection.setConnectTimeout(10000);
-            httpURLConnection.setRequestProperty("token", d.cBb().k());
+            httpURLConnection.setRequestProperty("token", d.cUT().k());
             httpURLConnection.connect();
             OutputStream outputStream = httpURLConnection.getOutputStream();
-            outputStream.write(str.getBytes(HTTP.UTF_8));
+            outputStream.write(str.getBytes("UTF-8"));
             outputStream.flush();
             outputStream.close();
             if (httpURLConnection.getResponseCode() == 200) {
-                InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream(), HTTP.UTF_8);
+                InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 StringBuffer stringBuffer = new StringBuffer("");
                 while (true) {
                     String readLine = bufferedReader.readLine();
                     if (readLine != null) {
-                        stringBuffer.append(new String(readLine.getBytes(HTTP.UTF_8), "utf-8"));
+                        stringBuffer.append(new String(readLine.getBytes("UTF-8"), "utf-8"));
                     } else {
                         bufferedReader.close();
                         inputStreamReader.close();
@@ -249,12 +249,12 @@ public final class b {
                     }
                 }
             } else {
-                com.baidu.ubs.analytics.d.b.Gf("上传log失败    ");
+                com.baidu.ubs.analytics.d.b.KV("上传log失败    ");
                 httpURLConnection.disconnect();
                 return null;
             }
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.b.Gf("上传log失败    " + e.getMessage());
+            com.baidu.ubs.analytics.d.b.KV("上传log失败    " + e.getMessage());
             j.a(e);
             return null;
         }
@@ -267,7 +267,7 @@ public final class b {
         }
         if (str == null) {
             if (aVar != null) {
-                aVar.Gc(LivenessStat.TYPE_STRING_DEFAULT);
+                aVar.KS("-1");
                 return false;
             }
             return false;
@@ -285,18 +285,18 @@ public final class b {
             return true;
         } else if (jSONObject.getString("status").equals("1")) {
             if (aVar != null) {
-                aVar.Gc(jSONObject.optString("status"));
+                aVar.KS(jSONObject.optString("status"));
             }
-            com.baidu.ubs.analytics.d.b.Gf("net status  error ");
+            com.baidu.ubs.analytics.d.b.KV("net status  error ");
             return false;
         } else {
             if (jSONObject.getString("status").equals("2")) {
-                g.d(d.cBb().getContext());
-                com.baidu.ubs.analytics.d.b.Gf("net  token error ");
+                g.d(d.cUT().getContext());
+                com.baidu.ubs.analytics.d.b.KV("net  token error ");
                 return false;
             }
             if (aVar != null) {
-                aVar.Gc(LivenessStat.TYPE_STRING_DEFAULT);
+                aVar.KS("-1");
                 return false;
             }
             return false;

@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.log.LogManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HaokanLiveCloseLogger implements ILiveCloseLogger {
     @Override // com.baidu.live.tbadk.log.ILiveCloseLogger
     public void doAccessLiveCloseGuestLog(String str, String str2, String str3, String str4) {

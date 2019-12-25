@@ -20,6 +20,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -31,9 +32,8 @@ public class c {
     private Resources contextRes;
     private Resources pluginRes;
     private boolean isNightMode = false;
-    private boolean bUU = false;
     Map<String, b> viewModeInfos = new HashMap();
-    public boolean bUV = false;
+    public boolean cHl = false;
 
     public void initModeInfos(String str, Context context, AttributeSet attributeSet) {
         int[] resID;
@@ -118,8 +118,8 @@ public class c {
                     bVar.setTextColorHintResID_(resID[1]);
                     z = true;
                 }
-                if (z && TbConfig.getDebugSwitch() && (i = com.baidu.adp.lib.g.b.toInt(attributeValue.substring(1), 0)) != 0) {
-                    bVar.appendTag(attributeName + "=" + this.contextRes.getResourceName(i));
+                if (z && TbConfig.getDebugSwitch() && (i = com.baidu.adp.lib.f.b.toInt(attributeValue.substring(1), 0)) != 0) {
+                    bVar.appendTag(attributeName + ETAG.EQUAL + this.contextRes.getResourceName(i));
                 }
             }
             if (z) {
@@ -295,21 +295,14 @@ public class c {
     }
 
     private Drawable getDrawable(boolean z, int i, int i2) {
-        if (this.bUU) {
-            try {
-                return this.contextRes.getDrawable(i);
-            } catch (Throwable th) {
-                return null;
-            }
-        }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.bUV && skinType == 4)) {
+        if (skinType == 2 || (!this.cHl && skinType == 4)) {
             return am.getDrawable(i);
         }
         if (!z) {
             try {
                 return this.contextRes.getDrawable(i);
-            } catch (Throwable th2) {
+            } catch (Throwable th) {
                 return null;
             }
         }
@@ -320,7 +313,7 @@ public class c {
         if (this.pluginRes == null) {
             try {
                 return this.contextRes.getDrawable(i);
-            } catch (Throwable th3) {
+            } catch (Throwable th2) {
                 return null;
             }
         }
@@ -329,7 +322,7 @@ public class c {
         } catch (Resources.NotFoundException e) {
             try {
                 return this.contextRes.getDrawable(i);
-            } catch (Throwable th4) {
+            } catch (Throwable th3) {
                 return null;
             }
         } catch (ArrayIndexOutOfBoundsException e2) {
@@ -338,11 +331,8 @@ public class c {
     }
 
     private int getColor(boolean z, int i, int i2) {
-        if (this.bUU) {
-            return this.contextRes.getColor(i);
-        }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.bUV && skinType == 4)) {
+        if (skinType == 2 || (!this.cHl && skinType == 4)) {
             return am.getColor(i);
         }
         if (!z) {
@@ -363,11 +353,8 @@ public class c {
     }
 
     private ColorStateList getColorList(boolean z, int i, int i2) {
-        if (this.bUU) {
-            return this.contextRes.getColorStateList(i);
-        }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.bUV && skinType == 4)) {
+        if (skinType == 2 || (!this.cHl && skinType == 4)) {
             return am.getColorList(i);
         }
         if (!z) {
@@ -389,10 +376,6 @@ public class c {
 
     public void setNightMode(boolean z) {
         this.isNightMode = z;
-    }
-
-    public void dV(boolean z) {
-        this.bUU = z;
     }
 
     public void setPluginRes(Resources resources) {

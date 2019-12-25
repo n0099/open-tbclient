@@ -8,12 +8,14 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PagerTabStrip extends PagerTitleStrip {
     private static final int FULL_UNDERLINE_HEIGHT = 1;
     private static final int INDICATOR_HEIGHT = 3;
@@ -40,11 +42,11 @@ public class PagerTabStrip extends PagerTitleStrip {
     private final Rect mTempRect;
     private int mTouchSlop;
 
-    public PagerTabStrip(Context context) {
+    public PagerTabStrip(@NonNull Context context) {
         this(context, null);
     }
 
-    public PagerTabStrip(Context context, AttributeSet attributeSet) {
+    public PagerTabStrip(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mTabPaint = new Paint();
         this.mTempRect = new Rect();
@@ -194,10 +196,10 @@ public class PagerTabStrip extends PagerTitleStrip {
         int left = this.mCurrText.getLeft() - this.mTabPadding;
         int right = this.mCurrText.getRight() + this.mTabPadding;
         int i = height - this.mIndicatorHeight;
-        this.mTabPaint.setColor((this.mTabAlpha << 24) | (this.mIndicatorColor & ViewCompat.MEASURED_SIZE_MASK));
+        this.mTabPaint.setColor((this.mTabAlpha << 24) | (this.mIndicatorColor & 16777215));
         canvas.drawRect(left, i, right, height, this.mTabPaint);
         if (this.mDrawFullUnderline) {
-            this.mTabPaint.setColor((-16777216) | (this.mIndicatorColor & ViewCompat.MEASURED_SIZE_MASK));
+            this.mTabPaint.setColor((-16777216) | (this.mIndicatorColor & 16777215));
             canvas.drawRect(getPaddingLeft(), height - this.mFullUnderlineHeight, getWidth() - getPaddingRight(), height, this.mTabPaint);
         }
     }

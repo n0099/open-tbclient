@@ -14,7 +14,6 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.Iterator;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public final class f {
     private static String a = null;
@@ -110,7 +109,7 @@ public final class f {
         try {
             fileOutputStream = new FileOutputStream(str3, true);
             try {
-                outputStreamWriter = new OutputStreamWriter(fileOutputStream, HTTP.UTF_8);
+                outputStreamWriter = new OutputStreamWriter(fileOutputStream, "UTF-8");
                 try {
                     bufferedWriter = new BufferedWriter(outputStreamWriter);
                     try {
@@ -261,7 +260,7 @@ public final class f {
         try {
             fileInputStream = new FileInputStream(str);
             try {
-                inputStreamReader = new InputStreamReader(fileInputStream, HTTP.UTF_8);
+                inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
                 try {
                     bufferedReader = new BufferedReader(inputStreamReader);
                     while (true) {

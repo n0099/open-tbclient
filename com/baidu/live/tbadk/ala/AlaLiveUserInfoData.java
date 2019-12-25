@@ -1,12 +1,11 @@
 package com.baidu.live.tbadk.ala;
 
-import android.net.http.Headers;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.data.AlaUserInfoData;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveUserInfoData extends BaseData implements Serializable {
     private static final long serialVersionUID = -3860430259513905402L;
     public long alaId;
@@ -46,7 +45,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             this.anchorLive = jSONObject.optLong("anchor_live");
             this.liveStatus = jSONObject.optInt("live_status");
             this.liveId = jSONObject.optLong("live_id");
-            this.location = jSONObject.optString(Headers.LOCATION);
+            this.location = jSONObject.optString("location");
             this.lng = jSONObject.optLong("lng");
             this.lat = jSONObject.optLong("lat");
             this.updateTime = jSONObject.optInt("update_time");

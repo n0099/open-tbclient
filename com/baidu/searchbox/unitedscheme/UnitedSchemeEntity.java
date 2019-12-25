@@ -5,7 +5,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class UnitedSchemeEntity implements Cloneable {
     public static final String UNITED_SCHEME = SchemeConfig.getSchemeHead() + "://";
     public boolean callbackInvoked;
@@ -48,7 +48,7 @@ public class UnitedSchemeEntity implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public UnitedSchemeEntity m16clone() {
+    public UnitedSchemeEntity m18clone() {
         UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(this.mUri, this.mSource, UnitedSchemeUtility.getPaths(this.mUri), (HashMap) this.mParams.clone());
         unitedSchemeEntity.originEntity = this;
         unitedSchemeEntity.callbackInvoked = this.callbackInvoked;
@@ -93,6 +93,24 @@ public class UnitedSchemeEntity implements Cloneable {
             }
         }
         return null;
+    }
+
+    public String getAllPath() {
+        String path;
+        if (this.mUri != null) {
+            if (UnitedSchemeUtility.hasVersion(this.mUri) && (path = this.mUri.getPath()) != null && path.length() > 1) {
+                return this.mUri.getPath().substring(1);
+            }
+            return this.mUri.getHost() + this.mUri.getPath();
+        }
+        return "";
+    }
+
+    public void replaceAllPath(String str, String str2) {
+        if (this.mUri != null && str != null && str2 != null) {
+            this.mUri = Uri.parse(this.mUri.toString().replace(str, str2));
+            this.mPaths = UnitedSchemeUtility.getPaths(this.mUri);
+        }
     }
 
     public boolean isAction() {
@@ -145,5 +163,10 @@ public class UnitedSchemeEntity implements Cloneable {
             this.mParams = new HashMap<>();
         }
         this.mParams.put(str, str2);
+    }
+
+    public void resetUriAndPath(Uri uri) {
+        this.mUri = uri;
+        this.mPaths = UnitedSchemeUtility.getPaths(this.mUri);
     }
 }

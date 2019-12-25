@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.data;
 
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class VideoEasterEggData implements Serializable {
     private String activityID;
     private String popImageUrl;

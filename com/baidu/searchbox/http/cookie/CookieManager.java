@@ -1,7 +1,7 @@
 package com.baidu.searchbox.http.cookie;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public interface CookieManager {
     String getCookie(String str);
 

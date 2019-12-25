@@ -16,13 +16,13 @@ import java.io.IOException;
 import java.io.InputStream;
 @RequiresApi(14)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class TypefaceCompatBaseImpl implements TypefaceCompat.TypefaceCompatImpl {
     private static final String CACHE_FILE_PREFIX = "cached_font_";
     private static final String TAG = "TypefaceCompatBaseImpl";
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface StyleExtractor<T> {
         int getWeight(T t);
 

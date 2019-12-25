@@ -5,39 +5,27 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.location.Address;
-import com.baidu.location.g.g;
+import com.baidu.location.d.j;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class BDLocation implements Parcelable {
     public static final String BDLOCATION_BD09LL_TO_GCJ02 = "bd09ll2gcj";
     public static final String BDLOCATION_BD09_TO_GCJ02 = "bd092gcj";
     public static final String BDLOCATION_GCJ02_TO_BD09 = "bd09";
     public static final String BDLOCATION_GCJ02_TO_BD09LL = "bd09ll";
     public static final String BDLOCATION_WGS84_TO_GCJ02 = "gps2gcj";
-    public static final Parcelable.Creator<BDLocation> CREATOR = new Parcelable.Creator<BDLocation>() { // from class: com.baidu.location.BDLocation.1
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.Parcelable.Creator
-        public BDLocation createFromParcel(Parcel parcel) {
-            return new BDLocation(parcel);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.Parcelable.Creator
-        public BDLocation[] newArray(int i) {
-            return new BDLocation[i];
-        }
-    };
+    public static final Parcelable.Creator<BDLocation> CREATOR = new a();
     public static final int GPS_ACCURACY_BAD = 3;
     public static final int GPS_ACCURACY_GOOD = 1;
     public static final int GPS_ACCURACY_MID = 2;
@@ -273,6 +261,11 @@ public final class BDLocation implements Parcelable {
         this.O = parcel.readBundle();
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ BDLocation(Parcel parcel, a aVar) {
+        this(parcel);
+    }
+
     public BDLocation(BDLocation bDLocation) {
         int i = 0;
         this.a = 0;
@@ -459,7 +452,7 @@ public final class BDLocation implements Parcelable {
                     if (this.A == 0) {
                         setCoorType(CoordinateType.WGS84);
                     } else {
-                        setCoorType(CoordinateType.GCJ02);
+                        setCoorType("gcj02");
                     }
                 } else if (parseInt != 161) {
                     if (parseInt != 66 && parseInt != 68) {
@@ -475,7 +468,7 @@ public final class BDLocation implements Parcelable {
                     setLongitude(Double.parseDouble(jSONObject7.getString(Config.EVENT_HEAT_X)));
                     setRadius(Float.parseFloat(jSONObject6.getString("radius")));
                     a(Boolean.valueOf(Boolean.parseBoolean(jSONObject6.getString("isCellChanged"))));
-                    setCoorType(CoordinateType.GCJ02);
+                    setCoorType("gcj02");
                 } else {
                     JSONObject jSONObject8 = jSONObject2.getJSONObject("content");
                     JSONObject jSONObject9 = jSONObject8.getJSONObject(Config.EVENT_HEAT_POINT);
@@ -633,9 +626,9 @@ public final class BDLocation implements Parcelable {
                             }
                             if (jSONObject12.has("ret_fields")) {
                                 try {
-                                    String[] split2 = jSONObject12.getString("ret_fields").split("\\|");
+                                    String[] split2 = jSONObject12.getString("ret_fields").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
                                     for (String str3 : split2) {
-                                        String[] split3 = str3.split("=");
+                                        String[] split3 = str3.split(ETAG.EQUAL);
                                         this.O.putString(split3[0], split3[1]);
                                     }
                                 } catch (Exception e5) {
@@ -662,7 +655,7 @@ public final class BDLocation implements Parcelable {
                     if (this.A == 0) {
                         setCoorType(CoordinateType.WGS84);
                     } else {
-                        setCoorType(CoordinateType.GCJ02);
+                        setCoorType("gcj02");
                     }
                 }
             } catch (Exception e8) {
@@ -1090,7 +1083,7 @@ public final class BDLocation implements Parcelable {
 
     public void setTime(String str) {
         this.b = str;
-        setLocationID(g.a(str));
+        setLocationID(j.a(str));
     }
 
     public void setUserIndoorState(int i) {

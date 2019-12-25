@@ -13,19 +13,19 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.guardclub.model.GuardClubInfoHttpResponseMessage;
 import com.baidu.tieba.ala.guardclub.model.GuardClubInfoRenameResponseMessage;
 import com.baidu.tieba.ala.guardclub.model.GuardClubJoinHttpResponseMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GuardClubInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubInfoActivityConfig.class, GuardClubInfoActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubMemberListActivityConfig.class, GuardClubMemberListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubJoinListActivityConfig.class, GuardClubJoinListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubRankActivityConfig.class, GuardClubRankActivity.class);
-        aLk();
-        aLl();
-        aLm();
+        bcu();
+        bcv();
+        bcw();
     }
 
-    private static void aLk() {
+    private static void bcu() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021137, TbConfig.SERVER_HOST + "liveserver/guardClub/info");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -35,7 +35,7 @@ public class GuardClubInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aLl() {
+    private static void bcv() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS, TbConfig.SERVER_HOST + "liveserver/guardClub/join");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -45,7 +45,7 @@ public class GuardClubInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aLm() {
+    private static void bcw() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021142, TbConfig.SERVER_HOST + "liveserver/guardClub/updateClubName");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

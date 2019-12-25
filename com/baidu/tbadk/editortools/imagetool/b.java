@@ -1,14 +1,14 @@
 package com.baidu.tbadk.editortools.imagetool;
 
 import android.content.Context;
-import com.baidu.tbadk.editortools.k;
+import com.baidu.tbadk.editortools.l;
 /* loaded from: classes.dex */
-public class b extends k {
+public class b extends l {
     public b(Context context, int i) {
         super(context, (String) null, 11);
-        this.cFg = true;
-        this.cFf = 6;
-        this.cEn = c.p(context, i);
-        this.cFh = new int[]{12, 13, 9};
+        this.dta = true;
+        this.dsZ = 6;
+        this.dsh = c.y(context, i);
+        this.dtb = new int[]{12, 13, 9};
     }
 }

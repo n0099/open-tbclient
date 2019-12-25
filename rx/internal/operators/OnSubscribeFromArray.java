@@ -1,8 +1,9 @@
 package rx.internal.operators;
 
+import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class OnSubscribeFromArray<T> implements d.a<T> {
     final T[] array;
 
@@ -16,7 +17,7 @@ public final class OnSubscribeFromArray<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class FromArrayProducer<T> extends AtomicLong implements rx.f {
         private static final long serialVersionUID = 3534218984725836979L;
         final T[] array;
@@ -33,11 +34,11 @@ public final class OnSubscribeFromArray<T> implements d.a<T> {
             if (j < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             }
-            if (j == Long.MAX_VALUE) {
-                if (a.a(this, j) == 0) {
+            if (j == Format.OFFSET_SAMPLE_RELATIVE) {
+                if (a.e(this, j) == 0) {
                     fastPath();
                 }
-            } else if (j != 0 && a.a(this, j) == 0) {
+            } else if (j != 0 && a.e(this, j) == 0) {
                 slowPath(j);
             }
         }

@@ -13,29 +13,29 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.util.aa;
+import com.baidu.tbadk.util.ad;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.a.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
-    protected ImageUrlData cyC;
-    private c.a cyD;
-    public com.baidu.tieba.pb.a.c cyE;
+    protected ImageUrlData dmk;
+    private c.a dml;
+    public com.baidu.tieba.pb.a.c dmm;
     protected String mUserId;
-    protected static final int cyy = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds34);
-    protected static final int cyz = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds28);
+    protected static final int dmg = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds34);
+    protected static final int dmh = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds28);
     protected static final int LEFT = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds44);
     protected static final int RIGHT = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds44);
-    protected static final int cyA = (l.getEquipmentWidth(TbadkApplication.getInst()) - LEFT) - RIGHT;
-    protected static final int cyB = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds42);
+    protected static final int dmi = (l.getEquipmentWidth(TbadkApplication.getInst()) - LEFT) - RIGHT;
+    protected static final int dmj = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds42);
 
     public abstract void a(ImageUrlData imageUrlData);
 
-    public abstract void t(boolean z, boolean z2);
+    public abstract void u(boolean z, boolean z2);
 
     public AbsFloorImageTextView(@NonNull Context context) {
         super(context);
-        this.cyD = new c.a() { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.1
+        this.dml = new c.a() { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.1
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 return false;
@@ -48,11 +48,11 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
 
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
-                AbsFloorImageTextView.this.ash();
+                AbsFloorImageTextView.this.aJG();
                 return true;
             }
         };
-        this.cyE = new com.baidu.tieba.pb.a.c(this.cyD) { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.2
+        this.dmm = new com.baidu.tieba.pb.a.c(this.dml) { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.2
             @Override // com.baidu.tieba.pb.a.c, android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
                 return false;
@@ -69,10 +69,10 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         this.mUserId = str;
     }
 
-    public void ash() {
-        if (this.cyC != null) {
-            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.cyC.threadId), String.valueOf(this.cyC.postId), this.cyC.mIsSeeHost, this.cyC.mIsReserver, null);
-            if (this.cyC.isFirstPost) {
+    public void aJG() {
+        if (this.dmk != null) {
+            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.dmk.threadId), String.valueOf(this.dmk.postId), this.dmk.mIsSeeHost, this.dmk.mIsReserver, null);
+            if (this.dmk.isFirstPost) {
                 createHistoryCfg.setJumpToTopArea(true);
             } else {
                 createHistoryCfg.setJumpToCommentArea(true);
@@ -82,11 +82,11 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Pair<Integer, Integer> pa(String str) {
-        return aa.p(str, cyB, cyA);
+    public Pair<Integer, Integer> ue(String str) {
+        return ad.r(str, dmj, dmi);
     }
 
-    protected void h(View view, int i) {
+    protected void i(View view, int i) {
         if (view != null) {
             int height = view.getHeight();
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
@@ -98,7 +98,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jp(int i) {
-        h(this, i);
+    public void lC(int i) {
+        i(this, i);
     }
 }

@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.pass.biometrics.base.PassBiometricConfiguration;
 import com.baidu.pass.biometrics.base.debug.Log;
@@ -21,7 +20,6 @@ import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.base.utils.RSA;
 import com.baidu.pass.biometrics.base.utils.thread.TPRunnable;
 import com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -38,7 +36,7 @@ import java.util.zip.ZipInputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class UpdateSo {
     public static String TAG = "UpdateSo";
     private Application application;
@@ -49,7 +47,7 @@ public class UpdateSo {
     private CountDownLatch statServiceCountDownLatch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface LoadModuleEventListener {
         void onFailure(SdkConfigOptions.DistributedFile distributedFile);
 
@@ -81,7 +79,7 @@ public class UpdateSo {
     public void getHostConfig() {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("appid", this.configuration.appId);
-        httpHashMapWrap.put(TableDefine.PaSubscribeColumns.COLUMN_TPL, this.configuration.tpl);
+        httpHashMapWrap.put("tpl", this.configuration.tpl);
         new HttpClientWrap(this.application).get("https://wappass.bdimg.com/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new HttpHandlerWrap(true) { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.2
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
@@ -540,7 +538,7 @@ public class UpdateSo {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class StatService {
         private static final String DOWNLOAD_ZIP_FILE_SUCCESS = "download_zip_file_success";
         private static final String EXCEPTION_INFO = "exception_info";
@@ -568,22 +566,22 @@ public class UpdateSo {
 
         private Map<String, String> prepareData() {
             HashMap hashMap = new HashMap();
-            hashMap.put(HOST_VERSION, SdkConfigOptions.HOST_VERSION);
-            hashMap.put(ZIP_VERSION, this.zipVersion);
-            hashMap.put(GET_CONFIG_SUCCESS, this.getConfigSuccess ? "1" : LivenessStat.TYPE_STRING_DEFAULT);
+            hashMap.put("host_version", SdkConfigOptions.HOST_VERSION);
+            hashMap.put("zip_version", this.zipVersion);
+            hashMap.put(GET_CONFIG_SUCCESS, this.getConfigSuccess ? "1" : "-1");
             if (this.getConfigSuccess) {
-                hashMap.put(ZIP_ENABLE, this.zipEnable ? "1" : LivenessStat.TYPE_STRING_DEFAULT);
-                hashMap.put(NEED_UPDATE, this.needUpdate ? "1" : LivenessStat.TYPE_STRING_DEFAULT);
+                hashMap.put(ZIP_ENABLE, this.zipEnable ? "1" : "-1");
+                hashMap.put(NEED_UPDATE, this.needUpdate ? "1" : "-1");
             }
             if (this.zipEnable) {
-                hashMap.put(MEET_GRAY, this.meetGray ? "1" : LivenessStat.TYPE_STRING_DEFAULT);
+                hashMap.put(MEET_GRAY, this.meetGray ? "1" : "-1");
             }
             if (this.needUpdate) {
-                hashMap.put(UPDATE_FROM_NET, this.updateFromNet ? "1" : LivenessStat.TYPE_STRING_DEFAULT);
-                hashMap.put(DOWNLOAD_ZIP_FILE_SUCCESS, this.downloadZipFileSuccess ? "1" : LivenessStat.TYPE_STRING_DEFAULT);
+                hashMap.put(UPDATE_FROM_NET, this.updateFromNet ? "1" : "-1");
+                hashMap.put(DOWNLOAD_ZIP_FILE_SUCCESS, this.downloadZipFileSuccess ? "1" : "-1");
             }
             if (this.sdkVersionBelow19) {
-                hashMap.put(SDK_VERSION_ENABLE, this.sdkVersionBelow19 ? "1" : LivenessStat.TYPE_STRING_DEFAULT);
+                hashMap.put(SDK_VERSION_ENABLE, this.sdkVersionBelow19 ? "1" : "-1");
             }
             hashMap.put(EXCEPTION_INFO, this.exceptionInfo);
             return hashMap;

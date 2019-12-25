@@ -5,13 +5,12 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.text.TextUtils;
-import com.coloros.mcssdk.PushManager;
 import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b {
     private static Field a;
     private static Field b;
@@ -57,7 +56,7 @@ public class b {
     }
 
     public static void a(Context context) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
         if (notificationManager != null) {
             notificationManager.cancelAll();
         }
@@ -65,7 +64,7 @@ public class b {
 
     public static void a(Context context, String str) {
         Set<String> set;
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
         if (notificationManager == null || TextUtils.isEmpty(str) || (set = e.get(str)) == null) {
             return;
         }
@@ -77,7 +76,7 @@ public class b {
     }
 
     public static void a(Context context, String str, int i) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
         if (notificationManager != null) {
             com.meizu.cloud.a.a.i("NotificationUtils", "clear clearNotification notifyId " + i);
             notificationManager.cancel(i);

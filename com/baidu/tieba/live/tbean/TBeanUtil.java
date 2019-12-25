@@ -3,11 +3,12 @@ package com.baidu.tieba.live.tbean;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.CharacterStyle;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.baidu.tieba.live.tbean.data.SettingData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TBeanUtil {
     public static String formatTBeanNum(int i) {
         float f;
@@ -31,7 +32,7 @@ public class TBeanUtil {
             j = 0;
         }
         String valueOf = String.valueOf(j);
-        if (j >= 1000000) {
+        if (j >= TimeUtils.NANOS_PER_MS) {
             long j2 = j / 10000;
             if (((float) j) / 10000.0f > ((float) j2)) {
                 return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);

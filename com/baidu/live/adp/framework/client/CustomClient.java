@@ -9,7 +9,7 @@ import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class CustomClient extends Client<CustomMessage<?>, CustomMessageTask> {
     public CustomClient(MessageManager messageManager) {
         super(messageManager);
@@ -63,7 +63,7 @@ public class CustomClient extends Client<CustomMessage<?>, CustomMessageTask> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class CustomAsyncTask extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
         private CustomMessageTask mMessageTask;
         private CustomMessage mRequestMsg;

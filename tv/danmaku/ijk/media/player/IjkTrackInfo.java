@@ -1,8 +1,9 @@
 package tv.danmaku.ijk.media.player;
 
 import android.text.TextUtils;
+import com.baidu.android.util.devices.RomUtils;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class IjkTrackInfo implements ITrackInfo {
     private IjkMediaMeta.IjkStreamMeta mStreamMeta;
     private int mTrackType = 0;
@@ -67,7 +68,7 @@ public class IjkTrackInfo implements ITrackInfo {
                 sb.append("SUBTITLE");
                 break;
             default:
-                sb.append("UNKNOWN");
+                sb.append(RomUtils.UNKNOWN);
                 break;
         }
         return sb.toString();

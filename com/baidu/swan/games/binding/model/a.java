@@ -2,56 +2,66 @@ package com.baidu.swan.games.binding.model;
 
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.v8engine.JsFunction;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public final class a {
-    public JsFunction byd;
-    public JsFunction bye;
-    public JsFunction byf;
+    public JsFunction chA;
+    public JsFunction chB;
+    public JsFunction chz;
 
-    public static a e(c cVar) {
+    public static a f(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.byd = cVar.jD("success");
-        aVar.bye = cVar.jD(LivenessStat.TYPE_FACE_MATCH_FAIL);
-        aVar.byf = cVar.jD(com.baidu.mobads.openad.c.b.COMPLETE);
+        aVar.chz = cVar.om("success");
+        aVar.chA = cVar.om(LivenessStat.TYPE_FACE_MATCH_FAIL);
+        aVar.chB = cVar.om(com.baidu.mobads.openad.c.b.COMPLETE);
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.byd != null) {
-            this.byd.call(obj);
+        if (this.chz != null) {
+            this.chz.call(obj);
         }
+        if (this.chB != null) {
+            this.chB.call(obj);
+        }
+        a(this.chA);
     }
 
-    public void J(Object obj) {
-        if (this.bye != null) {
-            this.bye.call(obj);
+    public void Q(Object obj) {
+        if (this.chA != null) {
+            this.chA.call(obj);
         }
-    }
-
-    public void onComplete(Object obj) {
-        if (this.byf != null) {
-            this.byf.call(obj);
+        if (this.chB != null) {
+            this.chB.call(obj);
         }
+        a(this.chz);
     }
 
     public void onSuccess() {
-        if (this.byd != null) {
-            this.byd.call();
+        if (this.chz != null) {
+            this.chz.call();
         }
+        if (this.chB != null) {
+            this.chB.call();
+        }
+        a(this.chA);
     }
 
     public void onFail() {
-        if (this.bye != null) {
-            this.bye.call();
+        if (this.chA != null) {
+            this.chA.call();
         }
+        if (this.chB != null) {
+            this.chB.call();
+        }
+        a(this.chz);
     }
 
-    public void onComplete() {
-        if (this.byf != null) {
-            this.byf.call();
+    private void a(JsFunction jsFunction) {
+        if (jsFunction != null) {
+            jsFunction.release();
         }
     }
 }

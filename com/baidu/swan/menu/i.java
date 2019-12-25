@@ -1,72 +1,119 @@
 package com.baidu.swan.menu;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.swan.menu.viewpager.SlideableGridView;
-import java.util.List;
-/* loaded from: classes2.dex */
-class i extends SlideableGridView.a {
-    private List<j> bJY;
-    private int bJb;
-    private Context mContext;
-    private boolean bJc = true;
-    private int bJZ = 10;
+import android.graphics.drawable.Drawable;
+import com.baidu.swan.menu.g;
+/* loaded from: classes9.dex */
+public class i {
+    private com.baidu.swan.menu.viewpager.b cuP;
+    private int cuV;
+    private f cva;
+    private boolean mEnable;
+    private Drawable mIcon;
+    private int mIconResId;
+    private int mId;
+    private String mTitle;
+    private boolean mIsVisible = true;
+    private int cuW = 0;
+    private int cuX = -1;
+    public int cuY = 0;
+    private long cuZ = 0;
+
+    public i(int i, int i2, int i3, boolean z) {
+        this.cuV = -1;
+        this.mIconResId = -1;
+        this.mEnable = true;
+        this.mId = i;
+        this.cuV = i2;
+        this.mIconResId = i3;
+        this.mEnable = z;
+    }
+
+    public int aqg() {
+        return this.cuY;
+    }
+
+    public void id(int i) {
+        this.cuY = i;
+    }
+
+    public long aqh() {
+        return this.cuZ;
+    }
+
+    public void aY(long j) {
+        this.cuZ = j;
+    }
+
+    public int getItemId() {
+        return this.mId;
+    }
+
+    public void ie(int i) {
+        this.cuV = i;
+    }
+
+    public void setIconResId(int i) {
+        this.mIconResId = i;
+    }
+
+    public boolean isEnable() {
+        return this.mEnable;
+    }
+
+    public String dw(Context context) {
+        if (this.mTitle != null) {
+            return this.mTitle;
+        }
+        if (this.cuV <= 0) {
+            return null;
+        }
+        return context.getResources().getString(this.cuV);
+    }
+
+    public Drawable dx(Context context) {
+        if (this.mIcon != null) {
+            return this.mIcon;
+        }
+        if (this.mIconResId <= 0) {
+            return null;
+        }
+        return context.getResources().getDrawable(this.mIconResId);
+    }
+
+    public int aqi() {
+        return this.cuW;
+    }
+
+    public boolean isVisible() {
+        return this.mIsVisible;
+    }
+
+    public int getTitleColor() {
+        return this.cuX == -1 ? g.a.aiapp_menu_item_text : this.cuX;
+    }
+
+    public void a(f fVar) {
+        this.cva = fVar;
+    }
+
+    public f aqj() {
+        return this.cva;
+    }
+
+    public void b(com.baidu.swan.menu.viewpager.b bVar) {
+        this.cuP = bVar;
+    }
+
+    public com.baidu.swan.menu.viewpager.b aqk() {
+        return this.cuP;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(Context context) {
-        this.mContext = context;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setData(List<j> list) {
-        this.bJY = list;
-    }
-
-    public void dA(boolean z) {
-        this.bJc = z;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setMenuStyle(int i) {
-        this.bJb = i;
-    }
-
-    @Override // com.baidu.swan.menu.viewpager.SlideableGridView.a
-    public int getPageCount() {
-        if (this.bJY == null) {
-            return 0;
+    public static i f(i iVar) {
+        if (iVar == null) {
+            return null;
         }
-        if (this.bJY.size() % this.bJZ == 0) {
-            return this.bJY.size() / this.bJZ;
-        }
-        return (this.bJY.size() / this.bJZ) + 1;
-    }
-
-    @Override // com.baidu.swan.menu.viewpager.SlideableGridView.a
-    public int gu(int i) {
-        if (this.bJY == null) {
-            return 0;
-        }
-        return i < this.bJY.size() / this.bJZ ? this.bJZ : this.bJY.size() % this.bJZ;
-    }
-
-    @Override // com.baidu.swan.menu.viewpager.SlideableGridView.a
-    public View a(int i, int i2, View view, ViewGroup viewGroup) {
-        View kVar = view == null ? new k(this.mContext) : view;
-        ((k) kVar).setMenuStyle(this.bJb);
-        ((k) kVar).e(this.bJY.get((this.bJZ * i) + i2));
-        return kVar;
-    }
-
-    @Override // com.baidu.swan.menu.viewpager.SlideableGridView.a
-    public void a(int i, int i2, View view) {
-        if (this.bJY != null) {
-            j jVar = this.bJY.get((this.bJZ * i) + i2);
-            e aaB = jVar.aaB();
-            if (aaB != null) {
-                aaB.a(view, jVar);
-            }
-        }
+        return new i(iVar.mId, iVar.cuV, iVar.mIconResId, iVar.mEnable);
     }
 }

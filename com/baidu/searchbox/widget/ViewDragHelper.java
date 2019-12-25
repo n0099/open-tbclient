@@ -12,7 +12,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class ViewDragHelper {
     private static final int BASE_SETTLE_DURATION = 256;
     public static final int DIRECTION_ALL = 3;
@@ -65,8 +65,10 @@ public class ViewDragHelper {
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Callback {
+        public abstract boolean isPageTranslucent();
+
         public abstract boolean tryCaptureView(View view, int i);
 
         public void onViewDragStateChanged(int i) {
@@ -262,7 +264,7 @@ public class ViewDragHelper {
         } else {
             abs = (int) (((Math.abs(i) / i3) + 1.0f) * 256.0f);
         }
-        return Math.min(abs, (int) MAX_SETTLE_DURATION);
+        return Math.min(abs, 600);
     }
 
     private int clampMag(int i, int i2, int i3) {
@@ -781,7 +783,9 @@ public class ViewDragHelper {
         int top = this.mCapturedView.getTop();
         if (i3 != 0) {
             i5 = this.mCallback.clampViewPositionHorizontal(this.mCapturedView, i, i3);
-            this.mCapturedView.offsetLeftAndRight(i5 - left);
+            if (this.mCallback.isPageTranslucent()) {
+                this.mCapturedView.offsetLeftAndRight(i5 - left);
+            }
         } else {
             i5 = i;
         }
@@ -792,7 +796,11 @@ public class ViewDragHelper {
             i6 = i2;
         }
         if (i3 != 0 || i4 != 0) {
-            this.mCallback.onViewPositionChanged(this.mCapturedView, i5, i6, i5 - left, i6 - top);
+            int i7 = i5 - left;
+            int i8 = i6 - top;
+            if (this.mCallback.isPageTranslucent()) {
+                this.mCallback.onViewPositionChanged(this.mCapturedView, i5, i6, i7, i8);
+            }
         }
     }
 

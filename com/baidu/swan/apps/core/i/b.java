@@ -1,151 +1,185 @@
 package com.baidu.swan.apps.core.i;
 
-import android.app.Activity;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.an.ac;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.TreeMap;
-/* loaded from: classes2.dex */
-public final class b {
+import com.baidu.swan.apps.as.ab;
+import com.baidu.swan.apps.as.m;
+import com.baidu.swan.apps.as.s;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.t.a.a;
+import com.baidu.swan.apps.t.e;
+import com.baidu.swan.games.k.a;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+abstract class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static LinkedList<a> aMV = new LinkedList<>();
-    private static Map<String, com.baidu.swan.apps.b.c.c> aMW = new TreeMap();
 
-    /* loaded from: classes2.dex */
-    public static class a {
-        public com.baidu.swan.apps.b.c.c aMY;
-        public boolean aMZ;
-        public final ArrayList<InterfaceC0175b> aNa = new ArrayList<>();
+    protected abstract String Ng();
+
+    protected abstract boolean a(c cVar);
+
+    protected abstract String gX(String str);
+
+    public HashMap<String, c> Nh() {
+        JSONArray optJSONArray;
+        String Ng = Ng();
+        if (TextUtils.isEmpty(Ng) || (optJSONArray = s.parseString(Ng).optJSONArray("list")) == null) {
+            return null;
+        }
+        HashMap<String, c> hashMap = new HashMap<>();
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            c ah = ah(optJSONArray.optJSONObject(i));
+            if (ah != null) {
+                hashMap.put(ah.cwO, ah);
+            }
+        }
+        return hashMap;
     }
 
-    /* renamed from: com.baidu.swan.apps.core.i.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0175b {
-        void onReady();
-    }
-
-    public static void y(Activity activity) {
-        if (activity == null || activity.isFinishing()) {
-            if (DEBUG) {
-                Log.e("SwanAppSlavePool", "preloadSlaveManager activity is invalid: " + Log.getStackTraceString(new Exception()));
+    public void a(final c cVar, final d dVar) {
+        final HybridUbcFlow jx = com.baidu.swan.apps.performance.f.jx("startup");
+        jx.f(new UbcFlowEvent("loadPresetApp-start").cU(true));
+        if (dVar != null) {
+            if (cVar == null) {
+                dVar.onFailed(0);
                 return;
             }
-            return;
-        }
-        if (aMV.size() < 2) {
-            if (DEBUG) {
-                Log.d("SwanAppSlavePool", "preloadSlaveManager do preload.");
-            }
-            aMV.add(A(activity));
-        }
-        if (DEBUG) {
-            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + aMV.size());
-        }
-    }
-
-    public static void e(final Activity activity, long j) {
-        if (DEBUG) {
-            Log.d("SwanAppSlavePool", "preloadSlaveManager delay ms: " + j);
-        }
-        ac.c(new Runnable() { // from class: com.baidu.swan.apps.core.i.b.1
-            @Override // java.lang.Runnable
-            public void run() {
-                if (b.DEBUG) {
-                    Log.d("SwanAppSlavePool", "preloadSlaveManager start.");
-                }
-                b.y(activity);
-                if (b.DEBUG) {
-                    Log.d("SwanAppSlavePool", "preloadSlaveManager end.");
-                }
-            }
-        }, j);
-    }
-
-    public static a z(Activity activity) {
-        if (DEBUG) {
-            Log.d("SwanAppSlavePool", "getPreloadSlaveManager");
-        }
-        if (aMV.isEmpty()) {
-            return A(activity);
-        }
-        if (DEBUG) {
-            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + aMV.getFirst());
-        }
-        a removeFirst = aMV.removeFirst();
-        if (DEBUG) {
-            Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next.");
-        }
-        ac.c(new Runnable() { // from class: com.baidu.swan.apps.core.i.b.2
-            @Override // java.lang.Runnable
-            public void run() {
-                if (b.DEBUG) {
-                    Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next start.");
-                }
-                b.y(com.baidu.swan.apps.w.e.LE().Lq());
-                if (b.DEBUG) {
-                    Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next end.");
-                }
-            }
-        }, 600L);
-        if (DEBUG) {
-            Log.d("SwanAppSlavePool", "getPreloadSlaveManager return.");
-            return removeFirst;
-        }
-        return removeFirst;
-    }
-
-    public static void a(a aVar, InterfaceC0175b interfaceC0175b) {
-        if (interfaceC0175b != null) {
-            if (aVar.aMZ) {
-                interfaceC0175b.onReady();
-            } else {
-                aVar.aNa.add(interfaceC0175b);
-            }
-        }
-    }
-
-    private static a A(Activity activity) {
-        final a aVar = new a();
-        aVar.aMZ = false;
-        aVar.aMY = com.baidu.swan.apps.core.j.c.GP().a(activity, new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.apps.core.i.b.3
-            @Override // com.baidu.swan.apps.core.c
-            public void db(String str) {
-                if (b.DEBUG) {
-                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.aMY.Cu() + " url: " + str);
-                }
-                a.this.aMZ = true;
-                if (!a.this.aNa.isEmpty()) {
-                    Iterator<InterfaceC0175b> it = a.this.aNa.iterator();
-                    while (it.hasNext()) {
-                        InterfaceC0175b next = it.next();
-                        if (next != null) {
-                            next.onReady();
-                        }
+            m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.core.i.b.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    jx.f(new UbcFlowEvent("loadPresetApp#run-start").cU(true));
+                    String gX = b.this.gX(cVar.cwO);
+                    if (TextUtils.isEmpty(gX)) {
+                        dVar.onFailed(0);
+                        return;
                     }
-                    a.this.aNa.clear();
+                    JSONObject parseString = s.parseString(gX);
+                    jx.f(new UbcFlowEvent("loadPresetApp#run-appInfoJson").cU(true));
+                    PMSAppInfo a = b.this.a(cVar, parseString);
+                    if (a == null) {
+                        dVar.onFailed(1);
+                        return;
+                    }
+                    jx.f(new UbcFlowEvent("loadPresetApp#run-PMSAppInfo").cU(true));
+                    dVar.e(a);
+                    long currentTimeMillis = System.currentTimeMillis();
+                    boolean a2 = b.this.a(cVar);
+                    if (b.DEBUG) {
+                        Log.d("PresetController", "签名+解压 耗时：" + (System.currentTimeMillis() - currentTimeMillis));
+                    }
+                    jx.f(new UbcFlowEvent("loadPresetApp#run-doUnzipBundle").cU(true));
+                    if (a2) {
+                        a.setOrientation(b.this.c(cVar.category, cVar.cwO, cVar.versionCode));
+                        com.baidu.swan.pms.database.a.aqM().a(cVar, a);
+                        jx.f(new UbcFlowEvent("loadPresetApp#run-bulkInsert").cU(true));
+                        dVar.f(a);
+                    } else {
+                        dVar.onFailed(2);
+                    }
+                    jx.f(new UbcFlowEvent("loadPresetApp#run-return").cU(true));
                 }
-            }
-        });
-        return aVar;
-    }
-
-    public static void a(String str, com.baidu.swan.apps.b.c.c cVar) {
-        aMW.put(str, cVar);
-    }
-
-    public static com.baidu.swan.apps.b.c.c eG(String str) {
-        com.baidu.swan.apps.b.c.c cVar = aMW.get(str);
-        if (cVar != null) {
-            aMW.remove(str);
+            }, "加载小程序预置包");
+            jx.f(new UbcFlowEvent("loadPresetApp-return").cU(true));
         }
-        return cVar;
     }
 
-    public static void clearAll() {
-        aMV.clear();
-        aMW.clear();
+    /* JADX INFO: Access modifiers changed from: private */
+    public int c(int i, String str, int i2) {
+        com.baidu.swan.games.s.a.a A;
+        if (i != 1 || (A = com.baidu.swan.apps.core.pms.d.a.A(str, i2)) == null) {
+            return 0;
+        }
+        return A.cmO;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public PMSAppInfo a(c cVar, JSONObject jSONObject) {
+        PMSAppInfo cc;
+        if (jSONObject == null || cVar == null || (cc = com.baidu.swan.pms.f.d.cc(jSONObject)) == null) {
+            return null;
+        }
+        cc.h(cVar);
+        cc.createTime = System.currentTimeMillis();
+        return cc;
+    }
+
+    private c ah(JSONObject jSONObject) {
+        c cVar;
+        if (jSONObject != null && (cVar = (c) com.baidu.swan.pms.f.d.a(jSONObject, new c())) != null) {
+            cVar.cwY = jSONObject.optInt("pkg_type");
+            cVar.bmb = jSONObject.optString("bundle_name");
+            if (cVar.Ni()) {
+                return cVar;
+            }
+            return null;
+        }
+        return null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public File d(int i, String str, int i2) {
+        if (i == 0) {
+            return e.d.aA(str, String.valueOf(i2));
+        }
+        if (i == 1) {
+            return a.c.aA(str, String.valueOf(i2));
+        }
+        return null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean a(BufferedInputStream bufferedInputStream, File file) {
+        boolean z = false;
+        if (bufferedInputStream != null) {
+            try {
+                if (file != null) {
+                    a.b a = com.baidu.swan.apps.t.a.a.a(bufferedInputStream);
+                    if ((a == null || a.type == -1) ? false : true) {
+                        z = com.baidu.swan.apps.t.a.a.a(bufferedInputStream, file, a.type).isSuccess;
+                    } else {
+                        z = com.baidu.swan.d.f.f(bufferedInputStream, file.getPath());
+                    }
+                }
+            } catch (IOException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+            } finally {
+                com.baidu.swan.d.c.closeSafely(bufferedInputStream);
+            }
+        }
+        return z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean a(ReadableByteChannel readableByteChannel, String str) {
+        if (readableByteChannel != null) {
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    boolean b = ab.b(readableByteChannel, str);
+                    if (DEBUG) {
+                        Log.d("PresetController", "签名校验结果：" + b + " ,耗时：" + (System.currentTimeMillis() - currentTimeMillis));
+                    }
+                    return b;
+                }
+            } catch (IOException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+                return false;
+            } finally {
+                com.baidu.swan.d.c.closeSafely(readableByteChannel);
+            }
+        }
+        return false;
     }
 }

@@ -3,7 +3,8 @@ package com.xiaomi.push;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.xiaomi.push.gb;
 import com.xiaomi.push.gf;
 import com.xiaomi.push.gh;
@@ -15,16 +16,16 @@ import java.util.HashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class gl {
     private static XmlPullParser a = null;
 
     public static ga a(String str, String str2, XmlPullParser xmlPullParser) {
-        Object m293a = gk.a().m293a("all", "xm:chat");
-        if (m293a == null || !(m293a instanceof com.xiaomi.push.service.e)) {
+        Object m296a = gk.a().m296a(SchemeCollecter.CLASSIFY_ALL, "xm:chat");
+        if (m296a == null || !(m296a instanceof com.xiaomi.push.service.e)) {
             return null;
         }
-        return ((com.xiaomi.push.service.e) m293a).b(xmlPullParser);
+        return ((com.xiaomi.push.service.e) m296a).b(xmlPullParser);
     }
 
     public static gb a(XmlPullParser xmlPullParser, fm fmVar) {
@@ -47,7 +48,7 @@ public class gl {
                 String name = xmlPullParser.getName();
                 String namespace = xmlPullParser.getNamespace();
                 if (name.equals(BdStatsConstant.StatsType.ERROR)) {
-                    ghVar = m297a(xmlPullParser);
+                    ghVar = m300a(xmlPullParser);
                 } else {
                     gbVar = new gb();
                     gbVar.a(a(name, namespace, xmlPullParser));
@@ -118,7 +119,7 @@ public class gl {
                         gcVar.k(attributeValue2);
                         gcVar.f(attributeValue5);
                         ga gaVar = new ga("s", null, null, null);
-                        gaVar.m285a(text);
+                        gaVar.m288a(text);
                         gcVar.a(gaVar);
                         return gcVar;
                     }
@@ -198,21 +199,21 @@ public class gl {
                 if (name.equals("subject")) {
                     if (b(xmlPullParser) == null) {
                     }
-                    gcVar2.g(m298a(xmlPullParser));
+                    gcVar2.g(m301a(xmlPullParser));
                 } else if (name.equals("body")) {
                     String attributeValue11 = xmlPullParser.getAttributeValue("", "encode");
-                    String m298a = m298a(xmlPullParser);
+                    String m301a = m301a(xmlPullParser);
                     if (TextUtils.isEmpty(attributeValue11)) {
-                        gcVar2.h(m298a);
+                        gcVar2.h(m301a);
                     } else {
-                        gcVar2.a(m298a, attributeValue11);
+                        gcVar2.a(m301a, attributeValue11);
                     }
                 } else if (name.equals("thread")) {
                     if (str2 == null) {
                         str2 = xmlPullParser.nextText();
                     }
                 } else if (name.equals(BdStatsConstant.StatsType.ERROR)) {
-                    gcVar2.a(m297a(xmlPullParser));
+                    gcVar2.a(m300a(xmlPullParser));
                 } else {
                     gcVar2.a(a(name, namespace, xmlPullParser));
                 }
@@ -225,7 +226,7 @@ public class gl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gf m295a(XmlPullParser xmlPullParser) {
+    public static gf m298a(XmlPullParser xmlPullParser) {
         gf.b bVar = gf.b.available;
         String attributeValue = xmlPullParser.getAttributeValue("", "type");
         if (attributeValue != null && !attributeValue.equals("")) {
@@ -267,7 +268,7 @@ public class gl {
                         System.err.println("Found invalid presence mode " + nextText);
                     }
                 } else if (name.equals(BdStatsConstant.StatsType.ERROR)) {
-                    gfVar.a(m297a(xmlPullParser));
+                    gfVar.a(m300a(xmlPullParser));
                 } else {
                     gfVar.a(a(name, namespace, xmlPullParser));
                 }
@@ -279,7 +280,7 @@ public class gl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gg m296a(XmlPullParser xmlPullParser) {
+    public static gg m299a(XmlPullParser xmlPullParser) {
         gg ggVar = null;
         boolean z = false;
         while (!z) {
@@ -294,11 +295,11 @@ public class gl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gh m297a(XmlPullParser xmlPullParser) {
+    public static gh m300a(XmlPullParser xmlPullParser) {
         ArrayList arrayList = new ArrayList();
         String str = null;
         String str2 = null;
-        String str3 = LivenessStat.TYPE_STRING_DEFAULT;
+        String str3 = "-1";
         int i = 0;
         while (i < xmlPullParser.getAttributeCount()) {
             String attributeValue = xmlPullParser.getAttributeName(i).equals("code") ? xmlPullParser.getAttributeValue("", "code") : str3;
@@ -335,11 +336,11 @@ public class gl {
                 str5 = xmlPullParser.getText();
             }
         }
-        return new gh(Integer.parseInt(str3), str2 == null ? "cancel" : str2, str, str4, str5, arrayList);
+        return new gh(Integer.parseInt(str3), str2 == null ? UgcUBCUtils.UGC_TIME_CANCEL : str2, str, str4, str5, arrayList);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static String m298a(XmlPullParser xmlPullParser) {
+    private static String m301a(XmlPullParser xmlPullParser) {
         String str = "";
         int depth = xmlPullParser.getDepth();
         while (true) {

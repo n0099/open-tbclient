@@ -8,20 +8,20 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.g;
 import com.baidu.tbadk.core.view.h;
-import com.baidu.tbadk.core.view.i;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private BdTypeListView duK;
-    private NoNetworkView faF;
-    private View frV;
-    private a frW;
+    private BdTypeListView efM;
+    private NoNetworkView fPl;
+    private View ggr;
+    private a ggs;
     private BaseActivity mActivity;
     private NavigationBar mNavigationBar;
-    private i mPullView;
+    private h mPullView;
     private View mRootView;
 
     public b(BaseActivity baseActivity) {
@@ -37,78 +37,78 @@ public class b {
         });
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mActivity.setNetRefreshViewTopMargin(BdListViewHelper.NET_RERESHNEW_TOP_MARGIN);
-        this.faF = (NoNetworkView) this.mActivity.findViewById(R.id.view_no_network);
-        this.duK = (BdTypeListView) this.mActivity.findViewById(R.id.forum_member_listview);
-        this.mPullView = new i(this.mActivity.getPageContext());
+        this.fPl = (NoNetworkView) this.mActivity.findViewById(R.id.view_no_network);
+        this.efM = (BdTypeListView) this.mActivity.findViewById(R.id.forum_member_listview);
+        this.mPullView = new h(this.mActivity.getPageContext());
         this.mPullView.setTag(this.mActivity.getUniqueId());
-        if (this.mActivity instanceof h.c) {
-            this.mPullView.setListPullRefreshListener((h.c) this.mActivity);
+        if (this.mActivity instanceof g.c) {
+            this.mPullView.setListPullRefreshListener((g.c) this.mActivity);
         }
         if (this.mActivity instanceof BdListView.e) {
-            this.duK.setOnSrollToBottomListener((BdListView.e) this.mActivity);
+            this.efM.setOnSrollToBottomListener((BdListView.e) this.mActivity);
         }
-        this.duK.setPullRefresh(this.mPullView);
-        this.frV = BdListViewHelper.a(this.mActivity.getPageContext().getPageActivity(), this.duK, BdListViewHelper.HeadType.DEFAULT);
-        this.frW = new a(this.mActivity, this.duK);
-        this.duK.addAdapters(this.frW.aJq());
+        this.efM.setPullRefresh(this.mPullView);
+        this.ggr = BdListViewHelper.a(this.mActivity.getPageContext().getPageActivity(), this.efM, BdListViewHelper.HeadType.DEFAULT);
+        this.ggs = new a(this.mActivity, this.efM);
+        this.efM.addAdapters(this.ggs.aZO());
     }
 
     public void showLoadingView() {
-        this.duK.setVisibility(8);
+        this.efM.setVisibility(8);
         this.mActivity.showLoadingView(this.mRootView, true);
     }
 
     public void hideLoadingView() {
-        this.duK.setVisibility(0);
+        this.efM.setVisibility(0);
         this.mActivity.hideLoadingView(this.mRootView);
     }
 
-    public void vG(String str) {
-        this.duK.setVisibility(8);
+    public void Ay(String str) {
+        this.efM.setVisibility(8);
         this.mActivity.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void aJm() {
-        this.duK.setVisibility(0);
+    public void aZK() {
+        this.efM.setVisibility(0);
         this.mActivity.hideNetRefreshView(this.mRootView);
     }
 
-    public void ci(List<m> list) {
+    public void ce(List<m> list) {
         if (list != null) {
-            this.duK.setData(list);
+            this.efM.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        this.frW.notifyDataSetChanged();
+        this.ggs.notifyDataSetChanged();
     }
 
     public void completePullRefresh() {
-        this.duK.completePullRefreshPostDelayed(0L);
+        this.efM.completePullRefreshPostDelayed(0L);
     }
 
     public void startPullRefresh() {
-        this.duK.startPullRefresh();
+        this.efM.startPullRefresh();
     }
 
-    public void g(NoNetworkView.a aVar) {
+    public void f(NoNetworkView.a aVar) {
         if (aVar != null) {
-            this.faF.a(aVar);
+            this.fPl.a(aVar);
         }
     }
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(this.mActivity.getPageContext(), i);
-        this.faF.onChangeSkinType(this.mActivity.getPageContext(), i);
+        this.fPl.onChangeSkinType(this.mActivity.getPageContext(), i);
         notifyDataSetChanged();
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c);
     }
 
-    public void jx(boolean z) {
-        BdListViewHelper.a(this.frV, BdListViewHelper.HeadType.DEFAULT, z);
+    public void kJ(boolean z) {
+        BdListViewHelper.a(this.ggr, BdListViewHelper.HeadType.DEFAULT, z);
     }
 
     public void onDestroy() {
-        this.frW.onDestroy();
+        this.ggs.onDestroy();
     }
 }

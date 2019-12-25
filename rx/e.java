@@ -1,5 +1,5 @@
 package rx;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface e<T> {
     void onCompleted();
 

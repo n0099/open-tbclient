@@ -4,17 +4,18 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.view.TbListCommonPullView;
 import com.baidu.tieba.ala.live.personcenter.admin.c.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private b dQb;
-    private c dQc;
-    private com.baidu.live.g.b dQd;
-    private CustomMessageListener dQe = new CustomMessageListener(2913050, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.1
+    private b eFD;
+    private c eFE;
+    private com.baidu.live.k.b eFF;
+    private CustomMessageListener eFG = new CustomMessageListener(2913050, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -33,48 +34,52 @@ public class a {
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
                         bdAlertDialog2.dismiss();
-                        a.this.dQd.P(bVar.getUserId(), a.this.mLiveId);
-                        a.this.dQb.a(bVar);
+                        a.this.eFF.X(bVar.getUserId(), a.this.mLiveId);
+                        a.this.eFD.a(bVar);
                     }
                 });
+                if (TbadkCoreApplication.getInst().isMobileBaidu()) {
+                    bdAlertDialog.setPositiveButtonTextColor(a.this.getPageContext().getResources().getColorStateList(a.f.sdk_dialog_gray_button_txt_selector));
+                    bdAlertDialog.setNagetiveButtonTextColor(a.this.getPageContext().getResources().getColorStateList(a.f.sdk_dialog_gray_button_txt_selector));
+                }
                 bdAlertDialog.create(a.this.getPageContext());
                 bdAlertDialog.show();
             }
         }
     };
-    private b.a dQf = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2
+    private b.a eFH = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2
         @Override // com.baidu.tieba.ala.live.personcenter.admin.c.b.a
-        public void gI(boolean z) {
-            a.this.dQc.completePullRefresh();
-            a.this.dQc.hideNoDataView();
-            if (a.this.dQb.getUserList().size() == 0) {
-                a.this.dQc.aLp();
-                a.this.dQc.aMp();
-                a.this.dQc.showNoDataView();
+        public void hN(boolean z) {
+            a.this.eFE.completePullRefresh();
+            a.this.eFE.hideNoDataView();
+            if (a.this.eFD.getUserList().size() == 0) {
+                a.this.eFE.bcz();
+                a.this.eFE.bdS();
+                a.this.eFE.showNoDataView();
                 return;
             }
-            a.this.dQc.aJm();
-            a.this.dQc.aMo();
-            a.this.dQc.bz(a.this.dQb.getUserList());
+            a.this.eFE.aZK();
+            a.this.eFE.bdR();
+            a.this.eFE.by(a.this.eFD.getUserList());
             if (z) {
-                a.this.dQc.aKU();
+                a.this.eFE.bcg();
             } else {
-                a.this.dQc.aLp();
+                a.this.eFE.bcz();
             }
         }
 
         @Override // com.baidu.tieba.ala.live.personcenter.admin.c.b.a
-        public void O(int i, String str) {
-            a.this.dQc.completePullRefresh();
-            a.this.dQc.hideNoDataView();
-            if (a.this.dQb.getUserList().size() <= 0) {
-                a.this.dQc.aLp();
-                a.this.dQc.aMp();
-                a.this.dQc.a(a.i.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2.1
+        public void ad(int i, String str) {
+            a.this.eFE.completePullRefresh();
+            a.this.eFE.hideNoDataView();
+            if (a.this.eFD.getUserList().size() <= 0) {
+                a.this.eFE.bcz();
+                a.this.eFE.bdS();
+                a.this.eFE.a(a.i.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.dQc.aJm();
-                        a.this.dQb.aMn();
+                        a.this.eFE.aZK();
+                        a.this.eFD.bdQ();
                     }
                 });
                 return;
@@ -92,31 +97,31 @@ public class a {
     public a(TbPageContext tbPageContext, View view, String str) {
         this.pageContext = tbPageContext;
         this.mLiveId = str;
-        bv(view);
+        bs(view);
     }
 
-    private void bv(View view) {
-        this.dQb = new b(getPageContext());
-        this.dQb.a(this.dQf);
-        this.dQd = new com.baidu.live.g.b(getPageContext());
-        this.dQc = new c(getPageContext(), view);
-        this.dQc.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.3
+    private void bs(View view) {
+        this.eFD = new b(getPageContext());
+        this.eFD.a(this.eFH);
+        this.eFF = new com.baidu.live.k.b(getPageContext());
+        this.eFE = new c(getPageContext(), view);
+        this.eFE.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.3
             @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
             public void onListPullRefresh(boolean z) {
-                a.this.dQb.aMn();
+                a.this.eFD.bdQ();
             }
         });
-        this.dQc.aLp();
+        this.eFE.bcz();
     }
 
     public void onCreate(Bundle bundle) {
-        getPageContext().registerListener(this.dQe);
-        this.dQb.aMn();
+        getPageContext().registerListener(this.eFG);
+        this.eFD.bdQ();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dQc != null) {
-            this.dQc.onChangeSkinType(i);
+        if (this.eFE != null) {
+            this.eFE.onChangeSkinType(i);
         }
     }
 }

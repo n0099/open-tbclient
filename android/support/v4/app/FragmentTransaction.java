@@ -10,7 +10,7 @@ import android.support.annotation.StyleRes;
 import android.view.View;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class FragmentTransaction {
     public static final int TRANSIT_ENTER_MASK = 4096;
     public static final int TRANSIT_EXIT_MASK = 8192;
@@ -22,7 +22,7 @@ public abstract class FragmentTransaction {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private @interface Transit {
     }
 

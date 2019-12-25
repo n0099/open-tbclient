@@ -2,24 +2,24 @@ package rx.subscriptions;
 
 import java.util.concurrent.atomic.AtomicReference;
 import rx.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class a implements k {
-    static final rx.functions.a kFA = new rx.functions.a() { // from class: rx.subscriptions.a.1
+    static final rx.functions.a nkp = new rx.functions.a() { // from class: rx.subscriptions.a.1
         @Override // rx.functions.a
         public void call() {
         }
     };
-    final AtomicReference<rx.functions.a> kFz;
+    final AtomicReference<rx.functions.a> nko;
 
     public a() {
-        this.kFz = new AtomicReference<>();
+        this.nko = new AtomicReference<>();
     }
 
     private a(rx.functions.a aVar) {
-        this.kFz = new AtomicReference<>(aVar);
+        this.nko = new AtomicReference<>(aVar);
     }
 
-    public static a cPW() {
+    public static a dHD() {
         return new a();
     }
 
@@ -29,13 +29,13 @@ public final class a implements k {
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.kFz.get() == kFA;
+        return this.nko.get() == nkp;
     }
 
     @Override // rx.k
     public void unsubscribe() {
         rx.functions.a andSet;
-        if (this.kFz.get() != kFA && (andSet = this.kFz.getAndSet(kFA)) != null && andSet != kFA) {
+        if (this.nko.get() != nkp && (andSet = this.nko.getAndSet(nkp)) != null && andSet != nkp) {
             andSet.call();
         }
     }

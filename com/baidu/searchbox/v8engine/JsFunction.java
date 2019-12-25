@@ -2,13 +2,10 @@ package com.baidu.searchbox.v8engine;
 
 import com.baidu.smallgame.sdk.Log;
 @NotProguard
-/* loaded from: classes2.dex */
-public class JsFunction {
+/* loaded from: classes9.dex */
+public class JsFunction extends JsReleaser {
     private static final String TAG = "JsFunction";
-    private long mNativeObject;
-    private final long mOwnedNativeEngine;
-    private final long mOwnedThreadId;
-    private boolean mReleaseAfterInvoke = true;
+    private boolean mReleaseAfterInvoke;
 
     /* JADX INFO: Access modifiers changed from: private */
     public native void invokeJsFunctionParamBoolean(long j, boolean z);
@@ -58,16 +55,11 @@ public class JsFunction {
     /* JADX INFO: Access modifiers changed from: private */
     public native void invokeJsFunctionParamUndefined(long j);
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeRelease(long j);
-
     private native boolean nativeStrictEquals(long j, long j2);
 
     public JsFunction(long j, long j2, long j3) {
-        this.mNativeObject = 0L;
-        this.mNativeObject = j;
-        this.mOwnedThreadId = j3;
-        this.mOwnedNativeEngine = j2;
+        super(j, j2, j3);
+        this.mReleaseAfterInvoke = true;
     }
 
     public void setReleaseMode(boolean z) {
@@ -87,9 +79,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.1
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamUndefined(JsFunction.this.mNativeObject);
+                    JsFunction.this.invokeJsFunctionParamUndefined(j);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -100,9 +93,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.2
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamBoolean(JsFunction.this.mNativeObject, z);
+                    JsFunction.this.invokeJsFunctionParamBoolean(j, z);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -113,9 +107,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.3
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamInteger(JsFunction.this.mNativeObject, i);
+                    JsFunction.this.invokeJsFunctionParamInteger(j, i);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -126,9 +121,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.4
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j2 = JsFunction.this.mNativeObject.get();
+                if (j2 != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamLong(JsFunction.this.mNativeObject, j);
+                    JsFunction.this.invokeJsFunctionParamLong(j2, j);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -139,9 +135,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.5
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamDouble(JsFunction.this.mNativeObject, d);
+                    JsFunction.this.invokeJsFunctionParamDouble(j, d);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -152,9 +149,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.6
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamString(JsFunction.this.mNativeObject, str);
+                    JsFunction.this.invokeJsFunctionParamString(j, str);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -173,9 +171,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.7
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamObject(JsFunction.this.mNativeObject, obj, obj2, z);
+                    JsFunction.this.invokeJsFunctionParamObject(j, obj, obj2, z);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -186,9 +185,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.8
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamByteArray(JsFunction.this.mNativeObject, bArr);
+                    JsFunction.this.invokeJsFunctionParamByteArray(j, bArr);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -199,9 +199,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.9
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamBooleanArray(JsFunction.this.mNativeObject, zArr);
+                    JsFunction.this.invokeJsFunctionParamBooleanArray(j, zArr);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -212,9 +213,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.10
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamIntegerArray(JsFunction.this.mNativeObject, iArr);
+                    JsFunction.this.invokeJsFunctionParamIntegerArray(j, iArr);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -225,9 +227,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.11
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamLongArray(JsFunction.this.mNativeObject, jArr);
+                    JsFunction.this.invokeJsFunctionParamLongArray(j, jArr);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -238,8 +241,9 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.12
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
-                    JsFunction.this.invokeJsFunctionParamFloatArray(JsFunction.this.mNativeObject, fArr);
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
+                    JsFunction.this.invokeJsFunctionParamFloatArray(j, fArr);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -250,9 +254,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.13
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamDoubleArray(JsFunction.this.mNativeObject, dArr);
+                    JsFunction.this.invokeJsFunctionParamDoubleArray(j, dArr);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -263,9 +268,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.14
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamShortArray(JsFunction.this.mNativeObject, sArr);
+                    JsFunction.this.invokeJsFunctionParamShortArray(j, sArr);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -276,9 +282,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.15
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamCharArray(JsFunction.this.mNativeObject, cArr);
+                    JsFunction.this.invokeJsFunctionParamCharArray(j, cArr);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -289,9 +296,10 @@ public class JsFunction {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.16
             @Override // java.lang.Runnable
             public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
+                long j = JsFunction.this.mNativeObject.get();
+                if (j != 0) {
                     V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamStringArray(JsFunction.this.mNativeObject, strArr);
+                    JsFunction.this.invokeJsFunctionParamStringArray(j, strArr);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -299,14 +307,16 @@ public class JsFunction {
     }
 
     public boolean strictEquals(JsFunction jsFunction) {
-        if (this.mNativeObject == 0 || jsFunction == null) {
-            return false;
-        }
-        if (this == jsFunction || this.mNativeObject == jsFunction.mNativeObject) {
+        long j = this.mNativeObject.get();
+        long j2 = jsFunction.mNativeObject.get();
+        if (this == jsFunction || j == j2) {
             return true;
         }
+        if (j == 0 || j2 == 0) {
+            return false;
+        }
         V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
-        return nativeStrictEquals(this.mNativeObject, jsFunction.mNativeObject);
+        return nativeStrictEquals(j, j2);
     }
 
     public boolean equals(Object obj) {
@@ -316,24 +326,10 @@ public class JsFunction {
         return false;
     }
 
-    public void release() {
-        runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.17
-            @Override // java.lang.Runnable
-            public void run() {
-                if (JsFunction.this.mNativeObject != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.nativeRelease(JsFunction.this.mNativeObject);
-                    JsFunction.this.mNativeObject = 0L;
-                }
-            }
-        });
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void freeIfNeeded() {
-        if (this.mReleaseAfterInvoke && this.mNativeObject != 0) {
-            nativeRelease(this.mNativeObject);
-            this.mNativeObject = 0L;
+        if (this.mReleaseAfterInvoke) {
+            release();
         }
     }
 }

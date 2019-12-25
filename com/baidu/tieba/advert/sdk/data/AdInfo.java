@@ -2,7 +2,6 @@ package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.net.URLDecoder;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AdInfo implements Serializable {
     private static final long serialVersionUID = 1;
     public int adHeight;
@@ -79,11 +78,11 @@ public class AdInfo implements Serializable {
     }
 
     public boolean shouldDownloadVideo() {
-        b rV = b.rV(com.baidu.tieba.advert.sdk.c.a.aEM());
-        if (TextUtils.isEmpty(rV.videoLocalPath)) {
+        b xb = b.xb(com.baidu.tieba.advert.sdk.c.a.aWE());
+        if (TextUtils.isEmpty(xb.videoLocalPath)) {
             return true;
         }
-        return TextUtils.isEmpty(rV.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !rV.adVideoUrl.equals(this.adVideoUrl);
+        return TextUtils.isEmpty(xb.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !xb.adVideoUrl.equals(this.adVideoUrl);
     }
 
     public void parseFromJson(JSONObject jSONObject) {
@@ -109,7 +108,7 @@ public class AdInfo implements Serializable {
                     if (jSONArray5 != null && jSONArray5.length() > 0 && (jSONObject4 = jSONArray5.getJSONObject(0)) != null) {
                         this.extraParam = jSONObject4.getString("v");
                         if (jSONArray4 != null && jSONArray4.length() > 0 && (jSONObject5 = jSONArray4.getJSONObject(0)) != null) {
-                            String optString = jSONObject5.optString(Config.LAUNCH_INFO);
+                            String optString = jSONObject5.optString("info");
                             if (!TextUtils.isEmpty(optString) && (jSONArray3 = new JSONArray(optString)) != null && jSONArray3.length() > 0 && (jSONObject6 = jSONArray3.getJSONObject(0)) != null) {
                                 this.adImgUrl = jSONObject6.optString("thread_pic");
                                 this.redirectUrl = jSONObject6.optString("url");

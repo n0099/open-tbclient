@@ -2,9 +2,9 @@ package kotlin.collections;
 
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class v implements ListIterator {
-    public static final v kuO = new v();
+    public static final v mYK = new v();
 
     @Override // java.util.ListIterator
     public /* synthetic */ void add(Object obj) {
@@ -46,14 +46,14 @@ public final class v implements ListIterator {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.ListIterator, java.util.Iterator
-    /* renamed from: cMI */
+    /* renamed from: dEE */
     public Void next() {
         throw new NoSuchElementException();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.ListIterator
-    /* renamed from: cMJ */
+    /* renamed from: dEF */
     public Void previous() {
         throw new NoSuchElementException();
     }

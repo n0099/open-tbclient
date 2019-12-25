@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d implements IOAdDownloaderManager {
     private static d b = null;
     protected Context a;

@@ -2,11 +2,11 @@ package com.baidu.tieba.enterForum.multiConcern;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import java.util.List;
 import tbclient.MultiConcern.DataReq;
 import tbclient.MultiConcern.MultiConcernReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MultiConcernRequestMessage extends NetMessage {
     private List<Long> idList;
 
@@ -19,7 +19,7 @@ public class MultiConcernRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.arr_forum_id = this.idList;
         if (z) {
-            r.a(builder, true);
+            t.a(builder, true);
         }
         MultiConcernReqIdl.Builder builder2 = new MultiConcernReqIdl.Builder();
         builder2.data = builder.build(false);

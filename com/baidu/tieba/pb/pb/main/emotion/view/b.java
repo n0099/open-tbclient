@@ -3,42 +3,42 @@ package com.baidu.tieba.pb.pb.main.emotion.view;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private SearchEmotionModel.a fgN;
-    private SearchEmotionModel hYx;
-    private String hYy;
-    private Runnable hYz = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
+    private SearchEmotionModel.a fVs;
+    private SearchEmotionModel iNy;
+    private String iNz;
+    private Runnable iNA = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(b.this.hYy) && b.this.fgN != null) {
-                if (b.this.hYx == null) {
-                    b.this.hYx = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(b.this.iNz) && b.this.fVs != null) {
+                if (b.this.iNy == null) {
+                    b.this.iNy = new SearchEmotionModel();
                 }
-                b.this.hYx.a(b.this.hYy, 0, 30, b.this.fgN);
+                b.this.iNy.a(b.this.iNz, 0, 30, b.this.fVs);
             }
         }
     };
     private Handler mHandler = new Handler();
 
-    public void Be(String str) {
+    public void FP(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.hYy = "";
+            this.iNz = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.hYz);
-        this.mHandler.postDelayed(this.hYz, 300L);
-        this.hYy = str;
+        this.mHandler.removeCallbacks(this.iNA);
+        this.mHandler.postDelayed(this.iNA, 300L);
+        this.iNz = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.fgN = aVar;
+        this.fVs = aVar;
     }
 
-    public void bmt() {
-        if (this.hYx != null) {
-            this.hYx.cancelLoadData();
+    public void bDP() {
+        if (this.iNy != null) {
+            this.iNy.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.hYz);
+        this.mHandler.removeCallbacks(this.iNA);
     }
 }

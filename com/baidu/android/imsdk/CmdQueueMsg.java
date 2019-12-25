@@ -2,7 +2,7 @@ package com.baidu.android.imsdk;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class CmdQueueMsg implements Parcelable {
     public static final Parcelable.Creator<CmdQueueMsg> CREATOR = new Parcelable.Creator<CmdQueueMsg>() { // from class: com.baidu.android.imsdk.CmdQueueMsg.1
         /* JADX DEBUG: Method merged with bridge method */

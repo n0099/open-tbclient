@@ -1,5 +1,6 @@
 package android.support.v4.media;
 
+import android.media.Rating;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -7,7 +8,7 @@ import android.support.annotation.RestrictTo;
 import android.util.Log;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class RatingCompat implements Parcelable {
     public static final Parcelable.Creator<RatingCompat> CREATOR = new Parcelable.Creator<RatingCompat>() { // from class: android.support.v4.media.RatingCompat.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,13 +40,13 @@ public final class RatingCompat implements Parcelable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface StarStyle {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface Style {
     }
 
@@ -77,7 +78,7 @@ public final class RatingCompat implements Parcelable {
             case 4:
             case 5:
             case 6:
-                return new RatingCompat(i, RATING_NOT_RATED);
+                return new RatingCompat(i, -1.0f);
             default:
                 return null;
         }
@@ -151,40 +152,46 @@ public final class RatingCompat implements Parcelable {
                 }
                 break;
         }
-        return RATING_NOT_RATED;
+        return -1.0f;
     }
 
     public float getPercentRating() {
-        return (this.mRatingStyle == 6 && isRated()) ? this.mRatingValue : RATING_NOT_RATED;
+        if (this.mRatingStyle == 6 && isRated()) {
+            return this.mRatingValue;
+        }
+        return -1.0f;
     }
 
     public static RatingCompat fromRating(Object obj) {
-        RatingCompat ratingCompat = null;
-        if (obj != null && Build.VERSION.SDK_INT >= 19) {
-            int ratingStyle = RatingCompatKitkat.getRatingStyle(obj);
-            if (RatingCompatKitkat.isRated(obj)) {
-                switch (ratingStyle) {
-                    case 1:
-                        ratingCompat = newHeartRating(RatingCompatKitkat.hasHeart(obj));
-                        break;
-                    case 2:
-                        ratingCompat = newThumbRating(RatingCompatKitkat.isThumbUp(obj));
-                        break;
-                    case 3:
-                    case 4:
-                    case 5:
-                        ratingCompat = newStarRating(ratingStyle, RatingCompatKitkat.getStarRating(obj));
-                        break;
-                    case 6:
-                        ratingCompat = newPercentageRating(RatingCompatKitkat.getPercentRating(obj));
-                        break;
-                }
-            } else {
-                ratingCompat = newUnratedRating(ratingStyle);
-            }
-            ratingCompat.mRatingObj = obj;
+        RatingCompat newUnratedRating;
+        if (obj == null || Build.VERSION.SDK_INT < 19) {
+            return null;
         }
-        return ratingCompat;
+        int ratingStyle = ((Rating) obj).getRatingStyle();
+        if (((Rating) obj).isRated()) {
+            switch (ratingStyle) {
+                case 1:
+                    newUnratedRating = newHeartRating(((Rating) obj).hasHeart());
+                    break;
+                case 2:
+                    newUnratedRating = newThumbRating(((Rating) obj).isThumbUp());
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    newUnratedRating = newStarRating(ratingStyle, ((Rating) obj).getStarRating());
+                    break;
+                case 6:
+                    newUnratedRating = newPercentageRating(((Rating) obj).getPercentRating());
+                    break;
+                default:
+                    return null;
+            }
+        } else {
+            newUnratedRating = newUnratedRating(ratingStyle);
+        }
+        newUnratedRating.mRatingObj = obj;
+        return newUnratedRating;
     }
 
     public Object getRating() {
@@ -192,24 +199,24 @@ public final class RatingCompat implements Parcelable {
             if (isRated()) {
                 switch (this.mRatingStyle) {
                     case 1:
-                        this.mRatingObj = RatingCompatKitkat.newHeartRating(hasHeart());
+                        this.mRatingObj = Rating.newHeartRating(hasHeart());
                         break;
                     case 2:
-                        this.mRatingObj = RatingCompatKitkat.newThumbRating(isThumbUp());
+                        this.mRatingObj = Rating.newThumbRating(isThumbUp());
                         break;
                     case 3:
                     case 4:
                     case 5:
-                        this.mRatingObj = RatingCompatKitkat.newStarRating(this.mRatingStyle, getStarRating());
+                        this.mRatingObj = Rating.newStarRating(this.mRatingStyle, getStarRating());
                         break;
                     case 6:
-                        this.mRatingObj = RatingCompatKitkat.newPercentageRating(getPercentRating());
+                        this.mRatingObj = Rating.newPercentageRating(getPercentRating());
                         break;
                     default:
                         return null;
                 }
             } else {
-                this.mRatingObj = RatingCompatKitkat.newUnratedRating(this.mRatingStyle);
+                this.mRatingObj = Rating.newUnratedRating(this.mRatingStyle);
             }
         }
         return this.mRatingObj;

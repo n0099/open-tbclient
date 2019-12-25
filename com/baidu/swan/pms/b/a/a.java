@@ -1,23 +1,34 @@
 package com.baidu.swan.pms.b.a;
 
-import com.baidu.swan.pms.a.f;
-import com.baidu.swan.pms.b.c.c;
-import com.baidu.swan.pms.b.c.d;
-/* loaded from: classes2.dex */
-public class a {
-    public static void a(com.baidu.swan.pms.b.c.a aVar, f fVar) {
-        com.baidu.swan.pms.b.a.a.a.a(aVar, fVar);
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.xiaomi.mipush.sdk.Constants;
+/* loaded from: classes9.dex */
+public class a implements com.baidu.swan.pms.database.b.a<com.baidu.swan.pms.b.a> {
+    public String aqQ() {
+        return "swan_mini_pkg";
     }
 
-    public static void a(d dVar, f fVar) {
-        com.baidu.swan.pms.b.a.a.a.a(dVar, fVar);
+    @Override // com.baidu.swan.pms.database.b.a
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        sQLiteDatabase.execSQL(aqR());
     }
 
-    public static void a(c cVar, f fVar) {
-        com.baidu.swan.pms.b.a.a.a.a(cVar, fVar);
+    @Override // com.baidu.swan.pms.database.b.a
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        while (i < i2) {
+            switch (i) {
+                case 4:
+                    sQLiteDatabase.execSQL(aqR());
+                    break;
+            }
+            i++;
+        }
     }
 
-    public static void a(com.baidu.swan.pms.b.c.b bVar, f fVar) {
-        com.baidu.swan.pms.b.a.a.a.a(bVar, fVar);
+    private String aqR() {
+        return "CREATE TABLE " + aqQ() + "(" + IMConstants.MSG_ROW_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + Constants.APP_ID + " TEXT NOT NULL,bundle_id TEXT NOT NULL," + SharedPrefConfig.VERSION_NAME + " TEXT NOT NULL,version_code INT DEFAULT 0," + TiebaInitialize.LogFields.SIZE + " LONG DEFAULT 0,md5 TEXT NOT NULL,sign TEXT NOT NULL,downloadUrl TEXT NOT NULL, UNIQUE (app_id,bundle_id));";
     }
 }

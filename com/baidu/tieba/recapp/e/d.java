@@ -6,31 +6,31 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private final ViewGroup bGE;
     private final Context context;
+    private final ViewGroup crT;
     public int page = 0;
 
     public d(Context context, ViewGroup viewGroup) {
         this.context = context;
-        this.bGE = viewGroup;
+        this.crT = viewGroup;
     }
 
     public e a(AdCard.f fVar, e eVar) {
         if (fVar != null && fVar.style != null) {
-            if (eVar == null || !dO(fVar.style, eVar.iNr)) {
-                if (this.bGE == null) {
+            if (eVar == null || !eh(fVar.style, eVar.jHF)) {
+                if (this.crT == null) {
                     return null;
                 }
-                this.bGE.removeAllViews();
+                this.crT.removeAllViews();
                 if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(fVar.style)) {
                     if (this.page == 1) {
-                        return new c(LayoutInflater.from(this.context).inflate(R.layout.videolist_tail_frame_ad_jump, this.bGE, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                        return new c(LayoutInflater.from(this.context).inflate(R.layout.videolist_tail_frame_ad_jump, this.crT, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                     }
-                    return new b(LayoutInflater.from(this.context).inflate(R.layout.tail_frame_ad_jump, this.bGE, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                    return new b(LayoutInflater.from(this.context).inflate(R.layout.tail_frame_ad_jump, this.crT, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                 } else if ("apk_download".equals(fVar.style)) {
-                    return new a(LayoutInflater.from(this.context).inflate(R.layout.tail_frame_ad_download, this.bGE, true), "apk_download");
+                    return new a(LayoutInflater.from(this.context).inflate(R.layout.tail_frame_ad_download, this.crT, true), "apk_download");
                 } else {
                     return null;
                 }
@@ -40,7 +40,7 @@ public class d {
         return eVar;
     }
 
-    private boolean dO(String str, String str2) {
+    private boolean eh(String str, String str2) {
         if ("apk_download".equals(str)) {
             return "apk_download".equals(str2);
         }

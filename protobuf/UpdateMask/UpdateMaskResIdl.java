@@ -3,7 +3,7 @@ package protobuf.UpdateMask;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class UpdateMaskResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
@@ -17,7 +17,7 @@ public final class UpdateMaskResIdl extends Message {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder extends Message.Builder<UpdateMaskResIdl> {
         public Error error;
 

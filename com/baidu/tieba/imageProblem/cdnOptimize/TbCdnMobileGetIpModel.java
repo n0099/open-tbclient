@@ -12,25 +12,23 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.network.http.e;
+import com.baidu.adp.lib.network.http.f;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.a.f;
 import com.baidu.tbadk.core.util.s;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.imageProblem.cdnOptimize.TbMobileCdnGetIPListHttpResponseMsg;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TbCdnMobileGetIpModel {
     private static Object lock = new Object();
     private static long mobileLastTachometerTime = 0;
     private BdUniqueId unique_id = BdUniqueId.gen();
-    private HttpMessageListener gZt = new HttpMessageListener(1002601) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnMobileGetIpModel.1
+    private HttpMessageListener hNC = new HttpMessageListener(1002601) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnMobileGetIpModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -47,7 +45,7 @@ public class TbCdnMobileGetIpModel {
                 if (!z) {
                     str = "list_is_empty";
                 }
-                s.h(z, str);
+                s.i(z, str);
             }
         }
     };
@@ -57,9 +55,9 @@ public class TbCdnMobileGetIpModel {
         public void handleMessage(Message message) {
             super.handleMessage(message);
             if (10001 == message.what) {
-                TbCdnMobileGetIpModel.this.bGL();
+                TbCdnMobileGetIpModel.this.bYd();
             } else if (10002 == message.what) {
-                TbCdnMobileGetIpModel.this.bGM();
+                TbCdnMobileGetIpModel.this.bYe();
             }
         }
     };
@@ -69,18 +67,18 @@ public class TbCdnMobileGetIpModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bGL() {
+    public void bYd() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002601, "http://httpdns.baidu.com/ips/v1");
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         tbHttpMessageTask.setResponsedClass(TbMobileCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.gZt);
-        MessageManager.getInstance().registerListener(this.gZt);
+        MessageManager.getInstance().unRegisterListener(this.hNC);
+        MessageManager.getInstance().registerListener(this.hNC);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(1002601);
-        MessageManager.getInstance().unRegisterListener(this.gZt);
+        MessageManager.getInstance().unRegisterListener(this.hNC);
     }
 
     public void startGetMobileIpList() {
@@ -89,7 +87,7 @@ public class TbCdnMobileGetIpModel {
             synchronized (lock) {
                 try {
                     if (0 == mobileLastTachometerTime) {
-                        mobileLastTachometerTime = b.alP().getLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
+                        mobileLastTachometerTime = b.aCY().getLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
                     }
                     currentTimeMillis = System.currentTimeMillis();
                 } catch (Exception e) {
@@ -97,7 +95,7 @@ public class TbCdnMobileGetIpModel {
                 }
                 if (0 == mobileLastTachometerTime || currentTimeMillis - mobileLastTachometerTime >= 300000) {
                     mobileLastTachometerTime = currentTimeMillis;
-                    b.alP().putLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
+                    b.aCY().putLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
                     this.handler.sendEmptyMessage(10002);
                 }
             }
@@ -105,22 +103,22 @@ public class TbCdnMobileGetIpModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bGM() {
+    public void bYe() {
         HttpMessage httpMessage = new HttpMessage(1002601);
-        httpMessage.addParam(ClientCookie.DOMAIN_ATTR, "hiphotos.jomodns.com");
+        httpMessage.addParam("domain", "hiphotos.jomodns.com");
         httpMessage.setTag(this.unique_id);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class TBCdnMobileTachometerAsyncTask extends BdAsyncTask<Object, Integer, ArrayList<String>> {
-        TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData gZv;
+        TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData hNE;
         ArrayList<TBCdnIpData> ipList;
 
         public TBCdnMobileTachometerAsyncTask(TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData tBCdnMobileListData) {
-            this.gZv = null;
-            this.gZv = tBCdnMobileListData;
+            this.hNE = null;
+            this.hNE = tBCdnMobileListData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -130,7 +128,7 @@ public class TbCdnMobileGetIpModel {
         public ArrayList<String> doInBackground(Object... objArr) {
             String str;
             String str2;
-            if (this.gZv == null || (str = this.gZv.gZA) == null || str.length() <= 0 || (str2 = this.gZv.gZB) == null || str2.length() <= 0) {
+            if (this.hNE == null || (str = this.hNE.hNJ) == null || str.length() <= 0 || (str2 = this.hNE.hNK) == null || str2.length() <= 0) {
                 return null;
             }
             try {
@@ -139,22 +137,22 @@ public class TbCdnMobileGetIpModel {
                     if (host.length() > 0) {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
-                            Iterator<String> it = this.gZv.mobileIpList.iterator();
+                            Iterator<String> it = this.hNE.mobileIpList.iterator();
                             while (it.hasNext()) {
                                 String next = it.next();
                                 long currentTimeMillis2 = System.currentTimeMillis();
-                                e eVar = new e();
-                                f fVar = new f(eVar);
-                                eVar.fJ().setUrl(str);
-                                fVar.i(next, host, 1);
-                                byte[] bArr = eVar.fK().retBytes;
+                                f fVar = new f();
+                                com.baidu.tbadk.core.util.a.f fVar2 = new com.baidu.tbadk.core.util.a.f(fVar);
+                                fVar.fY().setUrl(str);
+                                fVar2.n(next, host, 1);
+                                byte[] bArr = fVar.fZ().retBytes;
                                 long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis2;
                                 boolean z = false;
                                 if (bArr != null && str2.equalsIgnoreCase(com.baidu.adp.lib.util.s.toMd5(bArr))) {
                                     z = true;
                                 }
                                 if (z) {
-                                    G(next, currentTimeMillis3);
+                                    I(next, currentTimeMillis3);
                                 }
                             }
                             ArrayList<String> arrayList = new ArrayList<>();
@@ -186,11 +184,11 @@ public class TbCdnMobileGetIpModel {
         public void onPostExecute(ArrayList<String> arrayList) {
             super.onPostExecute((TBCdnMobileTachometerAsyncTask) arrayList);
             if (arrayList != null) {
-                TbCdnMobileGetIpModel.this.al(arrayList);
+                TbCdnMobileGetIpModel.this.aw(arrayList);
             }
         }
 
-        private void G(String str, long j) {
+        private void I(String str, long j) {
             int i;
             if (this.ipList == null) {
                 this.ipList = new ArrayList<>();
@@ -219,7 +217,7 @@ public class TbCdnMobileGetIpModel {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public class TBCdnIpData {
             long costTime;
             String ip;
@@ -230,7 +228,7 @@ public class TbCdnMobileGetIpModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void al(ArrayList<String> arrayList) {
+    public void aw(ArrayList<String> arrayList) {
         if (arrayList != null) {
             Intent intent = new Intent();
             intent.setAction(TbCDNTachometerService.TB_CDNIP_BROADCASE_ACTION);
@@ -243,7 +241,7 @@ public class TbCdnMobileGetIpModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData tBCdnMobileListData) {
         if (tBCdnMobileListData != null) {
-            al(tBCdnMobileListData.mobileIpList);
+            aw(tBCdnMobileListData.mobileIpList);
             TBCdnMobileTachometerAsyncTask tBCdnMobileTachometerAsyncTask = new TBCdnMobileTachometerAsyncTask(tBCdnMobileListData);
             tBCdnMobileTachometerAsyncTask.setPriority(4);
             tBCdnMobileTachometerAsyncTask.execute(new Object[0]);

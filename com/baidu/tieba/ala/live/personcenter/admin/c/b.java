@@ -11,23 +11,23 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.live.personcenter.admin.message.AlaAdminListResponseMessage;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b extends BdBaseModel {
-    private a dQf;
-    private HttpMessageListener dQk;
+    private a eFH;
+    private HttpMessageListener eFM;
     private List<com.baidu.tieba.ala.live.personcenter.admin.b.b> userList;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void O(int i, String str);
+        void ad(int i, String str);
 
-        void gI(boolean z);
+        void hN(boolean z);
     }
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.userList = new ArrayList();
-        this.dQk = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
+        this.eFM = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -35,25 +35,25 @@ public class b extends BdBaseModel {
                     AlaAdminListResponseMessage alaAdminListResponseMessage = (AlaAdminListResponseMessage) httpResponsedMessage;
                     com.baidu.tieba.ala.live.personcenter.admin.message.a aVar = (com.baidu.tieba.ala.live.personcenter.admin.message.a) alaAdminListResponseMessage.getmOrginalMessage();
                     if (!alaAdminListResponseMessage.isSuccess()) {
-                        if (b.this.dQf != null) {
-                            b.this.dQf.O(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
+                        if (b.this.eFH != null) {
+                            b.this.eFH.ad(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    com.baidu.tieba.ala.live.personcenter.admin.b.a aMm = alaAdminListResponseMessage.aMm();
-                    b.this.userList = aMm.getUserList();
-                    if (b.this.dQf != null) {
-                        b.this.dQf.gI(false);
+                    com.baidu.tieba.ala.live.personcenter.admin.b.a bdP = alaAdminListResponseMessage.bdP();
+                    b.this.userList = bdP.getUserList();
+                    if (b.this.eFH != null) {
+                        b.this.eFH.hN(false);
                     }
                 }
             }
         };
-        registerTask();
-        registerListener(this.dQk);
+        rG();
+        registerListener(this.eFM);
     }
 
-    private void registerTask() {
+    private void rG() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021078, TbConfig.SERVER_ADDRESS + "ala/perm/getAnchorAdmin");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -62,13 +62,13 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void aMn() {
+    public void bdQ() {
         sendMessage(new com.baidu.tieba.ala.live.personcenter.admin.message.a());
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        aMn();
+        bdQ();
         return true;
     }
 
@@ -83,13 +83,13 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.dQf = aVar;
+        this.eFH = aVar;
     }
 
     public void a(com.baidu.tieba.ala.live.personcenter.admin.b.b bVar) {
         this.userList.remove(bVar);
-        if (this.dQf != null) {
-            this.dQf.gI(false);
+        if (this.eFH != null) {
+            this.eFH.hN(false);
         }
     }
 }

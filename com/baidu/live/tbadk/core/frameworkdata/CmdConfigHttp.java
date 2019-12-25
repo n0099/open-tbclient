@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.frameworkdata;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class CmdConfigHttp {
     public static final int AGREE_ME_HTTP_CMD = 1002211;
     public static final int BAWU_TEAM_INFO_CMD = 1001705;
@@ -88,6 +88,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_MY_POST = 1003010;
     public static final int CMD_GET_MY_SHELF = 1003092;
     public static final int CMD_GET_NANI_VIDEO = 1003399;
+    public static final int CMD_GET_NUOMI_ORDER = 1003411;
     public static final int CMD_GET_ORDER = 1003029;
     public static final int CMD_GET_PB_EMOTION_PID = 1003331;
     public static final int CMD_GET_PB_QUERY_MATCH_EMOTION = 1003369;
@@ -209,6 +210,7 @@ public class CmdConfigHttp {
     public static final int FRS_MEMBER_TAB_CMD = 1001706;
     public static final int GETPAYINFO_CMD = 1001505;
     public static final int GET_GIFT_LIST = 1001509;
+    public static final int GET_NUOMI_PAYINFO_CMD = 1003412;
     public static final int GET_PRIVATE_INFO_CMD = 1002501;
     public static final int JUMP_TO_NEW_GUIDE_HTTP_CMD = 1001520;
     private static final int LOGIN_HTTP_BASE_CMD = 1001100;

@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HttpClient extends Client<HttpMessage, HttpMessageTask> {
     public HttpClient(MessageManager messageManager) {
         super(messageManager);
@@ -75,7 +75,7 @@ public class HttpClient extends Client<HttpMessage, HttpMessageTask> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class HTTPAsyncTask extends BdAsyncTask<HttpMessage, ResponsedMessage<?>, HttpResponsedMessage> {
         private HttpMessageTask mMessageTask;
         private HttpMessage mRequestMsg;
@@ -214,7 +214,7 @@ public class HttpClient extends Client<HttpMessage, HttpMessageTask> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class ErrorHttpResponsedMessage extends HttpResponsedMessage {
         public ErrorHttpResponsedMessage(int i, HttpMessage httpMessage) {
             super(i);

@@ -38,18 +38,22 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AlertController {
     ListAdapter mAdapter;
     private int mAlertDialogLayout;
+    private final int mButtonIconDimen;
     Button mButtonNegative;
+    private Drawable mButtonNegativeIcon;
     Message mButtonNegativeMessage;
     private CharSequence mButtonNegativeText;
     Button mButtonNeutral;
+    private Drawable mButtonNeutralIcon;
     Message mButtonNeutralMessage;
     private CharSequence mButtonNeutralText;
     private int mButtonPanelSideLayout;
     Button mButtonPositive;
+    private Drawable mButtonPositiveIcon;
     Message mButtonPositiveMessage;
     private CharSequence mButtonPositiveText;
     private final Context mContext;
@@ -100,7 +104,7 @@ public class AlertController {
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static final class ButtonHandler extends Handler {
         private static final int MSG_DISMISS_DIALOG = 1;
         private WeakReference<DialogInterface> mDialog;
@@ -146,6 +150,7 @@ public class AlertController {
         this.mSingleChoiceItemLayout = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_singleChoiceItemLayout, 0);
         this.mListItemLayout = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_listItemLayout, 0);
         this.mShowTitle = obtainStyledAttributes.getBoolean(R.styleable.AlertDialog_showTitle, true);
+        this.mButtonIconDimen = obtainStyledAttributes.getDimensionPixelSize(R.styleable.AlertDialog_buttonIconDimen, 0);
         obtainStyledAttributes.recycle();
         appCompatDialog.supportRequestWindowFeature(1);
     }
@@ -227,7 +232,7 @@ public class AlertController {
         this.mButtonPanelLayoutHint = i;
     }
 
-    public void setButton(int i, CharSequence charSequence, DialogInterface.OnClickListener onClickListener, Message message) {
+    public void setButton(int i, CharSequence charSequence, DialogInterface.OnClickListener onClickListener, Message message, Drawable drawable) {
         if (message == null && onClickListener != null) {
             message = this.mHandler.obtainMessage(i, onClickListener);
         }
@@ -235,14 +240,17 @@ public class AlertController {
             case -3:
                 this.mButtonNeutralText = charSequence;
                 this.mButtonNeutralMessage = message;
+                this.mButtonNeutralIcon = drawable;
                 return;
             case -2:
                 this.mButtonNegativeText = charSequence;
                 this.mButtonNegativeMessage = message;
+                this.mButtonNegativeIcon = drawable;
                 return;
             case -1:
                 this.mButtonPositiveText = charSequence;
                 this.mButtonPositiveMessage = message;
+                this.mButtonPositiveIcon = drawable;
                 return;
             default:
                 throw new IllegalArgumentException("Button does not exist");
@@ -535,29 +543,41 @@ public class AlertController {
         boolean z;
         this.mButtonPositive = (Button) viewGroup.findViewById(16908313);
         this.mButtonPositive.setOnClickListener(this.mButtonHandler);
-        if (TextUtils.isEmpty(this.mButtonPositiveText)) {
+        if (TextUtils.isEmpty(this.mButtonPositiveText) && this.mButtonPositiveIcon == null) {
             this.mButtonPositive.setVisibility(8);
             z = false;
         } else {
             this.mButtonPositive.setText(this.mButtonPositiveText);
+            if (this.mButtonPositiveIcon != null) {
+                this.mButtonPositiveIcon.setBounds(0, 0, this.mButtonIconDimen, this.mButtonIconDimen);
+                this.mButtonPositive.setCompoundDrawables(this.mButtonPositiveIcon, null, null, null);
+            }
             this.mButtonPositive.setVisibility(0);
             z = true;
         }
         this.mButtonNegative = (Button) viewGroup.findViewById(16908314);
         this.mButtonNegative.setOnClickListener(this.mButtonHandler);
-        if (TextUtils.isEmpty(this.mButtonNegativeText)) {
+        if (TextUtils.isEmpty(this.mButtonNegativeText) && this.mButtonNegativeIcon == null) {
             this.mButtonNegative.setVisibility(8);
         } else {
             this.mButtonNegative.setText(this.mButtonNegativeText);
+            if (this.mButtonNegativeIcon != null) {
+                this.mButtonNegativeIcon.setBounds(0, 0, this.mButtonIconDimen, this.mButtonIconDimen);
+                this.mButtonNegative.setCompoundDrawables(this.mButtonNegativeIcon, null, null, null);
+            }
             this.mButtonNegative.setVisibility(0);
             z |= true;
         }
         this.mButtonNeutral = (Button) viewGroup.findViewById(16908315);
         this.mButtonNeutral.setOnClickListener(this.mButtonHandler);
-        if (TextUtils.isEmpty(this.mButtonNeutralText)) {
+        if (TextUtils.isEmpty(this.mButtonNeutralText) && this.mButtonNeutralIcon == null) {
             this.mButtonNeutral.setVisibility(8);
         } else {
             this.mButtonNeutral.setText(this.mButtonNeutralText);
+            if (this.mButtonPositiveIcon != null) {
+                this.mButtonPositiveIcon.setBounds(0, 0, this.mButtonIconDimen, this.mButtonIconDimen);
+                this.mButtonPositive.setCompoundDrawables(this.mButtonPositiveIcon, null, null, null);
+            }
             this.mButtonNeutral.setVisibility(0);
             z |= true;
         }
@@ -582,7 +602,7 @@ public class AlertController {
         button.setLayoutParams(layoutParams);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class RecycleListView extends ListView {
         private final int mPaddingBottomNoButtons;
         private final int mPaddingTopNoTitle;
@@ -605,7 +625,7 @@ public class AlertController {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class AlertParams {
         public ListAdapter mAdapter;
         public boolean[] mCheckedItems;
@@ -621,8 +641,10 @@ public class AlertController {
         public CharSequence[] mItems;
         public String mLabelColumn;
         public CharSequence mMessage;
+        public Drawable mNegativeButtonIcon;
         public DialogInterface.OnClickListener mNegativeButtonListener;
         public CharSequence mNegativeButtonText;
+        public Drawable mNeutralButtonIcon;
         public DialogInterface.OnClickListener mNeutralButtonListener;
         public CharSequence mNeutralButtonText;
         public DialogInterface.OnCancelListener mOnCancelListener;
@@ -632,6 +654,7 @@ public class AlertController {
         public AdapterView.OnItemSelectedListener mOnItemSelectedListener;
         public DialogInterface.OnKeyListener mOnKeyListener;
         public OnPrepareListViewListener mOnPrepareListViewListener;
+        public Drawable mPositiveButtonIcon;
         public DialogInterface.OnClickListener mPositiveButtonListener;
         public CharSequence mPositiveButtonText;
         public CharSequence mTitle;
@@ -648,7 +671,7 @@ public class AlertController {
         public boolean mRecycleOnMeasure = true;
         public boolean mCancelable = true;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public interface OnPrepareListViewListener {
             void onPrepareListView(ListView listView);
         }
@@ -678,14 +701,14 @@ public class AlertController {
             if (this.mMessage != null) {
                 alertController.setMessage(this.mMessage);
             }
-            if (this.mPositiveButtonText != null) {
-                alertController.setButton(-1, this.mPositiveButtonText, this.mPositiveButtonListener, null);
+            if (this.mPositiveButtonText != null || this.mPositiveButtonIcon != null) {
+                alertController.setButton(-1, this.mPositiveButtonText, this.mPositiveButtonListener, null, this.mPositiveButtonIcon);
             }
-            if (this.mNegativeButtonText != null) {
-                alertController.setButton(-2, this.mNegativeButtonText, this.mNegativeButtonListener, null);
+            if (this.mNegativeButtonText != null || this.mNegativeButtonIcon != null) {
+                alertController.setButton(-2, this.mNegativeButtonText, this.mNegativeButtonListener, null, this.mNegativeButtonIcon);
             }
-            if (this.mNeutralButtonText != null) {
-                alertController.setButton(-3, this.mNeutralButtonText, this.mNeutralButtonListener, null);
+            if (this.mNeutralButtonText != null || this.mNeutralButtonIcon != null) {
+                alertController.setButton(-3, this.mNeutralButtonText, this.mNeutralButtonListener, null, this.mNeutralButtonIcon);
             }
             if (this.mItems != null || this.mCursor != null || this.mAdapter != null) {
                 createListView(alertController);
@@ -793,7 +816,7 @@ public class AlertController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class CheckedItemAdapter extends ArrayAdapter<CharSequence> {
         public CheckedItemAdapter(Context context, int i, int i2, CharSequence[] charSequenceArr) {
             super(context, i, i2, charSequenceArr);

@@ -1,5 +1,6 @@
 package android.support.v7.app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
@@ -7,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.view.WindowCallbackWrapper;
-import android.support.v7.view.menu.ListMenuPresenter;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.view.menu.MenuPresenter;
 import android.support.v7.widget.DecorToolbar;
@@ -24,11 +24,10 @@ import android.view.Window;
 import android.widget.SpinnerAdapter;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ToolbarActionBar extends ActionBar {
     DecorToolbar mDecorToolbar;
     private boolean mLastMenuVisibility;
-    private ListMenuPresenter mListMenuPresenter;
     private boolean mMenuCallbackSet;
     boolean mToolbarMenuPrepared;
     Window.Callback mWindowCallback;
@@ -224,6 +223,7 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // android.support.v7.app.ActionBar
+    @SuppressLint({"WrongConstant"})
     public void setDisplayOptions(int i) {
         setDisplayOptions(i, -1);
     }
@@ -465,7 +465,7 @@ public class ToolbarActionBar extends ActionBar {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private class ToolbarCallbackWrapper extends WindowCallbackWrapper {
         public ToolbarCallbackWrapper(Window.Callback callback) {
             super(callback);
@@ -496,7 +496,7 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public final class ActionMenuPresenterCallback implements MenuPresenter.Callback {
         private boolean mClosingActionMenu;
 
@@ -526,7 +526,7 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public final class MenuBuilderCallback implements MenuBuilder.Callback {
         MenuBuilderCallback() {
         }

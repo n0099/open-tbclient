@@ -7,13 +7,12 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.annotations.DoNotParseDetail;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
-import org.apache.http.protocol.HTTP;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class Utf8AppleDataBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_1 = null;
     String value;
 
     static {
@@ -49,7 +48,7 @@ public abstract class Utf8AppleDataBox extends AppleDataBox {
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
     protected int getDataLength() {
-        return this.value.getBytes(Charset.forName(HTTP.UTF_8)).length;
+        return this.value.getBytes(Charset.forName("UTF-8")).length;
     }
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox

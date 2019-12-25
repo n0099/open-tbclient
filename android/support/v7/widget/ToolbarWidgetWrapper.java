@@ -25,7 +25,7 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ToolbarWidgetWrapper implements DecorToolbar {
     private static final int AFFECTS_LOGO_MASK = 3;
     private static final long DEFAULT_FADE_DURATION_MS = 200;
@@ -490,7 +490,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public void animateToVisibility(int i) {
-        ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = setupAnimatorToVisibility(i, DEFAULT_FADE_DURATION_MS);
+        ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = setupAnimatorToVisibility(i, 200L);
         if (viewPropertyAnimatorCompat != null) {
             viewPropertyAnimatorCompat.start();
         }

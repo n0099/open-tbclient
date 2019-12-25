@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e;
+import com.baidu.tieba.f;
 import java.io.File;
 /* loaded from: classes.dex */
 public class TiebaUpdateService extends BdBaseService {
@@ -207,7 +207,7 @@ public class TiebaUpdateService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
-        private x bUY;
+        private x cHo;
         private volatile boolean mCanceled;
 
         private a() {
@@ -228,21 +228,21 @@ public class TiebaUpdateService extends BdBaseService {
                         bool = bool3;
                         break;
                     }
-                    this.bUY = new x(TiebaUpdateService.this.mMainApkUrl);
-                    Boolean valueOf = Boolean.valueOf(this.bUY.downloadFile(m.CreateFileIfNotFound(TiebaUpdateService.this.mMainApkFileName + ".tmp").getAbsolutePath(), TiebaUpdateService.this.mMainApkHandler, 0, 5, 100, true));
+                    this.cHo = new x(TiebaUpdateService.this.mMainApkUrl);
+                    Boolean valueOf = Boolean.valueOf(this.cHo.downloadFile(m.CreateFileIfNotFound(TiebaUpdateService.this.mMainApkFileName + ".tmp").getAbsolutePath(), TiebaUpdateService.this.mMainApkHandler, 0, 5, 100, true));
                     try {
                         if (valueOf.booleanValue()) {
                             bool = valueOf;
                             break;
-                        } else if (this.bUY.getServerErrorCode() != -2) {
-                            if (!this.bUY.amp().amQ().isFileSegSuccess()) {
+                        } else if (this.cHo.getServerErrorCode() != -2) {
+                            if (!this.cHo.aDB().aEc().isFileSegSuccess()) {
                                 try {
                                     Thread.sleep(10000L);
                                 } catch (Exception e2) {
                                 }
                             }
                             if (TiebaUpdateService.sHasStart && System.currentTimeMillis() - TiebaUpdateService.this.mMainTaskWaitingTimestamp > TiebaUpdateService.MAX_WAIT_MILLS) {
-                                TiebaStatic.log(new an(TbadkCoreStatisticKey.UPDATE_TIEFA_DOWNLOAD_FAILED).bS("obj_param1", this.bUY.getErrorString()));
+                                TiebaStatic.log(new an(TbadkCoreStatisticKey.UPDATE_TIEFA_DOWNLOAD_FAILED).cp("obj_param1", this.cHo.getErrorString()));
                                 TiebaUpdateService.this.downloadError();
                                 bool = valueOf;
                                 break;
@@ -265,7 +265,7 @@ public class TiebaUpdateService extends BdBaseService {
             }
             try {
                 if (bool.booleanValue()) {
-                    if (!e.d(TiebaUpdateService.this.mMainApkMd5RSA, m.GetFile(TiebaUpdateService.this.mMainApkFileName + ".tmp"))) {
+                    if (!f.n(TiebaUpdateService.this.mMainApkMd5RSA, m.GetFile(TiebaUpdateService.this.mMainApkFileName + ".tmp"))) {
                         m.DelFile(TiebaUpdateService.this.mMainApkFileName + ".tmp");
                         m.DelFile(TiebaUpdateService.this.mMainApkFileName);
                         bool = false;
@@ -285,8 +285,8 @@ public class TiebaUpdateService extends BdBaseService {
             super.cancel(true);
             TiebaUpdateService.this.mDowndMainApkTask = null;
             this.mCanceled = true;
-            if (this.bUY != null) {
-                this.bUY.cancelNetConnect();
+            if (this.cHo != null) {
+                this.cHo.cancelNetConnect();
             }
         }
 
@@ -312,11 +312,11 @@ public class TiebaUpdateService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends BdAsyncTask<String, Integer, Boolean> {
-        private x bUY;
+        private x cHo;
         private volatile boolean mCanceled;
 
         private b() {
-            this.bUY = null;
+            this.cHo = null;
             this.mCanceled = false;
         }
 
@@ -338,15 +338,15 @@ public class TiebaUpdateService extends BdBaseService {
                     if (this.mCanceled) {
                         break;
                     }
-                    this.bUY = new x(TiebaUpdateService.this.mOtherApkUrl);
-                    bool2 = Boolean.valueOf(this.bUY.a(TiebaUpdateService.this.mOtherApkFileName + ".tmp", TiebaUpdateService.this.mOtherApkHandler, 0));
+                    this.cHo = new x(TiebaUpdateService.this.mOtherApkUrl);
+                    bool2 = Boolean.valueOf(this.cHo.a(TiebaUpdateService.this.mOtherApkFileName + ".tmp", TiebaUpdateService.this.mOtherApkHandler, 0));
                     if (bool2.booleanValue()) {
                         break;
-                    } else if (this.bUY.getServerErrorCode() == -2) {
+                    } else if (this.cHo.getServerErrorCode() == -2) {
                         bool = bool2;
                         break;
                     } else {
-                        if (!this.bUY.amp().amQ().isFileSegSuccess()) {
+                        if (!this.cHo.aDB().aEc().isFileSegSuccess()) {
                             try {
                                 Thread.sleep(10000L);
                             } catch (Exception e2) {
@@ -366,7 +366,7 @@ public class TiebaUpdateService extends BdBaseService {
             }
             try {
                 if (bool.booleanValue()) {
-                    if (!e.d(TiebaUpdateService.this.mOtherApkMd5RSA, m.GetFile(TiebaUpdateService.this.mOtherApkFileName + ".tmp"))) {
+                    if (!f.n(TiebaUpdateService.this.mOtherApkMd5RSA, m.GetFile(TiebaUpdateService.this.mOtherApkFileName + ".tmp"))) {
                         m.DelFile(TiebaUpdateService.this.mOtherApkFileName + ".tmp");
                         m.DelFile(TiebaUpdateService.this.mOtherApkFileName);
                         bool = false;
@@ -386,8 +386,8 @@ public class TiebaUpdateService extends BdBaseService {
             super.cancel(true);
             TiebaUpdateService.this.mDowndOtherApkTask = null;
             this.mCanceled = true;
-            if (this.bUY != null) {
-                this.bUY.cancelNetConnect();
+            if (this.cHo != null) {
+                this.cHo.cancelNetConnect();
             }
             if (!TiebaUpdateService.this.mHasTieba && !TiebaUpdateService.this.mHasAs) {
                 boolean unused = TiebaUpdateService.sHasStart = false;

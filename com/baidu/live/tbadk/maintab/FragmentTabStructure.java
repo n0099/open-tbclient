@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.maintab;
 
 import android.support.v4.app.Fragment;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class FragmentTabStructure {
     public int animationResId;
     public int backgroundId;

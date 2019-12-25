@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class gu extends XMPushService.i {
     final /* synthetic */ gt a;
 

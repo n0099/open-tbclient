@@ -5,11 +5,12 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewGroup;
 import android.widget.Scroller;
+import com.baidu.down.utils.Constants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class h extends ViewGroup {
-    public static int a = 600;
+    public static int a = Constants.HTTP_DNS_INAVAILABLE_TIME;
     private Context b;
     private int c;
     private Scroller d;

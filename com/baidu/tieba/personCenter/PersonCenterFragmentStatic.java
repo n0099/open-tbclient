@@ -7,16 +7,16 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.o.a;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PersonCenterFragmentStatic {
     static {
-        aIS();
-        a.chb();
+        aZq();
+        a.cBe();
     }
 
-    private static void aIS() {
+    private static void aZq() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PROFILE, ProfileSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002700, com.baidu.tieba.tbadkCore.a.a.bl(Config.USER_INFO_ADDRESS, CmdConfigSocket.CMD_PROFILE));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002700, com.baidu.tieba.tbadkCore.a.a.bu(Config.USER_INFO_ADDRESS, CmdConfigSocket.CMD_PROFILE));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

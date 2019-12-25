@@ -1,73 +1,106 @@
 package com.baidu.tieba.pb.data;
 
-import java.util.List;
-import tbclient.ManagerElection;
-/* loaded from: classes4.dex */
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes6.dex */
 public class g {
-    private boolean eFQ;
-    private int hIH;
-    private int hII;
-    private int hIJ;
-    private List<String> hIK;
-    private String hIL;
-    private boolean hIM;
-    private int hIN;
-    private int status;
+    public static PostData a(f fVar, boolean z, int i) {
+        if (z) {
+            if (fVar == null || fVar.chM() == null || fVar.chM().size() <= 0) {
+                return null;
+            }
+            PostData postData = fVar.chM().get(0);
+            if (postData.cIt() != 1) {
+                return a(fVar);
+            }
+            return postData;
+        }
+        return a(fVar);
+    }
 
-    public static g a(ManagerElection managerElection) {
-        if (managerElection == null) {
+    public static PostData a(f fVar) {
+        MetaData metaData;
+        if (fVar == null || fVar.chK() == null || fVar.chK().azE() == null) {
             return null;
         }
-        g gVar = new g();
-        gVar.hII = managerElection.begin_vote_time.intValue();
-        gVar.eFQ = managerElection.can_vote.intValue() == 1;
-        gVar.hIH = managerElection.vote_num.intValue();
-        gVar.hIJ = managerElection.election_id.intValue();
-        gVar.hIM = managerElection.is_show_distribute.intValue() == 1;
-        gVar.hIN = managerElection.remainder_time.intValue();
-        gVar.status = managerElection.status.intValue();
-        gVar.hIL = managerElection.tail_text;
-        gVar.hIK = managerElection.vote_condition;
-        return gVar;
+        PostData postData = new PostData();
+        MetaData azE = fVar.chK().azE();
+        String userId = azE.getUserId();
+        HashMap<String, MetaData> userMap = fVar.chK().getUserMap();
+        if (userMap == null || (metaData = userMap.get(userId)) == null || metaData.getUserId() == null) {
+            metaData = azE;
+        }
+        postData.Cl(1);
+        postData.setId(fVar.chK().azU());
+        postData.setTitle(fVar.chK().getTitle());
+        postData.setTime(fVar.chK().getCreateTime());
+        postData.a(metaData);
+        return postData;
     }
 
-    public int getStatus() {
-        return this.status;
+    public static String b(TbRichTextData tbRichTextData) {
+        if (tbRichTextData == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder(150);
+        TbRichTextImageInfo aRl = tbRichTextData.aRl();
+        if (aRl != null) {
+            if (!StringUtils.isNull(aRl.aRw())) {
+                return aRl.aRw();
+            }
+            if (aRl.getHeight() * aRl.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (aRl.getHeight() * aRl.getWidth()));
+                sb.append("width=");
+                sb.append(String.valueOf((int) (aRl.getWidth() * sqrt)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) (sqrt * aRl.getHeight())));
+            } else {
+                float width = aRl.getWidth() / aRl.getHeight();
+                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
+                sb.append("width=");
+                sb.append(String.valueOf((int) (width * sqrt2)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) sqrt2));
+            }
+            sb.append("&src=");
+            sb.append(aq.getUrlEncode(aRl.getSrc()));
+            return sb.toString();
+        }
+        return null;
     }
 
-    public boolean bQY() {
-        return this.hIM;
-    }
-
-    public int bQZ() {
-        return this.hIN;
-    }
-
-    public int bRa() {
-        return this.hIH;
-    }
-
-    public List<String> bRb() {
-        return this.hIK;
-    }
-
-    public String bRc() {
-        return this.hIL;
-    }
-
-    public boolean aZt() {
-        return this.eFQ;
-    }
-
-    public void iA(boolean z) {
-        this.eFQ = z;
-    }
-
-    public void setStatus(int i) {
-        this.status = i;
-    }
-
-    public void wn(int i) {
-        this.hIH = i;
+    public static void a(PostData postData, PbActivity.a aVar) {
+        if (postData != null && postData.cIv() != null && postData.cIv().aRf() != null && aVar != null && aVar.iyY != null && aVar.iyZ != null && postData.cIv().aRf().size() != 0) {
+            String str = (String) v.getItem(aVar.iyY, aVar.index);
+            if (!StringUtils.isNull(str)) {
+                aVar.iyY = new ArrayList<>();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = aVar.iyZ;
+                aVar.iyZ = new ConcurrentHashMap<>();
+                Iterator<TbRichTextData> it = postData.cIv().aRf().iterator();
+                while (it.hasNext()) {
+                    TbRichTextData next = it.next();
+                    if (next != null && next.getType() == 8) {
+                        String b = b(next);
+                        if (!StringUtils.isNull(b) && concurrentHashMap.get(b) != null) {
+                            aVar.iyY.add(b);
+                            aVar.iyZ.put(b, concurrentHashMap.get(b));
+                        }
+                    }
+                }
+                aVar.index = v.getPosition(aVar.iyY, str);
+            }
+        }
     }
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import com.baidu.android.imsdk.db.DBManager;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.request.Message;
@@ -13,7 +12,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMMarkMsgReadedMsg extends Message {
     public static final String TAG = IMMarkMsgReadedMsg.class.getSimpleName();
     private long mCategory;
@@ -45,7 +44,7 @@ public class IMMarkMsgReadedMsg extends Message {
 
     public static IMMarkMsgReadedMsg parseBody(Context context, String str, String str2, String str3) throws Exception {
         JSONObject jSONObject = new JSONObject(str2);
-        IMMarkMsgReadedMsg iMMarkMsgReadedMsg = new IMMarkMsgReadedMsg(context, jSONObject.optLong("category"), jSONObject.optLong("to"), jSONObject.optLong("msgid"), jSONObject.optLong(Constants.EXTRA_CLIENT_MAX_MSGID, -1L), jSONObject.optInt(TableDefine.PaSubscribeColumns.COLUMN_TPL) == Constants.getTplZhida(context));
+        IMMarkMsgReadedMsg iMMarkMsgReadedMsg = new IMMarkMsgReadedMsg(context, jSONObject.optLong("category"), jSONObject.optLong("to"), jSONObject.optLong("msgid"), jSONObject.optLong(Constants.EXTRA_CLIENT_MAX_MSGID, -1L), jSONObject.optInt("tpl") == Constants.getTplZhida(context));
         iMMarkMsgReadedMsg.setUUID(str);
         if (IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid()) {
             iMMarkMsgReadedMsg.setPaid(jSONObject.getLong("pa_uid"));
@@ -94,7 +93,7 @@ public class IMMarkMsgReadedMsg extends Message {
                 jSONObject.put(Constants.EXTRA_CLIENT_MAX_MSGID, this.mClientMaxMsgid);
             }
             if (this.mIsZHida) {
-                jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_TPL, Constants.getTplZhida(this.mContext));
+                jSONObject.put("tpl", Constants.getTplZhida(this.mContext));
             }
             if (IMConfigInternal.getInstance().getIMConfig(this.mContext).isNeedPaid()) {
                 jSONObject.put("pa_uid", this.mPaid);

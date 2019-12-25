@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class InterActiveMsg extends NormalMsg {
     public static final Parcelable.Creator<InterActiveMsg> CREATOR = new Parcelable.Creator<InterActiveMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.InterActiveMsg.1
         /* JADX DEBUG: Method merged with bridge method */

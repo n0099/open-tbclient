@@ -5,13 +5,13 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.live.tbadk.core.util.UrlManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PayManager {
     private static PayManager instance = null;
     private WalletSwan mWalletSwan;

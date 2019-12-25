@@ -13,9 +13,8 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import com.baidu.sapi2.utils.Log;
-import com.coloros.mcssdk.PushManager;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class b {
     private static final String a = "b";
     private static final String b = "pass_channel_id";
@@ -48,7 +47,7 @@ public class b {
             intent.putExtra("extra_external_url", str4);
             intent.setFlags(268435456);
             PendingIntent activity = PendingIntent.getActivity(context, 0, intent, 0);
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
             if (Build.VERSION.SDK_INT >= 26) {
                 notificationManager.createNotificationChannel(new NotificationChannel(b, c, 3));
                 builder = new Notification.Builder(context, b);

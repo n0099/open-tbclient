@@ -1,8 +1,7 @@
 package com.google.zxing.common;
 
-import com.baidu.live.adp.lib.util.BdFileHelper;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class BitArray implements Cloneable {
     private int[] bits;
     private int size;
@@ -250,14 +249,14 @@ public final class BitArray implements Cloneable {
             if ((i & 7) == 0) {
                 sb.append(' ');
             }
-            sb.append(get(i) ? 'X' : BdFileHelper.EXTENSION_SEPARATOR);
+            sb.append(get(i) ? 'X' : '.');
         }
         return sb.toString();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BitArray m28clone() {
+    public BitArray m30clone() {
         return new BitArray((int[]) this.bits.clone(), this.size);
     }
 }

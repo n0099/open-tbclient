@@ -6,12 +6,8 @@ import android.content.Context;
 public class e {
     private static Application sApplication;
 
-    public static void c(Application application) {
+    public static void onApplicationattachBaseContext(Application application) {
         sApplication = application;
-    }
-
-    public static void a(d dVar) {
-        g.a(dVar);
     }
 
     public static Context getAppContext() {

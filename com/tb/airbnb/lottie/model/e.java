@@ -3,13 +3,13 @@ package com.tb.airbnb.lottie.model;
 import android.content.res.Resources;
 import com.tb.airbnb.lottie.e;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class e extends b<InputStream> {
-    private final Resources fL;
     private final com.tb.airbnb.lottie.h loadedListener;
+    private final Resources mNO;
 
     public e(Resources resources, com.tb.airbnb.lottie.h hVar) {
-        this.fL = resources;
+        this.mNO = resources;
         this.loadedListener = hVar;
     }
 
@@ -18,7 +18,7 @@ public final class e extends b<InputStream> {
     @Override // android.os.AsyncTask
     /* renamed from: b */
     public com.tb.airbnb.lottie.e doInBackground(InputStream... inputStreamArr) {
-        return e.a.b(this.fL, inputStreamArr[0]);
+        return e.a.a(this.mNO, inputStreamArr[0]);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

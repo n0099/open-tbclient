@@ -8,6 +8,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.platform.comapi.walknavi.d.a.f.f;
 import com.baidu.platform.comapi.walknavi.d.a.g.h;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.tbadk.core.atomData.FrsArActivityConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
@@ -60,7 +61,7 @@ public final class e {
             jSONObject2.put(FrsArActivityConfig.AR_ID, "");
         }
         jSONObject2.put("gles_version", ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getDeviceConfigurationInfo().reqGlEsVersion >> 16);
-        jSONObject2.put("osType", "android");
+        jSONObject2.put("osType", PraiseDataPassUtil.KEY_FROM_OS);
         jSONObject2.put("engine_version", com.baidu.platform.comapi.walknavi.d.a.g.b.a());
         jSONObject2.put(Constants.APP_ID, com.baidu.platform.comapi.walknavi.d.a.g.b.a(context));
         jSONObject2.put(com.baidu.android.imsdk.internal.Constants.KEY_DEVICE_ID, Build.MODEL);

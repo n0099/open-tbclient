@@ -2,29 +2,29 @@ package com.baidu.tieba.ala.liveroom.challenge.a;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a implements b<String> {
-    private int dYW;
-    private int dYX;
+    private int eOT;
+    private int eOU;
 
     public a(int i, int i2) {
-        this.dYW = i;
-        this.dYX = i2;
+        this.eOT = i;
+        this.eOU = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ala.liveroom.challenge.a.b
     /* renamed from: decodeBitmap */
-    public Bitmap ai(String str) {
-        return tA(str);
+    public Bitmap ao(String str) {
+        return yr(str);
     }
 
-    private Bitmap tA(String str) {
+    private Bitmap yr(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
         BitmapFactory.Options options2 = new BitmapFactory.Options();
-        options2.inSampleSize = a(this.dYW, this.dYX, options);
+        options2.inSampleSize = a(this.eOT, this.eOU, options);
         options2.inPreferredConfig = Bitmap.Config.RGB_565;
         return BitmapFactory.decodeFile(str, options2);
     }

@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.core.data;
 
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaSquareCoverLabelData {
     public String labelColor;
     public int labelId;

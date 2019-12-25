@@ -13,6 +13,6 @@ public class l implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.a(true, R.string.abc_action_bar_home_subtitle_description_format);
+        this.a.a(true, R.string.abc_action_menu_overflow_description);
     }
 }

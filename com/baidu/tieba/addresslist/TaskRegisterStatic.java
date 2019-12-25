@@ -12,7 +12,7 @@ import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.ResponsePassFriendMessage;
 import com.baidu.tieba.im.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class TaskRegisterStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AddressListActivityConfig.class, AddressListActivity.class);

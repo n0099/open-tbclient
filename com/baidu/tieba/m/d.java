@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.m.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d extends c.b {
     private final int code;
     private final String msg;
@@ -16,8 +16,8 @@ public class d extends c.b {
     }
 
     @Override // com.baidu.tieba.m.c.b, com.baidu.tieba.m.c
-    public JSONObject cdn() {
-        JSONObject cdn = super.cdn();
+    public JSONObject cxi() {
+        JSONObject cxi = super.cxi();
         try {
             JSONObject jSONObject = new JSONObject();
             if (this.code != -4399) {
@@ -26,10 +26,10 @@ public class d extends c.b {
             if (!StringUtils.isNull(this.msg)) {
                 jSONObject.put("msg", this.msg);
             }
-            cdn.put("ext", jSONObject);
+            cxi.put("ext", jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return cdn;
+        return cxi;
     }
 }

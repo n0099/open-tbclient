@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.base;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class j<T> {
     protected T a;
     protected T b;

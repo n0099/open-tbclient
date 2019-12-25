@@ -2,7 +2,7 @@ package android.support.v7.widget;
 
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class TintInfo {
     public boolean mHasTintList;
     public boolean mHasTintMode;

@@ -3,7 +3,6 @@ package com.baidu.pass.biometrics.base.http.utils;
 import android.content.Context;
 import android.support.v4.view.InputDeviceCompat;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.pass.biometrics.base.restnet.RestNameValuePair;
 import com.baidu.pass.biometrics.base.utils.Crypto;
 import java.nio.charset.Charset;
@@ -13,8 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class HttpUtils {
     public static String getNonce(Context context, List<RestNameValuePair> list) {
         String str;
@@ -29,7 +27,7 @@ public class HttpUtils {
             }
         });
         RestNameValuePair restNameValuePair = new RestNameValuePair();
-        restNameValuePair.setName(TiebaInitialize.Params.KEY);
+        restNameValuePair.setName("key");
         try {
             str = Crypto.sha1(context.getPackageName());
         } catch (Exception e) {
@@ -61,7 +59,7 @@ public class HttpUtils {
                     sb.append('&');
                 }
                 if (!TextUtils.isEmpty(sb)) {
-                    messageDigest.update(sb.toString().getBytes(Charset.forName(HTTP.UTF_8)));
+                    messageDigest.update(sb.toString().getBytes(Charset.forName("UTF-8")));
                 }
             }
         }

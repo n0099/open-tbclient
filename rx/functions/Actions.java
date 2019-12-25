@@ -1,16 +1,16 @@
 package rx.functions;
 
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class Actions {
-    private static final b kyc = new b();
+    private static final b ndI = new b();
 
-    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> cOt() {
-        return kyc;
+    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> dGo() {
+        return ndI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class b<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements rx.functions.a, rx.functions.b<T0>, c<T0, T1> {
         b() {
         }
@@ -24,7 +24,7 @@ public final class Actions {
         }
 
         @Override // rx.functions.c
-        public void g(T0 t0, T1 t1) {
+        public void l(T0 t0, T1 t1) {
         }
     }
 
@@ -33,7 +33,7 @@ public final class Actions {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T> implements rx.functions.b<T> {
         final rx.functions.a action;
 
@@ -48,7 +48,7 @@ public final class Actions {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public enum NotImplemented implements rx.functions.b<Throwable> {
         INSTANCE;
 
@@ -59,7 +59,7 @@ public final class Actions {
         }
     }
 
-    public static rx.functions.b<Throwable> cOu() {
+    public static rx.functions.b<Throwable> dGp() {
         return NotImplemented.INSTANCE;
     }
 }

@@ -1,15 +1,17 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes2.dex */
+
+import com.facebook.imagepipeline.c.h;
+/* loaded from: classes11.dex */
 public class a {
-    public static h<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> a(com.facebook.common.internal.i<u> iVar, com.facebook.common.memory.c cVar, com.facebook.imagepipeline.b.f fVar, boolean z) {
-        h<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> hVar = new h<>(new ac<com.facebook.imagepipeline.f.b>() { // from class: com.facebook.imagepipeline.c.a.1
+    public static h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> a(com.facebook.common.internal.j<q> jVar, com.facebook.common.memory.c cVar, h.a aVar) {
+        h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> hVar = new h<>(new v<com.facebook.imagepipeline.g.c>() { // from class: com.facebook.imagepipeline.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.facebook.imagepipeline.c.ac
+            @Override // com.facebook.imagepipeline.c.v
             /* renamed from: e */
-            public int aM(com.facebook.imagepipeline.f.b bVar) {
-                return bVar.getSizeInBytes();
+            public int bg(com.facebook.imagepipeline.g.c cVar2) {
+                return cVar2.getSizeInBytes();
             }
-        }, new d(), iVar, fVar, z);
+        }, aVar, jVar);
         cVar.a(hVar);
         return hVar;
     }

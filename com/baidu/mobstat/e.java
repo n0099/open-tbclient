@@ -5,7 +5,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.bm;
 import java.io.File;
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e {
     static final e a = new e();
 
@@ -86,7 +85,7 @@ public class e {
                 jSONObject.put("n", packageInfo.packageName);
                 jSONObject.put(Config.APP_VERSION_CODE, str);
                 jSONObject.put("v", String.valueOf(packageInfo.versionName));
-                jSONObject.put(BdStatsConstant.StatsKey.FROM, j);
+                jSONObject.put("f", j);
                 jSONObject.put("l", j2);
                 jSONObject.put("m", a2);
                 jSONArray.put(jSONObject);

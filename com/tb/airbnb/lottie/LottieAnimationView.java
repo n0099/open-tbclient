@@ -26,7 +26,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class LottieAnimationView extends ImageView {
     private String animationName;
     @RawRes
@@ -47,7 +47,7 @@ public class LottieAnimationView extends ImageView {
     private static final Map<String, e> ASSET_STRONG_REF_CACHE = new HashMap();
     private static final Map<String, WeakReference<e>> ASSET_WEAK_REF_CACHE = new HashMap();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum CacheStrategy {
         None,
         Weak,
@@ -142,8 +142,8 @@ public class LottieAnimationView extends ImageView {
             this.lottieDrawable.setScale(obtainStyledAttributes.getFloat(9, 1.0f));
         }
         obtainStyledAttributes.recycle();
-        if (com.tb.airbnb.lottie.c.f.Q(getContext()) == 0.0f) {
-            this.lottieDrawable.bg();
+        if (com.tb.airbnb.lottie.c.f.gw(getContext()) == 0.0f) {
+            this.lottieDrawable.dBb();
         }
         enableOrDisableHardwareLayer();
     }
@@ -202,9 +202,9 @@ public class LottieAnimationView extends ImageView {
         savedState.animationName = this.animationName;
         savedState.animationResId = this.animationResId;
         savedState.progress = this.lottieDrawable.getProgress();
-        savedState.cO = this.lottieDrawable.isAnimating();
-        savedState.cP = this.lottieDrawable.isLooping();
-        savedState.cQ = this.lottieDrawable.getImageAssetsFolder();
+        savedState.dS = this.lottieDrawable.isAnimating();
+        savedState.mMA = this.lottieDrawable.isLooping();
+        savedState.dT = this.lottieDrawable.getImageAssetsFolder();
         return savedState;
     }
 
@@ -225,11 +225,11 @@ public class LottieAnimationView extends ImageView {
             setAnimation(this.animationResId);
         }
         setProgress(savedState.progress);
-        loop(savedState.cP);
-        if (savedState.cO) {
+        loop(savedState.mMA);
+        if (savedState.dS) {
             playAnimation();
         }
-        this.lottieDrawable.G(savedState.cQ);
+        this.lottieDrawable.I(savedState.dT);
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -447,7 +447,7 @@ public class LottieAnimationView extends ImageView {
     }
 
     public void setImageAssetsFolder(String str) {
-        this.lottieDrawable.G(str);
+        this.lottieDrawable.I(str);
     }
 
     @Nullable
@@ -532,28 +532,28 @@ public class LottieAnimationView extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator() { // from class: com.tb.airbnb.lottie.LottieAnimationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: ab */
+            /* renamed from: aS */
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Dc */
+            /* renamed from: MD */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
         };
         String animationName;
         int animationResId;
-        boolean cO;
-        boolean cP;
-        String cQ;
+        boolean dS;
+        String dT;
+        boolean mMA;
         float progress;
 
         SavedState(Parcelable parcelable) {
@@ -564,9 +564,9 @@ public class LottieAnimationView extends ImageView {
             super(parcel);
             this.animationName = parcel.readString();
             this.progress = parcel.readFloat();
-            this.cO = parcel.readInt() == 1;
-            this.cP = parcel.readInt() == 1;
-            this.cQ = parcel.readString();
+            this.dS = parcel.readInt() == 1;
+            this.mMA = parcel.readInt() == 1;
+            this.dT = parcel.readString();
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
@@ -574,9 +574,9 @@ public class LottieAnimationView extends ImageView {
             super.writeToParcel(parcel, i);
             parcel.writeString(this.animationName);
             parcel.writeFloat(this.progress);
-            parcel.writeInt(this.cO ? 1 : 0);
-            parcel.writeInt(this.cP ? 1 : 0);
-            parcel.writeString(this.cQ);
+            parcel.writeInt(this.dS ? 1 : 0);
+            parcel.writeInt(this.mMA ? 1 : 0);
+            parcel.writeString(this.dT);
         }
     }
 }

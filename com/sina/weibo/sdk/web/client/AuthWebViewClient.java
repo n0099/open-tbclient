@@ -23,7 +23,7 @@ import com.sina.weibo.sdk.web.WebViewRequestCallback;
 import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AuthWebViewClient extends BaseWebViewClient {
     private static final String TAG = "AuthWebViewClient";
     private boolean authed;

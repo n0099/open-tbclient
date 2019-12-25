@@ -1,133 +1,52 @@
 package com.baidu.tieba.aiapps.apps.i;
 
+import android.app.DownloadManager;
 import android.content.Context;
-import com.baidu.swan.apps.u.b.o;
-import com.baidu.swan.apps.x.a.c;
-import com.baidu.swan.apps.x.a.e;
-import com.baidu.swan.apps.x.a.f;
-import com.baidu.swan.apps.x.a.g;
-/* loaded from: classes4.dex */
-public class a implements o {
-    private static o dpt;
+import android.content.Intent;
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.picture.params.LaunchParams;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.swan.apps.adaptation.a.f;
+import com.baidu.swan.apps.as.c;
+import com.baidu.swan.apps.res.widget.b.d;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class a implements f {
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void a(o oVar) {
-        dpt = oVar;
+    @Override // com.baidu.swan.apps.adaptation.a.f
+    public boolean h(Context context, JSONObject jSONObject) {
+        return o(context, jSONObject);
     }
 
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (dpt == null) {
+    @Override // com.baidu.swan.apps.adaptation.a.f
+    public boolean a(@NonNull Context context, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull JSONObject jSONObject, @NonNull CallbackHandler callbackHandler) {
+        return o(context, jSONObject);
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.f
+    public boolean a(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull com.baidu.swan.apps.adlanding.download.a.a aVar) {
+        return o(context, jSONObject);
+    }
+
+    private boolean o(Context context, JSONObject jSONObject) {
+        String optString = jSONObject.optString("url");
+        if (TextUtils.isEmpty(optString)) {
+            d.a(AppRuntime.getAppContext(), "download url is empty");
             return false;
         }
-        return dpt.a(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean b(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (dpt == null) {
-            return false;
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(optString));
+        request.setDestinationInExternalPublicDir("", optString.substring(optString.lastIndexOf("/") + 1));
+        DownloadManager downloadManager = (DownloadManager) AppRuntime.getAppContext().getSystemService(LaunchParams.SRC_TYPE_DOWNLOAD);
+        if (downloadManager != null) {
+            downloadManager.enqueue(request);
+            return c.startActivitySafely(context, new Intent("android.intent.action.VIEW_DOWNLOADS"));
         }
-        return dpt.b(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean c(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (dpt == null) {
-            return false;
-        }
-        return dpt.c(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, f fVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (dpt == null) {
-            return false;
-        }
-        return dpt.a(context, fVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, e eVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (dpt == null) {
-            return false;
-        }
-        return dpt.a(context, eVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean d(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (dpt == null) {
-            return false;
-        }
-        return dpt.d(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, com.baidu.swan.apps.x.a.b bVar, com.baidu.swan.apps.x.b bVar2, com.baidu.swan.apps.ae.b bVar3) {
-        if (dpt == null) {
-            return false;
-        }
-        return dpt.a(context, bVar, bVar2, bVar3);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean e(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (dpt == null) {
-            return false;
-        }
-        return dpt.e(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean f(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (dpt == null) {
-            return false;
-        }
-        return dpt.f(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean g(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (dpt == null) {
-            return false;
-        }
-        return dpt.g(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, com.baidu.swan.apps.x.a.a aVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (dpt == null) {
-            return false;
-        }
-        return dpt.a(context, aVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, g gVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (dpt == null) {
-            return false;
-        }
-        return dpt.a(context, gVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public void c(com.baidu.swan.apps.b.c.c cVar) {
-        if (dpt != null) {
-            dpt.c(cVar);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public void d(com.baidu.swan.apps.b.c.c cVar) {
-        if (dpt != null) {
-            dpt.d(cVar);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public void e(com.baidu.swan.apps.b.c.c cVar) {
-        if (dpt != null) {
-            dpt.e(cVar);
-        }
+        return false;
     }
 }

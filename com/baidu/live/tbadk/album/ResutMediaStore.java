@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.album;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ResutMediaStore {
     public List<AlbumData> albumList;
     public List<MediaFileInfo> allList;

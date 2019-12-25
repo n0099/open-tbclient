@@ -3,7 +3,7 @@ package com.xiaomi.miui.pushads.sdk;
 import android.os.Bundle;
 import com.xiaomi.push.ce;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class h extends ce {
     public String a;
     public String b;
@@ -57,7 +57,7 @@ public class h extends ce {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("showType", this.a);
-            jSONObject.put("lastShowTime", this.f179b);
+            jSONObject.put("lastShowTime", this.f184b);
             jSONObject.put("actionUrl", this.a);
             jSONObject.put("type", this.f);
             jSONObject.put("imgUrl", this.b);

@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d extends RecyclerView.ViewHolder {
-    private TextView bHw;
+    private TextView csM;
     private ProgressBar mProgressBar;
 
     public d(View view) {
@@ -16,11 +16,11 @@ public class d extends RecyclerView.ViewHolder {
     }
 
     private void init(View view) {
-        this.bHw = (TextView) view.findViewById(R.id.loading_text);
+        this.csM = (TextView) view.findViewById(R.id.loading_text);
         this.mProgressBar = (ProgressBar) view.findViewById(R.id.loading_progress);
     }
 
-    public void dt(boolean z) {
+    public void setVisibility(boolean z) {
         this.itemView.setVisibility(z ? 0 : 4);
     }
 }

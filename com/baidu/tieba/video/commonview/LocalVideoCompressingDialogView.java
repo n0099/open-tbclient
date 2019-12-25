@@ -6,10 +6,10 @@ import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LocalVideoCompressingDialogView extends FrameLayout {
-    private CompressProgressView jxG;
-    private TextView jxH;
+    private CompressProgressView krD;
+    private TextView progressTextView;
 
     public LocalVideoCompressingDialogView(Context context) {
         super(context);
@@ -28,14 +28,14 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.local_video_compress_dialog, this);
-        this.jxG = (CompressProgressView) findViewById(R.id.compress_progress_view);
-        this.jxH = (TextView) findViewById(R.id.compress_progress_text);
+        this.krD = (CompressProgressView) findViewById(R.id.compress_progress_view);
+        this.progressTextView = (TextView) findViewById(R.id.compress_progress_text);
     }
 
     public void setPercent(int i) {
         if (i >= 0 && i <= 100) {
-            this.jxG.setProgress(i);
-            this.jxH.setText(i + "%");
+            this.krD.setProgress(i);
+            this.progressTextView.setText(i + "%");
         }
     }
 

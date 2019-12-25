@@ -2,6 +2,7 @@ package com.baidu.platform.comapi.walknavi.d;
 
 import android.text.TextUtils;
 import com.baidu.ar.npc.BaiduArView;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
@@ -107,7 +108,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
         if (this.e != null) {
             long currentTimeMillis = System.currentTimeMillis();
             this.e.a(str, i, i2);
-            a(currentTimeMillis, "onCreate");
+            a(currentTimeMillis, MissionEvent.MESSAGE_CREATE);
         }
     }
 
@@ -116,7 +117,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
         if (this.e != null) {
             long currentTimeMillis = System.currentTimeMillis();
             this.e.d();
-            a(currentTimeMillis, "onPause");
+            a(currentTimeMillis, MissionEvent.MESSAGE_PAUSE);
         }
     }
 
@@ -143,7 +144,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
         if (this.e != null) {
             long currentTimeMillis = System.currentTimeMillis();
             this.e.b();
-            a(currentTimeMillis, "onResume");
+            a(currentTimeMillis, MissionEvent.MESSAGE_RESUME);
         }
     }
 
@@ -158,7 +159,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
             this.d = null;
             this.h = false;
             this.l = false;
-            a(currentTimeMillis, "onDestroy");
+            a(currentTimeMillis, MissionEvent.MESSAGE_DESTROY);
         }
     }
 

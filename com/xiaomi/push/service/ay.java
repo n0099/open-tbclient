@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class ay extends Handler {
     final /* synthetic */ ax a;
 

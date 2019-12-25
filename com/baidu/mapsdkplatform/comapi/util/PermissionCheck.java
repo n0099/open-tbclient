@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.util.Hashtable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -65,8 +64,8 @@ public class PermissionCheck {
     /* loaded from: classes5.dex */
     public static class b {
         public int a = 0;
-        public String b = LivenessStat.TYPE_STRING_DEFAULT;
-        public String c = LivenessStat.TYPE_STRING_DEFAULT;
+        public String b = "-1";
+        public String c = "-1";
         public String d = "";
         public String e;
 
@@ -124,11 +123,11 @@ public class PermissionCheck {
             d.put("sv", b2.getString("sv"));
             d.put("imt", "1");
             d.put("net", b2.getString("net"));
-            d.put("cpu", b2.getString("cpu"));
+            d.put(com.baidu.fsg.face.base.b.c.i, b2.getString(com.baidu.fsg.face.base.b.c.i));
             d.put("glr", b2.getString("glr"));
             d.put("glv", b2.getString("glv"));
             d.put("resid", b2.getString("resid"));
-            d.put("appid", LivenessStat.TYPE_STRING_DEFAULT);
+            d.put("appid", "-1");
             d.put("ver", "1");
             d.put("screen", String.format("(%d,%d)", Integer.valueOf(b2.getInt("screen_x")), Integer.valueOf(b2.getInt("screen_y"))));
             d.put("dpi", String.format("(%d,%d)", Integer.valueOf(b2.getInt("dpi_x")), Integer.valueOf(b2.getInt("dpi_y"))));

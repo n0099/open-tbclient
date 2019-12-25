@@ -1,5 +1,5 @@
 package com.tencent.open.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static int a(String str) {
         int a;

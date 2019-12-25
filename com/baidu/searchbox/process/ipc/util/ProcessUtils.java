@@ -2,6 +2,7 @@ package com.baidu.searchbox.process.ipc.util;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.searchbox.process.ipc.IPCLibConfig;
@@ -10,7 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes9.dex */
 public final class ProcessUtils {
     private static final String AI_APPS_PROCESS_SUFFIX = ":swan";
     private static final String CMD_LINE_NAME = "/proc/self/cmdline";
@@ -61,7 +62,7 @@ public final class ProcessUtils {
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [137=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [138=4] */
     private static String getProcessNameFromFile() {
         FileInputStream fileInputStream;
         Throwable th;
@@ -112,5 +113,19 @@ public final class ProcessUtils {
             return true;
         }
         return str.startsWith(sMainProcessName) && !str.contains(":");
+    }
+
+    public static boolean is64Bit() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            return Process.is64Bit();
+        }
+        if (Build.VERSION.SDK_INT >= 21) {
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr.length > 0) {
+                return Build.CPU_ABI.equals(strArr[0]);
+            }
+            return false;
+        }
+        return false;
     }
 }

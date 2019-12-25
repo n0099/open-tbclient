@@ -6,6 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
@@ -13,6 +14,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
+    public static final String BAIJIAHAO_DATA = "baijiahao_data";
     public static final String CATEGORY_ID = "category_id";
     public static final String CONTENT = "write_content";
     public static final String FORUM_ID = "forum_id";
@@ -29,9 +31,11 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String PRIVATE_THREAD = "private_thread";
     public static final String THREAD_ID = "thread_id";
     public static final String TITLE = "write_title";
+    public static final String TRANSMIT_ORIGIN_THREAD_CONTENT = "transmit_origin_thread_content";
+    public static final String TRANSMIT_THREAD_AUTHOR_NAME_SHOW = "transmit_thread_author_name_show";
     public static final String TYPE = "type";
 
-    public TransmitPostEditActivityConfig(Context context, int i, String str, String str2, String str3, AntiData antiData, int i2, AdditionData additionData, PostPrefixData postPrefixData, String str4, OriginalThreadInfo originalThreadInfo) {
+    public TransmitPostEditActivityConfig(Context context, int i, String str, String str2, String str3, AntiData antiData, int i2, AdditionData additionData, PostPrefixData postPrefixData, String str4, OriginalThreadInfo.ShareInfo shareInfo) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
@@ -52,8 +56,8 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         if (postPrefixData != null) {
             getIntent().putExtra("prefix_data", postPrefixData);
         }
-        if (originalThreadInfo != null) {
-            getIntent().putExtra(KEY_ORIGINAL_THREAD, originalThreadInfo);
+        if (shareInfo != null) {
+            getIntent().putExtra(KEY_ORIGINAL_THREAD, shareInfo);
         }
     }
 
@@ -88,6 +92,24 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
     public void setPrivateThread(int i) {
         if (getIntent() != null) {
             getIntent().putExtra("private_thread", i);
+        }
+    }
+
+    public void setTransmitOriginThreadComment(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra(TRANSMIT_ORIGIN_THREAD_CONTENT, str);
+        }
+    }
+
+    public void setBaijiahaoData(BaijiahaoData baijiahaoData) {
+        if (getIntent() != null) {
+            getIntent().putExtra(BAIJIAHAO_DATA, baijiahaoData);
+        }
+    }
+
+    public void setTransmitThreadAuthorNameShow(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra(TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);
         }
     }
 }

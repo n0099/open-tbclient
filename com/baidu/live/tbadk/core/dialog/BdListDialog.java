@@ -13,14 +13,14 @@ import android.widget.TextView;
 import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdListDialog {
     private static final HashMap<Integer, Integer[]> sBtnStyleMap = new HashMap<>(2);
     private final Activity mActivity;
@@ -41,7 +41,7 @@ public class BdListDialog {
     private int mTextViewGravity = -1;
     private int mItemView = a.h.sdk_dialog_bdlist_item;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Animation {
         public static final int BOTTOM_TO_TOP = a.j.sdk_dialog_ani_b2t;
         public static final int TOP_TO_BOTTOM = a.j.sdk_dialog_ani_t2b;
@@ -49,13 +49,13 @@ public class BdListDialog {
         public static final int RIGHT_TO_LEFT = a.j.sdk_dialog_ani_r2l;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class ButtonStyle {
         public static final int HIGHLIGHT = 1;
         public static final int NORMAL = 0;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnItemClickListener {
         void itemClick(BdListDialog bdListDialog, int i, View view);
     }

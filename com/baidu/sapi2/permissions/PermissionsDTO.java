@@ -1,7 +1,7 @@
 package com.baidu.sapi2.permissions;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PermissionsDTO {
     public Context context;
     public String dialogMsg;

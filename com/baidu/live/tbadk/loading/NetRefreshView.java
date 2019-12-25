@@ -5,11 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class NetRefreshView extends AbsAttachView {
     protected TbImageView emotionView;
     protected TextView refreshButton;

@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.DelGroupUsers.DataReq;
 import protobuf.DelGroupUsers.DelGroupUsersReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class RequestRemoveMembersMessage extends TbSocketMessage {
     private long groupId;
     private String userIds;

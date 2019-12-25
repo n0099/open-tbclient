@@ -1,25 +1,20 @@
 package com.airbnb.lottie.model.a;
 
 import android.graphics.PointF;
-import com.airbnb.lottie.model.a.n;
 import java.util.List;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class f extends o<PointF, PointF> {
-    private f(List<com.airbnb.lottie.a.a<PointF>> list, PointF pointF) {
-        super(list, pointF);
+/* loaded from: classes4.dex */
+public class f extends n<PointF, PointF> {
+    @Override // com.airbnb.lottie.model.a.n
+    public /* bridge */ /* synthetic */ String toString() {
+        return super.toString();
+    }
+
+    public f(List<com.airbnb.lottie.e.a<PointF>> list) {
+        super((List) list);
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<PointF, PointF> bY() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.fg) : new com.airbnb.lottie.a.b.j(this.eR);
-    }
-
-    /* loaded from: classes2.dex */
-    public static final class a {
-        public static f i(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            n.a cs = n.a(jSONObject, eVar.bb(), eVar, com.airbnb.lottie.model.j.fR).cs();
-            return new f(cs.eR, (PointF) cs.fg);
-        }
+    public com.airbnb.lottie.a.b.a<PointF, PointF> cm() {
+        return new com.airbnb.lottie.a.b.j(this.gD);
     }
 }

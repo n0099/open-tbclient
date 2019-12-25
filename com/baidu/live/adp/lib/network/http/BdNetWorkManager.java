@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.network.http;
 
 import com.baidu.live.adp.lib.network.http.interfaces.INetWork;
 import com.baidu.live.adp.lib.network.http.interfaces.INetWorkBuilder;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdNetWorkManager {
     private static volatile BdNetWorkManager mInstance = null;
     private INetWorkBuilder mNetBuilder;

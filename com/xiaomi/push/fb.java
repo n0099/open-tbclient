@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.baidu.live.adp.framework.MessageConfig;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public enum fb {
     TCP_CONN_FAIL(1),
     TCP_CONN_TIME(2),
@@ -62,10 +62,10 @@ public enum fb {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f334a;
+    private final int f339a;
 
     fb(int i) {
-        this.f334a = i;
+        this.f339a = i;
     }
 
     public static fb a(int i) {
@@ -186,6 +186,6 @@ public enum fb {
     }
 
     public int a() {
-        return this.f334a;
+        return this.f339a;
     }
 }

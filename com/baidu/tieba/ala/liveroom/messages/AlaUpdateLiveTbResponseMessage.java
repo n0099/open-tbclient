@@ -3,12 +3,12 @@ package com.baidu.tieba.ala.liveroom.messages;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.liveroom.data.g;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
-    private g ekz;
+    private g faQ;
 
-    public g aUE() {
-        return this.ekz;
+    public g bmv() {
+        return this.faQ;
     }
 
     public AlaUpdateLiveTbResponseMessage() {
@@ -19,10 +19,10 @@ public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.ekz = new g();
-            this.ekz.parseJson(jSONObject);
-            setError(this.ekz.mErrorCode);
-            setErrorString(this.ekz.mErrorMsg);
+            this.faQ = new g();
+            this.faQ.parseJson(jSONObject);
+            setError(this.faQ.mErrorCode);
+            setErrorString(this.faQ.mErrorMsg);
         }
     }
 }

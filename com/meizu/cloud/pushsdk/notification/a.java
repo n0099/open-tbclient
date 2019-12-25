@@ -16,14 +16,13 @@ import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.coloros.mcssdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class a implements c {
     protected Context a;
     protected PushNotificationBuilder b;
@@ -35,7 +34,7 @@ public abstract class a implements c {
         this.b = pushNotificationBuilder;
         this.a = context;
         this.c = new Handler(context.getMainLooper());
-        this.d = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+        this.d = (NotificationManager) context.getSystemService("notification");
     }
 
     private void a(Notification.Builder builder) {

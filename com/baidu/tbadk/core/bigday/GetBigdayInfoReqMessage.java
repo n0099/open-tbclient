@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import tbclient.GetBigday.DataReq;
 import tbclient.GetBigday.GetBigdayReqIdl;
 /* loaded from: classes.dex */
@@ -18,7 +18,7 @@ public class GetBigdayInfoReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                r.a(builder, true);
+                t.a(builder, true);
             }
             builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getContext()));
             builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getContext()));

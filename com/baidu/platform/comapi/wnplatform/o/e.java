@@ -6,7 +6,6 @@ import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 /* loaded from: classes5.dex */
 public class e {
     public static MapStatusUpdate a(MapStatus mapStatus) {
@@ -14,6 +13,6 @@ public class e {
     }
 
     public static LatLng a(GeoPoint geoPoint) {
-        return CoordUtil.Coordinate_encryptEx(((float) geoPoint.getLongitudeE6()) / 100000.0f, ((float) geoPoint.getLatitudeE6()) / 100000.0f, CoordinateType.GCJ02);
+        return CoordUtil.Coordinate_encryptEx(((float) geoPoint.getLongitudeE6()) / 100000.0f, ((float) geoPoint.getLatitudeE6()) / 100000.0f, "gcj02");
     }
 }

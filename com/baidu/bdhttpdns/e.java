@@ -1,59 +1,118 @@
 package com.baidu.bdhttpdns;
 
-import android.content.Context;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.c;
-import com.baidu.bdhttpdns.i;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.Map;
+import android.util.Base64;
+import java.io.UnsupportedEncodingException;
+import java.security.Key;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.regex.Pattern;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.DESKeySpec;
+import javax.crypto.spec.IvParameterSpec;
 /* loaded from: classes.dex */
-public class e implements i.a {
-    private final c EI;
-    private final BDHttpDns EJ;
-    private final BDHttpDns.CachePolicy EK;
-    private final i EL;
+final class e {
+    private static String b = a();
+    private static Pattern a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
 
-    public e(Context context) {
-        this.EJ = BDHttpDns.ag(context);
-        this.EI = this.EJ.lu();
-        this.EK = this.EJ.lw();
-        this.EL = this.EJ.lx();
+    private static String a() {
+        try {
+            byte[] bArr = new byte[20];
+            SecureRandom.getInstance(com.coloros.mcssdk.c.a.c).nextBytes(bArr);
+            return a(bArr);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    @Override // com.baidu.bdhttpdns.i.a
-    public void a(int i, i.d dVar, Map<String, i.e> map, String str) {
-        switch (i) {
-            case -1:
-                if (dVar.equals(i.d.DNLIST_HOSTS) && this.EK == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                    for (String str2 : str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-                        this.EI.b(str2);
-                    }
-                    break;
-                }
-                break;
-            case 0:
-                for (Map.Entry<String, i.e> entry : map.entrySet()) {
-                    String key = entry.getKey();
-                    i.e value = entry.getValue();
-                    if (value != null) {
-                        c.a aVar = new c.a();
-                        aVar.a(value.b());
-                        aVar.b(System.currentTimeMillis() / 1000);
-                        aVar.a(value.a());
-                        this.EI.a(key, aVar);
-                    } else if (this.EK == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                        this.EI.b(key);
-                    }
-                }
-                break;
-            default:
-                f.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
-                break;
+    private static String a(String str, byte[] bArr) {
+        try {
+            Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
+            cipher.init(1, bB(str), new IvParameterSpec("01020304".getBytes()));
+            return Base64.encodeToString(cipher.doFinal(bArr), 0);
+        } catch (Exception e) {
+            return null;
         }
-        if (this.EJ.e() <= 0 || this.EL.f()) {
-            return;
+    }
+
+    private static String a(byte[] bArr) {
+        if (bArr == null) {
+            return "";
         }
-        this.EL.b(true);
-        f.a("preResolve has finished", new Object[0]);
+        StringBuffer stringBuffer = new StringBuffer(bArr.length * 2);
+        for (byte b2 : bArr) {
+            a(stringBuffer, b2);
+        }
+        return stringBuffer.toString();
+    }
+
+    private static void a(StringBuffer stringBuffer, byte b2) {
+        stringBuffer.append(com.coloros.mcssdk.c.a.f.charAt((b2 >> 4) & 15)).append(com.coloros.mcssdk.c.a.f.charAt(b2 & 15));
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static boolean a(String str) {
+        return a.matcher(str).matches();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static boolean b(String str) {
+        String replaceAll = str.replaceAll("[\\[\\]]", "");
+        return c(replaceAll) || d(replaceAll);
+    }
+
+    private static Key bB(String str) {
+        return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(str.getBytes()));
+    }
+
+    public static boolean c(String str) {
+        return Pattern.matches("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$", str);
+    }
+
+    public static boolean d(String str) {
+        return Pattern.matches("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$", str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String e(String str) {
+        try {
+            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
+            StringBuilder sb = new StringBuilder(digest.length * 2);
+            for (byte b2 : digest) {
+                if ((b2 & 255) < 16) {
+                    sb.append("0");
+                }
+                sb.append(Integer.toHexString(b2 & 255));
+            }
+            return sb.toString();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        } catch (NoSuchAlgorithmException e2) {
+            e2.printStackTrace();
+            return null;
+        }
+    }
+
+    private static String e(String str, byte[] bArr) {
+        try {
+            Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
+            cipher.init(2, bB(str), new IvParameterSpec("01020304".getBytes()));
+            return new String(cipher.doFinal(bArr));
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String f(String str) {
+        return a(b, str.getBytes());
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String g(String str) {
+        return e(b, Base64.decode(str, 0));
     }
 }

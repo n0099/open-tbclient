@@ -6,11 +6,11 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.widget.TbClipImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HeadImageView extends TbClipImageView {
     private int bigHeadMargin;
     private int iconMargin;

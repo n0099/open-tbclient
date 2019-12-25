@@ -1,65 +1,106 @@
 package com.baidu.tieba.frs.vc;
 
-import android.text.TextUtils;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.R;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.view.g;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.view.NavigationBarCoverTip;
-/* loaded from: classes4.dex */
-public class j {
-    private FrsFragment fNh;
-    private NavigationBarCoverTip fTC;
-    private int fTD;
-    private TextView mTipView;
+/* loaded from: classes6.dex */
+public class j extends com.baidu.tieba.frs.mc.j {
+    private g.c dcr;
+    private g.b dcs;
+    private g.d dct;
+    private boolean gHh;
+    private final CustomMessageListener gHi;
+    private com.baidu.tieba.frs.smartsort.a gjt;
 
-    public j(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
-        this.fNh = frsFragment;
-        this.fTC = navigationBarCoverTip;
-        init();
-    }
-
-    private void init() {
-        this.fTD = 0;
-        this.mTipView = new TextView(this.fNh.getActivity());
-        this.mTipView.setLayoutParams(new LinearLayout.LayoutParams(-1, this.fNh.getResources().getDimensionPixelSize(R.dimen.tbds112)));
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.mTipView.setPadding(this.fNh.getResources().getDimensionPixelSize(R.dimen.ds34), this.fNh.getResources().getDimensionPixelSize(R.dimen.ds1), this.fNh.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
-            this.mTipView.setGravity(3);
-        } else {
-            this.mTipView.setPadding(this.fNh.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.fNh.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
-            this.mTipView.setGravity(19);
-        }
-        this.mTipView.setTextSize(0, this.fNh.getResources().getDimensionPixelSize(R.dimen.ds28));
-        this.mTipView.setLineSpacing(this.fNh.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
-        this.mTipView.setMaxLines(2);
-        this.mTipView.setEllipsize(TextUtils.TruncateAt.END);
-    }
-
-    public void vN(String str) {
-        String str2;
-        if (!aq.isEmpty(str) && this.fTC != null && this.fNh.isPrimary() && this.fTD <= 0) {
-            this.fTD++;
-            if (str.length() < 20) {
-                str2 = this.fNh.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
-            } else if (str.length() < 34) {
-                str2 = this.fNh.getResources().getString(R.string.forum_ueg_tip) + str;
-            } else {
-                str2 = this.fNh.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
+    public j(FrsFragment frsFragment) {
+        super(frsFragment);
+        this.gHh = false;
+        this.gHi = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH) { // from class: com.baidu.tieba.frs.vc.j.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage != null && j.this.gja != null) {
+                    j.this.gja.startPullRefresh();
+                }
             }
-            this.mTipView.setText(str2);
-            am.setViewTextColor(this.mTipView, (int) R.color.cp_cont_a);
-            am.setBackgroundColor(this.fTC, R.color.cp_link_tip_a_alpha95);
-            this.fTC.a(this.fNh.getActivity(), this.mTipView, 5000);
-        }
+        };
+        this.dcr = new g.c() { // from class: com.baidu.tieba.frs.vc.j.2
+            @Override // com.baidu.tbadk.core.view.g.c
+            public void onListPullRefresh(boolean z) {
+                if (j.this.gBu != null && j.this.gBu.isAdded() && j.this.gja != null) {
+                    j.this.gja.hi(true);
+                    if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
+                        j.this.gBu.refresh();
+                        j.this.gBu.kS(true);
+                    } else {
+                        j.this.gBu.bBl();
+                    }
+                    TiebaStatic.log(new an("c11749").cp("fid", j.this.gBu.getFid()).cp("obj_locate", "1"));
+                }
+            }
+        };
+        this.dct = new g.d() { // from class: com.baidu.tieba.frs.vc.j.3
+            @Override // com.baidu.tbadk.core.view.g.d
+            public void onListPullToRefresh(boolean z) {
+                j.this.gHh = true;
+                if (j.this.gja != null && j.this.gCF != null && j.this.gjq != null && j.this.gBu != null && j.this.gBu.isAdded()) {
+                    if (j.this.gja != null && j.this.gja.bCd() != null) {
+                        j.this.gja.bCd().bLD();
+                    }
+                    j.this.gBu.kS(false);
+                    com.baidu.adp.lib.f.e.gy().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.j.3.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            if (j.this.gja.bBU() != null && j.this.gCF != null && j.this.gja.bBU().getVisibility() != 0) {
+                                j.this.gCF.aPA();
+                            }
+                        }
+                    }, 110L);
+                }
+            }
+        };
+        this.dcs = new g.b() { // from class: com.baidu.tieba.frs.vc.j.4
+            @Override // com.baidu.tbadk.core.view.g.b
+            public void onListPullRefreshFinished(View view, boolean z) {
+                if (j.this.gBu != null && j.this.gBu.isAdded()) {
+                    if (j.this.gHh && j.this.gBu.bBg() != null) {
+                        j.this.gBu.bBg().bIu();
+                        j.this.gHh = false;
+                    }
+                    if (j.this.gjt != null && j.this.gBu.bBi() != null && j.this.gBu.bBi().bCf() != null && !j.this.gBu.bBi().bCf().bHO()) {
+                        j.this.gjt.bGZ();
+                    }
+                    if (j.this.gja != null && j.this.gCF != null && j.this.gjq != null && j.this.gjt != null) {
+                        j.this.gja.bCd().a(0, 0, true, true);
+                        j.this.gBu.bBv();
+                        j.this.gBu.kS(true);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
+                        if (j.this.gBu.bBi() != null) {
+                            j.this.gBu.bBi().hi(false);
+                        }
+                        if (!TbadkCoreApplication.isLogin() || j.this.gBu.aFx().getVisibility() != 0 || v.isEmpty(j.this.gBu.bBI().getThreadList())) {
+                        }
+                    }
+                }
+            }
+        };
+        this.gjt = frsFragment.bBc();
+        frsFragment.registerListener(this.gHi);
     }
 
-    public void onDestory() {
-        if (this.fTC != null) {
-            this.fTC.onDestroy();
+    public void bIl() {
+        if (this.gja != null) {
+            this.gja.setListPullRefreshListener(this.dcr);
+            this.gja.a(this.dct);
+            this.gja.a(this.dcs);
         }
     }
 }

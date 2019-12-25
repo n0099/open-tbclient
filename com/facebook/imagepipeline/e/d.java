@@ -1,16 +1,16 @@
 package com.facebook.imagepipeline.e;
 
-import com.facebook.imagepipeline.producers.ai;
-import com.facebook.imagepipeline.producers.an;
+import com.facebook.imagepipeline.producers.aj;
+import com.facebook.imagepipeline.producers.ap;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class d<T> extends a<T> {
-    public static <T> com.facebook.datasource.b<T> a(ai<T> aiVar, an anVar, com.facebook.imagepipeline.g.b bVar) {
-        return new d(aiVar, anVar, bVar);
+    public static <T> com.facebook.datasource.b<T> a(aj<T> ajVar, ap apVar, com.facebook.imagepipeline.h.c cVar) {
+        return new d(ajVar, apVar, cVar);
     }
 
-    private d(ai<T> aiVar, an anVar, com.facebook.imagepipeline.g.b bVar) {
-        super(aiVar, anVar, bVar);
+    private d(aj<T> ajVar, ap apVar, com.facebook.imagepipeline.h.c cVar) {
+        super(ajVar, apVar, cVar);
     }
 }

@@ -8,6 +8,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.platform.comapi.walknavi.d.a.f.d;
 import com.baidu.platform.comapi.walknavi.d.a.g.b;
 import com.baidu.platform.comapi.walknavi.d.a.g.e;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.tbadk.core.atomData.FrsArActivityConfig;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -74,7 +75,7 @@ public class a {
             }
             com.baidu.platform.comapi.walknavi.d.a.f.e.a(context, jSONObject);
             jSONObject.put("time", String.valueOf(Long.valueOf(System.currentTimeMillis())));
-            jSONObject.put("os_type", "android");
+            jSONObject.put("os_type", PraiseDataPassUtil.KEY_FROM_OS);
             jSONObject.put(BdStatsConstant.StatsKey.OS_VERSION, Build.MODEL);
             jSONObject.put("device_type", Build.BRAND);
             jSONObject.put(Constants.KEY_DEVICE_ID, uuid);

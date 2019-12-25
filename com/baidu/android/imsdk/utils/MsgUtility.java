@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.utils;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class MsgUtility {
     public static JSONArray listToJsonArray(List<Long> list) {
         JSONArray jSONArray = new JSONArray();

@@ -1,5 +1,5 @@
 package com.baidu.crius;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.crius";
     public static final String BUILD_TYPE = "release";

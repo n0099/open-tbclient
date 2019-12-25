@@ -32,9 +32,8 @@ import android.widget.TextView;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class CascadingMenuPopup extends MenuPopup implements MenuPresenter, View.OnKeyListener, PopupWindow.OnDismissListener {
     static final int HORIZ_POSITION_LEFT = 0;
     static final int HORIZ_POSITION_RIGHT = 1;
@@ -56,7 +55,7 @@ final class CascadingMenuPopup extends MenuPopup implements MenuPresenter, View.
     private ViewTreeObserver mTreeObserver;
     private int mXOffset;
     private int mYOffset;
-    private final List<MenuBuilder> mPendingMenus = new LinkedList();
+    private final List<MenuBuilder> mPendingMenus = new ArrayList();
     final List<CascadingMenuInfo> mShowingMenus = new ArrayList();
     private final ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: android.support.v7.view.menu.CascadingMenuPopup.1
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -137,7 +136,7 @@ final class CascadingMenuPopup extends MenuPopup implements MenuPresenter, View.
     private int mLastPosition = getInitialMenuPosition();
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface HorizPosition {
     }
 
@@ -278,6 +277,10 @@ final class CascadingMenuPopup extends MenuPopup implements MenuPresenter, View.
                 this.mAnchorView.getLocationOnScreen(iArr);
                 int[] iArr2 = new int[2];
                 view.getLocationOnScreen(iArr2);
+                if ((this.mDropDownGravity & 7) == 5) {
+                    iArr[0] = iArr[0] + this.mAnchorView.getWidth();
+                    iArr2[0] = iArr2[0] + view.getWidth();
+                }
                 i = iArr2[0] - iArr[0];
                 i2 = iArr2[1] - iArr[1];
             }
@@ -542,7 +545,7 @@ final class CascadingMenuPopup extends MenuPopup implements MenuPresenter, View.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class CascadingMenuInfo {
         public final MenuBuilder menu;
         public final int position;

@@ -1,28 +1,69 @@
 package com.facebook.common.b;
 
 import android.os.Handler;
-import android.os.Looper;
-/* loaded from: classes2.dex */
-public class f extends c {
-    private static f kaa = null;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Delayed;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.RunnableFuture;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import javax.annotation.Nullable;
+/* loaded from: classes11.dex */
+public class f<V> implements RunnableFuture<V>, ScheduledFuture<V> {
+    private final FutureTask<V> lDW;
+    private final Handler mHandler;
 
-    private f() {
-        super(new Handler(Looper.getMainLooper()));
+    public f(Handler handler, Callable<V> callable) {
+        this.mHandler = handler;
+        this.lDW = new FutureTask<>(callable);
     }
 
-    public static f cCG() {
-        if (kaa == null) {
-            kaa = new f();
-        }
-        return kaa;
+    public f(Handler handler, Runnable runnable, @Nullable V v) {
+        this.mHandler = handler;
+        this.lDW = new FutureTask<>(runnable, v);
     }
 
-    @Override // com.facebook.common.b.c, java.util.concurrent.Executor
-    public void execute(Runnable runnable) {
-        if (cCE()) {
-            runnable.run();
-        } else {
-            super.execute(runnable);
-        }
+    @Override // java.util.concurrent.Delayed
+    public long getDelay(TimeUnit timeUnit) {
+        throw new UnsupportedOperationException();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(Delayed delayed) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // java.util.concurrent.RunnableFuture, java.lang.Runnable
+    public void run() {
+        this.lDW.run();
+    }
+
+    @Override // java.util.concurrent.Future
+    public boolean cancel(boolean z) {
+        return this.lDW.cancel(z);
+    }
+
+    @Override // java.util.concurrent.Future
+    public boolean isCancelled() {
+        return this.lDW.isCancelled();
+    }
+
+    @Override // java.util.concurrent.Future
+    public boolean isDone() {
+        return this.lDW.isDone();
+    }
+
+    @Override // java.util.concurrent.Future
+    public V get() throws InterruptedException, ExecutionException {
+        return this.lDW.get();
+    }
+
+    @Override // java.util.concurrent.Future
+    public V get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+        return this.lDW.get(j, timeUnit);
     }
 }

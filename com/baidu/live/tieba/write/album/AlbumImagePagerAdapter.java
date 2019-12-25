@@ -4,7 +4,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.img.ImageFileInfo;
@@ -12,16 +12,16 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private Map<Integer, Boolean> apB = new HashMap();
-    private AlbumActivity apq;
+    private AlbumActivity axh;
+    private Map<Integer, Boolean> axr = new HashMap();
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.apq = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.apq.getPageContext().getPageActivity());
+        this.axh = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.axh.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -44,15 +44,15 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo cg(int i) {
+    public ImageFileInfo cy(int i) {
         return (ImageFileInfo) ListUtils.getItem(this.mList, i);
     }
 
-    public boolean ch(int i) {
-        if (this.apB.get(Integer.valueOf(i)) == null) {
+    public boolean cz(int i) {
+        if (this.axr.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.apB.get(Integer.valueOf(i)).booleanValue();
+        return this.axr.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -65,10 +65,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setGifIconSupport(false);
         tbImageView.setLongIconSupport(false);
-        ImageFileInfo cg = cg(i);
-        if (cg != null) {
-            tbImageView.startLoad(cg.getFilePath(), 35, false, true);
-            this.apB.put(Integer.valueOf(i), true);
+        ImageFileInfo cy = cy(i);
+        if (cy != null) {
+            tbImageView.startLoad(cy.getFilePath(), 35, false, true);
+            this.axr.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
         SkinManager.setBackgroundColor(inflate, a.d.sdk_cp_bg_line_d);

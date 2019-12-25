@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class Message {
     protected long mAppid;
     protected String mListenerKey;

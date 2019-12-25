@@ -4,10 +4,10 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class d<T> implements k<T> {
-    protected final e ns;
+    protected final e pR;
     protected final boolean prefixNameSpaceToKey;
 
-    public abstract g<T> W(String str);
+    public abstract g<T> ab(String str);
 
     public abstract void c(g<T> gVar);
 
@@ -16,7 +16,7 @@ public abstract class d<T> implements k<T> {
     protected abstract void removeExpiredItem(String str);
 
     public d(e eVar, boolean z) {
-        this.ns = eVar;
+        this.pR = eVar;
         this.prefixNameSpaceToKey = z;
     }
 
@@ -29,24 +29,24 @@ public abstract class d<T> implements k<T> {
 
     protected g<T> j(String str, String str2) {
         String buildUniqueKey = buildUniqueKey(str, str2);
-        g<T> W = W(buildUniqueKey);
-        if (W == null) {
+        g<T> ab = ab(buildUniqueKey);
+        if (ab == null) {
             if (BdLog.isDebugMode()) {
             }
             return null;
-        } else if (W.timeToExpire < System.currentTimeMillis()) {
+        } else if (ab.timeToExpire < System.currentTimeMillis()) {
             removeExpiredItem(buildUniqueKey);
             if (BdLog.isDebugMode()) {
             }
             return null;
         } else {
-            if (this.ns.shouldUpdateLastHitTime()) {
-                W.lastHitTime = System.currentTimeMillis();
-                c(W);
+            if (this.pR.shouldUpdateLastHitTime()) {
+                ab.lastHitTime = System.currentTimeMillis();
+                c(ab);
             }
             if (BdLog.isDebugMode()) {
             }
-            return W;
+            return ab;
         }
     }
 
@@ -91,7 +91,7 @@ public abstract class d<T> implements k<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public e fb() {
-        return this.ns;
+    public e fw() {
+        return this.pR;
     }
 }

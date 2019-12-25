@@ -5,16 +5,16 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class at {
     private static final Map<Class<?>, Class<?>> a = new HashMap();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a<T> {
         public final Class<? extends T> a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final T f129a;
+        public final T f134a;
     }
 
     static {
@@ -75,7 +75,7 @@ public class at {
     }
 
     public static <T> T a(Class<?> cls, String str, Object... objArr) {
-        return (T) a(cls, str, a(objArr)).invoke(null, m119a(objArr));
+        return (T) a(cls, str, a(objArr)).invoke(null, m122a(objArr));
     }
 
     public static <T> T a(Object obj, String str) {
@@ -186,7 +186,7 @@ public class at {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static Object[] m119a(Object... objArr) {
+    private static Object[] m122a(Object... objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
@@ -201,13 +201,13 @@ public class at {
             if (obj == null || !(obj instanceof a)) {
                 objArr2[i2] = obj;
             } else {
-                objArr2[i2] = ((a) obj).f129a;
+                objArr2[i2] = ((a) obj).f134a;
             }
             i = i2 + 1;
         }
     }
 
     public static <T> T b(Object obj, String str, Object... objArr) {
-        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m119a(objArr));
+        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m122a(objArr));
     }
 }

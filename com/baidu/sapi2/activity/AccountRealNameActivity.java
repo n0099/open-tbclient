@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
-import com.baidu.d.a.a;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiJsCallBacks;
@@ -12,9 +12,8 @@ import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
-import com.baidu.sapi2.result.SapiResult;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AccountRealNameActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public static final String EXTRA_NEED_CB_KEY = "EXTRA_NEED_CB_KEY";
@@ -110,7 +109,7 @@ public class AccountRealNameActivity extends BaseActivity {
         AccountRealNameResult accountRealNameResult = this.u;
         if (!accountRealNameResult.juniorRealNameSuc && !accountRealNameResult.seniorRealNameSuc) {
             accountRealNameResult.setResultCode(-301);
-            this.u.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+            this.u.setResultMsg("您已取消操作");
         } else {
             this.u.setResultCode(0);
             this.u.setResultMsg("成功");
@@ -128,7 +127,7 @@ public class AccountRealNameActivity extends BaseActivity {
         } catch (Throwable th) {
             reportWebviewError(th);
             this.u.setResultCode(-202);
-            this.u.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
+            this.u.setResultMsg("网络连接失败，请检查网络设置");
             finishActivity();
         }
     }

@@ -11,10 +11,15 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeStatisticUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class h extends UnitedSchemeBaseDispatcher {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = h.class.getSimpleName();
+
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public String getDispatcherName() {
+        return "BDWallet";
+    }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
     public boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -42,27 +47,27 @@ public class h extends UnitedSchemeBaseDispatcher {
             }
             String optString = optParamsAsJo.optString("orderInfo");
             String optString2 = optParamsAsJo.optString("version");
-            com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
-            if (Ra == null) {
+            com.baidu.swan.apps.runtime.e ZS = com.baidu.swan.apps.runtime.e.ZS();
+            if (ZS == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (Ra.getActivity() == null) {
+            } else if (ZS.ZO() == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                com.baidu.swan.apps.aa.a aVar = new com.baidu.swan.apps.aa.a(Ra, unitedSchemeEntity, callbackHandler, optString2, Ra.getAppKey());
+                com.baidu.swan.apps.ae.b bVar = new com.baidu.swan.apps.ae.b(ZS, unitedSchemeEntity, callbackHandler, optString2, ZS.getAppKey());
                 if ("requestPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start PAYMENT");
-                    return aVar.gw(optString);
+                    return bVar.js(optString);
                 } else if ("requestAliPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start ALI PAYMENT");
-                    return aVar.gx(optString);
+                    return bVar.ju(optString);
                 } else if ("requestPolymerPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start POLYMER PAYMENT");
-                    return aVar.g(optString, optParamsAsJo);
+                    return bVar.e(optString, optParamsAsJo);
                 } else if (TextUtils.equals("requestWeChatPayment", path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start WECHAT HTML5 PAYMENT");
-                    return aVar.Nh();
+                    return bVar.WK();
                 } else {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;

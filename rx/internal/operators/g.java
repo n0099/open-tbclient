@@ -1,14 +1,15 @@
 package rx.internal.operators;
 
+import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.Notification;
 import rx.d;
 import rx.g;
 import rx.schedulers.Schedulers;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class g<T> implements d.a<T> {
-    static final rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>> kzo = new rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>>() { // from class: rx.internal.operators.g.1
+    static final rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>> neR = new rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>>() { // from class: rx.internal.operators.g.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: rx.d<R>, rx.d<?> */
         @Override // rx.functions.f
@@ -19,15 +20,15 @@ public final class g<T> implements d.a<T> {
                 @Override // rx.functions.f
                 /* renamed from: a */
                 public Notification<?> call(Notification<?> notification) {
-                    return Notification.bg(null);
+                    return Notification.bR(null);
                 }
             });
         }
     };
-    final rx.d<T> kyh;
-    private final rx.functions.f<? super rx.d<? extends Notification<?>>, ? extends rx.d<?>> kzl;
-    final boolean kzm;
-    final boolean kzn;
+    final rx.d<T> ndN;
+    private final rx.functions.f<? super rx.d<? extends Notification<?>>, ? extends rx.d<?>> neO;
+    final boolean neP;
+    final boolean neQ;
     private final rx.g scheduler;
 
     @Override // rx.functions.b
@@ -36,7 +37,7 @@ public final class g<T> implements d.a<T> {
     }
 
     public static <T> rx.d<T> b(rx.d<T> dVar) {
-        return a(dVar, kzo);
+        return a(dVar, neR);
     }
 
     public static <T> rx.d<T> a(rx.d<T> dVar, rx.functions.f<? super rx.d<? extends Notification<?>>, ? extends rx.d<?>> fVar) {
@@ -44,10 +45,10 @@ public final class g<T> implements d.a<T> {
     }
 
     private g(rx.d<T> dVar, rx.functions.f<? super rx.d<? extends Notification<?>>, ? extends rx.d<?>> fVar, boolean z, boolean z2, rx.g gVar) {
-        this.kyh = dVar;
-        this.kzl = fVar;
-        this.kzm = z;
-        this.kzn = z2;
+        this.ndN = dVar;
+        this.neO = fVar;
+        this.neP = z;
+        this.neQ = z2;
         this.scheduler = gVar;
     }
 
@@ -58,8 +59,8 @@ public final class g<T> implements d.a<T> {
         jVar.add(createWorker);
         final rx.subscriptions.d dVar = new rx.subscriptions.d();
         jVar.add(dVar);
-        final rx.subjects.b<T, T> cPV = rx.subjects.a.cPR().cPV();
-        cPV.b(rx.b.f.cPv());
+        final rx.subjects.b<T, T> dHC = rx.subjects.a.dHy().dHC();
+        dHC.b(rx.b.f.dHc());
         final rx.internal.producers.a aVar = new rx.internal.producers.a();
         final rx.functions.a aVar2 = new rx.functions.a() { // from class: rx.internal.operators.g.2
             @Override // rx.functions.a
@@ -73,7 +74,7 @@ public final class g<T> implements d.a<T> {
                             if (!this.done) {
                                 this.done = true;
                                 unsubscribe();
-                                cPV.onNext(Notification.cNZ());
+                                dHC.onNext(Notification.dFV());
                             }
                         }
 
@@ -82,7 +83,7 @@ public final class g<T> implements d.a<T> {
                             if (!this.done) {
                                 this.done = true;
                                 unsubscribe();
-                                cPV.onNext(Notification.H(th));
+                                dHC.onNext(Notification.P(th));
                             }
                         }
 
@@ -90,16 +91,16 @@ public final class g<T> implements d.a<T> {
                         public void onNext(T t) {
                             if (!this.done) {
                                 jVar.onNext(t);
-                                cOz();
-                                aVar.er(1L);
+                                dGt();
+                                aVar.produced(1L);
                             }
                         }
 
-                        private void cOz() {
+                        private void dGt() {
                             long j;
                             do {
                                 j = atomicLong.get();
-                                if (j == Long.MAX_VALUE) {
+                                if (j == Format.OFFSET_SAMPLE_RELATIVE) {
                                     return;
                                 }
                             } while (!atomicLong.compareAndSet(j, j - 1));
@@ -111,11 +112,11 @@ public final class g<T> implements d.a<T> {
                         }
                     };
                     dVar.f(jVar2);
-                    g.this.kyh.a((rx.j) jVar2);
+                    g.this.ndN.a((rx.j) jVar2);
                 }
             }
         };
-        final rx.d<?> call = this.kzl.call(cPV.a((d.b<? extends T, ? super T>) new d.b<Notification<?>, Notification<?>>() { // from class: rx.internal.operators.g.3
+        final rx.d<?> call = this.neO.call(dHC.a((d.b<? extends T, ? super T>) new d.b<Notification<?>, Notification<?>>() { // from class: rx.internal.operators.g.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             public rx.j<? super Notification<?>> call(final rx.j<? super Notification<?>> jVar2) {
@@ -134,10 +135,10 @@ public final class g<T> implements d.a<T> {
                     @Override // rx.e
                     /* renamed from: b */
                     public void onNext(Notification<?> notification) {
-                        if (notification.cOe() && g.this.kzm) {
+                        if (notification.dFY() && g.this.neP) {
                             jVar2.onCompleted();
-                        } else if (notification.cOd() && g.this.kzn) {
-                            jVar2.onError(notification.cOa());
+                        } else if (notification.dDM() && g.this.neQ) {
+                            jVar2.onError(notification.getThrowable());
                         } else {
                             jVar2.onNext(notification);
                         }
@@ -145,7 +146,7 @@ public final class g<T> implements d.a<T> {
 
                     @Override // rx.j
                     public void setProducer(rx.f fVar) {
-                        fVar.request(Long.MAX_VALUE);
+                        fVar.request(Format.OFFSET_SAMPLE_RELATIVE);
                     }
                 };
             }
@@ -177,7 +178,7 @@ public final class g<T> implements d.a<T> {
 
                     @Override // rx.j
                     public void setProducer(rx.f fVar) {
-                        fVar.request(Long.MAX_VALUE);
+                        fVar.request(Format.OFFSET_SAMPLE_RELATIVE);
                     }
                 });
             }
@@ -186,7 +187,7 @@ public final class g<T> implements d.a<T> {
             @Override // rx.f
             public void request(long j) {
                 if (j > 0) {
-                    a.a(atomicLong, j);
+                    a.e(atomicLong, j);
                     aVar.request(j);
                     if (atomicBoolean.compareAndSet(true, false)) {
                         createWorker.c(aVar2);

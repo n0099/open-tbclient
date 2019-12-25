@@ -1,5 +1,5 @@
 package com.coloros.mcssdk.mode;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class Message {
     public static final String APP_ID = "appID";
     public static final String APP_PACKAGE = "appPackage";

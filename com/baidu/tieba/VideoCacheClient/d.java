@@ -1,6 +1,6 @@
 package com.baidu.tieba.VideoCacheClient;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
-    public static void au(String str, String str2) {
+    public static void aJ(String str, String str2) {
     }
 }

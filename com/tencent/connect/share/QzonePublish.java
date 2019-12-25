@@ -27,7 +27,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class QzonePublish extends BaseApi {
     public static final String HULIAN_CALL_BACK = "hulian_call_back";
     public static final String HULIAN_EXTRA_SCENE = "hulian_extra_scene";
@@ -199,7 +199,7 @@ public class QzonePublish extends BaseApi {
                     str = "7";
                 }
                 if (4 == i3) {
-                    str = Constants.VIA_SHARE_TYPE_PUBLISHVIDEO;
+                    str = "8";
                     stringBuffer.append("&videoPath=" + Base64.encodeToString(j.i(string3), 2));
                     stringBuffer.append("&videoDuration=" + Base64.encodeToString(j.i(String.valueOf(i4)), 2));
                     stringBuffer.append("&videoSize=" + Base64.encodeToString(j.i(String.valueOf(j)), 2));
@@ -229,11 +229,11 @@ public class QzonePublish extends BaseApi {
                 if (!a(intent)) {
                     a(activity, Constants.REQUEST_QZONE_SHARE, intent, false);
                     d.a().a(0, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent success");
-                    d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "1", str5, "0", "1", "0");
+                    d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QZONE, "11", "3", "1", str5, "0", "1", "0");
                 } else {
                     f.e("openSDK_LOG.QzonePublish", "doPublishToQzone() target activity not found");
                     d.a().a(1, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent fail");
-                    d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "1", str5, "0", "1", "0");
+                    d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QZONE, "11", "3", "1", str5, "0", "1", "0");
                 }
                 f.c("openSDK_LOG", "doPublishToQzone() --end");
             }

@@ -4,8 +4,8 @@ import org.json.JSONObject;
 import tbclient.TailInfo;
 /* loaded from: classes.dex */
 public class c {
-    private int cCX;
     private String content;
+    private int dqJ;
     private String icon_link;
     private String icon_url;
 
@@ -14,7 +14,7 @@ public class c {
             this.icon_url = jSONObject.optString("icon_url");
             this.icon_link = jSONObject.optString("icon_link");
             this.content = jSONObject.optString("content");
-            this.cCX = jSONObject.optInt("tail_type");
+            this.dqJ = jSONObject.optInt("tail_type");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -25,7 +25,7 @@ public class c {
             this.icon_url = tailInfo.icon_url;
             this.icon_link = tailInfo.icon_link;
             this.content = tailInfo.content;
-            this.cCX = tailInfo.tail_type.intValue();
+            this.dqJ = tailInfo.tail_type.intValue();
         } catch (Exception e) {
             e.printStackTrace();
         }

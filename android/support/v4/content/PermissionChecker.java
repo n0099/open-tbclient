@@ -4,11 +4,12 @@ import android.content.Context;
 import android.os.Binder;
 import android.os.Process;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.app.AppOpsManagerCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class PermissionChecker {
     public static final int PERMISSION_DENIED = -1;
     public static final int PERMISSION_DENIED_APP_OP = -2;
@@ -16,14 +17,14 @@ public final class PermissionChecker {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface PermissionResult {
     }
 
     private PermissionChecker() {
     }
 
-    public static int checkPermission(@NonNull Context context, @NonNull String str, int i, int i2, String str2) {
+    public static int checkPermission(@NonNull Context context, @NonNull String str, int i, int i2, @Nullable String str2) {
         if (context.checkPermission(str, i, i2) == -1) {
             return -1;
         }
@@ -38,14 +39,14 @@ public final class PermissionChecker {
             }
             str2 = packagesForUid[0];
         }
-        return AppOpsManagerCompat.noteProxyOp(context, permissionToOp, str2) != 0 ? -2 : 0;
+        return AppOpsManagerCompat.noteProxyOpNoThrow(context, permissionToOp, str2) != 0 ? -2 : 0;
     }
 
     public static int checkSelfPermission(@NonNull Context context, @NonNull String str) {
         return checkPermission(context, str, Process.myPid(), Process.myUid(), context.getPackageName());
     }
 
-    public static int checkCallingPermission(@NonNull Context context, @NonNull String str, String str2) {
+    public static int checkCallingPermission(@NonNull Context context, @NonNull String str, @Nullable String str2) {
         if (Binder.getCallingPid() == Process.myPid()) {
             return -1;
         }

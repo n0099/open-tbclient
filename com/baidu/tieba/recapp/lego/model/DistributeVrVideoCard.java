@@ -4,21 +4,21 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.upload.AsyncChatTask;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class DistributeVrVideoCard extends BaseLegoCardInfo {
     private final a videoInfo;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public int cWj;
-        public int eSl;
-        public int heA;
-        public int heB;
-        public boolean heD;
-        public String hez;
+        public int aXb;
+        public String hSF;
+        public boolean hSH;
+        public int thumbHeight;
         public String thumbUrl;
+        public int thumbWidth;
         public int videoDuration;
         public int videoHeight;
+        public int videoLength;
         public String videoUrl;
         public int videoWidth;
     }
@@ -40,17 +40,17 @@ public class DistributeVrVideoCard extends BaseLegoCardInfo {
             boolean z = optJSONObject.optInt("show_progress", 1) == 1;
             if (optInt > 0 && !TextUtils.isEmpty(optString2)) {
                 this.videoInfo = new a();
-                this.videoInfo.hez = optString;
+                this.videoInfo.hSF = optString;
                 this.videoInfo.videoUrl = optString2;
                 this.videoInfo.videoDuration = optInt;
                 this.videoInfo.videoWidth = optInt2;
                 this.videoInfo.videoHeight = optInt3;
                 this.videoInfo.thumbUrl = optString3;
-                this.videoInfo.heA = optInt4;
-                this.videoInfo.heB = optInt5;
-                this.videoInfo.eSl = optInt6;
-                this.videoInfo.cWj = optInt7;
-                this.videoInfo.heD = z;
+                this.videoInfo.thumbWidth = optInt4;
+                this.videoInfo.thumbHeight = optInt5;
+                this.videoInfo.videoLength = optInt6;
+                this.videoInfo.aXb = optInt7;
+                this.videoInfo.hSH = z;
                 return;
             }
             this.videoInfo = null;

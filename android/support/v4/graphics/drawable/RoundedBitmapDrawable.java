@@ -11,10 +11,12 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.DisplayMetrics;
 @RequiresApi(9)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class RoundedBitmapDrawable extends Drawable {
     private static final int DEFAULT_PAINT_FLAGS = 3;
     final Bitmap mBitmap;
@@ -31,10 +33,12 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     private final RectF mDstRectF = new RectF();
     private boolean mApplyGravity = true;
 
+    @NonNull
     public final Paint getPaint() {
         return this.mPaint;
     }
 
+    @Nullable
     public final Bitmap getBitmap() {
         return this.mBitmap;
     }
@@ -44,11 +48,11 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         this.mBitmapHeight = this.mBitmap.getScaledHeight(this.mTargetDensity);
     }
 
-    public void setTargetDensity(Canvas canvas) {
+    public void setTargetDensity(@NonNull Canvas canvas) {
         setTargetDensity(canvas.getDensity());
     }
 
-    public void setTargetDensity(DisplayMetrics displayMetrics) {
+    public void setTargetDensity(@NonNull DisplayMetrics displayMetrics) {
         setTargetDensity(displayMetrics.densityDpi);
     }
 
@@ -134,7 +138,7 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Bitmap bitmap = this.mBitmap;
         if (bitmap != null) {
             updateDstRect();

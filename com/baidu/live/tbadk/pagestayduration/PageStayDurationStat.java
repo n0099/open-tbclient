@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.StatisticItem;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PageStayDurationStat {
     private static PageStayDurationStat stayDurationStat = null;
     private boolean isSmallFlowOpen = false;

@@ -5,6 +5,7 @@ import android.support.annotation.AttrRes;
 import android.support.annotation.MenuRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RestrictTo;
 import android.support.annotation.StyleRes;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.SupportMenuInflater;
@@ -15,8 +16,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.PopupWindow;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PopupMenu {
     private final View mAnchor;
     private final Context mContext;
@@ -26,12 +28,12 @@ public class PopupMenu {
     OnDismissListener mOnDismissListener;
     final MenuPopupHelper mPopup;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnDismissListener {
         void onDismiss(PopupMenu popupMenu);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnMenuItemClickListener {
         boolean onMenuItemClick(MenuItem menuItem);
     }
@@ -134,5 +136,13 @@ public class PopupMenu {
 
     public void setOnDismissListener(@Nullable OnDismissListener onDismissListener) {
         this.mOnDismissListener = onDismissListener;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    ListView getMenuListView() {
+        if (this.mPopup.isShowing()) {
+            return this.mPopup.getListView();
+        }
+        return null;
     }
 }

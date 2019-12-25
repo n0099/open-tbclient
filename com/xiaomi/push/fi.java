@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class fi {
     private XmlPullParser a;
 
@@ -33,11 +33,11 @@ public class fi {
                 return gl.a(this.a, fmVar);
             }
             if (name.equals("presence")) {
-                return gl.m295a(this.a);
+                return gl.m298a(this.a);
             }
             if (!this.a.getName().equals("stream")) {
                 if (this.a.getName().equals(BdStatsConstant.StatsType.ERROR)) {
-                    throw new fx(gl.m296a(this.a));
+                    throw new fx(gl.m299a(this.a));
                 }
                 if (this.a.getName().equals("warning")) {
                     this.a.next();

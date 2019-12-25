@@ -1,14 +1,17 @@
 package com.baidu.searchbox.widget;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class SlideHelper {
-    private static final String DEFAULT_MASK_COLOR = "#0D000000";
+    private static final String DEFAULT_MASK_COLOR = "#40000000";
+    private static final String DEFAULT_SHADOW_DRAWABLE = "sliding_layout_shadow.9.png";
     private boolean canSlide;
     private View mMaskView;
     private SlidingPaneLayout mSlideLayout;
@@ -33,9 +36,10 @@ public class SlideHelper {
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             this.mSlideLayout = new CustomSlidingPanelLayout(context);
-            this.mSlideLayout.setShadowResource(R.drawable.sliding_layout_shadow);
+            this.mSlideLayout.setShadowDrawable(SlideUtil.getImageFromFile(context, DEFAULT_SHADOW_DRAWABLE));
             this.mSlideLayout.addView(this.mMaskView, layoutParams);
             this.mSlideLayout.addView(view, layoutParams);
+            this.mSlideLayout.setSliderFadeColor(0);
             viewGroup.addView(this.mSlideLayout);
             if (isFocused) {
                 this.mSlideLayout.requestFocus();
@@ -55,7 +59,7 @@ public class SlideHelper {
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             this.mSlideLayout = new CustomSlidingPanelLayout(context);
-            this.mSlideLayout.setShadowResource(R.drawable.sliding_layout_shadow);
+            this.mSlideLayout.setShadowDrawable(SlideUtil.getImageFromFile(context, DEFAULT_SHADOW_DRAWABLE));
             this.mSlideLayout.addView(this.mMaskView, layoutParams);
             this.mSlideLayout.addView(view, layoutParams);
             if (slideInterceptor != null) {
@@ -64,6 +68,34 @@ public class SlideHelper {
             return this.mSlideLayout;
         }
         return view;
+    }
+
+    public void attachActivity(Activity activity) {
+        if (this.mSlideLayout != null && (this.mSlideLayout instanceof CustomSlidingPanelLayout)) {
+            this.mSlideLayout.attachActivity(activity);
+        }
+    }
+
+    public void forceActivityTransparent(boolean z) {
+        if (this.mSlideLayout != null && (this.mSlideLayout instanceof CustomSlidingPanelLayout)) {
+            this.mSlideLayout.forceActivityTransparent(z);
+        }
+    }
+
+    public void setActivityTransparent(boolean z) {
+        if (this.mSlideLayout != null && (this.mSlideLayout instanceof CustomSlidingPanelLayout)) {
+            if (z) {
+                this.mSlideLayout.convertActivityToTranslucent();
+            } else {
+                this.mSlideLayout.convertActivityFromTranslucent();
+            }
+        }
+    }
+
+    public void setOnTransparentListener(OnTranslucentListener onTranslucentListener) {
+        if (this.mSlideLayout != null && (this.mSlideLayout instanceof CustomSlidingPanelLayout) && onTranslucentListener != null) {
+            ((CustomSlidingPanelLayout) this.mSlideLayout).setOnTransparentListener(onTranslucentListener);
+        }
     }
 
     public void setSlideListener(SlidingPaneLayout.PanelSlideListener panelSlideListener) {
@@ -78,15 +110,39 @@ public class SlideHelper {
         }
     }
 
+    public void setNightMode(boolean z) {
+        if (this.mSlideLayout != null && (this.mSlideLayout instanceof CustomSlidingPanelLayout)) {
+            ((CustomSlidingPanelLayout) this.mSlideLayout).setNightMode(z);
+        }
+    }
+
+    public void setShadowDrawable(Drawable drawable) {
+        if (this.mSlideLayout != null) {
+            this.mSlideLayout.setShadowDrawable(drawable);
+        }
+    }
+
     public void setCanSlide(boolean z) {
         if (this.mSlideLayout != null && (this.mSlideLayout instanceof CustomSlidingPanelLayout)) {
             ((CustomSlidingPanelLayout) this.mSlideLayout).setCanSlidable(z);
         }
     }
 
+    public void setEnableReleaseWhenNoTranslucent(boolean z) {
+        if (this.mSlideLayout != null) {
+            this.mSlideLayout.setEnableReleaseWhenNoTranslucent(z);
+        }
+    }
+
     public void setSlideInterceptor(SlideInterceptor slideInterceptor) {
         if (slideInterceptor != null && this.mSlideLayout != null && (this.mSlideLayout instanceof CustomSlidingPanelLayout)) {
             ((CustomSlidingPanelLayout) this.mSlideLayout).setSlideInterceptor(slideInterceptor);
+        }
+    }
+
+    public void setAutoSlideToRight(boolean z) {
+        if (this.mSlideLayout != null) {
+            this.mSlideLayout.setAutoSlideToRight(z);
         }
     }
 
@@ -97,6 +153,18 @@ public class SlideHelper {
     public void setRegionFactor(double d) {
         if (this.mSlideLayout != null) {
             this.mSlideLayout.setCanSlideRegionFactor(d);
+        }
+    }
+
+    public void closePane() {
+        if (this.mSlideLayout != null) {
+            this.mSlideLayout.closePane();
+        }
+    }
+
+    public void showShadow(boolean z) {
+        if (this.mSlideLayout != null) {
+            this.mSlideLayout.isShowShadow(z);
         }
     }
 }

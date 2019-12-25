@@ -2,64 +2,64 @@ package com.baidu.tieba.recapp;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class g {
     public String forumName;
-    public int iHa;
-    public int iHb;
-    public int iHc;
+    public int jBs;
+    public int jBt;
+    public int jBu;
     public int refreshCount;
 
     public g() {
         this.refreshCount = 0;
-        this.iHa = 0;
-        this.iHb = 0;
-        this.iHc = 0;
+        this.jBs = 0;
+        this.jBt = 0;
+        this.jBu = 0;
     }
 
     public g(JSONObject jSONObject) {
         this.refreshCount = 0;
-        this.iHa = 0;
-        this.iHb = 0;
-        this.iHc = 0;
+        this.jBs = 0;
+        this.jBt = 0;
+        this.jBu = 0;
         if (jSONObject != null) {
             this.forumName = jSONObject.optString("forum_name");
             this.refreshCount = jSONObject.optInt("refresh_count");
-            this.iHa = jSONObject.optInt("loadmore_count");
-            this.iHb = jSONObject.optInt("loadmore_count_pb");
-            this.iHc = jSONObject.optInt("refresh_count_pb");
+            this.jBs = jSONObject.optInt("loadmore_count");
+            this.jBt = jSONObject.optInt("loadmore_count_pb");
+            this.jBu = jSONObject.optInt("refresh_count_pb");
         }
     }
 
-    public JSONObject cfC() {
+    public JSONObject Gu() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("refresh_count", this.refreshCount);
-            jSONObject.put("loadmore_count", this.iHa);
-            jSONObject.put("loadmore_count_pb", this.iHb);
-            jSONObject.put("refresh_count_pb", this.iHc);
+            jSONObject.put("loadmore_count", this.jBs);
+            jSONObject.put("loadmore_count_pb", this.jBt);
+            jSONObject.put("refresh_count_pb", this.jBu);
             return jSONObject;
         } catch (JSONException e) {
             return null;
         }
     }
 
-    public int ai(boolean z, boolean z2) {
-        return z2 ? z ? this.iHc : this.iHb : z ? this.refreshCount : this.iHa;
+    public int aj(boolean z, boolean z2) {
+        return z2 ? z ? this.jBu : this.jBt : z ? this.refreshCount : this.jBs;
     }
 
-    public void aj(boolean z, boolean z2) {
+    public void ak(boolean z, boolean z2) {
         if (z2) {
             if (z) {
-                this.iHc++;
+                this.jBu++;
             } else {
-                this.iHb++;
+                this.jBt++;
             }
         } else if (z) {
             this.refreshCount++;
         } else {
-            this.iHa++;
+            this.jBs++;
         }
     }
 }

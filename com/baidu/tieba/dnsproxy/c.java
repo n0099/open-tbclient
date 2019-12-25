@@ -14,13 +14,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
-    boolean eWs;
+    boolean fLb;
 
     public c(boolean z) {
-        this.eWs = z;
+        this.fLb = z;
         setPriority(4);
     }
 
@@ -33,8 +32,8 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         String sb;
         String str;
         StringBuilder sb2;
-        l<String> a = BdCacheService.fe().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-        if (this.eWs) {
+        l<String> a = BdCacheService.fz().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
+        if (this.fLb) {
             String str2 = a.get("dnsproxycachedata");
             if (str2 != null) {
                 DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) DnsProxyResponseData.objectWithJsonStr(str2, DnsProxyResponseData.class);
@@ -61,7 +60,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             e.printStackTrace();
         }
         if (collectionArr != null && collectionArr.length == 1 && (collection = collectionArr[0]) != null) {
-            String bcE = new a().bcE();
+            String bub = new a().bub();
             StringBuilder sb3 = new StringBuilder();
             for (String str3 : collection) {
                 if (sb3.length() > 0) {
@@ -69,16 +68,16 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 }
                 sb3.append(str3);
             }
-            String str4 = "http://" + bcE + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
-            com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-            com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
-            eVar.fJ().setUrl(str4);
+            String str4 = "http://" + bub + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
+            com.baidu.adp.lib.network.http.f fVar = new com.baidu.adp.lib.network.http.f();
+            com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(fVar);
+            fVar.fY().setUrl(str4);
             cVar.c(-1, -1, -1);
-            byte[] bArr = eVar.fK().retBytes;
+            byte[] bArr = fVar.fZ().retBytes;
             StringBuilder sb4 = null;
             if (bArr != null) {
                 try {
-                    String str5 = new String(bArr, HTTP.UTF_8);
+                    String str5 = new String(bArr, "UTF-8");
                     sb = null;
                     str = str5;
                 } catch (Throwable th) {
@@ -119,7 +118,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                             }
                         }
                     }
-                    b.bcG().f(hashSet);
+                    b.bud().h(hashSet);
                     publishProgress(hashMap3);
                     a.setForever("dnsproxycachedata", str);
                     sb2 = sb5;
@@ -131,13 +130,13 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                     sb2 = null;
                 }
                 sb4 = sb2;
-            } else if (eVar.fM() != null) {
-                sb = eVar.fM().exception;
+            } else if (fVar.gb() != null) {
+                sb = fVar.gb().exception;
             } else {
                 StringBuilder sb7 = new StringBuilder();
-                List<com.baidu.adp.lib.network.http.d> fL = eVar.fL();
-                if (fL != null) {
-                    for (com.baidu.adp.lib.network.http.d dVar : fL) {
+                List<com.baidu.adp.lib.network.http.d> ga = fVar.ga();
+                if (ga != null) {
+                    for (com.baidu.adp.lib.network.http.d dVar : ga) {
                         if (dVar != null && !TextUtils.isEmpty(dVar.exception)) {
                             if (sb7.length() > 0) {
                                 sb7.append(Constants.ACCEPT_TIME_SEPARATOR_SP);

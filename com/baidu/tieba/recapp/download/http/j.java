@@ -1,5 +1,5 @@
 package com.baidu.tieba.recapp.download.http;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface j {
-    void h(int i, int i2);
+    void j(int i, int i2);
 }

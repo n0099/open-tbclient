@@ -9,7 +9,7 @@ import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.utils.AES;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class s implements Runnable {
     final /* synthetic */ ShareStorage.StorageModel a;
     final /* synthetic */ t b;

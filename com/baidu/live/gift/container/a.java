@@ -16,75 +16,50 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.gift.g;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.util.StringHelper;
-import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.tb.airbnb.lottie.LottieAnimationView;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private static SimpleDateFormat XW;
-    private List<g> XU;
-    private int XX;
-    private int XY;
-    private int XZ;
+    private static SimpleDateFormat afW;
+    private int afX;
+    private int afY;
+    private int afZ;
+    private boolean aga;
     private TbPageContext mContext;
     private int mType;
-    private int XT = -1;
+    private int afT = -1;
     private int mSelectedPosition = -1;
-    private boolean XV = false;
+    private boolean afV = false;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.gift.container.a.1
-        /* JADX INFO: Access modifiers changed from: private */
-        public void a(g gVar, C0064a c0064a) {
-            com.baidu.live.gift.c cC;
-            if ((gVar.pn() || gVar.po()) && !com.baidu.live.gift.b.b.rd().ci(gVar.pc()) && (cC = com.baidu.live.gift.b.b.rd().cC(gVar.pc())) != null) {
-                com.baidu.live.gift.b.a.b(cC.getDynamicGiftId(), cC.VT.VR.zipDownloadUrl, cC.VT.VR.zipName, cC.VT.VR.zipMD5, true);
+        private void a(g gVar, C0078a c0078a) {
+            com.baidu.live.gift.c du;
+            if ((gVar.qJ() || gVar.qK()) && !com.baidu.live.gift.b.b.sK().da(gVar.qx()) && (du = com.baidu.live.gift.b.b.sK().du(gVar.qx())) != null) {
+                com.baidu.live.gift.b.a.b(du.getDynamicGiftId(), du.adu.ads.zipDownloadUrl, du.adu.ads.zipName, du.adu.ads.zipMD5, true);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            boolean z = true;
-            if ((view.getTag(a.g.TAG_GIFT_ITEM) instanceof g) && (view.getTag(a.g.TAG_GIFT_VIEW_HOLDER) instanceof C0064a)) {
-                final C0064a c0064a = (C0064a) view.getTag(a.g.TAG_GIFT_VIEW_HOLDER);
-                final g gVar = (g) view.getTag(a.g.TAG_GIFT_ITEM);
+            if ((view.getTag(a.g.TAG_GIFT_ITEM) instanceof g) && (view.getTag(a.g.TAG_GIFT_VIEW_HOLDER) instanceof C0078a)) {
+                C0078a c0078a = (C0078a) view.getTag(a.g.TAG_GIFT_VIEW_HOLDER);
+                g gVar = (g) view.getTag(a.g.TAG_GIFT_ITEM);
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
                     BdUtilHelper.showToast(a.this.mContext.getPageActivity(), a.this.mContext.getString(a.i.sdk_neterror));
-                    return;
-                }
-                if (TbadkCoreApplication.getInst().isQuanmin() && ExtraParamsManager.getSaveFlowStatus()) {
-                    z = false;
-                }
-                if (BdNetTypeUtil.isMobileNet() && z) {
-                    BdAlertDialog bdAlertDialog = new BdAlertDialog(a.this.mContext.getPageActivity());
-                    bdAlertDialog.setAutoNight(false);
-                    bdAlertDialog.setMessage(a.this.mContext.getString(a.i.download_gift_toast));
-                    bdAlertDialog.setPositiveButton(a.this.mContext.getString(a.i.sdk_download), new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.gift.container.a.1.1
-                        @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
-                        public void onClick(BdAlertDialog bdAlertDialog2) {
-                            a(gVar, c0064a);
-                            bdAlertDialog2.dismiss();
-                        }
-                    });
-                    bdAlertDialog.setNegativeButton(a.this.mContext.getString(a.i.sdk_cancel), new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.gift.container.a.1.2
-                        @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
-                        public void onClick(BdAlertDialog bdAlertDialog2) {
-                            bdAlertDialog2.dismiss();
-                        }
-                    });
-                    bdAlertDialog.create(a.this.mContext).show();
-                } else if (BdNetTypeUtil.isWifiNet() || (BdNetTypeUtil.isMobileNet() && !z)) {
-                    a(gVar, c0064a);
+                } else {
+                    a(gVar, c0078a);
                 }
             }
         }
     };
+    private List<g> afU = Collections.synchronizedList(new ArrayList());
 
     public a(TbPageContext tbPageContext, int i) {
         this.mContext = tbPageContext;
@@ -92,49 +67,74 @@ public class a extends BaseAdapter {
     }
 
     public void setGiftItems(List<g> list) {
-        this.XU = list;
+        if (this.afU == null) {
+            this.afU = Collections.synchronizedList(new ArrayList());
+        } else {
+            this.afU.clear();
+        }
+        if (list != null) {
+            this.afU.addAll(list);
+        }
         notifyDataSetChanged();
     }
 
-    public void l(String str, int i) {
-        if (this.XU != null) {
-            for (g gVar : this.XU) {
-                if (gVar.Wo != null && gVar.pc().equals(str)) {
-                    gVar.Wo.Ws = i;
+    public void p(String str, int i) {
+        if (this.afU != null) {
+            for (g gVar : this.afU) {
+                if (gVar.adR != null && gVar.qx().equals(str)) {
+                    gVar.adR.adY = i;
                 }
             }
             notifyDataSetChanged();
         }
     }
 
-    public void bc(int i) {
-        this.XT = i;
+    public void bo(int i) {
+        this.afT = i;
     }
 
-    public void bd(int i) {
+    public void bp(int i) {
         this.mSelectedPosition = i;
     }
 
-    public int qe() {
+    public int getSelectedPosition() {
         return this.mSelectedPosition;
     }
 
-    public void ak(boolean z) {
-        this.XV = z;
+    public void ax(boolean z) {
+        this.afV = z;
     }
 
-    public void be(int i) {
-        this.XX = i;
+    public void bq(int i) {
+        this.afX = i;
         float dimensionPixelOffset = (i * 1.0f) / this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds192);
-        this.XY = (int) (this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds100) * dimensionPixelOffset);
-        this.XZ = (int) (dimensionPixelOffset * this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds18));
+        this.afY = (int) (this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds100) * dimensionPixelOffset);
+        this.afZ = (int) (dimensionPixelOffset * this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds18));
+    }
+
+    public void an(boolean z) {
+        this.aga = z;
+    }
+
+    public void a(AbsListView absListView, boolean z) {
+        int firstVisiblePosition;
+        View childAt;
+        this.aga = z;
+        int count = getCount();
+        if (count != 0) {
+            for (int i = 0; i < count; i++) {
+                if (getItem(i).qO() && i >= (firstVisiblePosition = absListView.getFirstVisiblePosition()) && i <= absListView.getLastVisiblePosition() && (childAt = absListView.getChildAt(i - firstVisiblePosition)) != null) {
+                    getView(i, childAt, absListView);
+                }
+            }
+        }
     }
 
     public void a(AbsListView absListView, String str) {
         int count;
         int firstVisiblePosition;
         View childAt;
-        com.baidu.live.gift.c cC;
+        com.baidu.live.gift.c du;
         if (!TextUtils.isEmpty(str) && (count = getCount()) != 0) {
             int i = 0;
             while (true) {
@@ -143,7 +143,7 @@ public class a extends BaseAdapter {
                     break;
                 }
                 g item = getItem(i);
-                if (item != null && !TextUtils.isEmpty(item.pc()) && (cC = com.baidu.live.gift.b.b.rd().cC(item.pc())) != null && !TextUtils.isEmpty(cC.getDynamicGiftId()) && cC.getDynamicGiftId().equals(str)) {
+                if (item != null && !TextUtils.isEmpty(item.qx()) && (du = com.baidu.live.gift.b.b.sK().du(item.qx())) != null && !TextUtils.isEmpty(du.getDynamicGiftId()) && du.getDynamicGiftId().equals(str)) {
                     break;
                 }
                 i++;
@@ -156,20 +156,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.XU == null) {
+        if (this.afU == null) {
             return 0;
         }
-        return this.XU.size();
+        return this.afU.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: bf */
+    /* renamed from: br */
     public g getItem(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return this.XU.get(i);
+        return this.afU.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -179,268 +179,286 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0064a c0064a;
+        C0078a c0078a;
         g.a aVar;
         String formatGiftNumForTDouDisPlay;
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.ala_gift_list_item, viewGroup, false);
             view.setBackgroundResource(a.f.sdk_transparent_bg);
-            C0064a c0064a2 = new C0064a();
-            c0064a2.Ye = (TbImageView) view.findViewById(a.g.gift_thumbnail);
-            c0064a2.Ye.setDefaultBgResource(a.f.icon_live_gift_default);
-            c0064a2.Ye.setDefaultErrorResource(a.f.icon_live_gift_default);
-            c0064a2.Ye.setAutoChangeStyle(false);
-            c0064a2.Yh = (TextView) view.findViewById(a.g.gift_name);
-            c0064a2.Yi = (TextView) view.findViewById(a.g.gift_price);
-            c0064a2.Yf = (RelativeLayout) view.findViewById(a.g.llCarom);
-            c0064a2.Yj = (TextView) view.findViewById(a.g.gift_carom_txt);
-            c0064a2.Yl = view.findViewById(a.g.in_progress);
-            c0064a2.Ym = (LottieAnimationView) view.findViewById(a.g.lottie_downloading);
-            c0064a2.Ym.loop(true);
-            c0064a2.Ym.setAnimation("live_gift_panel_downloading.json");
-            c0064a2.Yn = view.findViewById(a.g.selected_bg);
-            c0064a2.Yk = (TextView) view.findViewById(a.g.tv_privilege);
-            c0064a2.Yg = (LinearLayout) view.findViewById(a.g.ll_privilege);
-            c0064a2.Yo = (FrameLayout) view.findViewById(a.g.layout_pkg_count);
-            c0064a2.Yp = (ImageView) view.findViewById(a.g.iv_pkg_count);
-            c0064a2.Yq = (TextView) view.findViewById(a.g.tv_pkg_count);
-            c0064a2.Yr = (FrameLayout) view.findViewById(a.g.layout_script);
-            c0064a2.Ys = (TextView) view.findViewById(a.g.tv_script);
-            view.setTag(c0064a2);
-            if (this.XX <= 0 || this.XY <= 0) {
-                c0064a = c0064a2;
+            C0078a c0078a2 = new C0078a();
+            c0078a2.agc = (TbImageView) view.findViewById(a.g.gift_thumbnail);
+            c0078a2.agc.setDefaultBgResource(a.f.icon_live_gift_default);
+            c0078a2.agc.setDefaultErrorResource(a.f.icon_live_gift_default);
+            c0078a2.agc.setAutoChangeStyle(false);
+            c0078a2.agg = (TextView) view.findViewById(a.g.gift_name);
+            c0078a2.agh = (TextView) view.findViewById(a.g.gift_price);
+            c0078a2.agd = (RelativeLayout) view.findViewById(a.g.llCarom);
+            c0078a2.agi = (TextView) view.findViewById(a.g.gift_carom_txt);
+            c0078a2.agk = view.findViewById(a.g.in_progress);
+            c0078a2.agl = (LottieAnimationView) view.findViewById(a.g.lottie_downloading);
+            c0078a2.agl.loop(true);
+            c0078a2.agl.setAnimation("live_gift_panel_downloading.json");
+            c0078a2.agm = view.findViewById(a.g.selected_bg);
+            c0078a2.agj = (TextView) view.findViewById(a.g.tv_privilege);
+            c0078a2.agf = (LinearLayout) view.findViewById(a.g.ll_privilege);
+            c0078a2.agn = (FrameLayout) view.findViewById(a.g.layout_pkg_count);
+            c0078a2.ago = (ImageView) view.findViewById(a.g.iv_pkg_count);
+            c0078a2.agp = (TextView) view.findViewById(a.g.tv_pkg_count);
+            c0078a2.agq = (FrameLayout) view.findViewById(a.g.layout_script);
+            c0078a2.agr = (TextView) view.findViewById(a.g.tv_script);
+            view.setTag(c0078a2);
+            if (this.afX <= 0 || this.afY <= 0) {
+                c0078a = c0078a2;
             } else {
-                view.getLayoutParams().height = this.XX;
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) c0064a2.Ye.getLayoutParams();
-                layoutParams.width = this.XY;
-                layoutParams.height = this.XY;
-                layoutParams.topMargin = this.XZ;
-                c0064a = c0064a2;
+                view.getLayoutParams().height = this.afX;
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) c0078a2.agc.getLayoutParams();
+                layoutParams.width = this.afY;
+                layoutParams.height = this.afY;
+                layoutParams.topMargin = this.afZ;
+                c0078a = c0078a2;
             }
         } else {
-            c0064a = (C0064a) view.getTag();
+            c0078a = (C0078a) view.getTag();
         }
         if (i == this.mSelectedPosition) {
-            c0064a.Yn.setVisibility(0);
+            c0078a.agm.setVisibility(0);
         } else {
-            c0064a.Yn.setVisibility(8);
+            c0078a.agm.setVisibility(8);
         }
         g item = getItem(i);
         if (this.mType != 1) {
             aVar = null;
         } else {
-            aVar = item.Wo;
+            aVar = item.adR;
         }
         if (item != null) {
-            c0064a.Ye.startLoad(item.pf(), 10, false);
-            c0064a.Yh.setText(item.pd());
-            if (this.mType == 0) {
-                double d = JavaTypesHelper.toDouble(String.valueOf(item.getPrice()), 0.0d);
-                if (d >= 100.0d && ((this.XV || com.baidu.live.l.a.uB().ajF.Ry) && !item.pm())) {
-                    formatGiftNumForTDouDisPlay = new DecimalFormat("0.###K").format(d / 1000.0d);
-                } else {
-                    formatGiftNumForTDouDisPlay = StringHelper.formatGiftNumForTDouDisPlay(Long.parseLong(item.getPrice()));
-                }
-                c0064a.Yi.setText(formatGiftNumForTDouDisPlay);
-                if (item.pm()) {
-                    c0064a.Yi.setText(formatGiftNumForTDouDisPlay + " 花瓣");
-                } else {
-                    c0064a.Yi.setText(formatGiftNumForTDouDisPlay + " T豆");
-                }
-            } else if (this.mType == 1) {
-                if (aVar != null) {
-                    c0064a.Yi.setText(v(aVar.Wt) + " 失效");
-                } else {
-                    c0064a.Yi.setText("");
-                }
-            }
-            c0064a.Yf.setClickable(false);
-            c0064a.Yg.setVisibility(8);
-            c0064a.Ye.setAlpha(1.0f);
-            c0064a.Yi.setAlpha(1.0f);
-            c0064a.Yh.setAlpha(1.0f);
-            c0064a.Yo.setVisibility(8);
-            c0064a.Yl.setVisibility(4);
-            c0064a.Ym.cancelAnimation();
-            if (this.mType == 0) {
-                if (item.pq()) {
-                    c0064a.Ye.setAlpha(0.5f);
-                    c0064a.Yi.setAlpha(0.5f);
-                    c0064a.Yh.setAlpha(0.5f);
-                    c0064a.Yf.setVisibility(8);
-                    c0064a.Yg.setVisibility(0);
-                    if (!TextUtils.isEmpty(item.pr())) {
-                        c0064a.Yk.setText(item.pr());
+            if (item.isRed()) {
+                c0078a.agc.setImageResource(a.f.live_gift_red_enter);
+                c0078a.agg.setText(this.mContext.getPageActivity().getString(a.i.sdk_red_pkt_send));
+                c0078a.agh.setText("");
+            } else {
+                c0078a.agc.startLoad(item.qA(), 10, false);
+                c0078a.agg.setText(item.qy());
+                if (this.mType == 0) {
+                    double d = JavaTypesHelper.toDouble(String.valueOf(item.getPrice()), 0.0d);
+                    if (d >= 100.0d && ((this.afV || com.baidu.live.r.a.wA().arE.Ym) && !item.qI())) {
+                        formatGiftNumForTDouDisPlay = new DecimalFormat("0.###K").format(d / 1000.0d);
                     } else {
-                        c0064a.Yk.setText("");
+                        formatGiftNumForTDouDisPlay = StringHelper.formatGiftNumForTDouDisPlay(Long.parseLong(item.getPrice()));
                     }
-                    String pr = item.pr();
-                    if (pr.equals("等级")) {
-                        c0064a.Yg.setBackgroundResource(a.f.live_gift_item_script_lock_level);
-                    } else if (pr.equals("活动")) {
-                        c0064a.Yg.setBackgroundResource(a.f.live_gift_item_script_lock_activity);
+                    c0078a.agh.setText(formatGiftNumForTDouDisPlay);
+                    if (item.qI()) {
+                        c0078a.agh.setText(formatGiftNumForTDouDisPlay + " 花瓣");
                     } else {
-                        c0064a.Yg.setBackgroundResource(a.f.live_gift_item_script_lock_level);
+                        c0078a.agh.setText(formatGiftNumForTDouDisPlay + " T豆");
                     }
-                } else if (item.ps()) {
-                    c0064a.Yf.setVisibility(0);
-                    c0064a.Yj.setText(a.i.ala_gift_privilege_level);
-                    c0064a.Yj.setBackgroundResource(a.f.live_gift_panel_item_script_level);
-                } else if (item.pk()) {
-                    c0064a.Yf.setVisibility(0);
-                    c0064a.Yj.setText(a.i.ala_gift_draw_txt);
-                    c0064a.Yj.setBackgroundResource(a.f.live_gift_panel_item_script_graffiti);
-                } else if (item.pn() || item.po()) {
-                    c0064a.Yf.setVisibility(0);
-                    if (!com.baidu.live.gift.b.b.rd().ci(item.pc())) {
-                        c0064a.Yj.setText(HanziToPinyin.Token.SEPARATOR);
-                        c0064a.Yj.setBackgroundResource(a.f.live_gift_panel_item_script_download);
-                        c0064a.Yf.setTag(a.g.TAG_GIFT_ITEM, item);
-                        c0064a.Yf.setTag(a.g.TAG_GIFT_VIEW_HOLDER, c0064a);
-                        c0064a.Yf.setClickable(true);
-                        c0064a.Yf.setOnClickListener(this.mOnClickListener);
-                        if (com.baidu.live.gift.b.a.cB(item.pc())) {
-                            c0064a.Ye.setAlpha(0.5f);
-                            c0064a.Yi.setAlpha(0.5f);
-                            c0064a.Yh.setAlpha(0.5f);
-                            c0064a.Yl.setVisibility(0);
-                            c0064a.Ym.playAnimation();
-                            c0064a.Yf.setVisibility(4);
+                } else if (this.mType == 1) {
+                    if (aVar != null) {
+                        c0078a.agh.setText(x(aVar.adZ) + " 失效");
+                    } else {
+                        c0078a.agh.setText("");
+                    }
+                }
+                c0078a.agd.setClickable(false);
+                c0078a.agf.setVisibility(8);
+                c0078a.agc.setAlpha(1.0f);
+                c0078a.agh.setAlpha(1.0f);
+                c0078a.agg.setAlpha(1.0f);
+                c0078a.agn.setVisibility(8);
+                c0078a.agk.setVisibility(4);
+                c0078a.agl.cancelAnimation();
+                if (this.mType == 0) {
+                    if (item.qM()) {
+                        c0078a.agc.setAlpha(0.5f);
+                        c0078a.agh.setAlpha(0.5f);
+                        c0078a.agg.setAlpha(0.5f);
+                        c0078a.agd.setVisibility(8);
+                        c0078a.agf.setVisibility(0);
+                        if (!TextUtils.isEmpty(item.qN())) {
+                            c0078a.agj.setText(item.qN());
                         } else {
-                            c0064a.Yl.setVisibility(4);
-                            c0064a.Ym.cancelAnimation();
-                            c0064a.Yf.setVisibility(0);
+                            c0078a.agj.setText("");
                         }
-                    } else if (item.po()) {
-                        c0064a.Yj.setText(a.i.ala_gift_broadcast_txt);
-                        c0064a.Yj.setBackgroundResource(a.f.live_gift_panel_item_script_broadcast);
-                        c0064a.Yl.setVisibility(4);
-                        c0064a.Ym.cancelAnimation();
-                    } else if (!TextUtils.isEmpty(item.pr())) {
-                        String pr2 = item.pr();
-                        c0064a.Yj.setText(pr2);
-                        char c = 65535;
-                        switch (pr2.hashCode()) {
+                        String qN = item.qN();
+                        if (qN.equals("等级")) {
+                            c0078a.agf.setBackgroundResource(a.f.live_gift_item_script_lock_level);
+                        } else if (qN.equals("活动")) {
+                            c0078a.agf.setBackgroundResource(a.f.live_gift_item_script_lock_activity);
+                        } else {
+                            c0078a.agf.setBackgroundResource(a.f.live_gift_item_script_lock_level);
+                        }
+                    } else if (item.qP()) {
+                        c0078a.agd.setVisibility(0);
+                        c0078a.agi.setText(a.i.ala_gift_privilege_level);
+                        c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_level);
+                    } else if (item.qO() && !this.aga) {
+                        c0078a.agc.setAlpha(0.5f);
+                        c0078a.agh.setAlpha(0.5f);
+                        c0078a.agg.setAlpha(0.5f);
+                        c0078a.agd.setVisibility(8);
+                        c0078a.agf.setBackgroundResource(a.f.live_gift_item_script_lock_level);
+                        c0078a.agf.setVisibility(0);
+                        c0078a.agj.setText("王座");
+                    } else if (item.qF()) {
+                        c0078a.agd.setVisibility(0);
+                        c0078a.agi.setText(a.i.ala_gift_draw_txt);
+                        c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_graffiti);
+                    } else if (item.qG()) {
+                        c0078a.agd.setVisibility(0);
+                        c0078a.agi.setText(a.i.ala_gift_combo_txt);
+                        c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_graffiti);
+                    } else if (item.qJ() || item.qK()) {
+                        c0078a.agd.setVisibility(0);
+                        if (!com.baidu.live.gift.b.b.sK().da(item.qx())) {
+                            c0078a.agi.setText(HanziToPinyin.Token.SEPARATOR);
+                            c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_download);
+                            c0078a.agd.setTag(a.g.TAG_GIFT_ITEM, item);
+                            c0078a.agd.setTag(a.g.TAG_GIFT_VIEW_HOLDER, c0078a);
+                            c0078a.agd.setClickable(true);
+                            c0078a.agd.setOnClickListener(this.mOnClickListener);
+                            if (com.baidu.live.gift.b.a.dt(item.qx())) {
+                                c0078a.agc.setAlpha(0.5f);
+                                c0078a.agh.setAlpha(0.5f);
+                                c0078a.agg.setAlpha(0.5f);
+                                c0078a.agk.setVisibility(0);
+                                c0078a.agl.playAnimation();
+                                c0078a.agd.setVisibility(4);
+                            } else {
+                                c0078a.agk.setVisibility(4);
+                                c0078a.agl.cancelAnimation();
+                                c0078a.agd.setVisibility(0);
+                            }
+                        } else if (item.qK()) {
+                            c0078a.agi.setText(a.i.ala_gift_broadcast_txt);
+                            c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_broadcast);
+                            c0078a.agk.setVisibility(4);
+                            c0078a.agl.cancelAnimation();
+                        } else if (!TextUtils.isEmpty(item.qN())) {
+                            String qN2 = item.qN();
+                            c0078a.agi.setText(qN2);
+                            char c = 65535;
+                            switch (qN2.hashCode()) {
+                                case 807627:
+                                    if (qN2.equals("折扣")) {
+                                        c = 1;
+                                        break;
+                                    }
+                                    break;
+                                case 888013:
+                                    if (qN2.equals("活动")) {
+                                        c = 0;
+                                        break;
+                                    }
+                                    break;
+                            }
+                            switch (c) {
+                                case 0:
+                                    c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_activity);
+                                    break;
+                                case 1:
+                                    c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_discount);
+                                    break;
+                                default:
+                                    if (qN2.length() == 1) {
+                                        c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_new);
+                                        break;
+                                    } else {
+                                        c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_new_wide);
+                                        break;
+                                    }
+                            }
+                            c0078a.agk.setVisibility(4);
+                            c0078a.agl.cancelAnimation();
+                        } else {
+                            c0078a.agd.setVisibility(8);
+                            c0078a.agk.setVisibility(4);
+                            c0078a.agl.cancelAnimation();
+                        }
+                    } else if (!TextUtils.isEmpty(item.qN())) {
+                        c0078a.agd.setVisibility(0);
+                        c0078a.agk.setVisibility(4);
+                        c0078a.agl.cancelAnimation();
+                        String qN3 = item.qN();
+                        c0078a.agi.setText(qN3);
+                        char c2 = 65535;
+                        switch (qN3.hashCode()) {
                             case 807627:
-                                if (pr2.equals("折扣")) {
-                                    c = 1;
+                                if (qN3.equals("折扣")) {
+                                    c2 = 1;
                                     break;
                                 }
                                 break;
                             case 888013:
-                                if (pr2.equals("活动")) {
-                                    c = 0;
+                                if (qN3.equals("活动")) {
+                                    c2 = 0;
                                     break;
                                 }
                                 break;
                         }
-                        switch (c) {
+                        switch (c2) {
                             case 0:
-                                c0064a.Yj.setBackgroundResource(a.f.live_gift_panel_item_script_activity);
+                                c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_activity);
                                 break;
                             case 1:
-                                c0064a.Yj.setBackgroundResource(a.f.live_gift_panel_item_script_discount);
+                                c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_discount);
                                 break;
                             default:
-                                if (pr2.length() == 1) {
-                                    c0064a.Yj.setBackgroundResource(a.f.live_gift_panel_item_script_new);
+                                if (qN3.length() == 1) {
+                                    c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_new);
                                     break;
                                 } else {
-                                    c0064a.Yj.setBackgroundResource(a.f.live_gift_panel_item_script_new_wide);
+                                    c0078a.agi.setBackgroundResource(a.f.live_gift_panel_item_script_new_wide);
                                     break;
                                 }
                         }
-                        c0064a.Yl.setVisibility(4);
-                        c0064a.Ym.cancelAnimation();
                     } else {
-                        c0064a.Yf.setVisibility(8);
-                        c0064a.Yl.setVisibility(4);
-                        c0064a.Ym.cancelAnimation();
+                        c0078a.agd.setVisibility(8);
                     }
-                } else if (!TextUtils.isEmpty(item.pr())) {
-                    c0064a.Yf.setVisibility(0);
-                    c0064a.Yl.setVisibility(4);
-                    c0064a.Ym.cancelAnimation();
-                    String pr3 = item.pr();
-                    c0064a.Yj.setText(pr3);
-                    char c2 = 65535;
-                    switch (pr3.hashCode()) {
-                        case 807627:
-                            if (pr3.equals("折扣")) {
-                                c2 = 1;
-                                break;
-                            }
-                            break;
-                        case 888013:
-                            if (pr3.equals("活动")) {
-                                c2 = 0;
-                                break;
-                            }
-                            break;
+                } else if (this.mType == 1 && aVar != null) {
+                    if (aVar.adY > 999) {
+                        c0078a.ago.setImageResource(a.f.live_icon_gift_panel_package_count_large);
+                        c0078a.agp.setText("999+");
+                    } else {
+                        c0078a.ago.setImageResource(a.f.live_icon_gift_panel_package_count_small);
+                        c0078a.agp.setText(String.valueOf(aVar.adY));
                     }
-                    switch (c2) {
-                        case 0:
-                            c0064a.Yj.setBackgroundResource(a.f.live_gift_panel_item_script_activity);
-                            break;
-                        case 1:
-                            c0064a.Yj.setBackgroundResource(a.f.live_gift_panel_item_script_discount);
-                            break;
-                        default:
-                            if (pr3.length() == 1) {
-                                c0064a.Yj.setBackgroundResource(a.f.live_gift_panel_item_script_new);
-                                break;
-                            } else {
-                                c0064a.Yj.setBackgroundResource(a.f.live_gift_panel_item_script_new_wide);
-                                break;
-                            }
-                    }
-                } else {
-                    c0064a.Yf.setVisibility(8);
+                    c0078a.agn.setVisibility(0);
                 }
-            } else if (this.mType == 1 && aVar != null) {
-                if (aVar.Ws > 999) {
-                    c0064a.Yp.setImageResource(a.f.live_icon_gift_panel_package_count_large);
-                    c0064a.Yq.setText("999+");
-                } else {
-                    c0064a.Yp.setImageResource(a.f.live_icon_gift_panel_package_count_small);
-                    c0064a.Yq.setText(String.valueOf(aVar.Ws));
-                }
-                c0064a.Yo.setVisibility(0);
             }
         }
         return view;
     }
 
     /* renamed from: com.baidu.live.gift.container.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0064a {
-        public TbImageView Ye;
-        public RelativeLayout Yf;
-        public LinearLayout Yg;
-        public TextView Yh;
-        public TextView Yi;
-        public TextView Yj;
-        public TextView Yk;
-        public View Yl;
-        public LottieAnimationView Ym;
-        public View Yn;
-        public FrameLayout Yo;
-        public ImageView Yp;
-        public TextView Yq;
-        public FrameLayout Yr;
-        public TextView Ys;
+    /* loaded from: classes2.dex */
+    public static class C0078a {
+        public TbImageView agc;
+        public RelativeLayout agd;
+        public LinearLayout agf;
+        public TextView agg;
+        public TextView agh;
+        public TextView agi;
+        public TextView agj;
+        public View agk;
+        public LottieAnimationView agl;
+        public View agm;
+        public FrameLayout agn;
+        public ImageView ago;
+        public TextView agp;
+        public FrameLayout agq;
+        public TextView agr;
 
         public void recycle() {
-            if (this.Ym != null) {
-                this.Ym.cancelAnimation();
+            if (this.agl != null) {
+                this.agl.cancelAnimation();
             }
         }
     }
 
-    private static String v(long j) {
-        if (XW == null) {
-            XW = new SimpleDateFormat("MM.dd");
+    private static String x(long j) {
+        if (afW == null) {
+            afW = new SimpleDateFormat("MM.dd");
         }
-        return XW.format(Long.valueOf(1000 * j));
+        return afW.format(Long.valueOf(1000 * j));
     }
 }

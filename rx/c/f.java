@@ -3,72 +3,72 @@ package rx.c;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class f {
-    private static final f kEK = new f();
-    static final b kEP = new b() { // from class: rx.c.f.1
+    private static final f njD = new f();
+    static final b njI = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> kEL = new AtomicReference<>();
-    private final AtomicReference<d> kEM = new AtomicReference<>();
-    private final AtomicReference<h> kEN = new AtomicReference<>();
-    private final AtomicReference<a> kEO = new AtomicReference<>();
-    private final AtomicReference<g> kxT = new AtomicReference<>();
+    private final AtomicReference<b> njE = new AtomicReference<>();
+    private final AtomicReference<d> njF = new AtomicReference<>();
+    private final AtomicReference<h> njG = new AtomicReference<>();
+    private final AtomicReference<a> njH = new AtomicReference<>();
+    private final AtomicReference<g> ndB = new AtomicReference<>();
 
     @Deprecated
-    public static f cPz() {
-        return kEK;
+    public static f dHg() {
+        return njD;
     }
 
     f() {
     }
 
-    public b cPA() {
-        if (this.kEL.get() == null) {
+    public b dHh() {
+        if (this.njE.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.kEL.compareAndSet(null, kEP);
+                this.njE.compareAndSet(null, njI);
             } else {
-                this.kEL.compareAndSet(null, (b) a);
+                this.njE.compareAndSet(null, (b) a);
             }
         }
-        return this.kEL.get();
+        return this.njE.get();
     }
 
-    public d cPB() {
-        if (this.kEM.get() == null) {
+    public d dHi() {
+        if (this.njF.get() == null) {
             Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.kEM.compareAndSet(null, e.cPy());
+                this.njF.compareAndSet(null, e.dHf());
             } else {
-                this.kEM.compareAndSet(null, (d) a);
+                this.njF.compareAndSet(null, (d) a);
             }
         }
-        return this.kEM.get();
+        return this.njF.get();
     }
 
-    public h cPC() {
-        if (this.kEN.get() == null) {
+    public h dHj() {
+        if (this.njG.get() == null) {
             Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.kEN.compareAndSet(null, i.cPM());
+                this.njG.compareAndSet(null, i.dHt());
             } else {
-                this.kEN.compareAndSet(null, (h) a);
+                this.njG.compareAndSet(null, (h) a);
             }
         }
-        return this.kEN.get();
+        return this.njG.get();
     }
 
-    public a cPD() {
-        if (this.kEO.get() == null) {
+    public a dHk() {
+        if (this.njH.get() == null) {
             Object a = a(a.class, System.getProperties());
             if (a == null) {
-                this.kEO.compareAndSet(null, new a() { // from class: rx.c.f.2
+                this.njH.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.kEO.compareAndSet(null, (a) a);
+                this.njH.compareAndSet(null, (a) a);
             }
         }
-        return this.kEO.get();
+        return this.njH.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g cPE() {
-        if (this.kxT.get() == null) {
+    public g dHl() {
+        if (this.ndB.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.kxT.compareAndSet(null, g.cPL());
+                this.ndB.compareAndSet(null, g.dHs());
             } else {
-                this.kxT.compareAndSet(null, (g) a);
+                this.ndB.compareAndSet(null, (g) a);
             }
         }
-        return this.kxT.get();
+        return this.ndB.get();
     }
 }

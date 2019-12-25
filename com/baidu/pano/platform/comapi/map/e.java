@@ -8,10 +8,10 @@ import android.os.Message;
 import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.view.MotionEvent;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.mobstat.Config;
 import com.baidu.pano.platform.comjni.JNIEngine;
 import com.baidu.pano.platform.comjni.JNITool;
+import com.baidu.searchbox.config.FontSizeConfig;
 import java.util.Timer;
 import java.util.TimerTask;
 /* loaded from: classes5.dex */
@@ -262,19 +262,19 @@ public class e {
         if (bundle == null) {
             return false;
         }
-        return JNIEngine.addCustomMarkerByURL(bundle.getString(TiebaInitialize.Params.KEY), bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"), bundle.getString("image_url"), bundle.getFloat("width"), bundle.getFloat("height"));
+        return JNIEngine.addCustomMarkerByURL(bundle.getString("key"), bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"), bundle.getString("image_url"), bundle.getFloat("width"), bundle.getFloat("height"));
     }
 
     public boolean b(Bundle bundle) {
         if (bundle == null) {
             return false;
         }
-        return JNIEngine.addCustomMarkerByText(bundle.getString(TiebaInitialize.Params.KEY), bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"), bundle.getString("text"), bundle.getInt("fontsize"), bundle.getInt("fontcolor"), bundle.getInt("bgcolor"), com.baidu.pano.platform.c.d.a(bundle.getInt("paddingleft"), bundle.getInt("paddingtop"), bundle.getInt("paddingright"), bundle.getInt("paddingbottom")));
+        return JNIEngine.addCustomMarkerByText(bundle.getString("key"), bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"), bundle.getString("text"), bundle.getInt(FontSizeConfig.FONT_SIZE_COOKIE), bundle.getInt("fontcolor"), bundle.getInt("bgcolor"), com.baidu.pano.platform.c.d.a(bundle.getInt("paddingleft"), bundle.getInt("paddingtop"), bundle.getInt("paddingright"), bundle.getInt("paddingbottom")));
     }
 
     public void c(Bundle bundle) {
         if (bundle != null) {
-            JNIEngine.showCertifyMarkerByText(bundle.getString("text"), bundle.getFloat("fontsize"), bundle.getInt("fontcolor"), bundle.getInt("bgcolor"), bundle.getLong("padding"));
+            JNIEngine.showCertifyMarkerByText(bundle.getString("text"), bundle.getFloat(FontSizeConfig.FONT_SIZE_COOKIE), bundle.getInt("fontcolor"), bundle.getInt("bgcolor"), bundle.getLong("padding"));
         }
     }
 
@@ -282,7 +282,7 @@ public class e {
         if (bundle == null) {
             return false;
         }
-        return JNIEngine.addCustomMarkerByBitmap(bundle.getString(TiebaInitialize.Params.KEY), bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"), bitmap);
+        return JNIEngine.addCustomMarkerByBitmap(bundle.getString("key"), bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"), bitmap);
     }
 
     public void a(String str, float f, float f2) {

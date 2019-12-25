@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class LogUtils {
     public static String TAG = "imsdk";
     public static int LOG_LEVEL_E = 0;

@@ -1,9 +1,9 @@
 package kotlin.collections;
 
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class y implements Iterator<Integer> {
-    public abstract int cMN();
+    public abstract int dyJ();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -12,8 +12,8 @@ public abstract class y implements Iterator<Integer> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: cMM */
+    /* renamed from: dEH */
     public final Integer next() {
-        return Integer.valueOf(cMN());
+        return Integer.valueOf(dyJ());
     }
 }

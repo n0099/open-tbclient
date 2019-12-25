@@ -3,8 +3,8 @@ package kotlin.sequences;
 import java.util.Iterator;
 import kotlin.coroutines.experimental.jvm.internal.CoroutineImpl;
 import kotlin.jvm.internal.p;
-/* loaded from: classes2.dex */
-final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implements kotlin.jvm.a.c<kotlin.coroutines.experimental.f<? super R>, kotlin.coroutines.experimental.b<? super kotlin.e>, Object> {
+/* loaded from: classes4.dex */
+final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implements kotlin.jvm.a.c<kotlin.coroutines.experimental.f<? super R>, kotlin.coroutines.experimental.b<? super kotlin.g>, Object> {
     final /* synthetic */ kotlin.jvm.a.c $transform;
     Object L$0;
     Object L$1;
@@ -22,12 +22,12 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
 
     @Override // kotlin.coroutines.experimental.jvm.internal.CoroutineImpl
     public /* bridge */ /* synthetic */ kotlin.coroutines.experimental.b create(Object obj, kotlin.coroutines.experimental.b bVar) {
-        return create((kotlin.coroutines.experimental.f) obj, (kotlin.coroutines.experimental.b<? super kotlin.e>) bVar);
+        return create((kotlin.coroutines.experimental.f) obj, (kotlin.coroutines.experimental.b<? super kotlin.g>) bVar);
     }
 
-    public final kotlin.coroutines.experimental.b<kotlin.e> create(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super kotlin.e> bVar) {
-        p.i(fVar, "$receiver");
-        p.i(bVar, "continuation");
+    public final kotlin.coroutines.experimental.b<kotlin.g> create(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super kotlin.g> bVar) {
+        p.j(fVar, "$receiver");
+        p.j(bVar, "continuation");
         SequencesKt___SequencesKt$zipWithNext$2 sequencesKt___SequencesKt$zipWithNext$2 = new SequencesKt___SequencesKt$zipWithNext$2(this.receiver$0, this.$transform, bVar);
         sequencesKt___SequencesKt$zipWithNext$2.p$ = fVar;
         return sequencesKt___SequencesKt$zipWithNext$2;
@@ -35,10 +35,10 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.c
-    public final Object invoke(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super kotlin.e> bVar) {
-        p.i(fVar, "$receiver");
-        p.i(bVar, "continuation");
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(kotlin.e.kuD, null);
+    public final Object invoke(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super kotlin.g> bVar) {
+        p.j(fVar, "$receiver");
+        p.j(bVar, "continuation");
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(kotlin.g.mYA, null);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1615=4] */
@@ -47,7 +47,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
         kotlin.coroutines.experimental.f fVar;
         Iterator it;
         Object obj2;
-        Object cMT = kotlin.coroutines.experimental.a.a.cMT();
+        Object dEN = kotlin.coroutines.experimental.a.a.dEN();
         switch (this.label) {
             case 0:
                 if (th == null) {
@@ -57,7 +57,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
                         obj2 = it.next();
                         break;
                     } else {
-                        return kotlin.e.kuD;
+                        return kotlin.g.mYA;
                     }
                 } else {
                     throw th;
@@ -86,11 +86,11 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
             this.L$2 = obj2;
             this.L$3 = next;
             this.label = 1;
-            if (fVar.a(invoke, this) == cMT) {
-                return cMT;
+            if (fVar.a(invoke, this) == dEN) {
+                return dEN;
             }
             obj2 = next;
         }
-        return kotlin.e.kuD;
+        return kotlin.g.mYA;
     }
 }

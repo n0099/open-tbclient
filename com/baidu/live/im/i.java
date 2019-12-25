@@ -1,20 +1,22 @@
 package com.baidu.live.im;
 
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface i {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void cH(String str);
+        void dz(String str);
 
-        boolean sG();
+        void uA();
 
-        void sH();
+        boolean uB();
 
-        void sI();
+        boolean ux();
 
-        void sJ();
+        void uy();
+
+        void uz();
     }
 
     void a(a aVar);
@@ -25,13 +27,13 @@ public interface i {
 
     void onDestroy();
 
-    h sE();
-
-    com.baidu.live.view.input.a sF();
-
     void setFromMaster(boolean z);
 
     void setLogData(String str, String str2);
 
-    void sk();
+    void ub();
+
+    h uv();
+
+    com.baidu.live.view.input.a uw();
 }

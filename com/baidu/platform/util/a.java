@@ -1,6 +1,7 @@
 package com.baidu.platform.util;
 
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.webkit.internal.ETAG;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -31,7 +32,7 @@ public class a implements ParamBuilder<a> {
             }
             String next = it.next();
             String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.a.get(next));
-            str = i2 == 0 ? str2 + next + "=" + encodeUrlParamsValue : str2 + "&" + next + "=" + encodeUrlParamsValue;
+            str = i2 == 0 ? str2 + next + ETAG.EQUAL + encodeUrlParamsValue : str2 + ETAG.ITEM_SEPARATOR + next + ETAG.EQUAL + encodeUrlParamsValue;
             i = i2 + 1;
         }
     }

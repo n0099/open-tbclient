@@ -1,37 +1,60 @@
 package com.baidu.live.f;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes6.dex */
+import android.text.TextUtils;
+import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.adp.lib.util.Md5;
+import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.util.FileHelper;
+import java.io.File;
+/* loaded from: classes2.dex */
 public class a {
-    private static Handler handler = new Handler() { // from class: com.baidu.live.f.a.1
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            switch (message.what) {
-                case 1:
-                    String[] strArr = (String[]) message.obj;
-                    String str = strArr[0];
-                    String str2 = strArr[1];
-                    HttpMessage httpMessage = new HttpMessage(1021128);
-                    httpMessage.addParam("live_id", str);
-                    httpMessage.addParam("content_type", str2);
-                    MessageManager.getInstance().sendMessage(httpMessage);
-                    return;
-                default:
-                    return;
-            }
+    public static String getFileMd5(File file) {
+        String md5 = Md5.toMd5(FileHelper.GetStreamFromFile(file));
+        if (!StringUtils.isNull(md5)) {
+            return md5.toLowerCase();
         }
-    };
-
-    public static void N(String str, String str2) {
-        Message message = new Message();
-        message.what = 1;
-        message.obj = new String[]{str, str2};
-        handler.sendMessage(message);
+        return md5;
     }
 
-    public static void init() {
+    public static boolean existFile(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        try {
+            return new File(str).exists();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return false;
+        }
+    }
+
+    public static boolean isDirectory(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        try {
+            return new File(str).isDirectory();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return false;
+        }
+    }
+
+    public static void cleanDir(File file) {
+        try {
+            if (file.exists() && file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                int length = listFiles.length;
+                for (int i = 0; i < length; i++) {
+                    if (listFiles[i].isFile()) {
+                        listFiles[i].delete();
+                    } else {
+                        cleanDir(listFiles[i]);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

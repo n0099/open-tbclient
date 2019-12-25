@@ -9,14 +9,14 @@ import com.xiaomi.clientreport.manager.ClientReportClient;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class eu {
     private static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, hq> f323a = null;
+    private static Map<String, hq> f328a = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(Context context, hk hkVar);
     }
@@ -103,29 +103,29 @@ public class eu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hq m242a(String str) {
+    public static hq m245a(String str) {
         hq[] values;
-        if (f323a == null) {
+        if (f328a == null) {
             synchronized (hq.class) {
-                if (f323a == null) {
-                    f323a = new HashMap();
+                if (f328a == null) {
+                    f328a = new HashMap();
                     for (hq hqVar : hq.values()) {
-                        f323a.put(hqVar.f489a.toLowerCase(), hqVar);
+                        f328a.put(hqVar.f494a.toLowerCase(), hqVar);
                     }
                 }
             }
         }
-        hq hqVar2 = f323a.get(str.toLowerCase());
+        hq hqVar2 = f328a.get(str.toLowerCase());
         return hqVar2 != null ? hqVar2 : hq.Invalid;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m243a(int i) {
+    public static String m246a(int i) {
         return i == 1000 ? "E100000" : i == 3000 ? "E100002" : i == 2000 ? "E100001" : i == 6000 ? "E100003" : "";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m244a(Context context) {
+    public static void m247a(Context context) {
         ClientReportClient.updateConfig(context, a(context));
     }
 
@@ -134,7 +134,7 @@ public class eu {
     }
 
     private static void a(Context context, hk hkVar) {
-        if (m245a(context.getApplicationContext())) {
+        if (m248a(context.getApplicationContext())) {
             com.xiaomi.push.service.bf.a(context.getApplicationContext(), hkVar);
         } else if (a != null) {
             a.a(context, hkVar);
@@ -165,7 +165,7 @@ public class eu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m245a(Context context) {
+    public static boolean m248a(Context context) {
         return (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true;
     }
 }

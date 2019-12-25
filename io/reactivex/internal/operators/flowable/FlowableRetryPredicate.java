@@ -1,0 +1,95 @@
+package io.reactivex.internal.operators.flowable;
+
+import com.google.android.exoplayer2.Format;
+import io.reactivex.b.j;
+import io.reactivex.exceptions.CompositeException;
+import io.reactivex.internal.subscriptions.SubscriptionArbiter;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.a.d;
+/* loaded from: classes4.dex */
+public final class FlowableRetryPredicate<T> extends a<T, T> {
+    final long count;
+    final j<? super Throwable> predicate;
+
+    @Override // io.reactivex.g
+    public void a(org.a.c<? super T> cVar) {
+        SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
+        cVar.onSubscribe(subscriptionArbiter);
+        new RetrySubscriber(cVar, this.count, this.predicate, subscriptionArbiter, this.mTG).subscribeNext();
+    }
+
+    /* loaded from: classes4.dex */
+    static final class RetrySubscriber<T> extends AtomicInteger implements io.reactivex.j<T> {
+        private static final long serialVersionUID = -7098360935104053232L;
+        final org.a.c<? super T> actual;
+        final j<? super Throwable> predicate;
+        long produced;
+        long remaining;
+        final SubscriptionArbiter sa;
+        final org.a.b<? extends T> source;
+
+        RetrySubscriber(org.a.c<? super T> cVar, long j, j<? super Throwable> jVar, SubscriptionArbiter subscriptionArbiter, org.a.b<? extends T> bVar) {
+            this.actual = cVar;
+            this.sa = subscriptionArbiter;
+            this.source = bVar;
+            this.predicate = jVar;
+            this.remaining = j;
+        }
+
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(d dVar) {
+            this.sa.setSubscription(dVar);
+        }
+
+        @Override // org.a.c
+        public void onNext(T t) {
+            this.produced++;
+            this.actual.onNext(t);
+        }
+
+        @Override // org.a.c
+        public void onError(Throwable th) {
+            long j = this.remaining;
+            if (j != Format.OFFSET_SAMPLE_RELATIVE) {
+                this.remaining = j - 1;
+            }
+            if (j == 0) {
+                this.actual.onError(th);
+                return;
+            }
+            try {
+                if (!this.predicate.test(th)) {
+                    this.actual.onError(th);
+                } else {
+                    subscribeNext();
+                }
+            } catch (Throwable th2) {
+                io.reactivex.exceptions.a.I(th2);
+                this.actual.onError(new CompositeException(th, th2));
+            }
+        }
+
+        @Override // org.a.c
+        public void onComplete() {
+            this.actual.onComplete();
+        }
+
+        void subscribeNext() {
+            if (getAndIncrement() == 0) {
+                int i = 1;
+                while (!this.sa.isCancelled()) {
+                    long j = this.produced;
+                    if (j != 0) {
+                        this.produced = 0L;
+                        this.sa.produced(j);
+                    }
+                    this.source.subscribe(this);
+                    i = addAndGet(-i);
+                    if (i == 0) {
+                        return;
+                    }
+                }
+            }
+        }
+    }
+}

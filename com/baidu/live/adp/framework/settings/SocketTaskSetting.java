@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.settings;
 
 import com.baidu.live.adp.framework.MessageConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SocketTaskSetting extends TaskSetting {
     private static SocketTaskSetting sInstance = null;
 

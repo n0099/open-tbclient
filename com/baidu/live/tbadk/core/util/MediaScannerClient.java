@@ -4,8 +4,8 @@ import android.content.Context;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
-/* loaded from: classes6.dex */
+import com.baidu.android.util.media.MimeType;
+/* loaded from: classes2.dex */
 public class MediaScannerClient implements MediaScannerConnection.MediaScannerConnectionClient {
     private boolean completed;
     private int length;
@@ -17,7 +17,7 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
     private String mPath;
     private String[] mPaths;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface onScanCompletedListener {
         void onScanCompeted();
     }
@@ -29,8 +29,8 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
 
     public void saveImage(String str) {
         this.mPath = str;
-        String substring = this.mPath.substring(this.mPath.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR));
-        this.mMimeType = "image/jpeg";
+        String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
+        this.mMimeType = MimeType.Image.JPEG;
         if (substring.equals(".gif")) {
             this.mMimeType = "image/gif";
         }
@@ -45,10 +45,13 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
 
     private String getVideoMimeType(String str) {
         String lowerCase = str.toLowerCase();
-        if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
+        if (lowerCase.endsWith("mp4") || lowerCase.endsWith("mpeg4")) {
+            return MimeType.Video.MP4;
+        }
+        if (lowerCase.endsWith("3gp")) {
             return "video/3gp";
         }
-        return "video/mp4";
+        return MimeType.Video.MP4;
     }
 
     public void scanFile(String str, String str2) {

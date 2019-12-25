@@ -4,7 +4,7 @@ import android.app.Application;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PassBiometricConfiguration {
     public static final String TARGET_TPL = "pp";
     public final String appId;
@@ -32,7 +32,7 @@ public class PassBiometricConfiguration {
         Log.enable(z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         private String appId;
         private String appSignKey;

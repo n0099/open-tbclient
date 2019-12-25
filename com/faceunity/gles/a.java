@@ -10,9 +10,9 @@ import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.util.Log;
 import android.view.Surface;
-import com.baidu.ala.liveRecorder.video.gles.GlUtil;
+import com.baidu.ala.recorder.video.gles.GlUtil;
 @TargetApi(18)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     private EGLConfig mEGLConfig;
     private EGLContext mEGLContext;

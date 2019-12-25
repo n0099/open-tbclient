@@ -1,9 +1,44 @@
 package com.baidu.swan.menu;
 
-import java.util.List;
-/* loaded from: classes2.dex */
-public interface c {
-    boolean a(j jVar);
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes9.dex */
+public class c {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static ObjectAnimator a(BaseMenuView baseMenuView) {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, "translationY", 0.0f);
+        ofFloat.setDuration(c(baseMenuView));
+        ofFloat.setInterpolator(new e(0.32f, 0.6f, 0.1f, 1.0f));
+        return ofFloat;
+    }
 
-    void e(int i, List<j> list);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static ObjectAnimator a(View view, BaseMenuView baseMenuView) {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "alpha", 1.0f);
+        ofFloat.setDuration(c(baseMenuView));
+        ofFloat.setInterpolator(new LinearInterpolator());
+        return ofFloat;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static ObjectAnimator aF(View view) {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "alpha", 0.0f);
+        ofFloat.setDuration(160L);
+        ofFloat.setInterpolator(new LinearInterpolator());
+        return ofFloat;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static ObjectAnimator b(BaseMenuView baseMenuView) {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, "translationY", baseMenuView.getHeight());
+        ofFloat.setDuration(160L);
+        ofFloat.setInterpolator(new e(0.32f, 0.6f, 0.1f, 1.0f));
+        return ofFloat;
+    }
+
+    private static long c(BaseMenuView baseMenuView) {
+        return baseMenuView.aqc() ? 240L : 200L;
+    }
 }

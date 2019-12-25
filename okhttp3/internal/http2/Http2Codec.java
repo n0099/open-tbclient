@@ -1,6 +1,7 @@
 package okhttp3.internal.http2;
 
 import android.net.http.Headers;
+import com.baidu.searchbox.datachannel.Contract;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.io.IOException;
 import java.net.ProtocolException;
@@ -29,8 +30,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class Http2Codec implements HttpCodec {
     private final Interceptor.Chain chain;
     private final Http2Connection connection;
@@ -38,7 +38,7 @@ public final class Http2Codec implements HttpCodec {
     private Http2Stream stream;
     final StreamAllocation streamAllocation;
     private static final ByteString CONNECTION = ByteString.encodeUtf8(Headers.CONN_DIRECTIVE);
-    private static final ByteString HOST = ByteString.encodeUtf8("host");
+    private static final ByteString HOST = ByteString.encodeUtf8(Contract.SCHEME_KEY_HOST);
     private static final ByteString KEEP_ALIVE = ByteString.encodeUtf8("keep-alive");
     private static final ByteString PROXY_CONNECTION = ByteString.encodeUtf8(Headers.PROXY_CONNECTION);
     private static final ByteString TRANSFER_ENCODING = ByteString.encodeUtf8(Headers.TRANSFER_ENCODING);
@@ -49,16 +49,10 @@ public final class Http2Codec implements HttpCodec {
     private static final List<ByteString> HTTP_2_SKIPPED_RESPONSE_HEADERS = Util.immutableList(CONNECTION, HOST, KEEP_ALIVE, PROXY_CONNECTION, TE, TRANSFER_ENCODING, ENCODING, UPGRADE);
 
     public Http2Codec(OkHttpClient okHttpClient, Interceptor.Chain chain, StreamAllocation streamAllocation, Http2Connection http2Connection) {
-        Protocol protocol;
         this.chain = chain;
         this.streamAllocation = streamAllocation;
         this.connection = http2Connection;
-        if (okHttpClient.protocols().contains(Protocol.H2_PRIOR_KNOWLEDGE)) {
-            protocol = Protocol.H2_PRIOR_KNOWLEDGE;
-        } else {
-            protocol = Protocol.HTTP_2;
-        }
-        this.protocol = protocol;
+        this.protocol = okHttpClient.protocols().contains(Protocol.H2_PRIOR_KNOWLEDGE) ? Protocol.H2_PRIOR_KNOWLEDGE : Protocol.HTTP_2;
     }
 
     @Override // okhttp3.internal.http.HttpCodec
@@ -99,7 +93,7 @@ public final class Http2Codec implements HttpCodec {
         ArrayList arrayList = new ArrayList(headers.size() + 4);
         arrayList.add(new Header(Header.TARGET_METHOD, request.method()));
         arrayList.add(new Header(Header.TARGET_PATH, RequestLine.requestPath(request.url())));
-        String header = request.header(HTTP.TARGET_HOST);
+        String header = request.header("Host");
         if (header != null) {
             arrayList.add(new Header(Header.TARGET_AUTHORITY, header));
         }
@@ -168,7 +162,7 @@ public final class Http2Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     class StreamFinishingSource extends ForwardingSource {
         long bytesRead;
         boolean completed;

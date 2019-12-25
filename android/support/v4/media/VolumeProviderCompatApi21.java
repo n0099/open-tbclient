@@ -3,10 +3,10 @@ package android.support.v4.media;
 import android.media.VolumeProvider;
 import android.support.annotation.RequiresApi;
 @RequiresApi(21)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class VolumeProviderCompatApi21 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface Delegate {
         void onAdjustVolume(int i);
 

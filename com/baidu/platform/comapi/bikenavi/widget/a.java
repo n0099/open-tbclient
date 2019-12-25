@@ -59,14 +59,14 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     private void a(View view) {
-        this.l = (RelativeLayout) view.findViewById(R.raw.icon_refresh1_1);
-        this.h = (ImageButton) view.findViewById(R.raw.rim_video_too_far);
-        this.j = (LinearLayout) view.findViewById(R.raw.sapi_camera_too_near);
-        this.k = (TextView) view.findViewById(R.raw.shake_tone);
-        this.i = (ImageButton) view.findViewById(R.raw.sapi_camera_put_face_round);
-        this.o = (TextView) view.findViewById(R.raw.rim_video_too_near);
-        this.p = view.findViewById(R.raw.rim_video_put_face_round);
-        this.q = (TextView) view.findViewById(R.raw.scan_refresh);
+        this.l = (RelativeLayout) view.findViewById(R.raw.icon_refresh2);
+        this.h = (ImageButton) view.findViewById(R.raw.lottie_pull_refresh_1);
+        this.j = (LinearLayout) view.findViewById(R.raw.lottie_tab_my_1);
+        this.k = (TextView) view.findViewById(R.raw.lottie_use_publish_n_1);
+        this.i = (ImageButton) view.findViewById(R.raw.lottie_tab_msg);
+        this.o = (TextView) view.findViewById(R.raw.lottie_refresh_dark);
+        this.p = view.findViewById(R.raw.lottie_pull_refresh);
+        this.q = (TextView) view.findViewById(R.raw.lottie_use_publish_n);
         b(view);
         this.h.setOnClickListener(this);
         this.j.setOnClickListener(this);
@@ -107,23 +107,23 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     private void b(View view) {
-        this.n = (CustomScrollView) view.findViewById(R.raw.sapi_camera_open_mouth);
+        this.n = (CustomScrollView) view.findViewById(R.raw.lottie_tab_home);
         view.post(new b(this));
-        this.s = com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, R.layout.abc_action_bar_view_list_nav_layout, null);
+        this.s = com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, R.layout.abc_action_menu_item_layout, null);
         this.n.addContentView(this.s);
         this.n.updateStatus(com.baidu.platform.comapi.wnplatform.n.b.BOTTOM, false);
-        this.t = (ImageView) this.s.findViewById(R.raw.icon_refresh3);
-        this.u = (ImageView) this.s.findViewById(R.raw.icon_refresh3_1);
-        this.v = (TextView) this.s.findViewById(R.raw.lotti_video_loading);
-        this.w = (TextView) this.s.findViewById(R.raw.lottie_refresh_dark);
-        this.x = (TextView) this.s.findViewById(R.raw.lottie_refresh_light);
-        this.y = (TextView) this.s.findViewById(R.raw.imageviewer_drag);
-        this.z = (TextView) this.s.findViewById(R.raw.index);
-        this.A = (TextView) this.s.findViewById(R.raw.lottie_video_guide);
-        this.B = (TextView) this.s.findViewById(R.raw.message);
-        this.C = (TextView) this.s.findViewById(R.raw.message_1);
-        this.D = (TextView) this.s.findViewById(R.raw.index_1);
-        this.r = this.s.findViewById(R.raw.icon_refresh2);
+        this.t = (ImageView) this.s.findViewById(R.raw.icon_refresh3_1);
+        this.u = (ImageView) this.s.findViewById(R.raw.imageviewer_drag);
+        this.v = (TextView) this.s.findViewById(R.raw.lottie_agree_2);
+        this.w = (TextView) this.s.findViewById(R.raw.lottie_common_pull_refresh);
+        this.x = (TextView) this.s.findViewById(R.raw.lottie_common_pull_refresh_1);
+        this.y = (TextView) this.s.findViewById(R.raw.lotti_video_loading);
+        this.z = (TextView) this.s.findViewById(R.raw.lottie_agree);
+        this.A = (TextView) this.s.findViewById(R.raw.lottie_common_pull_refresh_2);
+        this.B = (TextView) this.s.findViewById(R.raw.lottie_disagree);
+        this.C = (TextView) this.s.findViewById(R.raw.lottie_disagree_1);
+        this.D = (TextView) this.s.findViewById(R.raw.lottie_agree_1);
+        this.r = this.s.findViewById(R.raw.icon_refresh2_1);
         this.r.setOnClickListener(new c(this));
         this.n.setOnScrollChangeListener(new d(this));
     }
@@ -131,9 +131,9 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         if (z) {
-            new AsyncTaskC0112a(this.n, true).execute(new Integer[0]);
+            new AsyncTaskC0128a(this.n, true).execute(new Integer[0]);
         } else if (this.H != 0) {
-            new AsyncTaskC0112a(this.n, false).execute(new Integer[0]);
+            new AsyncTaskC0128a(this.n, false).execute(new Integer[0]);
         }
     }
 
@@ -167,14 +167,14 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     public void a(int i) {
-        if (i == R.drawable.aiapps_favorite_guide_checkbox_normal) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_favorite_guide_checkbox_normal));
+        if (i == R.drawable.aiapps_checkbox_checked) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_checkbox_checked));
             this.e = 1;
-        } else if (i == R.drawable.aiapps_favorite_guide_close) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_favorite_guide_close));
+        } else if (i == R.drawable.aiapps_checkbox_normal_disable) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_checkbox_normal_disable));
             this.e = 2;
-        } else if (i == R.drawable.aiapps_favorite_guide_checkbox_selected) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_favorite_guide_checkbox_selected));
+        } else if (i == R.drawable.aiapps_checkbox_checked_disable) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_checkbox_checked_disable));
             this.e = 3;
         }
     }
@@ -227,7 +227,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == R.raw.rim_video_too_far) {
+        if (id == R.raw.lottie_pull_refresh_1) {
             if (!this.f) {
                 com.baidu.platform.comapi.wnplatform.k.a.a().a("status", "overview");
             }
@@ -245,7 +245,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
                 default:
                     return;
             }
-        } else if (id == R.raw.sapi_camera_too_near) {
+        } else if (id == R.raw.lottie_tab_my_1) {
             this.f = this.f ? false : true;
             com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.overview");
             com.baidu.platform.comapi.walknavi.b.a().F().run("[查看全览]按钮点击");
@@ -257,7 +257,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
             if (com.baidu.platform.comapi.walknavi.b.a().G().a() != null) {
                 com.baidu.platform.comapi.walknavi.b.a().G().a().requestLayout();
             }
-        } else if (id == R.raw.shake_tone) {
+        } else if (id == R.raw.lottie_use_publish_n_1) {
             this.f = this.f ? false : true;
             com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.continue");
             com.baidu.platform.comapi.walknavi.b.a().F().run("[3D车头向上]按钮点击");
@@ -270,20 +270,20 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
             if (com.baidu.platform.comapi.walknavi.b.a().G().a() != null) {
                 com.baidu.platform.comapi.walknavi.b.a().G().a().requestLayout();
             }
-        } else if (id == R.raw.sapi_camera_put_face_round) {
-            this.g.a(false, R.string.abc_action_bar_home_description_format);
+        } else if (id == R.raw.lottie_tab_msg) {
+            this.g.a(false, R.string.abc_action_bar_up_description);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.bikenavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class AsyncTaskC0112a extends AsyncTask<Integer, Integer, String> {
+    public class AsyncTaskC0128a extends AsyncTask<Integer, Integer, String> {
         private ScrollView b;
         private boolean c;
         private int d = 15;
 
-        public AsyncTaskC0112a(ScrollView scrollView, boolean z) {
+        public AsyncTaskC0128a(ScrollView scrollView, boolean z) {
             this.b = scrollView;
             this.c = z;
         }

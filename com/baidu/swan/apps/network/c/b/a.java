@@ -5,34 +5,34 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
-import com.baidu.swan.apps.setting.oauth.e;
+import com.baidu.swan.apps.runtime.e;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class a extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.network.c.b.b
     @NonNull
-    public String MY() {
+    public String Wx() {
         return "accredit";
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void ak(JSONObject jSONObject) {
-        com.baidu.swan.apps.ae.b Ra;
+    public void av(JSONObject jSONObject) {
+        e ZS;
         if (DEBUG) {
             Log.d("SwanAppAccreditNode", "onUpdate: ");
         }
-        if (jSONObject != null && (Ra = com.baidu.swan.apps.ae.b.Ra()) != null) {
-            Ra.Rf().putString("node_data_accredit_list", jSONObject.toString());
+        if (jSONObject != null && (ZS = e.ZS()) != null) {
+            ZS.aac().putString("node_data_accredit_list", jSONObject.toString());
         }
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void MZ() {
+    public void Wy() {
         if (DEBUG) {
             Log.d("SwanAppAccreditNode", "onFiltered: ");
         }
@@ -45,18 +45,18 @@ public class a extends b {
         }
     }
 
-    public static void e(@NonNull final com.baidu.swan.apps.an.d.a<Map<String, e>> aVar) {
-        com.baidu.swan.apps.network.c.a.MS().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1
+    public static void d(@NonNull final com.baidu.swan.apps.as.d.b<Map<String, com.baidu.swan.apps.setting.oauth.e>> bVar) {
+        com.baidu.swan.apps.network.c.a.Wo().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void MW() {
-                Map Nb = a.Nb();
-                if (Nb.size() > 0) {
-                    com.baidu.swan.apps.an.d.a.this.B(Nb);
+            public void Ws() {
+                Map<String, com.baidu.swan.apps.setting.oauth.e> WA = a.WA();
+                if (WA.size() > 0) {
+                    com.baidu.swan.apps.as.d.b.this.B(WA);
                 } else {
-                    com.baidu.swan.apps.network.c.a.MS().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1.1
+                    com.baidu.swan.apps.network.c.a.Wo().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1.1
                         @Override // com.baidu.swan.apps.network.c.a.a
-                        public void MW() {
-                            com.baidu.swan.apps.an.d.a.this.B(a.Nb());
+                        public void Ws() {
+                            com.baidu.swan.apps.as.d.b.this.B(a.WA());
                         }
                     });
                 }
@@ -64,18 +64,18 @@ public class a extends b {
         });
     }
 
-    public static void a(final String str, @NonNull final com.baidu.swan.apps.an.d.a<e> aVar) {
-        com.baidu.swan.apps.network.c.a.MS().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
+    public static void a(final String str, @NonNull final com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e> bVar) {
+        com.baidu.swan.apps.network.c.a.Wo().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void MW() {
-                e eVar = (e) a.Nb().get(str);
+            public void Ws() {
+                com.baidu.swan.apps.setting.oauth.e eVar = a.WA().get(str);
                 if (eVar != null) {
-                    aVar.B(eVar);
+                    bVar.B(eVar);
                 } else {
-                    com.baidu.swan.apps.network.c.a.MS().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2.1
+                    com.baidu.swan.apps.network.c.a.Wo().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2.1
                         @Override // com.baidu.swan.apps.network.c.a.a
-                        public void MW() {
-                            aVar.B(a.Nb().get(str));
+                        public void Ws() {
+                            bVar.B(a.WA().get(str));
                         }
                     });
                 }
@@ -84,29 +84,28 @@ public class a extends b {
     }
 
     @Nullable
-    public static e gu(String str) {
-        return Nb().get(str);
+    public static com.baidu.swan.apps.setting.oauth.e jq(String str) {
+        return WA().get(str);
     }
 
-    public static void Na() {
-        com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
-        if (Ra != null) {
-            com.baidu.swan.apps.network.c.a.MS().a(new a());
-            Ra.Rf().putString("node_data_accredit_list", "");
-            com.baidu.swan.apps.network.c.a.MS().update();
+    public static void Wz() {
+        e ZS = e.ZS();
+        if (ZS != null) {
+            com.baidu.swan.apps.network.c.a.Wo().a(new a());
+            ZS.aac().putString("node_data_accredit_list", "");
+            com.baidu.swan.apps.network.c.a.Wo().update();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     @NonNull
-    public static Map<String, e> Nb() {
+    public static Map<String, com.baidu.swan.apps.setting.oauth.e> WA() {
         JSONObject optJSONObject;
         ArrayMap arrayMap = new ArrayMap();
-        com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
-        if (Ra == null) {
+        e ZS = e.ZS();
+        if (ZS == null) {
             return arrayMap;
         }
-        String string = Ra.Rf().getString("node_data_accredit_list", "");
+        String string = ZS.aac().getString("node_data_accredit_list", "");
         if (TextUtils.isEmpty(string)) {
             return arrayMap;
         }
@@ -119,7 +118,7 @@ public class a extends b {
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (!TextUtils.isEmpty(next) && (optJSONObject = optJSONObject2.optJSONObject(next)) != null) {
-                    arrayMap.put(next, e.i(next, optJSONObject));
+                    arrayMap.put(next, com.baidu.swan.apps.setting.oauth.e.h(next, optJSONObject));
                 }
             }
             return arrayMap;

@@ -1,40 +1,33 @@
 package com.baidu.swan.games.e;
-/* loaded from: classes2.dex */
+
+import android.support.annotation.NonNull;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+/* loaded from: classes9.dex */
 public final class g {
-    public String mID;
-    public int mType;
-
-    private g() {
+    public static a a(h hVar, com.baidu.swan.games.e.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        a b = b(hVar, bVar, v8ThreadDelegatePolicy);
+        b.a(new com.baidu.swan.games.e.a.b(b));
+        b.a(new com.baidu.swan.games.e.a.c(b));
+        b.akK();
+        return b;
     }
 
-    public int getType() {
-        return this.mType;
+    private static a b(h hVar, com.baidu.swan.games.e.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        i a = a(hVar);
+        a a2 = a.a(hVar.getID(), bVar, v8ThreadDelegatePolicy);
+        a2.setUserAgent(a.getUserAgent());
+        return a2;
     }
 
-    public String getID() {
-        return this.mID;
-    }
-
-    public String toString() {
-        return "V8EngineModel{mType=" + this.mType + ", mID='" + this.mID + "'}";
-    }
-
-    /* loaded from: classes2.dex */
-    public static class a {
-        private g byT = new g();
-
-        public a fR(int i) {
-            this.byT.mType = i;
-            return this;
-        }
-
-        public a jH(String str) {
-            this.byT.mID = str;
-            return this;
-        }
-
-        public g WI() {
-            return this.byT;
+    @NonNull
+    private static i a(h hVar) {
+        switch (hVar.getType()) {
+            case 1:
+                return new com.baidu.swan.apps.m.a();
+            case 2:
+                return new com.baidu.swan.apps.m.b();
+            default:
+                throw new IllegalArgumentException("invalid model object:" + hVar);
         }
     }
 }

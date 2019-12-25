@@ -2,29 +2,28 @@ package com.xiaomi.push;
 
 import android.os.Bundle;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.coloros.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class gb extends gd {
     private a a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Map<String, String> f403a;
+    private final Map<String, String> f408a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static final a a = new a("get");
         public static final a b = new a("set");
         public static final a c = new a("result");
         public static final a d = new a(BdStatsConstant.StatsType.ERROR);
-        public static final a e = new a(CommandMessage.COMMAND);
+        public static final a e = new a("command");
 
         /* renamed from: a  reason: collision with other field name */
-        private String f404a;
+        private String f409a;
 
         private a(String str) {
-            this.f404a = str;
+            this.f409a = str;
         }
 
         public static a a(String str) {
@@ -51,19 +50,19 @@ public class gb extends gd {
         }
 
         public String toString() {
-            return this.f404a;
+            return this.f409a;
         }
     }
 
     public gb() {
         this.a = a.a;
-        this.f403a = new HashMap();
+        this.f408a = new HashMap();
     }
 
     public gb(Bundle bundle) {
         super(bundle);
         this.a = a.a;
-        this.f403a = new HashMap();
+        this.f408a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
             this.a = a.a(bundle.getString("ext_iq_type"));
         }
@@ -99,7 +98,7 @@ public class gb extends gd {
         if (k() != null) {
             sb.append("chid=\"").append(go.a(k())).append("\" ");
         }
-        for (Map.Entry<String, String> entry : this.f403a.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f408a.entrySet()) {
             sb.append(go.a(entry.getKey())).append("=\"");
             sb.append(go.a(entry.getValue())).append("\" ");
         }
@@ -115,7 +114,7 @@ public class gb extends gd {
         sb.append(o());
         gh a2 = a();
         if (a2 != null) {
-            sb.append(a2.m290a());
+            sb.append(a2.m293a());
         }
         sb.append("</iq>");
         return sb.toString();
@@ -130,7 +129,7 @@ public class gb extends gd {
     }
 
     public synchronized void a(Map<String, String> map) {
-        this.f403a.putAll(map);
+        this.f408a.putAll(map);
     }
 
     @Override // com.xiaomi.push.gd

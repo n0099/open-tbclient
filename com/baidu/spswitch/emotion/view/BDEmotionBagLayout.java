@@ -1,0 +1,218 @@
+package com.baidu.spswitch.emotion.view;
+
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.support.annotation.Nullable;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import com.baidu.spswitch.b.f;
+import com.baidu.spswitch.c;
+import com.baidu.spswitch.emotion.EmotionType;
+import com.baidu.spswitch.emotion.c;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes11.dex */
+public class BDEmotionBagLayout extends LinearLayout {
+    private CircleIndicator aUD;
+    private List<GridView> aUE;
+    private int aUF;
+    private List<String> mEmotionList;
+    private PagerAdapter mPagerAdapter;
+    private ViewPager mViewPager;
+
+    public BDEmotionBagLayout(Context context) {
+        this(context, null);
+    }
+
+    public BDEmotionBagLayout(Context context, @Nullable AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public BDEmotionBagLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.aUE = new ArrayList();
+        init(context);
+    }
+
+    private void init(Context context) {
+        if (com.baidu.spswitch.b.a.DD().isNightMode()) {
+            setBackgroundColor(-14540254);
+        } else {
+            setBackgroundColor(-1);
+        }
+        setOrientation(1);
+        this.mViewPager = new ViewPager(context);
+        this.aUD = new CircleIndicator(context);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0);
+        layoutParams.weight = 1.0f;
+        this.mViewPager.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, (int) f.g(context, 16.0f));
+        layoutParams2.weight = 0.0f;
+        this.aUD.setLayoutParams(layoutParams2);
+        this.mViewPager.setOverScrollMode(2);
+        addView(this.mViewPager);
+        addView(this.aUD);
+    }
+
+    @Override // android.view.View
+    protected void onSizeChanged(int i, int i2, int i3, int i4) {
+        super.onSizeChanged(i, i2, i3, i4);
+        int measuredHeight = getChildAt(0).getMeasuredHeight();
+        int g = ((int) f.g(getContext(), 48.0f)) * 3;
+        int g2 = (int) (((measuredHeight - g) / 4) + f.g(getContext(), 8.0f));
+        this.aUF = ((measuredHeight - g) - (g2 * 2)) / 2;
+        int size = this.aUE.size();
+        for (int i5 = 0; i5 < size; i5++) {
+            GridView gridView = this.aUE.get(i5);
+            int g3 = (int) f.g(getContext(), 10.0f);
+            gridView.setPadding(g3, g2, g3, g2);
+            gridView.setVerticalSpacing(this.aUF);
+            gridView.setHorizontalSpacing((int) f.g(getContext(), (int) f.g(getContext(), 3.0f)));
+            final a aVar = (a) gridView.getAdapter();
+            if (aVar != null && this.mViewPager != null) {
+                this.mViewPager.post(new Runnable() { // from class: com.baidu.spswitch.emotion.view.BDEmotionBagLayout.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        aVar.notifyDataSetChanged();
+                    }
+                });
+            }
+        }
+    }
+
+    public void setEmotionList(List<String> list) {
+        this.mEmotionList = list;
+        if (this.mEmotionList != null && this.mEmotionList.size() > 0) {
+            int size = this.mEmotionList.size();
+            int i = size % 20 == 0 ? size / 20 : (size / 20) + 1;
+            for (int i2 = 0; i2 < i; i2++) {
+                NoScrollGridView noScrollGridView = new NoScrollGridView(getContext());
+                noScrollGridView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                noScrollGridView.setNumColumns(7);
+                noScrollGridView.setStretchMode(2);
+                noScrollGridView.setVerticalScrollBarEnabled(false);
+                noScrollGridView.setOverScrollMode(2);
+                c bb = c.bb(getContext().getApplicationContext());
+                noScrollGridView.setOnItemClickListener(bb.a(EmotionType.EMOTION_CLASSIC_TYPE, i2));
+                noScrollGridView.setOnItemLongClickListener(bb.b(EmotionType.EMOTION_CLASSIC_TYPE));
+                noScrollGridView.setOnTouchListener(bb.c(EmotionType.EMOTION_CLASSIC_TYPE));
+                noScrollGridView.setSelector(new ColorDrawable(0));
+                this.aUE.add(noScrollGridView);
+            }
+            DA();
+            this.mPagerAdapter = new b(this.aUE);
+            this.mViewPager.setAdapter(this.mPagerAdapter);
+            this.aUD.setViewPager(this.mViewPager);
+        }
+    }
+
+    private void DA() {
+        int size = this.aUE.size();
+        for (int i = 0; i < size; i++) {
+            this.aUE.get(i).setAdapter((ListAdapter) new a(getContext(), dv(i)));
+        }
+    }
+
+    private List<String> dv(int i) {
+        int i2 = i * 20;
+        int min = Math.min(20 + i2, this.mEmotionList.size());
+        ArrayList arrayList = new ArrayList();
+        while (i2 < min) {
+            arrayList.add(this.mEmotionList.get(i2));
+            i2++;
+        }
+        return arrayList;
+    }
+
+    /* loaded from: classes11.dex */
+    private class b extends PagerAdapter {
+        private List<GridView> mList;
+
+        public b(List<GridView> list) {
+            this.mList = list;
+        }
+
+        @Override // android.support.v4.view.PagerAdapter
+        public int getCount() {
+            return this.mList.size();
+        }
+
+        @Override // android.support.v4.view.PagerAdapter
+        public boolean isViewFromObject(View view, Object obj) {
+            return view == obj;
+        }
+
+        @Override // android.support.v4.view.PagerAdapter
+        public Object instantiateItem(ViewGroup viewGroup, int i) {
+            viewGroup.addView(this.mList.get(i));
+            return this.mList.get(i);
+        }
+
+        @Override // android.support.v4.view.PagerAdapter
+        public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+            viewGroup.removeView(this.mList.get(i));
+        }
+    }
+
+    /* loaded from: classes11.dex */
+    public class a extends BaseAdapter {
+        private Context mContext;
+        private LayoutInflater mInflater;
+        private List<String> mList;
+
+        public a(Context context, List<String> list) {
+            this.mList = list;
+            this.mInflater = LayoutInflater.from(context);
+            this.mContext = context;
+        }
+
+        @Override // android.widget.Adapter
+        public int getCount() {
+            return 21;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.widget.Adapter
+        public String getItem(int i) {
+            if (i < this.mList.size()) {
+                return this.mList.get(i);
+            }
+            return null;
+        }
+
+        @Override // android.widget.Adapter
+        public long getItemId(int i) {
+            return i;
+        }
+
+        @Override // android.widget.Adapter
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            LinearLayout linearLayout;
+            if (view == null) {
+                LinearLayout linearLayout2 = (LinearLayout) this.mInflater.inflate(c.d.emotion_grid_item, viewGroup, false);
+                ViewGroup.LayoutParams layoutParams = linearLayout2.getLayoutParams();
+                layoutParams.height = (int) f.g(this.mContext, 48.0f);
+                linearLayout2.setLayoutParams(layoutParams);
+                linearLayout = linearLayout2;
+            } else {
+                linearLayout = (LinearLayout) view;
+            }
+            ImageView imageView = (ImageView) linearLayout.findViewById(c.C0183c.img_item);
+            if (i == getCount() - 1) {
+                imageView.setImageResource(c.b.face_delete);
+            } else if (i < this.mList.size()) {
+                imageView.setImageResource(com.baidu.spswitch.emotion.b.aY(this.mContext).a(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i)));
+            }
+            return linearLayout;
+        }
+    }
+}

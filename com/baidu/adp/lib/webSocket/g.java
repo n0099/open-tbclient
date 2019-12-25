@@ -19,9 +19,9 @@ public interface g {
 
         void e(int i, String str);
 
-        void hq();
+        void h(byte[] bArr);
 
-        void i(byte[] bArr);
+        void hM();
 
         void onOpen(Map<String, String> map);
 

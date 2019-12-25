@@ -6,13 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.editortools.l;
+import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
     @SuppressLint({"ResourceAsColor"})
-    public static l p(Context context, int i) {
+    public static m y(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
         MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(R.layout.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();
@@ -35,19 +36,19 @@ public class c {
         return multiImgToolView;
     }
 
-    private static View a(Context context, final l lVar) {
+    private static View a(Context context, final m mVar) {
         ImageView imageView = new ImageView(context);
         am.setImageResource(imageView, R.drawable.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
         imageView.setContentDescription(context.getString(R.string.add));
-        int dip2px = com.baidu.adp.lib.util.l.dip2px(context, 3.0f);
-        imageView.setPadding(dip2px, com.baidu.adp.lib.util.l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(R.dimen.ds30) + dip2px, context.getResources().getDimensionPixelSize(R.dimen.ds32) + dip2px, dip2px);
+        int dip2px = l.dip2px(context, 3.0f);
+        imageView.setPadding(dip2px, l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(R.dimen.ds30) + dip2px, context.getResources().getDimensionPixelSize(R.dimen.ds32) + dip2px, dip2px);
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (l.this != null) {
-                    l.this.b(new com.baidu.tbadk.editortools.a(14, -1, true));
+                if (m.this != null) {
+                    m.this.b(new com.baidu.tbadk.editortools.a(14, -1, true));
                 }
             }
         });

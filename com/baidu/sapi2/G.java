@@ -10,7 +10,6 @@ import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.callback.FillUsernameCallback;
@@ -59,7 +58,7 @@ import javax.security.cert.CertificateException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class G {
     private static final int a = 6;
     private static final String b = "3";
@@ -284,7 +283,7 @@ public final class G {
         jSONObject.put("isphone", "1");
         jSONObject.put("password", str4);
         jSONObject.put(Constants.KEY_LOGIN_TYPE, "3");
-        jSONObject.put(TiebaInitialize.Params.KEY, sapiDataEncryptor.getAESKey());
+        jSONObject.put("key", sapiDataEncryptor.getAESKey());
         jSONObject.put(SapiContext.KEY_SDK_VERSION, "2");
         jSONObject.put("pinfo", SapiDeviceUtils.b());
         httpHashMapWrap.put(TableDefine.DB_TABLE_USERINFO, sapiDataEncryptor.encrypt(str, jSONObject.toString()));
@@ -323,7 +322,7 @@ public final class G {
                 if (z) {
                     SapiAccount a2 = a(sapiAccountResponse);
                     a2.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(jSONObject).tplStokenMap);
-                    a2.putExtra(TableDefine.PaSubscribeColumns.COLUMN_TPL, this.c.tpl);
+                    a2.putExtra("tpl", this.c.tpl);
                     SapiShareClient.getInstance().validate(a2);
                 }
                 sapiCallBack.onSuccess(sapiAccountResponse);
@@ -378,8 +377,8 @@ public final class G {
                 jSONObject.put("clientip", this.c.clientIp);
             }
             jSONObject.put("username", str2);
-            jSONObject.put(TiebaInitialize.Params.KEY, sapiDataEncryptor.getAESKey());
-            httpHashMapWrap.put(TableDefine.DB_TABLE_USERINFO, sapiDataEncryptor.encrypt(SapiDataEncryptor.a.b, jSONObject.toString()));
+            jSONObject.put("key", sapiDataEncryptor.getAESKey());
+            httpHashMapWrap.put(TableDefine.DB_TABLE_USERINFO, sapiDataEncryptor.encrypt("-----BEGIN CERTIFICATE-----\nMIIFKDCCBBCgAwIBAgIQaG9YabPddabIY+N5IoXttzANBgkqhkiG9w0BAQUFADCB\nvDELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL\nExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTswOQYDVQQLEzJUZXJtcyBvZiB1c2Ug\nYXQgaHR0cHM6Ly93d3cudmVyaXNpZ24uY29tL3JwYSAoYykxMDE2MDQGA1UEAxMt\nVmVyaVNpZ24gQ2xhc3MgMyBJbnRlcm5hdGlvbmFsIFNlcnZlciBDQSAtIEczMB4X\nDTEwMTIwMzAwMDAwMFoXDTEyMTIwMjIzNTk1OVowga8xCzAJBgNVBAYTAkNOMRAw\nDgYDVQQIEwdCZWlqaW5nMRAwDgYDVQQHFAdCZWlqaW5nMTkwNwYDVQQKFDBCZWlK\naW5nIEJhaWR1IE5ldGNvbSBTY2llbmNlIFRlY2hub2xvZ3kgQ28uLCBMdGQxJTAj\nBgNVBAsUHHNlcnZpY2Ugb3BlcmF0aW9uIGRlcGFydG1lbnQxGjAYBgNVBAMUEW9w\nZW5hcGkuYmFpZHUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC68R1G\nWkkVvvjBOGKHOoyLxdtEcxBiVOGG8lvXTckB8jNrg4tihQzql+fJbr/X8V9MqQLw\nzzOyQViYlW+/GhC6u1jrP6t3Br0Wy8HyThDnvOAWyPFEawgbIywT20F41Iqayled\n/DQ/JCDWcNA7+xX56rqEcQd+6baNAiu9o962PwIDAQABo4IBszCCAa8wCQYDVR0T\nBAIwADALBgNVHQ8EBAMCBaAwQQYDVR0fBDowODA2oDSgMoYwaHR0cDovL1NWUklu\ndGwtRzMtY3JsLnZlcmlzaWduLmNvbS9TVlJJbnRsRzMuY3JsMEQGA1UdIAQ9MDsw\nOQYLYIZIAYb4RQEHFwMwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cudmVyaXNp\nZ24uY29tL3JwYTAoBgNVHSUEITAfBglghkgBhvhCBAEGCCsGAQUFBwMBBggrBgEF\nBQcDAjByBggrBgEFBQcBAQRmMGQwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLnZl\ncmlzaWduLmNvbTA8BggrBgEFBQcwAoYwaHR0cDovL1NWUkludGwtRzMtYWlhLnZl\ncmlzaWduLmNvbS9TVlJJbnRsRzMuY2VyMG4GCCsGAQUFBwEMBGIwYKFeoFwwWjBY\nMFYWCWltYWdlL2dpZjAhMB8wBwYFKw4DAhoEFEtruSiWBgy70FI4mymsSweLIQUY\nMCYWJGh0dHA6Ly9sb2dvLnZlcmlzaWduLmNvbS92c2xvZ28xLmdpZjANBgkqhkiG\n9w0BAQUFAAOCAQEAgNIl8/QIKP4KWWWj6ltL6lVknoGlpUIoowvnv+57H7FdEYJb\n9zQewrAqoFkblB0mMiUEGdJOa7YxKKJialqz6KnlMrHQMAsB641BHLDESvLjuhio\nUsWmvBowIK92HQ2H9N01U8d1i5rTz5wwFK+Nvue/61tzCTTmbRgBuGPotQ/tcA+g\nYCNuEIHsJMbWiX9O3gflnMdRME7z9Hw9zMogt+lz7GudP/AO1K6sZ6VnQ931Gv1e\nIOmPCPfvO/Kw/aXSacoEWnMsy+qTIewVPT/MMgSaq9JewAQgLpMX+O5qqAJBYoDj\nxoZnHufGgOIKfNmSvYiHjDFJtP55PdEH21q+JA==\n-----END CERTIFICATE-----", jSONObject.toString()));
             new HttpClientWrap().post(com.baidu.sapi2.utils.f.n, httpHashMapWrap, null, w(), new B(this, Looper.getMainLooper(), fillUsernameCallback, fillUsernameResult, sapiDataEncryptor));
         } catch (Throwable th) {
             fillUsernameResult.setResultCode(-202);
@@ -459,7 +458,7 @@ public final class G {
                     }
                 } catch (JSONException e) {
                     Log.e(e);
-                    getTplStokenResult.setResultCode(GetTplStokenResult.ERROR_CODE_PARSE_DATA_FAIL);
+                    getTplStokenResult.setResultCode(-304);
                     getTplStokenCallback.onFailure(getTplStokenResult);
                     return getTplStokenResult.tplStokenMap;
                 }
@@ -488,7 +487,7 @@ public final class G {
             return getTplStokenResult.tplStokenMap;
         }
         getTplStokenResult.setResultCode(-302);
-        getTplStokenResult.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
+        getTplStokenResult.setResultMsg("参数错误，请稍后再试");
         getTplStokenCallback.onFailure(getTplStokenResult);
         return getTplStokenResult.tplStokenMap;
     }

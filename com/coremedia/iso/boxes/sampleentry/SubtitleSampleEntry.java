@@ -7,8 +7,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SubtitleSampleEntry extends AbstractSampleEntry {
     public static final String TYPE1 = "stpp";
     private String imageMimeType;
@@ -26,7 +25,7 @@ public class SubtitleSampleEntry extends AbstractSampleEntry {
     public long getSize() {
         long containerSize = getContainerSize();
         long length = this.namespace.length() + 8 + this.schemaLocation.length() + this.imageMimeType.length() + 3;
-        return ((this.largeBox || (containerSize + length) + 8 >= IjkMediaMeta.AV_CH_WIDE_RIGHT) ? 16 : 8) + containerSize + length;
+        return ((this.largeBox || (containerSize + length) + 8 >= 4294967296L) ? 16 : 8) + containerSize + length;
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box

@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FrsCommonTabNetModel<T> extends NetAutoModel<FrsCommonTabRequestData, d, T> {
     public FrsCommonTabNetModel(TbPageContext tbPageContext, FrsCommonTabRequestData frsCommonTabRequestData) {
         super(tbPageContext, frsCommonTabRequestData);
@@ -18,27 +18,27 @@ public class FrsCommonTabNetModel<T> extends NetAutoModel<FrsCommonTabRequestDat
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int awe() {
+    protected int aNO() {
         return CmdConfigHttp.CMD_FRS_COMMON_TAB;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int awf() {
+    protected int aNP() {
         return 309622;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String awg() {
+    protected String aNQ() {
         return TbConfig.FRS_COMMON_TAB;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> awc() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> aNM() {
         return FrsCommonTabHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> awd() {
+    protected Class<? extends MvcSocketResponsedMessage> aNN() {
         return FrsCommonTabSocketResponseMessage.class;
     }
 }

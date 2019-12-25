@@ -1,5 +1,5 @@
 package kotlin.collections;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class x<T> {
     private final int index;
     private final T value;
@@ -10,7 +10,7 @@ public final class x<T> {
                 return false;
             }
             x xVar = (x) obj;
-            if (!(this.index == xVar.index) || !kotlin.jvm.internal.p.f(this.value, xVar.value)) {
+            if (!(this.index == xVar.index) || !kotlin.jvm.internal.p.h(this.value, xVar.value)) {
                 return false;
             }
         }

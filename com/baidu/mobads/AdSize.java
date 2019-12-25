@@ -1,5 +1,5 @@
 package com.baidu.mobads;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public enum AdSize {
     Banner(0),
     Square(1),

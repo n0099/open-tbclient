@@ -1,83 +1,56 @@
 package com.baidu.tbadk.util;
 
-import android.os.Handler;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
+import android.os.Environment;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 /* loaded from: classes.dex */
-public class v {
-    private View cOu;
-    private int cOv;
-    private boolean cOw;
-    private final Handler mHandler;
+public final class v {
+    public static boolean isEMUI() {
+        return z("ro.build.version.emui", "ro.build.hw_emui_api_level");
+    }
 
-    public void axI() {
-        this.mHandler.removeMessages(2);
-        if (!this.mHandler.hasMessages(1)) {
-            this.mHandler.sendEmptyMessageDelayed(1, 60L);
+    private static boolean z(String... strArr) {
+        if (strArr == null || strArr.length == 0) {
+            return false;
         }
-    }
-
-    public void axJ() {
-        this.mHandler.removeMessages(1);
-        if (!this.mHandler.hasMessages(2)) {
-            this.mHandler.sendEmptyMessageDelayed(2, 110L);
-        }
-    }
-
-    public void axK() {
-        this.mHandler.removeCallbacksAndMessages(null);
-    }
-
-    public void fD(boolean z) {
-        if (this.cOu != null) {
-            if (z || this.cOu.getVisibility() != 8) {
-                axJ();
-            }
-        }
-    }
-
-    public void fE(boolean z) {
-        if (this.cOu != null) {
-            if (z || this.cOu.getVisibility() != 0) {
-                axI();
-            }
-        }
-    }
-
-    public void onScroll(int i, int i2) {
-        if (this.cOu != null) {
-            if (i != 0 && i2 > i && this.cOu.getVisibility() != 8) {
-                fD(false);
-            } else if ((i == 0 || i2 < i) && this.cOu.getVisibility() != 0) {
-                fE(false);
-            }
-            this.cOv = i;
-        }
-    }
-
-    public void g(ViewGroup viewGroup, int i) {
-        int firstVisiblePosition;
-        if (viewGroup != null && i == 0) {
-            if (viewGroup instanceof BdRecyclerView) {
-                firstVisiblePosition = ((BdRecyclerView) viewGroup).getFirstVisiblePosition();
-            } else if (viewGroup instanceof AbsListView) {
-                firstVisiblePosition = ((AbsListView) viewGroup).getFirstVisiblePosition();
-            } else {
-                return;
-            }
-            if (firstVisiblePosition > this.cOv) {
-                fD(true);
-            } else if (firstVisiblePosition < this.cOv) {
-                fE(true);
-            } else if (firstVisiblePosition == this.cOv) {
-                if (firstVisiblePosition == 0 || !this.cOw) {
-                    fE(true);
-                } else {
-                    fD(true);
+        try {
+            a aPy = a.aPy();
+            for (String str : strArr) {
+                if (aPy.vw(str) != null) {
+                    return true;
                 }
             }
+            return false;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static final class a {
+        private static a dCt;
+        private final Properties dCu = new Properties();
+
+        private a() throws IOException {
+            this.dCu.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+        }
+
+        public static a aPy() throws IOException {
+            if (dCt == null) {
+                synchronized (a.class) {
+                    if (dCt == null) {
+                        dCt = new a();
+                    }
+                }
+            }
+            return dCt;
+        }
+
+        public String vw(String str) {
+            return this.dCu.getProperty(str);
         }
     }
 }

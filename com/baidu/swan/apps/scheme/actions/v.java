@@ -1,48 +1,73 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.scheme.actions.k.g;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class v extends z {
+@Deprecated
+/* loaded from: classes9.dex */
+public class v extends ab {
     public v(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/preloadSwanCore");
+        super(jVar, "/swanAPI/preloadSubPackage");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (DEBUG) {
-            Log.d("PreloadSwanCoreAction", "handle entity: " + unitedSchemeEntity.toString());
-        }
-        if (!ProcessUtils.isMainProcess()) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal process");
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (eVar == null) {
+            com.baidu.swan.apps.console.c.e("PreloadSubPackage", "swanApp is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        com.baidu.swan.apps.core.a.c.aIU = unitedSchemeEntity.getParam("abtest");
-        com.baidu.swan.apps.v.a.setInfo(com.baidu.swan.apps.core.a.c.aIU);
-        JSONObject c = c(unitedSchemeEntity, "params");
-        int optInt = c == null ? 0 : c.optInt("delay", 0);
-        if (optInt < 0) {
-            optInt = 0;
+        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+        if (optParamsAsJo == null) {
+            com.baidu.swan.apps.console.c.e("PreloadSubPackage", "params is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
         }
-        if (DEBUG) {
-            Log.d("PreloadSwanCoreAction", "delay: " + optInt);
-            Log.d("PreloadSwanCoreAction", "abtest: " + com.baidu.swan.apps.core.a.c.aIU);
-        }
-        com.baidu.swan.apps.an.ac.c(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.v.1
-            @Override // java.lang.Runnable
-            public void run() {
-                Bundle bundle = new Bundle();
-                bundle.putString("bundle_key_preload_preload_scene", "5");
-                com.baidu.swan.apps.process.messaging.service.c.b(context, bundle);
+        final String optString = optParamsAsJo.optString("cb");
+        if (TextUtils.isEmpty(optString)) {
+            com.baidu.swan.apps.console.c.e("PreloadSubPackage", "none cb");
+            if (DEBUG) {
+                Log.d("SwanAppAction", "preload subPackage cb is empty");
             }
-        }, optInt);
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        return true;
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        }
+        String optString2 = optParamsAsJo.optString("root");
+        if (TextUtils.isEmpty(optString2)) {
+            com.baidu.swan.apps.console.c.e("PreloadSubPackage", "subPackage root is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        } else if (eVar.kw(optString2) && eVar.kx(optString2)) {
+            com.baidu.swan.apps.console.c.i("PreloadSubPackage", "subPackage have existed");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "subPackage have existed");
+            return false;
+        } else {
+            String kz = eVar.kz(optString2);
+            if (TextUtils.isEmpty(kz)) {
+                com.baidu.swan.apps.console.c.i("PreloadSubPackage", "subPackage cannot find aps key");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            com.baidu.swan.apps.scheme.actions.k.g.a(eVar.id, eVar.getVersion(), optString2, kz, null, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.v.1
+                @Override // com.baidu.swan.apps.scheme.actions.k.g.a
+                public void success(String str) {
+                    com.baidu.swan.apps.console.c.i("PreloadSubPackage", "preload subPackage success");
+                    UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0, "preload subPackage success").toString(), optString);
+                }
+
+                @Override // com.baidu.swan.apps.scheme.actions.k.g.a
+                public void dH(int i) {
+                    com.baidu.swan.apps.console.c.e("PreloadSubPackage", "preload subPackage failed");
+                    UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), optString);
+                }
+            });
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
+        }
     }
 }

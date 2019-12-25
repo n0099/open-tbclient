@@ -1,6 +1,5 @@
 package okhttp3.internal.connection;
 
-import com.baidu.searchbox.http.response.ResponseException;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.net.Socket;
@@ -11,6 +10,7 @@ import okhttp3.ConnectionPool;
 import okhttp3.EventListener;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.Route;
 import okhttp3.internal.Internal;
 import okhttp3.internal.Util;
@@ -19,7 +19,7 @@ import okhttp3.internal.http.HttpCodec;
 import okhttp3.internal.http2.ConnectionShutdownException;
 import okhttp3.internal.http2.ErrorCode;
 import okhttp3.internal.http2.StreamResetException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class StreamAllocation {
     static final /* synthetic */ boolean $assertionsDisabled;
     public final Address address;
@@ -50,9 +50,9 @@ public final class StreamAllocation {
         this.callStackTrace = obj;
     }
 
-    public HttpCodec newStream(OkHttpClient okHttpClient, Interceptor.Chain chain, boolean z) {
+    public HttpCodec newStream(OkHttpClient okHttpClient, Interceptor.Chain chain, Request request, boolean z) {
         try {
-            HttpCodec newCodec = findHealthyConnection(chain.connectTimeoutMillis(), chain.readTimeoutMillis(), chain.writeTimeoutMillis(), okHttpClient.pingIntervalMillis(), okHttpClient.retryOnConnectionFailure(), z).newCodec(okHttpClient, chain, this);
+            HttpCodec newCodec = findHealthyConnection(chain.connectTimeoutMillis(), chain.readTimeoutMillis(), chain.writeTimeoutMillis(), okHttpClient.pingIntervalMillis(), okHttpClient.retryOnConnectionFailure(), request, z).newCodec(okHttpClient, chain, this);
             synchronized (this.connectionPool) {
                 this.codec = newCodec;
             }
@@ -62,10 +62,10 @@ public final class StreamAllocation {
         }
     }
 
-    private RealConnection findHealthyConnection(int i, int i2, int i3, int i4, boolean z, boolean z2) throws IOException {
+    private RealConnection findHealthyConnection(int i, int i2, int i3, int i4, boolean z, Request request, boolean z2) throws IOException {
         RealConnection findConnection;
         while (true) {
-            findConnection = findConnection(i, i2, i3, i4, z);
+            findConnection = findConnection(i, i2, i3, i4, z, request);
             synchronized (this.connectionPool) {
                 if (findConnection.successCount != 0) {
                     if (findConnection.isHealthy(z2)) {
@@ -80,7 +80,7 @@ public final class StreamAllocation {
         return findConnection;
     }
 
-    private RealConnection findConnection(int i, int i2, int i3, int i4, boolean z) throws IOException {
+    private RealConnection findConnection(int i, int i2, int i3, int i4, boolean z, Request request) throws IOException {
         RealConnection realConnection;
         Socket releaseIfNoNewStreams;
         RealConnection realConnection2;
@@ -95,7 +95,7 @@ public final class StreamAllocation {
                 throw new IllegalStateException("codec != null");
             }
             if (this.canceled) {
-                throw new IOException(ResponseException.CANCELED);
+                throw new IOException("Canceled");
             }
             realConnection = this.connection;
             releaseIfNoNewStreams = releaseIfNoNewStreams();
@@ -133,7 +133,7 @@ public final class StreamAllocation {
         }
         synchronized (this.connectionPool) {
             if (this.canceled) {
-                throw new IOException(ResponseException.CANCELED);
+                throw new IOException("Canceled");
             }
             if (z3) {
                 List<Route> all = this.routeSelection.getAll();
@@ -163,7 +163,7 @@ public final class StreamAllocation {
             this.eventListener.connectionAcquired(this.call, realConnection2);
             return realConnection2;
         }
-        realConnection2.connect(i, i2, i3, i4, z, this.call, this.eventListener);
+        realConnection2.connect(i, i2, i3, i4, z, this.call, this.eventListener, request);
         routeDatabase().connected(realConnection2.route());
         Socket socket = null;
         synchronized (this.connectionPool) {
@@ -418,7 +418,7 @@ public final class StreamAllocation {
         return connection != null ? connection.toString() : this.address.toString();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class StreamAllocationReference extends WeakReference<StreamAllocation> {
         public final Object callStackTrace;
 

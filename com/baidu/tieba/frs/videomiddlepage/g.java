@@ -1,18 +1,18 @@
 package com.baidu.tieba.frs.videomiddlepage;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface g {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
-        void a(a aVar);
+        void Py();
 
-        void ave();
+        void a(a aVar);
 
         void e(List<com.baidu.tieba.card.data.b> list, boolean z, boolean z2);
 

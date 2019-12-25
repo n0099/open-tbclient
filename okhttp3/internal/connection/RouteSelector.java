@@ -17,7 +17,7 @@ import okhttp3.EventListener;
 import okhttp3.HttpUrl;
 import okhttp3.Route;
 import okhttp3.internal.Util;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class RouteSelector {
     private final Address address;
     private final Call call;
@@ -75,11 +75,17 @@ public final class RouteSelector {
     }
 
     private void resetNextProxy(HttpUrl httpUrl, Proxy proxy) {
+        List<Proxy> immutableList;
         if (proxy != null) {
             this.proxies = Collections.singletonList(proxy);
         } else {
             List<Proxy> select = this.address.proxySelector().select(httpUrl.uri());
-            this.proxies = (select == null || select.isEmpty()) ? Util.immutableList(Proxy.NO_PROXY) : Util.immutableList(select);
+            if (select != null && !select.isEmpty()) {
+                immutableList = Util.immutableList(select);
+            } else {
+                immutableList = Util.immutableList(Proxy.NO_PROXY);
+            }
+            this.proxies = immutableList;
         }
         this.nextProxyIndex = 0;
     }
@@ -142,7 +148,7 @@ public final class RouteSelector {
         return address == null ? inetSocketAddress.getHostName() : address.getHostAddress();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Selection {
         private int nextRouteIndex = 0;
         private final List<Route> routes;

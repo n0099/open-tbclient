@@ -1,94 +1,102 @@
 package com.baidu.swan.games.u;
 
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.webkit.JavascriptInterface;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.an.ac;
-import com.baidu.swan.apps.w.e;
-/* loaded from: classes2.dex */
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.statistic.a.f;
+import com.baidu.swan.apps.x.b.b;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
 public class d {
-    private b bEc;
-
-    public d(JsObject jsObject) {
-        this.bEc = b.i(com.baidu.swan.games.binding.model.c.c(jsObject));
-        a.Yl().a(this);
+    public static void d(b.a aVar) {
+        Bundle Tb;
+        if (aVar != null && amW() && (Tb = aVar.Tb()) != null && Tb.getLong("page_display_flag_for_statistic") > 0) {
+            long j = aVar.getLong("launch_time", 0L);
+            long currentTimeMillis = System.currentTimeMillis();
+            f fVar = new f();
+            fVar.mFrom = com.baidu.swan.apps.statistic.f.ga(aVar.getAppFrameType());
+            fVar.mAppId = aVar.getAppId();
+            fVar.mSource = aVar.SW();
+            fVar.mType = Config.LAUNCH;
+            fVar.mValue = "realsuccess";
+            fVar.bQD = String.valueOf(currentTimeMillis - j);
+            fVar.lz(Tb.getString("ubc"));
+            com.baidu.swan.apps.statistic.f.onEvent(fVar);
+            Tb.remove("page_display_flag_for_statistic");
+        }
     }
 
-    @JavascriptInterface
-    public boolean applyUpdate() {
-        final SwanAppActivity Lq = e.LE().Lq();
-        if (Lq == null) {
-            com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
-            return false;
-        } else if (Lq.AK() == null) {
-            com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate getLaunchInfo is null");
-            return false;
-        } else {
-            final String KG = Lq.AK().KG();
-            if (TextUtils.isEmpty(KG)) {
-                com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate launchScheme is empty");
-                return false;
-            }
-            ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.u.d.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    Lq.AJ();
-                    SchemeRouter.invoke(com.baidu.swan.apps.u.a.Jj(), KG);
+    public static void b(String str, b.a aVar) {
+        Bundle Tb;
+        if (aVar != null && !amW() && (Tb = aVar.Tb()) != null && Tb.getLong("page_display_flag_for_statistic") > 0) {
+            long j = aVar.getLong("launch_time", 0L);
+            long currentTimeMillis = System.currentTimeMillis();
+            f fVar = new f();
+            fVar.mFrom = com.baidu.swan.apps.statistic.f.ga(aVar.getAppFrameType());
+            fVar.mAppId = aVar.getAppId();
+            fVar.mSource = aVar.SW();
+            fVar.mType = Config.LAUNCH;
+            fVar.mValue = "realcancel";
+            fVar.bQC = String.valueOf(currentTimeMillis - j);
+            fVar.n(TiebaInitialize.LogFields.REASON, str);
+            fVar.n("errorList", b.amU().amV());
+            fVar.lz(Tb.getString("ubc"));
+            com.baidu.swan.apps.statistic.f.onEvent(fVar);
+            Tb.remove("page_display_flag_for_statistic");
+        }
+    }
+
+    public static void pl(String str) {
+        if (com.baidu.swan.apps.runtime.d.ZP().DH() == 1 && !amW()) {
+            com.baidu.swan.apps.performance.f.jx("startup").f(new UbcFlowEvent(str));
+        }
+    }
+
+    public static void E(JSONArray jSONArray) {
+        if (jSONArray != null && jSONArray.length() != 0) {
+            HybridUbcFlow jx = com.baidu.swan.apps.performance.f.jx("startup");
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    String optString = optJSONObject.optString("id");
+                    long optLong = optJSONObject.optLong("timestamp");
+                    if (!TextUtils.isEmpty(optString) && optJSONObject.has("timestamp")) {
+                        jx.f(new UbcFlowEvent(optString).a(UbcFlowEvent.RecordType.UPDATE_RECENT).an(optLong));
+                    }
                 }
-            });
-            return true;
+            }
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0045, code lost:
-        if (r4.equals("checkForUpdate") != false) goto L8;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(c cVar) {
-        boolean z = false;
-        if (this.bEc != null && JSEvent.isValid(cVar)) {
-            com.baidu.swan.apps.console.c.d("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
-            String str = cVar.type;
-            switch (str.hashCode()) {
-                case -1330233754:
-                    if (str.equals("updateFailed")) {
-                        z = true;
-                        break;
-                    }
-                    z = true;
-                    break;
-                case -1317168438:
-                    break;
-                case -585906598:
-                    if (str.equals("updateReady")) {
-                        z = true;
-                        break;
-                    }
-                    z = true;
-                    break;
-                default:
-                    z = true;
-                    break;
+    public static boolean amW() {
+        SwanAppActivity ZO;
+        e ZS = e.ZS();
+        if (ZS != null && (ZO = ZS.ZO()) != null) {
+            com.baidu.swan.apps.framework.c DI = ZO.DI();
+            if (DI instanceof com.baidu.swan.games.i.b) {
+                return ((com.baidu.swan.games.i.b) DI).alB();
             }
-            switch (z) {
-                case false:
-                    this.bEc.b(cVar);
-                    return;
-                case true:
-                    this.bEc.Yn();
-                    return;
-                case true:
-                    this.bEc.Yo();
-                    return;
-                default:
-                    return;
-            }
+            return false;
         }
+        return false;
+    }
+
+    public static long amX() {
+        SwanAppActivity ZO;
+        e ZS = e.ZS();
+        if (ZS != null && (ZO = ZS.ZO()) != null) {
+            com.baidu.swan.apps.framework.c DI = ZO.DI();
+            if (DI instanceof com.baidu.swan.games.i.b) {
+                return ((com.baidu.swan.games.i.b) DI).alC();
+            }
+            return 0L;
+        }
+        return 0L;
     }
 }

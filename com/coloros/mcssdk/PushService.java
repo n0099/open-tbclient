@@ -10,7 +10,7 @@ import com.coloros.mcssdk.mode.CommandMessage;
 import com.coloros.mcssdk.mode.Message;
 import com.coloros.mcssdk.mode.SptDataMessage;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PushService extends Service implements MessageCallback {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -68,7 +68,7 @@ public class PushService extends Service implements MessageCallback {
             case CommandMessage.COMMAND_STATISTIC /* 12291 */:
             case CommandMessage.COMMAND_PAUSE_PUSH /* 12299 */:
             case CommandMessage.COMMAND_RESUME_PUSH /* 12300 */:
-            case CommandMessage.COMMAND_CLEAR_NOTIFICATION /* 12304 */:
+            case 12304:
             case CommandMessage.COMMAND_CLEAR_ALL_NOTIFICATION /* 12305 */:
             case CommandMessage.COMMAND_SET_NOTIFICATION_TYPE /* 12307 */:
             case CommandMessage.COMMAND_CLEAR_NOTIFICATION_TYPE /* 12308 */:
@@ -98,7 +98,7 @@ public class PushService extends Service implements MessageCallback {
             case CommandMessage.COMMAND_SET_ACCOUNTS /* 12301 */:
                 PushManager.getInstance().getPushCallback().onSetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "accountId", "accountName"));
                 return;
-            case CommandMessage.COMMAND_GET_ACCOUNTS /* 12302 */:
+            case 12302:
                 PushManager.getInstance().getPushCallback().onGetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "accountId", "accountName"));
                 return;
             case CommandMessage.COMMAND_UNSET_ACCOUNTS /* 12303 */:

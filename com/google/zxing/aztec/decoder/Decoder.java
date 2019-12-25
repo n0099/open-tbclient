@@ -1,13 +1,16 @@
 package com.google.zxing.aztec.decoder;
 
+import android.support.media.ExifInterface;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ugc.model.PublishType;
+import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
+import com.baidu.webkit.internal.ETAG;
 import com.google.zxing.FormatException;
 import com.google.zxing.aztec.AztecDetectorResult;
 import com.google.zxing.common.BitMatrix;
@@ -17,17 +20,17 @@ import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Decoder {
     private AztecDetectorResult ddata;
-    private static final String[] UPPER_TABLE = {"CTRL_PS", HanziToPinyin.Token.SEPARATOR, "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", DeviceId.CUIDInfo.I_FIXED, "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
-    private static final String[] LOWER_TABLE = {"CTRL_PS", HanziToPinyin.Token.SEPARATOR, Config.APP_VERSION_CODE, "b", "c", "d", "e", BdStatsConstant.StatsKey.FROM, "g", "h", "i", "j", "k", "l", "m", "n", Config.OS, "p", IXAdRequestInfo.COST_NAME, "r", "s", "t", "u", "v", "w", Config.EVENT_HEAT_X, "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
-    private static final String[] MIXED_TABLE = {"CTRL_PS", HanziToPinyin.Token.SEPARATOR, "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", "\n", "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", "@", "\\", "^", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, "`", "|", Constants.WAVE_SEPARATOR, "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
-    private static final String[] PUNCT_TABLE = {"", "\r", "\r\n", ". ", ", ", ": ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", Constants.ACCEPT_TIME_SEPARATOR_SP, Constants.ACCEPT_TIME_SEPARATOR_SERVER, DefaultConfig.TOKEN_SEPARATOR, "/", ":", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, "<", "=", ">", "?", "[", "]", "{", "}", "CTRL_UL"};
-    private static final String[] DIGIT_TABLE = {"CTRL_PS", HanziToPinyin.Token.SEPARATOR, "0", "1", "2", "3", "4", "5", "6", "7", com.tencent.connect.common.Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "9", Constants.ACCEPT_TIME_SEPARATOR_SP, DefaultConfig.TOKEN_SEPARATOR, "CTRL_UL", "CTRL_US"};
+    private static final String[] UPPER_TABLE = {"CTRL_PS", HanziToPinyin.Token.SEPARATOR, ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "B", "C", "D", ExifInterface.LONGITUDE_EAST, "F", "G", IEruptionStrategyGroup.STRATEGY_MODIFIER_H, "I", "J", "K", "L", "M", "N", DeviceId.CUIDInfo.I_FIXED, "P", "Q", "R", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, "U", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ExifInterface.LONGITUDE_WEST, "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
+    private static final String[] LOWER_TABLE = {"CTRL_PS", HanziToPinyin.Token.SEPARATOR, Config.APP_VERSION_CODE, "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", Config.OS, "p", IXAdRequestInfo.COST_NAME, "r", "s", "t", "u", "v", "w", Config.EVENT_HEAT_X, "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
+    private static final String[] MIXED_TABLE = {"CTRL_PS", HanziToPinyin.Token.SEPARATOR, "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", "\n", "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", "@", IStringUtil.WINDOWS_FOLDER_SEPARATOR, "^", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, "`", "|", Constants.WAVE_SEPARATOR, "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
+    private static final String[] PUNCT_TABLE = {"", "\r", "\r\n", ". ", ", ", ": ", "!", "\"", "#", "$", "%", ETAG.ITEM_SEPARATOR, "'", "(", ")", "*", "+", Constants.ACCEPT_TIME_SEPARATOR_SP, Constants.ACCEPT_TIME_SEPARATOR_SERVER, ".", "/", ":", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, "<", ETAG.EQUAL, ">", "?", "[", "]", "{", "}", "CTRL_UL"};
+    private static final String[] DIGIT_TABLE = {"CTRL_PS", HanziToPinyin.Token.SEPARATOR, "0", "1", "2", "3", "4", "5", "6", "7", "8", PublishType.TYPE_VIDEO_SHARE, Constants.ACCEPT_TIME_SEPARATOR_SP, ".", "CTRL_UL", "CTRL_US"};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum Table {
         UPPER,
         LOWER,

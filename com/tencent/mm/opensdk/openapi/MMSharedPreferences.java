@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import com.baidu.android.imsdk.IMConstants;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.c;
 import java.util.HashMap;
@@ -14,15 +13,15 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class MMSharedPreferences implements SharedPreferences {
     private static final String TAG = "MicroMsg.SDK.SharedPreferences";
     private final ContentResolver cr;
-    private final String[] columns = {IMConstants.MSG_ROW_ID, TiebaInitialize.Params.KEY, "type", "value"};
+    private final String[] columns = {IMConstants.MSG_ROW_ID, "key", "type", "value"};
     private final HashMap<String, Object> values = new HashMap<>();
     private REditor editor = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class REditor implements SharedPreferences.Editor {
         private ContentResolver cr;
         private Map<String, Object> values = new HashMap();
@@ -177,7 +176,7 @@ class MMSharedPreferences implements SharedPreferences {
             if (query == null) {
                 return null;
             }
-            int columnIndex = query.getColumnIndex(TiebaInitialize.Params.KEY);
+            int columnIndex = query.getColumnIndex("key");
             int columnIndex2 = query.getColumnIndex("type");
             int columnIndex3 = query.getColumnIndex("value");
             while (query.moveToNext()) {

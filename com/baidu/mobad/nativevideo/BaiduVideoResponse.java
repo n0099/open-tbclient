@@ -1,8 +1,8 @@
 package com.baidu.mobad.nativevideo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface BaiduVideoResponse {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum PrerollMaterialType {
         NORMAL,
         VIDEO,

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.widget;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -27,18 +28,21 @@ import com.baidu.searchbox.widget.ViewDragHelper;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
-public class SlidingPaneLayout extends ViewGroup {
+/* loaded from: classes9.dex */
+public abstract class SlidingPaneLayout extends ViewGroup {
     private static final int DEFAULT_FADE_COLOR = -858993460;
     static final SlidingPanelLayoutImpl IMPL;
     private static final int MIN_FLING_VELOCITY = 400;
     private static final String TAG = "SlidingPaneLayout";
+    private boolean mAutoSlide;
     private boolean mCanSlide;
     private int mCoveredFadeColor;
     private final ViewDragHelper mDragHelper;
+    private boolean mEnableReleaseWhenNoTranslucent;
     private boolean mFirstLayout;
     private float mInitialMotionX;
     private float mInitialMotionY;
+    private boolean mIsActivityTranslucent;
     private boolean mIsUnableToDrag;
     private final int mOverhangSize;
     private PanelSlideListener mPanelSlideListener;
@@ -53,9 +57,11 @@ public class SlidingPaneLayout extends ViewGroup {
     private View mSlideableView;
     private int mSliderFadeColor;
     private final Rect mTmpRect;
+    private boolean showShadow;
+    private double slideEdgeFactor;
     private double slideWidthFactor;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface PanelSlideListener {
         void onPanelClosed(View view);
 
@@ -65,10 +71,18 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface SlidingPanelLayoutImpl {
         void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view);
     }
+
+    public abstract void attachActivity(Activity activity);
+
+    public abstract void convertActivityFromTranslucent();
+
+    public abstract void convertActivityToTranslucent();
+
+    public abstract void forceActivityTransparent(boolean z);
 
     static {
         if (Build.VERSION.SDK_INT >= 17) {
@@ -78,7 +92,11 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    public void setAutoSlideToRight(boolean z) {
+        this.mAutoSlide = z;
+    }
+
+    /* loaded from: classes9.dex */
     public static class SimplePanelSlideListener implements PanelSlideListener {
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
         public void onPanelSlide(View view, float f) {
@@ -104,10 +122,14 @@ public class SlidingPaneLayout extends ViewGroup {
     public SlidingPaneLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSliderFadeColor = DEFAULT_FADE_COLOR;
+        this.mEnableReleaseWhenNoTranslucent = true;
         this.slideWidthFactor = 0.25d;
+        this.slideEdgeFactor = 0.15d;
+        this.showShadow = true;
         this.mFirstLayout = true;
         this.mTmpRect = new Rect();
         this.mPostedRunnables = new ArrayList<>();
+        this.mAutoSlide = true;
         float f = context.getResources().getDisplayMetrics().density;
         this.mOverhangSize = 5;
         this.mScreenWidth = context.getResources().getDisplayMetrics().widthPixels;
@@ -134,6 +156,14 @@ public class SlidingPaneLayout extends ViewGroup {
 
     public int getSliderFadeColor() {
         return this.mSliderFadeColor;
+    }
+
+    public void setActivityIsTranslucent(boolean z) {
+        this.mIsActivityTranslucent = z;
+    }
+
+    public void setEnableReleaseWhenNoTranslucent(boolean z) {
+        this.mEnableReleaseWhenNoTranslucent = z;
     }
 
     public void setCoveredFadeColor(int i) {
@@ -246,14 +276,13 @@ public class SlidingPaneLayout extends ViewGroup {
         int i3;
         int i4;
         int i5;
-        int i6;
         int paddingTop;
         int makeMeasureSpec;
         int makeMeasureSpec2;
         int makeMeasureSpec3;
         int makeMeasureSpec4;
+        int i6;
         int i7;
-        int i8;
         boolean z;
         float f;
         int mode = View.MeasureSpec.getMode(i);
@@ -263,18 +292,16 @@ public class SlidingPaneLayout extends ViewGroup {
         if (mode != 1073741824) {
             if (isInEditMode()) {
                 if (mode == Integer.MIN_VALUE) {
-                    i3 = mode2;
-                    i4 = size;
-                    i5 = size2;
+                    i3 = size2;
+                    i4 = mode2;
                 } else {
                     if (mode == 0) {
-                        i3 = mode2;
-                        i4 = 300;
-                        i5 = size2;
+                        size = 300;
+                        i3 = size2;
+                        i4 = mode2;
                     }
-                    i3 = mode2;
-                    i4 = size;
-                    i5 = size2;
+                    i3 = size2;
+                    i4 = mode2;
                 }
             } else {
                 throw new IllegalStateException("Width must have an exact value or MATCH_PARENT");
@@ -283,66 +310,64 @@ public class SlidingPaneLayout extends ViewGroup {
             if (mode2 == 0) {
                 if (isInEditMode()) {
                     if (mode2 == 0) {
-                        i3 = Integer.MIN_VALUE;
-                        i4 = size;
-                        i5 = 300;
+                        i3 = 300;
+                        i4 = Integer.MIN_VALUE;
                     }
                 } else {
                     throw new IllegalStateException("Height must not be UNSPECIFIED");
                 }
             }
-            i3 = mode2;
-            i4 = size;
-            i5 = size2;
+            i3 = size2;
+            i4 = mode2;
         }
-        switch (i3) {
+        switch (i4) {
             case Integer.MIN_VALUE:
-                i6 = 0;
-                paddingTop = (i5 - getPaddingTop()) - getPaddingBottom();
+                i5 = 0;
+                paddingTop = (i3 - getPaddingTop()) - getPaddingBottom();
                 break;
             case 1073741824:
-                i6 = (i5 - getPaddingTop()) - getPaddingBottom();
-                paddingTop = i6;
+                i5 = (i3 - getPaddingTop()) - getPaddingBottom();
+                paddingTop = i5;
                 break;
             default:
-                i6 = 0;
+                i5 = 0;
                 paddingTop = -1;
                 break;
         }
         boolean z2 = false;
-        int paddingLeft = (i4 - getPaddingLeft()) - getPaddingRight();
+        int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
         int childCount = getChildCount();
         if (childCount > 2) {
             Log.e(TAG, "onMeasure: More than two child views are not supported.");
         }
         this.mSlideableView = null;
-        int i9 = 0;
-        int i10 = i6;
+        int i8 = 0;
+        int i9 = i5;
         float f2 = 0.0f;
-        while (i9 < childCount) {
-            View childAt = getChildAt(i9);
+        while (i8 < childCount) {
+            View childAt = getChildAt(i8);
             LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
             if (childAt.getVisibility() == 8) {
                 layoutParams.dimWhenOffset = false;
-                i7 = paddingLeft;
+                i6 = paddingLeft;
                 f = f2;
-                i8 = i10;
+                i7 = i9;
                 z = z2;
             } else {
                 if (layoutParams.weight > 0.0f) {
                     f2 += layoutParams.weight;
                     if (layoutParams.width == 0) {
-                        i7 = paddingLeft;
+                        i6 = paddingLeft;
                         f = f2;
-                        i8 = i10;
+                        i7 = i9;
                         z = z2;
                     }
                 }
-                int i11 = layoutParams.leftMargin + layoutParams.rightMargin;
+                int i10 = layoutParams.leftMargin + layoutParams.rightMargin;
                 if (layoutParams.width == -2) {
-                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(i4 - i11, Integer.MIN_VALUE);
+                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(size - i10, Integer.MIN_VALUE);
                 } else if (layoutParams.width == -1) {
-                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(i4 - i11, 1073741824);
+                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(size - i10, 1073741824);
                 } else {
                     makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(layoutParams.width, 1073741824);
                 }
@@ -356,39 +381,39 @@ public class SlidingPaneLayout extends ViewGroup {
                 childAt.measure(makeMeasureSpec3, makeMeasureSpec4);
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
-                if (i3 == Integer.MIN_VALUE && measuredHeight > i10) {
-                    i10 = Math.min(measuredHeight, paddingTop);
+                if (i4 == Integer.MIN_VALUE && measuredHeight > i9) {
+                    i9 = Math.min(measuredHeight, paddingTop);
                 }
-                int i12 = paddingLeft - measuredWidth;
-                boolean z3 = i12 < 0;
+                int i11 = paddingLeft - measuredWidth;
+                boolean z3 = i11 < 0;
                 layoutParams.slideable = z3;
                 boolean z4 = z3 | z2;
                 if (layoutParams.slideable) {
                     this.mSlideableView = childAt;
                 }
-                i7 = i12;
-                i8 = i10;
+                i6 = i11;
+                i7 = i9;
                 float f3 = f2;
                 z = z4;
                 f = f3;
             }
-            i9++;
+            i8++;
             z2 = z;
-            i10 = i8;
+            i9 = i7;
             f2 = f;
-            paddingLeft = i7;
+            paddingLeft = i6;
         }
         if (z2 || f2 > 0.0f) {
-            int i13 = i4 - this.mOverhangSize;
-            for (int i14 = 0; i14 < childCount; i14++) {
-                View childAt2 = getChildAt(i14);
+            int i12 = size - this.mOverhangSize;
+            for (int i13 = 0; i13 < childCount; i13++) {
+                View childAt2 = getChildAt(i13);
                 if (childAt2.getVisibility() != 8) {
                     LayoutParams layoutParams2 = (LayoutParams) childAt2.getLayoutParams();
                     if (childAt2.getVisibility() != 8) {
                         boolean z5 = layoutParams2.width == 0 && layoutParams2.weight > 0.0f;
                         int measuredWidth2 = z5 ? 0 : childAt2.getMeasuredWidth();
                         if (z2 && childAt2 != this.mSlideableView) {
-                            if (layoutParams2.width < 0 && (measuredWidth2 > i13 || layoutParams2.weight > 0.0f)) {
+                            if (layoutParams2.width < 0 && (measuredWidth2 > i12 || layoutParams2.weight > 0.0f)) {
                                 if (z5) {
                                     if (layoutParams2.height == -2) {
                                         makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(paddingTop, Integer.MIN_VALUE);
@@ -400,7 +425,7 @@ public class SlidingPaneLayout extends ViewGroup {
                                 } else {
                                     makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(childAt2.getMeasuredHeight(), 1073741824);
                                 }
-                                childAt2.measure(View.MeasureSpec.makeMeasureSpec(i13, 1073741824), makeMeasureSpec2);
+                                childAt2.measure(View.MeasureSpec.makeMeasureSpec(this.mAutoSlide ? i12 : size, 1073741824), makeMeasureSpec2);
                             }
                         } else if (layoutParams2.weight > 0.0f) {
                             if (layoutParams2.width == 0) {
@@ -415,9 +440,9 @@ public class SlidingPaneLayout extends ViewGroup {
                                 makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(childAt2.getMeasuredHeight(), 1073741824);
                             }
                             if (z2) {
-                                int i15 = i4 - (layoutParams2.rightMargin + layoutParams2.leftMargin);
-                                int makeMeasureSpec5 = View.MeasureSpec.makeMeasureSpec(i15, 1073741824);
-                                if (measuredWidth2 != i15) {
+                                int i14 = size - (layoutParams2.rightMargin + layoutParams2.leftMargin);
+                                int makeMeasureSpec5 = View.MeasureSpec.makeMeasureSpec(i14, 1073741824);
+                                if (measuredWidth2 != i14) {
                                     childAt2.measure(makeMeasureSpec5, makeMeasureSpec);
                                 }
                             } else {
@@ -428,7 +453,7 @@ public class SlidingPaneLayout extends ViewGroup {
                 }
             }
         }
-        setMeasuredDimension(i4, i10);
+        setMeasuredDimension(size, i9);
         this.mCanSlide = z2;
         if (this.mDragHelper.getViewDragState() != 0 && !z2) {
             this.mDragHelper.abort();
@@ -552,13 +577,19 @@ public class SlidingPaneLayout extends ViewGroup {
                     float y2 = motionEvent.getY();
                     float abs = Math.abs(x2 - this.mInitialMotionX);
                     float abs2 = Math.abs(y2 - this.mInitialMotionY);
-                    if ((abs > this.mDragHelper.getTouchSlop() && abs2 > abs) || canScroll(this, false, Math.round(x2 - this.mInitialMotionX), Math.round(x2), Math.round(y2))) {
-                        this.mDragHelper.cancel();
-                        this.mIsUnableToDrag = true;
-                        return false;
+                    int touchSlop = this.mDragHelper.getTouchSlop();
+                    if (abs > 0.0f && abs > abs2 && this.mCanSlide && x2 < this.mScreenWidth * this.slideEdgeFactor) {
+                        z = true;
+                        break;
+                    } else {
+                        if ((abs > touchSlop && abs2 > abs) || canScroll(this, false, Math.round(x2 - this.mInitialMotionX), Math.round(x2), Math.round(y2))) {
+                            this.mDragHelper.cancel();
+                            this.mIsUnableToDrag = true;
+                            return false;
+                        }
+                        z = false;
+                        break;
                     }
-                    z = false;
-                    break;
             }
             try {
                 z2 = this.mDragHelper.shouldInterceptTouchEvent(motionEvent);
@@ -660,7 +691,7 @@ public class SlidingPaneLayout extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPanelDragged(int i) {
-        if (this.mCanSlide) {
+        if (this.mCanSlide && this.mSlideableView != null) {
             LayoutParams layoutParams = (LayoutParams) this.mSlideableView.getLayoutParams();
             this.mSlideOffset = (i - (getPaddingLeft() + layoutParams.leftMargin)) / this.mSlideRange;
             if (this.mParallaxBy != 0) {
@@ -700,7 +731,7 @@ public class SlidingPaneLayout extends ViewGroup {
         boolean drawChild;
         LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
         int save = canvas.save();
-        if (this.mCanSlide && !layoutParams.slideable && this.mSlideableView != null) {
+        if (this.mCanSlide && !layoutParams.slideable && this.mSlideableView != null && this.mAutoSlide) {
             canvas.getClipBounds(this.mTmpRect);
             this.mTmpRect.right = Math.min(this.mTmpRect.right, this.mSlideableView.getLeft());
             canvas.clipRect(this.mTmpRect);
@@ -771,7 +802,7 @@ public class SlidingPaneLayout extends ViewGroup {
         try {
             super.draw(canvas);
             View childAt = getChildCount() > 1 ? getChildAt(1) : null;
-            if (childAt != null && this.mShadowDrawable != null) {
+            if (this.showShadow && childAt != null && this.mShadowDrawable != null) {
                 int intrinsicWidth = this.mShadowDrawable.getIntrinsicWidth();
                 int left = childAt.getLeft();
                 this.mShadowDrawable.setBounds(left - intrinsicWidth, childAt.getTop(), left, childAt.getBottom());
@@ -780,6 +811,10 @@ public class SlidingPaneLayout extends ViewGroup {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void isShowShadow(boolean z) {
+        this.showShadow = z;
     }
 
     private void parallaxOtherViews(float f) {
@@ -859,17 +894,24 @@ public class SlidingPaneLayout extends ViewGroup {
         this.mPreservedOpenState = savedState.isOpen;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     private class DragHelperCallback extends ViewDragHelper.Callback {
+        private final int OFFSET_X;
+        private int currX;
+
         private DragHelperCallback() {
+            this.OFFSET_X = 10;
         }
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
         public boolean tryCaptureView(View view, int i) {
-            if (SlidingPaneLayout.this.mIsUnableToDrag) {
-                return false;
+            if (!SlidingPaneLayout.this.mIsUnableToDrag) {
+                if (!SlidingPaneLayout.this.mIsActivityTranslucent) {
+                    SlidingPaneLayout.this.convertActivityToTranslucent();
+                }
+                return ((LayoutParams) view.getLayoutParams()).slideable;
             }
-            return ((LayoutParams) view.getLayoutParams()).slideable;
+            return false;
         }
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
@@ -893,18 +935,32 @@ public class SlidingPaneLayout extends ViewGroup {
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
         public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
+            this.currX = i;
             SlidingPaneLayout.this.onPanelDragged(i);
             SlidingPaneLayout.this.invalidate();
         }
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
         public void onViewReleased(View view, float f, float f2) {
+            int i;
             int paddingLeft = ((LayoutParams) view.getLayoutParams()).leftMargin + SlidingPaneLayout.this.getPaddingLeft();
-            if (f > 0.0f || (f == 0.0f && SlidingPaneLayout.this.mSlideOffset > 0.25f)) {
-                paddingLeft += SlidingPaneLayout.this.mSlideRange;
+            if (SlidingPaneLayout.this.mEnableReleaseWhenNoTranslucent || SlidingPaneLayout.this.mIsActivityTranslucent) {
+                if (f == 0.0f && SlidingPaneLayout.this.mSlideOffset > 0.25f) {
+                    if (SlidingPaneLayout.this.mAutoSlide) {
+                        i = paddingLeft + SlidingPaneLayout.this.mSlideRange;
+                    } else {
+                        i = paddingLeft + this.currX + 10;
+                    }
+                    SlidingPaneLayout.this.mDragHelper.settleCapturedViewAt(i, view.getTop());
+                    SlidingPaneLayout.this.invalidate();
+                    return;
+                }
+                if (f > 0.0f) {
+                    paddingLeft += SlidingPaneLayout.this.mSlideRange;
+                }
+                SlidingPaneLayout.this.mDragHelper.settleCapturedViewAt(paddingLeft, view.getTop());
+                SlidingPaneLayout.this.invalidate();
             }
-            SlidingPaneLayout.this.mDragHelper.settleCapturedViewAt(paddingLeft, view.getTop());
-            SlidingPaneLayout.this.invalidate();
         }
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
@@ -919,7 +975,15 @@ public class SlidingPaneLayout extends ViewGroup {
         }
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
+        public boolean isPageTranslucent() {
+            return SlidingPaneLayout.this.mIsActivityTranslucent;
+        }
+
+        @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
         public void onEdgeDragStarted(int i, int i2) {
+            if (!SlidingPaneLayout.this.mIsActivityTranslucent) {
+                SlidingPaneLayout.this.convertActivityToTranslucent();
+            }
             SlidingPaneLayout.this.mDragHelper.captureChildView(SlidingPaneLayout.this.mSlideableView, i2);
         }
     }
@@ -929,7 +993,7 @@ public class SlidingPaneLayout extends ViewGroup {
         this.slideWidthFactor = d;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         private static final int[] ATTRS = {16843137};
         Paint dimPaint;
@@ -973,7 +1037,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.searchbox.widget.SlidingPaneLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1008,7 +1072,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     static class SlidingPanelLayoutImplBase implements SlidingPanelLayoutImpl {
         SlidingPanelLayoutImplBase() {
         }
@@ -1019,7 +1083,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     static class SlidingPanelLayoutImplJB extends SlidingPanelLayoutImplBase {
         private Method mGetDisplayList;
         private Field mRecreateDisplayList;
@@ -1054,7 +1118,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     static class SlidingPanelLayoutImplJBMR1 extends SlidingPanelLayoutImplBase {
         SlidingPanelLayoutImplJBMR1() {
         }
@@ -1065,7 +1129,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     class AccessibilityDelegate extends AccessibilityDelegateCompat {
         private final Rect mTmpRect = new Rect();
 
@@ -1135,7 +1199,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public class DisableLayerRunnable implements Runnable {
         final View mChildView;
 

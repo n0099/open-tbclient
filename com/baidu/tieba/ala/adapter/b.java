@@ -5,56 +5,56 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.live.k.a;
-import com.baidu.tieba.ala.data.c;
+import com.baidu.live.q.a;
+import com.baidu.tieba.ala.data.g;
 import com.baidu.tieba.ala.view.e;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private long dtM;
-    private String dtO;
-    private boolean dtP;
-    private ArrayList<c> dun;
+    private String edB;
+    private boolean edC;
+    private long edz;
+    private ArrayList<g> efp;
     private Context mContext;
 
     public b(Context context, String str, long j, boolean z) {
         this.mContext = context;
-        this.dtO = str;
-        this.dtM = j;
-        this.dtP = z;
+        this.edB = str;
+        this.edz = j;
+        this.edC = z;
     }
 
-    public void setData(ArrayList<c> arrayList) {
-        if (this.dun == null) {
-            this.dun = new ArrayList<>();
+    public void setData(ArrayList<g> arrayList) {
+        if (this.efp == null) {
+            this.efp = new ArrayList<>();
         } else {
-            this.dun.clear();
+            this.efp.clear();
         }
         if (arrayList != null) {
-            this.dun.addAll(arrayList);
+            this.efp.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dun == null) {
+        if (this.efp == null) {
             return 0;
         }
-        return this.dun.size();
+        return this.efp.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.dun == null) {
+        if (this.efp == null) {
             return null;
         }
-        return this.dun.get(i);
+        return this.efp.get(i);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        return this.dun == null || this.dun.size() == 0;
+        return this.efp == null || this.efp.size() == 0;
     }
 
     @Override // android.widget.Adapter
@@ -68,14 +68,14 @@ public class b extends BaseAdapter {
         View view2;
         if (view == null) {
             view2 = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_list_item_view, (ViewGroup) null);
-            e eVar2 = new e(this.mContext, view2, this.dtO, this.dtM, this.dtP);
+            e eVar2 = new e(this.mContext, view2, this.edB, this.edz, this.edC);
             view2.setTag(eVar2);
             eVar = eVar2;
         } else {
             eVar = (e) view.getTag();
             view2 = view;
         }
-        eVar.a(this.dun.get(i), i);
+        eVar.a(this.efp.get(i), i);
         return view2;
     }
 }

@@ -2,30 +2,30 @@ package com.baidu.tieba.ala.liveroom.e;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.StringHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private long eec;
-    private TextView eed;
+    private long eTW;
+    private TextView eTX;
     private TbPageContext mContext;
     private View mView;
 
-    public void ci(long j) {
-        if (j > this.eec) {
-            this.eec = j;
-            aRr();
+    public void cO(long j) {
+        if (j > this.eTW) {
+            this.eTW = j;
+            biS();
         }
     }
 
-    public void aRq() {
-        this.eec = 0L;
-        aRr();
+    public void biR() {
+        this.eTW = 0L;
+        biS();
     }
 
-    private void aRr() {
-        this.eed.setText(String.format(this.mContext.getString(a.i.sdk_charm_name), StringHelper.formatTosepara((int) this.eec)));
+    private void biS() {
+        this.eTX.setText(String.format(this.mContext.getString(a.i.sdk_charm_name), StringHelper.formatTosepara((int) this.eTW)));
     }
 
     public View getView() {

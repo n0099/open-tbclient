@@ -43,6 +43,7 @@ public class CmdConfigHttp {
     public static final int CMD_CHANNEL_VIDEO_UNSET_TOP = 1003308;
     public static final int CMD_CHECK_BAIDU_SIM = 1003392;
     public static final int CMD_CHECK_CARD_INFO = 1003442;
+    public static final int CMD_CHECK_POST = 1003451;
     public static final int CMD_CHECK_REAL_NAME = 1003325;
     public static final int CMD_CHECK_SHARE_SDK = 1003417;
     public static final int CMD_CHOSEN_PB_PRAISE = 1003007;
@@ -82,6 +83,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_BOTTLE_FORUM_LIST = 1003316;
     public static final int CMD_GET_CARD_BY_CATEGORY = 1003093;
     public static final int CMD_GET_CARD_DETAIL = 1003094;
+    public static final int CMD_GET_CARD_GIFT_REQ = 1003449;
     public static final int CMD_GET_CATEGORY_CARTOON = 1003096;
     public static final int CMD_GET_CHANNEL_FANS_LIST = 1003314;
     public static final int CMD_GET_EMOTION_EMOTION_CHANGE = 1003355;
@@ -100,6 +102,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_HISTORY_FORUM = 1003394;
     public static final int CMD_GET_HOT_GOD = 1003099;
     public static final int CMD_GET_HOT_THREAD = 1003005;
+    public static final int CMD_GET_IMAGE_WATERMARK_TYPE = 1003448;
     public static final int CMD_GET_INTEREST_LABEL_LIST = 1003333;
     public static final int CMD_GET_LEVLE_INFO = 1001710;
     public static final int CMD_GET_LOCAL_PUSH_DATA = 1003416;
@@ -170,6 +173,7 @@ public class CmdConfigHttp {
     public static final int CMD_PERSONAL_BACKGROUND_GROUP = 1003033;
     public static final int CMD_PERSONAL_BACKGROUND_LIST = 1003034;
     public static final int CMD_PERSONAL_BACKGROUND_SET = 1003036;
+    public static final int CMD_PERSON_CENTER_DYNAMIC_TAB = 1003446;
     public static final int CMD_PERSON_POLYMERIC = 1003181;
     public static final int CMD_PLAY_DURATION_STATISTICS = 1003359;
     public static final int CMD_POST_SEARCH = 1003016;
@@ -189,6 +193,7 @@ public class CmdConfigHttp {
     public static final int CMD_SELECT_SUB_COMMENT = 1003379;
     public static final int CMD_SEND_FREE_GIFT = 1003052;
     public static final int CMD_SET_COMMON_FORUM_STATE = 1003151;
+    public static final int CMD_SET_IMAGE_WATERMARK_TYPE = 1003447;
     public static final int CMD_SET_PENDANT = 1003179;
     public static final int CMD_SET_PERSONAL_CARD = 1003095;
     public static final int CMD_SET_PRIVILEGE = 1003152;
@@ -235,6 +240,7 @@ public class CmdConfigHttp {
     public static final int CMD_VIDEO_MIDDLE_AGGREGATION = 1003378;
     public static final int CMD_VIDEO_PASTER_AD_REQUEST = 1003431;
     public static final int CMD_VIDEO_SUG_MUSIC = 1003366;
+    public static final int CMD_VIDEO_TAB = 1003450;
     public static final int CMD_VIDEO_TEXT_UEG = 1003356;
     public static final int CMD_VOTE_EMOTION = 1003358;
     public static final int CMD_VOTE_THREAD_PULISH = 1003440;

@@ -1,10 +1,11 @@
 package okio;
 
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AsyncTimeout extends Timeout {
     private static final long IDLE_TIMEOUT_MILLIS = TimeUnit.SECONDS.toMillis(60);
     private static final long IDLE_TIMEOUT_NANOS = TimeUnit.MILLISECONDS.toNanos(IDLE_TIMEOUT_MILLIS);
@@ -246,7 +247,7 @@ public class AsyncTimeout extends Timeout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Watchdog extends Thread {
         Watchdog() {
             super("Okio Watchdog");
@@ -288,8 +289,8 @@ public class AsyncTimeout extends Timeout {
         }
         long remainingNanos = asyncTimeout.remainingNanos(System.nanoTime());
         if (remainingNanos > 0) {
-            long j = remainingNanos / 1000000;
-            AsyncTimeout.class.wait(j, (int) (remainingNanos - (1000000 * j)));
+            long j = remainingNanos / TimeUtils.NANOS_PER_MS;
+            AsyncTimeout.class.wait(j, (int) (remainingNanos - (TimeUtils.NANOS_PER_MS * j)));
             return null;
         }
         head.next = asyncTimeout.next;

@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BlueCircleProgressDialog {
     private Activity mActivity;
     private TbPageContext<?> mContext;

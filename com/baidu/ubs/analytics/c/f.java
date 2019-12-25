@@ -1,14 +1,12 @@
 package com.baidu.ubs.analytics.c;
-
-import com.sina.weibo.sdk.statistic.StatisticConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class f {
     private static boolean ak = true;
     private static boolean al = false;
-    private static long am = StatisticConfig.MIN_UPLOAD_INTERVAL;
+    private static long am = 30000;
     private static boolean ap = false;
-    private static long jXt;
-    private static long jXu;
+    private static long kRQ;
+    private static long kRR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(long j) {
@@ -16,22 +14,22 @@ public final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long cBm() {
+    public static long cVe() {
         return am;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long cBn() {
-        return jXt;
+    public static long cVf() {
+        return kRQ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(long j) {
-        jXt = j;
+        kRQ = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean cBo() {
+    public static boolean cVg() {
         return ak;
     }
 
@@ -46,10 +44,10 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void c(long j) {
-        jXu = j;
+        kRR = j;
     }
 
-    public static long cBp() {
-        return jXu;
+    public static long cVh() {
+        return kRR;
     }
 }

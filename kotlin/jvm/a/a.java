@@ -1,5 +1,5 @@
 package kotlin.jvm.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface a<R> {
     R invoke();
 }

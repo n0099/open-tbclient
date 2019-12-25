@@ -2,7 +2,7 @@ package com.tencent.mm.opensdk.openapi;
 
 import android.content.Context;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class WXAPIFactory {
     private static final String TAG = "MicroMsg.PaySdk.WXFactory";
 
@@ -11,7 +11,7 @@ public class WXAPIFactory {
     }
 
     public static IWXAPI createWXAPI(Context context, String str) {
-        return createWXAPI(context, str, true);
+        return createWXAPI(context, str, false);
     }
 
     public static IWXAPI createWXAPI(Context context, String str, boolean z) {

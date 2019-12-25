@@ -8,10 +8,10 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.core.view.NavigationBar;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
     private View mBack;
     private NavigationBar mNavigationBar;

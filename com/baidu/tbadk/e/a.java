@@ -4,136 +4,136 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.e.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static b bTA = null;
-    private static a bTB = null;
-    private static boolean bTC = false;
-    private static String bTD = "";
-    private static transient List<String> bTE = new ArrayList(5);
+    private static b cFY = null;
+    private static a cFZ = null;
+    private static boolean cGa = false;
+    private static String cGb = "";
+    private static transient List<String> cGc = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (bTB == null) {
+        if (cFZ == null) {
             synchronized (a.class) {
-                if (bTB == null) {
-                    bTB = new a();
-                    bTA = b.c(baseFragmentActivity);
+                if (cFZ == null) {
+                    cFZ = new a();
+                    cFY = b.c(baseFragmentActivity);
                 }
             }
-        } else if (bTA != null) {
-            bTA.a(baseFragmentActivity.getPageContext());
+        } else if (cFY != null) {
+            cFY.a(baseFragmentActivity.getPageContext());
         }
-        if (bTC && bTA != null) {
-            bTA.afw();
-            bTA.afx();
-            bTC = false;
+        if (cGa && cFY != null) {
+            cFY.awo();
+            cFY.awp();
+            cGa = false;
         }
-        return bTB;
+        return cFZ;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        aft();
+        awl();
         if (z) {
-            afo();
+            awh();
         }
         if (z2) {
-            afp();
+            awi();
         }
-        dP(z3);
+        fb(z3);
         a(aVar);
     }
 
-    public void afo() {
-        aft();
-        if (bTA != null) {
-            bTA.afw();
-            bTC = false;
+    public void awh() {
+        awl();
+        if (cFY != null) {
+            cFY.awo();
+            cGa = false;
         }
     }
 
-    public void afp() {
-        aft();
-        if (bTA != null) {
-            bTA.afx();
-            bTC = false;
+    public void awi() {
+        awl();
+        if (cFY != null) {
+            cFY.awp();
+            cGa = false;
         }
     }
 
-    public void dP(boolean z) {
-        aft();
-        if (bTA != null) {
-            bTA.dP(z);
+    public void fb(boolean z) {
+        awl();
+        if (cFY != null) {
+            cFY.fb(z);
         }
     }
 
     public void a(b.a aVar) {
-        aft();
-        if (bTA != null) {
-            bTA.c(aVar);
+        awl();
+        if (cFY != null) {
+            cFY.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        aft();
-        if (bTA != null) {
-            if (bTA.afu()) {
-                bTA.c(aVar);
+        awl();
+        if (cFY != null) {
+            if (cFY.awm()) {
+                cFY.c(aVar);
             }
-            bTA.afv();
+            cFY.awn();
         }
     }
 
     public void a(int i, b.a aVar) {
-        aft();
-        if (bTA != null) {
-            if (bTA.afu()) {
-                bTA.c(aVar);
+        awl();
+        if (cFY != null) {
+            if (cFY.awm()) {
+                cFY.c(aVar);
             }
-            bTA.hl(i);
+            cFY.iW(i);
         }
     }
 
-    public void afq() {
-        aft();
-        if (bTA != null) {
-            bTA.afq();
-            bTC = true;
+    public void awj() {
+        awl();
+        if (cFY != null) {
+            cFY.awj();
+            cGa = true;
         }
     }
 
-    public void afr() {
-        aft();
-        if (bTA != null) {
-            bTA.afr();
+    public void resetContext() {
+        awl();
+        if (cFY != null) {
+            cFY.resetContext();
         }
     }
 
-    public void afs() {
-        aft();
-        afr();
-        afq();
+    public void awk() {
+        awl();
+        resetContext();
+        awj();
     }
 
-    private void aft() {
-        if (bTA == null) {
+    private void awl() {
+        if (cFY == null) {
         }
     }
 
-    public static void Pg() {
+    public static void resetAll() {
         try {
-            if (bTA != null) {
-                if (bTB != null) {
-                    bTB.afs();
+            if (cFY != null) {
+                if (cFZ != null) {
+                    cFZ.awk();
                 }
-                bTA.removeCallBack();
-                bTA.afy();
-                bTA = null;
+                cFY.removeCallBack();
+                cFY.awq();
+                cFY = null;
             }
-            if (bTB != null) {
-                bTB = null;
+            if (cFZ != null) {
+                cFZ = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

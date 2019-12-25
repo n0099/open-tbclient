@@ -5,7 +5,7 @@ import android.content.Context;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.mobads.vo.d {
     private int a;
     private int j;

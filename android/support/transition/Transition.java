@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
+import com.google.android.exoplayer2.Format;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class Transition implements Cloneable {
     static final boolean DBG = false;
     private static final String LOG_TAG = "Transition";
@@ -90,18 +91,18 @@ public abstract class Transition implements Cloneable {
     private ArrayList<Animator> mAnimators = new ArrayList<>();
     private PathMotion mPathMotion = STRAIGHT_PATH_MOTION;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class EpicenterCallback {
         public abstract Rect onGetEpicenter(@NonNull Transition transition);
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface MatchOrder {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface TransitionListener {
         void onTransitionCancel(@NonNull Transition transition);
 
@@ -354,7 +355,7 @@ public abstract class Transition implements Cloneable {
         Animator animator;
         Animator animator2;
         ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
-        long j = Long.MAX_VALUE;
+        long j = Format.OFFSET_SAMPLE_RELATIVE;
         SparseIntArray sparseIntArray = new SparseIntArray();
         int size = arrayList.size();
         int i = 0;
@@ -531,7 +532,7 @@ public abstract class Transition implements Cloneable {
 
     @NonNull
     public Transition addTarget(@IdRes int i) {
-        if (i > 0) {
+        if (i != 0) {
             this.mTargetIds.add(Integer.valueOf(i));
         }
         return this;
@@ -563,7 +564,7 @@ public abstract class Transition implements Cloneable {
 
     @NonNull
     public Transition removeTarget(@IdRes int i) {
-        if (i > 0) {
+        if (i != 0) {
             this.mTargetIds.remove(Integer.valueOf(i));
         }
         return this;
@@ -1262,7 +1263,7 @@ public abstract class Transition implements Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class AnimationInfo {
         String mName;
         Transition mTransition;
@@ -1280,7 +1281,7 @@ public abstract class Transition implements Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ArrayListManager {
         private ArrayListManager() {
         }

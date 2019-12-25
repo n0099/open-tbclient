@@ -6,46 +6,46 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private boolean abA;
-    CustomMessageListener afT;
-    private boolean dVA;
-    private Runnable dVB;
-    private Runnable dVC;
-    private AlaFollowRemindView dVv;
-    private Animation dVw;
-    private Animation dVx;
-    private boolean dVy;
-    private com.baidu.tieba.ala.liveroom.b dVz;
+    CustomMessageListener anV;
+    private AlaFollowRemindView eKW;
+    private Animation eKX;
+    private Animation eKY;
+    private boolean eKZ;
+    private com.baidu.tieba.ala.liveroom.b eLa;
+    private Runnable eLb;
+    private Runnable eLc;
+    private boolean eqM;
+    private boolean isShowing;
     private Handler mHandler;
 
-    public void aOa() {
-        this.mHandler.removeCallbacks(this.dVB);
-        this.mHandler.removeCallbacks(this.dVC);
-        aOb();
+    public void bfw() {
+        this.mHandler.removeCallbacks(this.eLb);
+        this.mHandler.removeCallbacks(this.eLc);
+        bfx();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void nA() {
-        super.nA();
-        this.abA = false;
-        this.dVy = false;
+    public void oS() {
+        super.oS();
+        this.isShowing = false;
+        this.eKZ = false;
         this.mHandler.removeCallbacksAndMessages(null);
-        if (this.dVv != null) {
-            this.dVv.clearAnimation();
+        if (this.eKW != null) {
+            this.eKW.clearAnimation();
         }
-        if (this.dVw != null) {
-            this.dVw.cancel();
+        if (this.eKX != null) {
+            this.eKX.cancel();
         }
-        if (this.dVx != null) {
-            this.dVx.cancel();
+        if (this.eKY != null) {
+            this.eKY.cancel();
         }
-        if (this.dVv != null && (this.dVv.getParent() instanceof ViewGroup)) {
-            ViewGroup viewGroup = (ViewGroup) this.dVv.getParent();
-            if (viewGroup.indexOfChild(this.dVv) > 0) {
-                viewGroup.removeView(this.dVv);
+        if (this.eKW != null && (this.eKW.getParent() instanceof ViewGroup)) {
+            ViewGroup viewGroup = (ViewGroup) this.eKW.getParent();
+            if (viewGroup.indexOfChild(this.eKW) > 0) {
+                viewGroup.removeView(this.eKW);
             }
         }
     }
@@ -53,48 +53,48 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
         this.mHandler.removeCallbacksAndMessages(null);
-        if (this.dVv != null) {
-            this.dVv.clearAnimation();
+        if (this.eKW != null) {
+            this.eKW.clearAnimation();
         }
-        if (this.dVw != null) {
-            this.dVw.cancel();
+        if (this.eKX != null) {
+            this.eKX.cancel();
         }
-        if (this.dVx != null) {
-            this.dVx.cancel();
+        if (this.eKY != null) {
+            this.eKY.cancel();
         }
-        MessageManager.getInstance().unRegisterListener(this.afT);
+        MessageManager.getInstance().unRegisterListener(this.anV);
     }
 
-    private void aOb() {
-        if (this.abA) {
-            if (this.dVz != null) {
-                this.dVz.na(2);
+    private void bfx() {
+        if (this.isShowing) {
+            if (this.eLa != null) {
+                this.eLa.pr(2);
             }
-            if (this.dVv != null) {
-                this.dVv.getView().setEnabled(false);
+            if (this.eKW != null) {
+                this.eKW.getView().setEnabled(false);
             }
-            this.dVx = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), a.C0068a.sdk_push_up_out);
-            this.dVx.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.attentionpop.a.1
+            this.eKY = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), a.C0086a.sdk_push_up_out);
+            this.eKY.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.attentionpop.a.1
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    a.this.abA = false;
+                    a.this.isShowing = false;
                     a.this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.attentionpop.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.this.dVv != null && (a.this.dVv.getParent() instanceof ViewGroup)) {
-                                ViewGroup viewGroup = (ViewGroup) a.this.dVv.getParent();
-                                if (viewGroup.indexOfChild(a.this.dVv) > 0) {
-                                    viewGroup.removeView(a.this.dVv);
+                            if (a.this.eKW != null && (a.this.eKW.getParent() instanceof ViewGroup)) {
+                                ViewGroup viewGroup = (ViewGroup) a.this.eKW.getParent();
+                                if (viewGroup.indexOfChild(a.this.eKW) > 0) {
+                                    viewGroup.removeView(a.this.eKW);
                                 }
                             }
                         }
                     });
-                    if (a.this.dVz != null) {
-                        a.this.dVz.nb(2);
+                    if (a.this.eLa != null) {
+                        a.this.eLa.ps(2);
                     }
                 }
 
@@ -102,24 +102,24 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            if (this.dVv != null) {
-                this.dVv.clearAnimation();
-                this.dVv.setAnimation(this.dVx);
-                this.dVx.setDuration(300L);
-                this.dVx.start();
+            if (this.eKW != null) {
+                this.eKW.clearAnimation();
+                this.eKW.setAnimation(this.eKY);
+                this.eKY.setDuration(300L);
+                this.eKY.start();
             }
         }
     }
 
     public boolean isShowing() {
-        return this.abA;
+        return this.isShowing;
     }
 
-    public void hm(boolean z) {
-        this.dVA = z;
+    public void iw(boolean z) {
+        this.eqM = z;
     }
 
-    public boolean aOc() {
-        return this.dVA;
+    public boolean bfy() {
+        return this.eqM;
     }
 }

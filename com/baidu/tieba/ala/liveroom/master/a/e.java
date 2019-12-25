@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.master.a;
 
-import com.baidu.ala.liveRecorder.video.VideoRecorderType;
-/* loaded from: classes6.dex */
+import com.baidu.ala.recorder.video.VideoRecorderType;
+/* loaded from: classes2.dex */
 public class e extends a {
     public e(com.baidu.tieba.ala.liveroom.data.e eVar) {
         super(eVar);
@@ -13,7 +13,7 @@ public class e extends a {
         super.a(s, obj);
         switch (s) {
             case 1:
-                this.dYK.eff.a((short) 2, null);
+                this.eOH.eUZ.a((short) 2, null);
                 return;
             default:
                 return;
@@ -21,35 +21,35 @@ public class e extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aUt() {
-        if (this.dYK != null && this.dYK.efe != null) {
-            if (this.ekl != null) {
-                this.ekl.nJ(2);
+    public void bmk() {
+        if (this.eOH != null && this.eOH.eUY != null) {
+            if (this.faA != null) {
+                this.faA.qa(2);
             }
-            this.dYK.efe.startRecord();
+            this.eOH.eUY.startRecord();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void ab(int i, String str) {
-        if (this.dYK != null && this.dYK.efe.getVideoRecorderType() == VideoRecorderType.SCREEN) {
+    public void aq(int i, String str) {
+        if (this.eOH != null && this.eOH.eUY.getVideoRecorderType() == VideoRecorderType.SCREEN) {
             if (i == 0) {
-                if (this.dYK != null && this.dYK.eff != null && this.mCurrentState != 4) {
-                    this.dYK.eff.a((short) 4, this.eja);
+                if (this.eOH != null && this.eOH.eUZ != null && this.mCurrentState != 4) {
+                    this.eOH.eUZ.a((short) 4, this.eZl);
                 }
-            } else if (this.ekk != null) {
-                this.ekk.onError(i, str);
+            } else if (this.faz != null) {
+                this.faz.onError(i, str);
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aUu() {
-        super.aUu();
+    public void bml() {
+        super.bml();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aUv() {
-        super.aUv();
+    public void bmm() {
+        super.bmm();
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala;
 
-import com.baidu.tbadk.core.data.bh;
-/* loaded from: classes6.dex */
+import com.baidu.tbadk.core.data.bj;
+/* loaded from: classes2.dex */
 public interface d {
-    void I(bh bhVar);
+    void M(bj bjVar);
 }

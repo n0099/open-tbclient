@@ -16,7 +16,7 @@ import com.baidu.mobads.vo.d;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.mobads.production.b implements IXNonLinearAdSlot {
     private c w;
 
@@ -63,8 +63,9 @@ public class a extends com.baidu.mobads.production.b implements IXNonLinearAdSlo
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.mobads.production.b
-    protected void b(d dVar) {
+    public void b(d dVar) {
         this.k = dVar;
         k();
         a((com.baidu.mobads.openad.d.c) null, (v) null, 5000);
@@ -101,8 +102,9 @@ public class a extends com.baidu.mobads.production.b implements IXNonLinearAdSlo
         new Thread(new b(this)).start();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.mobads.production.b
-    protected void e(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+    public void e(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
         super.p();
         dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_USER_CLOSE));
     }

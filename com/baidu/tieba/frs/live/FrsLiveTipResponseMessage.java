@@ -1,13 +1,12 @@
 package com.baidu.tieba.frs.live;
 
-import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FrsLiveTipResponseMessage extends JsonHttpResponsedMessage {
     public AlaLiveInfoCoreData infoCoreData;
     public AlaLiveInfoListCoreData listCoreData;
@@ -62,7 +61,7 @@ public class FrsLiveTipResponseMessage extends JsonHttpResponsedMessage {
         alaLiveInfoCoreData.userID = jSONObject.optLong("user_id");
         alaLiveInfoCoreData.userName = jSONObject.optString("user_name");
         alaLiveInfoCoreData.groupID = jSONObject.optLong("group_id");
-        alaLiveInfoCoreData.sessionID = jSONObject.optString(LogConfig.LOG_SESSION_ID);
+        alaLiveInfoCoreData.sessionID = jSONObject.optString("session_id");
         alaLiveInfoCoreData.liveType = jSONObject.optInt("live_type");
         alaLiveInfoCoreData.screenDirection = jSONObject.optInt("screen_direction");
         alaLiveInfoCoreData.liveTitle = jSONObject.optString("description");

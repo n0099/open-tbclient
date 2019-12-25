@@ -25,6 +25,8 @@ import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapsdkplatform.comapi.map.ac;
 import com.baidu.mapsdkplatform.comapi.map.ak;
+import com.baidu.searchbox.picture.component.BaseBrowseView;
+import com.baidu.webkit.net.BdNetTask;
 import java.io.File;
 /* loaded from: classes5.dex */
 public final class TextureMapView extends ViewGroup {
@@ -63,7 +65,7 @@ public final class TextureMapView extends ViewGroup {
         p.append(6, 200000);
         p.append(7, 100000);
         p.append(8, Integer.valueOf((int) IMConstants.ERROR_BASE));
-        p.append(9, 25000);
+        p.append(9, Integer.valueOf((int) BdNetTask.TIMEOUT_READ));
         p.append(10, Integer.valueOf((int) MessageConfig.SOCKET_TIME_OUT_MS_2G));
         p.append(11, 10000);
         p.append(12, 5000);
@@ -218,7 +220,7 @@ public final class TextureMapView extends ViewGroup {
         layoutParams2.width = -2;
         layoutParams2.height = -2;
         layoutParams2.addRule(14);
-        this.m.setTextColor(Color.parseColor("#000000"));
+        this.m.setTextColor(Color.parseColor(BaseBrowseView.ROOT_VIEW_COLOR));
         this.m.setTextSize(2, 11.0f);
         this.m.setLayoutParams(layoutParams2);
         this.k.addView(this.m);

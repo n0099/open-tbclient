@@ -21,7 +21,7 @@ import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CircularProgressDrawable extends Drawable implements Animatable {
     private static final int ANIMATION_DURATION = 1332;
     private static final int ARROW_HEIGHT = 5;
@@ -52,11 +52,11 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface ProgressDrawableSize {
     }
 
-    public CircularProgressDrawable(Context context) {
+    public CircularProgressDrawable(@NonNull Context context) {
         this.mResources = ((Context) Preconditions.checkNotNull(context)).getResources();
         this.mRing.setColors(COLORS);
         setStrokeWidth(STROKE_WIDTH);
@@ -74,7 +74,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
 
     public void setStyle(int i) {
         if (i == 0) {
-            setSizeParameters(CENTER_RADIUS_LARGE, STROKE_WIDTH_LARGE, 12.0f, 6.0f);
+            setSizeParameters(CENTER_RADIUS_LARGE, 3.0f, 12.0f, 6.0f);
         } else {
             setSizeParameters(CENTER_RADIUS, STROKE_WIDTH, 10.0f, 5.0f);
         }
@@ -99,11 +99,12 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         invalidateSelf();
     }
 
-    public void setStrokeCap(Paint.Cap cap) {
+    public void setStrokeCap(@NonNull Paint.Cap cap) {
         this.mRing.setStrokeCap(cap);
         invalidateSelf();
     }
 
+    @NonNull
     public Paint.Cap getStrokeCap() {
         return this.mRing.getStrokeCap();
     }
@@ -171,11 +172,12 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         invalidateSelf();
     }
 
+    @NonNull
     public int[] getColorSchemeColors() {
         return this.mRing.getColors();
     }
 
-    public void setColorSchemeColors(int... iArr) {
+    public void setColorSchemeColors(@NonNull int... iArr) {
         this.mRing.setColors(iArr);
         this.mRing.setColorIndex(0);
         invalidateSelf();
@@ -283,21 +285,19 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             applyFinishTranslation(f, ring);
         } else if (f != 1.0f || z) {
             float startingRotation = ring.getStartingRotation();
-            if (f < SHRINK_OFFSET) {
-                float f2 = f / SHRINK_OFFSET;
+            if (f < 0.5f) {
                 interpolation = ring.getStartingStartTrim();
-                startingStartTrim = (MATERIAL_INTERPOLATOR.getInterpolation(f2) * 0.79f) + MIN_PROGRESS_ARC + interpolation;
+                startingStartTrim = (MATERIAL_INTERPOLATOR.getInterpolation(f / 0.5f) * 0.79f) + MIN_PROGRESS_ARC + interpolation;
             } else {
-                float f3 = (f - SHRINK_OFFSET) / SHRINK_OFFSET;
                 startingStartTrim = ring.getStartingStartTrim() + 0.79f;
-                interpolation = startingStartTrim - (((1.0f - MATERIAL_INTERPOLATOR.getInterpolation(f3)) * 0.79f) + MIN_PROGRESS_ARC);
+                interpolation = startingStartTrim - (((1.0f - MATERIAL_INTERPOLATOR.getInterpolation((f - 0.5f) / 0.5f)) * 0.79f) + MIN_PROGRESS_ARC);
             }
-            float f4 = startingRotation + (RING_ROTATION * f);
-            float f5 = GROUP_FULL_ROTATION * (this.mRotationCount + f);
+            float f2 = startingRotation + (RING_ROTATION * f);
+            float f3 = GROUP_FULL_ROTATION * (this.mRotationCount + f);
             ring.setStartTrim(interpolation);
             ring.setEndTrim(startingStartTrim);
-            ring.setRotation(f4);
-            setRotation(f5);
+            ring.setRotation(f2);
+            setRotation(f3);
         }
     }
 
@@ -350,7 +350,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Ring {
         Path mArrow;
         int mArrowHeight;

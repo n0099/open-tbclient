@@ -1,36 +1,36 @@
 package com.facebook.datasource;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public abstract class a<T> implements d<T> {
-    protected abstract void a(b<T> bVar);
+    protected abstract void onFailureImpl(b<T> bVar);
 
-    protected abstract void g(b<T> bVar);
+    protected abstract void onNewResultImpl(b<T> bVar);
 
     @Override // com.facebook.datasource.d
-    public void d(b<T> bVar) {
+    public void onNewResult(b<T> bVar) {
         boolean isFinished = bVar.isFinished();
         try {
-            g(bVar);
+            onNewResultImpl(bVar);
         } finally {
             if (isFinished) {
-                bVar.FI();
+                bVar.LR();
             }
         }
     }
 
     @Override // com.facebook.datasource.d
-    public void e(b<T> bVar) {
+    public void onFailure(b<T> bVar) {
         try {
-            a(bVar);
+            onFailureImpl(bVar);
         } finally {
-            bVar.FI();
+            bVar.LR();
         }
     }
 
     @Override // com.facebook.datasource.d
-    public void b(b<T> bVar) {
+    public void onCancellation(b<T> bVar) {
     }
 
     @Override // com.facebook.datasource.d
-    public void f(b<T> bVar) {
+    public void onProgressUpdate(b<T> bVar) {
     }
 }

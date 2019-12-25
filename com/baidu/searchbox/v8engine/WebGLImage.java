@@ -4,43 +4,30 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Base64;
-import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.android.util.media.MimeType;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.searchbox.v8engine.bean.ImageBean;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.smallgame.sdk.Log;
 import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import org.apache.http.HttpHost;
 @NotProguard
-/* loaded from: classes2.dex */
-public class WebGLImage extends EventTargetImpl {
+/* loaded from: classes9.dex */
+public class WebGLImage {
+    private static final boolean DEBUG = false;
     private static final String TAG = "WebGLImage";
     private static HandlerThread sBackgroundThread = null;
     private static Handler sHandler = null;
     private String mBasePath;
     private String mBeforeSrc;
-    private Bitmap mBitmap;
     private long mEnginePtr;
     private String mErrorMsg;
-    private int mHeight;
     private int mImageId;
-    private WebGLImageType mImageType;
     private long mNativePtr;
-    private String mSrc;
-    private int mWidth;
-
-    /* loaded from: classes2.dex */
-    public enum WebGLImageType {
-        HTTP,
-        BDFILE,
-        BASE64,
-        LOCAL,
-        CACHE
-    }
+    private String mSrc = "";
+    private int mWidth = 0;
+    private int mHeight = 0;
 
     private native void nativeOnLoadFailed(long j, String str, int i);
 
@@ -55,10 +42,6 @@ public class WebGLImage extends EventTargetImpl {
     }
 
     private WebGLImage(long j, long j2, String str) {
-        super(V8Engine.getInstance(j2));
-        this.mSrc = "";
-        this.mWidth = 0;
-        this.mHeight = 0;
         this.mNativePtr = 0L;
         this.mEnginePtr = 0L;
         this.mBasePath = "";
@@ -72,47 +55,15 @@ public class WebGLImage extends EventTargetImpl {
     }
 
     public void detach() {
-        int i;
-        boolean z = false;
         this.mNativePtr = 0L;
-        synchronized (WebGLImageLoader.class) {
-            ImageBean.ImageBitmapBean decrease = WebGLImageLoader.sReferenceMap.decrease(this.mSrc);
-            if (decrease != null) {
-                i = decrease.getBitmapByteCount();
-                if (WebGLImageLoader.sBitmapLruCache.get(this.mSrc) == null) {
-                    z = decrease.resetIfNoUsed();
-                }
-            } else {
-                i = 0;
-            }
-        }
-        if (z) {
-            V8Engine.nativeNotifyGCMemoryFree(i);
-        }
     }
 
-    public WebGLImageType getImageType() {
-        return this.mImageType;
-    }
-
-    public Bitmap getBitmap() {
-        return this.mBitmap;
-    }
-
-    private void initWebGLImageType() {
-        if (this.mSrc.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-            this.mImageType = WebGLImageType.HTTP;
-        } else if (this.mSrc.startsWith("bdfile://")) {
-            this.mImageType = WebGLImageType.BDFILE;
-        } else if (this.mSrc.startsWith("data:")) {
-            this.mImageType = WebGLImageType.BASE64;
-        } else {
-            this.mImageType = WebGLImageType.LOCAL;
-        }
+    private static void recycleBitmap(String str) {
+        WebGLImageLoader.recycleBitmap(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String beforeSrc() {
+    public String oldSrc() {
         return this.mBeforeSrc;
     }
 
@@ -120,14 +71,6 @@ public class WebGLImage extends EventTargetImpl {
         if (str != null) {
             this.mBeforeSrc = this.mSrc;
             this.mSrc = str.trim();
-            initWebGLImageType();
-            ImageBean.ImageBitmapBean isWebGLImageInCache = WebGLImageLoader.isWebGLImageInCache(this);
-            if (isWebGLImageInCache != null) {
-                this.mBitmap = isWebGLImageInCache.getBitmap();
-            }
-            if (this.mBitmap != null) {
-                this.mImageType = WebGLImageType.CACHE;
-            }
             WebGLImageLoader.loadImage(this);
         }
     }
@@ -160,14 +103,13 @@ public class WebGLImage extends EventTargetImpl {
         return this.mBasePath;
     }
 
-    public boolean loadBitmapData(Bitmap bitmap) {
+    public boolean setBitmapData(Bitmap bitmap) {
         return this.mNativePtr != 0 && nativeLoadAsset(this.mNativePtr, bitmap);
     }
 
     public void onLoadSuccess(int i) {
         V8Engine v8Engine;
         JSEvent jSEvent = new JSEvent(TrackLoadSettingsAtom.TYPE, this, null);
-        dispatchEvent(jSEvent);
         try {
             v8Engine = V8Engine.getInstance(this.mEnginePtr);
         } catch (Exception e) {
@@ -185,7 +127,6 @@ public class WebGLImage extends EventTargetImpl {
         V8Engine v8Engine;
         this.mErrorMsg = str;
         JSEvent jSEvent = new JSEvent(BdStatsConstant.StatsType.ERROR, this, null);
-        dispatchEvent(jSEvent);
         try {
             v8Engine = V8Engine.getInstance(this.mEnginePtr);
         } catch (Exception e) {
@@ -266,11 +207,11 @@ public class WebGLImage extends EventTargetImpl {
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2 = null;
         try {
-            File file = new File(V8Engine.getInstance(j).getBdFileRealPath());
+            File file = new File(V8Engine.getInstance(j).getBdFileRealPath(), "tmp");
             if (!file.exists()) {
                 file.mkdirs();
             }
-            createTempFile = File.createTempFile("tmp_", DefaultConfig.TOKEN_SEPARATOR + str, file);
+            createTempFile = File.createTempFile("tmp_", "." + str, file);
             Log.e("V8", "saveTempFilePath--file : " + createTempFile);
             fileOutputStream = new FileOutputStream(createTempFile);
         } catch (Throwable th) {
@@ -278,7 +219,7 @@ public class WebGLImage extends EventTargetImpl {
         }
         try {
             fileOutputStream.write(bArr);
-            String str2 = "bdfile://" + createTempFile.getName();
+            String str2 = "bdfile://tmp/" + createTempFile.getName();
             if (fileOutputStream != null) {
                 fileOutputStream.close();
             }
@@ -293,11 +234,11 @@ public class WebGLImage extends EventTargetImpl {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [300=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [277=4] */
     private static void saveBitmapData(byte[] bArr, String str) {
         FileOutputStream fileOutputStream;
         try {
-            File createTempFile = File.createTempFile("tmp_", DefaultConfig.TOKEN_SEPARATOR + str, new File("/sdcard"));
+            File createTempFile = File.createTempFile("tmp_", "." + str, new File("/sdcard"));
             Log.e("V8", "saveBitmapData--file : " + createTempFile);
             fileOutputStream = new FileOutputStream(createTempFile);
         } catch (Throwable th) {
@@ -344,14 +285,14 @@ public class WebGLImage extends EventTargetImpl {
             Bitmap readCanvas = readCanvas(j, 0, 0, i, i2);
             f = (f <= 0.0f || f > 1.0f) ? 0.92f : 0.92f;
             String validFileType = getValidFileType(str);
-            return "data:" + ("image/" + validFileType) + ";base64," + Base64.encodeToString(compressCanvas(readCanvas, i, i2, validFileType, f), 0);
+            return "data:" + ("image/" + validFileType) + ";base64," + Base64.encodeToString(compressCanvas(readCanvas, i, i2, validFileType, f), 2);
         } catch (Throwable th) {
             Log.e("V8", th.getMessage(), th);
             return null;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     private static class CanvasResult {
         @V8JavascriptField
         public String errMsg;
@@ -453,7 +394,7 @@ public class WebGLImage extends EventTargetImpl {
         if ("jpg".equalsIgnoreCase(str) || "image/jpg".equalsIgnoreCase(str)) {
             return "jpg";
         }
-        if ("jpeg".equalsIgnoreCase(str) || "image/jpeg".equalsIgnoreCase(str)) {
+        if ("jpeg".equalsIgnoreCase(str) || MimeType.Image.JPEG.equalsIgnoreCase(str)) {
             return "jpeg";
         }
         return "png";

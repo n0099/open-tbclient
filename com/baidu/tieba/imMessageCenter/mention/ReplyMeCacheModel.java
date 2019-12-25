@@ -3,29 +3,29 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ReplyMeCacheModel extends CacheModel<l, ReplyMessageFragment> {
     public ReplyMeCacheModel(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<l> avZ() {
+    public Class<l> aNJ() {
         return l.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int awa() {
+    public int aNK() {
         return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int awb() {
+    public int aNL() {
         return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String avI() {
+    public String aNs() {
         return "tb_user_replyme";
     }
 }

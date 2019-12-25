@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.base;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class PassBiometricFactory {
     public abstract PassBiometric getBiometric(int i);
 

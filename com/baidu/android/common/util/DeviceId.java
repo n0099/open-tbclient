@@ -23,6 +23,8 @@ import com.baidu.android.common.security.AESUtil;
 import com.baidu.android.common.security.Base64;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.security.SHA1Util;
+import com.baidu.fsg.face.base.b.c;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.CharArrayWriter;
@@ -740,8 +742,8 @@ public final class DeviceId {
             List<CUIDBuddyInfo> collectBuddyInfos2 = collectBuddyInfos(new Intent(ACTION_GLAXY_CUID), z);
             if (collectBuddyInfos2 != null) {
                 File filesDir = this.mContext.getFilesDir();
-                if ("files".equals(filesDir.getName())) {
-                    str3 = "files";
+                if (c.g.equals(filesDir.getName())) {
+                    str3 = c.g;
                 } else {
                     Log.e(TAG, "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                     str3 = filesDir.getName();
@@ -951,7 +953,7 @@ public final class DeviceId {
                 sb.append("\r\n");
             }
             bufferedReader.close();
-            String[] split = new String(AESUtil.decrypt(AES_KEY, AES_KEY, Base64.decode(sb.toString().getBytes()))).split("=");
+            String[] split = new String(AESUtil.decrypt(AES_KEY, AES_KEY, Base64.decode(sb.toString().getBytes()))).split(ETAG.EQUAL);
             if (split != null && split.length == 2) {
                 str3 = split[0];
                 str2 = split[1];
@@ -1037,7 +1039,7 @@ public final class DeviceId {
                 }
                 file2.mkdirs();
                 FileWriter fileWriter = new FileWriter(file3, false);
-                fileWriter.write(Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, (str + "=" + str2).getBytes()), "utf-8"));
+                fileWriter.write(Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, (str + ETAG.EQUAL + str2).getBytes()), "utf-8"));
                 fileWriter.flush();
                 fileWriter.close();
             } catch (IOException e) {

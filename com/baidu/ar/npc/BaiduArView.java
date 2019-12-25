@@ -12,6 +12,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import com.baidu.ar.npc.ArBridge;
 import com.baidu.ar.npc.RendererUtils;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -205,7 +206,7 @@ public class BaiduArView extends GLSurfaceView {
     public void onResume() {
         ArBridge.getInstance().registerMessageHandler(11, this.a);
         super.onResume();
-        Log.d(b, "onResume");
+        Log.d(b, MissionEvent.MESSAGE_RESUME);
         Log.d("callseq", "BaiduArView::resume()");
         ArBridge.getInstance().setArView(this);
     }
@@ -213,7 +214,7 @@ public class BaiduArView extends GLSurfaceView {
     @Override // android.opengl.GLSurfaceView
     public void onPause() {
         ArBridge.getInstance().removeMessageHandeler(this.a);
-        Log.d(b, "onPause");
+        Log.d(b, MissionEvent.MESSAGE_PAUSE);
         Log.d("callseq", "BaiduArView::pause()");
         ArBridge.getInstance().a();
         ArBridge.getInstance().setArView(null);

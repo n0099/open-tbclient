@@ -15,12 +15,12 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.sapi2.SapiContext;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMUserLoginByTokenMsg extends Message {
     public static int sRetrytimes = 0;
     private String cFrom;
@@ -96,7 +96,7 @@ public class IMUserLoginByTokenMsg extends Message {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
             jSONObject2.put(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.SDK_INT + "");
-            jSONObject2.put("platform", "android");
+            jSONObject2.put("platform", PraiseDataPassUtil.KEY_FROM_OS);
             jSONObject2.put("appid", this.mAppid + "");
             jSONObject2.put("from", this.mFrom);
             jSONObject2.put(BdStatsConstant.StatsKey.CURRENT_CHANNEL, this.cFrom);
@@ -115,11 +115,11 @@ public class IMUserLoginByTokenMsg extends Message {
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) throws JSONException {
         LogUtils.d(this.TAG, "handleLoginMsg errCode: " + i + " msg:" + str);
         long currentTimeMillis = System.currentTimeMillis();
-        String str2 = LivenessStat.TYPE_STRING_DEFAULT;
+        String str2 = "-1";
         if (i == 0) {
             sRetrytimes = 0;
             LogUtils.d(this.TAG, "Logined");
-            String optString = jSONObject.optString("logid", LivenessStat.TYPE_STRING_DEFAULT);
+            String optString = jSONObject.optString("logid", "-1");
             long optLong = jSONObject.optLong("uk", -1L);
             long optLong2 = jSONObject.optJSONArray(Constants.KEY_TRIGGER_ID).optLong(0);
             int optInt = jSONObject.optInt("authority", -1);

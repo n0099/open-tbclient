@@ -9,7 +9,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.f;
 import com.meizu.cloud.pushsdk.util.c;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<f> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

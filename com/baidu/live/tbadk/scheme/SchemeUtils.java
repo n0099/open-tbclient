@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Set;
 import org.apache.http.HttpHost;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SchemeUtils {
     private static final String DEFAULT_PROTOCOL = "bdlive";
     private static Set<String> protocolSet = new HashSet();

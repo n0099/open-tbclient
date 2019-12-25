@@ -10,36 +10,36 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d {
-    private boolean akM;
-    private String akN;
-    private int akT;
-    private int akU;
-    private int akV;
-    private int akW;
-    private View.OnClickListener akZ;
-    private boolean ala;
+    private boolean asQ;
+    private String asR;
+    private int asX;
+    private int asY;
+    private int asZ;
+    private int ata;
+    private View.OnClickListener atd;
+    private boolean ate;
     private String mMessage;
     private TbPageContext mPageContext;
     private View mTargetView;
     private Handler mHandler = null;
-    private com.baidu.adp.lib.guide.c eVs = null;
-    private int akO = R.drawable.pic_sign_tip;
-    private int akP = 0;
-    private int akQ = 1;
-    private int akR = 1000;
-    private int akS = 3000;
+    private com.baidu.adp.lib.guide.c fJZ = null;
+    private int asS = R.drawable.pic_sign_tip;
+    private int asT = 0;
+    private int asU = 1;
+    private int asV = 1000;
+    private int asW = 3000;
     private int mXOffset = 5;
     private int mYOffset = 0;
-    private int akX = 48;
-    private int akY = 4;
+    private int atb = 48;
+    private int atc = 4;
     private boolean mUseDirectOffset = false;
-    private Runnable alb = new Runnable() { // from class: com.baidu.tieba.c.d.1
+    private Runnable atf = new Runnable() { // from class: com.baidu.tieba.c.d.1
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.eVs == null && !StringUtils.isNull(d.this.mMessage)) {
-                if (!d.this.ala || d.this.uR()) {
+            if (d.this.fJZ == null && !StringUtils.isNull(d.this.mMessage)) {
+                if (!d.this.ate || d.this.wQ()) {
                     com.baidu.adp.lib.guide.d dVar = new com.baidu.adp.lib.guide.d();
-                    dVar.y(d.this.mTargetView).I(0).B(true).C(true);
+                    dVar.y(d.this.mTargetView).J(0).F(true).G(true);
                     dVar.a(new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.c.d.1.1
                         @Override // com.baidu.adp.lib.guide.b
                         public View getView(LayoutInflater layoutInflater) {
@@ -49,23 +49,23 @@ public class d {
                             am.setViewTextColor(textView, (int) R.color.cp_cont_a);
                             textView.setTextSize(0, d.this.mPageContext.getResources().getDimensionPixelSize(R.dimen.fontsize28));
                             textView.setHeight(d.this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds76));
-                            textView.setPadding(d.this.akT, d.this.akU, d.this.akV, d.this.akW);
+                            textView.setPadding(d.this.asX, d.this.asY, d.this.asZ, d.this.ata);
                             textView.setSingleLine(true);
-                            am.setBackgroundResource(textView, d.this.akO);
-                            if (d.this.akZ != null) {
-                                textView.setOnClickListener(d.this.akZ);
+                            am.setBackgroundResource(textView, d.this.asS);
+                            if (d.this.atd != null) {
+                                textView.setOnClickListener(d.this.atd);
                             }
                             return textView;
                         }
 
                         @Override // com.baidu.adp.lib.guide.b
                         public int getAnchor() {
-                            return d.this.akY;
+                            return d.this.atc;
                         }
 
                         @Override // com.baidu.adp.lib.guide.b
                         public int getFitPosition() {
-                            return d.this.akX;
+                            return d.this.atb;
                         }
 
                         @Override // com.baidu.adp.lib.guide.b
@@ -78,114 +78,114 @@ public class d {
                             return d.this.mYOffset;
                         }
                     });
-                    d.this.eVs = dVar.fu();
-                    d.this.eVs.setShouldCheckLocInWindow(false);
-                    d.this.eVs.setUseDirectOffset(d.this.mUseDirectOffset);
-                    d.this.eVs.show(d.this.mPageContext.getPageActivity());
-                    d.this.akM = true;
-                    d.this.uP();
-                    d.this.mHandler.postDelayed(d.this.alc, d.this.akS);
+                    d.this.fJZ = dVar.fI();
+                    d.this.fJZ.setShouldCheckLocInWindow(false);
+                    d.this.fJZ.setUseDirectOffset(d.this.mUseDirectOffset);
+                    d.this.fJZ.show(d.this.mPageContext.getPageActivity());
+                    d.this.asQ = true;
+                    d.this.wO();
+                    d.this.mHandler.postDelayed(d.this.atg, d.this.asW);
                 }
             }
         }
     };
-    private Runnable alc = new Runnable() { // from class: com.baidu.tieba.c.d.2
+    private Runnable atg = new Runnable() { // from class: com.baidu.tieba.c.d.2
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.eVs != null) {
-                d.this.eVs.dismiss();
+            if (d.this.fJZ != null) {
+                d.this.fJZ.dismiss();
             }
         }
     };
 
-    public void pe(int i) {
-        this.akY = i;
+    public void rl(int i) {
+        this.atc = i;
     }
 
-    public void bA(int i) {
-        this.akX = i;
+    public void bS(int i) {
+        this.atb = i;
     }
 
     public d(TbPageContext tbPageContext, View view) {
-        this.akT = 0;
-        this.akU = 0;
-        this.akV = 0;
-        this.akW = 0;
+        this.asX = 0;
+        this.asY = 0;
+        this.asZ = 0;
+        this.ata = 0;
         this.mPageContext = tbPageContext;
         this.mTargetView = view;
-        this.akT = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.akU = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.akV = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.akW = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds10);
+        this.asX = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.asY = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.asZ = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.ata = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds10);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uP() {
-        com.baidu.tbadk.core.sharedPref.b.alP().putInt(this.akN, this.akP + 1);
+    public void wO() {
+        com.baidu.tbadk.core.sharedPref.b.aCY().putInt(this.asR, this.asT + 1);
     }
 
-    public void R(String str, String str2) {
+    public void Z(String str, String str2) {
         c(str, str2, false);
     }
 
     public void c(String str, String str2, boolean z) {
-        if (!this.akM && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.mTargetView != null && this.mTargetView.getVisibility() == 0) {
+        if (!this.asQ && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.mTargetView != null && this.mTargetView.getVisibility() == 0) {
             this.mMessage = str;
-            this.akN = str2;
-            this.akP = com.baidu.tbadk.core.sharedPref.b.alP().getInt(str2, 0);
-            if (this.akP < this.akQ) {
+            this.asR = str2;
+            this.asT = com.baidu.tbadk.core.sharedPref.b.aCY().getInt(str2, 0);
+            if (this.asT < this.asU) {
                 if (z) {
-                    uP();
-                    this.akM = true;
+                    wO();
+                    this.asQ = true;
                 }
                 if (this.mHandler == null) {
                     this.mHandler = new Handler();
                 }
-                this.mHandler.postDelayed(this.alb, this.akR);
+                this.mHandler.postDelayed(this.atf, this.asV);
             }
         }
     }
 
-    public void uK(String str) {
+    public void zC(String str) {
         if (!StringUtils.isNull(str)) {
             this.mMessage = str;
             if (this.mHandler == null) {
                 this.mHandler = new Handler();
             }
-            this.mHandler.postDelayed(this.alb, this.akR);
+            this.mHandler.postDelayed(this.atf, this.asV);
         }
     }
 
-    public void uQ() {
-        if (this.eVs != null) {
-            this.eVs.dismiss();
-            this.eVs = null;
+    public void wP() {
+        if (this.fJZ != null) {
+            this.fJZ.dismiss();
+            this.fJZ = null;
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.alb);
-            this.mHandler.removeCallbacks(this.alc);
+            this.mHandler.removeCallbacks(this.atf);
+            this.mHandler.removeCallbacks(this.atg);
         }
     }
 
-    public void bB(int i) {
+    public void bT(int i) {
         if (i > 0) {
-            this.akO = i;
+            this.asS = i;
         }
     }
 
-    public void bC(int i) {
+    public void bU(int i) {
         if (i > 0) {
-            this.akS = i;
+            this.asW = i;
         }
     }
 
-    public void pf(int i) {
+    public void rm(int i) {
         if (i > 0) {
-            this.akQ = i;
+            this.asU = i;
         }
     }
 
-    public void pg(int i) {
+    public void rn(int i) {
         this.mXOffset = i;
     }
 
@@ -193,22 +193,22 @@ public class d {
         this.mYOffset = i;
     }
 
-    public void t(int i, int i2, int i3, int i4) {
-        this.akT = i;
-        this.akU = i2;
-        this.akV = i3;
-        this.akW = i4;
+    public void x(int i, int i2, int i3, int i4) {
+        this.asX = i;
+        this.asY = i2;
+        this.asZ = i3;
+        this.ata = i4;
     }
 
     public void c(View.OnClickListener onClickListener) {
-        this.akZ = onClickListener;
+        this.atd = onClickListener;
     }
 
-    public void iX(boolean z) {
-        this.ala = z;
+    public void kj(boolean z) {
+        this.ate = z;
     }
 
-    public boolean uR() {
+    public boolean wQ() {
         return this.mTargetView != null && this.mTargetView.getVisibility() == 0 && ((double) this.mTargetView.getAlpha()) >= 0.4d;
     }
 

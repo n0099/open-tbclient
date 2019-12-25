@@ -9,7 +9,6 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.h;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes.dex */
 public class g extends TextureView implements h {
     private a a;
@@ -74,7 +73,7 @@ public class g extends TextureView implements h {
     }
 
     private void a(int i) {
-        int d = (this.e.d() + SubsamplingScaleImageView.ORIENTATION_180) % 360;
+        int d = (this.e.d() + 180) % 360;
         CyberLog.i("CyberTextureView", "updateRotation rotate:" + i + " drawFrameRotation:" + d);
         setRotation(d);
         requestLayout();

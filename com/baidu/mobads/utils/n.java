@@ -11,6 +11,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.utils.IBase64;
 import com.baidu.mobads.interfaces.utils.IXAdPackageUtils;
@@ -21,7 +22,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class n implements IXAdPackageUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdPackageUtils
     public boolean isInstalled(Context context, String str) {
@@ -83,7 +84,7 @@ public class n implements IXAdPackageUtils {
                         intent.addFlags(268435456);
                         c = Uri.fromFile(file);
                     } else {
-                        intent.addFlags(268435457);
+                        intent.addFlags(RouterCallback.CODE_ERROR);
                         c = c(context, file);
                     }
                     if (c == null) {

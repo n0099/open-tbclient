@@ -1,143 +1,108 @@
 package com.baidu.swan.apps.p;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.an.ac;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.res.widget.dialog.c;
-import com.baidu.swan.apps.storage.b.e;
-import com.facebook.drawee.view.SimpleDraweeView;
-import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
-public class a {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e aQJ;
-    private SharedPreferences.Editor aQK;
-
-    /* renamed from: com.baidu.swan.apps.p.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0191a {
-        void EW();
+import android.util.Pair;
+import com.baidu.swan.apps.api.a.c;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class a extends c {
+    public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
+        super(bVar);
     }
 
-    private a() {
-        this.aQJ = new e("aiapps_guide_dialog_sp");
-        this.aQK = this.aQJ.edit();
+    public com.baidu.swan.apps.api.b.b hC(String str) {
+        if (DEBUG) {
+            Log.d("Api-GameCenterApi", "postGameCenterMessage: " + str);
+        }
+        Pair<com.baidu.swan.apps.api.b.b, JSONObject> ag = com.baidu.swan.apps.api.c.b.ag("Api-GameCenterApi", str);
+        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) ag.first;
+        if (!bVar.isSuccess()) {
+            com.baidu.swan.apps.console.c.e("Api-GameCenterApi", "parse fail");
+            return bVar;
+        }
+        JSONObject jSONObject = (JSONObject) ag.second;
+        String optString = jSONObject.optString("cb");
+        if (TextUtils.isEmpty(optString)) {
+            com.baidu.swan.apps.console.c.e("Api-GameCenterApi", "empty cb");
+            return new com.baidu.swan.apps.api.b.b(202, "empty cb");
+        }
+        return a(jSONObject, new C0258a(optString));
+    }
+
+    public com.baidu.swan.apps.api.b.b hD(String str) {
+        if (DEBUG) {
+            Log.d("Api-GameCenterApi", "postGameCenterMessageSync: " + str);
+        }
+        Pair<com.baidu.swan.apps.api.b.b, JSONObject> ag = com.baidu.swan.apps.api.c.b.ag("Api-GameCenterApi", str);
+        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) ag.first;
+        if (!bVar.isSuccess()) {
+            com.baidu.swan.apps.console.c.e("Api-GameCenterApi", "parse fail");
+            return bVar;
+        }
+        return a((JSONObject) ag.second, new b());
+    }
+
+    private com.baidu.swan.apps.api.b.b a(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.p.b bVar) {
+        String optString = jSONObject.optString("api");
+        if (TextUtils.isEmpty(optString)) {
+            return new com.baidu.swan.apps.api.b.b(202, "empty api name");
+        }
+        JSONObject optJSONObject = jSONObject.optJSONObject("params");
+        if (optJSONObject == null) {
+            optJSONObject = new JSONObject();
+        }
+        com.baidu.swan.apps.api.b.b a = com.baidu.swan.apps.w.a.Se().a(optString, optJSONObject, bVar);
+        if (a == null) {
+            return new com.baidu.swan.apps.api.b.b(0);
+        }
+        return a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public static final class b {
-        private static final a aQO = new a();
-    }
+    /* renamed from: com.baidu.swan.apps.p.a$a  reason: collision with other inner class name */
+    /* loaded from: classes9.dex */
+    public class C0258a implements com.baidu.swan.apps.p.b {
+        private String bqc;
 
-    public static a IH() {
-        return b.aQO;
-    }
-
-    private boolean B(@NonNull Activity activity) {
-        boolean II = II();
-        if (DEBUG) {
-            Log.e("SwanAppGuideDialogManager", "is first in " + II);
+        private C0258a(String str) {
+            this.bqc = str;
         }
-        if (II) {
-            return true;
+
+        @Override // com.baidu.swan.apps.p.b
+        public void K(@Nullable JSONObject jSONObject) {
+            a.this.a(this.bqc, jSONObject == null ? new com.baidu.swan.apps.api.b.b(0) : new com.baidu.swan.apps.api.b.b(0, jSONObject));
         }
-        int D = D(activity);
-        int bb = bb(activity);
-        if (DEBUG) {
-            Log.e("SwanAppGuideDialogManager", "version =" + D + " curVerCode" + bb);
-        }
-        return bb > D;
-    }
 
-    private int bb(@NonNull Context context) {
-        PackageInfo W = ac.W(context, context.getPackageName());
-        if (W != null) {
-            return W.versionCode;
-        }
-        return -1;
-    }
-
-    public boolean b(@NonNull WeakReference<Activity> weakReference) {
-        com.baidu.swan.apps.ae.b Ra;
-        if (weakReference == null || weakReference.get() == null) {
-            return false;
-        }
-        Activity activity = weakReference.get();
-        if (!TextUtils.equals("0", IK()) && (Ra = com.baidu.swan.apps.ae.b.Ra()) != null && !Ra.Rl().getBoolean("boolean_var_key_fav_guide_show", false)) {
-            return B(activity) && !TextUtils.isEmpty(IJ());
-        }
-        return false;
-    }
-
-    private void C(@NonNull Activity activity) {
-        bD(false);
-        dt(bb(activity));
-    }
-
-    private void bD(boolean z) {
-        this.aQK.putBoolean("new_first_in", z).apply();
-    }
-
-    private boolean II() {
-        return this.aQJ.getBoolean("new_first_in", true);
-    }
-
-    private void dt(int i) {
-        if (DEBUG) {
-            Log.e("SwanAppGuideDialogManager", "versionCode " + i);
-        }
-        this.aQK.putInt("up_first_in", i).apply();
-    }
-
-    private int D(Activity activity) {
-        return this.aQJ.getInt("up_first_in", bb(activity));
-    }
-
-    public String IJ() {
-        return this.aQJ.getString("url", "");
-    }
-
-    public String IK() {
-        return this.aQJ.getString("switch", "1");
-    }
-
-    public boolean a(@NonNull Activity activity, String str, final InterfaceC0191a interfaceC0191a) {
-        if (activity == null || activity.isFinishing() || !SwanAppNetworkUtils.isNetworkConnected(activity)) {
-            return false;
-        }
-        final c cVar = new c(activity, a.i.SwanFavoriteGuideDialog);
-        com.baidu.swan.apps.an.b.b(activity, cVar);
-        cVar.setContentView(a.g.aiapps_entry_guide_layout);
-        cVar.findViewById(a.f.root).setBackground(activity.getResources().getDrawable(a.e.aiapps_entry_guide_bg));
-        cVar.findViewById(a.f.nightmode_mask).setVisibility(com.baidu.swan.apps.u.a.JE().Kd() ? 0 : 8);
-        ((SimpleDraweeView) cVar.findViewById(a.f.aiapps_guide_image)).setImageURI(str);
-        cVar.findViewById(a.f.aiapps_split_line).setBackgroundColor(activity.getResources().getColor(a.c.aiapps_entry_guide_split_line3));
-        TextView textView = (TextView) cVar.findViewById(a.f.aiapps_bottom_button);
-        textView.setOnTouchListener(new com.baidu.swan.apps.p.b());
-        textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.p.a.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                cVar.dismiss();
-                if (interfaceC0191a != null) {
-                    interfaceC0191a.EW();
-                }
+        @Override // com.baidu.swan.apps.p.b
+        public void onFail(int i, @Nullable String str) {
+            if (c.DEBUG && i == 0) {
+                Log.e("Api-GameCenterApi", "GameCenterCallback:onFail errCode cannot be ERR_OK.");
             }
-        });
-        cVar.show();
-        C(activity);
-        if (DEBUG) {
-            Log.e("SwanAppGuideDialogManager", "dialog has shown");
+            a.this.a(this.bqc, str == null ? new com.baidu.swan.apps.api.b.b(i) : new com.baidu.swan.apps.api.b.b(i, str));
         }
-        return true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes9.dex */
+    public class b implements com.baidu.swan.apps.p.b {
+        private b() {
+        }
+
+        @Override // com.baidu.swan.apps.p.b
+        public void K(@Nullable JSONObject jSONObject) {
+            if (c.DEBUG) {
+                Log.e("Api-GameCenterApi", "GameCenterEmptyCallback:onSuccess could not be invoked.");
+            }
+        }
+
+        @Override // com.baidu.swan.apps.p.b
+        public void onFail(int i, @Nullable String str) {
+            if (c.DEBUG) {
+                Log.e("Api-GameCenterApi", "GameCenterEmptyCallback:onFail could not be invoked.");
+            }
+        }
     }
 }

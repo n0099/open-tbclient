@@ -7,7 +7,7 @@ import org.java_websocket.drafts.Draft;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 import org.java_websocket.framing.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class b implements d {
     @Override // org.java_websocket.d
     public i onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, org.java_websocket.c.a aVar) throws InvalidDataException {

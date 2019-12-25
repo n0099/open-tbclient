@@ -44,9 +44,10 @@ import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.down.manage.DownloadConstants;
 import java.lang.reflect.Method;
 import java.util.WeakHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SearchView extends LinearLayoutCompat implements CollapsibleActionView {
     static final boolean DBG = false;
     static final AutoCompleteTextViewReflector HIDDEN_METHOD_INVOKER = new AutoCompleteTextViewReflector();
@@ -103,19 +104,19 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     private boolean mVoiceButtonEnabled;
     private final Intent mVoiceWebSearchIntent;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnCloseListener {
         boolean onClose();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnQueryTextListener {
         boolean onQueryTextChange(String str);
 
         boolean onQueryTextSubmit(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnSuggestionListener {
         boolean onSuggestionClick(int i);
 
@@ -827,7 +828,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.v7.widget.SearchView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1079,7 +1080,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         return context.getResources().getConfiguration().orientation == 2;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class UpdatableTouchDelegate extends TouchDelegate {
         private final Rect mActualBounds;
         private boolean mDelegateTargeted;
@@ -1150,7 +1151,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SearchAutoComplete extends AppCompatAutoCompleteTextView {
         private boolean mHasPendingShowSoftInputRequest;
         final Runnable mRunShowSoftInputIfNecessary;
@@ -1260,12 +1261,12 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 return 256;
             }
             if (i >= 600 || (i >= 640 && i2 >= 480)) {
-                return 192;
+                return DownloadConstants.STATUS_RUNNING;
             }
             return 160;
         }
 
-        @Override // android.widget.TextView, android.view.View
+        @Override // android.support.v7.widget.AppCompatAutoCompleteTextView, android.widget.TextView, android.view.View
         public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
             InputConnection onCreateInputConnection = super.onCreateInputConnection(editorInfo);
             if (this.mHasPendingShowSoftInputRequest) {
@@ -1301,7 +1302,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class AutoCompleteTextViewReflector {
         private Method doAfterTextChanged;
         private Method doBeforeTextChanged;

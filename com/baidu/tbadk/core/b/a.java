@@ -1,64 +1,54 @@
 package com.baidu.tbadk.core.b;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.adp.lib.f.e;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
-public abstract class a {
-    public BdUniqueId bVH;
-    public HttpResponsedMessage bVI;
+public class a {
+    private static a cHX;
+    private Runnable cHY = new Runnable() { // from class: com.baidu.tbadk.core.b.a.1
+        @Override // java.lang.Runnable
+        public void run() {
+            a.this.jc(0);
+        }
+    };
 
-    private a() {
+    public static a axu() {
+        if (cHX == null) {
+            synchronized (a.class) {
+                if (cHX == null) {
+                    cHX = new a();
+                }
+            }
+        }
+        return cHX;
     }
 
-    /* renamed from: com.baidu.tbadk.core.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0276a extends a {
-        public long channelId;
-
-        public C0276a() {
-            super();
-        }
-
-        public static C0276a a(long j, BdUniqueId bdUniqueId) {
-            C0276a c0276a = new C0276a();
-            c0276a.channelId = j;
-            c0276a.bVH = bdUniqueId;
-            return c0276a;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class c extends a {
-        public long channelId;
-
-        public c() {
-            super();
-        }
-
-        public static c b(long j, BdUniqueId bdUniqueId) {
-            c cVar = new c();
-            cVar.channelId = j;
-            cVar.bVH = bdUniqueId;
-            return cVar;
+    public void jc(int i) {
+        try {
+            Bundle bundle = new Bundle();
+            bundle.putString("package", "com.baidu.tieba");
+            bundle.putString(DealIntentService.KEY_CLASS, "com.baidu.tieba.LogoActivity");
+            bundle.putInt("badgenumber", i);
+            TbadkApplication.getInst().getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", (String) null, bundle);
+        } catch (Throwable th) {
+            Log.i("huawei_corner", th.getMessage());
         }
     }
 
-    /* loaded from: classes.dex */
-    public static class b extends a {
-        public boolean bVJ;
-        public long channelId;
-        public boolean isOpen;
+    public boolean axv() {
+        return ak.check(RomUtils.ROM_EMUI);
+    }
 
-        public b() {
-            super();
-        }
-
-        public static b a(long j, boolean z, BdUniqueId bdUniqueId) {
-            b bVar = new b();
-            bVar.channelId = j;
-            bVar.bVH = bdUniqueId;
-            bVar.isOpen = z;
-            return bVar;
+    public void axw() {
+        if (axv()) {
+            jc(1);
+            e.gy().postDelayed(this.cHY, 500L);
         }
     }
 }

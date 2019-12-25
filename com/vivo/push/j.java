@@ -10,7 +10,7 @@ import com.vivo.push.model.UnvarnishedMessage;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class j implements Runnable {
     final /* synthetic */ UnvarnishedMessage a;
     final /* synthetic */ LocalAliasTagsManager.LocalMessageCallback b;

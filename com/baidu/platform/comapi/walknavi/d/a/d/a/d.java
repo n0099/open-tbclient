@@ -1,14 +1,13 @@
 package com.baidu.platform.comapi.walknavi.d.a.d.a;
 
 import com.baidu.platform.comapi.walknavi.d.a.d.a.c;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
-public final class d implements c.b {
-    final /* synthetic */ c.InterfaceC0116c a;
+final class d implements c.b {
+    final /* synthetic */ c.InterfaceC0132c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c.InterfaceC0116c interfaceC0116c) {
-        this.a = interfaceC0116c;
+    public d(c.InterfaceC0132c interfaceC0132c) {
+        this.a = interfaceC0132c;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.d.a.c.a
@@ -16,7 +15,7 @@ public final class d implements c.b {
         return false;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.d.a.d.a.c.InterfaceC0116c
+    @Override // com.baidu.platform.comapi.walknavi.d.a.d.a.c.InterfaceC0132c
     public void a(long j, long j2) {
         if (this.a != null) {
             this.a.a(j, j2);

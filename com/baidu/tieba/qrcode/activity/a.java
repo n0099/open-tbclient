@@ -1,15 +1,15 @@
 package com.baidu.tieba.qrcode.activity;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface a {
-    void Ch(String str);
+    void GW(String str);
 
-    void ceJ();
+    void cyP();
 
-    void ceK();
+    void cyQ();
 
-    void ceL();
+    void cyR();
 
-    void ceM();
+    void cyS();
 
-    void dH(String str, String str2);
+    void ea(String str, String str2);
 }

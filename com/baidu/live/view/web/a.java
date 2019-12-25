@@ -4,12 +4,12 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
-    protected g ate;
+    protected g aAY;
     protected Handler mHandler;
 
-    public abstract void cZ(String str);
+    public abstract void dT(String str);
 
     public abstract String getName();
 
@@ -25,10 +25,10 @@ public abstract class a {
         this.mHandler.post(new Runnable() { // from class: com.baidu.live.view.web.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.ate != null) {
-                    a.this.ate.df(str);
+                if (a.this.aAY != null) {
+                    a.this.aAY.dZ(str);
                 } else {
-                    a.this.cZ(str);
+                    a.this.dT(str);
                 }
             }
         });
@@ -49,6 +49,6 @@ public abstract class a {
     }
 
     public void a(g gVar) {
-        this.ate = gVar;
+        this.aAY = gVar;
     }
 }

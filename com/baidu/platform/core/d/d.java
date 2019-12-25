@@ -25,7 +25,7 @@ public class d extends com.baidu.platform.base.e {
         this.a.a("rp_filter", "mobile");
         this.a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
         this.a.a(IXAdRequestInfo.SN, a(drivingRoutePlanOption.mFrom));
-        this.a.a("en", a(drivingRoutePlanOption.mTo));
+        this.a.a(com.baidu.fsg.base.statistics.h.a, a(drivingRoutePlanOption.mTo));
         if (drivingRoutePlanOption.mCityName != null) {
             this.a.a("c", drivingRoutePlanOption.mCityName);
         }

@@ -2,6 +2,7 @@ package com.baidu.searchbox.http.interceptor;
 
 import android.text.TextUtils;
 import android.util.Log;
+import com.google.android.exoplayer2.Format;
 import java.io.EOFException;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -20,14 +21,14 @@ import okhttp3.internal.http.HttpHeaders;
 import okio.Buffer;
 import okio.BufferedSource;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class LogInterceptor implements Interceptor {
     private static final String TAG = "http";
-    private static final Charset UTF8 = Charset.forName(HTTP.UTF_8);
+    private static final Charset UTF8 = Charset.forName("UTF-8");
     private volatile Level level;
     private final Logger logger;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public enum Level {
         NONE,
         BASIC,
@@ -35,7 +36,7 @@ public class LogInterceptor implements Interceptor {
         BODY
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public interface Logger {
         void log(String str);
     }
@@ -110,7 +111,7 @@ public class LogInterceptor implements Interceptor {
             int size = headers2.size();
             for (int i = 0; i < size; i++) {
                 String name = headers2.name(i);
-                if (!"Content-Type".equalsIgnoreCase(name) && !HTTP.CONTENT_LEN.equalsIgnoreCase(name)) {
+                if (!"Content-Type".equalsIgnoreCase(name) && !"Content-Length".equalsIgnoreCase(name)) {
                     this.logger.log(name + ": " + headers2.value(i));
                 }
             }
@@ -152,7 +153,7 @@ public class LogInterceptor implements Interceptor {
                 this.logger.log("<-- END HTTP (encoded body omitted)");
             } else {
                 BufferedSource source = body2.source();
-                source.request(Long.MAX_VALUE);
+                source.request(Format.OFFSET_SAMPLE_RELATIVE);
                 Buffer buffer2 = source.buffer();
                 Charset charset2 = UTF8;
                 MediaType contentType2 = body2.contentType();
@@ -182,11 +183,11 @@ public class LogInterceptor implements Interceptor {
     }
 
     private boolean bodyEncoded(Headers headers) {
-        String str = headers.get(HTTP.CONTENT_ENCODING);
+        String str = headers.get("Content-Encoding");
         return (str == null || str.equalsIgnoreCase(HTTP.IDENTITY_CODING)) ? false : true;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public class DefaultLogger implements Logger {
         private String tag;
 

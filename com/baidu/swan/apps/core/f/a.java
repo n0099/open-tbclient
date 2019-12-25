@@ -2,39 +2,48 @@ package com.baidu.swan.apps.core.f;
 
 import android.net.Uri;
 import android.util.Log;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import java.util.HashSet;
 import java.util.Set;
 import org.apache.http.HttpHost;
-/* loaded from: classes2.dex */
-public class a implements c {
+/* loaded from: classes9.dex */
+public class a implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> aLX = new HashSet();
+    private static final Set<String> bkz = new HashSet();
 
     static {
-        aLX.add("https");
-        aLX.add(HttpHost.DEFAULT_SCHEME_NAME);
-        aLX.add("sms");
-        aLX.add("tel");
+        bkz.add("https");
+        bkz.add(HttpHost.DEFAULT_SCHEME_NAME);
+        bkz.add(LoginConstants.SMS_LOGIN);
+        bkz.add("tel");
     }
 
-    @Override // com.baidu.swan.apps.core.f.c
-    public void dc(String str) {
+    @Override // com.baidu.swan.apps.core.f.d
+    public void dW(String str) {
     }
 
-    @Override // com.baidu.swan.apps.core.f.c
+    @Override // com.baidu.swan.apps.core.f.d
     public void goBack() {
     }
 
-    @Override // com.baidu.swan.apps.core.f.c
-    public boolean dd(String str) {
+    @Override // com.baidu.swan.apps.core.f.d
+    public boolean dX(String str) {
         Uri parse;
         if (str == null || (parse = Uri.parse(str)) == null) {
             return true;
         }
-        boolean contains = aLX.contains(parse.getScheme());
+        boolean contains = bkz.contains(parse.getScheme());
         if (DEBUG) {
             Log.d("WebViewWidgetListener", (contains ? "legal schemes : " : "illegal schemes : ") + parse.getScheme());
         }
         return !contains;
+    }
+
+    @Override // com.baidu.swan.apps.core.f.d
+    public void dV(String str) {
+    }
+
+    @Override // com.baidu.swan.apps.core.f.d
+    public void c(int i, String str, String str2) {
     }
 }

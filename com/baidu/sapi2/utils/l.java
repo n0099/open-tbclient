@@ -10,7 +10,7 @@ import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class l {
     @TargetApi(8)
     public String a(Long l, String str, String str2) {

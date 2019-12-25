@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class MiPushCommandMessage implements PushMessageHandler.a {
     private static final String KEY_CATEGORY = "category";
     private static final String KEY_COMMAND = "command";

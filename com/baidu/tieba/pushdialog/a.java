@@ -4,21 +4,20 @@ import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
 import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
 import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a {
-    private PushDialogActivity iDg;
+    private PushDialogActivity jxA;
     private long taskId;
     private String tid;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(PushDialogActivity pushDialogActivity) {
-        this.iDg = pushDialogActivity;
-        this.iDg.registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614) { // from class: com.baidu.tieba.pushdialog.a.1
+        this.jxA = pushDialogActivity;
+        this.jxA.registerListener(new com.baidu.adp.framework.listener.a(1003412, 309614) { // from class: com.baidu.tieba.pushdialog.a.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage instanceof PushDialogHttpResMsg) {
@@ -28,22 +27,22 @@ public class a {
                 }
             }
         });
-        Intent intent = this.iDg.getIntent();
+        Intent intent = this.jxA.getIntent();
         if (intent != null) {
             this.tid = intent.getStringExtra("thread_id");
             this.taskId = intent.getLongExtra("task_id", 0L);
             if (StringUtils.isNull(this.tid)) {
-                this.iDg.finish();
+                this.jxA.finish();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void loadData() {
-        long j = com.baidu.adp.lib.g.b.toLong(this.tid, 0L);
+        long j = com.baidu.adp.lib.f.b.toLong(this.tid, 0L);
         if (j == 0) {
-            if (this.iDg != null) {
-                this.iDg.a(false, null);
+            if (this.jxA != null) {
+                this.jxA.a(false, null);
                 return;
             }
             return;
@@ -56,15 +55,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PushDialogSocketResMsg pushDialogSocketResMsg) {
-        if (this.iDg != null) {
-            this.iDg.a(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
+        if (this.jxA != null) {
+            this.jxA.a(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PushDialogHttpResMsg pushDialogHttpResMsg) {
-        if (this.iDg != null) {
-            this.iDg.a(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
+        if (this.jxA != null) {
+            this.jxA.a(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
         }
     }
 

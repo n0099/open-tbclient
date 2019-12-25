@@ -11,14 +11,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Build;
 import com.baidu.android.pushservice.g.m;
-/* loaded from: classes3.dex */
+import com.baidu.webkit.internal.GlobalConstants;
+/* loaded from: classes5.dex */
 public class PushInfoProvider extends ContentProvider {
     private Context a;
     private UriMatcher b = new UriMatcher(-1);
 
     private static boolean a(Context context) {
         if (Build.VERSION.SDK_INT >= 24) {
-            if (context.getPackageName().startsWith("com.baidu.searchbox")) {
+            if (context.getPackageName().startsWith(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
                 return true;
             }
             try {

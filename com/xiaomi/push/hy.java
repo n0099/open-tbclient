@@ -2,20 +2,20 @@ package com.xiaomi.push;
 
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class hy implements ir<hy, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public int f579a;
+    public int f584a;
 
     /* renamed from: a  reason: collision with other field name */
-    private BitSet f580a = new BitSet(2);
+    private BitSet f585a = new BitSet(2);
 
     /* renamed from: b  reason: collision with other field name */
-    public int f581b;
+    public int f586b;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jh f578a = new jh("XmPushActionCheckClientInfo");
+    private static final jh f583a = new jh("XmPushActionCheckClientInfo");
     private static final iz a = new iz("", (byte) 8, 1);
     private static final iz b = new iz("", (byte) 8, 2);
 
@@ -26,12 +26,12 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
         int a2;
         int a3;
         if (getClass().equals(hyVar.getClass())) {
-            int compareTo = Boolean.valueOf(m368a()).compareTo(Boolean.valueOf(hyVar.m368a()));
+            int compareTo = Boolean.valueOf(m371a()).compareTo(Boolean.valueOf(hyVar.m371a()));
             if (compareTo == 0) {
-                if (!m368a() || (a3 = is.a(this.f579a, hyVar.f579a)) == 0) {
+                if (!m371a() || (a3 = is.a(this.f584a, hyVar.f584a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hyVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a2 = is.a(this.f581b, hyVar.f581b)) == 0) {
+                        if (!b() || (a2 = is.a(this.f586b, hyVar.f586b)) == 0) {
                             return 0;
                         }
                         return a2;
@@ -46,7 +46,7 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
     }
 
     public hy a(int i) {
-        this.f579a = i;
+        this.f584a = i;
         a(true);
         return this;
     }
@@ -56,12 +56,12 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m455a();
+        jcVar.m458a();
         while (true) {
-            iz m451a = jcVar.m451a();
-            if (m451a.a == 0) {
+            iz m454a = jcVar.m454a();
+            if (m454a.a == 0) {
                 jcVar.f();
-                if (!m368a()) {
+                if (!m371a()) {
                     throw new jd("Required field 'miscConfigVersion' was not found in serialized data! Struct: " + toString());
                 }
                 if (!b()) {
@@ -70,27 +70,27 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
                 a();
                 return;
             }
-            switch (m451a.f788a) {
+            switch (m454a.f793a) {
                 case 1:
-                    if (m451a.a != 8) {
-                        jf.a(jcVar, m451a.a);
+                    if (m454a.a != 8) {
+                        jf.a(jcVar, m454a.a);
                         break;
                     } else {
-                        this.f579a = jcVar.m449a();
+                        this.f584a = jcVar.m452a();
                         a(true);
                         break;
                     }
                 case 2:
-                    if (m451a.a != 8) {
-                        jf.a(jcVar, m451a.a);
+                    if (m454a.a != 8) {
+                        jf.a(jcVar, m454a.a);
                         break;
                     } else {
-                        this.f581b = jcVar.m449a();
+                        this.f586b = jcVar.m452a();
                         b(true);
                         break;
                     }
                 default:
-                    jf.a(jcVar, m451a.a);
+                    jf.a(jcVar, m454a.a);
                     break;
             }
             jcVar.g();
@@ -98,21 +98,21 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
     }
 
     public void a(boolean z) {
-        this.f580a.set(0, z);
+        this.f585a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m368a() {
-        return this.f580a.get(0);
+    public boolean m371a() {
+        return this.f585a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m369a(hy hyVar) {
-        return hyVar != null && this.f579a == hyVar.f579a && this.f581b == hyVar.f581b;
+    public boolean m372a(hy hyVar) {
+        return hyVar != null && this.f584a == hyVar.f584a && this.f586b == hyVar.f586b;
     }
 
     public hy b(int i) {
-        this.f581b = i;
+        this.f586b = i;
         b(true);
         return this;
     }
@@ -120,28 +120,28 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
         a();
-        jcVar.a(f578a);
+        jcVar.a(f583a);
         jcVar.a(a);
-        jcVar.a(this.f579a);
+        jcVar.a(this.f584a);
         jcVar.b();
         jcVar.a(b);
-        jcVar.a(this.f581b);
+        jcVar.a(this.f586b);
         jcVar.b();
         jcVar.c();
-        jcVar.m459a();
+        jcVar.m462a();
     }
 
     public void b(boolean z) {
-        this.f580a.set(1, z);
+        this.f585a.set(1, z);
     }
 
     public boolean b() {
-        return this.f580a.get(1);
+        return this.f585a.get(1);
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hy)) {
-            return m369a((hy) obj);
+            return m372a((hy) obj);
         }
         return false;
     }
@@ -151,6 +151,6 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
     }
 
     public String toString() {
-        return "XmPushActionCheckClientInfo(miscConfigVersion:" + this.f579a + ", pluginConfigVersion:" + this.f581b + ")";
+        return "XmPushActionCheckClientInfo(miscConfigVersion:" + this.f584a + ", pluginConfigVersion:" + this.f586b + ")";
     }
 }

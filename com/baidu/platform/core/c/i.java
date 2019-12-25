@@ -1,6 +1,5 @@
 package com.baidu.platform.core.c;
 
-import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.img.effect.FilterImageAction;
 import com.baidu.mapapi.search.poi.PoiBoundSearchOption;
@@ -59,7 +58,7 @@ public class i extends com.baidu.platform.base.e {
 
     private void a(PoiNearbySearchOption poiNearbySearchOption) {
         this.a.a("query", poiNearbySearchOption.mKeyword);
-        this.a.a(Headers.LOCATION, poiNearbySearchOption.mLocation.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + poiNearbySearchOption.mLocation.longitude);
+        this.a.a("location", poiNearbySearchOption.mLocation.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + poiNearbySearchOption.mLocation.longitude);
         this.a.a("radius", poiNearbySearchOption.mRadius + "");
         this.a.a("output", "json");
         this.a.a("page_num", poiNearbySearchOption.mPageNum + "");

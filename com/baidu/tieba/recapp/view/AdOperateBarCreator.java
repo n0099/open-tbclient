@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.c;
 import com.baidu.tieba.recapp.lego.model.AdPost;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class AdOperateBarCreator {
     private final TbPageContext mTbPageContext;
 
@@ -18,7 +18,7 @@ public class AdOperateBarCreator {
 
     public AdOperateBarHolder obtainHolder(AdPost adPost, RelativeLayout relativeLayout, AdOperateBarHolder adOperateBarHolder, c cVar) {
         if (adPost != null && adPost.adData != null) {
-            if (adOperateBarHolder != null && bg(adPost.adData.style, adOperateBarHolder.iNK)) {
+            if (adOperateBarHolder != null && bp(adPost.adData.style, adOperateBarHolder.jHZ)) {
                 adOperateBarHolder.setDownloadAppCallback(cVar);
                 return adOperateBarHolder;
             } else if (relativeLayout == null) {
@@ -39,7 +39,7 @@ public class AdOperateBarCreator {
         return adOperateBarHolder;
     }
 
-    private boolean bg(String str, int i) {
+    private boolean bp(String str, int i) {
         return "apk_download".equals(str) ? i == 1 : TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str) && i == 2;
     }
 }

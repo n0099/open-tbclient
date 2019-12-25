@@ -31,10 +31,12 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.widget.Space;
 import android.support.v4.widget.TextViewCompat;
+import android.support.v4.widget.ViewGroupUtils;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.TintTypedArray;
+import android.support.v7.widget.WithHint;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -52,8 +54,8 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-/* loaded from: classes2.dex */
-public class TextInputLayout extends LinearLayout {
+/* loaded from: classes4.dex */
+public class TextInputLayout extends LinearLayout implements WithHint {
     private static final int ANIMATION_DURATION = 200;
     private static final int INVALID_MAX_LENGTH = -1;
     private static final String LOG_TAG = "TextInputLayout";
@@ -321,6 +323,7 @@ public class TextInputLayout extends LinearLayout {
         this.mCollapsingTextHelper.setText(charSequence);
     }
 
+    @Override // android.support.v7.widget.WithHint
     @Nullable
     public CharSequence getHint() {
         if (this.mHintEnabled) {
@@ -621,7 +624,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.design.widget.TextInputLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -959,7 +962,7 @@ public class TextInputLayout extends LinearLayout {
         return this.mHintExpanded;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private class TextInputAccessibilityDelegate extends AccessibilityDelegateCompat {
         TextInputAccessibilityDelegate() {
         }

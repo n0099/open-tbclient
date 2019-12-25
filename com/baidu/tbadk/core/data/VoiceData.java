@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
+import org.json.JSONObject;
 import tbclient.Voice;
 /* loaded from: classes.dex */
 public class VoiceData {
@@ -33,6 +34,27 @@ public class VoiceData {
                 init();
                 this.duration = voice.during_time.intValue() / 1000;
                 this.voiceId = voice.voice_md5;
+            }
+        }
+
+        public void parseJson(JSONObject jSONObject) {
+            if (jSONObject != null) {
+                init();
+                this.duration = jSONObject.optInt("during_time") / 1000;
+                this.voiceId = jSONObject.optString("voice_md5");
+            }
+        }
+
+        public void copy(VoiceModel voiceModel) {
+            if (voiceModel != null) {
+                this.from = voiceModel.from;
+                this.voiceId = voiceModel.voiceId;
+                this.isLocal = voiceModel.isLocal;
+                this.duration = voiceModel.duration;
+                this.duration2 = voiceModel.duration2;
+                this.elapse = voiceModel.elapse;
+                this.curr_time = voiceModel.curr_time;
+                this.voice_status = voiceModel.voice_status;
             }
         }
     }

@@ -3,7 +3,7 @@ package com.vivo.push.c;
 import android.content.Context;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.sdk.PushMessageCallback;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 final class v implements Runnable {
     final /* synthetic */ UPSNotificationMessage a;
     final /* synthetic */ s b;

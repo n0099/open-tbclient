@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.e.a;
+import com.baidu.tbadk.core.d.a;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */

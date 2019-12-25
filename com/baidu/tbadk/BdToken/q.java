@@ -1,7 +1,6 @@
 package com.baidu.tbadk.BdToken;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,18 +10,19 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 /* loaded from: classes.dex */
 public class q {
     private static View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.BdToken.q.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TbPageContext<?> aeB;
+            TbPageContext<?> avu;
             Object tag = view.getTag();
             if (tag instanceof CompleteTaskToastData) {
                 CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
-                if (!TextUtils.isEmpty(completeTaskToastData.url) && (aeB = q.aeB()) != null) {
-                    ba.amO().b(aeB, new String[]{completeTaskToastData.url});
-                    com.baidu.tbadk.BdToken.completeTask.c.W(completeTaskToastData.activityId, completeTaskToastData.missionId);
+                if (!TextUtils.isEmpty(completeTaskToastData.url) && (avu = q.avu()) != null) {
+                    ba.aEa().b(avu, new String[]{completeTaskToastData.url});
+                    com.baidu.tbadk.BdToken.completeTask.c.ar(completeTaskToastData.activityId, completeTaskToastData.missionId);
                 }
             }
         }
@@ -32,56 +32,56 @@ public class q {
         return TbadkCoreApplication.getInst().isMainProcess(true);
     }
 
-    public static void g(int i, long j) {
+    public static void m(int i, long j) {
         if (isMainProcess()) {
-            c.adX().g(i, j);
+            c.auQ().m(i, j);
         } else {
-            a(i, j, "onActivity");
+            a(i, j, MissionEvent.MESSAGE_ACTIVITY);
         }
     }
 
     public static void a(int i, int i2, long j) {
         if (isMainProcess()) {
-            c.adX().i(i, j);
+            c.auQ().o(i, j);
         } else {
-            b(i, i2, j, "onResume");
+            b(i, i2, j, MissionEvent.MESSAGE_RESUME);
         }
     }
 
-    public static void k(int i, long j) {
+    public static void q(int i, long j) {
         if (isMainProcess()) {
-            c.adX().aec();
+            c.auQ().auV();
         } else {
-            a(i, j, "onPause");
+            a(i, j, MissionEvent.MESSAGE_PAUSE);
         }
     }
 
-    public static void l(int i, long j) {
+    public static void r(int i, long j) {
         if (isMainProcess()) {
-            c.adX().aee();
+            c.auQ().auX();
         } else {
-            a(i, j, "onTouch");
+            a(i, j, MissionEvent.MESSAGE_TOUCH);
         }
     }
 
     public static void a(int i, long j, String str) {
-        Bundle bundle = new Bundle();
-        bundle.putString("key_message_type", str);
-        bundle.putInt("key_pageId", i);
-        bundle.putLong("thread_id", j);
-        com.baidu.tbadk.n.b.a("broadcast_type_mission_message", bundle);
+        MissionEvent missionEvent = new MissionEvent();
+        missionEvent.tid = j;
+        missionEvent.pageId = i;
+        missionEvent.actionType = str;
+        com.baidu.tbadk.mutiprocess.g.publishEvent(missionEvent);
     }
 
     public static void b(int i, int i2, long j, String str) {
-        Bundle bundle = new Bundle();
-        bundle.putString("key_message_type", str);
-        bundle.putInt("key_pageType", i);
-        bundle.putInt("key_pageId", i2);
-        bundle.putLong("thread_id", j);
-        com.baidu.tbadk.n.b.a("broadcast_type_mission_message", bundle);
+        MissionEvent missionEvent = new MissionEvent();
+        missionEvent.tid = j;
+        missionEvent.pageId = i2;
+        missionEvent.pageType = i;
+        missionEvent.actionType = str;
+        com.baidu.tbadk.mutiprocess.g.publishEvent(missionEvent);
     }
 
-    public static TbPageContext aeB() {
+    public static TbPageContext avu() {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity instanceof BaseActivity) {
             return ((BaseActivity) currentActivity).getPageContext();
@@ -93,21 +93,21 @@ public class q {
     }
 
     public static com.baidu.tbadk.core.dialog.f a(CompleteTaskToastData completeTaskToastData) {
-        TbPageContext aeB;
-        if (completeTaskToastData == null || (aeB = aeB()) == null || aeB.getUniqueId() == null || completeTaskToastData.pageId != aeB.getUniqueId().getId()) {
+        TbPageContext avu;
+        if (completeTaskToastData == null || (avu = avu()) == null || avu.getUniqueId() == null || completeTaskToastData.pageId != avu.getUniqueId().getId()) {
             return null;
         }
-        com.baidu.tbadk.core.dialog.f d = com.baidu.tbadk.core.dialog.f.d(aeB.getPageActivity(), completeTaskToastData.message);
-        d.ie(completeTaskToastData.duration);
+        com.baidu.tbadk.core.dialog.f d = com.baidu.tbadk.core.dialog.f.d(avu.getPageActivity(), completeTaskToastData.message);
+        d.jQ(completeTaskToastData.duration);
         d.setOnClickListener(mOnClickListener);
         d.setTag(completeTaskToastData);
-        d.akV();
+        d.aCf();
         return d;
     }
 
     public static void a(MotionEvent motionEvent, int i, long j) {
         if (motionEvent != null && motionEvent.getAction() == 0) {
-            l(i, j);
+            r(i, j);
         }
     }
 }

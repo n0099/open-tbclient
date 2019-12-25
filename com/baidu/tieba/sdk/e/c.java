@@ -3,13 +3,14 @@ package com.baidu.tieba.sdk.e;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.scheme.ILiveScheme;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
     public void excute(Map<String, String> map, SchemeCallback schemeCallback) {
         try {
-            com.baidu.tieba.sdk.a.chv().a(TbadkCoreApplication.getInst(), Long.parseLong(map.get("exp")), Integer.parseInt(map.get("level")));
+            com.baidu.tieba.sdk.a.cBx().a(TbadkCoreApplication.getInst(), map.get("exp") == null ? -1L : Long.parseLong(map.get("exp")), map.get(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL) == null ? -1 : Integer.parseInt(map.get(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL)));
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }

@@ -7,9 +7,11 @@ import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.webkit.internal.GlobalConstants;
+import com.google.android.exoplayer2.Format;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class k {
     private static String a = null;
 
@@ -75,12 +77,12 @@ public class k {
         if (l.D(context)) {
             c.putExtra("method", "pushservice_restart_v3");
             if (!TextUtils.isEmpty(str) && str.equals(context.getPackageName())) {
-                c.putExtra("priority3", Long.MAX_VALUE);
+                c.putExtra("priority3", Format.OFFSET_SAMPLE_RELATIVE);
             }
         } else {
             c.putExtra("method", "pushservice_restart_v2");
             if (!TextUtils.isEmpty(str) && str.equals(context.getPackageName())) {
-                c.putExtra("priority2", Long.MAX_VALUE);
+                c.putExtra("priority2", Format.OFFSET_SAMPLE_RELATIVE);
             }
         }
         a(context, c, str);
@@ -143,11 +145,11 @@ public class k {
             if (TextUtils.isEmpty(packageName) || !packageName.equals(a) || z) {
                 a(context, packageName);
             }
-            if (context.getPackageName().startsWith("com.baidu.searchbox") && !com.baidu.android.pushservice.job.a.b() && !l.l(context) && !com.baidu.android.pushservice.b.d.c(context) && (Build.VERSION.SDK_INT > 22 || (!l.d() && !l.e()))) {
+            if (context.getPackageName().startsWith(GlobalConstants.SEARCHBOX_PACKAGE_NAME) && !com.baidu.android.pushservice.job.a.b() && !l.l(context) && !com.baidu.android.pushservice.b.d.c(context) && (Build.VERSION.SDK_INT > 22 || (!l.d() && !l.e()))) {
                 com.baidu.android.pushservice.job.a.a(context);
                 com.baidu.android.pushservice.job.a.a(true);
             }
-            if (z && context.getPackageName().startsWith("com.baidu.searchbox")) {
+            if (z && context.getPackageName().startsWith(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
                 return;
             }
             final Context applicationContext = context.getApplicationContext();

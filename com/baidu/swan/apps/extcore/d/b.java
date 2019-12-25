@@ -1,57 +1,26 @@
 package com.baidu.swan.apps.extcore.d;
 
-import android.support.annotation.NonNull;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class b {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static b aQs;
-    public String aQn;
-
-    @NonNull
-    public static b fg(@NonNull String str) {
-        if (aQs == null) {
-            aQs = U(fh(str));
-        }
-        return aQs;
+import com.baidu.swan.apps.as.ac;
+import com.baidu.swan.d.c;
+import java.io.File;
+/* loaded from: classes9.dex */
+public final class b {
+    public static File Ph() {
+        return new File(ac.getStorageList().get(0).mPath, "/aiapps_debug_extension_core/");
     }
 
-    @NonNull
-    private static b U(JSONObject jSONObject) {
-        b bVar = new b();
-        if (jSONObject != null) {
-            bVar.aQn = jSONObject.optString("extension-core-version");
+    public static void Pi() {
+        File Ph = Ph();
+        if (Ph.exists()) {
+            c.deleteFile(Ph);
         }
-        return bVar;
     }
 
-    private static JSONObject fh(@NonNull String str) {
-        if (DEBUG) {
-            Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
+    public static File Pj() {
+        File Ph = Ph();
+        if (!Ph.exists()) {
+            Ph.mkdirs();
         }
-        String ac = com.baidu.swan.c.a.ac(AppRuntime.getAppContext(), str);
-        if (TextUtils.isEmpty(ac)) {
-            if (DEBUG) {
-                Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");
-                return null;
-            }
-            return null;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(ac);
-            if (DEBUG) {
-                Log.d("ExtCore-PresetConfig", "readPresetConfig end. config: " + jSONObject.toString());
-            }
-            return jSONObject;
-        } catch (JSONException e) {
-            if (DEBUG) {
-                throw new RuntimeException(e);
-            }
-            return null;
-        }
+        return new File(Ph, "debugExtensionCore.zip");
     }
 }

@@ -88,6 +88,7 @@ public class PbEditorData implements Serializable {
         private String firstDir;
         private String forumId;
         private String forumName;
+        public boolean isBJH;
         private String mThreadId;
         private String postId;
         private String secondDir;

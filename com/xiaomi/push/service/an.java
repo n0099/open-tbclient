@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.al;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class an extends XMPushService.i {
     final /* synthetic */ al.b.c a;
 
@@ -20,9 +20,9 @@ class an extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (this.a.a == this.a.f867a.f854a) {
-            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f867a.g);
-            this.a.f867a.f854a = null;
+        if (this.a.a == this.a.f872a.f859a) {
+            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f872a.g);
+            this.a.f872a.f859a = null;
         }
     }
 }

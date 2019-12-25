@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class WrapContentHeightViewPager extends ViewPager {
     public WrapContentHeightViewPager(Context context) {
         super(context);
@@ -49,11 +49,11 @@ public class WrapContentHeightViewPager extends ViewPager {
             if (view2 != null) {
                 view2.measure(i, i2);
             }
-            setMeasuredDimension(getMeasuredWidth(), e(i2, view2));
+            setMeasuredDimension(getMeasuredWidth(), c(i2, view2));
         }
     }
 
-    private int e(int i, View view) {
+    private int c(int i, View view) {
         int i2 = 0;
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);

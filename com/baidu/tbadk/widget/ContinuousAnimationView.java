@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ContinuousAnimationView extends TBLottieAnimationView implements BdSwipeRefreshLayout.b {
-    private boolean cOF;
-    private boolean cOG;
+    private boolean dCH;
+    private boolean dCI;
 
     public ContinuousAnimationView(Context context) {
         this(context, null);
@@ -22,8 +22,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     public ContinuousAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cOF = false;
-        this.cOG = false;
+        this.dCH = false;
+        this.dCI = false;
         init();
     }
 
@@ -31,35 +31,35 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.widget.ContinuousAnimationView.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                ContinuousAnimationView.this.axY();
-                ContinuousAnimationView.this.cOF = true;
+                ContinuousAnimationView.this.aPQ();
+                ContinuousAnimationView.this.dCH = true;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                ContinuousAnimationView.this.axV();
-                if (ContinuousAnimationView.this.cOG) {
-                    ContinuousAnimationView.this.cOG = false;
+                ContinuousAnimationView.this.aPN();
+                if (ContinuousAnimationView.this.dCI) {
+                    ContinuousAnimationView.this.dCI = false;
                 }
-                ContinuousAnimationView.this.cOF = false;
+                ContinuousAnimationView.this.dCH = false;
                 ContinuousAnimationView.this.setFrame(0);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                ContinuousAnimationView.this.axW();
+                ContinuousAnimationView.this.aPO();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                ContinuousAnimationView.this.axX();
-                if (ContinuousAnimationView.this.cOG) {
+                ContinuousAnimationView.this.aPP();
+                if (ContinuousAnimationView.this.dCI) {
                     ContinuousAnimationView.this.cancelAnimation();
-                    ContinuousAnimationView.this.cOG = false;
+                    ContinuousAnimationView.this.dCI = false;
                 }
             }
         });
-        setAnimation(R.raw.refresh_load);
+        setAnimation(R.raw.lottie_pull_refresh);
         loop(true);
         setFrame(0);
     }
@@ -75,8 +75,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
     public void pauseAnimation() {
-        if (this.cOF) {
-            this.cOG = true;
+        if (this.dCH) {
+            this.dCI = true;
         }
     }
 
@@ -91,19 +91,19 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axV() {
+    public void aPN() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axW() {
+    public void aPO() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axX() {
+    public void aPP() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axY() {
+    public void aPQ() {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b

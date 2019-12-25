@@ -2,7 +2,7 @@ package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -15,6 +15,7 @@ public class ImMessageCenterPojo implements Serializable {
     public static final int SHOW = 0;
     public static final int UN_DELETE = 0;
     private static final long serialVersionUID = -8887966163420052407L;
+    private String bjhAvatar;
     int followStatus;
     String gid;
     String group_ext;
@@ -263,11 +264,13 @@ public class ImMessageCenterPojo implements Serializable {
                 imMessageCenterPojo.setGroup_name(userData2.getUserName());
                 imMessageCenterPojo.setGroup_head(userData2.getPortrait());
                 imMessageCenterPojo.setNameShow(userData2.getName_show());
+                imMessageCenterPojo.setBjhAvatar(userData2.getImBjhAvatar());
             }
         } else {
             imMessageCenterPojo.setGroup_name(userData.getUserName());
             imMessageCenterPojo.setGroup_head(userData.getPortrait());
             imMessageCenterPojo.setNameShow(userData.getName_show());
+            imMessageCenterPojo.setBjhAvatar(userData.getImBjhAvatar());
         }
         if (b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
             userType = userData.getUserType();
@@ -284,7 +287,7 @@ public class ImMessageCenterPojo implements Serializable {
         if (!z) {
             imMessageCenterPojo.setCustomGroupType(2);
         }
-        imMessageCenterPojo.setLast_content(e.ap(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+        imMessageCenterPojo.setLast_content(e.aE(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
         imMessageCenterPojo.setLast_user_name(userData.getName_show());
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
@@ -350,5 +353,13 @@ public class ImMessageCenterPojo implements Serializable {
 
     public void setNameShow(String str) {
         this.nameShow = str;
+    }
+
+    public String getBjhAvatar() {
+        return this.bjhAvatar;
+    }
+
+    public void setBjhAvatar(String str) {
+        this.bjhAvatar = str;
     }
 }

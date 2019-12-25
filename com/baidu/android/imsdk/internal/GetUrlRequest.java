@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GetUrlRequest extends BaseHttpRequest {
     private static final String HTTPDNSURL = "https://httpsdns.baidu.com/";
     private String mKey;

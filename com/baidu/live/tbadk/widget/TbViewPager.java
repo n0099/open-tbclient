@@ -10,7 +10,7 @@ import android.view.ViewConfiguration;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TbViewPager extends ViewPager {
     private static final int INVALID_POINTER = -1;
     private static final int SMOOTH_SCROLL_DURATION = 600;
@@ -19,7 +19,7 @@ public class TbViewPager extends ViewPager {
     private boolean mIsDisallowIntercept;
     private int mTouchSlop;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class ViewPagerScroller extends Scroller {
         public ViewPagerScroller(Context context) {
             super(context);
@@ -60,7 +60,7 @@ public class TbViewPager extends ViewPager {
     }
 
     public void setViewPagerScroll() {
-        setViewPagerScroll(SMOOTH_SCROLL_DURATION);
+        setViewPagerScroll(600);
     }
 
     public int getScrollingDuration() {
@@ -70,14 +70,14 @@ public class TbViewPager extends ViewPager {
     public TbViewPager(Context context) {
         super(context);
         this.mIsDisallowIntercept = false;
-        this.mDuration = SMOOTH_SCROLL_DURATION;
+        this.mDuration = 600;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mIsDisallowIntercept = false;
-        this.mDuration = SMOOTH_SCROLL_DURATION;
+        this.mDuration = 600;
         init();
     }
 

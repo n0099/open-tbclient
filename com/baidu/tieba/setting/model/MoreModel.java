@@ -2,12 +2,12 @@ package com.baidu.tieba.setting.model;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class MoreModel extends BdBaseModel {
-    private boolean iSt;
-    private PersonChangeData mPersonChangeData;
+    private boolean jMN;
+    private PersonChangeData jjr;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public enum TaskType {
         DO_CACHE_CLEAR,
         GET_SIZE
@@ -15,24 +15,24 @@ public class MoreModel extends BdBaseModel {
 
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
-        this.mPersonChangeData = null;
-        this.iSt = false;
-        this.mPersonChangeData = personChangeData;
-        if (this.mPersonChangeData == null) {
-            this.mPersonChangeData = new PersonChangeData();
+        this.jjr = null;
+        this.jMN = false;
+        this.jjr = personChangeData;
+        if (this.jjr == null) {
+            this.jjr = new PersonChangeData();
         }
     }
 
-    public void setPersonChangeData(PersonChangeData personChangeData) {
-        this.mPersonChangeData = personChangeData;
+    public void b(PersonChangeData personChangeData) {
+        this.jjr = personChangeData;
     }
 
-    public void qo(boolean z) {
-        this.iSt = z;
+    public void rX(boolean z) {
+        this.jMN = z;
     }
 
-    public boolean civ() {
-        return this.iSt;
+    public boolean cCy() {
+        return this.jMN;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -45,7 +45,7 @@ public class MoreModel extends BdBaseModel {
         return false;
     }
 
-    public PersonChangeData getPersonChangeData() {
-        return this.mPersonChangeData;
+    public PersonChangeData cCz() {
+        return this.jjr;
     }
 }

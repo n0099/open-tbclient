@@ -1,9 +1,13 @@
 package com.baidu.swan.apps.core.f;
-
-import com.baidu.swan.apps.b.c.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface d {
-    void a(f fVar);
+    void c(int i, String str, String str2);
 
-    void b(f fVar);
+    void dV(String str);
+
+    void dW(String str);
+
+    boolean dX(String str);
+
+    void goBack();
 }

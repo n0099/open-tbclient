@@ -1,11 +1,11 @@
 package com.baidu.live.gift.panel;
 
 import com.baidu.live.tbadk.core.fragment.ILazyLoadFragmentController;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface c extends ILazyLoadFragmentController {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void ry();
+        void tm();
     }
 }

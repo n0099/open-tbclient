@@ -1,55 +1,72 @@
 package com.google.gson.internal.a;
 
+import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
 import com.google.gson.internal.C$Gson$Types;
-import com.google.gson.n;
-import com.google.gson.o;
+import com.google.gson.stream.JsonToken;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Collection;
-/* loaded from: classes2.dex */
-public final class b implements o {
-    private final com.google.gson.internal.b knr;
+/* loaded from: classes4.dex */
+public final class b implements TypeAdapterFactory {
+    private final com.google.gson.internal.b constructorConstructor;
 
     public b(com.google.gson.internal.b bVar) {
-        this.knr = bVar;
+        this.constructorConstructor = bVar;
     }
 
-    @Override // com.google.gson.o
-    public <T> n<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-        Type cKD = aVar.cKD();
-        Class<? super T> cKC = aVar.cKC();
-        if (!Collection.class.isAssignableFrom(cKC)) {
+    @Override // com.google.gson.TypeAdapterFactory
+    public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
+        Type type = aVar.getType();
+        Class<? super T> rawType = aVar.getRawType();
+        if (!Collection.class.isAssignableFrom(rawType)) {
             return null;
         }
-        Type a2 = C$Gson$Types.a(cKD, (Class<?>) cKC);
-        return new a(dVar, a2, dVar.a(com.google.gson.b.a.l(a2)), this.knr.b(aVar));
+        Type a2 = C$Gson$Types.a(type, (Class<?>) rawType);
+        return new a(gson, a2, gson.getAdapter(com.google.gson.b.a.get(a2)), this.constructorConstructor.a(aVar));
     }
 
-    /* loaded from: classes2.dex */
-    private static final class a<E> extends n<Collection<E>> {
-        private final n<E> koL;
-        private final com.google.gson.internal.d<? extends Collection<E>> koM;
+    /* loaded from: classes4.dex */
+    private static final class a<E> extends TypeAdapter<Collection<E>> {
+        private final TypeAdapter<E> mGG;
+        private final com.google.gson.internal.f<? extends Collection<E>> mGH;
 
-        @Override // com.google.gson.n
-        public /* bridge */ /* synthetic */ void a(com.google.gson.stream.a aVar, Object obj) throws IOException {
-            a(aVar, (Collection) ((Collection) obj));
+        public a(Gson gson, Type type, TypeAdapter<E> typeAdapter, com.google.gson.internal.f<? extends Collection<E>> fVar) {
+            this.mGG = new m(gson, typeAdapter, type);
+            this.mGH = fVar;
         }
 
-        public a(com.google.gson.d dVar, Type type, n<E> nVar, com.google.gson.internal.d<? extends Collection<E>> dVar2) {
-            this.koL = new l(dVar, nVar, type);
-            this.koM = dVar2;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.gson.TypeAdapter
+        /* renamed from: b */
+        public Collection<E> read(com.google.gson.stream.a aVar) throws IOException {
+            if (aVar.dyA() == JsonToken.NULL) {
+                aVar.dyG();
+                return null;
+            }
+            Collection<E> construct = this.mGH.construct();
+            aVar.dyw();
+            while (aVar.hasNext()) {
+                construct.add(this.mGG.read(aVar));
+            }
+            aVar.dyx();
+            return construct;
         }
 
-        public void a(com.google.gson.stream.a aVar, Collection<E> collection) throws IOException {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.gson.TypeAdapter
+        /* renamed from: a */
+        public void write(com.google.gson.stream.b bVar, Collection<E> collection) throws IOException {
             if (collection == null) {
-                aVar.cKB();
+                bVar.dyT();
                 return;
             }
-            aVar.cKx();
+            bVar.dyP();
             for (E e : collection) {
-                this.koL.a(aVar, e);
+                this.mGG.write(bVar, e);
             }
-            aVar.cKy();
+            bVar.dyQ();
         }
     }
 }

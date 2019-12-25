@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.IMConstants;
+import com.baidu.searchbox.picture.component.BaseBrowseView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
@@ -19,9 +20,9 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class f {
-    private a bTt;
+    private a cFR;
     private final Context mContext;
     private final String TIEBA = TbConfig.getTempDirName();
     private int mMediaLoaderType = 0;
@@ -35,7 +36,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public g afh() {
+    public g awa() {
         this.mAlbumHashMap.clear();
         g gVar = new g();
         List<ImageFileInfo> imageList = getImageList();
@@ -77,7 +78,7 @@ public class f {
                     if (f.this.TIEBA.equals(aVar2.getName())) {
                         return 1;
                     }
-                    long sortTime = aVar2.afc().getSortTime() - aVar.afc().getSortTime();
+                    long sortTime = aVar2.avV().getSortTime() - aVar.avV().getSortTime();
                     if (sortTime == 0) {
                         return 0;
                     }
@@ -116,7 +117,7 @@ public class f {
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
-            com.baidu.adp.lib.g.a.close(cursor);
+            com.baidu.adp.lib.f.a.close(cursor);
         }
         if (cursor == null || !cursor.moveToFirst()) {
             return arrayList;
@@ -129,7 +130,7 @@ public class f {
             long j = cursor.getLong(cursor.getColumnIndex("date_added"));
             int i = cursor.getInt(cursor.getColumnIndex("_size"));
             long j2 = cursor.getLong(cursor.getColumnIndex("date_modified"));
-            boolean endsWith = string4.endsWith("gif");
+            boolean endsWith = string4.endsWith(BaseBrowseView.IMG_TYPE_GIF);
             if (!endsWith || i <= 3145728) {
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setAlbumnId(string);
@@ -149,7 +150,7 @@ public class f {
                 aVar.setAlbumId(string);
                 aVar.setName(string2);
                 aVar.addCount();
-                if (aVar.afc() == null) {
+                if (aVar.avV() == null) {
                     aVar.a(imageFileInfo);
                 }
                 List<MediaFileInfo> fileList = aVar.getFileList();
@@ -205,16 +206,16 @@ public class f {
                         } while (cursor.moveToNext());
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.lib.g.a.close(cursor);
+                    com.baidu.adp.lib.f.a.close(cursor);
                     return arrayList;
                 } catch (Throwable th) {
                     cursor2 = cursor;
                     th = th;
-                    com.baidu.adp.lib.g.a.close(cursor2);
+                    com.baidu.adp.lib.f.a.close(cursor2);
                     throw th;
                 }
             }
-            com.baidu.adp.lib.g.a.close(cursor);
+            com.baidu.adp.lib.f.a.close(cursor);
         } catch (Exception e2) {
             cursor = null;
         } catch (Throwable th2) {
@@ -229,19 +230,19 @@ public class f {
         }
         cancelLoadTask();
         this.mMediaLoaderType = i;
-        this.bTt = new a(eVar);
-        this.bTt.setPriority(3);
-        this.bTt.execute(new Object[0]);
+        this.cFR = new a(eVar);
+        this.cFR.setPriority(3);
+        this.cFR.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<Object, Integer, g> {
-        private final e bTv;
+        private final e cFT;
 
         public a(e eVar) {
-            this.bTv = eVar;
+            this.cFT = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -249,15 +250,15 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: m */
         public g doInBackground(Object... objArr) {
-            return f.this.afh();
+            return f.this.awa();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.bTv != null) {
-                this.bTv.onPreLoad();
+            if (this.cFT != null) {
+                this.cFT.onPreLoad();
             }
         }
 
@@ -267,16 +268,16 @@ public class f {
         /* renamed from: b */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            if (this.bTv != null) {
-                this.bTv.a(gVar);
+            if (this.cFT != null) {
+                this.cFT.a(gVar);
             }
         }
     }
 
     public void cancelLoadTask() {
-        if (this.bTt != null) {
-            this.bTt.cancel();
-            this.bTt = null;
+        if (this.cFR != null) {
+            this.cFR.cancel();
+            this.cFR = null;
         }
     }
 }

@@ -4,10 +4,10 @@ import android.content.Context;
 import android.os.Environment;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.l;
+import com.baidubce.http.Headers;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends Observable implements IOAdDownloader, Runnable {
     protected Context a;
     protected URL b;
@@ -31,7 +31,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
     protected IOAdDownloader.DownloadStatus i;
     protected volatile int j;
     protected int k;
-    protected ArrayList<RunnableC0105a> l;
+    protected ArrayList<RunnableC0121a> l;
     private String n;
     private String o;
     protected Boolean f = true;
@@ -341,11 +341,11 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                 }
             }
             for (h hVar2 : arrayList2) {
-                RunnableC0105a runnableC0105a = new RunnableC0105a(hVar2.c(), this.c, hVar2.f(), hVar2.d(), hVar2.e(), hVar2.a());
+                RunnableC0121a runnableC0121a = new RunnableC0121a(hVar2.c(), this.c, hVar2.f(), hVar2.d(), hVar2.e(), hVar2.a());
                 if (hVar2.d() == 0 && hVar2.a() == 0) {
-                    runnableC0105a.a(httpURLConnection);
+                    runnableC0121a.a(httpURLConnection);
                 }
-                this.l.add(runnableC0105a);
+                this.l.add(runnableC0121a);
             }
         }
         if (this.f.booleanValue()) {
@@ -423,9 +423,9 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                         this.m = new g(this.a);
                     }
                     ArrayList arrayList4 = new ArrayList();
-                    Iterator<RunnableC0105a> it = this.l.iterator();
+                    Iterator<RunnableC0121a> it = this.l.iterator();
                     while (it.hasNext()) {
-                        RunnableC0105a next = it.next();
+                        RunnableC0121a next = it.next();
                         arrayList4.add(new h(next.a, url, str, next.d, next.e, next.f));
                         XAdSDKFoundationFacade.getInstance().getAdLogger().d("Downloader", "save to db: start=" + next.d + ";end =" + next.e + ";complete=" + next.f);
                     }
@@ -441,7 +441,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [564=10, 566=8, 567=8, 568=8] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [564=9, 566=8, 567=8, 568=8] */
     /* JADX WARN: Removed duplicated region for block: B:98:0x01dd A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
@@ -467,7 +467,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
             try {
                 try {
                     HttpURLConnection httpURLConnection3 = XAdSDKFoundationFacade.getInstance().getURIUitls().getHttpURLConnection(this.b);
-                    httpURLConnection3.setRequestProperty("Range", "bytes=0-");
+                    httpURLConnection3.setRequestProperty(Headers.RANGE, "bytes=0-");
                     httpURLConnection3.setConnectTimeout(10000);
                     httpURLConnection3.setInstanceFollowRedirects(true);
                     httpURLConnection3.connect();
@@ -538,7 +538,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                                         objArr = new Object[]{"Downloader", e5.getMessage()};
                                     }
                                 } else {
-                                    if (httpURLConnection3.getHeaderField("Content-Range") == null && (httpURLConnection3.getHeaderField("Accept-Ranges") == null || httpURLConnection3.getHeaderField("Accept-Ranges").equalsIgnoreCase(IXAdSystemUtils.NT_NONE))) {
+                                    if (httpURLConnection3.getHeaderField(Headers.CONTENT_RANGE) == null && (httpURLConnection3.getHeaderField("Accept-Ranges") == null || httpURLConnection3.getHeaderField("Accept-Ranges").equalsIgnoreCase("none"))) {
                                         this.f = false;
                                         this.e = 1;
                                     }
@@ -606,14 +606,14 @@ public class a extends Observable implements IOAdDownloader, Runnable {
         }
     }
 
-    protected void a(ArrayList<RunnableC0105a> arrayList) {
+    protected void a(ArrayList<RunnableC0121a> arrayList) {
         XAdSDKFoundationFacade.getInstance().getIoUtils().renameFile(this.d + this.g + ".tmp", this.d + this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.mobads.openad.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class RunnableC0105a implements Runnable {
+    /* loaded from: classes7.dex */
+    public class RunnableC0121a implements Runnable {
         protected int a;
         protected URL b;
         protected String c;
@@ -626,7 +626,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
         private volatile int k = 0;
         protected boolean g = false;
 
-        public RunnableC0105a(int i, URL url, String str, int i2, int i3, int i4) {
+        public RunnableC0121a(int i, URL url, String str, int i2, int i3, int i4) {
             this.a = i;
             this.b = url;
             this.c = str;
@@ -707,7 +707,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                         HttpURLConnection httpURLConnection3 = (HttpURLConnection) this.b.openConnection();
                         try {
                             if (a.this.f.booleanValue()) {
-                                httpURLConnection3.setRequestProperty("Range", "bytes=" + ((this.d + this.f) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.e));
+                                httpURLConnection3.setRequestProperty(Headers.RANGE, "bytes=" + ((this.d + this.f) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.e));
                             } else {
                                 this.f = 0;
                             }
@@ -1021,12 +1021,12 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                 if (responseCode != 302 && responseCode != 301) {
                     return httpURLConnection3;
                 }
-                this.b = new URL(httpURLConnection3.getHeaderField("Location"));
+                this.b = new URL(httpURLConnection3.getHeaderField(Headers.LOCATION));
                 httpURLConnection2 = (HttpURLConnection) this.b.openConnection();
                 try {
                     httpURLConnection2.setConnectTimeout(10000);
                     httpURLConnection2.setInstanceFollowRedirects(false);
-                    httpURLConnection2.setRequestProperty("Range", "bytes=0-");
+                    httpURLConnection2.setRequestProperty(Headers.RANGE, "bytes=0-");
                     httpURLConnection3 = httpURLConnection2;
                 } catch (Exception e2) {
                     e = e2;

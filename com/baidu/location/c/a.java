@@ -1,121 +1,209 @@
 package com.baidu.location.c;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.location.Location;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDNotifyListener;
-import com.baidu.location.Jni;
-import com.baidu.location.LocationClient;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes3.dex */
-public class a {
-    private ArrayList<BDNotifyListener> a;
-    private float b;
-    private BDLocation c;
-    private long d;
-    private LocationClient e;
-    private Context f;
-    private int g;
-    private long h;
-    private boolean i;
-    private PendingIntent j;
-    private AlarmManager k;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.Process;
+import android.util.Log;
+import com.baidu.location.LLSInterface;
+import com.baidu.location.a.h;
+import com.baidu.location.a.j;
+import com.baidu.location.a.l;
+import com.baidu.location.a.n;
+import com.baidu.location.a.p;
+import com.baidu.location.a.v;
+import com.baidu.location.a.w;
+import com.baidu.location.a.x;
+import com.baidu.location.b.e;
+import com.baidu.location.b.i;
+import com.baidu.location.d.b;
+import com.baidu.location.f;
+import java.lang.ref.WeakReference;
+/* loaded from: classes5.dex */
+public class a extends Service implements LLSInterface {
+    static HandlerC0102a a = null;
+    private static long f = 0;
+    private Looper c;
+    private HandlerThread d;
+    Messenger b = null;
+    private boolean e = false;
 
-    private void a(long j) {
-        try {
-            if (this.j != null) {
-                this.k.cancel(this.j);
-            }
-            this.j = PendingIntent.getBroadcast(this.f, 0, new Intent("android.com.baidu.location.TIMER.NOTIFY"), 134217728);
-            if (this.j == null) {
+    /* renamed from: com.baidu.location.c.a$a  reason: collision with other inner class name */
+    /* loaded from: classes5.dex */
+    public static class HandlerC0102a extends Handler {
+        private final WeakReference<a> a;
+
+        public HandlerC0102a(Looper looper, a aVar) {
+            super(looper);
+            this.a = new WeakReference<>(aVar);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            a aVar = this.a.get();
+            if (aVar == null) {
                 return;
             }
-            this.k.set(0, System.currentTimeMillis() + j, this.j);
-        } catch (Exception e) {
+            if (f.isServing) {
+                switch (message.what) {
+                    case 11:
+                        aVar.a(message);
+                        break;
+                    case 12:
+                        aVar.b(message);
+                        break;
+                    case 15:
+                        aVar.c(message);
+                        break;
+                    case 22:
+                        l.c().b(message);
+                        break;
+                    case 41:
+                        l.c().h();
+                        break;
+                    case 401:
+                        try {
+                            message.getData();
+                            break;
+                        } catch (Exception e) {
+                            break;
+                        }
+                    case 405:
+                        byte[] byteArray = message.getData().getByteArray("errorid");
+                        if (byteArray != null && byteArray.length > 0) {
+                            new String(byteArray);
+                            break;
+                        }
+                        break;
+                    case 406:
+                        h.a().e();
+                        break;
+                }
+            }
+            if (message.what == 1) {
+                aVar.b();
+            }
+            if (message.what == 0) {
+                aVar.a();
+            }
+            super.handleMessage(message);
         }
     }
 
-    private boolean a() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        j.a().a(f.getServiceContext());
+        b.a();
+        x.a().e();
+        n.a().b();
+        h.a().b();
+        e.a().b();
+        com.baidu.location.b.b.a().b();
+        l.c().d();
+        i.a().c();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Message message) {
+        Log.d("baidu_location_service", "baidu location service register ...");
+        com.baidu.location.a.a.a().a(message);
+        p.b().c();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        i.a().d();
+        e.a().e();
+        x.a().f();
+        com.baidu.location.b.b.a().c();
+        l.c().e();
+        h.a().c();
+        w.d();
+        com.baidu.location.a.a.a().b();
+        n.a().c();
+        Log.d("baidu_location_service", "baidu location service has stoped ...");
+        if (this.e) {
+            return;
+        }
+        Process.killProcess(Process.myPid());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(Message message) {
+        com.baidu.location.a.a.a().b(message);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(Message message) {
+        com.baidu.location.a.a.a().c(message);
+    }
+
+    @Override // com.baidu.location.LLSInterface
+    public double getVersion() {
+        return 7.630000114440918d;
+    }
+
+    @Override // android.app.Service, com.baidu.location.LLSInterface
+    public IBinder onBind(Intent intent) {
+        Bundle extras = intent.getExtras();
         boolean z = false;
-        if (this.a == null || this.a.isEmpty()) {
-            return false;
+        if (extras != null) {
+            b.g = extras.getString("key");
+            b.f = extras.getString("sign");
+            this.e = extras.getBoolean("kill_process");
+            z = extras.getBoolean("cache_exception");
         }
-        Iterator<BDNotifyListener> it = this.a.iterator();
-        while (true) {
-            boolean z2 = z;
-            if (!it.hasNext()) {
-                return z2;
-            }
-            z = it.next().Notified < 3 ? true : z2;
+        if (!z) {
         }
+        return this.b.getBinder();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0034  */
-    /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void b() {
-        boolean z;
-        int i = 10000;
-        if (!a()) {
-            return;
-        }
-        int i2 = this.b > 5000.0f ? 600000 : this.b > 1000.0f ? 120000 : this.b > 500.0f ? 60000 : 10000;
-        if (this.i) {
-            this.i = false;
+    @Override // com.baidu.location.LLSInterface
+    public void onCreate(Context context) {
+        f = System.currentTimeMillis();
+        this.d = v.a();
+        this.c = this.d.getLooper();
+        if (this.c == null) {
+            a = new HandlerC0102a(Looper.getMainLooper(), this);
         } else {
-            i = i2;
+            a = new HandlerC0102a(this.c, this);
         }
-        if (this.g != 0) {
-            if (i > (this.h + this.g) - System.currentTimeMillis()) {
-                z = false;
-                if (z) {
-                    return;
-                }
-                this.g = i;
-                this.h = System.currentTimeMillis();
-                a(this.g);
-                return;
-            }
-        }
-        z = true;
-        if (z) {
-        }
+        this.b = new Messenger(a);
+        a.sendEmptyMessage(0);
+        Log.d("baidu_location_service", "baidu location service start1 ...20181022..." + Process.myPid());
     }
 
-    public void a(BDNotifyListener bDNotifyListener) {
-        if (bDNotifyListener.mCoorType == null) {
-            return;
+    @Override // android.app.Service, com.baidu.location.LLSInterface
+    public void onDestroy() {
+        try {
+            a.sendEmptyMessage(1);
+        } catch (Exception e) {
+            Log.d("baidu_location_service", "baidu location service stop exception...");
+            b();
+            Process.killProcess(Process.myPid());
         }
-        if (!bDNotifyListener.mCoorType.equals(CoordinateType.GCJ02)) {
-            double[] coorEncrypt = Jni.coorEncrypt(bDNotifyListener.mLongitude, bDNotifyListener.mLatitude, bDNotifyListener.mCoorType + "2gcj");
-            bDNotifyListener.mLongitudeC = coorEncrypt[0];
-            bDNotifyListener.mLatitudeC = coorEncrypt[1];
-        }
-        if (this.c == null || System.currentTimeMillis() - this.d > 300000) {
-            this.e.requestNotifyLocation();
-        } else {
-            float[] fArr = new float[1];
-            Location.distanceBetween(this.c.getLatitude(), this.c.getLongitude(), bDNotifyListener.mLatitudeC, bDNotifyListener.mLongitudeC, fArr);
-            float radius = (fArr[0] - bDNotifyListener.mRadius) - this.c.getRadius();
-            if (radius > 0.0f) {
-                if (radius < this.b) {
-                    this.b = radius;
-                }
-            } else if (bDNotifyListener.Notified < 3) {
-                bDNotifyListener.Notified++;
-                bDNotifyListener.onNotify(this.c, fArr[0]);
-                if (bDNotifyListener.Notified < 3) {
-                    this.i = true;
-                }
-            }
-        }
-        b();
+        Log.d("baidu_location_service", "baidu location service stop ...");
+    }
+
+    @Override // android.app.Service, com.baidu.location.LLSInterface
+    public int onStartCommand(Intent intent, int i, int i2) {
+        return 1;
+    }
+
+    @Override // android.app.Service, com.baidu.location.LLSInterface
+    public void onTaskRemoved(Intent intent) {
+        Log.d("baidu_location_service", "baidu location service remove task...");
+    }
+
+    @Override // com.baidu.location.LLSInterface
+    public boolean onUnBind(Intent intent) {
+        return false;
     }
 }

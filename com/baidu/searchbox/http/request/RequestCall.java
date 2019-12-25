@@ -11,18 +11,17 @@ import com.baidu.searchbox.http.callback.StatResponseCallback;
 import com.baidu.searchbox.http.cookie.CookieJarImpl;
 import com.baidu.searchbox.http.interceptor.LogInterceptor;
 import com.baidu.searchbox.http.interceptor.ParamInterceptor;
-import com.baidu.searchbox.http.response.ResponseException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Dns;
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class RequestCall implements Cancelable {
+    private static final String TAG = RequestCall.class.getSimpleName();
     private OkHttpClient client;
     private Handler deliver;
     private HttpRequest httpRequest;
@@ -46,11 +45,11 @@ public class RequestCall implements Cancelable {
         if (shouldCreateNewRequest()) {
             OkHttpClient.Builder newBuilder = this.client.newBuilder();
             if ((this.httpRequest.networkStat != null || this.httpRequest.requestNetStat != null) && HttpRuntime.getHttpContext() != null) {
-                Interceptor newNetworkInterceptor = HttpRuntime.getHttpContext().getNewNetworkInterceptor();
-                if (newNetworkInterceptor != null) {
-                    newBuilder.addNetworkInterceptor(newNetworkInterceptor);
-                }
                 IHttpDns newCloneHttpDns = HttpRuntime.getHttpContext().getNewCloneHttpDns(this.httpRequest);
+                if (HttpRuntime.getHttpContext().forceHttpDnsIPv4OnlyInDualStack(this.httpRequest)) {
+                    newCloneHttpDns.setHttpDnsIPv4OnlyEnable(true);
+                    newBuilder.connectionPool(this.httpRequest.httpManager.getIPv4OnlyConnectionPool());
+                }
                 if (newCloneHttpDns != null && (newCloneHttpDns instanceof Dns)) {
                     newBuilder.dns((Dns) newCloneHttpDns);
                 }
@@ -88,13 +87,13 @@ public class RequestCall implements Cancelable {
 
     private void checkNetworkConnected() throws IOException {
         if (!this.httpRequest.httpManager.isNetWorkConnected()) {
-            throw new IOException(ResponseException.NO_NETWORK);
+            throw new IOException(" no network connected");
         }
     }
 
     private void checkExecuteWifiOnly() throws IOException {
         if (this.httpRequest.isWifiOnly && !this.httpRequest.httpManager.isWifi()) {
-            throw new IOException(ResponseException.ONLY_WIFI_EXECUTE);
+            throw new IOException(" only allow wifi connected");
         }
     }
 
@@ -107,16 +106,10 @@ public class RequestCall implements Cancelable {
     }
 
     public Response executeSync() throws IOException {
+        beginRequest();
         try {
             try {
                 executePreCheck();
-                long currentTimeMillis = System.currentTimeMillis();
-                if (this.httpRequest.networkStat != null) {
-                    this.httpRequest.networkStat.onStartExecute(this.httpRequest.okRequest, currentTimeMillis);
-                }
-                if (this.httpRequest.requestNetStat != null) {
-                    this.httpRequest.requestNetStat.startTs = currentTimeMillis;
-                }
                 return this.realCall.execute();
             } catch (IOException e) {
                 if (this.httpRequest.networkStat != null) {
@@ -128,12 +121,12 @@ public class RequestCall implements Cancelable {
                 throw e;
             }
         } finally {
-            long currentTimeMillis2 = System.currentTimeMillis();
+            long currentTimeMillis = System.currentTimeMillis();
             if (this.httpRequest.networkStat != null) {
-                this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, currentTimeMillis2);
+                this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, currentTimeMillis);
             }
             if (this.httpRequest.requestNetStat != null) {
-                this.httpRequest.requestNetStat.finishTs = currentTimeMillis2;
+                this.httpRequest.requestNetStat.finishTs = currentTimeMillis;
                 this.httpRequest.requestNetStat.netType = this.httpRequest.httpManager.getNetworkInfo();
             }
         }
@@ -152,15 +145,9 @@ public class RequestCall implements Cancelable {
     }
 
     public <T> Cancelable executeStatWithHandler(final Handler handler, final StatResponseCallback<T> statResponseCallback) {
+        beginRequest();
         try {
             executePreCheck();
-            long currentTimeMillis = System.currentTimeMillis();
-            if (this.httpRequest.networkStat != null) {
-                this.httpRequest.networkStat.onStartExecute(this.httpRequest.okRequest, currentTimeMillis);
-            }
-            if (this.httpRequest.requestNetStat != null) {
-                this.httpRequest.requestNetStat.startTs = currentTimeMillis;
-            }
             this.realCall.enqueue(new Callback() { // from class: com.baidu.searchbox.http.request.RequestCall.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
@@ -187,10 +174,8 @@ public class RequestCall implements Cancelable {
     }
 
     public <T> Cancelable executeAsyncWithHandler(final Handler handler, final ResponseCallback<T> responseCallback) {
+        beginRequest();
         try {
-            if (this.httpRequest.networkStat != null) {
-                this.httpRequest.networkStat.onStartExecute(this.httpRequest.okRequest, System.currentTimeMillis());
-            }
             executePreCheck();
             this.realCall.enqueue(new Callback() { // from class: com.baidu.searchbox.http.request.RequestCall.2
                 @Override // okhttp3.Callback
@@ -318,6 +303,19 @@ public class RequestCall implements Cancelable {
             } catch (Exception e) {
                 sendFailResult(handler, responseCallback, e);
             }
+        }
+    }
+
+    private void beginRequest() {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (this.httpRequest.networkStat != null) {
+            this.httpRequest.networkStat.onStartExecute(this.httpRequest.okRequest, currentTimeMillis);
+            this.httpRequest.networkStat.setNetEngine(this.httpRequest.okRequest, 2);
+        }
+        if (this.httpRequest.requestNetStat != null) {
+            this.httpRequest.requestNetStat.startTs = currentTimeMillis;
+            this.httpRequest.requestNetStat.netEngine = 2;
+            this.httpRequest.requestNetStat.from = this.httpRequest.requestFrom;
         }
     }
 

@@ -6,10 +6,10 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.view.MessageRedDotView;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
     protected boolean mIsContentSelectBold;
 
@@ -89,7 +89,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         this.mIsContentSelectBold = z;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class FragmentTapTip {
         public int bgDayRes;
         public TbFragmentTabIndicator indicator;

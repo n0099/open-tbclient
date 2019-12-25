@@ -1,6 +1,8 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import java.io.Serializable;
@@ -12,7 +14,7 @@ import org.json.JSONObject;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";
@@ -25,6 +27,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private boolean isAuthor;
     private int isFloor;
     private boolean isNew;
+    private BaijiahaoData mBaijiahao;
     private boolean mIsShareThread;
     private boolean mIsStory;
     private OriginalThreadInfo mOriginalThreadInfo;
@@ -44,6 +47,15 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private MetaData quote_user = new MetaData();
     private int mPraiseNum = 0;
     private List<LikeData> mPraiseList = null;
+    private boolean isBjh = false;
+
+    public boolean isBjh() {
+        return this.isBjh;
+    }
+
+    public BaijiahaoData getBaijiahaoData() {
+        return this.mBaijiahao;
+    }
 
     public String getPraiseItemType() {
         return this.mPraiseItemType;
@@ -242,6 +254,11 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.thread_type = jSONObject.optInt("thread_type");
                 this.threadImgUrl = jSONObject.optString("thread_img_url");
                 this.isNew = jSONObject.optInt("unread") == 1;
+                this.isBjh = jSONObject.optInt(ImageViewerConfig.IS_BJH) == 1;
+                if (jSONObject.optJSONObject("baijiahao") != null) {
+                    this.mBaijiahao = new BaijiahaoData();
+                    this.mBaijiahao.parseJson(jSONObject.optJSONObject("baijiahao"));
+                }
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -285,11 +302,16 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             this.mIsShareThread = replyList.is_share_thread.intValue() == 1;
             if (this.mIsShareThread) {
                 this.mOriginalThreadInfo = new OriginalThreadInfo();
-                this.mOriginalThreadInfo.parser(replyList.origin_thread_info);
+                this.mOriginalThreadInfo.a(replyList.origin_thread_info);
             }
             this.postFrom = replyList.post_from;
             this.threadImgUrl = replyList.thread_img_url;
             this.isNew = replyList.unread.intValue() == 1;
+            this.isBjh = replyList.is_bjh.intValue() == 1;
+            if (replyList.baijiahao != null) {
+                this.mBaijiahao = new BaijiahaoData();
+                this.mBaijiahao.parseProto(replyList.baijiahao);
+            }
         }
     }
 }

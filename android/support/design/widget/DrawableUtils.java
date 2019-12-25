@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableContainer;
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class DrawableUtils {
     private static final String LOG_TAG = "DrawableUtils";
     private static Method sSetConstantStateMethod;

@@ -4,60 +4,60 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a jiV;
-    private final int jiW = 10;
-    private final int jiX = 3000;
-    public String jiY = null;
+    private com.baidu.adp.lib.stats.a kdi;
+    private final int kdj = 10;
+    private final int kdk = 3000;
+    public String mLogType = null;
     public boolean mIsJson = false;
 
     public b(String str) {
-        aw(str, false);
+        aB(str, false);
     }
 
-    public void aw(String str, boolean z) {
-        this.jiY = str;
+    public void aB(String str, boolean z) {
+        this.mLogType = str;
         this.mIsJson = z;
-        this.jiV = new com.baidu.adp.lib.stats.a("dbg");
+        this.kdi = new com.baidu.adp.lib.stats.a("dbg");
         c.A(str, getNetType(), z);
     }
 
     public void start() {
-        this.jiV.startTimer();
+        this.kdi.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e coH;
-        if (this.jiV != null && (coH = coH()) != null) {
+        e cIN;
+        if (this.kdi != null && (cIN = cIN()) != null) {
             if (z) {
-                if (coH.jjd != null) {
-                    coH.jjd.num++;
+                if (cIN.kdp != null) {
+                    cIN.kdp.num++;
                     if (z2) {
-                        coH.jjd.jja += j2;
-                        coH.jjd.size += j;
+                        cIN.kdp.kdm += j2;
+                        cIN.kdp.size += j;
                     } else {
-                        coH.jjd.jjb++;
+                        cIN.kdp.kdn++;
                     }
                 } else {
                     return;
                 }
-            } else if (coH.jje != null) {
-                coH.jje.num++;
+            } else if (cIN.kdq != null) {
+                cIN.kdq.num++;
                 if (z2) {
-                    coH.jje.jja += j3;
-                    coH.jje.size += j;
+                    cIN.kdq.kdm += j3;
+                    cIN.kdq.size += j;
                     j2 = j3;
                 } else {
-                    coH.jje.jjb++;
+                    cIN.kdq.kdn++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.jiV = null;
+            this.kdi = null;
             if (z2) {
-                c.a(coH, 10);
+                c.a(cIN, 10);
             }
-            if (this.jiY == "frsStat") {
+            if (this.mLogType == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.append("act", "frs");
@@ -74,20 +74,20 @@ public class b {
     }
 
     public void destory() {
-        e coH;
-        if (this.jiV != null && (coH = coH()) != null && coH.jjf != null) {
-            long timeCost = this.jiV.getTimeCost();
+        e cIN;
+        if (this.kdi != null && (cIN = cIN()) != null && cIN.kdr != null) {
+            long timeCost = this.kdi.getTimeCost();
             if (timeCost > 3000) {
-                d dVar = coH.jjf;
-                dVar.jja = timeCost + dVar.jja;
-                coH.jjf.num++;
-                c.a(coH, 10);
+                d dVar = cIN.kdr;
+                dVar.kdm = timeCost + dVar.kdm;
+                cIN.kdr.num++;
+                c.a(cIN, 10);
             }
         }
     }
 
-    private e coH() {
-        return c.B(this.jiY, getNetType(), this.mIsJson);
+    private e cIN() {
+        return c.B(this.mLogType, getNetType(), this.mIsJson);
     }
 
     private String getNetType() {

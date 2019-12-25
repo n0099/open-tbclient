@@ -1,48 +1,34 @@
 package com.airbnb.lottie.a.a;
 
-import com.airbnb.lottie.a.b.a;
-import com.airbnb.lottie.model.content.ShapeTrimPath;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes2.dex */
-public class q implements b, a.InterfaceC0007a {
-    private final ShapeTrimPath.Type eM;
-    private final com.airbnb.lottie.a.b.a<?, Float> eN;
-    private final com.airbnb.lottie.a.b.a<?, Float> eO;
-    private final com.airbnb.lottie.a.b.a<?, Float> eP;
-    private final List<a.InterfaceC0007a> listeners = new ArrayList();
-    private String name;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Matrix;
+import android.support.annotation.Nullable;
+import com.airbnb.lottie.model.content.ShapeStroke;
+/* loaded from: classes4.dex */
+public class q extends a {
+    private final com.airbnb.lottie.model.layer.a fG;
+    @Nullable
+    private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> fN;
+    private final com.airbnb.lottie.a.b.a<Integer, Integer> fW;
+    private final String name;
 
-    public q(com.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
-        this.name = shapeTrimPath.getName();
-        this.eM = shapeTrimPath.bD();
-        this.eN = shapeTrimPath.cY().bY();
-        this.eO = shapeTrimPath.cX().bY();
-        this.eP = shapeTrimPath.cR().bY();
-        aVar.a(this.eN);
-        aVar.a(this.eO);
-        aVar.a(this.eP);
-        this.eN.b(this);
-        this.eO.b(this);
-        this.eP.b(this);
+    public q(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
+        super(gVar, aVar, shapeStroke.cE().toPaintCap(), shapeStroke.cF().toPaintJoin(), shapeStroke.cI(), shapeStroke.cs(), shapeStroke.cD(), shapeStroke.cG(), shapeStroke.cH());
+        this.fG = aVar;
+        this.name = shapeStroke.getName();
+        this.fW = shapeStroke.cY().cm();
+        this.fW.b(this);
+        aVar.a(this.fW);
     }
 
-    @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
-    public void bt() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < this.listeners.size()) {
-                this.listeners.get(i2).bt();
-                i = i2 + 1;
-            } else {
-                return;
-            }
+    @Override // com.airbnb.lottie.a.a.a, com.airbnb.lottie.a.a.d
+    public void a(Canvas canvas, Matrix matrix, int i) {
+        this.paint.setColor(this.fW.getValue().intValue());
+        if (this.fN != null) {
+            this.paint.setColorFilter(this.fN.getValue());
         }
-    }
-
-    @Override // com.airbnb.lottie.a.a.b
-    public void b(List<b> list, List<b> list2) {
+        super.a(canvas, matrix, i);
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -50,25 +36,19 @@ public class q implements b, a.InterfaceC0007a {
         return this.name;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a.InterfaceC0007a interfaceC0007a) {
-        this.listeners.add(interfaceC0007a);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type bD() {
-        return this.eM;
-    }
-
-    public com.airbnb.lottie.a.b.a<?, Float> bE() {
-        return this.eN;
-    }
-
-    public com.airbnb.lottie.a.b.a<?, Float> bF() {
-        return this.eO;
-    }
-
-    public com.airbnb.lottie.a.b.a<?, Float> bG() {
-        return this.eP;
+    @Override // com.airbnb.lottie.a.a.a, com.airbnb.lottie.model.f
+    public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
+        super.a((q) t, (com.airbnb.lottie.e.c<q>) cVar);
+        if (t == com.airbnb.lottie.k.eM) {
+            this.fW.a(cVar);
+        } else if (t == com.airbnb.lottie.k.fk) {
+            if (cVar == null) {
+                this.fN = null;
+                return;
+            }
+            this.fN = new com.airbnb.lottie.a.b.p(cVar);
+            this.fN.b(this);
+            this.fG.a(this.fW);
+        }
     }
 }

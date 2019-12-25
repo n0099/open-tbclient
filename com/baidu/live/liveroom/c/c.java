@@ -1,6 +1,6 @@
 package com.baidu.live.liveroom.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c {
-    public Object ajp;
-    public short ajq;
+    public Object arm;
+    public short arn;
 }

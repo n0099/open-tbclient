@@ -5,7 +5,7 @@ import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.IXAdContainerFactory;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static IXAdContainerFactory e;
     private Context b;
@@ -29,7 +29,7 @@ public class a {
                 e = (IXAdContainerFactory) this.c.getDeclaredConstructor(Context.class).newInstance(this.b);
                 this.a = e.getRemoteVersion();
                 e.setDebugMode(this.f);
-                e.handleShakeVersion(this.d, "8.8079");
+                e.handleShakeVersion(this.d, "8.8146");
             } catch (Throwable th) {
                 this.g.w("XAdContainerFactoryBuilder", th.getMessage());
                 throw new g.a("newXAdContainerFactory() failed, possibly API incompatible: " + th.getMessage());

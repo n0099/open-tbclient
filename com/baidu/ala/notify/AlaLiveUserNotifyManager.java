@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveUserNotifyManager {
     private static AlaLiveUserNotifyManager mInstance;
     private ArrayList<AlaLiveUserNotifyData> dataList;
@@ -37,7 +37,7 @@ public class AlaLiveUserNotifyManager {
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface AlaLiveNotifyListener {
         void onCallBack();
     }

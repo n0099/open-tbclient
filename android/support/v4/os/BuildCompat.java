@@ -1,7 +1,7 @@
 package android.support.v4.os;
 
 import android.os.Build;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BuildCompat {
     private BuildCompat() {
     }
@@ -16,12 +16,14 @@ public class BuildCompat {
         return Build.VERSION.SDK_INT >= 25;
     }
 
+    @Deprecated
     public static boolean isAtLeastO() {
         return Build.VERSION.SDK_INT >= 26;
     }
 
+    @Deprecated
     public static boolean isAtLeastOMR1() {
-        return Build.VERSION.CODENAME.startsWith("OMR") || isAtLeastP();
+        return Build.VERSION.SDK_INT >= 27;
     }
 
     public static boolean isAtLeastP() {

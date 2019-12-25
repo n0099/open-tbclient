@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topicdetail.b.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
-    private com.baidu.tieba.homepage.topic.topicdetail.a.d gol;
+    private com.baidu.tieba.homepage.topic.topicdetail.a.d hbM;
     private RecyclerView mRecyclerView;
     private int mSkinType;
     private TextView mTitleView;
@@ -47,8 +47,8 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         LayoutInflater.from(context).inflate(R.layout.topic_timeline_view_layout, (ViewGroup) this, true);
         this.mTitleView = (TextView) findViewById(R.id.topic_timeline_title);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.topic_timeline_list);
-        this.gol = new com.baidu.tieba.homepage.topic.topicdetail.a.d(context);
-        this.mRecyclerView.setAdapter(this.gol);
+        this.hbM = new com.baidu.tieba.homepage.topic.topicdetail.a.d(context);
+        this.mRecyclerView.setAdapter(this.hbM);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         this.mRecyclerView.addItemDecoration(new a(l.getDimens(context, R.dimen.tbds44), l.getDimens(context, R.dimen.tbds20), l.getDimens(context, R.dimen.tbds44)));
@@ -56,14 +56,14 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
     }
 
     public void setData(f fVar) {
-        if (fVar == null || v.isEmpty(fVar.gni)) {
+        if (fVar == null || v.isEmpty(fVar.haJ)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         this.mTitleView.setText(fVar.title);
-        this.gol.setData(fVar.gni);
-        this.gol.notifyDataSetChanged();
+        this.hbM.setData(fVar.haJ);
+        this.hbM.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
@@ -71,20 +71,20 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             am.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_b);
-            this.gol.notifyDataSetChanged();
+            this.hbM.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends RecyclerView.ItemDecoration {
-        private int fgB;
-        private int fgC;
+        private int fVe;
+        private int fVf;
         private int mEnd;
 
         public a(int i, int i2, int i3) {
-            this.fgB = i;
-            this.fgC = i2;
+            this.fVe = i;
+            this.fVf = i2;
             this.mEnd = i3;
         }
 
@@ -93,9 +93,9 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
             LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
             if (linearLayoutManager.getOrientation() == 1) {
                 if (recyclerView.getChildAdapterPosition(view) == 0) {
-                    rect.top = this.fgB;
+                    rect.top = this.fVe;
                 } else {
-                    rect.top = this.fgC;
+                    rect.top = this.fVf;
                 }
                 if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
                     rect.bottom = this.mEnd;
@@ -104,9 +104,9 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.left = this.fgB;
+                rect.left = this.fVe;
             } else {
-                rect.left = this.fgC;
+                rect.left = this.fVf;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
                 rect.right = this.mEnd;

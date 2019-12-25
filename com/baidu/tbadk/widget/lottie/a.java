@@ -2,31 +2,31 @@ package com.baidu.tbadk.widget.lottie;
 
 import android.graphics.Bitmap;
 import com.airbnb.lottie.c;
-import com.airbnb.lottie.g;
+import com.airbnb.lottie.h;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.e.m;
+import com.baidu.tbadk.core.util.d.m;
 /* loaded from: classes.dex */
 public class a implements c {
     public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private m cUc;
+    private m dIx;
     private boolean isFirstLoadInternal = false;
     private String mPath;
 
     @Override // com.airbnb.lottie.c
-    public Bitmap a(g gVar) {
+    public Bitmap fetchBitmap(h hVar) {
         if (aq.isEmpty(this.mPath)) {
             return null;
         }
-        String str = this.mPath + gVar.bn().replace("/", "") + "/" + gVar.getFileName();
-        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.fT().loadResourceFromMemery(str, 36, new Object[0]);
+        String str = this.mPath + hVar.bw().replace("/", "") + "/" + hVar.getFileName();
+        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.e.c.gs().loadResourceFromMemery(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.cUc == null) {
-                this.cUc = new m();
+            if (this.dIx == null) {
+                this.dIx = new m();
             }
-            aVar = this.cUc.m(str, 0, 0);
+            aVar = this.dIx.n(str, 0, 0);
         }
         if (aVar != null && aVar.getRawBitmap() != null) {
             Bitmap rawBitmap = aVar.getRawBitmap();
@@ -37,7 +37,7 @@ public class a implements c {
                 BdLog.e(e);
             }
         }
-        com.baidu.adp.lib.f.c.fT().a(str, 36, null, null);
+        com.baidu.adp.lib.e.c.gs().a(str, 36, null, null);
         return null;
     }
 

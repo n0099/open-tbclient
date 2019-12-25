@@ -1,42 +1,40 @@
 package com.baidu.tbadk.l;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.R;
-import com.baidu.tieba.horizonalList.widget.HTypeListView;
+import android.content.Intent;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.util.v;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class b extends v.a {
-    private HTypeListView cIm;
-    private com.baidu.tieba.b.b cIn;
-    private int csg;
-    private View mBottomLine;
-    private TbPageContext mPageContext;
+public class b {
+    private String dyG;
+    private final ArrayList<String> dyH = new ArrayList<>();
+    private BdUniqueId mId;
 
-    public b(View view, TbPageContext tbPageContext) {
-        super(view);
-        this.csg = 3;
-        this.mPageContext = tbPageContext;
-        this.cIm = (HTypeListView) view.findViewById(R.id.follow_live_list);
-        this.mBottomLine = view.findViewById(R.id.follow_live_bottom_line);
-        this.cIm.setSelector(R.drawable.transparent_bg);
-        this.cIn = new com.baidu.tieba.b.b(this.mPageContext, this.cIm);
+    public b(BdUniqueId bdUniqueId, String str, Intent intent) {
+        this.mId = bdUniqueId;
+        this.dyG = str;
+        X(intent);
     }
 
-    public void a(com.baidu.tbadk.data.b bVar) {
-        if (bVar != null) {
-            this.cIn.setDatas(bVar.getList());
+    public void X(Intent intent) {
+        this.dyH.clear();
+        if (intent != null) {
+            ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tb_page_extar_source_list");
+            if (!v.isEmpty(stringArrayListExtra)) {
+                this.dyH.addAll(stringArrayListExtra);
+            }
         }
     }
 
-    public void avq() {
-        if (this.csg != TbadkCoreApplication.getInst().getSkinType()) {
-            this.csg = TbadkCoreApplication.getInst().getSkinType();
-            am.setBackgroundColor(this.cIm, R.color.cp_bg_line_d);
-            am.setBackgroundColor(this.mBottomLine, R.color.cp_bg_line_c);
-            this.cIn.notifyDataSetChanged();
-        }
+    public String getCurrentPageKey() {
+        return this.dyG;
+    }
+
+    public ArrayList<String> aOg() {
+        return this.dyH;
+    }
+
+    public ArrayList<String> aOh() {
+        return c.e(this.dyH, this.dyG);
     }
 }

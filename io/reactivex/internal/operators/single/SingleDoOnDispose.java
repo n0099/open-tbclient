@@ -1,0 +1,67 @@
+package io.reactivex.internal.operators.single;
+
+import io.reactivex.aa;
+import io.reactivex.disposables.b;
+import io.reactivex.internal.disposables.DisposableHelper;
+import io.reactivex.w;
+import io.reactivex.y;
+import java.util.concurrent.atomic.AtomicReference;
+/* loaded from: classes4.dex */
+public final class SingleDoOnDispose<T> extends w<T> {
+    final io.reactivex.b.a mVN;
+    final aa<T> source;
+
+    @Override // io.reactivex.w
+    protected void b(y<? super T> yVar) {
+        this.source.a(new DoOnDisposeObserver(yVar, this.mVN));
+    }
+
+    /* loaded from: classes4.dex */
+    static final class DoOnDisposeObserver<T> extends AtomicReference<io.reactivex.b.a> implements b, y<T> {
+        private static final long serialVersionUID = -8583764624474935784L;
+        final y<? super T> actual;
+        b d;
+
+        DoOnDisposeObserver(y<? super T> yVar, io.reactivex.b.a aVar) {
+            this.actual = yVar;
+            lazySet(aVar);
+        }
+
+        @Override // io.reactivex.disposables.b
+        public void dispose() {
+            io.reactivex.b.a andSet = getAndSet(null);
+            if (andSet != null) {
+                try {
+                    andSet.run();
+                } catch (Throwable th) {
+                    io.reactivex.exceptions.a.I(th);
+                    io.reactivex.d.a.onError(th);
+                }
+                this.d.dispose();
+            }
+        }
+
+        @Override // io.reactivex.disposables.b
+        public boolean isDisposed() {
+            return this.d.isDisposed();
+        }
+
+        @Override // io.reactivex.y
+        public void onSubscribe(b bVar) {
+            if (DisposableHelper.validate(this.d, bVar)) {
+                this.d = bVar;
+                this.actual.onSubscribe(this);
+            }
+        }
+
+        @Override // io.reactivex.y
+        public void onSuccess(T t) {
+            this.actual.onSuccess(t);
+        }
+
+        @Override // io.reactivex.y
+        public void onError(Throwable th) {
+            this.actual.onError(th);
+        }
+    }
+}

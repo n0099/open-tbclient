@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RealNameFaceIDResult extends SapiResult {
     public String authSid;
     public String callBackKey;

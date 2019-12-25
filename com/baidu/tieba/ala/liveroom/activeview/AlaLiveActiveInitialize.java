@@ -5,7 +5,7 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveActiveInitialize {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913053, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaLiveActiveInitialize.1

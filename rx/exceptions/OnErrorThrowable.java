@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import rx.c.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class OnErrorThrowable extends RuntimeException {
     private static final long serialVersionUID = -569558213262703934L;
     private final boolean hasValue;
@@ -41,32 +41,32 @@ public final class OnErrorThrowable extends RuntimeException {
         if (th == null) {
             th = new NullPointerException();
         }
-        Throwable L = a.L(th);
-        return L instanceof OnNextValue ? new OnErrorThrowable(th, ((OnNextValue) L).getValue()) : new OnErrorThrowable(th);
+        Throwable Q = a.Q(th);
+        return Q instanceof OnNextValue ? new OnErrorThrowable(th, ((OnNextValue) Q).getValue()) : new OnErrorThrowable(th);
     }
 
     public static Throwable addValueAsLastCause(Throwable th, Object obj) {
         if (th == null) {
             th = new NullPointerException();
         }
-        Throwable L = a.L(th);
-        if (!(L instanceof OnNextValue) || ((OnNextValue) L).getValue() != obj) {
+        Throwable Q = a.Q(th);
+        if (!(Q instanceof OnNextValue) || ((OnNextValue) Q).getValue() != obj) {
             a.a(th, new OnNextValue(obj));
         }
         return th;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class OnNextValue extends RuntimeException {
         private static final long serialVersionUID = -3454462756050397899L;
         private final Object value;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static final class a {
-            static final Set<Class<?>> kyb = cOs();
+            static final Set<Class<?>> ndH = dGn();
 
-            private static Set<Class<?>> cOs() {
+            private static Set<Class<?>> dGn() {
                 HashSet hashSet = new HashSet();
                 hashSet.add(Boolean.class);
                 hashSet.add(Character.class);
@@ -100,7 +100,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj == null) {
                 return "null";
             }
-            if (a.kyb.contains(obj.getClass())) {
+            if (a.ndH.contains(obj.getClass())) {
                 return obj.toString();
             }
             if (obj instanceof String) {
@@ -109,8 +109,8 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj instanceof Enum) {
                 return ((Enum) obj).name();
             }
-            String bz = f.cPz().cPA().bz(obj);
-            return bz != null ? bz : obj.getClass().getName() + ".class";
+            String cd = f.dHg().dHh().cd(obj);
+            return cd != null ? cd : obj.getClass().getName() + ".class";
         }
     }
 }

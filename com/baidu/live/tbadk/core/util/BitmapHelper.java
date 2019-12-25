@@ -18,10 +18,9 @@ import android.util.SparseArray;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.CloseUtil;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -29,7 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BitmapHelper {
     public static final int FILE_2_BITMAP_MUL = 10;
     public static final int ROTATE_LEFT = 0;
@@ -1079,9 +1078,9 @@ public class BitmapHelper {
 
     public static int readPictureDegree(String str) {
         try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
+            switch (new ExifInterface(str).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1)) {
                 case 3:
-                    return SubsamplingScaleImageView.ORIENTATION_180;
+                    return 180;
                 case 4:
                 case 5:
                 case 7:
@@ -1090,7 +1089,7 @@ public class BitmapHelper {
                 case 6:
                     return 90;
                 case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
+                    return 270;
             }
         } catch (IOException e) {
             return 0;

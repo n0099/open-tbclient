@@ -1,87 +1,54 @@
 package com.baidu.swan.games.view.a;
 
 import android.view.View;
-import com.baidu.swan.apps.w.e;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes2.dex */
+import com.baidu.swan.apps.y.f;
+import com.baidu.swan.games.view.d;
+/* loaded from: classes9.dex */
 public class c {
-    private static final ReentrantLock bDX = new ReentrantLock();
-    private static ArrayList<a> bEh = new ArrayList<>();
-
-    public static boolean c(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        com.baidu.swan.games.view.b LG = e.LE().LG();
-        return LG != null && LG.a(view, bVar);
+    public static boolean c(View view, com.baidu.swan.apps.model.a.a.a aVar) {
+        d Ui = f.Uf().Ui();
+        return Ui != null && Ui.a(view, aVar);
     }
 
-    public static boolean b(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        com.baidu.swan.games.view.b LG = e.LE().LG();
-        return LG != null && LG.b(view, bVar);
+    public static boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
+        d Ui = f.Uf().Ui();
+        return Ui != null && Ui.b(view, aVar);
     }
 
-    public static boolean at(View view) {
-        com.baidu.swan.games.view.b LG = e.LE().LG();
-        return LG != null && LG.at(view);
+    public static boolean aq(View view) {
+        d Ui = f.Uf().Ui();
+        return Ui != null && Ui.aq(view);
     }
 
-    public static boolean az(View view) {
-        com.baidu.swan.games.view.b LG = e.LE().LG();
-        return LG != null && LG.ay(view);
+    public static boolean au(View view) {
+        d Ui = f.Uf().Ui();
+        return Ui != null && Ui.at(view);
     }
 
     public static boolean isLandScape() {
-        com.baidu.swan.games.view.b LG = e.LE().LG();
-        return LG != null && LG.isLandScape();
+        d Ui = f.Uf().Ui();
+        return Ui != null && Ui.isLandScape();
     }
 
-    public static int Yu() {
-        return ((Integer) e.LE().Lt().first).intValue();
+    public static int anQ() {
+        return ((Integer) f.Uf().TT().first).intValue();
     }
 
-    public static int Yv() {
-        return ((Integer) e.LE().Lt().second).intValue();
+    public static int anR() {
+        return ((Integer) f.Uf().TT().second).intValue();
     }
 
-    public static void a(a aVar) {
-        bDX.lock();
-        if (aVar != null) {
-            try {
-                if (!bEh.contains(aVar)) {
-                    bEh.add(aVar);
-                }
-            } finally {
-                bDX.unlock();
-            }
+    public static void a(com.baidu.swan.games.view.a aVar) {
+        d Ui = f.Uf().Ui();
+        if (Ui != null) {
+            Ui.a(aVar);
         }
     }
 
-    public static void b(a aVar) {
-        bDX.lock();
-        if (aVar != null) {
-            try {
-                bEh.remove(aVar);
-            } finally {
-                bDX.unlock();
-            }
-        }
-    }
-
-    public static void Yw() {
-        if (!bEh.isEmpty()) {
-            Iterator<a> it = bEh.iterator();
-            while (it.hasNext()) {
-                it.next().VE();
-            }
-        }
-    }
-
-    public static void Yx() {
-        if (!bEh.isEmpty()) {
-            Iterator<a> it = bEh.iterator();
-            while (it.hasNext()) {
-                it.next().VF();
-            }
+    public static void b(com.baidu.swan.games.view.a aVar) {
+        d Ui = f.Uf().Ui();
+        if (Ui != null) {
+            Ui.b(aVar);
         }
     }
 }

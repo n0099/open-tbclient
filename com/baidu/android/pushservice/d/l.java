@@ -4,7 +4,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class l {
     public String a;
     public String b;

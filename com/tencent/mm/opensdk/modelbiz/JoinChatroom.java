@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class JoinChatroom {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Req extends BaseReq {
         public String chatroomNickName;
         public String extMsg;
@@ -15,7 +15,7 @@ public class JoinChatroom {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public boolean checkArgs() {
-            return !d.b(this.groupId);
+            return !d.a(this.groupId);
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
@@ -33,7 +33,7 @@ public class JoinChatroom {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Resp extends BaseResp {
         public String extMsg;
 

@@ -6,12 +6,14 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class NetworkStatRecord {
     public static final String HEAD_X_BFE_SVBBRERS = "X-Bfe-Svbbrers";
     public String clientIP;
     public String errheaders;
     public Exception exception;
+    public JSONObject extraUserInfo;
+    public int ipStack;
     public boolean isConnReused;
     public String localIP;
     public String netType;
@@ -33,6 +35,8 @@ public class NetworkStatRecord {
     public long requestBodyLength = 0;
     public long realResponseLength = 0;
     public long readOverTs = -1;
+    public int netEngine = -1;
+    public int from = 0;
 
     public JSONObject toUBCJson() {
         JSONObject jSONObject = new JSONObject();
@@ -104,6 +108,15 @@ public class NetworkStatRecord {
             if (this.realResponseLength > 0 && this.readOverTs != -1) {
                 jSONObject.put("readOverTime", this.readOverTs);
             }
+            if (this.netEngine != -1) {
+                jSONObject.put("netEngine", this.netEngine);
+            }
+            if (this.extraUserInfo != null) {
+                jSONObject.put("user_log", this.extraUserInfo.toString());
+            }
+            jSONObject.put("from", this.from);
+            jSONObject.put("socketReuse", this.isConnReused ? "1" : "0");
+            jSONObject.put("ipStack", this.ipStack);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -111,7 +124,7 @@ public class NetworkStatRecord {
     }
 
     public String toString() {
-        return "NetworkStatRecord{url=" + this.url + ", protocol=" + this.protocol + ", netType=" + this.netType + ", startTs=" + this.startTs + ", connTs=" + this.connTs + ", dnsStartTs=" + this.dnsStartTs + ", dnsEndTs=" + this.dnsEndTs + ", dnsDetail=" + this.dnsDetail.toString() + ", responseTs=" + this.responseTs + ", sendHeaderTs=" + this.sendHeaderTs + ", receiveHeaderTs=" + this.receiveHeaderTs + ", finishTs=" + this.finishTs + ", failTs=" + this.failTs + ", responseLength=" + this.responseLength + ", requestBodyLength=" + this.requestBodyLength + ", remoteIP=" + this.remoteIP + ", localIP=" + this.localIP + ", connectConsume=" + (this.connTs - this.startTs) + ", responseConsume=" + (this.responseTs - this.connTs) + ", totalConsume=" + (this.responseTs - this.startTs) + ", headers=" + this.errheaders + ", excetion=" + getStackTraceString(this.exception) + ", clientIP=" + this.clientIP + ", isConnReused=" + (this.isConnReused ? "1" : "0") + ", realResponseLength=" + this.realResponseLength + ", readOverTime=" + this.readOverTs + '}';
+        return "NetworkStatRecord{, netEngine=" + this.netEngine + "，url=" + this.url + ", protocol=" + this.protocol + ", netType=" + this.netType + ", startTs=" + this.startTs + ", connTs=" + this.connTs + ", dnsStartTs=" + this.dnsStartTs + ", dnsEndTs=" + this.dnsEndTs + ", dnsDetail=" + this.dnsDetail.toString() + ", responseTs=" + this.responseTs + ", sendHeaderTs=" + this.sendHeaderTs + ", receiveHeaderTs=" + this.receiveHeaderTs + ", finishTs=" + this.finishTs + ", failTs=" + this.failTs + ", responseLength=" + this.responseLength + ", requestBodyLength=" + this.requestBodyLength + ", remoteIP=" + this.remoteIP + ", localIP=" + this.localIP + ", connectConsume=" + (this.connTs - this.startTs) + ", responseConsume=" + (this.responseTs - this.connTs) + ", totalConsume=" + (this.responseTs - this.startTs) + ", headers=" + this.errheaders + ", excetion=" + getStackTraceString(this.exception) + ", clientIP=" + this.clientIP + ", isConnReused=" + (this.isConnReused ? "1" : "0") + ", realResponseLength=" + this.realResponseLength + ", readOverTime=" + this.readOverTs + ", from=" + this.from + ", extraUserInfo=" + (this.extraUserInfo != null ? this.extraUserInfo.toString() : "") + ", ipStack=" + this.ipStack + '}';
     }
 
     private String getStackTraceString(Throwable th) {

@@ -1,32 +1,160 @@
 package com.baidu.tieba.square.square;
 
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class b extends com.baidu.tieba.square.data.a {
-    private ArrayList<d> jdk = new ArrayList<>();
-
-    public ArrayList<d> cmQ() {
-        return this.jdk;
-    }
-
-    public void aH(ArrayList<d> arrayList) {
-        this.jdk = arrayList;
-        setErrorMsg(null);
-    }
-
-    @Override // com.baidu.tieba.square.data.a
-    protected void cq(JSONObject jSONObject) throws Exception {
-        ArrayList<d> arrayList = new ArrayList<>();
-        JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                d dVar = new d();
-                dVar.parserJson(optJSONArray.getJSONObject(i));
-                arrayList.add(dVar);
+/* loaded from: classes7.dex */
+public class b extends BaseAdapter {
+    private ArrayList<e> jXr;
+    View.OnClickListener jXs = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            e eVar;
+            Object tag = view.getTag();
+            if ((tag instanceof a) && (eVar = ((a) tag).jXw) != null) {
+                if (eVar.jVx == null) {
+                    com.baidu.tieba.square.square.a.e(b.this.getContext(), null);
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.getContext(), eVar.jVw, eVar.jVx, eVar.jVy)));
+                }
             }
         }
-        aH(arrayList);
+    };
+    private Activity mContext;
+
+    public b(Activity activity, c cVar, boolean z) {
+        this.mContext = activity;
+        this.jXr = cVar.cGX();
+    }
+
+    public ArrayList<e> cGX() {
+        return this.jXr;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* loaded from: classes7.dex */
+    public static class a {
+        public TextView cpT;
+        public BarImageView jXu;
+        public BestStringsFitTextView jXv;
+        public e jXw;
+
+        protected a() {
+        }
+    }
+
+    public void aR(ArrayList<e> arrayList) {
+        this.jXr = arrayList;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.jXr == null) {
+            return 0;
+        }
+        return (this.jXr.size() * 2) + 1;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        int itemViewType = getItemViewType(i);
+        if (view == null) {
+            view = z(viewGroup, itemViewType);
+            bc.prepareNewView(view);
+        }
+        bc.processCurrentSkin(view);
+        if (itemViewType != 3) {
+            TbadkCoreApplication.getInst().getSkinType();
+            View findViewById = view.findViewById(R.id.container);
+            am.setBackgroundResource(findViewById, R.drawable.addresslist_item_bg);
+            if (itemViewType == 2) {
+                if (getCount() > 1) {
+                    findViewById.setVisibility(0);
+                }
+            } else if (itemViewType == 1) {
+                a(viewGroup, (a) view.getTag(), i);
+            }
+        }
+        return view;
+    }
+
+    private View z(ViewGroup viewGroup, int i) {
+        if (i == 3) {
+            return LayoutInflater.from(this.mContext).inflate(R.layout.bar_home_list_line, viewGroup, false);
+        }
+        if (i == 2) {
+            return LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
+        }
+        View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+        inflate.setOnClickListener(this.jXs);
+        a aVar = new a();
+        aVar.jXu = (BarImageView) inflate.findViewById(R.id.portrait);
+        aVar.cpT = (TextView) inflate.findViewById(R.id.name);
+        aVar.jXv = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        inflate.setTag(aVar);
+        return inflate;
+    }
+
+    private void a(ViewGroup viewGroup, a aVar, int i) {
+        e eVar = this.jXr.get(i / 2);
+        aVar.jXw = eVar;
+        aVar.cpT.setText(eVar.jVw);
+        if (eVar.jXz != null) {
+            aVar.jXv.setVisibility(0);
+            String[] strArr = new String[eVar.jXz.size()];
+            for (int i2 = 0; i2 < eVar.jXz.size(); i2++) {
+                strArr[i2] = eVar.jXz.get(i2).jVw;
+            }
+            aVar.jXv.setTextArray(strArr);
+        } else {
+            aVar.jXv.setVisibility(8);
+        }
+        if (eVar.logoUrl != null) {
+            int dip2px = l.dip2px(this.mContext, 45.0f);
+            aVar.jXu.setTag(eVar.logoUrl);
+            aVar.jXu.a(eVar.logoUrl, 10, dip2px, dip2px, false);
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return null;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 4;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        if (getCount() <= 0 || i != getCount() - 1) {
+            return Math.abs(i) % 2 == 1 ? 3 : 1;
+        }
+        return 2;
+    }
+
+    protected Activity getContext() {
+        return this.mContext;
     }
 }

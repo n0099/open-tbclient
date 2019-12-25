@@ -6,6 +6,7 @@ import android.os.Build;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -19,8 +20,7 @@ import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class t implements IXAdURIUitls {
     @Override // com.baidu.mobads.interfaces.utils.IXAdURIUitls
     public HashMap<String, String> getAllQueryParameters(String str) {
@@ -80,9 +80,9 @@ public class t implements IXAdURIUitls {
                 int i2 = i + 1;
                 String str4 = hashMap.get(str3);
                 if (i2 == 1) {
-                    sb2.append(str3).append("=").append(str4);
+                    sb2.append(str3).append(ETAG.EQUAL).append(str4);
                 } else {
-                    sb2.append("&").append(str3).append("=").append(str4);
+                    sb2.append(ETAG.ITEM_SEPARATOR).append(str3).append(ETAG.EQUAL).append(str4);
                 }
                 i = i2;
             }
@@ -93,7 +93,7 @@ public class t implements IXAdURIUitls {
                     try {
                         String str6 = hashMap.get(str5);
                         if (str6 != null) {
-                            hashMap.put(str5, URLEncoder.encode(str6, HTTP.UTF_8));
+                            hashMap.put(str5, URLEncoder.encode(str6, "UTF-8"));
                         }
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
@@ -104,7 +104,7 @@ public class t implements IXAdURIUitls {
         } else {
             str2 = str + "?code2=" + xAdSDKFoundationFacade.getBase64().encode(sb2.toString() + "&b" + System.currentTimeMillis() + "=1");
         }
-        new StringBuilder().append("&b" + System.currentTimeMillis()).append("=").append("1");
+        new StringBuilder().append("&b" + System.currentTimeMillis()).append(ETAG.EQUAL).append("1");
         return str2 + sb.toString();
     }
 
@@ -115,9 +115,9 @@ public class t implements IXAdURIUitls {
         String fixedString = getFixedString(str);
         String queryString = getQueryString(str);
         if (!XAdSDKFoundationFacade.getInstance().getCommonUtils().isStringAvailable(queryString)) {
-            str4 = str2 + "=" + str3;
+            str4 = str2 + ETAG.EQUAL + str3;
         } else {
-            str4 = queryString + "&" + str2 + "=" + str3;
+            str4 = queryString + ETAG.ITEM_SEPARATOR + str2 + ETAG.EQUAL + str3;
         }
         return fixedString + "?" + str4;
     }
@@ -132,9 +132,9 @@ public class t implements IXAdURIUitls {
         for (Map.Entry<String, String> entry : hashMap.entrySet()) {
             try {
                 sb.append(entry.getKey());
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
                 sb.append(entry.getValue());
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             } catch (Exception e) {
                 m.a().e(e);
             }
@@ -146,7 +146,7 @@ public class t implements IXAdURIUitls {
     @Override // com.baidu.mobads.interfaces.utils.IXAdURIUitls
     public String encodeUrl(String str) {
         try {
-            return URLEncoder.encode(str, HTTP.UTF_8);
+            return URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new IllegalArgumentException(e);
         }
@@ -164,7 +164,7 @@ public class t implements IXAdURIUitls {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdURIUitls
     public String replaceURLWithSupportProtocol(String str) {
-        if (AdSettings.zn().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a()) && isHttpProtocol(str).booleanValue()) {
+        if (AdSettings.getSupportHttps().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a()) && isHttpProtocol(str).booleanValue()) {
             return str.replaceFirst("(?i)http", "https");
         }
         return str;

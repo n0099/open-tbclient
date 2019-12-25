@@ -1,73 +1,60 @@
 package com.google.gson.internal;
 
-import java.io.ObjectInputStream;
-import java.io.ObjectStreamClass;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-/* loaded from: classes2.dex */
-public abstract class g {
-    public abstract <T> T newInstance(Class<T> cls) throws Exception;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+/* loaded from: classes4.dex */
+public class g {
+    public static DateFormat Ml(int i) {
+        return new SimpleDateFormat(Mm(i), Locale.US);
+    }
 
-    public static g cKu() {
-        try {
-            Class<?> cls = Class.forName("sun.misc.Unsafe");
-            Field declaredField = cls.getDeclaredField("theUnsafe");
-            declaredField.setAccessible(true);
-            final Object obj = declaredField.get(null);
-            final Method method = cls.getMethod("allocateInstance", Class.class);
-            return new g() { // from class: com.google.gson.internal.g.1
-                @Override // com.google.gson.internal.g
-                public <T> T newInstance(Class<T> cls2) throws Exception {
-                    g.z(cls2);
-                    return (T) method.invoke(obj, cls2);
-                }
-            };
-        } catch (Exception e) {
-            try {
-                Method declaredMethod = ObjectStreamClass.class.getDeclaredMethod("getConstructorId", Class.class);
-                declaredMethod.setAccessible(true);
-                final int intValue = ((Integer) declaredMethod.invoke(null, Object.class)).intValue();
-                final Method declaredMethod2 = ObjectStreamClass.class.getDeclaredMethod("newInstance", Class.class, Integer.TYPE);
-                declaredMethod2.setAccessible(true);
-                return new g() { // from class: com.google.gson.internal.g.2
-                    @Override // com.google.gson.internal.g
-                    public <T> T newInstance(Class<T> cls2) throws Exception {
-                        g.z(cls2);
-                        return (T) declaredMethod2.invoke(null, cls2, Integer.valueOf(intValue));
-                    }
-                };
-            } catch (Exception e2) {
-                try {
-                    final Method declaredMethod3 = ObjectInputStream.class.getDeclaredMethod("newInstance", Class.class, Class.class);
-                    declaredMethod3.setAccessible(true);
-                    return new g() { // from class: com.google.gson.internal.g.3
-                        @Override // com.google.gson.internal.g
-                        public <T> T newInstance(Class<T> cls2) throws Exception {
-                            g.z(cls2);
-                            return (T) declaredMethod3.invoke(null, cls2, Object.class);
-                        }
-                    };
-                } catch (Exception e3) {
-                    return new g() { // from class: com.google.gson.internal.g.4
-                        @Override // com.google.gson.internal.g
-                        public <T> T newInstance(Class<T> cls2) {
-                            throw new UnsupportedOperationException("Cannot allocate " + cls2);
-                        }
-                    };
-                }
-            }
+    public static DateFormat ef(int i, int i2) {
+        return new SimpleDateFormat(Mn(i) + HanziToPinyin.Token.SEPARATOR + Mo(i2), Locale.US);
+    }
+
+    private static String Mm(int i) {
+        switch (i) {
+            case 0:
+                return "EEEE, MMMM d, y";
+            case 1:
+                return "MMMM d, y";
+            case 2:
+                return "MMM d, y";
+            case 3:
+                return "M/d/yy";
+            default:
+                throw new IllegalArgumentException("Unknown DateFormat style: " + i);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void z(Class<?> cls) {
-        int modifiers = cls.getModifiers();
-        if (Modifier.isInterface(modifiers)) {
-            throw new UnsupportedOperationException("Interface can't be instantiated! Interface name: " + cls.getName());
+    private static String Mn(int i) {
+        switch (i) {
+            case 0:
+                return "EEEE, MMMM d, yyyy";
+            case 1:
+                return "MMMM d, yyyy";
+            case 2:
+                return "MMM d, yyyy";
+            case 3:
+                return "M/d/yy";
+            default:
+                throw new IllegalArgumentException("Unknown DateFormat style: " + i);
         }
-        if (Modifier.isAbstract(modifiers)) {
-            throw new UnsupportedOperationException("Abstract class can't be instantiated! Class name: " + cls.getName());
+    }
+
+    private static String Mo(int i) {
+        switch (i) {
+            case 0:
+            case 1:
+                return "h:mm:ss a z";
+            case 2:
+                return "h:mm:ss a";
+            case 3:
+                return "h:mm a";
+            default:
+                throw new IllegalArgumentException("Unknown DateFormat style: " + i);
         }
     }
 }

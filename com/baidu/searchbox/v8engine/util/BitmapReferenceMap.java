@@ -1,29 +1,31 @@
 package com.baidu.searchbox.v8engine.util;
 
-import com.baidu.searchbox.v8engine.bean.ImageBean;
+import com.baidu.searchbox.v8engine.bean.ImageBitmapBean;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class BitmapReferenceMap {
-    private final HashMap<String, ImageBean.ImageBitmapBean> map = new HashMap<>();
+    private static final boolean DEBUG = false;
+    private static final String TAG = "BitmapReferenceMap";
+    private final HashMap<String, ImageBitmapBean> map = new HashMap<>();
 
-    public ImageBean.ImageBitmapBean get(String str) {
-        return this.map.get(str.trim());
+    public ImageBitmapBean get(String str) {
+        return this.map.get(str);
     }
 
-    public ImageBean.ImageBitmapBean put(String str, ImageBean.ImageBitmapBean imageBitmapBean) {
-        return this.map.put(str.trim(), imageBitmapBean);
+    public ImageBitmapBean put(String str, ImageBitmapBean imageBitmapBean) {
+        return this.map.put(str, imageBitmapBean);
     }
 
-    public ImageBean.ImageBitmapBean remove(String str) {
-        return this.map.remove(str.trim());
+    public ImageBitmapBean remove(String str) {
+        return this.map.remove(str);
     }
 
-    public ImageBean.ImageBitmapBean decrease(String str) {
-        ImageBean.ImageBitmapBean imageBitmapBean = this.map.get(str.trim());
+    public ImageBitmapBean decrease(String str) {
+        ImageBitmapBean imageBitmapBean = this.map.get(str);
         if (imageBitmapBean != null && imageBitmapBean.getBitmap() != null) {
             imageBitmapBean.decreaseRefCount();
             if (imageBitmapBean.getRefCount() <= 0) {
-                return this.map.remove(str.trim());
+                return this.map.remove(str);
             }
         }
         return null;

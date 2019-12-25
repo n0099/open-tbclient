@@ -16,9 +16,10 @@ import android.support.v7.view.menu.MenuPresenter;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MenuPopupHelper implements MenuHelper {
     private static final int TOUCH_EPICENTER_SIZE_DP = 48;
     private View mAnchorView;
@@ -191,5 +192,9 @@ public class MenuPopupHelper implements MenuHelper {
         if (this.mPopup != null) {
             this.mPopup.setCallback(callback);
         }
+    }
+
+    public ListView getListView() {
+        return getPopup().getListView();
     }
 }

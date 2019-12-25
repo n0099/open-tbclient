@@ -4,10 +4,10 @@ import android.content.Context;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.android.util.media.MimeType;
 /* loaded from: classes.dex */
 public class w implements MediaScannerConnection.MediaScannerConnectionClient {
-    private a cio;
+    private a cUY;
     private boolean completed;
     private int length;
     private MediaScannerConnection mConnection;
@@ -29,8 +29,8 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
 
     public void saveImage(String str) {
         this.mPath = str;
-        String substring = this.mPath.substring(this.mPath.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR));
-        this.mMimeType = "image/jpeg";
+        String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
+        this.mMimeType = MimeType.Image.JPEG;
         if (substring.equals(".gif")) {
             this.mMimeType = "image/gif";
         }
@@ -45,10 +45,13 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
 
     private String getVideoMimeType(String str) {
         String lowerCase = str.toLowerCase();
-        if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
+        if (lowerCase.endsWith("mp4") || lowerCase.endsWith("mpeg4")) {
+            return MimeType.Video.MP4;
+        }
+        if (lowerCase.endsWith("3gp")) {
             return "video/3gp";
         }
-        return "video/mp4";
+        return MimeType.Video.MP4;
     }
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
@@ -82,8 +85,8 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
                 this.completed = false;
             }
         }
-        if (this.completed && this.cio != null) {
-            this.cio.onScanCompeted();
+        if (this.completed && this.cUY != null) {
+            this.cUY.onScanCompeted();
         }
     }
 }

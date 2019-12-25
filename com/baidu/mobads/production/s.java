@@ -5,7 +5,7 @@ import com.baidu.mobads.interfaces.utils.IXAdPackageUtils;
 import java.util.Timer;
 import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class s extends TimerTask {
     final /* synthetic */ IXAdPackageUtils a;
     final /* synthetic */ Context b;

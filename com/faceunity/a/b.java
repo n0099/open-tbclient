@@ -2,25 +2,25 @@ package com.faceunity.a;
 
 import android.media.AudioRecord;
 import android.support.annotation.NonNull;
-import com.baidu.ala.livePlayer.StreamConfig;
+import com.baidu.ala.player.StreamConfig;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private static b kmE;
-    private boolean kmF;
+    private static b lSY;
+    private boolean lSZ;
     private AudioRecord mAudioRecord;
-    private static final int[] kmB = {1, 0, 5, 7, 6};
-    public static int kmC = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+    private static final int[] AUDIO_SOURCES = {1, 0, 5, 7, 6};
+    public static int lSW = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int kmD = 24;
+    public static int lSX = 24;
 
     public b() {
-        int minBufferSize = AudioRecord.getMinBufferSize(kmC, 16, 2);
-        int i = SAMPLES_PER_FRAME * kmD;
+        int minBufferSize = AudioRecord.getMinBufferSize(lSW, 16, 2);
+        int i = SAMPLES_PER_FRAME * lSX;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : kmB) {
+        for (int i2 : AUDIO_SOURCES) {
             try {
-                this.mAudioRecord = new AudioRecord(i2, kmC, 16, 2, i);
+                this.mAudioRecord = new AudioRecord(i2, lSW, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
                     this.mAudioRecord = null;
                 }
@@ -31,8 +31,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.kmF) {
-            this.kmF = true;
+        if (!this.lSZ) {
+            this.lSZ = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -40,20 +40,20 @@ public class b {
         }
     }
 
-    public int b(@NonNull ByteBuffer byteBuffer, int i) {
+    public int c(@NonNull ByteBuffer byteBuffer, int i) {
         if (this.mAudioRecord == null) {
             return 0;
         }
         return this.mAudioRecord.read(byteBuffer, i);
     }
 
-    public void yy() {
+    public void Ap() {
         if (this.mAudioRecord != null) {
-            if (kmE != null && !kmE.cJM()) {
-                kmE.release();
+            if (lSY != null && !lSY.isReleased()) {
+                lSY.release();
             }
             this.mAudioRecord.startRecording();
-            kmE = this;
+            lSY = this;
         }
     }
 
@@ -63,11 +63,11 @@ public class b {
         }
     }
 
-    public boolean cJM() {
-        return this.kmF;
+    public boolean isReleased() {
+        return this.lSZ;
     }
 
-    public AudioRecord cJN() {
+    public AudioRecord dqd() {
         return this.mAudioRecord;
     }
 }

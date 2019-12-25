@@ -15,13 +15,13 @@ import java.util.Map;
 import java.util.WeakHashMap;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TimeToSampleBox extends AbstractFullBox {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE = "stts";
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_2 = null;
     static Map<List<Entry>, SoftReference<long[]>> cache;
     List<Entry> entries;
 
@@ -83,7 +83,7 @@ public class TimeToSampleBox extends AbstractFullBox {
         return "TimeToSampleBox[entryCount=" + this.entries.size() + "]";
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Entry {
         long count;
         long delta;

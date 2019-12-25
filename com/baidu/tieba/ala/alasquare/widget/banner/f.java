@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.widget.banner;
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class f {
     private int mLastTotalSpace;
     protected final RecyclerView.LayoutManager mLayoutManager;

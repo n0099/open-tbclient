@@ -2,17 +2,16 @@ package android.support.v4.accessibilityservice;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
-/* loaded from: classes2.dex */
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import com.baidu.android.util.devices.RomUtils;
+/* loaded from: classes4.dex */
 public final class AccessibilityServiceInfoCompat {
     public static final int CAPABILITY_CAN_FILTER_KEY_EVENTS = 8;
     public static final int CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY = 4;
     public static final int CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION = 2;
     public static final int CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT = 1;
-    @Deprecated
-    public static final int DEFAULT = 1;
     public static final int FEEDBACK_ALL_MASK = -1;
     public static final int FEEDBACK_BRAILLE = 32;
     public static final int FLAG_INCLUDE_NOT_IMPORTANT_VIEWS = 2;
@@ -20,88 +19,16 @@ public final class AccessibilityServiceInfoCompat {
     public static final int FLAG_REQUEST_ENHANCED_WEB_ACCESSIBILITY = 8;
     public static final int FLAG_REQUEST_FILTER_KEY_EVENTS = 32;
     public static final int FLAG_REQUEST_TOUCH_EXPLORATION_MODE = 4;
-    private static final AccessibilityServiceInfoBaseImpl IMPL;
-
-    /* loaded from: classes2.dex */
-    static class AccessibilityServiceInfoBaseImpl {
-        AccessibilityServiceInfoBaseImpl() {
-        }
-
-        public int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return AccessibilityServiceInfoCompat.getCanRetrieveWindowContent(accessibilityServiceInfo) ? 1 : 0;
-        }
-
-        public String loadDescription(AccessibilityServiceInfo accessibilityServiceInfo, PackageManager packageManager) {
-            return null;
-        }
-    }
-
-    @RequiresApi(16)
-    /* loaded from: classes2.dex */
-    static class AccessibilityServiceInfoApi16Impl extends AccessibilityServiceInfoBaseImpl {
-        AccessibilityServiceInfoApi16Impl() {
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoBaseImpl
-        public String loadDescription(AccessibilityServiceInfo accessibilityServiceInfo, PackageManager packageManager) {
-            return accessibilityServiceInfo.loadDescription(packageManager);
-        }
-    }
-
-    @RequiresApi(18)
-    /* loaded from: classes2.dex */
-    static class AccessibilityServiceInfoApi18Impl extends AccessibilityServiceInfoApi16Impl {
-        AccessibilityServiceInfoApi18Impl() {
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoBaseImpl
-        public int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return accessibilityServiceInfo.getCapabilities();
-        }
-    }
-
-    static {
-        if (Build.VERSION.SDK_INT >= 18) {
-            IMPL = new AccessibilityServiceInfoApi18Impl();
-        } else if (Build.VERSION.SDK_INT >= 16) {
-            IMPL = new AccessibilityServiceInfoApi16Impl();
-        } else {
-            IMPL = new AccessibilityServiceInfoBaseImpl();
-        }
-    }
 
     private AccessibilityServiceInfoCompat() {
     }
 
-    @Deprecated
-    public static String getId(AccessibilityServiceInfo accessibilityServiceInfo) {
-        return accessibilityServiceInfo.getId();
+    @Nullable
+    public static String loadDescription(@NonNull AccessibilityServiceInfo accessibilityServiceInfo, @NonNull PackageManager packageManager) {
+        return Build.VERSION.SDK_INT >= 16 ? accessibilityServiceInfo.loadDescription(packageManager) : accessibilityServiceInfo.getDescription();
     }
 
-    @Deprecated
-    public static ResolveInfo getResolveInfo(AccessibilityServiceInfo accessibilityServiceInfo) {
-        return accessibilityServiceInfo.getResolveInfo();
-    }
-
-    @Deprecated
-    public static String getSettingsActivityName(AccessibilityServiceInfo accessibilityServiceInfo) {
-        return accessibilityServiceInfo.getSettingsActivityName();
-    }
-
-    @Deprecated
-    public static boolean getCanRetrieveWindowContent(AccessibilityServiceInfo accessibilityServiceInfo) {
-        return accessibilityServiceInfo.getCanRetrieveWindowContent();
-    }
-
-    @Deprecated
-    public static String getDescription(AccessibilityServiceInfo accessibilityServiceInfo) {
-        return accessibilityServiceInfo.getDescription();
-    }
-
-    public static String loadDescription(AccessibilityServiceInfo accessibilityServiceInfo, PackageManager packageManager) {
-        return IMPL.loadDescription(accessibilityServiceInfo, packageManager);
-    }
-
+    @NonNull
     public static String feedbackTypeToString(int i) {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
@@ -133,6 +60,7 @@ public final class AccessibilityServiceInfoCompat {
         return sb.toString();
     }
 
+    @Nullable
     public static String flagToString(int i) {
         switch (i) {
             case 1:
@@ -152,10 +80,17 @@ public final class AccessibilityServiceInfoCompat {
         }
     }
 
-    public static int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo) {
-        return IMPL.getCapabilities(accessibilityServiceInfo);
+    public static int getCapabilities(@NonNull AccessibilityServiceInfo accessibilityServiceInfo) {
+        if (Build.VERSION.SDK_INT >= 18) {
+            return accessibilityServiceInfo.getCapabilities();
+        }
+        if (accessibilityServiceInfo.getCanRetrieveWindowContent()) {
+            return 1;
+        }
+        return 0;
     }
 
+    @NonNull
     public static String capabilityToString(int i) {
         switch (i) {
             case 1:
@@ -167,7 +102,7 @@ public final class AccessibilityServiceInfoCompat {
             case 6:
             case 7:
             default:
-                return "UNKNOWN";
+                return RomUtils.UNKNOWN;
             case 4:
                 return "CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY";
             case 8:

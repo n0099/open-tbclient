@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.gamecomment;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FrsGameCommentResponseMessage extends JsonHttpResponsedMessage {
     public FrsGameCommentResponseMessage(int i) {
         super(1001712);

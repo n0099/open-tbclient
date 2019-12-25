@@ -6,14 +6,14 @@ import android.widget.AbsListView;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.widget.listview.BdListView;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdListViewHelper {
     public static final int NET_RERESHNEW_TOP_MARGIN = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), a.e.sdk_ds320);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum HeadType {
         DEFAULT,
         HASTAB,

@@ -1,40 +1,20 @@
 package com.baidu.tbadk.core.data;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopNotice;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class bk {
-    private String title = null;
-    private String title_link = null;
-    private String author = null;
-    private int id = 0;
+public class bk extends com.baidu.tieba.card.data.b {
+    public bj cMR;
+    public int cQn;
+    public int cQo;
+    public int cQp;
+    public String stType;
 
-    public String getTitle() {
-        return this.title;
+    public bk(bj bjVar) {
+        this.cMR = bjVar;
     }
 
-    public String akC() {
-        return this.title_link;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.title = jSONObject.getString("title");
-            this.title_link = jSONObject.getString("title_link");
-            this.author = jSONObject.getString("author");
-            this.id = jSONObject.getInt("id");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void a(TopNotice topNotice) {
-        if (topNotice != null) {
-            this.title = topNotice.title;
-            this.title_link = topNotice.title_link;
-            this.author = topNotice.author;
-            this.id = topNotice.id.intValue();
-        }
+    @Override // com.baidu.adp.widget.ListView.m
+    public BdUniqueId getType() {
+        return null;
     }
 }

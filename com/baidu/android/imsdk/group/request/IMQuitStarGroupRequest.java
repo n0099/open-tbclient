@@ -18,7 +18,7 @@ import com.baidu.android.pushservice.PushConstants;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMQuitStarGroupRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMQuitStarGroupRequest.class.getSimpleName();
     private long mAppid;
@@ -26,7 +26,7 @@ public class IMQuitStarGroupRequest extends GroupBaseHttpRequest {
     private String mGroupId;
     private String mKey;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.widget.TextView;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
 public class QuickInputFlexTextView extends TextView {
     public QuickInputFlexTextView(Context context) {
         super(context);

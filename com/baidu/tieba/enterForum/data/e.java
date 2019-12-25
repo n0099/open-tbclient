@@ -1,12 +1,12 @@
 package com.baidu.tieba.enterForum.data;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e extends d {
-    public boolean eZR;
+    public boolean fOy;
     public String mTitle;
 
     public e(String str, boolean z) {
         this.mTitle = str;
-        this.eZR = z;
+        this.fOy = z;
         setType(0);
     }
 }

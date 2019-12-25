@@ -2,7 +2,8 @@ package com.baidu.sapi2;
 
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.android.util.media.MimeType;
 import com.baidu.sapi2.callback.GetHistoryPortraitsCallback;
 import com.baidu.sapi2.callback.GetPopularPortraitsCallback;
 import com.baidu.sapi2.callback.SetPopularPortraitCallback;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PortraitService extends AbstractService {
     public PortraitService(SapiConfiguration sapiConfiguration, String str) {
         super(sapiConfiguration, str);
@@ -70,7 +71,7 @@ public class PortraitService extends AbstractService {
                         JSONObject jSONObject = new JSONObject(str);
                         int i3 = jSONObject.getInt("errno");
                         getHistoryPortraitsResult.setResultCode(i3);
-                        getHistoryPortraitsResult.setResultMsg(jSONObject.optString("errmsg"));
+                        getHistoryPortraitsResult.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                         if (i3 == 0) {
                             JSONArray optJSONArray = jSONObject.optJSONArray("history");
                             int length = optJSONArray.length();
@@ -124,7 +125,7 @@ public class PortraitService extends AbstractService {
                     JSONObject jSONObject = new JSONObject(str2);
                     int optInt = jSONObject.optInt("errno");
                     getPopularPortraitsInfoResult.setResultCode(optInt);
-                    getPopularPortraitsInfoResult.setResultMsg(jSONObject.optString("errmsg"));
+                    getPopularPortraitsInfoResult.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                     if (optInt == 0) {
                         JSONArray optJSONArray = jSONObject.optJSONArray("list");
                         int length = optJSONArray.length();
@@ -187,7 +188,7 @@ public class PortraitService extends AbstractService {
                     JSONObject jSONObject = new JSONObject(str);
                     int i2 = jSONObject.getInt("errno");
                     setPopularPortraitResult.setResultCode(i2);
-                    setPopularPortraitResult.setResultMsg(jSONObject.optString("errmsg"));
+                    setPopularPortraitResult.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                     if (i2 == 0) {
                         setPopularPortraitCallback.onSuccess(setPopularPortraitResult);
                     } else {
@@ -211,9 +212,9 @@ public class PortraitService extends AbstractService {
             MultipartHashMapWrap multipartHashMapWrap = new MultipartHashMapWrap();
             multipartHashMapWrap.put("bduss", str);
             if (TextUtils.isEmpty(str2)) {
-                str2 = "image/jpeg";
+                str2 = MimeType.Image.JPEG;
             }
-            multipartHashMapWrap.put(BdStatsConstant.OpSubType.FILE, new ByteArrayInputStream(bArr), "portrait.jpg", str2);
+            multipartHashMapWrap.put("file", new ByteArrayInputStream(bArr), "portrait.jpg", str2);
             new HttpClientWrap().post(d(), multipartHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.1
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap

@@ -4,14 +4,14 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class n {
-    private static final Object[] kvk = new Object[0];
+    private static final Object[] mZf = new Object[0];
 
-    public static Object[] i(Collection<?> collection) {
+    public static Object[] n(Collection<?> collection) {
         int size = collection.size();
         if (size == 0) {
-            return kvk;
+            return mZf;
         }
         Object[] objArr = new Object[size];
         Iterator<?> it = collection.iterator();

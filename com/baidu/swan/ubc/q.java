@@ -6,18 +6,18 @@ import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.swan.ubc.IRemoteUBCService;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class q {
-    public static void adb() {
+    public static void atg() {
         IPCServiceManager.addService("open_log", new IRemoteUBCService.Stub() { // from class: com.baidu.swan.ubc.OpenStatisticIPCManager$1
             @Override // com.baidu.swan.ubc.IRemoteUBCService
             public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
-                s.onEvent(str, str2, i);
+                s.l(str, str2, i);
             }
 
             @Override // com.baidu.swan.ubc.IRemoteUBCService
             public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
-                return s.g(str, str2, i);
+                return s.k(str, str2, i);
             }
 
             @Override // com.baidu.swan.ubc.IRemoteUBCService

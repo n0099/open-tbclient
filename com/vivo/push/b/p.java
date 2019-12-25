@@ -2,8 +2,7 @@ package com.vivo.push.b;
 
 import android.text.TextUtils;
 import com.vivo.push.model.InsideNotificationItem;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class p extends com.vivo.push.y {
     private String a;
     private long b;
@@ -34,14 +33,14 @@ public final class p extends com.vivo.push.y {
 
     @Override // com.vivo.push.y
     protected final void c(com.vivo.push.a aVar) {
-        aVar.a(Constants.PACKAGE_NAME, this.a);
+        aVar.a("package_name", this.a);
         aVar.a("notify_id", this.b);
         aVar.a("notification_v1", com.vivo.push.util.q.b(this.c));
     }
 
     @Override // com.vivo.push.y
     protected final void d(com.vivo.push.a aVar) {
-        this.a = aVar.a(Constants.PACKAGE_NAME);
+        this.a = aVar.a("package_name");
         this.b = aVar.b("notify_id", -1L);
         String a = aVar.a("notification_v1");
         if (!TextUtils.isEmpty(a)) {

@@ -1,110 +1,125 @@
 package com.facebook.imagepipeline.decoder;
 
 import com.facebook.common.internal.g;
-import com.facebook.common.internal.k;
+import com.facebook.common.internal.l;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class e {
-    private final com.facebook.common.memory.a kat;
-    private int kiW = 0;
-    private int kiV = 0;
-    private int kiX = 0;
-    private int kiZ = 0;
-    private int kiY = 0;
-    private int kiU = 0;
+    private final com.facebook.common.memory.a lEt;
+    private boolean lPm;
+    private int lPi = 0;
+    private int lPh = 0;
+    private int lPj = 0;
+    private int lPl = 0;
+    private int lPk = 0;
+    private int lPg = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.kat = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.lEt = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
-    public boolean a(com.facebook.imagepipeline.f.d dVar) {
-        if (this.kiU != 6 && dVar.getSize() > this.kiW) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.kat.get(16384), this.kat);
+    public boolean a(com.facebook.imagepipeline.g.e eVar) {
+        if (this.lPg != 6 && eVar.getSize() > this.lPi) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.lEt.get(16384), this.lEt);
             try {
-                com.facebook.common.util.c.a(fVar, this.kiW);
-                return s(fVar);
+                com.facebook.common.util.c.a(fVar, this.lPi);
+                return w(fVar);
             } catch (IOException e) {
-                k.r(e);
+                l.u(e);
                 return false;
             } finally {
-                com.facebook.common.internal.b.n(fVar);
+                com.facebook.common.internal.b.r(fVar);
             }
         }
         return false;
     }
 
-    private boolean s(InputStream inputStream) {
+    private boolean w(InputStream inputStream) {
         int read;
-        int i = this.kiY;
-        while (this.kiU != 6 && (read = inputStream.read()) != -1) {
+        boolean z = true;
+        int i = this.lPk;
+        while (this.lPg != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.kiW++;
-                switch (this.kiU) {
+                this.lPi++;
+                if (this.lPm) {
+                    this.lPg = 6;
+                    this.lPm = false;
+                    return false;
+                }
+                switch (this.lPg) {
                     case 0:
                         if (read == 255) {
-                            this.kiU = 1;
+                            this.lPg = 1;
                             break;
                         } else {
-                            this.kiU = 6;
+                            this.lPg = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.kiU = 2;
+                            this.lPg = 2;
                             break;
                         } else {
-                            this.kiU = 6;
+                            this.lPg = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.kiU = 3;
+                            this.lPg = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.kiU = 3;
+                            this.lPg = 3;
                             break;
                         } else if (read == 0) {
-                            this.kiU = 2;
+                            this.lPg = 2;
+                            break;
+                        } else if (read == 217) {
+                            this.lPm = true;
+                            HW(this.lPi - 2);
+                            this.lPg = 2;
                             break;
                         } else {
-                            if (read == 218 || read == 217) {
-                                Cs(this.kiW - 2);
+                            if (read == 218) {
+                                HW(this.lPi - 2);
                             }
-                            if (Cr(read)) {
-                                this.kiU = 4;
+                            if (HV(read)) {
+                                this.lPg = 4;
                                 break;
                             } else {
-                                this.kiU = 2;
+                                this.lPg = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.kiU = 5;
+                        this.lPg = 5;
                         break;
                     case 5:
-                        int i2 = ((this.kiV << 8) + read) - 2;
+                        int i2 = ((this.lPh << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.kiW = i2 + this.kiW;
-                        this.kiU = 2;
+                        this.lPi = i2 + this.lPi;
+                        this.lPg = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.kiV = read;
+                this.lPh = read;
             } catch (IOException e) {
-                k.r(e);
+                l.u(e);
             }
         }
-        return (this.kiU == 6 || this.kiY == i) ? false : true;
+        if (this.lPg == 6 || this.lPk == i) {
+            z = false;
+        }
+        return z;
     }
 
-    private static boolean Cr(int i) {
+    private static boolean HV(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -118,20 +133,24 @@ public class e {
         return false;
     }
 
-    private void Cs(int i) {
-        if (this.kiX > 0) {
-            this.kiZ = i;
+    private void HW(int i) {
+        if (this.lPj > 0) {
+            this.lPl = i;
         }
-        int i2 = this.kiX;
-        this.kiX = i2 + 1;
-        this.kiY = i2;
+        int i2 = this.lPj;
+        this.lPj = i2 + 1;
+        this.lPk = i2;
     }
 
-    public int cHD() {
-        return this.kiZ;
+    public int dnP() {
+        return this.lPl;
     }
 
-    public int cHE() {
-        return this.kiY;
+    public int dnQ() {
+        return this.lPk;
+    }
+
+    public boolean dnR() {
+        return this.lPm;
     }
 }

@@ -3,14 +3,13 @@ package com.meizu.cloud.pushsdk.b.c;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.http.client.utils.URLEncodedUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b extends j {
-    private static final g a = g.a(URLEncodedUtils.CONTENT_TYPE);
+    private static final g a = g.a("application/x-www-form-urlencoded");
     private final List<String> b;
     private final List<String> c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private final List<String> a = new ArrayList();
         private final List<String> b = new ArrayList();

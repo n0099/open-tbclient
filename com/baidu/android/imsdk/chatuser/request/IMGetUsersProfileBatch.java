@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMGetUsersProfileBatch extends Message {
     private Context mContext;
     private JSONArray mFetchedUidsJson;

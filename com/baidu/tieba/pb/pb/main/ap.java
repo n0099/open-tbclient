@@ -2,16 +2,27 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.Layout;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ap {
-    private static final int[] hTW = {R.string.i_have_a_bold_idea, R.string.give_you_a_god_comment_chance, R.string.wait_for_you_so_long_time_finally_you_come, R.string.hot_or_not_hot_up_to_you, R.string.let_us_talk_dont_shy};
+    private static TextView dCD;
+    private static final int[] iIH = {R.string.i_have_a_bold_idea, R.string.give_you_a_god_comment_chance, R.string.wait_for_you_so_long_time_finally_you_come, R.string.hot_or_not_hot_up_to_you, R.string.let_us_talk_dont_shy};
 
-    public static Intent aA(Context context, String str) {
+    public static Intent aR(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
@@ -23,19 +34,73 @@ public class ap {
         return intent;
     }
 
-    public static boolean m(PostData postData) {
-        if (postData == null || postData.cow() == null) {
+    public static boolean o(PostData postData) {
+        if (postData == null || postData.cIC() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.i cow = postData.cow();
-        if (cow.jhd) {
-            int cnU = cow.cnU();
-            return cnU == 2 || cnU == 1 || cnU == 3;
+        com.baidu.tieba.tbadkCore.data.i cIC = postData.cIC();
+        if (cIC.kbq) {
+            int cIa = cIC.cIa();
+            return cIa == 2 || cIa == 1 || cIa == 3;
         }
         return false;
     }
 
-    public static int bUS() {
-        return hTW[new Random().nextInt(hTW.length)];
+    public static int cmB() {
+        return iIH[new Random().nextInt(iIH.length)];
+    }
+
+    public static String FC(String str) {
+        return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedBarText(str, 7, false)});
+    }
+
+    public static SpannableString aD(bj bjVar) {
+        if (bjVar == null) {
+            return null;
+        }
+        String str = "";
+        if (bjVar.aBD() == 1) {
+            str = TbadkCoreApplication.getInst().getString(R.string.yuanchuang);
+        } else if (bjVar.aBD() == 2) {
+            str = TbadkCoreApplication.getInst().getString(R.string.shoufa);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        SpannableString spannableString = new SpannableString(new StringBuilder(str).toString());
+        spannableString.setSpan(new com.baidu.tbadk.core.view.a.a(R.color.cp_bg_line_c, UtilHelper.getDimenPixelSize(R.dimen.tbds5), UtilHelper.getDimenPixelSize(R.dimen.tbds26), R.color.cp_cont_b, UtilHelper.getDimenPixelSize(R.dimen.tbds8), UtilHelper.getDimenPixelSize(R.dimen.tbds9), UtilHelper.getDimenPixelSize(R.dimen.tbds13)), 0, spannableString.length(), 17);
+        return spannableString;
+    }
+
+    public static Layout c(SpannableStringBuilder spannableStringBuilder) {
+        Context context = TbadkCoreApplication.getInst().getContext();
+        int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(context) - (com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds44) * 2);
+        int contentSize = TbConfig.getContentSize();
+        try {
+            if (dCD == null) {
+                dCD = new TextView(TbadkCoreApplication.getInst().getContext());
+            }
+            TextView textView = dCD;
+            if (textView.getLayoutParams() == null) {
+                textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            }
+            textView.setText(spannableStringBuilder);
+            textView.setTextSize(0, contentSize);
+            textView.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
+            textView.getPaint().setFakeBoldText(true);
+            textView.measure(View.MeasureSpec.makeMeasureSpec(equipmentWidth, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+            return textView.getLayout();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static int cmC() {
+        return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
+    }
+
+    public static int cmD() {
+        return UtilHelper.getDimenPixelSize(R.dimen.tbds195);
     }
 }

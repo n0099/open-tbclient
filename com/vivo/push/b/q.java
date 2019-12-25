@@ -2,7 +2,7 @@ package com.vivo.push.b;
 
 import android.text.TextUtils;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class q extends v {
     protected InsideNotificationItem a;
     private String b;

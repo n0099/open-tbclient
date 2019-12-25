@@ -1,36 +1,30 @@
 package com.baidu.live.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a extends HttpMessage {
-    private String ajt;
-    private long aju;
-    private long ajv;
-    private long mTime;
+    private String arr;
+    private int ars;
+    private int art;
 
-    public void setFrom(String str) {
-        this.ajt = str;
+    public a(String str, int i, int i2) {
+        super(1021154);
+        this.arr = "";
+        this.ars = 1;
+        this.art = 1;
+        this.arr = str;
+        this.ars = i;
+        this.art = i2;
+        setParams();
     }
 
-    public void setLiveId(long j) {
-        this.aju = j;
+    public int we() {
+        return this.ars;
     }
 
-    public void B(long j) {
-        this.mTime = j;
-    }
-
-    public a() {
-        super(1021007);
-        this.ajt = "";
-        this.aju = 0L;
-        this.ajv = 0L;
-        this.mTime = 0L;
-    }
-
-    public void setParams() {
-        addParam("from_type", this.ajt);
-        addParam("live_id", this.aju);
-        addParam("enter_time", this.mTime);
+    private void setParams() {
+        addParam("anchor_id", this.arr);
+        addParam("open_status", this.ars);
+        addParam("check_status", this.art);
     }
 }

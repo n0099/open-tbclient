@@ -30,7 +30,7 @@ import android.widget.ListAdapter;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AppCompatSpinner extends Spinner implements TintableBackgroundView {
     private static final int[] ATTRS_ANDROID_SPINNERMODE = {16843505};
     private static final int MAX_ITEMS_MEASURED = 15;
@@ -67,16 +67,24 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         this(context, attributeSet, i, i2, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [229=4] */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x004b  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0089  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x00a2  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00e3  */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [227=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00e1 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0045  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0083  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x009c  */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v14 */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v4, types: [android.content.res.TypedArray] */
+    /* JADX WARN: Type inference failed for: r2v5 */
+    /* JADX WARN: Type inference failed for: r8v0, types: [android.view.View, android.support.v7.widget.AppCompatSpinner] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public AppCompatSpinner(Context context, AttributeSet attributeSet, int i, int i2, Resources.Theme theme) {
         super(context, attributeSet, i);
+        ?? r2;
         CharSequence[] textArray;
         TypedArray typedArray;
         this.mTempRect = new Rect();
@@ -87,90 +95,86 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         } else {
             int resourceId = obtainStyledAttributes.getResourceId(R.styleable.Spinner_popupTheme, 0);
             if (resourceId != 0) {
-                this.mPopupContext = new ContextThemeWrapper(context, resourceId);
+                ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, resourceId);
+                this.mPopupContext = contextThemeWrapper;
+                r2 = contextThemeWrapper;
             } else {
+                r2 = 23;
                 this.mPopupContext = Build.VERSION.SDK_INT < 23 ? context : null;
             }
         }
         if (this.mPopupContext != null) {
-            if (i2 == -1) {
-                if (Build.VERSION.SDK_INT >= 11) {
+            try {
+                if (i2 == -1) {
                     try {
                         typedArray = context.obtainStyledAttributes(attributeSet, ATTRS_ANDROID_SPINNERMODE, i, 0);
                         try {
-                            try {
-                                i2 = typedArray.hasValue(0) ? typedArray.getInt(0, 0) : i2;
-                                if (typedArray != null) {
-                                    typedArray.recycle();
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                Log.i(TAG, "Could not read android:spinnerMode", e);
-                                if (typedArray != null) {
-                                    typedArray.recycle();
-                                }
-                                if (i2 == 1) {
-                                }
-                                textArray = obtainStyledAttributes.getTextArray(R.styleable.Spinner_android_entries);
-                                if (textArray != null) {
-                                }
-                                obtainStyledAttributes.recycle();
-                                this.mPopupSet = true;
-                                if (this.mTempAdapter != null) {
-                                }
-                                this.mBackgroundTintHelper.loadFromAttributes(attributeSet, i);
-                            }
-                        } catch (Throwable th) {
-                            th = th;
+                            i2 = typedArray.hasValue(0) ? typedArray.getInt(0, 0) : i2;
                             if (typedArray != null) {
                                 typedArray.recycle();
                             }
-                            throw th;
+                        } catch (Exception e) {
+                            e = e;
+                            Log.i(TAG, "Could not read android:spinnerMode", e);
+                            if (typedArray != null) {
+                                typedArray.recycle();
+                            }
+                            if (i2 == 1) {
+                            }
+                            textArray = obtainStyledAttributes.getTextArray(R.styleable.Spinner_android_entries);
+                            if (textArray != null) {
+                            }
+                            obtainStyledAttributes.recycle();
+                            this.mPopupSet = true;
+                            if (this.mTempAdapter != null) {
+                            }
+                            this.mBackgroundTintHelper.loadFromAttributes(attributeSet, i);
                         }
                     } catch (Exception e2) {
                         e = e2;
                         typedArray = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        typedArray = null;
-                        if (typedArray != null) {
+                    } catch (Throwable th) {
+                        th = th;
+                        r2 = 0;
+                        if (r2 != 0) {
+                            r2.recycle();
                         }
                         throw th;
                     }
-                } else {
-                    i2 = 1;
                 }
-            }
-            if (i2 == 1) {
-                final DropdownPopup dropdownPopup = new DropdownPopup(this.mPopupContext, attributeSet, i);
-                TintTypedArray obtainStyledAttributes2 = TintTypedArray.obtainStyledAttributes(this.mPopupContext, attributeSet, R.styleable.Spinner, i, 0);
-                this.mDropDownWidth = obtainStyledAttributes2.getLayoutDimension(R.styleable.Spinner_android_dropDownWidth, -2);
-                dropdownPopup.setBackgroundDrawable(obtainStyledAttributes2.getDrawable(R.styleable.Spinner_android_popupBackground));
-                dropdownPopup.setPromptText(obtainStyledAttributes.getString(R.styleable.Spinner_android_prompt));
-                obtainStyledAttributes2.recycle();
-                this.mPopup = dropdownPopup;
-                this.mForwardingListener = new ForwardingListener(this) { // from class: android.support.v7.widget.AppCompatSpinner.1
-                    @Override // android.support.v7.widget.ForwardingListener
-                    public ShowableListMenu getPopup() {
-                        return dropdownPopup;
-                    }
+                if (i2 == 1) {
+                    final DropdownPopup dropdownPopup = new DropdownPopup(this.mPopupContext, attributeSet, i);
+                    TintTypedArray obtainStyledAttributes2 = TintTypedArray.obtainStyledAttributes(this.mPopupContext, attributeSet, R.styleable.Spinner, i, 0);
+                    this.mDropDownWidth = obtainStyledAttributes2.getLayoutDimension(R.styleable.Spinner_android_dropDownWidth, -2);
+                    dropdownPopup.setBackgroundDrawable(obtainStyledAttributes2.getDrawable(R.styleable.Spinner_android_popupBackground));
+                    dropdownPopup.setPromptText(obtainStyledAttributes.getString(R.styleable.Spinner_android_prompt));
+                    obtainStyledAttributes2.recycle();
+                    this.mPopup = dropdownPopup;
+                    this.mForwardingListener = new ForwardingListener(this) { // from class: android.support.v7.widget.AppCompatSpinner.1
+                        @Override // android.support.v7.widget.ForwardingListener
+                        public ShowableListMenu getPopup() {
+                            return dropdownPopup;
+                        }
 
-                    @Override // android.support.v7.widget.ForwardingListener
-                    public boolean onForwardingStarted() {
-                        if (!AppCompatSpinner.this.mPopup.isShowing()) {
-                            AppCompatSpinner.this.mPopup.show();
+                        @Override // android.support.v7.widget.ForwardingListener
+                        public boolean onForwardingStarted() {
+                            if (!AppCompatSpinner.this.mPopup.isShowing()) {
+                                AppCompatSpinner.this.mPopup.show();
+                                return true;
+                            }
                             return true;
                         }
-                        return true;
-                    }
-                };
+                    };
+                }
+            } catch (Throwable th2) {
+                th = th2;
             }
         }
         textArray = obtainStyledAttributes.getTextArray(R.styleable.Spinner_android_entries);
         if (textArray != null) {
             ArrayAdapter arrayAdapter = new ArrayAdapter(context, 17367048, textArray);
             arrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-            setAdapter((SpinnerAdapter) arrayAdapter);
+            setAdapter(arrayAdapter);
         }
         obtainStyledAttributes.recycle();
         this.mPopupSet = true;
@@ -437,7 +441,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class DropDownAdapter implements ListAdapter, SpinnerAdapter {
         private SpinnerAdapter mAdapter;
         private ListAdapter mListAdapter;
@@ -553,7 +557,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class DropdownPopup extends ListPopupWindow {
         ListAdapter mAdapter;
         private CharSequence mHintText;

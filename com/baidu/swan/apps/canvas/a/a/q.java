@@ -2,23 +2,23 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class q extends a {
-    private int aFT = Integer.MAX_VALUE;
-    private int aFU = Integer.MAX_VALUE;
+    private int mX = Integer.MAX_VALUE;
+    private int mY = Integer.MAX_VALUE;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 1) {
-            this.aFT = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(0));
-            this.aFU = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(1));
+            this.mX = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(0));
+            this.mY = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(1));
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.aFT != Integer.MAX_VALUE && this.aFU != Integer.MAX_VALUE) {
-            bVar.mPath.moveTo(this.aFT, this.aFU);
+        if (this.mX != Integer.MAX_VALUE && this.mY != Integer.MAX_VALUE) {
+            bVar.mPath.moveTo(this.mX, this.mY);
         }
     }
 }

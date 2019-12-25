@@ -4,29 +4,30 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.e.a;
+import com.baidu.k.a;
 import com.baidu.live.adp.base.IScrollableHelper;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.ListUtils;
+import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PermissionJudgePolicy {
     private PermissionDialogClickListener mDialogClickListener;
     private OnPermissionsGrantedListener mOnPermissionsGrantedListener;
     private ArrayList<String> requestPermissionList = new ArrayList<>();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnPermissionsGrantedListener {
         void onPermissionsGranted();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface PermissionDialogClickListener {
         void onDialogCaneled(String str);
 
@@ -54,7 +55,7 @@ public class PermissionJudgePolicy {
     }
 
     public boolean startRequestPermission(Activity activity, boolean z, boolean z2) {
-        if (!a.zC()) {
+        if (!a.BD()) {
             onPermissionsGranted();
             return false;
         } else if (ListUtils.isEmpty(this.requestPermissionList)) {
@@ -78,7 +79,7 @@ public class PermissionJudgePolicy {
         if (activity == null) {
             return false;
         }
-        return com.baidu.e.a.a.L(activity, str);
+        return com.baidu.k.a.a.checkPermissionGranted(activity, str);
     }
 
     public boolean checkPermissionListGranted(Activity activity) {
@@ -108,7 +109,7 @@ public class PermissionJudgePolicy {
         String currentAppType = currentAppType(activity);
         boolean z2 = SharedPrefHelper.getInstance().getBoolean(str, false);
         SharedPrefHelper.getInstance().putBoolean(str, true);
-        if (!z2 || com.baidu.e.a.a.shouldShowRequestPermissionRationale(activity, str)) {
+        if (!z2 || com.baidu.k.a.a.shouldShowRequestPermissionRationale(activity, str)) {
             return true;
         }
         if (!z) {
@@ -155,7 +156,7 @@ public class PermissionJudgePolicy {
     private void startRequestPermissionInternal(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.requestPermissionList.toArray(new String[this.requestPermissionList.size()]), RequestResponseCode.REQUEST_PERMISSION_JUDGEMENT);
+                com.baidu.k.a.a.requestPermissions(activity, (String[]) this.requestPermissionList.toArray(new String[this.requestPermissionList.size()]), RequestResponseCode.REQUEST_PERMISSION_JUDGEMENT);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -172,10 +173,10 @@ public class PermissionJudgePolicy {
         if ("android.permission.ACCESS_FINE_LOCATION".equals(str) || "android.permission.ACCESS_COARSE_LOCATION".equals(str)) {
             return a.i.sdk_request_permission_location;
         }
-        if ("android.permission.CAMERA".equals(str)) {
+        if (PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(str)) {
             return a.i.sdk_request_permission_camera;
         }
-        if ("android.permission.RECORD_AUDIO".equals(str)) {
+        if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(str)) {
             return a.i.sdk_request_permission_microphone;
         }
         if ("android.permission.READ_PHONE_STATE".equals(str)) {

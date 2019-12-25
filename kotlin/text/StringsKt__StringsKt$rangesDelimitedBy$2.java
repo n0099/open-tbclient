@@ -2,7 +2,7 @@ package kotlin.text;
 
 import kotlin.Pair;
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class StringsKt__StringsKt$rangesDelimitedBy$2 extends Lambda implements kotlin.jvm.a.c<CharSequence, Integer, Pair<? extends Integer, ? extends Integer>> {
     final /* synthetic */ char[] $delimiters;
     final /* synthetic */ boolean $ignoreCase;
@@ -23,10 +23,10 @@ final class StringsKt__StringsKt$rangesDelimitedBy$2 extends Lambda implements k
 
     public final Pair<Integer, Integer> invoke(CharSequence charSequence, int i) {
         Pair a;
-        kotlin.jvm.internal.p.i(charSequence, "$receiver");
-        a = r.a(charSequence, this.$delimiters, i, this.$ignoreCase, false);
+        kotlin.jvm.internal.p.j(charSequence, "$receiver");
+        a = s.a(charSequence, this.$delimiters, i, this.$ignoreCase, false);
         if (a != null) {
-            return kotlin.c.e(a.getFirst(), 1);
+            return kotlin.e.k(a.getFirst(), 1);
         }
         return null;
     }

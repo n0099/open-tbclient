@@ -6,10 +6,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import com.baidu.android.imsdk.BuildConfig;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public class f {
     private static f j;
@@ -17,7 +15,7 @@ public class f {
     private int b;
     private int c;
     private int d;
-    private String e = LivenessStat.TYPE_STRING_DEFAULT;
+    private String e = "-1";
     private String f = "02";
     private String g = "";
     private String h = BuildConfig.FLAVOR;
@@ -39,19 +37,19 @@ public class f {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         try {
-            sb.append("mb=").append(URLEncoder.encode(a(), HTTP.UTF_8));
-            sb.append("&os=").append(URLEncoder.encode(b(), HTTP.UTF_8));
-            sb.append("&sv=").append(URLEncoder.encode(c(), HTTP.UTF_8));
-            sb.append("&net=").append(URLEncoder.encode(d(), HTTP.UTF_8));
-            sb.append("&resid=").append(URLEncoder.encode(e(), HTTP.UTF_8));
-            sb.append("&cuid=").append(URLEncoder.encode(f(), HTTP.UTF_8));
-            sb.append("&channel=").append(URLEncoder.encode(g(), HTTP.UTF_8));
-            sb.append("&pcn=").append(URLEncoder.encode(h(), HTTP.UTF_8));
-            sb.append("&name=").append(URLEncoder.encode(b(this.i), HTTP.UTF_8));
+            sb.append("mb=").append(URLEncoder.encode(a(), "UTF-8"));
+            sb.append("&os=").append(URLEncoder.encode(b(), "UTF-8"));
+            sb.append("&sv=").append(URLEncoder.encode(c(), "UTF-8"));
+            sb.append("&net=").append(URLEncoder.encode(d(), "UTF-8"));
+            sb.append("&resid=").append(URLEncoder.encode(e(), "UTF-8"));
+            sb.append("&cuid=").append(URLEncoder.encode(f(), "UTF-8"));
+            sb.append("&channel=").append(URLEncoder.encode(g(), "UTF-8"));
+            sb.append("&pcn=").append(URLEncoder.encode(h(), "UTF-8"));
+            sb.append("&name=").append(URLEncoder.encode(b(this.i), "UTF-8"));
             int i = i();
-            sb.append("&screen=").append(URLEncoder.encode("(" + i + ',' + j() + ')', HTTP.UTF_8));
+            sb.append("&screen=").append(URLEncoder.encode("(" + i + ',' + j() + ')', "UTF-8"));
             int k = k();
-            sb.append("&dpi=").append(URLEncoder.encode("(" + k + ',' + l() + ')', HTTP.UTF_8));
+            sb.append("&dpi=").append(URLEncoder.encode("(" + k + ',' + l() + ')', "UTF-8"));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

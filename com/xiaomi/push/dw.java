@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class dw extends dx {
     public static String a = "";
     public static String b = "";
@@ -32,22 +32,22 @@ public class dw extends dx {
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo140a() {
+    public int mo143a() {
         return 12;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hi mo140a() {
+    public hi mo143a() {
         return hi.BroadcastAction;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo140a() {
+    public String mo143a() {
         String str = "";
         if (!TextUtils.isEmpty(a)) {
-            str = "" + a(dq.f243a, a);
+            str = "" + a(dq.f248a, a);
             a = "";
         }
         if (TextUtils.isEmpty(b)) {

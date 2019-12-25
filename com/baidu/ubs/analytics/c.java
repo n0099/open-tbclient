@@ -2,15 +2,14 @@ package com.baidu.ubs.analytics;
 
 import android.content.Context;
 import com.baidu.ubs.analytics.d.j;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class c {
     private long e;
-    private boolean jWT;
-    private long jWU;
-    private long jWV;
-    private boolean jWW;
-    private int jWX;
+    private boolean kRq;
+    private long kRr;
+    private long kRs;
+    private boolean kRt;
+    private int kRu;
     private Context mContext;
 
     /* synthetic */ c(a aVar, byte b) {
@@ -19,12 +18,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.jWT = aVar.jWT;
-        this.e = aVar.jWY;
-        this.jWU = aVar.jWU;
-        this.jWW = aVar.jWW;
-        this.jWV = aVar.jWV;
-        this.jWX = aVar.jWX;
+        this.kRq = aVar.kRq;
+        this.e = aVar.kRv;
+        this.kRr = aVar.kRr;
+        this.kRt = aVar.kRt;
+        this.kRs = aVar.kRs;
+        this.kRu = aVar.kRu;
     }
 
     public final Context b() {
@@ -32,7 +31,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.jWT;
+        return this.kRq;
     }
 
     public final long d() {
@@ -40,70 +39,70 @@ public final class c {
     }
 
     public final long e() {
-        return this.jWU;
+        return this.kRr;
     }
 
     public final long f() {
-        return this.jWV;
+        return this.kRs;
     }
 
     public final boolean g() {
-        return this.jWW;
+        return this.kRt;
     }
 
     public final int h() {
-        return this.jWX;
+        return this.kRu;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         private Context mContext;
-        private boolean jWT = true;
-        private long jWY = StatisticConfig.MIN_UPLOAD_INTERVAL;
-        private long jWU = 60000;
-        private long jWV = 10000;
-        private boolean jWW = false;
-        private int jWX = 1000;
+        private boolean kRq = true;
+        private long kRv = 30000;
+        private long kRr = 60000;
+        private long kRs = 10000;
+        private boolean kRt = false;
+        private int kRu = 1000;
 
-        public a ep(Context context) {
+        public a fL(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a sb(boolean z) {
-            this.jWT = z;
+        public a tI(boolean z) {
+            this.kRq = z;
             return this;
         }
 
-        public a ec(long j) {
-            this.jWY = 1000 * j;
+        public a eG(long j) {
+            this.kRv = 1000 * j;
             return this;
         }
 
-        public a BT(int i) {
-            this.jWU = i * 60 * 1000;
+        public a Eq(int i) {
+            this.kRr = i * 60 * 1000;
             return this;
         }
 
-        public a ed(long j) {
-            this.jWV = 1000 * j;
+        public a eH(long j) {
+            this.kRs = 1000 * j;
             return this;
         }
 
-        public a sc(boolean z) {
-            this.jWW = z;
+        public a tJ(boolean z) {
+            this.kRt = z;
             return this;
         }
 
-        public a BU(int i) {
+        public a Er(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.jWX = i2 < 1000 ? i2 : 1000;
+            this.kRu = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c cAZ() {
+        public c cUS() {
             if (this.mContext == null) {
-                j.Gf("Context must be not empty!");
+                j.KV("Context must be not empty!");
                 return null;
             }
             return new c(this, (byte) 0);

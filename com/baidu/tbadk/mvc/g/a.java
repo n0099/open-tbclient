@@ -14,8 +14,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.q;
 /* loaded from: classes.dex */
 public class a extends b implements q {
-    private TbPageContextSupport<?> cKI;
-    private View cKJ;
+    private TbPageContextSupport dyD;
+    private View dyE;
     private int mHeight;
     private View.OnClickListener mOnClickListener;
     private ViewGroup mParentView;
@@ -24,17 +24,17 @@ public class a extends b implements q {
     private TextView mTextView;
     private int padding;
 
-    public a(TbPageContextSupport<?> tbPageContextSupport) {
-        this.cKI = null;
+    public a(TbPageContextSupport tbPageContextSupport) {
+        this.dyD = null;
         this.mTextView = null;
         this.mProgressBar = null;
         this.mOnClickListener = null;
         this.mRoot = null;
-        this.cKI = tbPageContextSupport;
-        this.padding = this.cKI.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
+        this.dyD = tbPageContextSupport;
+        this.padding = this.dyD.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
     }
 
-    public a(TbPageContextSupport<?> tbPageContextSupport, ViewGroup viewGroup) {
+    public a(TbPageContextSupport tbPageContextSupport, ViewGroup viewGroup) {
         this(tbPageContextSupport);
         this.mParentView = viewGroup;
     }
@@ -42,9 +42,9 @@ public class a extends b implements q {
     @Override // com.baidu.adp.widget.ListView.b
     public View createView() {
         if (this.mParentView == null) {
-            this.mRoot = LayoutInflater.from(this.cKI.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+            this.mRoot = LayoutInflater.from(this.dyD.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         } else {
-            this.mRoot = LayoutInflater.from(this.cKI.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.mParentView, false);
+            this.mRoot = LayoutInflater.from(this.dyD.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.mParentView, false);
         }
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
         if (this.mHeight != 0) {
@@ -53,37 +53,37 @@ public class a extends b implements q {
             this.mRoot.setLayoutParams(layoutParams);
         }
         this.mTextView = (TextView) this.mRoot.findViewById(R.id.pb_more_text);
-        this.cKJ = this.mRoot.findViewById(R.id.pb_more_view);
-        this.cKJ.setVisibility(8);
+        this.dyE = this.mRoot.findViewById(R.id.pb_more_view);
+        this.dyE.setVisibility(8);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(R.id.progress);
-        b(this.cKI.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.cKJ.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        b(this.dyD.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.dyE.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.mRoot;
     }
 
     @Override // com.baidu.tieba.tbadkCore.q
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        this.cKI.getPageContext().getLayoutMode().onModeChanged(this.cKJ);
+        this.dyD.getPageContext().getLayoutMode().onModeChanged(this.dyE);
         return true;
     }
 
     public void hide() {
-        this.cKJ.setVisibility(8);
+        this.dyE.setVisibility(8);
         this.mRoot.setPadding(0, 0, 0, 0);
     }
 
-    public void le() {
-        this.cKJ.setVisibility(0);
+    public void lw() {
+        this.dyE.setVisibility(0);
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void kd(int i) {
+    public void mr(int i) {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(i);
-        this.cKJ.setVisibility(0);
+        this.dyE.setVisibility(0);
     }
 
-    public void ke(int i) {
+    public void ms(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }

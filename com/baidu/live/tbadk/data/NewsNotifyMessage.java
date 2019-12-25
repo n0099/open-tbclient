@@ -2,11 +2,11 @@ package com.baidu.live.tbadk.data;
 
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     private NewsNotifyData mData;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class NewsNotifyData {
         private int mMsgAgreeme = 0;
         private int mMsgReplyme = 0;

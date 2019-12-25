@@ -32,7 +32,7 @@ import okhttp3.internal.platform.Platform;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.OkHostnameVerifier;
 import okhttp3.internal.ws.RealWebSocket;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory {
     final Authenticator authenticator;
     @Nullable
@@ -328,7 +328,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         return new Builder(this);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         Authenticator authenticator;
         @Nullable

@@ -1,10 +1,10 @@
 package android.support.v7.util;
 
 import android.support.v7.util.TileList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 interface ThreadUtil<T> {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface BackgroundCallback<T> {
         void loadTile(int i, int i2);
 
@@ -15,7 +15,7 @@ interface ThreadUtil<T> {
         void updateRange(int i, int i2, int i3, int i4, int i5);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface MainThreadCallback<T> {
         void addTile(int i, TileList.Tile<T> tile);
 

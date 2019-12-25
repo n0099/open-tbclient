@@ -21,10 +21,10 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private com.baidu.live.entereffect.a.a Vx;
-    private String Vy;
+    private com.baidu.live.entereffect.a.a acY;
+    private String acZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final com.baidu.live.entereffect.a.a aVar, final String str, final String str2) {
@@ -37,10 +37,10 @@ public class b {
                 if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(aVar.url) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     return null;
                 }
-                b.this.Vx = aVar;
-                b.this.Vy = str;
-                if (com.baidu.live.d.a.existFile(str)) {
-                    b.this.oJ();
+                b.this.acY = aVar;
+                b.this.acZ = str;
+                if (com.baidu.live.f.a.existFile(str)) {
+                    b.this.qd();
                 } else if (!new File(str).mkdirs()) {
                     return null;
                 }
@@ -49,7 +49,7 @@ public class b {
                 downloadData.setName(str2);
                 downloadData.setUrl(aVar.url);
                 downloadData.setType(20);
-                downloadData.setPath(b.this.J(str, str2));
+                downloadData.setPath(b.this.Q(str, str2));
                 downloadData.setCallback(new FileDownloadCallBack() { // from class: com.baidu.live.entereffect.b.b.1.1
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -67,7 +67,7 @@ public class b {
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
-                        b.this.cb(b.this.J(b.this.Vy, str2));
+                        b.this.cS(b.this.Q(b.this.acZ, str2));
                     }
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -91,29 +91,29 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cb(final String str) {
-        if (!TextUtils.isEmpty(this.Vy) && !TextUtils.isEmpty(str)) {
+    public void cS(final String str) {
+        if (!TextUtils.isEmpty(this.acZ) && !TextUtils.isEmpty(str)) {
             new BdAsyncTask<Void, Void, List<String>>() { // from class: com.baidu.live.entereffect.b.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
                 public List<String> doInBackground(Void... voidArr) {
-                    List<String> K = b.this.K(b.this.Vy, str);
-                    if (K == null || K.isEmpty()) {
-                        b.this.oJ();
+                    List<String> R = b.this.R(b.this.acZ, str);
+                    if (R == null || R.isEmpty()) {
+                        b.this.qd();
                     }
-                    return K;
+                    return R;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-                /* renamed from: p */
+                /* renamed from: o */
                 public void onPostExecute(List<String> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.oK().a(b.this.Vx, b.this.Vy, list);
+                        c.qe().a(b.this.acY, b.this.acZ, list);
                     }
                 }
             }.execute(new Void[0]);
@@ -121,13 +121,13 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String J(String str, String str2) {
+    public String Q(String str, String str2) {
         return str + str2 + ".zip";
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [210=4, 211=4, 213=4, 214=4, 216=4, 217=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public List<String> K(String str, String str2) {
+    public List<String> R(String str, String str2) {
         ZipInputStream zipInputStream;
         FileInputStream fileInputStream;
         ZipInputStream zipInputStream2;
@@ -352,9 +352,9 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oJ() {
-        if (!TextUtils.isEmpty(this.Vy)) {
-            com.baidu.live.d.a.cleanDir(new File(this.Vy));
+    public void qd() {
+        if (!TextUtils.isEmpty(this.acZ)) {
+            com.baidu.live.f.a.cleanDir(new File(this.acZ));
         }
     }
 }

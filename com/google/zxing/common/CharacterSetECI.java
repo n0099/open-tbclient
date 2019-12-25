@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.google.zxing.FormatException;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+import org.apache.commons.base.CharEncoding;
+/* loaded from: classes7.dex */
 public enum CharacterSetECI {
     Cp437(new int[]{0, 2}, new String[0]),
     ISO8859_1(new int[]{1, 3}, "ISO-8859-1"),
@@ -28,8 +28,8 @@ public enum CharacterSetECI {
     Cp1251(22, "windows-1251"),
     Cp1252(23, "windows-1252"),
     Cp1256(24, "windows-1256"),
-    UnicodeBigUnmarked(25, "UTF-16BE", "UnicodeBig"),
-    UTF8(26, HTTP.UTF_8),
+    UnicodeBigUnmarked(25, CharEncoding.UTF_16BE, "UnicodeBig"),
+    UTF8(26, "UTF-8"),
     ASCII(new int[]{27, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID}, "US-ASCII"),
     Big5(28),
     GB18030(29, StringUtils.GB2312, "EUC_CN", "GBK"),

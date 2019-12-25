@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class l extends AsyncTask<String, Void, List<Bitmap>> {
     private Context a;
     private InsideNotificationItem b;

@@ -2,33 +2,33 @@ package com.baidu.tieba.ala.guardclub.model;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class d extends HttpMessage {
-    private long Of;
-    private boolean dNq;
-    private int dNr;
+    private long Vc;
+    private boolean eBy;
+    private int eBz;
 
     public d() {
         super(1021137);
-        this.dNr = 2;
-        this.dNq = false;
+        this.eBz = 2;
+        this.eBy = false;
     }
 
-    public boolean aLz() {
-        return this.dNq;
+    public boolean bcI() {
+        return this.eBy;
     }
 
-    public void aLA() {
-        this.dNq = true;
+    public void bcJ() {
+        this.eBy = true;
     }
 
-    public void bZ(long j) {
-        this.Of = j;
+    public void cu(long j) {
+        this.Vc = j;
     }
 
     public void setParams() {
-        addParam("scene_from", com.baidu.live.utils.o.wu());
-        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.Of + ""));
-        addParam("client_type", this.dNr);
+        addParam("scene_from", com.baidu.live.utils.p.yu());
+        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.Vc + ""));
+        addParam("client_type", this.eBz);
     }
 }

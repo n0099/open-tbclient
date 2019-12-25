@@ -2,9 +2,10 @@ package com.baidu.searchbox.unitedscheme;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class UnitedSchemeStatisticUtil {
     private static final String UBC_KEY_SCHEME_INVALID = "326";
     private static final String UBC_KEY_SCHEME_INVOKE = "327";
@@ -22,7 +23,7 @@ public class UnitedSchemeStatisticUtil {
                 e.printStackTrace();
             }
         }
-        jSONObject.put("scheme", uri2);
+        jSONObject.put(SuspensionBallEntity.KEY_SCHEME, uri2);
         if (TextUtils.isEmpty(str)) {
             str = "null";
         }
@@ -34,14 +35,14 @@ public class UnitedSchemeStatisticUtil {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("from", str);
-            jSONObject.put("scheme", uri == null ? "null" : uri.toString());
+            jSONObject.put(SuspensionBallEntity.KEY_SCHEME, uri == null ? "null" : uri.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
         SchemeRuntime.getSchemeIoc().doStatistic(UBC_KEY_SCHEME_INVOKE, jSONObject.toString());
     }
 
-    public static void doUBCForUpdateDialog(Uri uri, int i) {
+    public static void doUBCForUpdateDialog(Uri uri) {
         String uri2;
         JSONObject jSONObject = new JSONObject();
         if (uri == null) {
@@ -53,8 +54,7 @@ public class UnitedSchemeStatisticUtil {
                 e.printStackTrace();
             }
         }
-        jSONObject.put("scheme", uri2);
-        jSONObject.put("curversion", i);
+        jSONObject.put(SuspensionBallEntity.KEY_SCHEME, uri2);
         SchemeRuntime.getSchemeIoc().doStatistic(UBC_KEY_SCHEME_UPDATE, jSONObject.toString());
     }
 }

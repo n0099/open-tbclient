@@ -10,7 +10,7 @@ import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MultiplyTimeScaleTrack implements Track {
     Track source;
     private int timeScaleFactor;

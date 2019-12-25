@@ -1,0 +1,188 @@
+package com.baidu.android.util.io;
+
+import android.text.TextUtils;
+/* loaded from: classes9.dex */
+public class DocumentOpenUtil {
+    public static final String DOC = "doc";
+    public static final String DOCUMENT_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+    public static final String DOCX = "docx";
+    public static final String EXCEL_TYPE = "application/vnd.ms-excel";
+    public static final String OFFICE03_PLUGIN_PACKAGE_NAME = "com.baidu.browser.officereader";
+    public static final String OFFICE07_PLUGIN_PACKAGE_NAME = "com.baidu.browser.officereaderx";
+    public static final String OFFICE_PLUGIN_OPEN_FILE_METHOD = "open";
+    public static final String PDF = "pdf";
+    public static final String PDF_PLUGIN_OPEN_FILE_METHOD = "open";
+    public static final String PDF_PLUGIN_PACKAGE_NAME = "com.baidu.browser.pdfviewer";
+    public static final String PDF_TYPE = "application/pdf";
+    public static final String PPT = "ppt";
+    public static final String PPTX = "pptx";
+    public static final String PPT_TYPE = "application/vnd.ms-powerpoint";
+    public static final String PRESENT_TYPE = "application/vnd.openxmlformats-officedocument.presentationml.presentation";
+    public static final String SHEET_TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+    public static final String TXT = "txt";
+    public static final String WORD_TYPE = "application/msword";
+    public static final String XLS = "xls";
+    public static final String XLSX = "xlsx";
+
+    public static String getFixSupportMimeType(String str, String str2) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !getSupportMimeType(str)) {
+            String lowerCase = str2.toLowerCase();
+            char c = 65535;
+            switch (lowerCase.hashCode()) {
+                case 99640:
+                    if (lowerCase.equals(DOC)) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 110834:
+                    if (lowerCase.equals(PDF)) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 111220:
+                    if (lowerCase.equals(PPT)) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 118783:
+                    if (lowerCase.equals(XLS)) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3088960:
+                    if (lowerCase.equals(DOCX)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3447940:
+                    if (lowerCase.equals(PPTX)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 3682393:
+                    if (lowerCase.equals(XLSX)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    str = PDF_TYPE;
+                    break;
+                case 1:
+                    str = WORD_TYPE;
+                    break;
+                case 2:
+                    str = DOCUMENT_TYPE;
+                    break;
+                case 3:
+                    str = EXCEL_TYPE;
+                    break;
+                case 4:
+                    str = SHEET_TYPE;
+                    break;
+                case 5:
+                    str = PPT_TYPE;
+                    break;
+                case 6:
+                    str = PRESENT_TYPE;
+                    break;
+            }
+            if (getSupportMimeType(str)) {
+                return str;
+            }
+        }
+        return "";
+    }
+
+    public static boolean getSupportMimeType(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return TextUtils.equals(PDF_TYPE, str) || TextUtils.equals(DOCUMENT_TYPE, str) || TextUtils.equals(SHEET_TYPE, str) || TextUtils.equals(PRESENT_TYPE, str) || TextUtils.equals(WORD_TYPE, str) || TextUtils.equals(EXCEL_TYPE, str) || TextUtils.equals(PPT_TYPE, str);
+    }
+
+    public static String guessSupportMimeTypeFromExt(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return "";
+        }
+        String str2 = "";
+        String lowerCase = str.toLowerCase();
+        char c = 65535;
+        switch (lowerCase.hashCode()) {
+            case 99640:
+                if (lowerCase.equals(DOC)) {
+                    c = 1;
+                    break;
+                }
+                break;
+            case 110834:
+                if (lowerCase.equals(PDF)) {
+                    c = 0;
+                    break;
+                }
+                break;
+            case 111220:
+                if (lowerCase.equals(PPT)) {
+                    c = 5;
+                    break;
+                }
+                break;
+            case 118783:
+                if (lowerCase.equals(XLS)) {
+                    c = 3;
+                    break;
+                }
+                break;
+            case 3088960:
+                if (lowerCase.equals(DOCX)) {
+                    c = 2;
+                    break;
+                }
+                break;
+            case 3447940:
+                if (lowerCase.equals(PPTX)) {
+                    c = 6;
+                    break;
+                }
+                break;
+            case 3682393:
+                if (lowerCase.equals(XLSX)) {
+                    c = 4;
+                    break;
+                }
+                break;
+        }
+        switch (c) {
+            case 0:
+                str2 = PDF_TYPE;
+                break;
+            case 1:
+                str2 = WORD_TYPE;
+                break;
+            case 2:
+                str2 = DOCUMENT_TYPE;
+                break;
+            case 3:
+                str2 = EXCEL_TYPE;
+                break;
+            case 4:
+                str2 = SHEET_TYPE;
+                break;
+            case 5:
+                str2 = PPT_TYPE;
+                break;
+            case 6:
+                str2 = PRESENT_TYPE;
+                break;
+        }
+        return !getSupportMimeType(str2) ? "" : str2;
+    }
+}

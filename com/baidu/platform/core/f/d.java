@@ -1,6 +1,5 @@
 package com.baidu.platform.core.f;
 
-import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -23,7 +22,7 @@ public class d extends e {
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 latLng = CoordTrans.gcjToBaidu(latLng);
             }
-            this.a.a(Headers.LOCATION, latLng.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + latLng.longitude);
+            this.a.a("location", latLng.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + latLng.longitude);
         }
         if (suggestionSearchOption.mCityLimit.booleanValue()) {
             this.a.a("city_limit", "true");

@@ -2,9 +2,10 @@ package android.support.v4.provider;
 
 import android.content.Context;
 import android.net.Uri;
+import android.provider.DocumentsContract;
 import android.support.annotation.RequiresApi;
 @RequiresApi(19)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class SingleDocumentFile extends DocumentFile {
     private Context mContext;
     private Uri mUri;
@@ -78,7 +79,11 @@ class SingleDocumentFile extends DocumentFile {
 
     @Override // android.support.v4.provider.DocumentFile
     public boolean delete() {
-        return DocumentsContractApi19.delete(this.mContext, this.mUri);
+        try {
+            return DocumentsContract.deleteDocument(this.mContext.getContentResolver(), this.mUri);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override // android.support.v4.provider.DocumentFile

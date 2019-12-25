@@ -2,7 +2,7 @@ package okhttp3;
 
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public enum Protocol {
     HTTP_1_0("http/1.0"),
     HTTP_1_1("http/1.1"),

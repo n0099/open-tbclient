@@ -2,28 +2,28 @@ package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.BdUniqueId;
 import tbclient.MemberGroupInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class m implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId frq = BdUniqueId.gen();
+    public static final BdUniqueId gfN = BdUniqueId.gen();
     private String forumId;
     private String forumName;
-    private MemberGroupInfo frr;
+    private MemberGroupInfo gfO;
     private boolean isLast = false;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return frq;
+        return gfN;
     }
 
-    public MemberGroupInfo bix() {
-        return this.frr;
+    public MemberGroupInfo bzS() {
+        return this.gfO;
     }
 
     public void a(MemberGroupInfo memberGroupInfo) {
-        this.frr = memberGroupInfo;
+        this.gfO = memberGroupInfo;
     }
 
-    public void ju(boolean z) {
+    public void kG(boolean z) {
         this.isLast = z;
     }
 

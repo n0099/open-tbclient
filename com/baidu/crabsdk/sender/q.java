@@ -5,8 +5,7 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class q {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x014a: ARRAY_LENGTH  (r4v9 int A[REMOVE]) = (r9v0 byte[]))] */
     /* JADX WARN: Removed duplicated region for block: B:109:? A[RETURN, SYNTHETIC] */
@@ -41,7 +40,7 @@ public final class q {
                 httpURLConnection3.setDoInput(true);
                 httpURLConnection3.setDoOutput(true);
                 httpURLConnection3.setUseCaches(false);
-                httpURLConnection3.setRequestProperty(HTTP.CONTENT_ENCODING, "gzip");
+                httpURLConnection3.setRequestProperty("Content-Encoding", "gzip");
                 httpURLConnection3.setInstanceFollowRedirects(true);
                 httpURLConnection3.setRequestProperty("Content-Type", "application/octet-stream");
                 com.baidu.crabsdk.c.a.v("*** filename =  ***" + str3);
@@ -49,25 +48,25 @@ public final class q {
                     com.baidu.crabsdk.c.a.v("*** apiType == Block ***");
                     httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES");
                     httpURLConnection3.setRequestProperty("EncryptData", str3);
-                    httpURLConnection3.setRequestProperty(HTTP.USER_AGENT, g.a(str2, (String) null));
+                    httpURLConnection3.setRequestProperty("User-Agent", g.a(str2, (String) null));
                 } else if (str2.equals("NDK")) {
                     com.baidu.crabsdk.c.a.v("*** apiType == NDK ***");
                     httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES");
                     httpURLConnection3.setRequestProperty("EncryptData", str3);
-                    httpURLConnection3.setRequestProperty(HTTP.CONTENT_LEN, new StringBuilder().append(bArr.length).toString());
-                    httpURLConnection3.setRequestProperty(HTTP.USER_AGENT, g.a(str2, (String) null));
+                    httpURLConnection3.setRequestProperty("Content-Length", new StringBuilder().append(bArr.length).toString());
+                    httpURLConnection3.setRequestProperty("User-Agent", g.a(str2, (String) null));
                 } else {
                     com.baidu.crabsdk.c.a.v("*** apiType != Block ***");
-                    String bG = h.bG(str3);
-                    if (bG.startsWith("NoEncrypt_")) {
+                    String cn = h.cn(str3);
+                    if (cn.startsWith("NoEncrypt_")) {
                         httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES2");
-                        bG = bG.substring(10);
-                        com.baidu.crabsdk.c.a.v("real rsaAesKey is: " + bG);
+                        cn = cn.substring(10);
+                        com.baidu.crabsdk.c.a.v("real rsaAesKey is: " + cn);
                     } else {
                         httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES");
                     }
-                    httpURLConnection3.setRequestProperty("EncryptData", bG);
-                    httpURLConnection3.setRequestProperty(HTTP.USER_AGENT, g.a(str2, h.bF(str3)));
+                    httpURLConnection3.setRequestProperty("EncryptData", cn);
+                    httpURLConnection3.setRequestProperty("User-Agent", g.a(str2, h.cm(str3)));
                 }
                 httpURLConnection3.setConnectTimeout(3000);
                 httpURLConnection3.setReadTimeout(3000);
@@ -77,7 +76,7 @@ public final class q {
                     dataOutputStream.flush();
                     dataOutputStream.close();
                     StringBuffer stringBuffer = new StringBuffer();
-                    com.baidu.crabsdk.c.a.bu("response code is " + httpURLConnection3.getResponseCode());
+                    com.baidu.crabsdk.c.a.cb("response code is " + httpURLConnection3.getResponseCode());
                     if (httpURLConnection3.getResponseCode() == 200) {
                         inputStreamReader = new InputStreamReader(httpURLConnection3.getInputStream());
                         try {

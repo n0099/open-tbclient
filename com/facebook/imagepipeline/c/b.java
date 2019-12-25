@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public static t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> a(h<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> hVar, final o oVar) {
-        oVar.a(hVar);
-        return new p(hVar, new v<com.facebook.cache.common.b>() { // from class: com.facebook.imagepipeline.c.b.1
+    public static o<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> a(h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> hVar, final n nVar) {
+        nVar.a(hVar);
+        return new o<>(hVar, new r<com.facebook.cache.common.b>() { // from class: com.facebook.imagepipeline.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.facebook.imagepipeline.c.v
-            /* renamed from: h */
-            public void aN(com.facebook.cache.common.b bVar) {
-                o.this.n(bVar);
+            @Override // com.facebook.imagepipeline.c.r
+            /* renamed from: i */
+            public void bh(com.facebook.cache.common.b bVar) {
+                n.this.p(bVar);
             }
 
-            @Override // com.facebook.imagepipeline.c.v
-            public void cFn() {
-                o.this.cFB();
+            @Override // com.facebook.imagepipeline.c.r
+            public void dlv() {
+                n.this.dlF();
             }
 
-            @Override // com.facebook.imagepipeline.c.v
-            public void cFo() {
-                o.this.cFA();
+            @Override // com.facebook.imagepipeline.c.r
+            public void dlw() {
+                n.this.dlE();
             }
         });
     }

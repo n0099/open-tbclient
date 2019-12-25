@@ -13,7 +13,7 @@ import protobuf.QueryGroupUserList.QueryGroupUserListResIdl;
 import protobuf.TshowInfo;
 import protobuf.UserInfo;
 import protobuf.UserPermission;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ResponseMembersMessage extends SocketResponsedMessage {
     private MembersData membersData;
 

@@ -4,8 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.vo.XAdInstanceInfo;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class XAdCommandExtraInfo implements Parcelable {
     public String adid;
     public String appsec;
@@ -30,7 +29,7 @@ public abstract class XAdCommandExtraInfo implements Parcelable {
         this.appsec = "";
         this.appsid = "";
         this.packageNameOfPubliser = "";
-        this.adid = LivenessStat.TYPE_STRING_DEFAULT;
+        this.adid = "-1";
         this.packageName = "";
         this.qk = "";
         this.autoOpen = true;
@@ -51,7 +50,7 @@ public abstract class XAdCommandExtraInfo implements Parcelable {
         this.appsec = "";
         this.appsid = "";
         this.packageNameOfPubliser = "";
-        this.adid = LivenessStat.TYPE_STRING_DEFAULT;
+        this.adid = "-1";
         this.packageName = "";
         this.qk = "";
         this.autoOpen = true;
@@ -85,6 +84,6 @@ public abstract class XAdCommandExtraInfo implements Parcelable {
     }
 
     public Boolean isValid() {
-        return Boolean.valueOf(LivenessStat.TYPE_STRING_DEFAULT.equalsIgnoreCase(this.adid));
+        return Boolean.valueOf("-1".equalsIgnoreCase(this.adid));
     }
 }

@@ -2,17 +2,18 @@ package com.sina.weibo.sdk.web.param;
 
 import android.content.Context;
 import android.os.Bundle;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.web.BaseWebViewRequestData;
 import com.sina.weibo.sdk.web.WebRequestType;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseWebViewRequestParam {
     private BaseWebViewRequestData baseData;
     protected Context context;
     private String transaction;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface ExtraTaskCallback {
         void onComplete(String str);
 
@@ -52,7 +53,7 @@ public abstract class BaseWebViewRequestParam {
         if (this.baseData == null) {
             throw new NullPointerException("构造方法错误，请使用全参数的构造方法构建");
         }
-        bundle.putSerializable("base", this.baseData);
+        bundle.putSerializable(SchemeCollecter.CLASSIFY_BASE, this.baseData);
         switch (this.baseData.getType()) {
             case DEFAULT:
                 bundle.putInt("type", 0);
@@ -70,7 +71,7 @@ public abstract class BaseWebViewRequestParam {
     }
 
     public void transformBundle(Bundle bundle) {
-        this.baseData = (BaseWebViewRequestData) bundle.getSerializable("base");
+        this.baseData = (BaseWebViewRequestData) bundle.getSerializable(SchemeCollecter.CLASSIFY_BASE);
         this.transaction = bundle.getString(WBConstants.TRAN);
         transformChildBundle(bundle);
     }

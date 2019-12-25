@@ -47,10 +47,10 @@ import com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity;
 import com.baidu.tieba.write.vcode.oldVcode.VcodeActivity;
 import com.baidu.tieba.write.video.WriteVideoActivity;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class WriteActivityStatic {
-    private static int jUJ = 11;
-    private static int jUK = 18;
+    private static int kPx = 11;
+    private static int kPy = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -67,13 +67,13 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(HotTopicChangeActivityConfig.class, HotTopicChangeFourmActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteUrlActivityConfig.class, WriteUrlActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AccountAccessActivityConfig.class, AccountAccessActivity.class);
-        LocationModel.cpa();
-        bsI();
-        ba.amO().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new ba.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
+        LocationModel.cJg();
+        bKd();
+        ba.aEa().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new ba.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
             @Override // com.baidu.tbadk.core.util.ba.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {
-                    WriteActivityStatic.D(tbPageContext);
+                    WriteActivityStatic.F(tbPageContext);
                 }
             }
         });
@@ -83,20 +83,20 @@ public class WriteActivityStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void D(TbPageContext<?> tbPageContext) {
+    public static void F(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= jUK && Build.VERSION.SDK_INT >= jUJ) {
-            H(tbPageContext);
+        if (Build.VERSION.SDK_INT <= kPy && Build.VERSION.SDK_INT >= kPx) {
+            J(tbPageContext);
         } else {
-            I(tbPageContext);
+            K(tbPageContext);
         }
     }
 
-    private static void H(TbPageContext<?> tbPageContext) {
+    private static void J(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.browser.a.startWebActivity(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
     }
 
-    private static void I(TbPageContext<?> tbPageContext) {
+    private static void K(TbPageContext<?> tbPageContext) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(tbPageContext.getPageActivity(), true, RequestResponseCode.REQUEST_FEEDBACK)));
@@ -124,11 +124,11 @@ public class WriteActivityStatic {
         });
     }
 
-    public static void bsI() {
+    public static void bKd() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.c.a> run(CustomMessage<Object> customMessage) {
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, new com.baidu.tieba.write.a());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, new com.baidu.tieba.write.b());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

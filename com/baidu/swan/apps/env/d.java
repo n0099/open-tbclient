@@ -1,95 +1,84 @@
 package com.baidu.swan.apps.env;
 
-import android.content.Context;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.an.ac;
-import com.baidu.swan.apps.env.b;
-/* loaded from: classes2.dex */
-public final class d implements b.a {
+import java.io.File;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+/* loaded from: classes9.dex */
+public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b aPv;
-    private volatile boolean aPw;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public static class a {
-        static final d aPA = new d();
-    }
-
-    private d() {
-        this.aPw = false;
-        this.aPv = new b(this);
-        com.baidu.swan.apps.extcore.cores.a.HX().HY();
-    }
-
-    public static d HO() {
-        return a.aPA;
-    }
-
-    @NonNull
-    public Context HP() {
-        return AppRuntime.getAppContext();
-    }
-
-    public void l(Bundle bundle) {
-        if (!this.aPw) {
-            synchronized (this) {
-                if (!this.aPw) {
-                    m(bundle);
-                    this.aPw = true;
-                }
-            }
+    @Nullable
+    public static Set<String> S(List<String> list) {
+        if (list == null || list.isEmpty()) {
+            return null;
         }
+        return e(106, list);
     }
 
-    public b HQ() {
-        return this.aPv;
-    }
-
-    private void m(Bundle bundle) {
-        n(bundle);
-    }
-
-    private void n(Bundle bundle) {
-        if (DEBUG) {
-            Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess");
+    @Nullable
+    public static Set<String> e(int i, List<String> list) {
+        if (list == null || list.isEmpty()) {
+            return null;
         }
-        com.baidu.swan.apps.b.b.e JF = com.baidu.swan.apps.u.a.JF();
-        if (JF != null) {
-            final int BG = JF.BG();
-            if (DEBUG) {
-                Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess switch: " + BG);
-            }
-            if (!JF.BH()) {
-                String string = bundle == null ? "" : bundle.getString("bundle_key_preload_preload_scene");
-                if (TextUtils.isEmpty(string)) {
-                    string = "0";
-                }
-                final Bundle bundle2 = new Bundle();
-                bundle2.putString("bundle_key_preload_preload_scene", string);
-                if (JF.BI()) {
-                    if (DEBUG) {
-                        Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess delay - start. switch: " + BG);
-                    }
-                    ac.c(new Runnable() { // from class: com.baidu.swan.apps.env.d.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            if (d.DEBUG) {
-                                Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess delay - run. switch: " + BG);
-                            }
-                            com.baidu.swan.apps.process.messaging.service.c.b(d.this.HP(), bundle2);
-                        }
-                    }, com.baidu.swan.apps.u.a.JF().BJ());
-                    return;
-                }
+        HashSet hashSet = new HashSet();
+        for (com.baidu.swan.apps.process.messaging.service.c cVar : com.baidu.swan.apps.process.messaging.service.e.YH().YJ()) {
+            String appId = cVar.getAppId();
+            if (cVar.Yy() && cVar.Yw() && list.contains(appId)) {
+                com.baidu.swan.apps.process.messaging.a.XY().a(new com.baidu.swan.apps.process.messaging.c(i).a(cVar.bEI));
+                hashSet.add(appId);
                 if (DEBUG) {
-                    Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess start. switch: " + BG);
+                    Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + ")");
                 }
-                com.baidu.swan.apps.process.messaging.service.c.b(HP(), bundle2);
+            }
+        }
+        return hashSet;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0082  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(@NonNull String str, Set<String> set, boolean z) {
+        File[] listFiles;
+        File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
+        if ((file.exists() || file.isDirectory()) && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+            Set<String> set2 = set;
+            for (File file2 : listFiles) {
+                String name = file2.getName();
+                if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(".xml")) {
+                    int length = name.length();
+                    int length2 = str.length();
+                    int length3 = ".xml".length();
+                    if (length >= length2 + length3) {
+                        String substring = name.substring(length2, length - length3);
+                        if (set2 == null) {
+                            set2 = Collections.emptySet();
+                        }
+                        if (!TextUtils.isEmpty(substring)) {
+                            if (z) {
+                                if (set2.contains(substring)) {
+                                }
+                                if (DEBUG) {
+                                    Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
+                                }
+                                file2.delete();
+                            } else {
+                                if (!set2.contains(substring)) {
+                                }
+                                if (DEBUG) {
+                                }
+                                file2.delete();
+                            }
+                        }
+                    }
+                }
             }
         }
     }

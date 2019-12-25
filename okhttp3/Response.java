@@ -7,11 +7,10 @@ import java.util.List;
 import javax.annotation.Nullable;
 import okhttp3.Headers;
 import okhttp3.internal.http.HttpHeaders;
-import okhttp3.internal.http.StatusLine;
 import okio.Buffer;
 import okio.BufferedSource;
 import org.apache.http.auth.AUTH;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class Response implements Closeable {
     @Nullable
     final ResponseBody body;
@@ -121,7 +120,7 @@ public final class Response implements Closeable {
             case 302:
             case 303:
             case 307:
-            case StatusLine.HTTP_PERM_REDIRECT /* 308 */:
+            case 308:
                 return true;
             case 304:
             case 305:
@@ -188,7 +187,7 @@ public final class Response implements Closeable {
         return "Response{protocol=" + this.protocol + ", code=" + this.code + ", message=" + this.message + ", url=" + this.request.url() + '}';
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         ResponseBody body;
         Response cacheResponse;

@@ -1,71 +1,84 @@
 package com.baidu.tieba.ala.c;
 
-import com.baidu.live.adp.base.BdBaseModel;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.HttpMessageListener;
-import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.tbadk.TbConfig;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.adp.widget.listview.BdListView;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.task.TbHttpMessageTask;
-import com.baidu.mobstat.Config;
-import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
-/* loaded from: classes6.dex */
-public class a extends BdBaseModel {
-    private InterfaceC0333a dHw;
-    private HttpMessageListener esq;
+import com.baidu.live.tbadk.core.BaseFragmentActivity;
+import com.baidu.live.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ala.data.k;
+import com.baidu.tieba.ala.view.AlaChallengeHistoryHeaderView;
+import java.util.ArrayList;
+/* loaded from: classes2.dex */
+public class a {
+    private BdListView eEO;
+    private LinearLayout eEP;
+    private LinearLayout eEQ;
+    private com.baidu.tieba.ala.adapter.a eER;
+    private AlaChallengeHistoryHeaderView eES;
+    private TextView eET;
+    private Activity mContext;
+    private TbPageContext<BaseFragmentActivity> mTbPageContext;
+    private View view;
 
-    /* renamed from: com.baidu.tieba.ala.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0333a {
-        void a(int i, String str, Object obj);
+    public a(TbPageContext<BaseFragmentActivity> tbPageContext) {
+        this.mTbPageContext = tbPageContext;
+        this.mContext = this.mTbPageContext.getPageActivity();
+        initView();
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0333a interfaceC0333a) {
-        super(tbPageContext);
-        this.esq = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.c.a.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetChallengeHistoryListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.unique_id) {
-                    a.this.dHw.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+    private void initView() {
+        this.view = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
+        this.eEO = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
+        this.eEO.setVisibility(4);
+        this.eEP = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
+        this.eEQ = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
+        this.eET = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
+        this.eER = new com.baidu.tieba.ala.adapter.a(this.mContext);
+        this.eEO.setAdapter((ListAdapter) this.eER);
+        this.eES = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
+        this.eEO.setEmptyView(this.eEP);
+    }
+
+    public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, k kVar) {
+        this.eEO.setVisibility(0);
+        if (!ListUtils.isEmpty(arrayList) && kVar != null) {
+            if (this.eES.getParent() == null) {
+                if (this.eES.getParent() != null) {
+                    ((ViewGroup) this.eES.getParent()).removeView(this.eES);
                 }
+                this.eEO.addHeaderView(this.eES);
+                this.eES.setData(kVar);
             }
-        };
-        this.dHw = interfaceC0333a;
-        registerTask();
-        registerListener(this.esq);
+        } else if (this.eES.getParent() != null) {
+            ((ViewGroup) this.eES.getParent()).removeView(this.eES);
+        }
+        if (this.eER != null && arrayList != null) {
+            this.eER.setData(arrayList);
+        }
     }
 
-    private void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021118, TbConfig.SERVER_ADDRESS + "ala/web/pk/getPkHistory");
-        tbHttpMessageTask.setIsNeedLogin(false);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setResponsedClass(AlaGetChallengeHistoryListResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    public void yc(String str) {
+        if (!StringUtils.isNull(str)) {
+            if (this.eER != null && this.eER.getCount() <= 0) {
+                this.eEP.setVisibility(8);
+                this.eEQ.setVisibility(0);
+                this.eET.setText(str);
+                return;
+            }
+            BdUtilHelper.showToast(this.mContext, str, 1);
+        }
     }
 
-    public void uf(String str) {
-        HttpMessage httpMessage = new HttpMessage(1021118);
-        httpMessage.addParam("portrait", str);
-        httpMessage.addParam(Config.PACKAGE_NAME, 1);
-        httpMessage.addParam("ps", 100);
-        httpMessage.setTag(this.unique_id);
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    @Override // com.baidu.live.adp.base.BdBaseModel
-    protected boolean loadData() {
-        return false;
-    }
-
-    @Override // com.baidu.live.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void destroy() {
-        MessageManager.getInstance().unRegisterTask(1021118);
+    public View getView() {
+        return this.view;
     }
 }

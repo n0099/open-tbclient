@@ -1,0 +1,29 @@
+package common.network.b;
+
+import com.baidu.bdhttpdns.BDHttpDns;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
+import okhttp3.Dns;
+/* loaded from: classes.dex */
+public class c implements Dns {
+    private BDHttpDns mRJ;
+
+    public c(BDHttpDns bDHttpDns) {
+        this.mRJ = bDHttpDns;
+    }
+
+    @Override // okhttp3.Dns
+    public List<InetAddress> lookup(String str) throws UnknownHostException {
+        ArrayList<String> lR = this.mRJ.f(str, false).lR();
+        if (lR == null) {
+            throw new UnknownHostException(str);
+        }
+        ArrayList arrayList = new ArrayList();
+        for (String str2 : lR) {
+            arrayList.add(InetAddress.getByName(str2));
+        }
+        return arrayList;
+    }
+}

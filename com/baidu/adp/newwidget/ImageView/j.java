@@ -7,7 +7,7 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class j extends b {
-    private a tA;
+    private a wh;
     protected Path mDefaultPath = new Path();
     protected Paint mPathStrokePaint = null;
     protected boolean isPathAvailable = false;
@@ -23,7 +23,7 @@ public abstract class j extends b {
     public void a(c cVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path makePath;
         super.a(cVar, imageView, scaleType);
-        if (this.tA != null && (makePath = this.tA.makePath(getBounds())) != null) {
+        if (this.wh != null && (makePath = this.wh.makePath(getBounds())) != null) {
             this.mDefaultPath.set(makePath);
             if (this.mPathStrokePaint == null) {
                 this.mPathStrokePaint = new Paint();
@@ -42,8 +42,8 @@ public abstract class j extends b {
         super.a(canvas, cVar, imageView);
         if (this.isPathAvailable) {
             canvas.drawPath(this.mDefaultPath, this.mPathStrokePaint);
-            if (this.tA != null) {
-                this.tA.drawWhenPathAvailable(canvas);
+            if (this.wh != null) {
+                this.wh.drawWhenPathAvailable(canvas);
             }
         }
     }
@@ -55,7 +55,7 @@ public abstract class j extends b {
     }
 
     public void a(a aVar) {
-        this.tA = aVar;
+        this.wh = aVar;
     }
 
     public void setPathAvailable(boolean z) {

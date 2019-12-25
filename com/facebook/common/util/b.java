@@ -4,11 +4,11 @@ import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class b {
-    static final byte[] kaZ = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
+    static final byte[] lEP = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
 
-    public static String M(byte[] bArr) {
+    public static String ah(byte[] bArr) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
             messageDigest.update(bArr, 0, bArr.length);

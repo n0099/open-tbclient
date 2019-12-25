@@ -2,6 +2,7 @@ package android.support.v4.widget;
 
 import android.content.res.Resources;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.v4.view.ViewCompat;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
@@ -10,7 +11,7 @@ import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class AutoScrollHelper implements View.OnTouchListener {
     private static final int DEFAULT_ACTIVATION_DELAY = ViewConfiguration.getTapTimeout();
     private static final int DEFAULT_EDGE_TYPE = 1;
@@ -53,7 +54,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
 
     public abstract void scrollTargetBy(int i, int i2);
 
-    public AutoScrollHelper(View view) {
+    public AutoScrollHelper(@NonNull View view) {
         this.mTarget = view;
         DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
         int i = (int) ((1575.0f * displayMetrics.density) + 0.5f);
@@ -62,7 +63,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         setMinimumVelocity(i2, i2);
         setEdgeType(1);
         setMaximumEdges(Float.MAX_VALUE, Float.MAX_VALUE);
-        setRelativeEdges(DEFAULT_RELATIVE_EDGE, DEFAULT_RELATIVE_EDGE);
+        setRelativeEdges(0.2f, 0.2f);
         setRelativeVelocity(1.0f, 1.0f);
         setActivationDelay(DEFAULT_ACTIVATION_DELAY);
         setRampUpDuration(500);
@@ -90,51 +91,60 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return this.mExclusive;
     }
 
+    @NonNull
     public AutoScrollHelper setMaximumVelocity(float f, float f2) {
         this.mMaximumVelocity[0] = f / 1000.0f;
         this.mMaximumVelocity[1] = f2 / 1000.0f;
         return this;
     }
 
+    @NonNull
     public AutoScrollHelper setMinimumVelocity(float f, float f2) {
         this.mMinimumVelocity[0] = f / 1000.0f;
         this.mMinimumVelocity[1] = f2 / 1000.0f;
         return this;
     }
 
+    @NonNull
     public AutoScrollHelper setRelativeVelocity(float f, float f2) {
         this.mRelativeVelocity[0] = f / 1000.0f;
         this.mRelativeVelocity[1] = f2 / 1000.0f;
         return this;
     }
 
+    @NonNull
     public AutoScrollHelper setEdgeType(int i) {
         this.mEdgeType = i;
         return this;
     }
 
+    @NonNull
     public AutoScrollHelper setRelativeEdges(float f, float f2) {
         this.mRelativeEdges[0] = f;
         this.mRelativeEdges[1] = f2;
         return this;
     }
 
+    @NonNull
     public AutoScrollHelper setMaximumEdges(float f, float f2) {
         this.mMaximumEdges[0] = f;
         this.mMaximumEdges[1] = f2;
         return this;
     }
 
+    @NonNull
     public AutoScrollHelper setActivationDelay(int i) {
         this.mActivationDelay = i;
         return this;
     }
 
+    @NonNull
     public AutoScrollHelper setRampUpDuration(int i) {
         this.mScroller.setRampUpDuration(i);
         return this;
     }
 
+    @NonNull
     public AutoScrollHelper setRampDownDuration(int i) {
         this.mScroller.setRampDownDuration(i);
         return this;
@@ -279,7 +289,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class ScrollAnimationRunnable implements Runnable {
         ScrollAnimationRunnable() {
         }
@@ -308,7 +318,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ClampedScroller {
         private int mEffectiveRampDown;
         private int mRampDownDuration;

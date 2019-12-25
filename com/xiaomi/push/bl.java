@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import com.xiaomi.push.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class bl extends ai.a {
     final /* synthetic */ bk a;
 
@@ -14,7 +14,7 @@ public class bl extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo140a() {
+    public int mo143a() {
         return 10052;
     }
 
@@ -24,10 +24,10 @@ public class bl extends ai.a {
         ca caVar2;
         Context context;
         com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-        caVar = this.a.f151a;
+        caVar = this.a.f156a;
         if (caVar != null) {
-            caVar2 = this.a.f151a;
-            context = this.a.f148a;
+            caVar2 = this.a.f156a;
+            context = this.a.f153a;
             caVar2.a(context);
             this.a.b("upload_time");
         }

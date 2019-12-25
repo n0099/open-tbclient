@@ -2,7 +2,7 @@ package com.baidu.mobads.utils;
 
 import android.graphics.Bitmap;
 import com.baidu.mobads.interfaces.IXAdResource;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class o implements IXAdResource {
     static Bitmap p = null;
     static Bitmap q = null;

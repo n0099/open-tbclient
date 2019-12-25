@@ -2,71 +2,92 @@ package com.facebook.drawee.a.a;
 
 import android.content.Context;
 import android.net.Uri;
+import com.facebook.common.internal.ImmutableList;
 import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
-public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.facebook.common.references.a<com.facebook.imagepipeline.f.b>, com.facebook.imagepipeline.f.e> {
-    private final g kbF;
-    private final com.facebook.imagepipeline.d.g kbQ;
+/* loaded from: classes11.dex */
+public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.facebook.common.references.a<com.facebook.imagepipeline.g.c>, com.facebook.imagepipeline.g.f> {
+    @Nullable
+    private com.facebook.drawee.a.a.a.b lFN;
+    private final com.facebook.imagepipeline.d.g lFO;
+    @Nullable
+    private com.facebook.drawee.a.a.a.f lFP;
+    @Nullable
+    private ImmutableList<com.facebook.imagepipeline.f.a> lFy;
+    private final g lFz;
 
     public e(Context context, g gVar, com.facebook.imagepipeline.d.g gVar2, Set<com.facebook.drawee.controller.c> set) {
         super(context, set);
-        this.kbQ = gVar2;
-        this.kbF = gVar;
+        this.lFO = gVar2;
+        this.lFz = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
-    /* renamed from: E */
-    public e F(@Nullable Uri uri) {
+    /* renamed from: I */
+    public e J(@Nullable Uri uri) {
         if (uri == null) {
-            return (e) super.aJ(null);
+            return (e) super.be(null);
         }
-        return (e) super.aJ(ImageRequestBuilder.R(uri).a(com.facebook.imagepipeline.common.d.cFX()).cJG());
+        return (e) super.be(ImageRequestBuilder.X(uri).a(com.facebook.imagepipeline.common.e.dmb()).dpZ());
+    }
+
+    public e Oy(@Nullable String str) {
+        return (str == null || str.isEmpty()) ? (e) super.be(ImageRequest.OJ(str)) : J(Uri.parse(str));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
-    /* renamed from: cDF */
-    public d cDJ() {
-        com.facebook.drawee.d.a cEe = cEe();
-        if (cEe instanceof d) {
-            d dVar = (d) cEe;
-            dVar.a(cEi(), cEh(), cDG(), cDZ());
-            return dVar;
+    /* renamed from: djq */
+    public d djs() {
+        d dju;
+        com.facebook.imagepipeline.j.b.beginSection("obtainController");
+        try {
+            com.facebook.drawee.d.a djS = djS();
+            String djV = djV();
+            if (djS instanceof d) {
+                dju = (d) djS;
+            } else {
+                dju = this.lFz.dju();
+            }
+            dju.a(a(dju, djV), djV, djr(), djN(), this.lFy, this.lFN);
+            dju.a(this.lFP);
+            return dju;
+        } finally {
+            com.facebook.imagepipeline.j.b.endSection();
         }
-        return this.kbF.b(cEi(), cEh(), cDG(), cDZ());
     }
 
-    private com.facebook.cache.common.b cDG() {
-        ImageRequest cEa = cEa();
-        com.facebook.imagepipeline.c.f cGj = this.kbQ.cGj();
-        if (cGj == null || cEa == null) {
+    private com.facebook.cache.common.b djr() {
+        ImageRequest djO = djO();
+        com.facebook.imagepipeline.c.f dmo = this.lFO.dmo();
+        if (dmo == null || djO == null) {
             return null;
         }
-        if (cEa.cJC() != null) {
-            return cGj.b(cEa, cDZ());
+        if (djO.dpW() != null) {
+            return dmo.b(djO, djN());
         }
-        return cGj.a(cEa, cDZ());
+        return dmo.a(djO, djN());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
-    public com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> a(ImageRequest imageRequest, Object obj, AbstractDraweeControllerBuilder.CacheLevel cacheLevel) {
-        return this.kbQ.a(imageRequest, obj, a(cacheLevel));
+    public com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> a(com.facebook.drawee.d.a aVar, String str, ImageRequest imageRequest, Object obj, AbstractDraweeControllerBuilder.CacheLevel cacheLevel) {
+        return this.lFO.a(imageRequest, obj, a(cacheLevel), a(aVar));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
-    /* renamed from: cDH */
-    public e cDI() {
-        return this;
+    @Nullable
+    protected com.facebook.imagepipeline.h.c a(com.facebook.drawee.d.a aVar) {
+        if (aVar instanceof d) {
+            return ((d) aVar).djm();
+        }
+        return null;
     }
 
     public static ImageRequest.RequestLevel a(AbstractDraweeControllerBuilder.CacheLevel cacheLevel) {
@@ -80,5 +101,12 @@ public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.face
             default:
                 throw new RuntimeException("Cache level" + cacheLevel + "is not supported. ");
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.drawee.d.d
+    /* renamed from: b */
+    public e c(Uri uri, Map<String, String> map) {
+        return (e) super.be(ImageRequestBuilder.X(uri).z(map).dpZ());
     }
 }

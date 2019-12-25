@@ -2,7 +2,7 @@ package com.baidu.mobads.e;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static Map<String, String> a = new HashMap();
 

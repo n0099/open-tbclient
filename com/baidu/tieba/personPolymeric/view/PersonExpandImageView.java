@@ -10,26 +10,26 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PersonExpandImageView extends ImageView {
-    private final Rect aFW;
-    private final DisplayMetrics itA;
-    private int itB;
+    private final Rect bbF;
+    private final DisplayMetrics jny;
+    private int jnz;
     private final Rect mDstRect;
     private final Paint mPaint;
 
     public PersonExpandImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aFW = new Rect();
+        this.bbF = new Rect();
         this.mDstRect = new Rect();
-        this.itB = 0;
+        this.jnz = 0;
         setScaleType(ImageView.ScaleType.MATRIX);
         this.mPaint = new Paint();
-        this.itA = getResources().getDisplayMetrics();
+        this.jny = getResources().getDisplayMetrics();
     }
 
     public void setInitHeight(int i) {
-        this.itB = i;
+        this.jnz = i;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -40,20 +40,30 @@ public class PersonExpandImageView extends ImageView {
         float f2;
         float f3;
         float f4 = 0.0f;
-        if (this.itB != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
-            int scaledWidth = bitmap.getScaledWidth(this.itA);
-            int scaledHeight = bitmap.getScaledHeight(this.itA);
+        if (this.jnz != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
+            int scaledWidth = bitmap.getScaledWidth(this.jny);
+            int scaledHeight = bitmap.getScaledHeight(this.jny);
             if (scaledWidth != 0 && scaledHeight != 0) {
-                if ((scaledWidth * 1.0f) / scaledHeight < (getWidth() * 1.0f) / this.itB) {
-                    float width = (((((getWidth() * getHeight()) * 1.0f) / this.itB) - getWidth()) * 0.2f) + getWidth();
+                if ((scaledWidth * 1.0f) / scaledHeight < (getWidth() * 1.0f) / this.jnz) {
+                    float width = (((((getWidth() * getHeight()) * 1.0f) / this.jnz) - getWidth()) * 0.2f) + getWidth();
                     float f5 = ((scaledHeight * 1.0f) / scaledWidth) * width;
                     if (width != 0.0f && f5 != 0.0f) {
                         float width2 = (getWidth() * scaledWidth) / width;
                         float height = (getHeight() * scaledHeight) / f5;
-                        f = (scaledWidth - width2) / 2.0f;
-                        f4 = (scaledHeight - height) / 2.0f;
-                        f2 = width2 + f;
-                        f3 = f4 + height;
+                        float f6 = (scaledWidth - width2) / 2.0f;
+                        float f7 = (scaledHeight - height) / 2.0f;
+                        f2 = width2 + f6;
+                        if (f7 < 0.0f) {
+                            f3 = Math.abs(f7) + height;
+                            if (f3 > scaledHeight) {
+                                f3 = scaledHeight;
+                            }
+                            f = f6;
+                        } else {
+                            f3 = f7 + height;
+                            f4 = f7;
+                            f = f6;
+                        }
                     } else {
                         return;
                     }
@@ -68,9 +78,9 @@ public class PersonExpandImageView extends ImageView {
                         return;
                     }
                 }
-                this.aFW.set((int) f, (int) f4, (int) f2, (int) f3);
+                this.bbF.set((int) f, (int) f4, (int) f2, (int) f3);
                 this.mDstRect.set(0, 0, getWidth(), getHeight());
-                canvas.drawBitmap(bitmap, this.aFW, this.mDstRect, this.mPaint);
+                canvas.drawBitmap(bitmap, this.bbF, this.mDstRect, this.mPaint);
             }
         }
     }

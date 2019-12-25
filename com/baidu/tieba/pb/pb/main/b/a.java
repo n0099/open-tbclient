@@ -1,6 +1,7 @@
 package com.baidu.tieba.pb.pb.main.b;
 
 import android.text.TextUtils;
+import android.util.SparseArray;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -21,76 +22,78 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.d;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static final String USER_ICON_WEBVIEW = d.SERVER_ADDRESS_WEB_VIEW + Config.USER_ICON_WEBVIEW;
-    private final com.baidu.tieba.pb.pb.a hYB;
-    public final View.OnClickListener fXf = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.1
+    private final com.baidu.tieba.pb.pb.a iNC;
+    public final View.OnClickListener gLG = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String str;
             String str2;
             String str3;
+            String str4;
             if (view instanceof HeadImageView) {
-                String userId = ((HeadImageView) view).getUserId();
+                str = ((HeadImageView) view).getUserId();
                 str2 = ((HeadImageView) view).getUserName();
                 String fid = ((HeadImageView) view).getFid();
                 String tid = ((HeadImageView) view).getTid();
-                if (aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-                    str3 = userId;
-                } else {
+                if (!aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     an anVar = new an("c13267");
-                    anVar.bS("uid", TbadkCoreApplication.getCurrentAccount());
-                    anVar.bS("fid", fid);
-                    anVar.bS("tid", tid);
-                    anVar.bS("obj_source", TbadkCoreApplication.getInst().getTaskId());
+                    anVar.cp("uid", TbadkCoreApplication.getCurrentAccount());
+                    anVar.cp("fid", fid);
+                    anVar.cp("tid", tid);
+                    anVar.cp("obj_source", TbadkCoreApplication.getInst().getTaskId());
                     TiebaStatic.log(anVar);
-                    str3 = userId;
+                    str3 = str2;
+                    str4 = str;
                 }
+                str3 = str2;
+                str4 = str;
             } else {
                 if (view.getTag(R.id.tag_user_id) instanceof String) {
                     str = (String) view.getTag(R.id.tag_user_id);
                 } else {
                     str = view.getTag() instanceof String ? (String) view.getTag() : null;
                 }
-                if (view.getTag(R.id.tag_user_name) instanceof String) {
-                    str2 = (String) view.getTag(R.id.tag_user_name);
-                    str3 = str;
-                } else {
-                    str2 = null;
-                    str3 = str;
+                str2 = view.getTag(R.id.tag_user_name) instanceof String ? (String) view.getTag(R.id.tag_user_name) : null;
+                if ((view.getTag() instanceof SparseArray) && (((SparseArray) view.getTag()).get(R.id.tag_user_id) instanceof String)) {
+                    str3 = str2;
+                    str4 = (String) ((SparseArray) view.getTag()).get(R.id.tag_user_id);
                 }
+                str3 = str2;
+                str4 = str;
             }
             if (view.getTag(R.id.tag_statistic_item) instanceof an) {
                 TiebaStatic.log((an) view.getTag(R.id.tag_statistic_item));
             }
             if (view.getTag(R.id.tag_nick_name_activity) != null && (view.getTag(R.id.tag_nick_name_activity) instanceof String)) {
-                String str4 = (String) view.getTag(R.id.tag_nick_name_activity);
-                if (!TextUtils.isEmpty(str4) && bc.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(a.this.hYB.getPageContext().getPageActivity(), null, str4, true)));
+                String str5 = (String) view.getTag(R.id.tag_nick_name_activity);
+                if (!TextUtils.isEmpty(str5) && bc.checkUpIsLogin(TbadkCoreApplication.getInst())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(a.this.iNC.getPageContext().getPageActivity(), null, str5, true)));
                     return;
                 }
             }
-            String str5 = view.getTag(R.id.tag_virtual_user_url) instanceof String ? (String) view.getTag(R.id.tag_virtual_user_url) : null;
-            if (str5 != null) {
+            String str6 = view.getTag(R.id.tag_virtual_user_url) instanceof String ? (String) view.getTag(R.id.tag_virtual_user_url) : null;
+            if (str6 != null) {
                 if (bc.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                    ba.amO().b(a.this.hYB.getPageContext(), new String[]{str5});
+                    ba.aEa().b(a.this.iNC.getPageContext(), new String[]{str6});
                 }
-            } else if (str3 != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.hYB.getPageContext().getPageActivity(), str3, str2, a.this.hYB.bRu(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+            } else if (str4 != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.iNC.getPageContext().getPageActivity(), str4, str3, a.this.iNC.ciK(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     };
-    public final View.OnClickListener hYC = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.2
+    public final View.OnClickListener iND = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag(R.id.tag_user_id) instanceof String) {
                 com.baidu.tbadk.browser.a.startWebActivity(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), a.USER_ICON_WEBVIEW + "?user_id=" + ((String) view.getTag(R.id.tag_user_id)), true, true, true);
-                TiebaStatic.log(new an(CommonStatisticKey.USER_ICON_VISIT).O("obj_type", 2));
+                TiebaStatic.log(new an(CommonStatisticKey.USER_ICON_VISIT).Z("obj_type", 2));
             }
         }
     };
-    public final View.OnClickListener hYD = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.3
+    public final View.OnClickListener iNE = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (bc.checkUpIsLogin(TbadkCoreApplication.getInst())) {
@@ -99,20 +102,20 @@ public class a {
                     str = (String) view.getTag();
                 }
                 if (str != null) {
-                    ba.amO().b(a.this.hYB.getPageContext(), new String[]{str});
+                    ba.aEa().b(a.this.iNC.getPageContext(), new String[]{str});
                 }
-                TiebaStatic.eventStat(a.this.hYB.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
+                TiebaStatic.eventStat(a.this.iNC.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
             }
         }
     };
-    public final TbRichTextView.g hYE = new TbRichTextView.g() { // from class: com.baidu.tieba.pb.pb.main.b.a.4
-        @Override // com.baidu.tbadk.widget.richText.TbRichTextView.g
+    public final TbRichTextView.h iNF = new TbRichTextView.h() { // from class: com.baidu.tieba.pb.pb.main.b.a.4
+        @Override // com.baidu.tbadk.widget.richText.TbRichTextView.h
         public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_EMOTIONIMAGE, new EmotionImageActivityConfig(a.this.hYB.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_EMOTIONIMAGE, new EmotionImageActivityConfig(a.this.iNC.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
         }
     };
 
     public a(com.baidu.tieba.pb.pb.a aVar) {
-        this.hYB = aVar;
+        this.iNC = aVar;
     }
 }

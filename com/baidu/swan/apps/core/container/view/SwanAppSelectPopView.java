@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.swan.apps.a;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class SwanAppSelectPopView extends LinearLayout implements View.OnClickListener {
     public static final int SELECTION_PADDING = 22;
     public static final int SELECTION_TOP_DUR = 3000;
@@ -22,11 +22,11 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
     private View mSearchView;
     private String mSelection;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void es(String str);
+        void doSelectionCopy(String str);
 
-        void et(String str);
+        void doSelectionSearch(String str);
     }
 
     public SwanAppSelectPopView(Context context) {
@@ -50,10 +50,10 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
     public void onClick(View view) {
         if (view.equals(this.mCopyView)) {
             if (this.mListener != null) {
-                this.mListener.es(this.mSelection);
+                this.mListener.doSelectionCopy(this.mSelection);
             }
         } else if (view.equals(this.mSearchView) && this.mListener != null) {
-            this.mListener.et(this.mSelection);
+            this.mListener.doSelectionSearch(this.mSelection);
         }
     }
 

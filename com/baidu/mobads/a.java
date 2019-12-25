@@ -1,17 +1,24 @@
 package com.baidu.mobads;
 
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public interface a {
-    void M(JSONObject jSONObject);
+import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
+import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
+import com.baidu.mobads.utils.XAdSDKFoundationFacade;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes7.dex */
+public class a implements IOAdEventListener {
+    final /* synthetic */ AdView aJx;
 
-    void N(JSONObject jSONObject);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public a(AdView adView) {
+        this.aJx = adView;
+    }
 
-    void O(JSONObject jSONObject);
-
-    void b(AdView adView);
-
-    void dy(String str);
-
-    void zp();
+    @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
+    public void run(IOAdEvent iOAdEvent) {
+        AdViewListener adViewListener;
+        adViewListener = this.aJx.aJE;
+        if (adViewListener != null) {
+            XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new b(this, iOAdEvent));
+        }
+    }
 }

@@ -8,88 +8,88 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class n {
     private static final String TAG = n.class.getSimpleName();
-    private ServerSocket dfn;
+    private ServerSocket dSY;
     private Context mContext;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.VideoCache.n.1
         @Override // java.lang.Runnable
         public void run() {
             long j;
-            j.au(n.TAG, "run ...");
-            n.this.aCL();
+            j.aJ(n.TAG, "run ...");
+            n.this.aUE();
             int i = 9000;
-            while (n.this.dfn == null && i < 10000) {
+            while (n.this.dSY == null && i < 10000) {
                 try {
-                    n.this.dfn = new ServerSocket(i);
+                    n.this.dSY = new ServerSocket(i);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    n.this.dfn = null;
+                    n.this.dSY = null;
                     i++;
                 }
             }
-            j.au(n.TAG, "service port " + i);
-            n.this.lt(i);
-            e.aCz();
-            k.aCI();
-            while (!n.this.dfn.isClosed()) {
+            j.aJ(n.TAG, "service port " + i);
+            n.this.nH(i);
+            e.aUt();
+            k.aUB();
+            while (!n.this.dSY.isClosed()) {
                 try {
-                    j.au(n.TAG, "accept start");
-                    Socket accept = n.this.dfn.accept();
-                    j.au(n.TAG, "accept end");
+                    j.aJ(n.TAG, "accept start");
+                    Socket accept = n.this.dSY.accept();
+                    j.aJ(n.TAG, "accept end");
                     if (accept != null) {
-                        j.au(n.TAG, "连接视频服务的client:" + accept);
+                        j.aJ(n.TAG, "连接视频服务的client:" + accept);
                         h b = f.b(accept);
-                        String aCD = b.aCD();
-                        if (aCD != null && aCD.contains("?file_access=1")) {
+                        String originUrl = b.getOriginUrl();
+                        if (originUrl != null && originUrl.contains("?file_access=1")) {
                             n.this.c(b, accept);
-                        } else if (aCD != null && aCD.contains("?stop_cache=1")) {
+                        } else if (originUrl != null && originUrl.contains("?stop_cache=1")) {
                             n.this.a(b, accept);
-                        } else if (aCD != null && aCD.contains("delete_expired_files")) {
+                        } else if (originUrl != null && originUrl.contains("delete_expired_files")) {
                             n.this.d(b, accept);
-                        } else if (aCD != null && aCD.contains("clear_cache")) {
+                        } else if (originUrl != null && originUrl.contains("clear_cache")) {
                             n.this.e(b, accept);
-                        } else if (aCD != null && aCD.contains("?segment_postion=")) {
+                        } else if (originUrl != null && originUrl.contains("?segment_postion=")) {
                             try {
-                                int indexOf = aCD.indexOf("?segment_postion=", 0);
-                                b.qR(aCD.substring(0, indexOf));
-                                j = com.baidu.adp.lib.g.b.toLong(aCD.substring(indexOf + i.dfg), 0L);
+                                int indexOf = originUrl.indexOf("?segment_postion=", 0);
+                                b.wa(originUrl.substring(0, indexOf));
+                                j = com.baidu.adp.lib.f.b.toLong(originUrl.substring(indexOf + i.dSS), 0L);
                             } catch (Exception e2) {
                                 j = 0;
                             }
-                            b.bE(j);
+                            b.cg(j);
                             n.this.b(b, accept);
                         } else {
-                            j.au(n.TAG, "HandleSocketRunnable new request b=" + b.aCF() + " e=" + b.aCG());
+                            j.aJ(n.TAG, "HandleSocketRunnable new request b=" + b.aUy() + " e=" + b.aUz());
                             f fVar = new f(n.this.mContext);
                             fVar.setSocket(accept);
                             fVar.a(b);
-                            l.aCJ().k(fVar);
+                            l.aUC().n(fVar);
                         }
                     }
                 } catch (Exception e3) {
                     e3.printStackTrace();
-                    j.au(n.TAG, "视频服务已退出");
+                    j.aJ(n.TAG, "视频服务已退出");
                     return;
                 }
             }
-            j.au(n.TAG, "视频服务已退出");
+            j.aJ(n.TAG, "视频服务已退出");
         }
     };
 
     public n(Context context) {
         this.mContext = context;
-        l.aCJ().k(this.mRunnable);
+        l.aUC().n(this.mRunnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCL() {
-        File file = new File(i.dfa);
+    public void aUE() {
+        File file = new File(i.dSM);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(i.dfb);
+        File file2 = new File(i.dSN);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -101,11 +101,11 @@ public class n {
                 }
             }
         }
-        File file4 = new File(i.mc);
+        File file4 = new File(i.oB);
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(i.dfd);
+        File file5 = new File(i.dSP);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -127,8 +127,8 @@ public class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void lt(int i) {
-        BufferedWriter bufferedWriter = i.dff;
+    public void nH(int i) {
+        BufferedWriter bufferedWriter = i.dSR;
         try {
             try {
                 bufferedWriter = new BufferedWriter(new FileWriter(new File((String) bufferedWriter)));
@@ -178,8 +178,8 @@ public class n {
 
     public void destroy() {
         try {
-            if (this.dfn != null) {
-                this.dfn.close();
+            if (this.dSY != null) {
+                this.dSY.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -188,53 +188,53 @@ public class n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(h hVar, Socket socket) {
-        j.au(TAG, "handleStopCache in");
-        String aCD = hVar.aCD();
-        if (aCD != null) {
-            aCD = aCD.replace("?stop_cache=1", "");
+        j.aJ(TAG, "handleStopCache in");
+        String originUrl = hVar.getOriginUrl();
+        if (originUrl != null) {
+            originUrl = originUrl.replace("?stop_cache=1", "");
         }
-        e.aCz().qN(aCD);
+        e.aUt().vW(originUrl);
         d(socket);
-        j.au(TAG, "handleStopCache out");
+        j.aJ(TAG, "handleStopCache out");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(h hVar, Socket socket) {
-        j.au(TAG, "handleNotifyDownLoadNextSegment in");
-        String aCD = hVar.aCD();
-        if (aCD != null) {
-            e.aCz().s(aCD, hVar.aCH());
+        j.aJ(TAG, "handleNotifyDownLoadNextSegment in");
+        String originUrl = hVar.getOriginUrl();
+        if (originUrl != null) {
+            e.aUt().v(originUrl, hVar.aUA());
         }
         d(socket);
-        j.au(TAG, "handleNotifyDownLoadNextSegment out");
+        j.aJ(TAG, "handleNotifyDownLoadNextSegment out");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(h hVar, Socket socket) {
-        j.au(TAG, "handleFileAccess in");
-        String aCD = hVar.aCD();
-        if (aCD != null) {
-            aCD = aCD.replace("?file_access=1", "");
+        j.aJ(TAG, "handleFileAccess in");
+        String originUrl = hVar.getOriginUrl();
+        if (originUrl != null) {
+            originUrl = originUrl.replace("?file_access=1", "");
         }
-        k.aCI().qH(aCD);
+        k.aUB().vR(originUrl);
         d(socket);
-        j.au(TAG, "handleFileAccess out");
+        j.aJ(TAG, "handleFileAccess out");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(h hVar, Socket socket) {
-        j.au(TAG, "handleDeleteExpiredFiles in");
-        k.aCI().aCt();
+        j.aJ(TAG, "handleDeleteExpiredFiles in");
+        k.aUB().aUo();
         d(socket);
-        j.au(TAG, "handleDeleteExpiredFiles out");
+        j.aJ(TAG, "handleDeleteExpiredFiles out");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(h hVar, Socket socket) {
-        j.au(TAG, "handleClearCache in");
-        k.aCI().clearCache();
+        j.aJ(TAG, "handleClearCache in");
+        k.aUB().clearCache();
         d(socket);
-        j.au(TAG, "handleClearCache out");
+        j.aJ(TAG, "handleClearCache out");
     }
 
     private void d(Socket socket) {

@@ -19,6 +19,7 @@ import android.os.Process;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.base.BdActivityStack;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.base.BdBaseService;
@@ -46,7 +47,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.GUIDTool;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.imageview.BdImage;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbadkSettings;
 import com.baidu.live.tbadk.TiebaDatabase;
@@ -84,6 +85,7 @@ import com.baidu.live.tbadk.rule.TbParamsHttpRule;
 import com.baidu.live.tbadk.task.TbSocketMessageTask;
 import com.baidu.live.tbadk.util.DaemonServiceManager;
 import com.baidu.live.tbadk.util.NetworkChangedManager;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -103,7 +105,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TbadkCoreApplication extends BdBaseApplication implements BdActivityStack.OnAllActivityClosed {
     public static final String ACCOUNT_CHANGE_ACTION = "com.baidu.tieba.action.accountChange";
     private static final String ACTIVE_CLEAR_TAG = "active_clear";
@@ -174,6 +176,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     private static boolean IS_APP_RUNNING = false;
     protected static String mUniqueId = null;
     private static Intent intent = null;
+    public static Boolean isShownNetChangeDialog = false;
 
     public static void setIntent(Intent intent2) {
         intent = intent2;
@@ -288,7 +291,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     /* JADX INFO: Access modifiers changed from: private */
     public void processUseDuration() {
         if (this.mResumeNum == 0 && this.mStartTime > 0) {
-            long nanoTime = ((System.nanoTime() - this.mStartTime) / 1000000) / 1000;
+            long nanoTime = ((System.nanoTime() - this.mStartTime) / TimeUtils.NANOS_PER_MS) / 1000;
             if (nanoTime >= getUseTimeInterval()) {
                 TiebaInitialize.eventStat(getInst().getApp(), "use", null, 1, "st_param", String.valueOf(nanoTime));
             }
@@ -1174,7 +1177,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     public int[] getImTimeOut() {
         String[] split;
         String loadString = TbadkSettings.getInst().loadString(SharedPrefConfig.SOCKET_TIME_OUT, null);
-        if (loadString == null || (split = loadString.split("\\|")) == null || split.length != 3) {
+        if (loadString == null || (split = loadString.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR)) == null || split.length != 3) {
             return null;
         }
         int[] iArr = new int[split.length];
@@ -1244,7 +1247,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class MyPhoneStateListener extends PhoneStateListener {
         private MyPhoneStateListener() {
         }
@@ -1422,6 +1425,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
 
     public boolean isMobileBaidu() {
         return APP_ID_MOBILE_BAIDU.equals(TbConfig.getSubappType());
+    }
+
+    public boolean isNotMobileBaidu() {
+        return !APP_ID_MOBILE_BAIDU.equals(TbConfig.getSubappType());
     }
 
     public boolean isHaokan() {

@@ -11,8 +11,8 @@ import tbclient.Profile.TAInfo;
 import tbclient.Profile.UserAgreeInfo;
 import tbclient.Profile.UserGodInfo;
 import tbclient.TbBookrack;
+import tbclient.ThreadInfo;
 import tbclient.User;
-import tbclient.UserManChannelInfo;
 /* loaded from: classes.dex */
 public interface c {
     Anti GetAntiStat();
@@ -35,13 +35,13 @@ public interface c {
 
     int getMaskType();
 
+    List<ThreadInfo> getNewestThreadList();
+
     NicknameInfo getNicknameInfo();
 
     TAInfo getTaInfo();
 
     UserAgreeInfo getUserAgreeInfo();
-
-    UserManChannelInfo getUserChannelInfo();
 
     UserGodInfo getUserGodInfo();
 }

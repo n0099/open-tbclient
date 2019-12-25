@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.frameworkdata;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class CmdConfigSocket {
     public static final int CMD_ADD_GROUP = 103101;
     public static final int CMD_ADD_GROUP_USER = 103111;

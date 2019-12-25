@@ -12,7 +12,7 @@ import com.baidu.pass.biometrics.face.liveness.beans.BeanDataCache;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import java.io.Serializable;
 import java.lang.reflect.Field;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LivenessBaseActivity extends BaseActivity {
     public PassBiometricConfiguration configuration;
     protected PassFaceRecogDTO passFaceRecogDTO;
@@ -24,10 +24,10 @@ public class LivenessBaseActivity extends BaseActivity {
             Serializable serializable = bundle.getSerializable("PassFaceRecogDTO");
             if (serializable != null && (serializable instanceof PassFaceRecogDTO)) {
                 this.passFaceRecogDTO = (PassFaceRecogDTO) serializable;
-                BeanDataCache.getInstance().addToCache(BeanDataCache.KEY, this.passFaceRecogDTO);
+                BeanDataCache.getInstance().addToCache("request_data", this.passFaceRecogDTO);
             }
         } else {
-            this.passFaceRecogDTO = (PassFaceRecogDTO) BeanDataCache.getInstance().getCacheData(BeanDataCache.KEY);
+            this.passFaceRecogDTO = (PassFaceRecogDTO) BeanDataCache.getInstance().getCacheData("request_data");
         }
         this.configuration = PassFaceRecogManager.getInstance().getConfiguration();
         customLiuHai();

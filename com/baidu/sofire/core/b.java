@@ -1,7 +1,7 @@
 package com.baidu.sofire.core;
 
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class b implements Serializable {
     public int a;
     public int b;

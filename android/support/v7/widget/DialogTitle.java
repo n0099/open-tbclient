@@ -8,7 +8,7 @@ import android.text.Layout;
 import android.util.AttributeSet;
 import android.widget.TextView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DialogTitle extends TextView {
     public DialogTitle(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);

@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMTrackManager {
     private static final int FAIL_MAX_COUNT = 3;
     private static final int RETRY_MAX_COUNT = 1;
@@ -34,7 +34,7 @@ public class IMTrackManager {
     public static void requestUpload(final Context context) {
         final IMPbGenerator iMPbGenerator = new IMPbGenerator();
         byte[] generateIMClient = iMPbGenerator.generateIMClient(context);
-        if (generateIMClient == null || generateIMClient.length >= UPLOAD_MAX_LENGTH) {
+        if (generateIMClient == null || generateIMClient.length >= 307200) {
             LogUtils.d(TAG, "RequestUpload payload.length = " + (generateIMClient != null ? generateIMClient.length : 0) + ", clear datas and no upload.");
             clearIMTrack(context, iMPbGenerator);
             return;
@@ -85,7 +85,7 @@ public class IMTrackManager {
 
     public static void requestInitIMUpload(Context context) {
         byte[] generateInitIMClient = new IMPbGenerator().generateInitIMClient(context);
-        if (generateInitIMClient != null && generateInitIMClient.length < UPLOAD_MAX_LENGTH) {
+        if (generateInitIMClient != null && generateInitIMClient.length < 307200) {
             IMPushUploadManager.getInstance(context).requestUpload(null, generateInitIMClient, "", new IMPushUploadResponseListener() { // from class: com.baidu.android.imsdk.upload.action.IMTrackManager.4
                 @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
                 public void uploadResponse(int i, String str) {

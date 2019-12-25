@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.d.a;
 import com.baidu.android.pushservice.d.y;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class i {
     private static i a;
     private String b;
@@ -42,9 +42,9 @@ public final class i {
         return this.b;
     }
 
-    public void a(Context context, boolean z, a.C0036a c0036a) {
+    public void a(Context context, boolean z, a.C0041a c0041a) {
         if (this.f == null || !this.f.isAlive()) {
-            y yVar = new y(context, c0036a);
+            y yVar = new y(context, c0041a);
             if (!z) {
                 yVar.a(0);
             }

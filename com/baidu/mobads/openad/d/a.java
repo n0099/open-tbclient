@@ -4,6 +4,7 @@ import android.os.Build;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.openad.c.d;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
+import com.baidubce.http.Headers;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStream;
@@ -18,7 +19,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.mobads.openad.c.c {
     public static int a = 1024;
     private static final TimeUnit h = TimeUnit.SECONDS;
@@ -61,24 +62,23 @@ public class a extends com.baidu.mobads.openad.c.c {
 
     public void a(c cVar, double d) {
         try {
-            k.execute(new RunnableC0106a(cVar, d));
+            k.execute(new RunnableC0122a(cVar, d));
         } catch (Exception e) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mobads.openad.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class RunnableC0106a implements Runnable {
+    /* loaded from: classes7.dex */
+    public class RunnableC0122a implements Runnable {
         private c b;
         private double c;
 
-        public RunnableC0106a(c cVar, double d) {
+        public RunnableC0122a(c cVar, double d) {
             this.b = cVar;
             this.c = d;
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [182=4] */
         @Override // java.lang.Runnable
         public void run() {
             IXAdLogger adLogger;
@@ -93,11 +93,11 @@ public class a extends com.baidu.mobads.openad.c.c {
                 a.this.f.setConnectTimeout((int) this.c);
                 a.this.f.setUseCaches(false);
                 if (this.b.b != null && this.b.b.length() > 0) {
-                    a.this.f.setRequestProperty(HTTP.USER_AGENT, this.b.b);
+                    a.this.f.setRequestProperty("User-Agent", this.b.b);
                 }
                 a.this.f.setRequestProperty("Content-type", this.b.d);
                 a.this.f.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-                a.this.f.setRequestProperty("Cache-Control", "no-cache");
+                a.this.f.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
                 if (Integer.parseInt(Build.VERSION.SDK) < 8) {
                     System.setProperty("http.keepAlive", "false");
                 }
@@ -117,7 +117,7 @@ public class a extends com.baidu.mobads.openad.c.c {
                     if (this.b.b() != null) {
                         String encodedQuery = this.b.b().build().getEncodedQuery();
                         OutputStream outputStream = a.this.f.getOutputStream();
-                        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, HTTP.UTF_8));
+                        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
                         bufferedWriter.write(encodedQuery);
                         bufferedWriter.flush();
                         bufferedWriter.close();

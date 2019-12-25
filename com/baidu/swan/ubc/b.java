@@ -3,6 +3,7 @@ package com.baidu.swan.ubc;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.google.android.exoplayer2.Format;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -10,7 +11,7 @@ import java.io.FileReader;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class b {
     private Context mContext;
 
@@ -18,12 +19,7 @@ public class b {
         this.mContext = context;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [123=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x0126 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void a(h hVar, boolean z) {
         File file;
         FileOutputStream fileOutputStream;
@@ -31,14 +27,14 @@ public class b {
         if (!file2.exists()) {
             file2.mkdirs();
         }
-        if (TextUtils.isEmpty(hVar.getFileName())) {
-            file = new File(file2, z ? "filereal" : "filedata");
-        } else {
+        if (!TextUtils.isEmpty(hVar.getFileName())) {
             File file3 = new File(file2, "proc");
             if (!file3.exists()) {
                 file3.mkdirs();
             }
             file = new File(file3, hVar.getFileName());
+        } else {
+            file = new File(file2, z ? "filereal" : "filedata");
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -47,19 +43,19 @@ public class b {
             jSONObject.put("eventType", "0");
             if (!TextUtils.isEmpty(hVar.getContent())) {
                 jSONObject.put("content", hVar.getContent());
-            } else if (hVar.acJ() != null) {
-                jSONObject.put("content", hVar.acJ().toString());
+            } else if (hVar.asO() != null) {
+                jSONObject.put("content", hVar.asO().toString());
             }
-            if (!TextUtils.isEmpty(hVar.acI())) {
-                jSONObject.put("abtest", hVar.acI());
+            if (!TextUtils.isEmpty(hVar.asN())) {
+                jSONObject.put("abtest", hVar.asN());
             }
             if (!TextUtils.isEmpty(hVar.getCategory())) {
                 jSONObject.put("c", hVar.getCategory());
             }
-            if (hVar.acE()) {
+            if (hVar.asK()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", d.act().lx(hVar.getId()));
+            jSONObject.put("idtype", d.asz().qD(hVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -70,56 +66,39 @@ public class b {
                     fileOutputStream.write(encode);
                     fileOutputStream.write("\n".getBytes());
                     fileOutputStream.flush();
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                } catch (Exception e3) {
-                    e = e3;
+                    com.baidu.swan.d.c.closeSafely(fileOutputStream);
+                } catch (Exception e2) {
+                    e = e2;
                     e.printStackTrace();
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e4) {
-                            e4.printStackTrace();
-                        }
-                    }
+                    com.baidu.swan.d.c.closeSafely(fileOutputStream);
                 }
             } catch (Throwable th) {
                 th = th;
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (Exception e5) {
-                        e5.printStackTrace();
-                    }
-                }
+                com.baidu.swan.d.c.closeSafely(fileOutputStream);
                 throw th;
             }
-        } catch (Exception e6) {
-            e = e6;
+        } catch (Exception e3) {
+            e = e3;
             fileOutputStream = null;
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
-            if (fileOutputStream != null) {
-            }
+            com.baidu.swan.d.c.closeSafely(fileOutputStream);
             throw th;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [186=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(v vVar, boolean z) {
         BufferedReader bufferedReader;
+        boolean z2 = false;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (!file.exists()) {
             file.mkdir();
         }
-        boolean b = z ? false : b(vVar);
+        if (!z) {
+            z2 = b(vVar);
+        }
         File file2 = new File(file, z ? "filereal" : "filedata");
         if (file2.exists()) {
             try {
@@ -134,7 +113,7 @@ public class b {
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                         if (jSONObject.has("abtest")) {
-                            vVar.lG("1");
+                            vVar.qM("1");
                         }
                         long j3 = jSONObject.getLong("timestamp");
                         if (j3 > 0) {
@@ -145,45 +124,29 @@ public class b {
                                 j2 = j3;
                             }
                         }
-                        vVar.bt(jSONObject);
-                        b = true;
+                        vVar.cg(jSONObject);
+                        z2 = true;
                     } catch (Exception e) {
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (Exception e2) {
-                            }
-                        }
-                        return b;
+                        com.baidu.swan.d.c.closeSafely(bufferedReader);
+                        return z2;
                     } catch (Throwable th) {
                         th = th;
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (Exception e3) {
-                            }
-                        }
+                        com.baidu.swan.d.c.closeSafely(bufferedReader);
                         throw th;
                     }
                 }
-                vVar.m(j, j2);
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (Exception e4) {
-                    }
-                }
-            } catch (Exception e5) {
+                vVar.q(j, j2);
+                com.baidu.swan.d.c.closeSafely(bufferedReader);
+            } catch (Exception e2) {
                 bufferedReader = null;
             } catch (Throwable th2) {
                 th = th2;
                 bufferedReader = null;
             }
         }
-        return b;
+        return z2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */
     private boolean b(v vVar) {
         File[] listFiles;
         BufferedReader bufferedReader;
@@ -195,7 +158,7 @@ public class b {
             try {
                 bufferedReader = new BufferedReader(new FileReader(file2));
                 int i = 0;
-                long j = Long.MAX_VALUE;
+                long j = Format.OFFSET_SAMPLE_RELATIVE;
                 long j2 = 0;
                 do {
                     try {
@@ -206,7 +169,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                vVar.lG("1");
+                                vVar.qM("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -217,41 +180,23 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            vVar.bt(jSONObject);
+                            vVar.cg(jSONObject);
                             i++;
                         } catch (Exception e) {
                             e = e;
                             e.printStackTrace();
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
-                                }
-                            }
+                            com.baidu.swan.d.c.closeSafely(bufferedReader);
                         }
                     } catch (Throwable th) {
                         th = th;
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                        }
+                        com.baidu.swan.d.c.closeSafely(bufferedReader);
                         throw th;
                     }
                 } while (i < 10);
-                vVar.m(j, j2);
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
-                    }
-                }
-            } catch (Exception e5) {
-                e = e5;
+                vVar.q(j, j2);
+                com.baidu.swan.d.c.closeSafely(bufferedReader);
+            } catch (Exception e2) {
+                e = e2;
                 bufferedReader = null;
             } catch (Throwable th2) {
                 th = th2;
@@ -262,7 +207,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dG(boolean z) {
+    public void eQ(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

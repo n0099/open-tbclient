@@ -7,7 +7,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ThreadPoolService implements com.baidu.sapi2.c {
     private static final ThreadFactory a = new s();
     private static final int b = 0;
@@ -15,7 +15,7 @@ public class ThreadPoolService implements com.baidu.sapi2.c {
     private Handler d;
     public ThreadPoolExecutor poolService;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class a {
         static ThreadPoolService a = new ThreadPoolService(null);
 

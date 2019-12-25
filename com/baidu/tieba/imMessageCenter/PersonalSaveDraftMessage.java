@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter;
 
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.message.SaveDraftMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PersonalSaveDraftMessage extends SaveDraftMessage {
     public PersonalSaveDraftMessage(SaveDraftMessage.a aVar) {
         super(CmdConfigCustom.CMD_SAVE_DRAFT_PERSONAL, aVar);

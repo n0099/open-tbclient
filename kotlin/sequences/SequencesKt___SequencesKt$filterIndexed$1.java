@@ -4,7 +4,7 @@ import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.collections.x;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda implements kotlin.jvm.a.b<x<? extends T>, Boolean> {
     final /* synthetic */ kotlin.jvm.a.c $predicate;
 
@@ -21,7 +21,7 @@ final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda implements 
     }
 
     public final boolean invoke(x<? extends T> xVar) {
-        p.i(xVar, AdvanceSetting.NETWORK_TYPE);
+        p.j(xVar, AdvanceSetting.NETWORK_TYPE);
         return ((Boolean) this.$predicate.invoke(Integer.valueOf(xVar.getIndex()), xVar.getValue())).booleanValue();
     }
 }

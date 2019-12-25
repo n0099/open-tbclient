@@ -1,159 +1,161 @@
 package com.baidu.swan.apps.res.widget.dialog;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Bundle;
+import android.content.DialogInterface;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.res.ui.BdTimePicker;
-import com.baidu.swan.apps.res.widget.dialog.g;
-import java.util.Date;
-/* loaded from: classes2.dex */
-public class h extends g {
-    private String bbC;
-    private boolean bbD;
-    private int bbU;
-    private Date bbt;
-    private Date bbu;
-    private BdTimePicker bix;
-    private boolean biy;
-    private int wL;
+/* loaded from: classes9.dex */
+public class h extends c {
+    private a bJw;
 
-    h(Context context) {
-        super(context, a.i.NoTitleDialog);
-        this.biy = false;
+    public h(Context context, int i) {
+        super(context, i);
+        init();
     }
 
-    public void setHour(int i) {
-        this.bbU = i;
+    protected void init() {
+        setContentView(a.g.swanapp_picker_dialog);
+        getWindow().setLayout(-1, -2);
+        getWindow().setGravity(80);
+        setEnableImmersion(false);
     }
 
-    public int getHour() {
-        return this.bix.getHour();
+    public a ZD() {
+        return this.bJw;
     }
 
-    public void setMinute(int i) {
-        this.wL = i;
+    void a(a aVar) {
+        this.bJw = aVar;
     }
 
-    public int getMinute() {
-        return this.bix.getMinute();
-    }
-
-    private void Qo() {
-        this.bix = new BdTimePicker(getContext());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-        layoutParams.gravity = 1;
-        this.bix.setLayoutParams(layoutParams);
-        this.bix.setScrollCycle(true);
-        this.bix.setStartDate(this.bbt);
-        this.bix.setmEndDate(this.bbu);
-        this.bix.setHour(this.bbU);
-        this.bix.setMinute(this.wL);
-        this.bix.ON();
-        this.bix.setDisabled(this.bbD);
-    }
-
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        if (this.biy) {
-            getWindow().addFlags(4718592);
-        }
-        Qo();
-        Qq().al(this.bix);
-    }
-
-    @Override // com.baidu.swan.apps.res.widget.dialog.c, android.app.Dialog
-    public void show() {
-        TextView Qm = Qq().Qm();
-        if (Qm != null) {
-            Qm.setBackgroundResource(a.e.aiapp_alertdialog_button_day_bg_all_selector);
-        }
-        if (this.bix != null) {
-            if (this.bbU != this.bix.getHour()) {
-                this.bix.setHour(this.bbU);
-            }
-            if (this.wL != this.bix.getMinute()) {
-                this.bix.setMinute(this.wL);
-            }
-        }
-        super.show();
-    }
-
-    public void setFields(String str) {
-        this.bbC = str;
-    }
-
-    public void setDisabled(boolean z) {
-        this.bbD = z;
-    }
-
-    public void setStartDate(Date date) {
-        this.bbt = date;
-    }
-
-    public void setEndDate(Date date) {
-        this.bbu = date;
-    }
-
-    /* loaded from: classes2.dex */
-    public static class a extends g.a {
-        public Date bhP;
-        public Date bhQ;
-        public Date bhR;
-        private String bhS;
-        private boolean bhT;
+    /* loaded from: classes9.dex */
+    public static class a {
+        protected final b bJx;
+        protected final h bJy;
+        private Context mContext;
+        private boolean mSystemDialog = false;
 
         public a(Context context) {
-            super(context);
+            this.bJy = cn(context);
+            this.bJy.a(this);
+            this.bJx = new b((ViewGroup) this.bJy.getWindow().getDecorView());
+            this.mContext = context;
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        protected g aW(Context context) {
-            return new h(context);
+        protected h cn(Context context) {
+            return new h(context, a.i.NoTitleDialog);
         }
 
-        public a g(Date date) {
-            this.bhP = date;
+        public a ak(View view) {
+            this.bJx.mDialogContent.removeAllViews();
+            this.bJx.mDialogContent.addView(view);
             return this;
         }
 
-        public a h(Date date) {
-            this.bhQ = date;
-            return this;
+        public h Zv() {
+            this.bJy.setOnCancelListener(this.bJx.mOnCancelListener);
+            this.bJy.setOnDismissListener(this.bJx.mOnDismissListener);
+            this.bJy.setOnShowListener(this.bJx.mOnShowListener);
+            this.bJy.a(this);
+            return this.bJy;
         }
 
-        public a i(Date date) {
-            this.bhR = date;
-            return this;
-        }
-
-        public a hj(String str) {
-            this.bhS = str;
-            return this;
-        }
-
-        public a cB(boolean z) {
-            this.bhT = z;
-            return this;
-        }
-
-        @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        public g FX() {
-            h hVar = (h) super.FX();
-            hVar.setFields(this.bhS);
-            hVar.setDisabled(this.bhT);
-            if (this.bhR != null) {
-                hVar.setHour(this.bhR.getHours());
-                hVar.setMinute(this.bhR.getMinutes());
+        public h ZE() {
+            h Zv = Zv();
+            if (this.mSystemDialog) {
+                Zv.getWindow().setType(2003);
             }
-            if (this.bhP != null) {
-                hVar.setStartDate(this.bhP);
+            try {
+                Zv.show();
+            } catch (WindowManager.BadTokenException e) {
             }
-            if (this.bhQ != null) {
-                hVar.setEndDate(this.bhQ);
-            }
-            return hVar;
+            return Zv;
+        }
+
+        public a f(int i, DialogInterface.OnClickListener onClickListener) {
+            return d(this.mContext.getText(i), onClickListener);
+        }
+
+        public a d(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
+            this.bJx.mPositiveButton.setText(charSequence);
+            this.bJx.mPositiveButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.h.a.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    a.this.bJy.dismiss();
+                    if (onClickListener != null) {
+                        onClickListener.onClick(a.this.bJy, -1);
+                    }
+                }
+            });
+            return this;
+        }
+
+        public a g(int i, DialogInterface.OnClickListener onClickListener) {
+            return e(this.mContext.getText(i), onClickListener);
+        }
+
+        public a e(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
+            this.bJx.mNegativeButton.setText(charSequence);
+            this.bJx.mNegativeButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.h.a.2
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    a.this.bJy.dismiss();
+                    if (onClickListener != null) {
+                        onClickListener.onClick(a.this.bJy, -2);
+                    }
+                }
+            });
+            return this;
+        }
+
+        public a c(DialogInterface.OnCancelListener onCancelListener) {
+            this.bJx.mOnCancelListener = onCancelListener;
+            return this;
+        }
+
+        public a dx(boolean z) {
+            this.bJy.setCanceledOnTouchOutside(z);
+            return this;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static class b {
+        public FrameLayout bJq;
+        public FrameLayout bJr;
+        public View bJs;
+        public LinearLayout mBtnPanelLayout;
+        public View mCustomPanel;
+        public FrameLayout mDialogContent;
+        public View mDialogContentPanel;
+        public RelativeLayout mDialogLayout;
+        public TextView mNegativeButton;
+        public DialogInterface.OnCancelListener mOnCancelListener;
+        public DialogInterface.OnDismissListener mOnDismissListener;
+        public DialogInterface.OnShowListener mOnShowListener;
+        public TextView mPositiveButton;
+        public ViewGroup mRoot;
+
+        @SuppressLint({"CutPasteId"})
+        public b(ViewGroup viewGroup) {
+            this.mRoot = viewGroup;
+            this.bJr = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
+            this.mPositiveButton = (TextView) viewGroup.findViewById(a.f.positive_button);
+            this.mNegativeButton = (TextView) viewGroup.findViewById(a.f.negative_button);
+            this.mDialogContentPanel = viewGroup.findViewById(a.f.dialog_customPanel);
+            this.mDialogContent = (FrameLayout) viewGroup.findViewById(a.f.dialog_custom_content);
+            this.mDialogLayout = (RelativeLayout) viewGroup.findViewById(a.f.searchbox_alert_dialog);
+            this.mBtnPanelLayout = (LinearLayout) viewGroup.findViewById(a.f.btn_panel);
+            this.mCustomPanel = viewGroup.findViewById(a.f.dialog_customPanel);
+            this.bJq = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
+            this.bJs = viewGroup.findViewById(a.f.nightmode_mask);
         }
     }
 }

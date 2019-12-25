@@ -4,34 +4,41 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class i extends f<PointF> {
-    private final PointF eX;
-    private final float[] eY;
-    private h eZ;
-    private PathMeasure fa;
+    private final PointF gK;
+    private final float[] gL;
+    private h gM;
+    private PathMeasure gN;
 
-    public i(List<? extends com.airbnb.lottie.a.a<PointF>> list) {
+    public i(List<? extends com.airbnb.lottie.e.a<PointF>> list) {
         super(list);
-        this.eX = new PointF();
-        this.eY = new float[2];
+        this.gK = new PointF();
+        this.gL = new float[2];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: T */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: T */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // com.airbnb.lottie.a.b.a
     /* renamed from: e */
-    public PointF a(com.airbnb.lottie.a.a<PointF> aVar, float f) {
+    public PointF a(com.airbnb.lottie.e.a<PointF> aVar, float f) {
+        PointF pointF;
         h hVar = (h) aVar;
-        Path bw = hVar.bw();
-        if (bw == null) {
-            return aVar.dK;
+        Path bF = hVar.bF();
+        if (bF == null) {
+            return aVar.kn;
         }
-        if (this.eZ != hVar) {
-            this.fa = new PathMeasure(bw, false);
-            this.eZ = hVar;
+        if (this.gE == null || (pointF = (PointF) this.gE.b(hVar.ed, hVar.kq.floatValue(), hVar.kn, hVar.ko, bS(), f, getProgress())) == null) {
+            if (this.gM != hVar) {
+                this.gN = new PathMeasure(bF, false);
+                this.gM = hVar;
+            }
+            this.gN.getPosTan(this.gN.getLength() * f, this.gL, null);
+            this.gK.set(this.gL[0], this.gL[1]);
+            return this.gK;
         }
-        this.fa.getPosTan(this.fa.getLength() * f, this.eY, null);
-        this.eX.set(this.eY[0], this.eY[1]);
-        return this.eX;
+        return pointF;
     }
 }

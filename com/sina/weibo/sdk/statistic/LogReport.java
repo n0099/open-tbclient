@@ -16,13 +16,12 @@ import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.GZIPOutputStream;
-import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LogReport {
     private static final int CONNECTION_TIMEOUT = 25000;
     private static final String PRIVATE_CODE = "dqwef1864il4c9m6";
@@ -258,9 +257,9 @@ public class LogReport {
             httpURLConnection.setDoInput(true);
             httpURLConnection.setUseCaches(false);
             httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
+            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-            httpURLConnection.setRequestProperty("Charset", HTTP.UTF_8);
+            httpURLConnection.setRequestProperty("Charset", "UTF-8");
         } catch (Exception e) {
         }
     }

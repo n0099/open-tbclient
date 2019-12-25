@@ -13,19 +13,19 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CommonImageLayout extends ViewGroup {
-    private static float[] jeC = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
-    private static float[] jeD = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
-    private static int jeE = 2;
-    private static int jeF = 4;
-    private static int jeG = 0;
+    private static float[] jYO = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
+    private static float[] jYP = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
+    private static int jYQ = 2;
+    private static int jYR = 4;
+    private static int jYS = 0;
     public static float sRatio = -1.0f;
-    public TbImageView jeH;
-    public TbImageView jeI;
-    public TbImageView jeJ;
-    private MediaData[] jeK;
-    private boolean jeL;
+    public TbImageView jYT;
+    public TbImageView jYU;
+    public TbImageView jYV;
+    private MediaData[] jYW;
+    private boolean jYX;
     private final Context mContext;
     private boolean mIsFromCDN;
     private int mPadding;
@@ -37,83 +37,83 @@ public class CommonImageLayout extends ViewGroup {
     private void initData() {
         if (sRatio < 0.0f) {
             sRatio = l.getEquipmentWidth(this.mContext) / 320.0f;
-            for (int i = 0; i < jeC.length; i++) {
-                float[] fArr = jeC;
+            for (int i = 0; i < jYO.length; i++) {
+                float[] fArr = jYO;
                 fArr[i] = fArr[i] * sRatio;
-                float[] fArr2 = jeD;
+                float[] fArr2 = jYP;
                 fArr2[i] = fArr2[i] * sRatio;
             }
-            jeE = (int) (jeE * sRatio);
-            jeF = (int) (jeF * sRatio);
+            jYQ = (int) (jYQ * sRatio);
+            jYR = (int) (jYR * sRatio);
         }
     }
 
     public CommonImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mPadding = 7;
-        this.jeL = false;
+        this.jYX = false;
         this.mIsFromCDN = false;
         this.mContext = context;
         initData();
         TbadkCoreApplication.getInst().getSkinType();
         Drawable drawable = am.getDrawable(R.color.common_color_10220);
-        this.jeH = new TbImageView(context);
-        this.jeI = new TbImageView(context);
-        this.jeJ = new TbImageView(context);
-        this.jeH.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.jeI.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.jeJ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.jeH.setDefaultBg(drawable);
-        this.jeI.setDefaultBg(drawable);
-        this.jeJ.setDefaultBg(drawable);
-        addView(this.jeH);
-        addView(this.jeI);
-        addView(this.jeJ);
+        this.jYT = new TbImageView(context);
+        this.jYU = new TbImageView(context);
+        this.jYV = new TbImageView(context);
+        this.jYT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.jYU.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.jYV.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.jYT.setDefaultBg(drawable);
+        this.jYU.setDefaultBg(drawable);
+        this.jYV.setDefaultBg(drawable);
+        addView(this.jYT);
+        addView(this.jYU);
+        addView(this.jYV);
         this.mPadding = (int) (this.mPadding * sRatio);
     }
 
     public void setShowBig(boolean z) {
-        this.jeL = z;
+        this.jYX = z;
     }
 
     public void setData(MediaData[] mediaDataArr) {
-        this.jeK = mediaDataArr;
-        if (this.jeK == null || this.jeK.length <= 0) {
-            if (this.jeH != null) {
-                this.jeH.setTag(null);
+        this.jYW = mediaDataArr;
+        if (this.jYW == null || this.jYW.length <= 0) {
+            if (this.jYT != null) {
+                this.jYT.setTag(null);
             }
-            if (this.jeI != null) {
-                this.jeI.setTag(null);
+            if (this.jYU != null) {
+                this.jYU.setTag(null);
             }
-            if (this.jeJ != null) {
-                this.jeJ.setTag(null);
+            if (this.jYV != null) {
+                this.jYV.setTag(null);
             }
             requestLayout();
             invalidate();
             return;
         }
-        int length = this.jeK.length;
+        int length = this.jYW.length;
         if (length == 1) {
-            a(this.jeH, this.jeK[0]);
-            if (this.jeI != null) {
-                this.jeI.setTag(null);
-                this.jeI.setClickable(false);
+            a(this.jYT, this.jYW[0]);
+            if (this.jYU != null) {
+                this.jYU.setTag(null);
+                this.jYU.setClickable(false);
             }
-            if (this.jeJ != null) {
-                this.jeJ.setTag(null);
-                this.jeJ.setClickable(false);
+            if (this.jYV != null) {
+                this.jYV.setTag(null);
+                this.jYV.setClickable(false);
             }
         } else if (length == 2) {
-            a(this.jeH, this.jeK[0]);
-            a(this.jeI, this.jeK[1]);
-            if (this.jeJ != null) {
-                this.jeJ.setTag(null);
-                this.jeJ.setClickable(false);
+            a(this.jYT, this.jYW[0]);
+            a(this.jYU, this.jYW[1]);
+            if (this.jYV != null) {
+                this.jYV.setTag(null);
+                this.jYV.setClickable(false);
             }
         } else if (length == 3) {
-            a(this.jeH, this.jeK[0]);
-            a(this.jeI, this.jeK[1]);
-            a(this.jeJ, this.jeK[2]);
+            a(this.jYT, this.jYW[0]);
+            a(this.jYU, this.jYW[1]);
+            a(this.jYV, this.jYW[2]);
         }
         requestLayout();
         invalidate();
@@ -124,54 +124,54 @@ public class CommonImageLayout extends ViewGroup {
         int i3;
         int i4;
         int i5 = 1073741823 & i;
-        if (jeG == 0) {
-            jeG = i5;
+        if (jYS == 0) {
+            jYS = i5;
         }
-        if (this.jeK == null || this.jeK.length == 0) {
+        if (this.jYW == null || this.jYW.length == 0) {
             setMeasuredDimension(0, 0);
             return;
         }
-        if (this.jeL) {
-            setMeasuredDimension(jeG, (int) (jeD[this.jeK.length - 1] + 0.5f));
+        if (this.jYX) {
+            setMeasuredDimension(jYS, (int) (jYP[this.jYW.length - 1] + 0.5f));
         } else {
-            setMeasuredDimension(jeG, (int) (jeD[4] + 0.5f));
+            setMeasuredDimension(jYS, (int) (jYP[4] + 0.5f));
         }
-        switch (this.jeK.length) {
+        switch (this.jYW.length) {
             case 1:
-                if (this.jeL) {
-                    measureChild(this.jeH, jeG + 1073741824, ((int) (jeD[0] + 0.5f)) + 1073741824);
+                if (this.jYX) {
+                    measureChild(this.jYT, jYS + 1073741824, ((int) (jYP[0] + 0.5f)) + 1073741824);
                 } else {
-                    measureChild(this.jeH, ((int) (jeC[4] + 0.5f)) + 1073741824, ((int) (jeD[4] + 0.5f)) + 1073741824);
+                    measureChild(this.jYT, ((int) (jYO[4] + 0.5f)) + 1073741824, ((int) (jYP[4] + 0.5f)) + 1073741824);
                 }
-                measureChild(this.jeI, 0, 0);
-                measureChild(this.jeJ, 0, 0);
+                measureChild(this.jYU, 0, 0);
+                measureChild(this.jYV, 0, 0);
                 return;
             case 2:
-                if (this.jeL) {
-                    i3 = ((int) (jeC[1] + 0.5f)) + 1073741824;
-                    i4 = ((int) (jeD[1] + 0.5f)) + 1073741824;
+                if (this.jYX) {
+                    i3 = ((int) (jYO[1] + 0.5f)) + 1073741824;
+                    i4 = ((int) (jYP[1] + 0.5f)) + 1073741824;
                 } else {
-                    i3 = ((int) (jeC[4] + 0.5f)) + 1073741824;
-                    i4 = ((int) (jeD[4] + 0.5f)) + 1073741824;
+                    i3 = ((int) (jYO[4] + 0.5f)) + 1073741824;
+                    i4 = ((int) (jYP[4] + 0.5f)) + 1073741824;
                 }
-                measureChild(this.jeH, i3, i4);
-                measureChild(this.jeI, i3, i4);
-                measureChild(this.jeJ, 0, 0);
+                measureChild(this.jYT, i3, i4);
+                measureChild(this.jYU, i3, i4);
+                measureChild(this.jYV, 0, 0);
                 return;
             case 3:
-                if (this.jeL) {
-                    int i6 = ((int) (jeC[3] + 0.5f)) + 1073741824;
-                    int i7 = ((int) (jeD[3] + 0.5f)) + 1073741824;
-                    measureChild(this.jeH, ((int) (jeC[2] + 0.5f)) + 1073741824, ((int) (jeD[2] + 0.5f)) + 1073741824);
-                    measureChild(this.jeI, i6, i7);
-                    measureChild(this.jeJ, i6, i7);
+                if (this.jYX) {
+                    int i6 = ((int) (jYO[3] + 0.5f)) + 1073741824;
+                    int i7 = ((int) (jYP[3] + 0.5f)) + 1073741824;
+                    measureChild(this.jYT, ((int) (jYO[2] + 0.5f)) + 1073741824, ((int) (jYP[2] + 0.5f)) + 1073741824);
+                    measureChild(this.jYU, i6, i7);
+                    measureChild(this.jYV, i6, i7);
                     return;
                 }
-                int i8 = ((int) (jeC[4] + 0.5f)) + 1073741824;
-                int i9 = ((int) (jeD[4] + 0.5f)) + 1073741824;
-                measureChild(this.jeH, i8, i9);
-                measureChild(this.jeI, i8, i9);
-                measureChild(this.jeJ, i8, i9);
+                int i8 = ((int) (jYO[4] + 0.5f)) + 1073741824;
+                int i9 = ((int) (jYP[4] + 0.5f)) + 1073741824;
+                measureChild(this.jYT, i8, i9);
+                measureChild(this.jYU, i8, i9);
+                measureChild(this.jYV, i8, i9);
                 return;
             default:
                 return;
@@ -180,43 +180,43 @@ public class CommonImageLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.jeK != null && this.jeK.length != 0) {
-            switch (this.jeK.length) {
+        if (this.jYW != null && this.jYW.length != 0) {
+            switch (this.jYW.length) {
                 case 1:
-                    if (this.jeL) {
-                        int i5 = (int) (jeC[0] + 0.5f);
-                        this.jeH.layout(0, 0, i3, i4 - i2);
+                    if (this.jYX) {
+                        int i5 = (int) (jYO[0] + 0.5f);
+                        this.jYT.layout(0, 0, i3, i4 - i2);
                     } else {
-                        this.jeH.layout(this.mPadding, 0, ((int) (jeC[4] + 0.5f)) + this.mPadding, i4 - i2);
+                        this.jYT.layout(this.mPadding, 0, ((int) (jYO[4] + 0.5f)) + this.mPadding, i4 - i2);
                     }
-                    this.jeI.layout(0, 0, 0, 0);
-                    this.jeJ.layout(0, 0, 0, 0);
+                    this.jYU.layout(0, 0, 0, 0);
+                    this.jYV.layout(0, 0, 0, 0);
                     return;
                 case 2:
-                    if (this.jeL) {
-                        int i6 = (int) (jeC[1] + 0.5f);
-                        this.jeH.layout(this.mPadding, 0, this.mPadding + i6, i4 - i2);
-                        this.jeI.layout(i6 + this.mPadding + jeF, 0, (i3 - this.mPadding) - i, i4 - i2);
+                    if (this.jYX) {
+                        int i6 = (int) (jYO[1] + 0.5f);
+                        this.jYT.layout(this.mPadding, 0, this.mPadding + i6, i4 - i2);
+                        this.jYU.layout(i6 + this.mPadding + jYR, 0, (i3 - this.mPadding) - i, i4 - i2);
                     } else {
-                        int i7 = (int) (jeC[4] + 0.5f);
-                        this.jeH.layout(this.mPadding, 0, this.mPadding + i7, i4 - i2);
-                        this.jeI.layout(this.mPadding + i7 + jeE, 0, (i7 * 2) + this.mPadding + jeE, i4 - i2);
+                        int i7 = (int) (jYO[4] + 0.5f);
+                        this.jYT.layout(this.mPadding, 0, this.mPadding + i7, i4 - i2);
+                        this.jYU.layout(this.mPadding + i7 + jYQ, 0, (i7 * 2) + this.mPadding + jYQ, i4 - i2);
                     }
-                    this.jeJ.layout(0, 0, 0, 0);
+                    this.jYV.layout(0, 0, 0, 0);
                     return;
                 case 3:
-                    if (this.jeL) {
-                        int i8 = (int) (jeC[2] + 0.5f);
-                        int i9 = (int) (jeC[3] + 0.5f);
-                        this.jeH.layout(0, 0, i8, i4 - i2);
-                        this.jeI.layout(jeE + i8, 0, i3, i9);
-                        this.jeJ.layout(i8 + jeE, i9 + jeE, i3, i4 - i2);
+                    if (this.jYX) {
+                        int i8 = (int) (jYO[2] + 0.5f);
+                        int i9 = (int) (jYO[3] + 0.5f);
+                        this.jYT.layout(0, 0, i8, i4 - i2);
+                        this.jYU.layout(jYQ + i8, 0, i3, i9);
+                        this.jYV.layout(i8 + jYQ, i9 + jYQ, i3, i4 - i2);
                         return;
                     }
-                    int i10 = (int) (jeC[4] + 0.5f);
-                    this.jeH.layout(this.mPadding, 0, this.mPadding + i10, i4 - i2);
-                    this.jeI.layout(this.mPadding + i10 + jeE, 0, (i10 * 2) + this.mPadding + jeE, i4 - i2);
-                    this.jeJ.layout((i10 * 2) + this.mPadding + (jeE * 2), 0, (i3 - this.mPadding) - i, i4 - i2);
+                    int i10 = (int) (jYO[4] + 0.5f);
+                    this.jYT.layout(this.mPadding, 0, this.mPadding + i10, i4 - i2);
+                    this.jYU.layout(this.mPadding + i10 + jYQ, 0, (i10 * 2) + this.mPadding + jYQ, i4 - i2);
+                    this.jYV.layout((i10 * 2) + this.mPadding + (jYQ * 2), 0, (i3 - this.mPadding) - i, i4 - i2);
                     return;
                 default:
                     return;
@@ -226,20 +226,20 @@ public class CommonImageLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.jeK != null && this.jeK.length != 0) {
+        if (this.jYW != null && this.jYW.length != 0) {
             long drawingTime = getDrawingTime();
-            switch (this.jeK.length) {
+            switch (this.jYW.length) {
                 case 1:
-                    drawChild(canvas, this.jeH, drawingTime);
+                    drawChild(canvas, this.jYT, drawingTime);
                     return;
                 case 2:
-                    drawChild(canvas, this.jeH, drawingTime);
-                    drawChild(canvas, this.jeI, drawingTime);
+                    drawChild(canvas, this.jYT, drawingTime);
+                    drawChild(canvas, this.jYU, drawingTime);
                     return;
                 case 3:
-                    drawChild(canvas, this.jeH, drawingTime);
-                    drawChild(canvas, this.jeI, drawingTime);
-                    drawChild(canvas, this.jeJ, drawingTime);
+                    drawChild(canvas, this.jYT, drawingTime);
+                    drawChild(canvas, this.jYU, drawingTime);
+                    drawChild(canvas, this.jYV, drawingTime);
                     return;
                 default:
                     return;

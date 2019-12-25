@@ -6,40 +6,42 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ao extends com.baidu.tbadk.core.view.userLike.c {
-    private String cma;
-    public boolean hTT;
-    private int hTU;
-    private int hTV;
+    private String OC;
+    public boolean iIE;
+    private int iIF;
+    private int iIG;
     public boolean isBigV;
     private TbPageContext mPageContext;
 
     public ao(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
         super(tbPageContext, bVar);
-        this.hTT = false;
+        this.iIE = false;
         this.isBigV = false;
-        this.hTU = 0;
-        this.hTU = i;
+        this.iIF = 0;
+        this.iIF = i;
         this.mPageContext = tbPageContext;
-        if (this.hTU == 1) {
-            super.mX("4");
-        } else if (this.hTU == 3) {
-            super.mX("5");
+        if (this.iIF == 1) {
+            super.sk("4");
+        } else if (this.iIF == 3) {
+            super.sk("5");
+        } else if (i == 4 || i == 5 || i == 6) {
+            super.sk("4");
         } else {
-            super.mX("0");
+            super.sk("0");
         }
     }
 
     public void setTid(String str) {
-        this.cma = str;
+        this.OC = str;
     }
 
-    public void wN(int i) {
-        this.hTV = i;
+    public void yR(int i) {
+        this.iIG = i;
     }
 
-    private int bUR() {
+    private int cmA() {
         String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
         if (fromPageKey == null) {
             return 3;
@@ -70,31 +72,41 @@ public class ao extends com.baidu.tbadk.core.view.userLike.c {
         int i = 3;
         int i2 = 2;
         if (view != null && view.getAlpha() >= 0.4d) {
-            String userId = this.crW != null ? this.crW.getUserId() : "";
-            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12408").O("obj_source", bUR()).bS("obj_id", userId).bS("tid", this.cma));
-            if (this.hTU != 1) {
-                i = this.hTU == 3 ? 2 : 0;
+            String userId = this.dfL != null ? this.dfL.getUserId() : "";
+            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12408").Z("obj_source", cmA()).cp("obj_id", userId).cp("tid", this.OC));
+            if (this.iIF != 1) {
+                if (this.iIF == 3) {
+                    i = 2;
+                } else if (this.iIF == 5) {
+                    i = 5;
+                } else if (this.iIF == 7) {
+                    i = 7;
+                } else if (this.iIF == 6) {
+                    i = 6;
+                } else {
+                    i = this.iIF == 4 ? 4 : 0;
+                }
             }
             com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c12507");
-            anVar.O("obj_locate", i);
-            anVar.bS("obj_id", userId);
-            anVar.bS("tid", this.cma);
-            anVar.O("obj_param1", this.hTV);
+            anVar.Z("obj_locate", i);
+            anVar.cp("obj_id", userId);
+            anVar.cp("tid", this.OC);
+            anVar.Z("obj_param1", this.iIG);
             if (!com.baidu.tbadk.core.util.aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-                anVar.bS("obj_source", TbadkCoreApplication.getInst().getTaskId());
+                anVar.cp("obj_source", TbadkCoreApplication.getInst().getTaskId());
             }
             TiebaStatic.log(anVar);
             super.onClick(view);
-            if (this.hTT && this.crW != null) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11924").bS("obj_id", this.crW.getUserId()));
+            if (this.iIE && this.dfL != null) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11924").cp("obj_id", this.dfL.getUserId()));
             }
-            if (this.isBigV && this.crW != null) {
-                if (this.hTU == 1) {
+            if (this.isBigV && this.dfL != null) {
+                if (this.iIF == 1) {
                     i2 = 1;
-                } else if (this.hTU != 2) {
+                } else if (this.iIF != 2) {
                     i2 = 0;
                 }
-                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12150").O("obj_locate", i2).bS("obj_id", this.crW.getUserId()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12150").Z("obj_locate", i2).cp("obj_id", this.dfL.getUserId()));
             }
         }
     }

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.cache.l;
 public interface k<T> {
     void clearAndClose(String str);
 
-    e fb();
+    e fw();
 
     T get(String str, String str2);
 

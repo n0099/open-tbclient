@@ -4,27 +4,27 @@ import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
-    public String cuA;
-    public String cuB;
-    public String cuC;
-    public int cuD;
-    public String cuE;
-    public boolean cuw;
-    public boolean cux;
-    public int cuy;
-    public int cuz;
+    public boolean dif;
+    public boolean dig;
+    public int dih;
+    public int dii;
+    public String dij;
+    public String dik;
+    public String dil;
+    public int dim;
+    public String din;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.cuw = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
-            this.cux = jSONObject.optInt("isActivateNaniApp", 1) == 1;
-            this.cuy = jSONObject.optInt("downloadNaniShowPosition", 3);
-            this.cuz = jSONObject.optInt("downloadNaniShowRate", 2);
-            this.cuA = jSONObject.optString("downloadNaniLinkUrl", null);
-            this.cuB = jSONObject.optString("downloadNaniTxt", null);
-            this.cuC = jSONObject.optString("showNaniTailTxt", null);
-            this.cuD = jSONObject.optInt("showNaniTailVideoType", 0);
-            this.cuE = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
+            this.dif = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
+            this.dig = jSONObject.optInt("isActivateNaniApp", 1) == 1;
+            this.dih = jSONObject.optInt("downloadNaniShowPosition", 3);
+            this.dii = jSONObject.optInt("downloadNaniShowRate", 2);
+            this.dij = jSONObject.optString("downloadNaniLinkUrl", null);
+            this.dik = jSONObject.optString("downloadNaniTxt", null);
+            this.dil = jSONObject.optString("showNaniTailTxt", null);
+            this.dim = jSONObject.optInt("showNaniTailVideoType", 0);
+            this.din = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
         }
     }
 }

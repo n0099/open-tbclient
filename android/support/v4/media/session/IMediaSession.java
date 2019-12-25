@@ -16,7 +16,7 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface IMediaSession extends IInterface {
     void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat) throws RemoteException;
 
@@ -54,7 +54,7 @@ public interface IMediaSession extends IInterface {
 
     boolean isCaptioningEnabled() throws RemoteException;
 
-    boolean isShuffleModeEnabledDeprecated() throws RemoteException;
+    boolean isShuffleModeEnabledRemoved() throws RemoteException;
 
     boolean isTransportControlEnabled() throws RemoteException;
 
@@ -106,7 +106,7 @@ public interface IMediaSession extends IInterface {
 
     void setShuffleMode(int i) throws RemoteException;
 
-    void setShuffleModeEnabledDeprecated(boolean z) throws RemoteException;
+    void setShuffleModeEnabledRemoved(boolean z) throws RemoteException;
 
     void setVolumeTo(int i, int i2, String str) throws RemoteException;
 
@@ -116,7 +116,7 @@ public interface IMediaSession extends IInterface {
 
     void unregisterCallbackListener(IMediaControllerCallback iMediaControllerCallback) throws RemoteException;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Stub extends Binder implements IMediaSession {
         private static final String DESCRIPTOR = "android.support.v4.media.session.IMediaSession";
         static final int TRANSACTION_addQueueItem = 41;
@@ -137,7 +137,7 @@ public interface IMediaSession extends IInterface {
         static final int TRANSACTION_getTag = 7;
         static final int TRANSACTION_getVolumeAttributes = 10;
         static final int TRANSACTION_isCaptioningEnabled = 45;
-        static final int TRANSACTION_isShuffleModeEnabledDeprecated = 38;
+        static final int TRANSACTION_isShuffleModeEnabledRemoved = 38;
         static final int TRANSACTION_isTransportControlEnabled = 5;
         static final int TRANSACTION_next = 20;
         static final int TRANSACTION_pause = 18;
@@ -163,7 +163,7 @@ public interface IMediaSession extends IInterface {
         static final int TRANSACTION_setCaptioningEnabled = 46;
         static final int TRANSACTION_setRepeatMode = 39;
         static final int TRANSACTION_setShuffleMode = 48;
-        static final int TRANSACTION_setShuffleModeEnabledDeprecated = 40;
+        static final int TRANSACTION_setShuffleModeEnabledRemoved = 40;
         static final int TRANSACTION_setVolumeTo = 12;
         static final int TRANSACTION_skipToQueueItem = 17;
         static final int TRANSACTION_stop = 19;
@@ -423,9 +423,9 @@ public interface IMediaSession extends IInterface {
                     return true;
                 case 38:
                     parcel.enforceInterface(DESCRIPTOR);
-                    boolean isShuffleModeEnabledDeprecated = isShuffleModeEnabledDeprecated();
+                    boolean isShuffleModeEnabledRemoved = isShuffleModeEnabledRemoved();
                     parcel2.writeNoException();
-                    parcel2.writeInt(isShuffleModeEnabledDeprecated ? 1 : 0);
+                    parcel2.writeInt(isShuffleModeEnabledRemoved ? 1 : 0);
                     return true;
                 case 39:
                     parcel.enforceInterface(DESCRIPTOR);
@@ -434,7 +434,7 @@ public interface IMediaSession extends IInterface {
                     return true;
                 case 40:
                     parcel.enforceInterface(DESCRIPTOR);
-                    setShuffleModeEnabledDeprecated(parcel.readInt() != 0);
+                    setShuffleModeEnabledRemoved(parcel.readInt() != 0);
                     parcel2.writeNoException();
                     return true;
                 case 41:
@@ -492,7 +492,7 @@ public interface IMediaSession extends IInterface {
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         private static class Proxy implements IMediaSession {
             private IBinder mRemote;
 
@@ -868,7 +868,7 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public boolean isShuffleModeEnabledDeprecated() throws RemoteException {
+            public boolean isShuffleModeEnabledRemoved() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -1328,7 +1328,7 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void setShuffleModeEnabledDeprecated(boolean z) throws RemoteException {
+            public void setShuffleModeEnabledRemoved(boolean z) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {

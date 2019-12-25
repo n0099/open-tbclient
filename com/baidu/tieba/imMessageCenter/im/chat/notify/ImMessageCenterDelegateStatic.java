@@ -17,10 +17,10 @@ import com.baidu.tbadk.mainTab.c;
 import com.baidu.tbadk.mainTab.d;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private MessageRedDotView gSi;
-    private CustomMessageListener gSj;
+    private MessageRedDotView hGl;
+    private CustomMessageListener hGm;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -28,27 +28,27 @@ public class ImMessageCenterDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c avw() {
+    public c aNe() {
         c cVar = new c();
         cVar.frag = new MessageCenterFragment();
         cVar.type = 3;
         cVar.textResId = R.string.my_message;
-        cVar.animationResId = R.raw.message;
+        cVar.animationResId = R.raw.lottie_tab_msg;
         cVar.showIconType = c.SHOWBOTH;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator cB(Context context) {
-        this.cJk = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.gSi = new MessageRedDotView(context);
+    public TbFragmentTabIndicator dW(Context context) {
+        this.dwU = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+        this.hGl = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.cJE = this.cJk;
-        aVar.view = this.gSi;
+        aVar.dxq = this.dwU;
+        aVar.view = this.hGl;
         aVar.isRight = true;
-        this.cJk.b("msg", aVar);
-        this.gSi.setVisibility(4);
-        return this.cJk;
+        this.dwU.b("msg", aVar);
+        this.hGl.setVisibility(4);
+        return this.dwU;
     }
 
     static {
@@ -67,7 +67,7 @@ public class ImMessageCenterDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        this.gSj = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+        this.hGm = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -83,33 +83,33 @@ public class ImMessageCenterDelegateStatic extends b {
                         } catch (Exception e) {
                             i = intValue;
                             z = false;
-                            ImMessageCenterDelegateStatic.this.m(z, i);
+                            ImMessageCenterDelegateStatic.this.p(z, i);
                         }
                     } catch (Exception e2) {
                         i = 0;
                     }
-                    ImMessageCenterDelegateStatic.this.m(z, i);
+                    ImMessageCenterDelegateStatic.this.p(z, i);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.gSj);
+        MessageManager.getInstance().registerListener(this.hGm);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m(boolean z, int i) {
-        if (this.gSi != null) {
+    public void p(boolean z, int i) {
+        if (this.hGl != null) {
             if (z) {
-                this.gSi.refresh(i);
-                this.gSi.setVisibility(0);
+                this.hGl.refresh(i);
+                this.hGl.setVisibility(0);
                 return;
             }
-            this.gSi.setVisibility(8);
+            this.hGl.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.gSj);
+        MessageManager.getInstance().unRegisterListener(this.hGm);
     }
 }

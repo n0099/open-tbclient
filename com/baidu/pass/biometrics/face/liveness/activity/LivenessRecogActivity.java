@@ -28,7 +28,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.idl.facesdk.FaceInfo;
 import com.baidu.idl.facesdk.FaceSDK;
 import com.baidu.idl.facesdk.FaceTracker;
@@ -63,6 +63,7 @@ import com.baidu.pass.biometrics.face.liveness.view.BioAlertDialog;
 import com.baidu.pass.biometrics.face.liveness.view.ConstrastLoadingView;
 import com.baidu.pass.biometrics.face.liveness.view.CustomAlertDialog;
 import com.baidu.pass.biometrics.face.liveness.view.XfordView;
+import com.baidu.webkit.sdk.PermissionRequest;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -77,7 +78,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 @TargetApi(3)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LivenessRecogActivity extends LivenessBaseActivity implements Handler.Callback {
     private static final int COUNTDOWNINTERVAL = 200;
     public static final String EXTRA_TIME_POINT_START = "time_point_start";
@@ -529,18 +530,18 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         } catch (Exception e) {
             if (this.callback != null) {
                 PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                passFaceRecogResult.setResultCode(PassFaceRecogResult.ERROR_CODE_FACE_SDK_INIT_FAIL);
+                passFaceRecogResult.setResultCode(-303);
                 this.callback.onFailure(passFaceRecogResult);
             }
             setActivityResult(0);
-            activityFinish(PassFaceRecogResult.ERROR_CODE_FACE_SDK_INIT_FAIL);
+            activityFinish(-303);
         }
     }
 
     private void loadSo() throws Exception {
         Bundle bundle = new Bundle();
         bundle.putString("uuid", this.passFaceRecogDTO.processid);
-        bundle.putString(TableDefine.PaSubscribeColumns.COLUMN_TPL, BeanConstants.tpl);
+        bundle.putString("tpl", BeanConstants.tpl);
         bundle.putString("productId", this.passFaceRecogDTO.getSpno());
         if (!SoManager.load(this, bundle)) {
             throw new Exception("load so failure");
@@ -677,19 +678,19 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     @TargetApi(23)
     private void requestCameraPermission() {
-        if (Build.VERSION.SDK_INT >= 23 && checkSelfPermission("android.permission.CAMERA") != 0) {
+        if (Build.VERSION.SDK_INT >= 23 && checkSelfPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
             if (!this.configuration.showPmnRationaleDialog) {
                 this.processState.permissionFlag = true;
-                requestPermissions(new String[]{"android.permission.CAMERA"}, 2002);
+                requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 2002);
                 return;
-            } else if (shouldShowRequestPermissionRationale("android.permission.CAMERA")) {
+            } else if (shouldShowRequestPermissionRationale(PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
                 final CustomAlertDialog customAlertDialog = new CustomAlertDialog(this);
                 customAlertDialog.setPositiveBtn(getString(R.string.pass_bio_pmn_ok), new View.OnClickListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         ViewUtility.dismissDialog(LivenessRecogActivity.this, customAlertDialog);
                         LivenessRecogActivity.this.processState.permissionFlag = true;
-                        LivenessRecogActivity.this.requestPermissions(new String[]{"android.permission.CAMERA"}, 2002);
+                        LivenessRecogActivity.this.requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 2002);
                     }
                 });
                 customAlertDialog.setNegativeBtn(getString(R.string.pass_bio_pmn_cancel), new View.OnClickListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.6
@@ -698,10 +699,10 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                         ViewUtility.dismissDialog(LivenessRecogActivity.this, customAlertDialog);
                         if (LivenessRecogActivity.this.callback != null) {
                             PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                            passFaceRecogResult.setResultCode(PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION);
+                            passFaceRecogResult.setResultCode(-307);
                             LivenessRecogActivity.this.callback.onFailure(passFaceRecogResult);
                         }
-                        LivenessRecogActivity.this.activityFinish(PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION);
+                        LivenessRecogActivity.this.activityFinish(-307);
                     }
                 });
                 customAlertDialog.setTitleText(String.format(getString(R.string.pass_bio_pmn_title_liveness), PassBiometricUtil.getAppName(this), getString(R.string.pass_bio_pmn_camera)));
@@ -710,7 +711,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                 return;
             } else {
                 this.processState.permissionFlag = true;
-                requestPermissions(new String[]{"android.permission.CAMERA"}, 2002);
+                requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 2002);
                 return;
             }
         }
@@ -806,10 +807,10 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                     LivenessRecogActivity.this.processState.permissionFlag = false;
                     if (LivenessRecogActivity.this.callback != null) {
                         PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                        passFaceRecogResult.setResultCode(PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION);
+                        passFaceRecogResult.setResultCode(-307);
                         LivenessRecogActivity.this.callback.onFailure(passFaceRecogResult);
                     }
-                    LivenessRecogActivity.this.activityFinish(PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION);
+                    LivenessRecogActivity.this.activityFinish(-307);
                 }
             });
         }
@@ -862,7 +863,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private class FaceRecognitionTask extends AsyncTask<Void, Void, String> {
         private FaceRecognitionTask() {
         }
@@ -891,7 +892,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class TimeCount extends CountDownTimer {
         public TimeCount(long j, long j2) {
             super(j, j2);
@@ -1647,7 +1648,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                 try {
                     Log.i(LivenessRecogActivity.TAG, "portraitContrast|responseBody|" + str4);
                     JSONObject jSONObject2 = new JSONObject(str4);
-                    int optInt = jSONObject2.optInt("retCode");
+                    int optInt = jSONObject2.optInt(BaiduRimConstants.RETCODE_KEY);
                     String optString = jSONObject2.optString("retMsg");
                     contrastPortraitResult.setResultCode(optInt);
                     contrastPortraitResult.setResultMsg(optString);
@@ -1807,7 +1808,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class ProcessState {
         static final int DEFAULT_WHOLE_PROCESS_TIME_OUT = 20000;
         static final int LIVENESS_RECOG_MIN_TIME = 5000;
@@ -1840,7 +1841,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class AnimState {
         private static final int POSE_BOTTOM_TO_MIDDLE = 0;
         private static final int POSE_MIDDLE_TO_TOP = 1;

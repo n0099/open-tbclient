@@ -3,7 +3,7 @@ package com.vivo.push.util;
 import android.content.Context;
 import android.os.Process;
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class n implements o {
     private static final String a = "(" + Process.myPid() + ")";
 

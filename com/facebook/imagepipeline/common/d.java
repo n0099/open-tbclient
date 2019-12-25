@@ -1,46 +1,32 @@
 package com.facebook.imagepipeline.common;
-/* loaded from: classes2.dex */
+
+import com.facebook.common.internal.g;
+/* loaded from: classes11.dex */
 public class d {
-    private static final d khj = new d(-1, false);
-    private static final d khk = new d(-2, false);
-    private static final d khl = new d(-1, true);
-    private final boolean khi;
-    private final int mRotation;
+    public final int height;
+    public final float lNh;
+    public final float lNi;
+    public final int width;
 
-    public static d cFW() {
-        return khj;
+    public d(int i, int i2) {
+        this(i, i2, 2048.0f);
     }
 
-    public static d cFX() {
-        return khl;
+    public d(int i, int i2, float f) {
+        this(i, i2, f, 0.6666667f);
     }
 
-    private d(int i, boolean z) {
-        this.mRotation = i;
-        this.khi = z;
-    }
-
-    public boolean cFY() {
-        return this.mRotation == -1;
-    }
-
-    public boolean cFZ() {
-        return this.mRotation != -2;
-    }
-
-    public int cGa() {
-        if (cFY()) {
-            throw new IllegalStateException("Rotation is set to use EXIF");
-        }
-        return this.mRotation;
-    }
-
-    public boolean cGb() {
-        return this.khi;
+    public d(int i, int i2, float f, float f2) {
+        g.checkArgument(i > 0);
+        g.checkArgument(i2 > 0);
+        this.width = i;
+        this.height = i2;
+        this.lNh = f;
+        this.lNi = f2;
     }
 
     public int hashCode() {
-        return com.facebook.common.util.a.d(Integer.valueOf(this.mRotation), Boolean.valueOf(this.khi));
+        return com.facebook.common.util.a.hashCode(this.width, this.height);
     }
 
     public boolean equals(Object obj) {
@@ -49,12 +35,12 @@ public class d {
         }
         if (obj instanceof d) {
             d dVar = (d) obj;
-            return this.mRotation == dVar.mRotation && this.khi == dVar.khi;
+            return this.width == dVar.width && this.height == dVar.height;
         }
         return false;
     }
 
     public String toString() {
-        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.khi));
+        return String.format(null, "%dx%d", Integer.valueOf(this.width), Integer.valueOf(this.height));
     }
 }

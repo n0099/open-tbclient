@@ -7,14 +7,15 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class NavUtils {
     public static final String PARENT_ACTIVITY = "android.support.PARENT_ACTIVITY";
     private static final String TAG = "NavUtils";
 
-    public static boolean shouldUpRecreateTask(Activity activity, Intent intent) {
+    public static boolean shouldUpRecreateTask(@NonNull Activity activity, @NonNull Intent intent) {
         if (Build.VERSION.SDK_INT >= 16) {
             return activity.shouldUpRecreateTask(intent);
         }
@@ -22,7 +23,7 @@ public final class NavUtils {
         return (action == null || action.equals("android.intent.action.MAIN")) ? false : true;
     }
 
-    public static void navigateUpFromSameTask(Activity activity) {
+    public static void navigateUpFromSameTask(@NonNull Activity activity) {
         Intent parentActivityIntent = getParentActivityIntent(activity);
         if (parentActivityIntent == null) {
             throw new IllegalArgumentException("Activity " + activity.getClass().getSimpleName() + " does not have a parent activity name specified. (Did you forget to add the android.support.PARENT_ACTIVITY <meta-data>  element in your manifest?)");
@@ -30,7 +31,7 @@ public final class NavUtils {
         navigateUpTo(activity, parentActivityIntent);
     }
 
-    public static void navigateUpTo(Activity activity, Intent intent) {
+    public static void navigateUpTo(@NonNull Activity activity, @NonNull Intent intent) {
         if (Build.VERSION.SDK_INT >= 16) {
             activity.navigateUpTo(intent);
             return;
@@ -47,7 +48,8 @@ public final class NavUtils {
     /* JADX WARN: Type inference failed for: r0v12 */
     /* JADX WARN: Type inference failed for: r0v13 */
     /* JADX WARN: Type inference failed for: r0v8, types: [android.content.Intent] */
-    public static Intent getParentActivityIntent(Activity activity) {
+    @Nullable
+    public static Intent getParentActivityIntent(@NonNull Activity activity) {
         Intent parentActivityIntent;
         if (Build.VERSION.SDK_INT < 16 || (parentActivityIntent = activity.getParentActivityIntent()) == null) {
             String parentActivityName = getParentActivityName(activity);
@@ -70,7 +72,8 @@ public final class NavUtils {
         return parentActivityIntent;
     }
 
-    public static Intent getParentActivityIntent(Context context, Class<?> cls) throws PackageManager.NameNotFoundException {
+    @Nullable
+    public static Intent getParentActivityIntent(@NonNull Context context, @NonNull Class<?> cls) throws PackageManager.NameNotFoundException {
         String parentActivityName = getParentActivityName(context, new ComponentName(context, cls));
         if (parentActivityName == null) {
             return null;
@@ -82,7 +85,8 @@ public final class NavUtils {
         return new Intent().setComponent(componentName);
     }
 
-    public static Intent getParentActivityIntent(Context context, ComponentName componentName) throws PackageManager.NameNotFoundException {
+    @Nullable
+    public static Intent getParentActivityIntent(@NonNull Context context, @NonNull ComponentName componentName) throws PackageManager.NameNotFoundException {
         String parentActivityName = getParentActivityName(context, componentName);
         if (parentActivityName == null) {
             return null;
@@ -95,7 +99,7 @@ public final class NavUtils {
     }
 
     @Nullable
-    public static String getParentActivityName(Activity activity) {
+    public static String getParentActivityName(@NonNull Activity activity) {
         try {
             return getParentActivityName(activity, activity.getComponentName());
         } catch (PackageManager.NameNotFoundException e) {
@@ -104,7 +108,7 @@ public final class NavUtils {
     }
 
     @Nullable
-    public static String getParentActivityName(Context context, ComponentName componentName) throws PackageManager.NameNotFoundException {
+    public static String getParentActivityName(@NonNull Context context, @NonNull ComponentName componentName) throws PackageManager.NameNotFoundException {
         String string;
         String str;
         ActivityInfo activityInfo = context.getPackageManager().getActivityInfo(componentName, 128);

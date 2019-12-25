@@ -1,43 +1,44 @@
 package com.baidu.tieba.homepage.personalize.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Personalized.LiveAnswer;
-/* loaded from: classes4.dex */
-public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public int HR;
-    public String bVl;
-    public int glU;
-    public String imgUrl;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.cache.l;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.Personalized.DataRes;
+/* loaded from: classes6.dex */
+public class g {
+    public static boolean gZx = false;
 
-    public void a(LiveAnswer liveAnswer) {
-        if (liveAnswer != null) {
-            this.imgUrl = liveAnswer.banner_url;
-            this.glU = liveAnswer.banner_high.intValue();
-            this.HR = liveAnswer.banner_width.intValue();
-            this.bVl = liveAnswer.jump_url;
-        }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        return TYPE;
-    }
-
-    public String toString() {
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("img_width", this.HR);
-            jSONObject.put(BigdayActivityConfig.IMG_URL, this.imgUrl);
-            jSONObject.put("img_height", this.glU);
-            jSONObject.put(BigdayActivityConfig.JUMP_URL, this.bVl);
-            return jSONObject.toString();
-        } catch (JSONException e) {
-            e.printStackTrace();
+    public static DataRes bMu() {
+        l<byte[]> ch = com.baidu.tbadk.core.c.a.aBV().ch("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+        if (ch == null) {
             return null;
         }
+        byte[] bArr = ch.get("0");
+        if (bArr == null || bArr.length == 0) {
+            return null;
+        }
+        try {
+            return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+        } catch (IOException e) {
+            BdLog.e(e);
+            return null;
+        }
+    }
+
+    public static void bMv() {
+        l<byte[]> ch = com.baidu.tbadk.core.c.a.aBV().ch("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+        if (ch != null) {
+            ch.set("0", new byte[0], 0L);
+        }
+    }
+
+    public static boolean g(ResponsedMessage responsedMessage) {
+        if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof RecPersonalizeRequest)) {
+            return false;
+        }
+        return ((RecPersonalizeRequest) responsedMessage.getOrginalMessage().getExtra()).getLoadType() == 2;
     }
 }

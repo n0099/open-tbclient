@@ -1,52 +1,100 @@
 package com.facebook.imagepipeline.producers;
 
+import com.facebook.common.internal.ImmutableMap;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes2.dex */
-public class o implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.imagepipeline.c.l kkE;
-    private final ai<com.facebook.imagepipeline.f.d> kkh;
+import java.util.Map;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes9.dex */
+public class o implements aj<com.facebook.imagepipeline.g.e> {
+    private final com.facebook.imagepipeline.c.f lNA;
+    private final com.facebook.imagepipeline.c.e lNz;
+    private final com.facebook.imagepipeline.c.e lOF;
+    private final aj<com.facebook.imagepipeline.g.e> lQz;
 
-    public o(ai<com.facebook.imagepipeline.f.d> aiVar, com.facebook.imagepipeline.c.l lVar) {
-        this.kkh = aiVar;
-        this.kkE = lVar;
+    public o(com.facebook.imagepipeline.c.e eVar, com.facebook.imagepipeline.c.e eVar2, com.facebook.imagepipeline.c.f fVar, aj<com.facebook.imagepipeline.g.e> ajVar) {
+        this.lOF = eVar;
+        this.lNz = eVar2;
+        this.lNA = fVar;
+        this.lQz = ajVar;
     }
 
-    @Override // com.facebook.imagepipeline.producers.ai
-    public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        c(jVar, ajVar);
-    }
-
-    private void c(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        if (ajVar.cIH().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
-            jVar.f(null, true);
+    @Override // com.facebook.imagepipeline.producers.aj
+    public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
+        ImageRequest doX = akVar.doX();
+        if (!doX.dmu()) {
+            e(kVar, akVar);
             return;
         }
-        if (ajVar.cIF().cJA()) {
-            jVar = new a(jVar, ajVar, this.kkE);
-        }
-        this.kkh.a(jVar, ajVar);
+        akVar.doY().fc(akVar.getId(), "DiskCacheProducer");
+        com.facebook.cache.common.b c = this.lNA.c(doX, akVar.djN());
+        com.facebook.imagepipeline.c.e eVar = doX.dpM() == ImageRequest.CacheChoice.SMALL ? this.lNz : this.lOF;
+        AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+        eVar.a(c, atomicBoolean).a(d(kVar, akVar));
+        a(atomicBoolean, akVar);
+    }
+
+    private bolts.f<com.facebook.imagepipeline.g.e, Void> d(final k<com.facebook.imagepipeline.g.e> kVar, final ak akVar) {
+        final String id = akVar.getId();
+        final am doY = akVar.doY();
+        return new bolts.f<com.facebook.imagepipeline.g.e, Void>() { // from class: com.facebook.imagepipeline.producers.o.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // bolts.f
+            /* renamed from: b */
+            public Void a(bolts.g<com.facebook.imagepipeline.g.e> gVar) throws Exception {
+                if (o.d(gVar)) {
+                    doY.b(id, "DiskCacheProducer", null);
+                    kVar.dim();
+                } else if (gVar.aX()) {
+                    doY.a(id, "DiskCacheProducer", gVar.aY(), (Map<String, String>) null);
+                    o.this.lQz.c(kVar, akVar);
+                } else {
+                    com.facebook.imagepipeline.g.e result = gVar.getResult();
+                    if (result != null) {
+                        doY.a(id, "DiskCacheProducer", o.a(doY, id, true, result.getSize()));
+                        doY.C(id, "DiskCacheProducer", true);
+                        kVar.aM(1.0f);
+                        kVar.g(result, 1);
+                        result.close();
+                    } else {
+                        doY.a(id, "DiskCacheProducer", o.a(doY, id, false, 0));
+                        o.this.lQz.c(kVar, akVar);
+                    }
+                }
+                return null;
+            }
+        };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public static class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private final com.facebook.imagepipeline.c.l kkE;
-        private final aj kks;
+    public static boolean d(bolts.g<?> gVar) {
+        return gVar.isCancelled() || (gVar.aX() && (gVar.aY() instanceof CancellationException));
+    }
 
-        private a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar, com.facebook.imagepipeline.c.l lVar) {
-            super(jVar);
-            this.kks = ajVar;
-            this.kkE = lVar;
+    private void e(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
+        if (akVar.doZ().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
+            kVar.g(null, 1);
+        } else {
+            this.lQz.c(kVar, akVar);
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.facebook.imagepipeline.producers.b
-        /* renamed from: a */
-        public void e(com.facebook.imagepipeline.f.d dVar, boolean z) {
-            if (dVar != null && z) {
-                this.kkE.a(dVar, this.kks.cIF(), this.kks.cDZ());
+    static Map<String, String> a(am amVar, String str, boolean z, int i) {
+        if (!amVar.OF(str)) {
+            return null;
+        }
+        if (z) {
+            return ImmutableMap.of("cached_value_found", String.valueOf(z), "encodedImageSize", String.valueOf(i));
+        }
+        return ImmutableMap.of("cached_value_found", String.valueOf(z));
+    }
+
+    private void a(final AtomicBoolean atomicBoolean, ak akVar) {
+        akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.o.2
+            @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
+            public void dlt() {
+                atomicBoolean.set(true);
             }
-            cIS().f(dVar, z);
-        }
+        });
     }
 }

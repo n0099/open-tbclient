@@ -5,8 +5,7 @@ import com.meizu.cloud.pushsdk.b.c.i;
 import com.meizu.cloud.pushsdk.b.c.k;
 import java.io.File;
 import java.io.IOException;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static String a = null;
 
@@ -44,18 +43,18 @@ public final class a {
 
     public static void a(i.a aVar, com.meizu.cloud.pushsdk.b.a.b bVar) {
         if (bVar.h() != null) {
-            aVar.a(HTTP.USER_AGENT, bVar.h());
+            aVar.a("User-Agent", bVar.h());
         } else if (a != null) {
             bVar.a(a);
-            aVar.a(HTTP.USER_AGENT, a);
+            aVar.a("User-Agent", a);
         }
         com.meizu.cloud.pushsdk.b.c.c o = bVar.o();
         if (o != null) {
             aVar.a(o);
-            if (bVar.h() == null || o.b().contains(HTTP.USER_AGENT)) {
+            if (bVar.h() == null || o.b().contains("User-Agent")) {
                 return;
             }
-            aVar.a(HTTP.USER_AGENT, bVar.h());
+            aVar.a("User-Agent", bVar.h());
         }
     }
 

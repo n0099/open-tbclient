@@ -3,6 +3,8 @@ package android.support.v4.content;
 import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.os.OperationCanceledException;
 import android.support.v4.util.TimeUtils;
@@ -10,7 +12,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class AsyncTaskLoader<D> extends Loader<D> {
     static final boolean DEBUG = false;
     static final String TAG = "AsyncTaskLoader";
@@ -21,10 +23,11 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
     volatile AsyncTaskLoader<D>.LoadTask mTask;
     long mUpdateThrottle;
 
+    @Nullable
     public abstract D loadInBackground();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public final class LoadTask extends ModernAsyncTask<Void, Void, D> implements Runnable {
         private final CountDownLatch mDone = new CountDownLatch(1);
         boolean waiting;
@@ -78,11 +81,11 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
     }
 
-    public AsyncTaskLoader(Context context) {
+    public AsyncTaskLoader(@NonNull Context context) {
         this(context, ModernAsyncTask.THREAD_POOL_EXECUTOR);
     }
 
-    private AsyncTaskLoader(Context context, Executor executor) {
+    private AsyncTaskLoader(@NonNull Context context, @NonNull Executor executor) {
         super(context);
         this.mLastLoadCompleteTime = -10000L;
         this.mExecutor = executor;
@@ -133,7 +136,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         return z;
     }
 
-    public void onCanceled(D d) {
+    public void onCanceled(@Nullable D d) {
     }
 
     void executePendingTask() {
@@ -175,6 +178,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
     }
 
+    @Nullable
     protected D onLoadInBackground() {
         return loadInBackground();
     }

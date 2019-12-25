@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.util;
 
+import com.baidu.android.common.others.IStringUtil;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.Container;
 import com.googlecode.mp4parser.AbstractContainerBox;
@@ -8,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class Path {
     static final /* synthetic */ boolean $assertionsDisabled;
     static Pattern component;
@@ -117,7 +118,7 @@ public class Path {
         Matcher matcher = component.matcher(str);
         if (matcher.matches()) {
             String group = matcher.group(1);
-            if ("..".equals(group)) {
+            if (IStringUtil.TOP_PATH.equals(group)) {
                 if (container instanceof Box) {
                     return getPaths(((Box) container).getParent(), str2, z);
                 }

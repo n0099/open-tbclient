@@ -9,10 +9,10 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c extends a {
+    private final float density;
     private final Rect dst;
-    private final float hz;
     private final Paint paint;
     private final Rect src;
 
@@ -22,7 +22,7 @@ public class c extends a {
         this.paint = new Paint(3);
         this.src = new Rect();
         this.dst = new Rect();
-        this.hz = f;
+        this.density = f;
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a
@@ -33,7 +33,7 @@ public class c extends a {
             canvas.save();
             canvas.concat(matrix);
             this.src.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.dst.set(0, 0, (int) (bitmap.getWidth() * this.hz), (int) (bitmap.getHeight() * this.hz));
+            this.dst.set(0, 0, (int) (bitmap.getWidth() * this.density), (int) (bitmap.getHeight() * this.density));
             canvas.drawBitmap(bitmap, this.src, this.dst, this.paint);
             canvas.restore();
         }
@@ -45,13 +45,13 @@ public class c extends a {
         Bitmap bitmap = getBitmap();
         if (bitmap != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, bitmap.getWidth()), Math.min(rectF.bottom, bitmap.getHeight()));
-            this.hl.mapRect(rectF);
+            this.iW.mapRect(rectF);
         }
     }
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.H(this.ktT.getRefId());
+        return this.lottieDrawable.J(this.mOM.getRefId());
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.a.a.d

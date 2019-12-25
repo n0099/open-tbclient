@@ -3,19 +3,19 @@ package com.baidu.tieba.advert.sdk.b;
 import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.network.http.e;
+import com.baidu.adp.lib.network.http.f;
 import com.baidu.adp.lib.util.s;
 import com.baidu.tieba.advert.sdk.data.AdInfo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends BdAsyncTask<Void, Void, Boolean> {
-    public static final String dkH = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
-    public static final String dkI = File.separator;
     private final String TAG = a.class.getSimpleName();
     private AdInfo adInfo;
+    public static final String dYn = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+    public static final String FILE_SEP = File.separator;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
@@ -23,13 +23,13 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
     public Boolean doInBackground(Void... voidArr) {
         FileNotFoundException e;
         boolean z;
-        String str = dkH + dkI + "advideo.temp";
+        String str = dYn + FILE_SEP + "advideo.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
         }
         try {
-            new File(dkH).mkdirs();
+            new File(dYn).mkdirs();
             if (!file.createNewFile()) {
                 a(false, null);
                 return false;
@@ -37,9 +37,9 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
         } catch (IOException e2) {
             e2.printStackTrace();
         }
-        e eVar = new e();
-        eVar.fJ().setUrl(this.adInfo.adVideoUrl);
-        boolean a = new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true);
+        f fVar = new f();
+        fVar.fY().setUrl(this.adInfo.adVideoUrl);
+        boolean a = new com.baidu.adp.lib.network.http.c(fVar).a(str, null, 3, 3000, -1, -1, true, true);
         try {
         } catch (FileNotFoundException e3) {
             e = e3;
@@ -71,7 +71,7 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
 
     private void a(boolean z, File file) {
         if (z && file != null) {
-            File file2 = new File(dkH + dkI + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
+            File file2 = new File(dYn + FILE_SEP + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
             if (file2.exists()) {
                 file2.delete();
             }

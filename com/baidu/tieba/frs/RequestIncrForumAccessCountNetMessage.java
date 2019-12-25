@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import tbclient.IncrForumAccessCount.DataReq;
 import tbclient.IncrForumAccessCount.IncrForumAccessCountReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RequestIncrForumAccessCountNetMessage extends NetMessage {
     private long mForumId;
 
@@ -21,7 +21,7 @@ public class RequestIncrForumAccessCountNetMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.mForumId);
         if (z) {
-            com.baidu.tbadk.util.r.a(builder, true);
+            com.baidu.tbadk.util.t.a(builder, true);
         }
         IncrForumAccessCountReqIdl.Builder builder2 = new IncrForumAccessCountReqIdl.Builder();
         builder2.data = builder.build(false);

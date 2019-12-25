@@ -3,30 +3,30 @@ package com.baidu.live.im.message;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ALAGroupHttpResponseMessage extends JsonHttpResponsedMessage {
-    private boolean aht;
-    private List<com.baidu.live.im.data.a> ahu;
+    private boolean apx;
+    private List<com.baidu.live.im.data.a> apy;
     private long mGroupId;
 
     public ALAGroupHttpResponseMessage() {
         super(1021012);
     }
 
-    public boolean tq() {
-        return this.aht;
+    public boolean vk() {
+        return this.apx;
     }
 
-    public void aA(boolean z) {
-        this.aht = z;
+    public void aR(boolean z) {
+        this.apx = z;
     }
 
-    public List<com.baidu.live.im.data.a> tr() {
-        return this.ahu;
+    public List<com.baidu.live.im.data.a> vl() {
+        return this.apy;
     }
 
-    public void I(List<com.baidu.live.im.data.a> list) {
-        this.ahu = list;
+    public void G(List<com.baidu.live.im.data.a> list) {
+        this.apy = list;
     }
 
     public long getGroupId() {

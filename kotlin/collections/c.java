@@ -1,10 +1,10 @@
 package kotlin.collections;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final /* synthetic */ class c {
-    public static final /* synthetic */ int[] kuG = new int[State.values().length];
+    public static final /* synthetic */ int[] mLX = new int[State.values().length];
 
     static {
-        kuG[State.Done.ordinal()] = 1;
-        kuG[State.Ready.ordinal()] = 2;
+        mLX[State.Done.ordinal()] = 1;
+        mLX[State.Ready.ordinal()] = 2;
     }
 }

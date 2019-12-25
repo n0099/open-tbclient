@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.statics;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaStaticItem {
     private String mKey;
     private Map<String, String> mParams = new HashMap();

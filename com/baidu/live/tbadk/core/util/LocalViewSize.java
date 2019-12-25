@@ -1,16 +1,16 @@
 package com.baidu.live.tbadk.core.util;
 
 import android.content.Context;
+import com.baidu.down.utils.Constants;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.location.BDLocation;
-import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class LocalViewSize {
     private static LocalViewSize sInstance = null;
     private Context mContext = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class ImageSize implements Serializable {
         public int height;
         public int width;
@@ -32,8 +32,8 @@ public class LocalViewSize {
 
     public ImageSize getMsgUpPicMaxSize() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = 600;
-        imageSize.width = 600;
+        imageSize.height = Constants.HTTP_DNS_INAVAILABLE_TIME;
+        imageSize.width = Constants.HTTP_DNS_INAVAILABLE_TIME;
         return imageSize;
     }
 
@@ -93,10 +93,7 @@ public class LocalViewSize {
         if (equipmentWidth >= 1080) {
             return 1080;
         }
-        if (equipmentWidth < 720 || equipmentWidth >= 1080) {
-            return CameraInterface.DEFAULT_PREVIEW_HEIGHT;
-        }
-        return 720;
+        return (equipmentWidth < 720 || equipmentWidth >= 1080) ? 480 : 720;
     }
 
     public ImageSize getMsgSPicMaxSize() {
@@ -130,6 +127,6 @@ public class LocalViewSize {
     }
 
     public int getGroupHeaderSize() {
-        return 600;
+        return Constants.HTTP_DNS_INAVAILABLE_TIME;
     }
 }

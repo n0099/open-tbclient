@@ -1,5 +1,5 @@
 package com.baidu.tbadk.pay;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface a {
     void onError(String str);
 

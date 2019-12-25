@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class q<E> extends v<E> {
     public q(int i) {
         super(i);
@@ -10,67 +10,67 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.kuP;
+        E[] eArr = this.mYL;
         long j = this.producerIndex;
-        long ew = ew(j);
-        if (b(eArr, ew) != null) {
+        long gX = gX(j);
+        if (b(eArr, gX) != null) {
             return false;
         }
-        b(eArr, ew, e);
-        eu(1 + j);
+        b(eArr, gX, e);
+        soProducerIndex(1 + j);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long ew = ew(j);
-        E[] eArr = this.kuP;
-        E b = b(eArr, ew);
+        long gX = gX(j);
+        E[] eArr = this.mYL;
+        E b = b(eArr, gX);
         if (b == null) {
             return null;
         }
-        b(eArr, ew, null);
-        ev(j + 1);
+        b(eArr, gX, null);
+        soConsumerIndex(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return ex(ew(this.consumerIndex));
+        return gY(gX(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cPl = cPl();
+        long dEb = dEb();
         while (true) {
-            long cPm = cPm();
-            long cPl2 = cPl();
-            if (cPl == cPl2) {
-                return (int) (cPm - cPl2);
+            long dEa = dEa();
+            long dEb2 = dEb();
+            if (dEb == dEb2) {
+                return (int) (dEa - dEb2);
             }
-            cPl = cPl2;
+            dEb = dEb2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cPm() == cPl();
+        return dEa() == dEb();
     }
 
-    private void eu(long j) {
-        ae.kEi.putOrderedLong(this, kEc, j);
+    private void soProducerIndex(long j) {
+        ae.njb.a(this, niV, j);
     }
 
-    private void ev(long j) {
-        ae.kEi.putOrderedLong(this, kEb, j);
+    private void soConsumerIndex(long j) {
+        ae.njb.a(this, niU, j);
     }
 
-    private long cPm() {
-        return ae.kEi.getLongVolatile(this, kEc);
+    private long dEa() {
+        return ae.njb.d(this, niV);
     }
 
-    private long cPl() {
-        return ae.kEi.getLongVolatile(this, kEb);
+    private long dEb() {
+        return ae.njb.d(this, niU);
     }
 }

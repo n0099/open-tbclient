@@ -1,5 +1,6 @@
 package rx.subjects;
 
+import com.google.android.exoplayer2.Format;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
@@ -13,9 +14,9 @@ import rx.internal.util.a.x;
 import rx.internal.util.a.y;
 import rx.j;
 import rx.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class UnicastSubject<T> extends c<T, T> {
-    final State<T> kFy;
+    final State<T> nkn;
 
     public static <T> UnicastSubject<T> a(int i, rx.functions.a aVar) {
         return new UnicastSubject<>(new State(i, aVar));
@@ -23,25 +24,25 @@ public final class UnicastSubject<T> extends c<T, T> {
 
     private UnicastSubject(State<T> state) {
         super(state);
-        this.kFy = state;
+        this.nkn = state;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.kFy.onNext(t);
+        this.nkn.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.kFy.onError(th);
+        this.nkn.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.kFy.onCompleted();
+        this.nkn.onCompleted();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class State<T> extends AtomicLong implements d.a<T>, e<T>, f, k {
         private static final long serialVersionUID = -9044104859202255786L;
         volatile boolean caughtUp;
@@ -62,9 +63,9 @@ public final class UnicastSubject<T> extends c<T, T> {
             Queue<Object> xVar;
             this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
             if (i > 1) {
-                xVar = ae.cPq() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+                xVar = ae.dGX() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             } else {
-                xVar = ae.cPq() ? new x<>() : new rx.internal.util.atomic.e<>();
+                xVar = ae.dGX() ? new x<>() : new rx.internal.util.atomic.e<>();
             }
             this.queue = xVar;
         }
@@ -76,7 +77,7 @@ public final class UnicastSubject<T> extends c<T, T> {
                     boolean z = false;
                     synchronized (this) {
                         if (!this.caughtUp) {
-                            this.queue.offer(NotificationLite.bl(t));
+                            this.queue.offer(NotificationLite.next(t));
                             z = true;
                         }
                     }
@@ -139,7 +140,7 @@ public final class UnicastSubject<T> extends c<T, T> {
                 throw new IllegalArgumentException("n >= 0 required");
             }
             if (j > 0) {
-                rx.internal.operators.a.a(this, j);
+                rx.internal.operators.a.e(this, j);
                 replay();
             } else if (this.done) {
                 replay();
@@ -188,7 +189,7 @@ public final class UnicastSubject<T> extends c<T, T> {
                     if (jVar != null) {
                         if (!checkTerminated(this.done, queue.isEmpty(), jVar)) {
                             long j2 = get();
-                            z = j2 == Long.MAX_VALUE;
+                            z = j2 == Format.OFFSET_SAMPLE_RELATIVE;
                             long j3 = 0;
                             long j4 = j2;
                             while (true) {
@@ -203,14 +204,14 @@ public final class UnicastSubject<T> extends c<T, T> {
                                     if (z3) {
                                         break;
                                     }
-                                    Object obj = (Object) NotificationLite.bo(poll);
+                                    Object obj = (Object) NotificationLite.getValue(poll);
                                     try {
                                         jVar.onNext(obj);
                                         j4--;
                                         j3 = 1 + j;
                                     } catch (Throwable th) {
                                         queue.clear();
-                                        rx.exceptions.a.K(th);
+                                        rx.exceptions.a.I(th);
                                         jVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                                         return;
                                     }

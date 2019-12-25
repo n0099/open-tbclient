@@ -1,7 +1,7 @@
 package android.support.v4.view;
 
 import android.view.MotionEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class MotionEventCompat {
     @Deprecated
     public static final int ACTION_HOVER_ENTER = 9;

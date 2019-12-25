@@ -8,10 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
-import com.coloros.mcssdk.PushManager;
 import com.xiaomi.push.cg;
 import com.xiaomi.push.cj;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class MiPushRelayTraceService extends Service {
     private static cj a;
 
@@ -35,9 +34,9 @@ public class MiPushRelayTraceService extends Service {
             long j = extras.getLong("id");
             int i4 = extras.getInt("showType");
             cg cgVar = new cg();
-            cgVar.f180a = j;
+            cgVar.f185a = j;
             cgVar.a = i4;
-            cgVar.f181a = "";
+            cgVar.f186a = "";
             if (a == null) {
                 Log.e("MiPushRelayTraceService", "log sender is null!");
             } else {
@@ -65,7 +64,7 @@ public class MiPushRelayTraceService extends Service {
                 int i5 = extras.getInt("notifyid", 0);
                 if (i5 != 0) {
                     l.a("action，remove noti");
-                    ((NotificationManager) getSystemService(PushManager.MESSAGE_TYPE_NOTI)).cancel(i5);
+                    ((NotificationManager) getSystemService("notification")).cancel(i5);
                     try {
                         Object systemService = getSystemService((String) Context.class.getField("STATUS_BAR_SERVICE").get(null));
                         systemService.getClass().getMethod("collapse", new Class[0]).invoke(systemService, new Object[0]);

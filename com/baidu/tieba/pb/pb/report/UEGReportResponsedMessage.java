@@ -1,9 +1,10 @@
 package com.baidu.tieba.pb.pb.report;
 
 import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UEGReportResponsedMessage extends TbHttpResponsedMessage {
     private String url;
 
@@ -18,7 +19,7 @@ public class UEGReportResponsedMessage extends TbHttpResponsedMessage {
         if (!TextUtils.isEmpty(parseToString)) {
             JSONObject jSONObject = new JSONObject(parseToString);
             setError(jSONObject.optInt("errno", -1));
-            setErrorString(jSONObject.optString("errmsg"));
+            setErrorString(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 this.url = optJSONObject.optString("url");

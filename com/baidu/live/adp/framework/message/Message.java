@@ -2,7 +2,7 @@ package com.baidu.live.adp.framework.message;
 
 import com.baidu.live.adp.BdUniqueId;
 import java.security.InvalidParameterException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class Message<T> implements IEncode<T> {
     private long clientLogID;
     private final int mCmd;

@@ -3,65 +3,54 @@ package com.baidu.tieba.aiapps.apps.media.b;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public final class a extends com.baidu.swan.apps.model.a.a.a {
+/* loaded from: classes9.dex */
+public final class a extends com.baidu.swan.apps.media.c.c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public boolean aUF;
-    public String aUw;
-    public String aWD;
-    public boolean aWE;
-    public boolean dpA;
-    public boolean dpB;
-    public int dpC;
-    public int dpD;
-    public String dpE;
-    public int mDirection;
+    public String bvC;
     public String mSrc;
+    public boolean dZG = false;
+    public boolean dZH = false;
+    public int dZI = 1;
+    public int dZJ = 3;
+    public String dZK = VerticalTranslateLayout.VERTICAL;
+    public String bzq = "contain";
+    public boolean bvK = false;
+    public boolean bzr = false;
+    public int mDirection = 0;
 
-    public a() {
-        super("liveId", "livePlayer");
-        this.dpA = false;
-        this.dpB = false;
-        this.dpC = 1;
-        this.dpD = 3;
-        this.dpE = VerticalTranslateLayout.VERTICAL;
-        this.aWD = "contain";
-        this.aUF = false;
-        this.aWE = false;
-        this.mDirection = 0;
-    }
-
-    @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
+    @Override // com.baidu.swan.apps.media.c.c, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aUw) && this.dpC <= this.dpD;
+        return !TextUtils.isEmpty(this.bvC) && this.dZI <= this.dZJ;
     }
 
+    @Override // com.baidu.swan.apps.media.c.c, com.baidu.swan.apps.component.b.b
     public String toString() {
-        return "LivePlayerParams{mPlayerId='" + this.aUw + "', mSlaveId='" + this.aXp + "', mMuted=" + this.dpA + ", mBackgroundMuted=" + this.dpB + ", mMinCacheS=" + this.dpC + ", mMaxCacheS=" + this.dpD + ", mOrientation='" + this.dpE + "', mObjectFit='" + this.aWD + "', mSrc='" + this.mSrc + "', mAutoPlay=" + this.aUF + '}';
+        return "LivePlayerParams{mPlayerId='" + this.bvC + "', mSlaveId='" + this.bdi + "', mMuted=" + this.dZG + ", mBackgroundMuted=" + this.dZH + ", mMinCacheS=" + this.dZI + ", mMaxCacheS=" + this.dZJ + ", mOrientation='" + this.dZK + "', mObjectFit='" + this.bzq + "', mSrc='" + this.mSrc + "', mAutoPlay=" + this.bvK + '}';
     }
 
     public static a a(JSONObject jSONObject, @NonNull a aVar) {
         if (jSONObject == null) {
-            return aGV();
+            return aXk();
         }
         a aVar2 = new a();
-        aVar2.a(jSONObject, (com.baidu.swan.apps.model.a.a.a) aVar);
-        aVar2.aUw = jSONObject.optString("liveId");
-        aVar2.mSrc = jSONObject.optString("src", aVar.mSrc);
-        aVar2.aUF = jSONObject.optBoolean("autoplay", aVar.aUF);
-        aVar2.dpA = jSONObject.optBoolean("muted", aVar.dpA);
-        aVar2.dpB = jSONObject.optBoolean("backgroundMute", aVar.dpB);
-        aVar2.dpE = jSONObject.optString("orientation", aVar.dpE);
-        aVar2.aWD = jSONObject.optString("objectFit", aVar.aWD);
-        aVar2.dpC = jSONObject.optInt("minCache", aVar.dpC);
-        aVar2.dpD = jSONObject.optInt("maxCache", aVar.dpD);
-        aVar2.aWE = jSONObject.optBoolean("fullScreen", aVar.aWE);
+        aVar2.a(jSONObject, (com.baidu.swan.apps.component.b.b) aVar);
+        aVar2.bvC = jSONObject.optString("liveId");
+        aVar2.mSrc = jSONObject.optString(UserAccountActionItem.KEY_SRC, aVar.mSrc);
+        aVar2.bvK = jSONObject.optBoolean("autoplay", aVar.bvK);
+        aVar2.dZG = jSONObject.optBoolean("muted", aVar.dZG);
+        aVar2.dZH = jSONObject.optBoolean("backgroundMute", aVar.dZH);
+        aVar2.dZK = jSONObject.optString("orientation", aVar.dZK);
+        aVar2.bzq = jSONObject.optString("objectFit", aVar.bzq);
+        aVar2.dZI = jSONObject.optInt("minCache", aVar.dZI);
+        aVar2.dZJ = jSONObject.optInt("maxCache", aVar.dZJ);
+        aVar2.bzr = jSONObject.optBoolean("fullScreen", aVar.bzr);
         aVar2.mDirection = jSONObject.optInt("direction", aVar.mDirection);
         return aVar2;
     }
 
-    public static a aGV() {
+    public static a aXk() {
         return new a();
     }
 }

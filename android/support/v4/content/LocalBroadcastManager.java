@@ -7,11 +7,12 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class LocalBroadcastManager {
     private static final boolean DEBUG = false;
     static final int MSG_EXEC_PENDING_BROADCASTS = 1;
@@ -25,7 +26,7 @@ public final class LocalBroadcastManager {
     private final ArrayList<BroadcastRecord> mPendingBroadcasts = new ArrayList<>();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class ReceiverRecord {
         boolean broadcasting;
         boolean dead;
@@ -52,7 +53,7 @@ public final class LocalBroadcastManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class BroadcastRecord {
         final Intent intent;
         final ArrayList<ReceiverRecord> receivers;
@@ -63,7 +64,8 @@ public final class LocalBroadcastManager {
         }
     }
 
-    public static LocalBroadcastManager getInstance(Context context) {
+    @NonNull
+    public static LocalBroadcastManager getInstance(@NonNull Context context) {
         LocalBroadcastManager localBroadcastManager;
         synchronized (mLock) {
             if (mInstance == null) {
@@ -91,7 +93,7 @@ public final class LocalBroadcastManager {
         };
     }
 
-    public void registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
+    public void registerReceiver(@NonNull BroadcastReceiver broadcastReceiver, @NonNull IntentFilter intentFilter) {
         synchronized (this.mReceivers) {
             ReceiverRecord receiverRecord = new ReceiverRecord(intentFilter, broadcastReceiver);
             ArrayList<ReceiverRecord> arrayList = this.mReceivers.get(broadcastReceiver);
@@ -112,7 +114,7 @@ public final class LocalBroadcastManager {
         }
     }
 
-    public void unregisterReceiver(BroadcastReceiver broadcastReceiver) {
+    public void unregisterReceiver(@NonNull BroadcastReceiver broadcastReceiver) {
         synchronized (this.mReceivers) {
             ArrayList<ReceiverRecord> remove = this.mReceivers.remove(broadcastReceiver);
             if (remove != null) {
@@ -140,7 +142,7 @@ public final class LocalBroadcastManager {
         }
     }
 
-    public boolean sendBroadcast(Intent intent) {
+    public boolean sendBroadcast(@NonNull Intent intent) {
         String str;
         ArrayList arrayList;
         synchronized (this.mReceivers) {
@@ -222,7 +224,7 @@ public final class LocalBroadcastManager {
         }
     }
 
-    public void sendBroadcastSync(Intent intent) {
+    public void sendBroadcastSync(@NonNull Intent intent) {
         if (sendBroadcast(intent)) {
             executePendingBroadcasts();
         }

@@ -11,82 +11,82 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends c<AddGroupActivity> {
-    private NavigationBar djV;
-    private View gPg;
-    private View gPh;
-    private EditText gPi;
-    private ImageButton gPj;
-    private View gPk;
-    private View gPl;
-    private AddGroupActivity gPm;
+    private NavigationBar dXE;
+    private View hDk;
+    private View hDl;
+    private EditText hDm;
+    private ImageButton hDn;
+    private View hDo;
+    private View hDp;
+    private AddGroupActivity hDq;
     private ProgressBar progressBar;
 
     public a(AddGroupActivity addGroupActivity) {
         super(addGroupActivity.getPageContext());
-        this.gPg = null;
-        this.djV = null;
-        this.gPh = null;
-        this.gPi = null;
-        this.gPj = null;
+        this.hDk = null;
+        this.dXE = null;
+        this.hDl = null;
+        this.hDm = null;
+        this.hDn = null;
         this.progressBar = null;
-        this.gPk = null;
-        this.gPm = null;
-        this.gPm = addGroupActivity;
+        this.hDo = null;
+        this.hDq = null;
+        this.hDq = addGroupActivity;
         initUI();
     }
 
-    public View bzv() {
-        return this.gPj;
+    public View bQL() {
+        return this.hDn;
     }
 
-    public View bDU() {
-        return this.gPk;
+    public View bVg() {
+        return this.hDo;
     }
 
-    public View bDV() {
-        return this.gPh;
+    public View bVh() {
+        return this.hDl;
     }
 
-    public View bDW() {
-        return this.gPl;
+    public View bVi() {
+        return this.hDp;
     }
 
-    public void bDX() {
-        if (this.gPi != null) {
-            this.gPi.setText("");
+    public void bVj() {
+        if (this.hDm != null) {
+            this.hDm.setText("");
         }
     }
 
-    public void ma(boolean z) {
+    public void showProgressBar(boolean z) {
         this.progressBar.setVisibility(z ? 0 : 8);
     }
 
     public void changeSkinType(int i) {
-        this.gPm.getLayoutMode().setNightMode(i == 1);
-        this.gPm.getLayoutMode().onModeChanged(this.gPg);
-        this.djV.onChangeSkinType(this.gPm.getPageContext(), i);
+        this.hDq.getLayoutMode().setNightMode(i == 1);
+        this.hDq.getLayoutMode().onModeChanged(this.hDk);
+        this.dXE.onChangeSkinType(this.hDq.getPageContext(), i);
     }
 
     private void initUI() {
-        this.gPm.setContentView(R.layout.im_add_group_activity);
-        this.gPg = this.gPm.findViewById(R.id.addgroup_rootlayout);
-        this.djV = (NavigationBar) this.gPm.findViewById(R.id.addgroup_navigationbar);
-        this.gPh = this.djV.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.djV.setTitleText(this.gPm.getResources().getString(R.string.add_group_title_main));
-        this.gPi = (EditText) this.gPm.findViewById(R.id.addgroup_input);
-        this.gPi.setInputType(2);
-        this.gPj = (ImageButton) this.gPm.findViewById(R.id.addgroup_delbtn);
-        this.gPk = this.gPm.findViewById(R.id.addgroup_searchbutton);
-        this.gPl = this.gPm.findViewById(R.id.addgroup_vcode);
-        this.gPi.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.im.searchGroup.a.1
+        this.hDq.setContentView(R.layout.im_add_group_activity);
+        this.hDk = this.hDq.findViewById(R.id.addgroup_rootlayout);
+        this.dXE = (NavigationBar) this.hDq.findViewById(R.id.addgroup_navigationbar);
+        this.hDl = this.dXE.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.dXE.setTitleText(this.hDq.getResources().getString(R.string.add_group_title_main));
+        this.hDm = (EditText) this.hDq.findViewById(R.id.addgroup_input);
+        this.hDm.setInputType(2);
+        this.hDn = (ImageButton) this.hDq.findViewById(R.id.addgroup_delbtn);
+        this.hDo = this.hDq.findViewById(R.id.addgroup_searchbutton);
+        this.hDp = this.hDq.findViewById(R.id.addgroup_vcode);
+        this.hDm.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.im.searchGroup.a.1
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (a.this.gPi.length() > 0) {
-                    a.this.gPj.setVisibility(0);
+                if (a.this.hDm.length() > 0) {
+                    a.this.hDn.setVisibility(0);
                 } else {
-                    a.this.gPj.setVisibility(8);
+                    a.this.hDn.setVisibility(8);
                 }
             }
 
@@ -96,17 +96,17 @@ public class a extends c<AddGroupActivity> {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                a.this.gPk.setTag(editable.toString().trim());
+                a.this.hDo.setTag(editable.toString().trim());
             }
         });
-        this.gPk = this.gPm.findViewById(R.id.addgroup_searchbutton);
-        this.progressBar = (ProgressBar) this.gPm.findViewById(R.id.addgroup_progress);
-        this.gPh.setOnClickListener(this.gPm);
-        this.gPj.setOnClickListener(this.gPm);
-        this.gPk.setOnClickListener(this.gPm);
-        this.gPl.setOnClickListener(this.gPm);
+        this.hDo = this.hDq.findViewById(R.id.addgroup_searchbutton);
+        this.progressBar = (ProgressBar) this.hDq.findViewById(R.id.addgroup_progress);
+        this.hDl.setOnClickListener(this.hDq);
+        this.hDn.setOnClickListener(this.hDq);
+        this.hDo.setOnClickListener(this.hDq);
+        this.hDp.setOnClickListener(this.hDq);
         if (!TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_ZXING_CAPTURE)) {
-            this.gPl.setVisibility(8);
+            this.hDp.setVisibility(8);
         }
     }
 }

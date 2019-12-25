@@ -2,11 +2,10 @@ package com.baidu.live.tbadk.core.data;
 
 import android.util.SparseArray;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.log.LogConfig;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaInfoData implements Serializable {
     public static final int LIVE_STATUS_LIVE_ON = 1;
     public static final int LIVE_STATUS_RECORD = 3;
@@ -50,7 +49,7 @@ public class AlaInfoData implements Serializable {
             try {
                 this.live_id = jSONObject.optLong("live_id");
                 this.cover = jSONObject.optString("cover");
-                this.session_id = jSONObject.optString(LogConfig.LOG_SESSION_ID);
+                this.session_id = jSONObject.optString("session_id");
                 this.rtmp_url = jSONObject.optString("rtmp_url");
                 this.hls_url = jSONObject.optString("hls_url");
                 this.group_id = jSONObject.optLong("group_id");

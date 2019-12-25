@@ -32,13 +32,12 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.media.duplayer.DuplayerCore;
 import com.baidu.media.duplayer.Keep;
 import com.baidu.media.duplayer.Utils;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.searchbox.ugc.model.PublishType;
 import com.tencent.connect.common.Constants;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -164,13 +163,13 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                 hashMap.put("first_response", "5");
                 hashMap.put("find_st_info", "6");
                 hashMap.put("init_audio", "7");
-                hashMap.put("init_video", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO);
-                hashMap.put(DpStatConstants.KEY_PREPARED, "9");
-                hashMap.put("start_play", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
-                hashMap.put("frame_decoded", Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
-                hashMap.put("render_pic", Constants.VIA_REPORT_TYPE_SET_AVATAR);
+                hashMap.put("init_video", "8");
+                hashMap.put(DpStatConstants.KEY_PREPARED, PublishType.TYPE_VIDEO_SHARE);
+                hashMap.put("start_play", "10");
+                hashMap.put("frame_decoded", "11");
+                hashMap.put("render_pic", "12");
                 hashMap.put(DpStatConstants.KEY_FIRST_DISPLAY, Constants.VIA_REPORT_TYPE_JOININ_GROUP);
-                hashMap.put("kernel_total", Constants.VIA_REPORT_TYPE_MAKE_FRIEND);
+                hashMap.put("kernel_total", "14");
                 hashMap.put("client_total", Constants.VIA_REPORT_TYPE_WPA_STATE);
                 JSONObject jSONObject2 = new JSONObject(str);
                 Iterator<String> keys = jSONObject2.keys();
@@ -569,7 +568,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     private static String b(String str, String str2) {
         try {
-            return new JSONObject(new JSONObject(str).getString(DpStatConstants.KEY_ITEMS)).getString(str2);
+            return new JSONObject(new JSONObject(str).getString("items")).getString(str2);
         } catch (JSONException e2) {
             e2.printStackTrace();
             return null;
@@ -943,7 +942,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         }
         this.p = false;
         if (Thread.currentThread() == Looper.getMainLooper().getThread() || !Utils.d(CyberPlayerManager.getApplicationContext()) || CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_PLAYER_THREAD, true)) {
-            this.n = com.baidu.media.duplayer.a.b.zi().zk();
+            this.n = com.baidu.media.duplayer.a.b.AV().AX();
             this.o = new f(this, this.n.getLooper());
             CyberLog.i("IjkMediaPlayer", "create player in main thread, use request handler. thread:" + Thread.currentThread().getName() + " request thread:" + this.n.getName() + " mRequestHandler:" + this.o);
             this.p = true;
@@ -981,7 +980,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     private synchronized void y() {
         if (this.p) {
-            com.baidu.media.duplayer.a.b.zi().a(this.n);
+            com.baidu.media.duplayer.a.b.AV().a(this.n);
             this.n = null;
         }
     }
@@ -1083,9 +1082,9 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     @TargetApi(14)
     public void a(Context context, Uri uri, Map<String, String> map) {
         String scheme = uri.getScheme();
-        if (BdStatsConstant.OpSubType.FILE.equals(scheme)) {
+        if ("file".equals(scheme)) {
             a(uri.getPath());
-        } else if ("content".equals(scheme) && TbConfig.SETTINGFILE.equals(uri.getAuthority()) && (uri = RingtoneManager.getActualDefaultRingtoneUri(context, RingtoneManager.getDefaultType(uri))) == null) {
+        } else if ("content".equals(scheme) && "settings".equals(uri.getAuthority()) && (uri = RingtoneManager.getActualDefaultRingtoneUri(context, RingtoneManager.getDefaultType(uri))) == null) {
             throw new FileNotFoundException("Failed to resolve default ringtone");
         } else {
             if (!b(context, uri)) {

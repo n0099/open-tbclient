@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c implements IXAdResponseInfo {
     private int a;
     private Boolean b;

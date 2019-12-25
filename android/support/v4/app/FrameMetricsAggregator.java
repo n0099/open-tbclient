@@ -11,12 +11,13 @@ import android.support.annotation.RestrictTo;
 import android.util.SparseIntArray;
 import android.view.FrameMetrics;
 import android.view.Window;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FrameMetricsAggregator {
     public static final int ANIMATION_DURATION = 256;
     public static final int ANIMATION_INDEX = 8;
@@ -44,7 +45,7 @@ public class FrameMetricsAggregator {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface MetricType {
     }
 
@@ -84,7 +85,7 @@ public class FrameMetricsAggregator {
         return this.mInstance.getMetrics();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class FrameMetricsBaseImpl {
         private FrameMetricsBaseImpl() {
         }
@@ -110,7 +111,7 @@ public class FrameMetricsAggregator {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class FrameMetricsApi24Impl extends FrameMetricsBaseImpl {
         private static final int NANOS_PER_MS = 1000000;
         private static final int NANOS_ROUNDING_VALUE = 500000;
@@ -162,7 +163,7 @@ public class FrameMetricsAggregator {
 
         void addDurationItem(SparseIntArray sparseIntArray, long j) {
             if (sparseIntArray != null) {
-                int i = (int) ((500000 + j) / 1000000);
+                int i = (int) ((500000 + j) / TimeUtils.NANOS_PER_MS);
                 if (j >= 0) {
                     sparseIntArray.put(i, sparseIntArray.get(i) + 1);
                 }

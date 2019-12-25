@@ -1,87 +1,98 @@
 package com.baidu.tieba.u;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.network.http.e;
-import com.baidu.adp.lib.util.s;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.m;
-import java.io.File;
+import android.app.KeyguardManager;
+import android.app.WallpaperManager;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.PowerManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask<Void, Void, String> {
-    public static final String dkI = File.separator;
-    private a jIy;
-    private String mPath;
-    private String mUrl;
+public class b {
+    private KeyguardManager kqa;
+    private PowerManager kqb;
+    private PowerManager.WakeLock kqc;
+    private KeyguardManager.KeyguardLock kqd;
+    private Context mContext;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void b(boolean z, String str, String str2);
+    public b() {
+        try {
+            this.mContext = TbadkCoreApplication.getInst().getApp();
+            this.kqb = (PowerManager) this.mContext.getSystemService("power");
+            this.kqc = this.kqb.newWakeLock(268435462, "ScreenLockNotify");
+            this.kqc.setReferenceCounted(false);
+            this.kqa = (KeyguardManager) this.mContext.getSystemService("keyguard");
+            this.kqd = this.kqa.newKeyguardLock("ScreenLockUtils");
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 
-    public b(String str, String str2, a aVar) {
-        this.mPath = str;
-        this.mUrl = str2;
-        this.jIy = aVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String doInBackground(Void... voidArr) {
-        if (aq.isEmpty(this.mPath) || aq.isEmpty(this.mUrl)) {
-            return "";
-        }
-        new File(this.mPath).mkdirs();
-        String str = this.mPath + dkI + "videosplash.temp";
-        File file = new File(str);
-        if (file.exists()) {
-            file.delete();
-        }
-        e eVar = new e();
-        eVar.fJ().setUrl(this.mUrl);
-        if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true)) {
-            return cwG();
-        }
-        return "";
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        if (this.jIy != null) {
-            if (!aq.isEmpty(str)) {
-                this.jIy.b(true, str, this.mUrl);
-            } else {
-                this.jIy.b(false, null, null);
+    public void cMt() {
+        try {
+            this.kqd.reenableKeyguard();
+            if (this.kqc != null) {
+                this.kqc.release();
+                this.kqc = null;
             }
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
-    private String cwG() {
-        File file = new File(this.mPath + dkI + "videosplash.temp");
-        File file2 = new File(this.mPath + dkI + (s.toMd5(this.mUrl) + ".mp4"));
-        if (file2.exists()) {
-            file2.delete();
+    public void cMu() {
+        try {
+            if (this.kqc == null) {
+                this.kqc = this.kqb.newWakeLock(268435462, "ScreenLockNotify");
+                this.kqc.setReferenceCounted(false);
+            }
+            if (this.kqc != null) {
+                this.kqc.acquire(10000L);
+                this.kqd.disableKeyguard();
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
-        if (file.renameTo(file2)) {
-            F(file2);
-            return file2.getAbsolutePath();
-        }
-        return "";
     }
 
-    private void F(File file) {
-        File[] listFiles;
-        if (!aq.isEmpty(this.mPath)) {
-            File file2 = new File(this.mPath);
-            if (file2.exists() && (listFiles = file2.listFiles()) != null) {
-                for (File file3 : listFiles) {
-                    if (file3 != null && !file3.equals(file)) {
-                        m.deleteFileOrDir(file3);
+    public boolean cMv() {
+        try {
+            return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.kqa, new Object[0])).booleanValue();
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean cMw() {
+        return this.kqb.isScreenOn();
+    }
+
+    public static Drawable cMx() {
+        Bitmap bitmap;
+        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+        try {
+            Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
+            if (drawable != null && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null) {
+                int min = Math.min(l.getEquipmentWidth(inst), bitmap.getWidth());
+                int min2 = Math.min(l.getEquipmentHeight(inst), bitmap.getHeight());
+                try {
+                    return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                } catch (Throwable th) {
+                    try {
+                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                    } catch (Throwable th2) {
+                        BdLog.e(th2.getMessage());
+                        return null;
                     }
                 }
             }
+            return null;
+        } catch (Exception e) {
+            return null;
         }
     }
 }

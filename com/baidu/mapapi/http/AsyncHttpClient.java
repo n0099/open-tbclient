@@ -1,15 +1,14 @@
 package com.baidu.mapapi.http;
 
 import android.os.Build;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes5.dex */
 public class AsyncHttpClient {
-    private int a = UIMsg.m_AppUI.MSG_APP_SAVESCREEN;
-    private int b = UIMsg.m_AppUI.MSG_APP_SAVESCREEN;
+    private int a = 4000;
+    private int b = 4000;
     private ExecutorService c = Executors.newCachedThreadPool();
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -8,14 +8,14 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
 public class TabTextView extends TextView {
-    private LinearGradient aoV;
-    private boolean aoW;
-    private final float arf;
-    private final float arg;
-    private final boolean arh;
+    private LinearGradient awO;
+    private boolean awP;
+    private final float ayQ;
+    private final float ayR;
+    private final boolean ayS;
     private final int endTextColor;
     private final int startTextColor;
 
@@ -29,43 +29,43 @@ public class TabTextView extends TextView {
 
     public TabTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aoW = true;
+        this.awP = true;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_TabTextView);
         this.startTextColor = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_startTextColor, -1);
         this.endTextColor = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_endTextColor, -1);
-        this.arf = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_defaultTextSize, -1.0f);
-        this.arg = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_selectedTextSize, -1.0f);
-        this.arh = obtainStyledAttributes.getBoolean(a.k.sdk_TabTextView_selectedBold, false);
+        this.ayQ = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_defaultTextSize, -1.0f);
+        this.ayR = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_selectedTextSize, -1.0f);
+        this.ayS = obtainStyledAttributes.getBoolean(a.k.sdk_TabTextView_selectedBold, false);
         obtainStyledAttributes.recycle();
-        aM(false);
+        bd(false);
     }
 
     @Override // android.view.View
     protected void dispatchSetSelected(boolean z) {
         super.dispatchSetSelected(z);
-        aM(z);
+        bd(z);
         setSelectedBold(z);
-        aO(z);
+        bf(z);
     }
 
-    private boolean vz() {
+    private boolean xx() {
         return (this.startTextColor == -1 || this.endTextColor == -1) ? false : true;
     }
 
-    private void aM(boolean z) {
-        if (this.aoW) {
+    private void bd(boolean z) {
+        if (this.awP) {
             if (z) {
-                if (this.arg != -1.0f) {
-                    setTextSize(0, this.arg);
+                if (this.ayR != -1.0f) {
+                    setTextSize(0, this.ayR);
                 }
-            } else if (this.arf != -1.0f) {
-                setTextSize(0, this.arf);
+            } else if (this.ayQ != -1.0f) {
+                setTextSize(0, this.ayQ);
             }
         }
     }
 
     private void setSelectedBold(boolean z) {
-        if (this.arh) {
+        if (this.ayS) {
             if (z) {
                 setTypeface(Typeface.DEFAULT_BOLD);
             } else {
@@ -74,16 +74,16 @@ public class TabTextView extends TextView {
         }
     }
 
-    private void aO(boolean z) {
-        if (z && vz()) {
-            if (this.aoV == null) {
+    private void bf(boolean z) {
+        if (z && xx()) {
+            if (this.awO == null) {
                 if (getMeasuredWidth() == 0) {
                     int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                     measure(makeMeasureSpec, makeMeasureSpec);
                 }
-                this.aoV = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.startTextColor, this.endTextColor}, (float[]) null, Shader.TileMode.CLAMP);
+                this.awO = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.startTextColor, this.endTextColor}, (float[]) null, Shader.TileMode.CLAMP);
             }
-            getPaint().setShader(this.aoV);
+            getPaint().setShader(this.awO);
             return;
         }
         getPaint().setShader(null);

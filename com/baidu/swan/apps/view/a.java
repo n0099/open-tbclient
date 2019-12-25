@@ -5,8 +5,7 @@ import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
-import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.swan.apps.a;
@@ -19,65 +18,65 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private BearLayout btD;
-    private SwanAppBearInfo btE;
+    private BearLayout bUW;
+    private SwanAppBearInfo bUX;
     private Activity mActivity;
 
     public a(Activity activity, View view, @NonNull SwanAppBearInfo swanAppBearInfo, @IdRes int i) {
         this.mActivity = activity;
-        this.btE = swanAppBearInfo;
-        this.btD = (BearLayout) view.findViewById(i);
-        this.btD.setVisibility(0);
-        this.btD.a(activity, swanAppBearInfo, this);
+        this.bUX = swanAppBearInfo;
+        this.bUW = (BearLayout) view.findViewById(i);
+        this.bUW.setVisibility(0);
+        this.bUW.a(activity, swanAppBearInfo, this);
     }
 
-    public void UL() {
+    public void aeH() {
         if (SwanAppNetworkUtils.isNetworkConnected(this.mActivity)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("type", "media");
             linkedHashMap.put("sfrom", "searchpaws");
             linkedHashMap.put("store", "uid_cuid");
             linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.btE.aXe);
-            linkedHashMap.put("op_type", IMTrack.DbBuilder.ACTION_ADD);
-            String Cf = com.baidu.swan.apps.u.a.Jv().Cf();
-            if (!TextUtils.isEmpty(Cf)) {
-                HttpManager.getDefault(com.baidu.swan.apps.u.a.Jj()).getRequest().url(Cf).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.u.a.JG().Ke()).build().executeAsyncOnUIBack(new C0225a(this.btD.getCallback(), false));
+            linkedHashMap.put("third_id", this.bUX.bearId);
+            linkedHashMap.put("op_type", "add");
+            String FB = com.baidu.swan.apps.w.a.Rw().FB();
+            if (!TextUtils.isEmpty(FB)) {
+                HttpManager.getDefault(com.baidu.swan.apps.w.a.Rk()).getRequest().url(FB).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.w.a.RI().FH()).build().executeAsyncOnUIBack(new C0291a(this.bUW.getCallback(), false));
                 return;
             }
             return;
         }
-        d.i(this.mActivity, a.h.aiapps_net_error).QO();
+        d.q(this.mActivity, a.h.aiapps_net_error).showToast();
     }
 
-    public void UM() {
+    public void aeI() {
         if (SwanAppNetworkUtils.isNetworkConnected(this.mActivity)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("type", "media");
             linkedHashMap.put("sfrom", "searchpaws");
             linkedHashMap.put("store", "uid_cuid");
             linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.btE.aXe);
-            String Ce = com.baidu.swan.apps.u.a.Jv().Ce();
-            if (!TextUtils.isEmpty(Ce)) {
-                HttpManager.getDefault(com.baidu.swan.apps.u.a.Jj()).getRequest().url(Ce).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.u.a.JG().Ke()).build().executeAsyncOnUIBack(new C0225a(this.btD.getCallback(), true));
+            linkedHashMap.put("third_id", this.bUX.bearId);
+            String FA = com.baidu.swan.apps.w.a.Rw().FA();
+            if (!TextUtils.isEmpty(FA)) {
+                HttpManager.getDefault(com.baidu.swan.apps.w.a.Rk()).getRequest().url(FA).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.w.a.RI().FH()).build().executeAsyncOnUIBack(new C0291a(this.bUW.getCallback(), true));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0225a extends ResponseCallback<String> {
-        private BearLayout.a btF;
-        private boolean btG;
+    /* loaded from: classes9.dex */
+    public class C0291a extends ResponseCallback<String> {
+        private BearLayout.a bUY;
+        private boolean bUZ;
 
-        C0225a(BearLayout.a aVar, boolean z) {
-            this.btF = aVar;
-            this.btG = z;
+        C0291a(BearLayout.a aVar, boolean z) {
+            this.bUY = aVar;
+            this.bUZ = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,35 +87,34 @@ public class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: x */
         public void onSuccess(String str, int i) {
-            if (this.btF != null) {
+            if (this.bUY != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt("errno");
                     if (optInt == 0) {
-                        if (this.btG) {
+                        if (this.bUZ) {
                             JSONObject optJSONObject = jSONObject.optJSONObject("data");
                             if (optJSONObject != null) {
-                                JSONArray optJSONArray = optJSONObject.optJSONArray(DpStatConstants.KEY_ITEMS);
+                                JSONArray optJSONArray = optJSONObject.optJSONArray("items");
                                 if (optJSONArray == null || optJSONArray.length() <= 0) {
-                                    this.btF.cW(false);
+                                    this.bUY.dQ(false);
                                 } else {
-                                    this.btF.cW(true);
+                                    this.bUY.dQ(true);
                                 }
                             }
                         } else {
-                            this.btF.cW(true);
+                            this.bUY.dQ(true);
                         }
                     } else if (800200 == optInt) {
-                        this.btF.jh("errNo:" + optInt + ",errMsg:" + jSONObject.optString("errmsg"));
+                        this.bUY.mH("errNo:" + optInt + ",errMsg:" + jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                     } else {
-                        this.btF.jh("errNo:" + optInt);
+                        this.bUY.mH("errNo:" + optInt);
                     }
                 } catch (JSONException e) {
                     if (a.DEBUG) {
                         e.printStackTrace();
-                        this.btF.jh(e.getMessage());
+                        this.bUY.mH(e.getMessage());
                     }
                 }
             }
@@ -126,7 +124,7 @@ public class a {
         public void onFail(Exception exc) {
             if (a.DEBUG) {
                 exc.printStackTrace();
-                this.btF.jh(exc.getMessage());
+                this.bUY.mH(exc.getMessage());
             }
         }
     }

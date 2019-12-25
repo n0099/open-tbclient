@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PushManager {
     public static final String APP_PACKAGE = "appPackage";
     public static final String EVENT_ID = "eventID";
@@ -214,7 +214,7 @@ public class PushManager {
 
     public void getUserAccounts() {
         checkAll();
-        startMcsService(CommandMessage.COMMAND_GET_ACCOUNTS);
+        startMcsService(12302);
     }
 
     public void openNotificationSettings() {

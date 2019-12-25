@@ -1,6 +1,7 @@
 package android.support.v4.view;
 
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.res.ColorStateList;
 import android.graphics.Matrix;
@@ -35,7 +36,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.WeakHashMap;
-/* loaded from: classes2.dex */
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes4.dex */
 public class ViewCompat {
     public static final int ACCESSIBILITY_LIVE_REGION_ASSERTIVE = 2;
     public static final int ACCESSIBILITY_LIVE_REGION_NONE = 0;
@@ -83,75 +85,80 @@ public class ViewCompat {
     public static final int TYPE_TOUCH = 0;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private @interface AccessibilityLiveRegion {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @TargetApi(26)
+    /* loaded from: classes4.dex */
+    private @interface AutofillImportance {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface FocusDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface FocusRealDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface FocusRelativeDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private @interface ImportantForAccessibility {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private @interface LayerType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private @interface LayoutDirectionMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface NestedScrollType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private @interface OverScroll {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private @interface ResolvedLayoutDirectionMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface ScrollAxis {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface ScrollIndicators {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ViewCompatBaseImpl {
-        static boolean sAccessibilityDelegateCheckFailed = false;
         static Field sAccessibilityDelegateField;
         private static Method sChildrenDrawingOrderMethod;
         private static Field sMinHeightField;
@@ -163,8 +170,13 @@ public class ViewCompat {
         private Method mDispatchStartTemporaryDetach;
         private boolean mTempDetachBound;
         WeakHashMap<View, ViewPropertyAnimatorCompat> mViewPropertyAnimatorCompatMap = null;
+        private static final AtomicInteger sNextGeneratedId = new AtomicInteger(1);
+        static boolean sAccessibilityDelegateCheckFailed = false;
 
         ViewCompatBaseImpl() {
+        }
+
+        public void setAutofillHints(@NonNull View view, @Nullable String... strArr) {
         }
 
         public void setAccessibilityDelegate(View view, @Nullable AccessibilityDelegateCompat accessibilityDelegateCompat) {
@@ -674,10 +686,35 @@ public class ViewCompat {
         public boolean hasExplicitFocusable(@NonNull View view) {
             return view.hasFocusable();
         }
+
+        @TargetApi(26)
+        public int getImportantForAutofill(@NonNull View view) {
+            return 0;
+        }
+
+        public void setImportantForAutofill(@NonNull View view, int i) {
+        }
+
+        public boolean isImportantForAutofill(@NonNull View view) {
+            return true;
+        }
+
+        public int generateViewId() {
+            int i;
+            int i2;
+            do {
+                i = sNextGeneratedId.get();
+                i2 = i + 1;
+                if (i2 > 16777215) {
+                    i2 = 1;
+                }
+            } while (!sNextGeneratedId.compareAndSet(i, i2));
+            return i;
+        }
     }
 
     @RequiresApi(15)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class ViewCompatApi15Impl extends ViewCompatBaseImpl {
         ViewCompatApi15Impl() {
         }
@@ -689,7 +726,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(16)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class ViewCompatApi16Impl extends ViewCompatApi15Impl {
         ViewCompatApi16Impl() {
         }
@@ -788,7 +825,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(17)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class ViewCompatApi17Impl extends ViewCompatApi16Impl {
         ViewCompatApi17Impl() {
         }
@@ -847,10 +884,15 @@ public class ViewCompat {
         public Display getDisplay(View view) {
             return view.getDisplay();
         }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatBaseImpl
+        public int generateViewId() {
+            return View.generateViewId();
+        }
     }
 
     @RequiresApi(18)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class ViewCompatApi18Impl extends ViewCompatApi17Impl {
         ViewCompatApi18Impl() {
         }
@@ -872,7 +914,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(19)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class ViewCompatApi19Impl extends ViewCompatApi18Impl {
         ViewCompatApi19Impl() {
         }
@@ -909,7 +951,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class ViewCompatApi21Impl extends ViewCompatApi19Impl {
         private static ThreadLocal<Rect> sThreadLocalRect;
 
@@ -1025,7 +1067,7 @@ public class ViewCompat {
             view.setBackgroundTintList(colorStateList);
             if (Build.VERSION.SDK_INT == 21) {
                 Drawable background = view.getBackground();
-                boolean z = (view.getBackgroundTintList() == null || view.getBackgroundTintMode() == null) ? false : true;
+                boolean z = (view.getBackgroundTintList() == null && view.getBackgroundTintMode() == null) ? false : true;
                 if (background != null && z) {
                     if (background.isStateful()) {
                         background.setState(view.getDrawableState());
@@ -1040,7 +1082,7 @@ public class ViewCompat {
             view.setBackgroundTintMode(mode);
             if (Build.VERSION.SDK_INT == 21) {
                 Drawable background = view.getBackground();
-                boolean z = (view.getBackgroundTintList() == null || view.getBackgroundTintMode() == null) ? false : true;
+                boolean z = (view.getBackgroundTintList() == null && view.getBackgroundTintMode() == null) ? false : true;
                 if (background != null && z) {
                     if (background.isStateful()) {
                         background.setState(view.getDrawableState());
@@ -1136,7 +1178,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class ViewCompatApi23Impl extends ViewCompatApi21Impl {
         ViewCompatApi23Impl() {
         }
@@ -1168,7 +1210,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class ViewCompatApi24Impl extends ViewCompatApi23Impl {
         ViewCompatApi24Impl() {
         }
@@ -1205,9 +1247,29 @@ public class ViewCompat {
     }
 
     @RequiresApi(26)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class ViewCompatApi26Impl extends ViewCompatApi24Impl {
         ViewCompatApi26Impl() {
+        }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatBaseImpl
+        public void setAutofillHints(@NonNull View view, @Nullable String... strArr) {
+            view.setAutofillHints(strArr);
+        }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatBaseImpl
+        public int getImportantForAutofill(@NonNull View view) {
+            return view.getImportantForAutofill();
+        }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatBaseImpl
+        public void setImportantForAutofill(@NonNull View view, int i) {
+            view.setImportantForAutofill(i);
+        }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatBaseImpl
+        public boolean isImportantForAutofill(@NonNull View view) {
+            return view.isImportantForAutofill();
         }
 
         @Override // android.support.v4.view.ViewCompat.ViewCompatBaseImpl
@@ -1328,6 +1390,22 @@ public class ViewCompat {
         IMPL.setAccessibilityDelegate(view, accessibilityDelegateCompat);
     }
 
+    public static void setAutofillHints(@NonNull View view, @Nullable String... strArr) {
+        IMPL.setAutofillHints(view, strArr);
+    }
+
+    public static int getImportantForAutofill(@NonNull View view) {
+        return IMPL.getImportantForAutofill(view);
+    }
+
+    public static void setImportantForAutofill(@NonNull View view, int i) {
+        IMPL.setImportantForAutofill(view, i);
+    }
+
+    public static boolean isImportantForAutofill(@NonNull View view) {
+        return IMPL.isImportantForAutofill(view);
+    }
+
     public static boolean hasAccessibilityDelegate(View view) {
         return IMPL.hasAccessibilityDelegate(view);
     }
@@ -1413,6 +1491,15 @@ public class ViewCompat {
 
     public static ViewParent getParentForAccessibility(View view) {
         return IMPL.getParentForAccessibility(view);
+    }
+
+    @NonNull
+    public static <T extends View> T requireViewById(@NonNull View view, @IdRes int i) {
+        T t = (T) view.findViewById(i);
+        if (t == null) {
+            throw new IllegalArgumentException("ID does not reference a View inside this View");
+        }
+        return t;
     }
 
     @Deprecated
@@ -1638,6 +1725,7 @@ public class ViewCompat {
         IMPL.requestApplyInsets(view);
     }
 
+    @Deprecated
     public static void setChildrenDrawingOrderEnabled(ViewGroup viewGroup, boolean z) {
         IMPL.setChildrenDrawingOrderEnabled(viewGroup, z);
     }
@@ -1907,6 +1995,10 @@ public class ViewCompat {
 
     public static boolean hasExplicitFocusable(@NonNull View view) {
         return IMPL.hasExplicitFocusable(view);
+    }
+
+    public static int generateViewId() {
+        return IMPL.generateViewId();
     }
 
     protected ViewCompat() {

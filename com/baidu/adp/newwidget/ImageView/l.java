@@ -14,20 +14,20 @@ public class l extends k {
     private void makePath(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.path == null || this.mIsRound != this.tr.mIsRound) {
+            if (this.path == null || this.mIsRound != this.wa.mIsRound) {
                 z = true;
             }
             if (this.mRect == null || !this.mRect.contains(rect)) {
                 z = true;
             }
-            this.mIsRound = this.tr.mIsRound;
+            this.mIsRound = this.wa.mIsRound;
             if (z) {
                 this.mRect = rect;
                 this.path = new Path();
                 if (this.mIsRound) {
                     this.path.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
                 } else {
-                    this.path.addRoundRect(new RectF(rect), this.tr.mRadius, this.tr.mRadius, Path.Direction.CCW);
+                    this.path.addRoundRect(new RectF(rect), this.wa.mRadius, this.wa.mRadius, Path.Direction.CCW);
                 }
                 this.path.close();
             }

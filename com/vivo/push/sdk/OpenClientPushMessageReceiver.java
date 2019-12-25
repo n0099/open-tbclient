@@ -4,7 +4,7 @@ import android.content.Context;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.model.UnvarnishedMessage;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class OpenClientPushMessageReceiver extends BasePushMessageReceiver {
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public final void onBind(Context context, int i, String str) {

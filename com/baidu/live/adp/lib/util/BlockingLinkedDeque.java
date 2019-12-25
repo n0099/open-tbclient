@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements BlockingDeque<E>, Serializable {
     private static final long serialVersionUID = -387911632671998426L;
     private final int capacity;
@@ -24,7 +24,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Blocking
     private final Condition notFull;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Node<E> {
         E item;
         Node<E> next;
@@ -728,7 +728,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Blocking
         return new DescendingItr();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private abstract class AbstractItr implements Iterator<E> {
         private Node<E> lastRet;
         Node<E> next;
@@ -812,7 +812,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private class Itr extends BlockingLinkedDeque<E>.AbstractItr {
         private Itr() {
             super();
@@ -829,7 +829,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private class DescendingItr extends BlockingLinkedDeque<E>.AbstractItr {
         private DescendingItr() {
             super();

@@ -3,68 +3,74 @@ package com.baidu.swan.apps.extcore.b;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.extcore.d.a;
-import com.baidu.swan.apps.extcore.e.a;
+import com.baidu.swan.apps.extcore.e.b;
+import com.baidu.swan.apps.extcore.f.a;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-/* loaded from: classes2.dex */
-public abstract class b<P extends com.baidu.swan.apps.extcore.d.a, R extends com.baidu.swan.apps.extcore.e.a> {
+/* loaded from: classes9.dex */
+public abstract class b<P extends com.baidu.swan.apps.extcore.e.b, R extends com.baidu.swan.apps.extcore.f.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    private P aPR;
+    private P bpF;
     @NonNull
-    private R aPS;
+    private R bpG;
+
+    @Nullable
+    public abstract ExtensionCore Of();
 
     public b(@NonNull P p, @NonNull R r) {
-        this.aPR = p;
-        this.aPS = r;
-    }
-
-    public void G(int i, int i2) {
-        if (DEBUG) {
-            Log.d("ExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
-        }
-        if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i != i2) {
-            com.baidu.swan.apps.extcore.f.a.bA(true);
-        }
+        this.bpF = p;
+        this.bpG = r;
     }
 
     public void a(@Nullable com.baidu.swan.apps.extcore.c.a aVar) {
-        this.aPR.b(aVar);
+        this.bpF.b(aVar);
     }
 
-    public void HV() {
-        this.aPR.HV();
+    public void Pc() {
+        this.bpF.Pc();
     }
 
     public <T extends com.baidu.swan.apps.extcore.model.a> boolean a(T t) {
-        return t != null && this.aPS.b(t);
+        return t != null && this.bpG.b(t);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @NonNull
-    public ExtensionCore HW() {
-        if (DEBUG && com.baidu.swan.apps.extcore.f.a.Il()) {
+    public R Pd() {
+        return this.bpG;
+    }
+
+    @NonNull
+    public ExtensionCore Pe() {
+        String path;
+        int Po = this.bpF.bpE.Po();
+        if (com.baidu.swan.apps.extcore.g.a.eE(Po)) {
             ExtensionCore extensionCore = new ExtensionCore();
-            extensionCore.aQm = 0L;
-            extensionCore.aQn = com.baidu.swan.apps.extcore.f.a.W(0L);
-            extensionCore.aQo = com.baidu.swan.apps.extcore.debug.b.HZ().getPath();
-            extensionCore.aQl = 2;
-            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
+            extensionCore.extensionCoreVersionCode = 0L;
+            extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.g.a.aa(0L);
+            if (Po == 1) {
+                path = com.baidu.swan.games.g.a.b.Ph().getPath();
+            } else {
+                path = com.baidu.swan.apps.extcore.d.b.Ph().getPath();
+            }
+            extensionCore.extensionCorePath = path;
+            extensionCore.extensionCoreType = 2;
+            if (DEBUG) {
+                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
+            }
             return extensionCore;
         }
-        ExtensionCore Ih = this.aPR.Ih();
-        ExtensionCore Ih2 = this.aPS.Ih();
-        if (Ih.aQm >= Ih2.aQm) {
+        ExtensionCore Pq = this.bpF.Pq();
+        ExtensionCore Pq2 = this.bpG.Pq();
+        if (Pq.extensionCoreVersionCode >= Pq2.extensionCoreVersionCode) {
             if (DEBUG) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + Ih.toString());
-                return Ih;
+                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + Pq.toString());
+                return Pq;
             }
-            return Ih;
+            return Pq;
         }
         if (DEBUG) {
-            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + Ih2.toString());
+            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + Pq2.toString());
         }
-        return Ih2;
+        return Pq2;
     }
 }

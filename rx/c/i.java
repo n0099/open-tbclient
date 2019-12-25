@@ -1,12 +1,12 @@
 package rx.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class i extends h {
-    private static final i kES = new i();
+    private static final i njL = new i();
 
     private i() {
     }
 
-    public static h cPM() {
-        return kES;
+    public static h dHt() {
+        return njL;
     }
 }

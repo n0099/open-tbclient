@@ -1,51 +1,51 @@
 package com.baidu.swan.apps.canvas.a;
 
 import android.content.Context;
-import android.widget.AbsoluteLayout;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class g extends a {
-    @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ AbsoluteLayout a(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        return super.a(unitedSchemeEntity, str);
-    }
-
     @Override // com.baidu.swan.apps.canvas.a.a
     public /* bridge */ /* synthetic */ void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
         super.a(unitedSchemeEntity, callbackHandler, z);
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ com.baidu.swan.apps.canvas.c.a c(UnitedSchemeEntity unitedSchemeEntity) {
-        return super.c(unitedSchemeEntity);
+    public /* bridge */ /* synthetic */ com.baidu.swan.apps.canvas.b.a d(UnitedSchemeEntity unitedSchemeEntity) {
+        return super.d(unitedSchemeEntity);
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject cM(int i) {
-        return super.cM(i);
+    public /* bridge */ /* synthetic */ JSONObject dK(int i) {
+        return super.dK(i);
     }
 
     public g(j jVar) {
-        super(jVar, "/swan/canvas/remove");
+        super(jVar, "/swanAPI/canvas/remove");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        boolean z = false;
-        com.baidu.swan.apps.canvas.c.a c = c(unitedSchemeEntity);
-        if (c == null) {
-            unitedSchemeEntity.result = cM(201);
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        com.baidu.swan.apps.canvas.b.a d = d(unitedSchemeEntity);
+        if (d == null) {
+            unitedSchemeEntity.result = dK(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove action parse model is null");
-        } else {
-            AbsoluteLayout a = a(unitedSchemeEntity, c.aXp);
-            if (a != null && com.baidu.swan.apps.canvas.a.CP().a(a, c)) {
-                z = true;
-            }
-            a(unitedSchemeEntity, callbackHandler, z);
+            return false;
         }
-        return z;
+        com.baidu.swan.apps.component.components.d.a aVar = (com.baidu.swan.apps.component.components.d.a) com.baidu.swan.apps.component.container.a.d(d);
+        if (aVar == null) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove canvas fail: fina a null component");
+            unitedSchemeEntity.result = dK(1001);
+            return false;
+        }
+        com.baidu.swan.apps.component.b.c HU = aVar.HU();
+        boolean isSuccess = HU.isSuccess();
+        if (!isSuccess) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove canvas fail: " + HU.msg);
+        }
+        a(unitedSchemeEntity, callbackHandler, isSuccess);
+        return isSuccess;
     }
 }

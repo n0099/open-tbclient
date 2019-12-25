@@ -14,7 +14,7 @@ import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tbadk.mainTab.d;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class WriteThreadDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -22,7 +22,7 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c avw() {
+    public c aNe() {
         c cVar = new c();
         cVar.frag = new WriteThreadFragment();
         cVar.type = 9;
@@ -38,12 +38,12 @@ public class WriteThreadDelegateStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c avx;
+                c aNf;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (avx = writeThreadDelegateStatic.avx()) != null) {
-                        avx.frag.setArguments(new Bundle());
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (aNf = writeThreadDelegateStatic.aNf()) != null) {
+                        aNf.frag.setArguments(new Bundle());
                     }
                 }
             }
@@ -53,8 +53,8 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator cB(Context context) {
-        this.cJk = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        return this.cJk;
+    public TbFragmentTabIndicator dW(Context context) {
+        this.dwU = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+        return this.dwU;
     }
 }

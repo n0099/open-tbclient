@@ -3,12 +3,12 @@ package com.baidu.adp.gif;
 /* loaded from: classes.dex */
 public class d implements a {
     @Override // com.baidu.adp.gif.a
-    public com.baidu.adp.widget.ImageView.a R(String str) {
-        NSGif S = NSGif.S(str);
-        if (S == null) {
+    public com.baidu.adp.widget.ImageView.a W(String str) {
+        NSGif X = NSGif.X(str);
+        if (X == null) {
             return null;
         }
-        return new com.baidu.adp.widget.ImageView.a(S);
+        return new com.baidu.adp.widget.ImageView.a(X);
     }
 
     @Override // com.baidu.adp.gif.a

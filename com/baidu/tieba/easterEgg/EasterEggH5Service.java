@@ -20,11 +20,12 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.easterEgg.e;
+import com.google.gson.Gson;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class EasterEggH5Service extends Service {
     private static String KEY_URL = "url";
     private a eggBridge;
@@ -35,10 +36,10 @@ public class EasterEggH5Service extends Service {
     private e model;
     private String mUrl = null;
     private BdUniqueId mTag = BdUniqueId.gen();
-    private com.google.gson.d gson = new com.google.gson.d();
+    private Gson gson = new Gson();
     private d onHitEventListener = new d() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.1
         @Override // com.baidu.tieba.easterEgg.d
-        public void V(String str, String str2, String str3) {
+        public void aj(String str, String str2, String str3) {
             if (EasterEggH5Service.this.mWebView != null) {
                 EasterEggH5Service.this.loadJsUrl(EasterEggH5Service.this.mWebView, "receiveEvent", str2, str3);
             }
@@ -51,7 +52,7 @@ public class EasterEggH5Service extends Service {
             String str;
             if (customResponsedMessage.getData() instanceof String) {
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.uP("reindeer_search");
+                    str = EasterEggH5Service.this.mHttpRule.zH("reindeer_search");
                 } else {
                     str = null;
                 }
@@ -59,7 +60,7 @@ public class EasterEggH5Service extends Service {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("content", customResponsedMessage.getData());
-                        EasterEggH5Service.this.onHitEventListener.V("reindeer_search", EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(jSONObject.toString()));
+                        EasterEggH5Service.this.onHitEventListener.aj("reindeer_search", EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(jSONObject.toString()));
                     } catch (JSONException e) {
                     }
                 }
@@ -74,7 +75,7 @@ public class EasterEggH5Service extends Service {
             if (customResponsedMessage.getData() instanceof g) {
                 g gVar = (g) customResponsedMessage.getData();
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.uP(gVar.mUrl);
+                    str = EasterEggH5Service.this.mHttpRule.zH(gVar.mUrl);
                 } else {
                     str = null;
                 }
@@ -93,7 +94,7 @@ public class EasterEggH5Service extends Service {
                             i = i2 + 1;
                         }
                     }
-                    EasterEggH5Service.this.onHitEventListener.V(gVar.mUrl, EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(EasterEggH5Service.this.gson.toJson(hashMap)));
+                    EasterEggH5Service.this.onHitEventListener.aj(gVar.mUrl, EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(EasterEggH5Service.this.gson.toJson(hashMap)));
                 }
             }
         }
@@ -124,14 +125,14 @@ public class EasterEggH5Service extends Service {
         this.model.a(new e.a() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.4
             @Override // com.baidu.tieba.easterEgg.e.a
             public void a(boolean z, com.baidu.tieba.easterEgg.a.a aVar) {
-                if (z && aVar != null && !aq.isEmpty(aVar.bdf()) && aVar.isOpen()) {
+                if (z && aVar != null && !aq.isEmpty(aVar.buB()) && aVar.isOpen()) {
                     if (EasterEggH5Service.this.mWebView != null) {
-                        EasterEggH5Service.this.mWebView.loadUrl(aVar.bdf());
+                        EasterEggH5Service.this.mWebView.loadUrl(aVar.buB());
                     }
-                    HashMap<String, String> bde = aVar.bde();
-                    if (bde != null) {
-                        EasterEggH5Service.this.mHttpRule.r(bde);
-                        EasterEggH5Service.this.mSocketRule.r(bde);
+                    HashMap<String, String> buA = aVar.buA();
+                    if (buA != null) {
+                        EasterEggH5Service.this.mHttpRule.q(buA);
+                        EasterEggH5Service.this.mSocketRule.q(buA);
                         return;
                     }
                     return;
@@ -167,7 +168,6 @@ public class EasterEggH5Service extends Service {
                 @Override // android.webkit.WebViewClient
                 public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
                     if (sslErrorHandler != null) {
-                        sslErrorHandler.proceed();
                         sslErrorHandler.cancel();
                     }
                 }
@@ -181,7 +181,7 @@ public class EasterEggH5Service extends Service {
                 }
             });
         } catch (Throwable th) {
-            com.baidu.tbadk.core.e.a.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
+            com.baidu.tbadk.core.d.a.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
             TbadkCoreApplication.getInst().onLowMemory();
             stopSelf();
         }

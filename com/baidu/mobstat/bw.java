@@ -12,7 +12,6 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.http.Headers;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -24,6 +23,8 @@ import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -42,7 +43,7 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class bw {
     private static String a = null;
     private static String b = null;
@@ -156,7 +157,7 @@ public class bw {
     public static String j(Context context) {
         Location lastKnownLocation;
         try {
-            if (bo.e(context, "android.permission.ACCESS_FINE_LOCATION") && (lastKnownLocation = ((LocationManager) context.getSystemService(Headers.LOCATION)).getLastKnownLocation("gps")) != null) {
+            if (bo.e(context, "android.permission.ACCESS_FINE_LOCATION") && (lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps")) != null) {
                 return String.format("%s_%s_%s", Long.valueOf(lastKnownLocation.getTime()), Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));
             }
         } catch (Exception e) {
@@ -417,7 +418,7 @@ public class bw {
             return "";
         }
         try {
-            z = bo.e(context, "android.permission.ACCESS_FINE_LOCATION") ? ((LocationManager) context.getSystemService(Headers.LOCATION)).isProviderEnabled("gps") : false;
+            z = bo.e(context, "android.permission.ACCESS_FINE_LOCATION") ? ((LocationManager) context.getSystemService("location")).isProviderEnabled("gps") : false;
         } catch (Exception e) {
             z = false;
         }
@@ -448,7 +449,7 @@ public class bw {
                         StringBuilder sb = new StringBuilder();
                         sb.append(scanResult.BSSID);
                         sb.append("|");
-                        replaceAll = scanResult.SSID.replaceAll("\\|", "");
+                        replaceAll = scanResult.SSID.replaceAll(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR, "");
                         if (replaceAll.length() > 30) {
                         }
                         sb.append(replaceAll);
@@ -482,7 +483,7 @@ public class bw {
             StringBuilder sb2 = new StringBuilder();
             sb2.append(scanResult2.BSSID);
             sb2.append("|");
-            replaceAll = scanResult2.SSID.replaceAll("\\|", "");
+            replaceAll = scanResult2.SSID.replaceAll(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR, "");
             if (replaceAll.length() > 30) {
                 replaceAll = replaceAll.substring(0, 30);
             }
@@ -729,7 +730,7 @@ public class bw {
             str = "smartisan";
         }
         if (TextUtils.isEmpty(str)) {
-            String a2 = a("ro.build.display.id");
+            String a2 = a(RomUtils.PROP_RO_BUILD_DISPLAY_ID);
             if (!TextUtils.isEmpty(a2) && a2.contains("Flyme")) {
                 str = "flyme";
             }

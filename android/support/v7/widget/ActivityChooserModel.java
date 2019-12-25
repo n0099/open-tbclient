@@ -19,12 +19,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ActivityChooserModel extends DataSetObservable {
     static final String ATTRIBUTE_ACTIVITY = "activity";
     static final String ATTRIBUTE_TIME = "time";
@@ -55,17 +54,17 @@ public class ActivityChooserModel extends DataSetObservable {
     private boolean mHistoricalRecordsChanged = true;
     private boolean mReloadActivities = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface ActivityChooserModelClient {
         void setActivityChooserModel(ActivityChooserModel activityChooserModel);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface ActivitySorter {
         void sort(Intent intent, List<ActivityResolveInfo> list, List<HistoricalRecord> list2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnChooseActivityListener {
         boolean onChooseActivity(ActivityChooserModel activityChooserModel, Intent intent);
     }
@@ -307,7 +306,7 @@ public class ActivityChooserModel extends DataSetObservable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class HistoricalRecord {
         public final ComponentName activity;
         public final long time;
@@ -356,7 +355,7 @@ public class ActivityChooserModel extends DataSetObservable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class ActivityResolveInfo implements Comparable<ActivityResolveInfo> {
         public final ResolveInfo resolveInfo;
         public float weight;
@@ -392,7 +391,7 @@ public class ActivityChooserModel extends DataSetObservable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static final class DefaultSorter implements ActivitySorter {
         private static final float WEIGHT_DECAY_COEFFICIENT = 0.95f;
         private final Map<ComponentName, ActivityResolveInfo> mPackageNameToActivityMap = new HashMap();
@@ -437,7 +436,7 @@ public class ActivityChooserModel extends DataSetObservable {
                 try {
                     try {
                         XmlPullParser newPullParser = Xml.newPullParser();
-                        newPullParser.setInput(openFileInput, HTTP.UTF_8);
+                        newPullParser.setInput(openFileInput, "UTF-8");
                         for (int i = 0; i != 1 && i != 2; i = newPullParser.next()) {
                         }
                         if (!TAG_HISTORICAL_RECORDS.equals(newPullParser.getName())) {
@@ -496,7 +495,7 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public final class PersistHistoryAsyncTask extends AsyncTask<Object, Void, Void> {
         PersistHistoryAsyncTask() {
         }
@@ -514,7 +513,7 @@ public class ActivityChooserModel extends DataSetObservable {
                 try {
                     try {
                         newSerializer.setOutput(openFileOutput, null);
-                        newSerializer.startDocument(HTTP.UTF_8, true);
+                        newSerializer.startDocument("UTF-8", true);
                         newSerializer.startTag(null, ActivityChooserModel.TAG_HISTORICAL_RECORDS);
                         int size = list.size();
                         for (int i = 0; i < size; i++) {

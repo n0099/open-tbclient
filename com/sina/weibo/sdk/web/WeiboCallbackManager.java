@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.sina.weibo.sdk.auth.WbAuthListener;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class WeiboCallbackManager {
     private static WeiboCallbackManager sInstance;
     private Map<String, WbAuthListener> mWeiboAuthListenerMap = new HashMap();

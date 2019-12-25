@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.pubaccount;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PaInfo implements Parcelable {
     public static final Parcelable.Creator<PaInfo> CREATOR = new Parcelable.Creator<PaInfo>() { // from class: com.baidu.android.imsdk.pubaccount.PaInfo.1
         /* JADX DEBUG: Method merged with bridge method */

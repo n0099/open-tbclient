@@ -7,17 +7,17 @@ import android.view.View;
 import com.baidu.tbadk.TbSingleton;
 /* loaded from: classes.dex */
 public class k {
+    private h Bg;
+    private l Bh;
+    private float Bi;
+    private int Bj;
+    private com.baidu.tbadk.n.a.a Bk;
     private int mCurrentPosition;
     private float mLastX;
-    private float mLastY;
     private int mOrientation;
     private RecyclerView mRecyclerView;
     private VelocityTracker mVelocityTracker;
-    private h yD;
-    private l yE;
-    private int yF;
-    private com.baidu.tbadk.p.a.a yG;
-    private RecyclerView.OnChildAttachStateChangeListener yH = new RecyclerView.OnChildAttachStateChangeListener() { // from class: com.baidu.adp.widget.ListView.k.1
+    private RecyclerView.OnChildAttachStateChangeListener Bl = new RecyclerView.OnChildAttachStateChangeListener() { // from class: com.baidu.adp.widget.ListView.k.1
         @Override // android.support.v7.widget.RecyclerView.OnChildAttachStateChangeListener
         public void onChildViewAttachedToWindow(View view) {
             k.this.C(view);
@@ -31,12 +31,12 @@ public class k {
     private RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.adp.widget.ListView.k.2
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            k.this.ak(i);
+            k.this.an(i);
         }
 
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-            k.this.k(i, i2);
+            k.this.m(i, i2);
         }
     };
     private RecyclerView.OnItemTouchListener mOnItemTouchListener = new RecyclerView.OnItemTouchListener() { // from class: com.baidu.adp.widget.ListView.k.3
@@ -46,8 +46,8 @@ public class k {
             if (actionMasked == 0) {
                 k.this.mRecyclerView.stopScroll();
                 k.this.mLastX = motionEvent.getX();
-                k.this.mLastY = motionEvent.getY();
-                k.this.mCurrentPosition = k.this.mRecyclerView.getChildAdapterPosition(k.this.findChildViewUnder(k.this.mLastX, k.this.mLastY));
+                k.this.Bi = motionEvent.getY();
+                k.this.mCurrentPosition = k.this.mRecyclerView.getChildAdapterPosition(k.this.findChildViewUnder(k.this.mLastX, k.this.Bi));
                 if (k.this.mVelocityTracker == null) {
                     k.this.mVelocityTracker = VelocityTracker.obtain();
                 }
@@ -56,20 +56,20 @@ public class k {
             } else if (actionMasked == 2) {
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
-                int i = (k.this.mOrientation == 2 ? y - k.this.mLastY : x - k.this.mLastX) >= 0.0f ? 2 : 1;
-                if (i != k.this.yF) {
-                    k.this.yF = i;
+                int i = (k.this.mOrientation == 2 ? y - k.this.Bi : x - k.this.mLastX) >= 0.0f ? 2 : 1;
+                if (i != k.this.Bj) {
+                    k.this.Bj = i;
                     k.this.mVelocityTracker.clear();
                 }
                 k.this.mVelocityTracker.addMovement(motionEvent);
                 k.this.mVelocityTracker.computeCurrentVelocity(50);
-                k.this.m(k.this.mVelocityTracker.getXVelocity(), k.this.mVelocityTracker.getYVelocity());
+                k.this.l(k.this.mVelocityTracker.getXVelocity(), k.this.mVelocityTracker.getYVelocity());
                 k.this.mLastX = x;
-                k.this.mLastY = y;
+                k.this.Bi = y;
                 return false;
             } else if (actionMasked == 3 || actionMasked == 1) {
                 k.this.mLastX = 0.0f;
-                k.this.mLastY = 0.0f;
+                k.this.Bi = 0.0f;
                 k.this.mVelocityTracker.clear();
                 return false;
             } else {
@@ -87,8 +87,8 @@ public class k {
     };
 
     public k(i iVar) {
-        this.yD = new h(iVar);
-        this.yE = new l(iVar);
+        this.Bg = new h(iVar);
+        this.Bh = new l(iVar);
     }
 
     public void a(RecyclerView recyclerView, int i) {
@@ -96,78 +96,78 @@ public class k {
             if (this.mRecyclerView != null) {
                 this.mRecyclerView.removeOnItemTouchListener(this.mOnItemTouchListener);
                 this.mRecyclerView.removeOnScrollListener(this.mOnScrollListener);
-                this.mRecyclerView.removeOnChildAttachStateChangeListener(this.yH);
+                this.mRecyclerView.removeOnChildAttachStateChangeListener(this.Bl);
             }
             this.mRecyclerView = recyclerView;
             this.mOrientation = i;
             if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-                this.yE.a((BdTypeRecyclerView) this.mRecyclerView, this.mOrientation);
+                this.Bh.a((BdTypeRecyclerView) this.mRecyclerView, this.mOrientation);
             } else {
-                this.yD.a(this.mRecyclerView, this.mOrientation);
+                this.Bg.a(this.mRecyclerView, this.mOrientation);
             }
             this.mRecyclerView.addOnItemTouchListener(this.mOnItemTouchListener);
             this.mRecyclerView.addOnScrollListener(this.mOnScrollListener);
-            this.mRecyclerView.addOnChildAttachStateChangeListener(this.yH);
+            this.mRecyclerView.addOnChildAttachStateChangeListener(this.Bl);
         }
     }
 
-    public void jU() {
+    public void kl() {
         if (this.mRecyclerView != null) {
             this.mRecyclerView.removeOnItemTouchListener(this.mOnItemTouchListener);
             this.mRecyclerView.removeOnScrollListener(this.mOnScrollListener);
-            this.mRecyclerView.removeOnChildAttachStateChangeListener(this.yH);
+            this.mRecyclerView.removeOnChildAttachStateChangeListener(this.Bl);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m(float f, float f2) {
+    public void l(float f, float f2) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.yE.a(f, f2, this.mCurrentPosition);
+            this.Bh.a(f, f2, this.mCurrentPosition);
         }
-        this.yD.a(f, f2, this.mCurrentPosition);
+        this.Bg.a(f, f2, this.mCurrentPosition);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k(int i, int i2) {
+    public void m(int i, int i2) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.yE.i(i, i2, this.mCurrentPosition);
+            this.Bh.i(i, i2, this.mCurrentPosition);
         }
-        this.yD.i(i, i2, this.mCurrentPosition);
+        this.Bg.i(i, i2, this.mCurrentPosition);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ak(int i) {
+    public void an(int i) {
         if (i == 1) {
             if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-                if (this.yG == null) {
-                    this.yG = new com.baidu.tbadk.p.a.a("anim_switch_slide");
+                if (this.Bk == null) {
+                    this.Bk = new com.baidu.tbadk.n.a.a("anim_switch_slide");
                 }
-                this.yG.awS();
+                this.Bk.aOH();
             }
-        } else if (i == 0 && this.yG != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-            this.yG.awT();
+        } else if (i == 0 && this.Bk != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
+            this.Bk.aOI();
         }
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.yE.aj(i);
+            this.Bh.am(i);
         }
-        this.yD.aj(i);
+        this.Bg.am(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void C(View view) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.yE.A(view);
+            this.Bh.A(view);
         } else {
-            this.yD.A(view);
+            this.Bg.A(view);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void D(View view) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.yE.B(view);
+            this.Bh.B(view);
         } else {
-            this.yD.B(view);
+            this.Bg.B(view);
         }
     }
 

@@ -16,7 +16,7 @@ public class r extends c<String> {
             hashCode *= -1;
         }
         String str2 = "cache_kv_t" + hashCode;
-        this.nn.execSQLNoException("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.pN.execSQLNoException("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
         return str2;
     }
 
@@ -45,14 +45,14 @@ public class r extends c<String> {
                     gVar.lastHitTime = cursor.getLong(2);
                     gVar.timeToExpire = cursor.getLong(3);
                     gVar.value = cursor.getString(4);
-                    com.baidu.adp.lib.g.a.close(cursor);
+                    com.baidu.adp.lib.f.a.close(cursor);
                 } else {
-                    com.baidu.adp.lib.g.a.close(cursor);
+                    com.baidu.adp.lib.f.a.close(cursor);
                 }
                 return gVar;
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.adp.lib.g.a.close(cursor);
+                com.baidu.adp.lib.f.a.close(cursor);
                 throw th;
             }
         } catch (Throwable th3) {
@@ -79,7 +79,7 @@ public class r extends c<String> {
 
     @Override // com.baidu.adp.lib.cache.c
     protected boolean clearData(String str) {
-        this.nn.execSQLNoException("DROP TABLE IF EXISTS " + this.tableName);
+        this.pN.execSQLNoException("DROP TABLE IF EXISTS " + this.tableName);
         return true;
     }
 }

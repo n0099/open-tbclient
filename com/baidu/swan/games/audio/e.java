@@ -4,42 +4,42 @@ import android.util.Log;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class e extends com.baidu.swan.apps.media.audio.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private EventTargetImpl bxt;
-    private b bxu;
+    private EventTargetImpl cfE;
+    private b cfF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
         super(null, jSONObject);
-        this.bxt = eventTargetImpl;
+        this.cfE = eventTargetImpl;
     }
 
     public void a(b bVar) {
-        this.bxu = bVar;
+        this.cfF = bVar;
     }
 
     @Override // com.baidu.swan.apps.media.audio.b.a
-    public void f(String str, JSONObject jSONObject) {
-        String optString = this.aVm.optString(str);
-        if (this.bxu != null) {
-            this.bxu.f(optString, jSONObject);
+    public void d(String str, JSONObject jSONObject) {
+        String optString = this.bwu.optString(str);
+        if (this.cfF != null) {
+            this.cfF.d(optString, jSONObject);
         }
-        if (this.bxt.hasEventListener(optString)) {
+        if (this.cfE.hasEventListener(optString)) {
             JSEvent jSEvent = new JSEvent(optString);
             if (jSONObject != null) {
                 jSEvent.data = jSONObject;
             }
-            if (DEBUG) {
-                Log.e("AudioCallbackForV8", "type = " + str + "  result = " + (jSONObject != null ? jSONObject.toString() : "null"));
+            if (DEBUG && !"onTimeUpdate".equals(str)) {
+                Log.d("AudioCallbackForV8", "type = " + str + "  result = " + (jSONObject != null ? jSONObject.toString() : "null"));
             }
-            this.bxt.dispatchEvent(jSEvent);
+            this.cfE.dispatchEvent(jSEvent);
         }
     }
 
     @Override // com.baidu.swan.apps.media.audio.b.a
-    public boolean Mc() {
+    public boolean UD() {
         return true;
     }
 }

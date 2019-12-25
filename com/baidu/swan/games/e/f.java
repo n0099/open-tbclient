@@ -1,33 +1,44 @@
 package com.baidu.swan.games.e;
 
 import android.support.annotation.NonNull;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-/* loaded from: classes2.dex */
-public final class f {
-    public static a a(g gVar, com.baidu.swan.games.e.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        a b = b(gVar, bVar, v8ThreadDelegatePolicy);
-        b.a(new com.baidu.swan.games.e.a.b(b));
-        b.a(new com.baidu.swan.games.e.a.c(b));
-        b.Wx();
-        return b;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+/* loaded from: classes9.dex */
+public class f extends com.baidu.swan.games.e.a {
+    public f(@NonNull String str) {
+        super("worker", new a(str), null);
     }
 
-    private static a b(g gVar, com.baidu.swan.games.e.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        h a = a(gVar);
-        a a2 = a.a(gVar.getID(), bVar, v8ThreadDelegatePolicy);
-        a2.setUserAgent(a.getUserAgent());
-        return a2;
+    @Override // com.baidu.swan.games.e.a
+    public EventTarget akG() {
+        return null;
     }
 
-    @NonNull
-    private static h a(g gVar) {
-        switch (gVar.getType()) {
-            case 1:
-                return new com.baidu.swan.apps.l.a();
-            case 2:
-                return new com.baidu.swan.apps.l.b();
-            default:
-                throw new IllegalArgumentException("invalid model object:" + gVar);
+    @Override // com.baidu.swan.games.e.a
+    public EventTarget akH() {
+        return null;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.TypedCallbackHandler
+    public int getInvokeSourceType() {
+        return 1;
+    }
+
+    /* loaded from: classes9.dex */
+    private static class a extends com.baidu.swan.games.e.d.a {
+        private String mBasePath;
+
+        public a(String str) {
+            this.mBasePath = str;
+        }
+
+        @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
+        public String getInitBasePath() {
+            return this.mBasePath;
+        }
+
+        @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
+        public String Mt() {
+            return "swan-game-worker.js";
         }
     }
 }

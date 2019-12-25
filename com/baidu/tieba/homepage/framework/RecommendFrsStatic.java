@@ -9,7 +9,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
 import com.baidu.tieba.homepage.personalize.bigday.BigdayActivity;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RecommendFrsStatic {
     static {
         MessageManager messageManager = MessageManager.getInstance();

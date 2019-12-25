@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.pubaccount.request;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
@@ -16,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMPaSubscribedListMsg extends Message {
     private Context mContext;
 
@@ -80,7 +79,7 @@ public class IMPaSubscribedListMsg extends Message {
                         paInfo.setAcceptPush(optBoolean);
                         paInfo.setUrl(optString3);
                         paInfo.setDetail(jSONObject2.optString("detail_description"));
-                        paInfo.setTPL(jSONObject2.optLong(TableDefine.PaSubscribeColumns.COLUMN_TPL, -1L));
+                        paInfo.setTPL(jSONObject2.optLong("tpl", -1L));
                         paInfo.setStatus(jSONObject2.optInt("status"));
                         list.add(paInfo);
                         i2++;

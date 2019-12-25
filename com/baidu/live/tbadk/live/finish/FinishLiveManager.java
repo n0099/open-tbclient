@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.live.finish;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class FinishLiveManager {
     private IFinishLiveListener mFinishListener;
 
@@ -15,7 +15,7 @@ public class FinishLiveManager {
         return this.mFinishListener;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class InstanceHolder {
         private static final FinishLiveManager sInst = new FinishLiveManager();
     }

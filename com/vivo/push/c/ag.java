@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ag extends aa {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(com.vivo.push.y yVar) {

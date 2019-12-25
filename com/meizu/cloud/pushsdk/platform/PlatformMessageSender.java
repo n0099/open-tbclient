@@ -15,11 +15,11 @@ import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import com.meizu.cloud.pushsdk.util.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PlatformMessageSender {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         String a();
 

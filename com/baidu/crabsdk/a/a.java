@@ -1,35 +1,36 @@
 package com.baidu.crabsdk.a;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class a {
+    private StringBuilder OY = new StringBuilder();
+    public ArrayList<String> OZ = new ArrayList<>();
     private long W;
     private long X;
     private long Y;
     private long Z;
     public static int U = 2000;
     public static int V = 1;
-    static a IB = null;
-    private StringBuilder Iz = new StringBuilder();
-    public ArrayList<String> IA = new ArrayList<>();
+    static a Pa = null;
 
     private a() {
     }
 
     private String f() {
-        Iterator<String> it = this.IA.iterator();
+        Iterator<String> it = this.OZ.iterator();
         while (it.hasNext()) {
             String next = it.next();
             com.baidu.crabsdk.c.a.v("===== stackEntry ===== \n" + next);
-            this.Iz.append(next);
+            this.OY.append(next);
             String[] split = next.split("\r\n");
             if (split != null && split.length > 0) {
                 for (String str : split) {
-                    if (str != null && str.length() > 0 && Character.isLetter(str.charAt(0)) && !str.startsWith("com.baidu.crabsdk") && !str.startsWith("com.android") && !str.startsWith("java") && !str.startsWith("android") && !str.startsWith("libcore") && !str.startsWith("dalvik.system") && !str.startsWith("sun") && !str.startsWith("com.google.android") && !str.startsWith("Reflection")) {
+                    if (str != null && str.length() > 0 && Character.isLetter(str.charAt(0)) && !str.startsWith("com.baidu.crabsdk") && !str.startsWith("com.android") && !str.startsWith("java") && !str.startsWith(PraiseDataPassUtil.KEY_FROM_OS) && !str.startsWith("libcore") && !str.startsWith("dalvik.system") && !str.startsWith("sun") && !str.startsWith("com.google.android") && !str.startsWith("Reflection")) {
                         return str;
                     }
                 }
@@ -43,15 +44,15 @@ public final class a {
         return U * 0.6f;
     }
 
-    public static a mh() {
-        if (IB == null) {
+    public static a nq() {
+        if (Pa == null) {
             synchronized (a.class) {
-                if (IB == null) {
-                    IB = new a();
+                if (Pa == null) {
+                    Pa = new a();
                 }
             }
         }
-        return IB;
+        return Pa;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
@@ -78,10 +79,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.Iz.toString());
+        hashMap.put("errorTrace", this.OY.toString());
         hashMap.put("errorLine", f);
         hashMap.put("errorOriLine", f);
-        this.Iz.setLength(0);
+        this.OY.setLength(0);
         return hashMap;
     }
 }

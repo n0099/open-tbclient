@@ -5,6 +5,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.framework.FrameHelper;
 import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,7 +13,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     private static final String KEY_COOKIE = "Cookie";
     private Comparator<Map.Entry<String, Object>> mComparator;
@@ -22,7 +23,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     private String mUserAgent;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum SORT {
         ASCEND,
         DESCEND,
@@ -203,7 +204,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class ParamsComparator implements Comparator<Map.Entry<String, Object>> {
         private SORT mSort;
 
@@ -242,7 +243,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         HashMap hashMap = new HashMap();
         if (str != null && str2 != null) {
             for (String str3 : str.split(str2)) {
-                int indexOf = str3.indexOf("=");
+                int indexOf = str3.indexOf(ETAG.EQUAL);
                 if (indexOf != -1) {
                     String trim = str3.substring(0, indexOf).trim();
                     String trim2 = str3.substring(indexOf + 1).trim();

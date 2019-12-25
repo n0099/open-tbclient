@@ -12,7 +12,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.live.tbadk.widget.largeimage.atomskeleton.BlockBitmap;
 import com.baidu.live.tbadk.widget.largeimage.tools.BlockBitmapObjectFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TbImageMemoryCache {
     private static TbImageMemoryCache mInstance = new TbImageMemoryCache();
     private BdCache<String, Bitmap> mBitmap;

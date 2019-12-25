@@ -9,7 +9,7 @@ import android.os.Build;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
-import com.baidu.adp.lib.g.f;
+import com.baidu.adp.lib.f.f;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class BdSocketDaemonService extends BdBaseService {

@@ -6,7 +6,7 @@ import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.ala.livePlayer.StreamConfig;
+import com.baidu.ala.player.StreamConfig;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -15,14 +15,14 @@ import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IMediaFormat;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends d {
-    private long jBI;
+    private long kvy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str) {
         super(str);
-        this.jBI = 88200L;
+        this.kvy = 88200L;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:106:0x0253 A[SYNTHETIC] */
@@ -34,7 +34,7 @@ public class a extends d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void Fc(String str) {
+    public void JO(String str) {
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
         int i;
@@ -50,14 +50,14 @@ public class a extends d {
         FileInputStream fileInputStream2 = null;
         FileOutputStream fileOutputStream2 = null;
         try {
-            if (this.aVS == 0) {
-                this.aVS = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+            if (this.sampleRate == 0) {
+                this.sampleRate = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
             }
             if (this.channelCount == 0) {
                 this.channelCount = 1;
             }
-            this.jBI = (this.aVS * 16) / 8;
-            fileInputStream = new FileInputStream(this.jBN);
+            this.kvy = (this.sampleRate * 16) / 8;
+            fileInputStream = new FileInputStream(this.kvD);
             try {
                 fileOutputStream = new FileOutputStream(str);
             } catch (Exception e) {
@@ -75,10 +75,10 @@ public class a extends d {
             fileInputStream = null;
         }
         try {
-            MediaCodec cur = cur();
-            cur.start();
-            ByteBuffer[] inputBuffers = cur.getInputBuffers();
-            ByteBuffer[] outputBuffers = cur.getOutputBuffers();
+            MediaCodec cOn = cOn();
+            cOn.start();
+            ByteBuffer[] inputBuffers = cOn.getInputBuffers();
+            ByteBuffer[] outputBuffers = cOn.getOutputBuffers();
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
             long j3 = 0;
             long j4 = 0;
@@ -90,7 +90,7 @@ public class a extends d {
             byte[] bArr2 = new byte[4096];
             boolean z6 = false;
             while (!z4) {
-                if (z5 || (dequeueInputBuffer = cur.dequeueInputBuffer(10000L)) < 0) {
+                if (z5 || (dequeueInputBuffer = cOn.dequeueInputBuffer(10000L)) < 0) {
                     i = i4;
                     bArr = bArr2;
                     z = z6;
@@ -110,7 +110,7 @@ public class a extends d {
                         z3 = i3 == -1 ? true : z6;
                     }
                     if (z3) {
-                        cur.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                        cOn.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
                         i2 = i3;
                         bArr = bArr3;
                         z = z3;
@@ -121,20 +121,20 @@ public class a extends d {
                     } else {
                         byteBuffer.put(bArr3, 0, i3);
                         int i7 = i4 + i3;
-                        cur.queueInputBuffer(dequeueInputBuffer, 0, i3, j4, 0);
+                        cOn.queueInputBuffer(dequeueInputBuffer, 0, i3, j4, 0);
                         i = i7;
                         i2 = i3;
                         bArr = bArr3;
                         z = z3;
-                        j = (long) ((1000000.0d * (i7 / 2.0d)) / this.jBI);
+                        j = (long) ((1000000.0d * (i7 / 2.0d)) / this.kvy);
                         z2 = z5;
                     }
                 }
-                int dequeueOutputBuffer = cur.dequeueOutputBuffer(bufferInfo, 10000L);
+                int dequeueOutputBuffer = cOn.dequeueOutputBuffer(bufferInfo, 10000L);
                 if (dequeueOutputBuffer >= 0) {
                     if ((bufferInfo.flags & 2) != 0) {
                         BdLog.i("audio encoder: codec config buffer");
-                        cur.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        cOn.releaseOutputBuffer(dequeueOutputBuffer, false);
                         i5 = i2;
                         bArr2 = bArr;
                         j4 = j;
@@ -157,7 +157,7 @@ public class a extends d {
                                 byteBuffer2.get(bArr4, 7, i8);
                                 fileOutputStream.write(bArr4, 0, bArr4.length);
                                 BdLog.i(bArr4.length + " bytes written.");
-                                cur.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                cOn.releaseOutputBuffer(dequeueOutputBuffer, false);
                                 if ((bufferInfo.flags & 4) == 0) {
                                     j4 = j;
                                     z4 = true;
@@ -181,7 +181,7 @@ public class a extends d {
                             }
                         }
                         j2 = j3;
-                        cur.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        cOn.releaseOutputBuffer(dequeueOutputBuffer, false);
                         if ((bufferInfo.flags & 4) == 0) {
                         }
                     }
@@ -189,12 +189,12 @@ public class a extends d {
                     bArr2 = bArr;
                     j4 = j;
                     z5 = z2;
-                    byteBufferArr = cur.getOutputBuffers();
+                    byteBufferArr = cOn.getOutputBuffers();
                     i5 = i2;
                     i4 = i;
                     z6 = z;
                 } else if (dequeueOutputBuffer == -2) {
-                    BdLog.i("format change : " + cur.getOutputFormat());
+                    BdLog.i("format change : " + cOn.getOutputFormat());
                     i5 = i2;
                     bArr2 = bArr;
                     j4 = j;
@@ -267,26 +267,26 @@ public class a extends d {
     }
 
     @TargetApi(16)
-    private MediaCodec cur() throws IOException {
+    private MediaCodec cOn() throws IOException {
         MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
         MediaFormat mediaFormat = new MediaFormat();
         mediaFormat.setString(IMediaFormat.KEY_MIME, "audio/mp4a-latm");
         mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, 128000);
         mediaFormat.setInteger("channel-count", this.channelCount);
-        mediaFormat.setInteger("sample-rate", this.aVS);
+        mediaFormat.setInteger("sample-rate", this.sampleRate);
         mediaFormat.setInteger("aac-profile", 2);
         createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
         return createEncoderByType;
     }
 
     private void g(byte[] bArr, int i) {
-        int[] iArr = {96000, 88200, 64000, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 24000, 22050, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_16K, 12000, RequestResponseCode.REQUEST_LOGIN_PB_AT, 8000, 7350};
+        int[] iArr = {96000, 88200, 64000, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 24000, 22050, 16000, 12000, RequestResponseCode.REQUEST_LOGIN_PB_AT, 8000, 7350};
         int i2 = 0;
         while (true) {
             if (i2 >= iArr.length) {
                 i2 = 4;
                 break;
-            } else if (iArr[i2] == this.aVS) {
+            } else if (iArr[i2] == this.sampleRate) {
                 break;
             } else {
                 i2++;

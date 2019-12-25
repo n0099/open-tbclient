@@ -1,12 +1,31 @@
 package com.baidu.swan.games.h.a;
 
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes2.dex */
+import android.webkit.JavascriptInterface;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+/* loaded from: classes9.dex */
 public class c {
-    public static boolean kf(String str) {
-        return TextUtils.equals(PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("KEY_DEBUG_SWAN_GAME_CORE_MODE", IXAdSystemUtils.NT_NONE), str);
+    private int cjK;
+    @V8JavascriptField
+    public String digest;
+    @V8JavascriptField
+    public String errMsg;
+    private int mID;
+    @V8JavascriptField
+    public int size;
+
+    public c() {
+        this.cjK = 0;
+        int i = this.cjK;
+        this.cjK = i + 1;
+        this.mID = i;
+    }
+
+    @JavascriptInterface
+    public int jsObjectID() {
+        return this.mID;
+    }
+
+    public String toString() {
+        return "GetFileInfoCallBack" + this.mID;
     }
 }

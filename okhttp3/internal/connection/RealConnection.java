@@ -1,14 +1,16 @@
 package okhttp3.internal.connection;
 
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.google.android.exoplayer2.Format;
 import java.io.IOException;
 import java.lang.ref.Reference;
 import java.net.ConnectException;
+import java.net.ProtocolException;
 import java.net.Proxy;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownServiceException;
+import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,7 @@ import okhttp3.ConnectionPool;
 import okhttp3.ConnectionSpec;
 import okhttp3.EventListener;
 import okhttp3.Handshake;
+import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -50,7 +53,7 @@ import okio.BufferedSource;
 import okio.Okio;
 import okio.Source;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class RealConnection extends Http2Connection.Listener implements Connection {
     private static final int MAX_TUNNEL_ATTEMPTS = 21;
     private static final String NPE_THROW_WITH_NULL = "throw with null exception";
@@ -67,7 +70,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     public int successCount;
     public int allocationLimit = 1;
     public final List<Reference<StreamAllocation>> allocations = new ArrayList();
-    public long idleAtNanos = Long.MAX_VALUE;
+    public long idleAtNanos = Format.OFFSET_SAMPLE_RELATIVE;
 
     public RealConnection(ConnectionPool connectionPool, Route route) {
         this.connectionPool = connectionPool;
@@ -81,40 +84,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         return realConnection;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0099, code lost:
-        if (r8.route.requiresTunnel() == false) goto L31;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x009d, code lost:
-        if (r8.rawSocket != null) goto L31;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00ac, code lost:
-        throw new okhttp3.internal.connection.RouteException(new java.net.ProtocolException("Too many tunnel connections attempted: 21"));
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x0131, code lost:
-        if (r8.http2Connection == null) goto L43;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0133, code lost:
-        r1 = r8.connectionPool;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x0135, code lost:
-        monitor-enter(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x0136, code lost:
-        r8.allocationLimit = r8.http2Connection.maxConcurrentStreams();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x013e, code lost:
-        monitor-exit(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x013f, code lost:
-        return;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:64:?, code lost:
-        return;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void connect(int i, int i2, int i3, int i4, boolean z, Call call, EventListener eventListener) {
+    public void connect(int i, int i2, int i3, int i4, boolean z, Call call, EventListener eventListener, Request request) {
         RouteException routeException;
         if (this.protocol != null) {
             throw new IllegalStateException("already connected");
@@ -137,7 +107,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             try {
                 routeException = routeException2;
                 if (this.route.requiresTunnel()) {
-                    connectTunnel(i, i2, i3, call, eventListener);
+                    connectTunnel(i, i2, i3, call, eventListener, request);
                     if (this.rawSocket == null) {
                         break;
                     }
@@ -169,11 +139,18 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                 }
             }
         }
-        throw routeException2;
+        if (this.route.requiresTunnel() && this.rawSocket == null) {
+            throw new RouteException(new ProtocolException("Too many tunnel connections attempted: 21"));
+        }
+        if (this.http2Connection != null) {
+            synchronized (this.connectionPool) {
+                this.allocationLimit = this.http2Connection.maxConcurrentStreams();
+            }
+        }
     }
 
-    private void connectTunnel(int i, int i2, int i3, Call call, EventListener eventListener) throws IOException {
-        Request createTunnelRequest = createTunnelRequest();
+    private void connectTunnel(int i, int i2, int i3, Call call, EventListener eventListener, Request request) throws IOException {
+        Request createTunnelRequest = createTunnelRequest(request);
         HttpUrl url = createTunnelRequest.url();
         for (int i4 = 0; i4 < 21; i4++) {
             connectSocket(i, i2, call, eventListener);
@@ -191,15 +168,8 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     }
 
     private void connectSocket(int i, int i2, Call call, EventListener eventListener) throws IOException {
-        Socket createSocket;
         Proxy proxy = this.route.proxy();
-        Address address = this.route.address();
-        if (proxy.type() == Proxy.Type.DIRECT || proxy.type() == Proxy.Type.HTTP) {
-            createSocket = address.socketFactory().createSocket();
-        } else {
-            createSocket = new Socket(proxy);
-        }
-        this.rawSocket = createSocket;
+        this.rawSocket = (proxy.type() == Proxy.Type.DIRECT || proxy.type() == Proxy.Type.HTTP) ? this.route.address().socketFactory().createSocket() : new Socket(proxy);
         eventListener.connectStart(call, this.route.socketAddress(), proxy);
         this.rawSocket.setSoTimeout(i2);
         try {
@@ -247,17 +217,16 @@ public final class RealConnection extends Http2Connection.Listener implements Co
 
     private void connectTls(ConnectionSpecSelector connectionSpecSelector) throws IOException {
         SSLSocket sSLSocket;
-        Protocol protocol;
         SSLSocket sSLSocket2 = null;
         Address address = this.route.address();
         try {
             try {
                 sSLSocket = (SSLSocket) address.sslSocketFactory().createSocket(this.rawSocket, address.url().host(), address.url().port(), true);
-            } catch (AssertionError e) {
-                e = e;
+            } catch (Throwable th) {
+                th = th;
             }
-        } catch (Throwable th) {
-            th = th;
+        } catch (AssertionError e) {
+            e = e;
         }
         try {
             ConnectionSpec configureSecureSocket = connectionSpecSelector.configureSecureSocket(sSLSocket);
@@ -266,10 +235,17 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             }
             sSLSocket.startHandshake();
             SSLSession session = sSLSocket.getSession();
+            if (!isValid(session)) {
+                throw new IOException("a valid ssl session was not established");
+            }
             Handshake handshake = Handshake.get(session);
             if (!address.hostnameVerifier().verify(address.url().host(), session)) {
-                X509Certificate x509Certificate = (X509Certificate) handshake.peerCertificates().get(0);
-                throw new SSLPeerUnverifiedException("Hostname " + address.url().host() + " not verified:\n    certificate: " + CertificatePinner.pin(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + OkHostnameVerifier.allSubjectAltNames(x509Certificate));
+                List<Certificate> peerCertificates = handshake.peerCertificates();
+                if (!peerCertificates.isEmpty()) {
+                    X509Certificate x509Certificate = (X509Certificate) peerCertificates.get(0);
+                    throw new SSLPeerUnverifiedException("Hostname " + address.url().host() + " not verified:\n    certificate: " + CertificatePinner.pin(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + OkHostnameVerifier.allSubjectAltNames(x509Certificate));
+                }
+                throw new SSLPeerUnverifiedException("Hostname " + address.url().host() + " not verified, no certificates provided");
             }
             address.certificatePinner().check(address.url().host(), handshake.peerCertificates());
             String selectedProtocol = configureSecureSocket.supportsTlsExtensions() ? Platform.get().getSelectedProtocol(sSLSocket) : null;
@@ -277,12 +253,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             this.source = Okio.buffer(Okio.source(this.socket));
             this.sink = Okio.buffer(Okio.sink(this.socket));
             this.handshake = handshake;
-            if (selectedProtocol != null) {
-                protocol = Protocol.get(selectedProtocol);
-            } else {
-                protocol = Protocol.HTTP_1_1;
-            }
-            this.protocol = protocol;
+            this.protocol = selectedProtocol != null ? Protocol.get(selectedProtocol) : Protocol.HTTP_1_1;
             if (sSLSocket != null) {
                 Platform.get().afterHandshake(sSLSocket);
             }
@@ -301,6 +272,10 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             Util.closeQuietly((Socket) sSLSocket2);
             throw th;
         }
+    }
+
+    private boolean isValid(SSLSession sSLSession) {
+        return ("NONE".equals(sSLSession.getProtocol()) || "SSL_NULL_WITH_NULL_NULL".equals(sSLSession.getCipherSuite())) ? false : true;
     }
 
     private Request createTunnel(int i, int i2, Request request, HttpUrl httpUrl) throws IOException {
@@ -340,8 +315,18 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         return request;
     }
 
-    private Request createTunnelRequest() {
-        return new Request.Builder().url(this.route.address().url()).header(HTTP.TARGET_HOST, Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header(HTTP.USER_AGENT, Version.userAgent()).build();
+    private Request createTunnelRequest(Request request) {
+        Request.Builder header = new Request.Builder().url(this.route.address().url()).header("Host", Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header("User-Agent", Version.userAgent());
+        addProxyHeaders(header, request);
+        return header.build();
+    }
+
+    private void addProxyHeaders(Request.Builder builder, Request request) {
+        Headers proxyHeaders = request.proxyHeaders();
+        int size = proxyHeaders.size();
+        for (int i = 0; i < size; i++) {
+            builder.header(proxyHeaders.name(i), proxyHeaders.value(i));
+        }
     }
 
     public boolean isEligible(Address address, @Nullable Route route) {
@@ -460,6 +445,6 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     }
 
     public String toString() {
-        return "Connection{" + this.route.address().url().host() + ":" + this.route.address().url().port() + ", proxy=" + this.route.proxy() + " hostAddress=" + this.route.socketAddress() + " cipherSuite=" + (this.handshake != null ? this.handshake.cipherSuite() : IXAdSystemUtils.NT_NONE) + " protocol=" + this.protocol + '}';
+        return "Connection{" + this.route.address().url().host() + ":" + this.route.address().url().port() + ", proxy=" + this.route.proxy() + " hostAddress=" + this.route.socketAddress() + " cipherSuite=" + (this.handshake != null ? this.handshake.cipherSuite() : "none") + " protocol=" + this.protocol + '}';
     }
 }

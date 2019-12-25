@@ -1,16 +1,15 @@
 package com.vivo.push;
 
 import android.content.Intent;
-import com.coloros.mcssdk.mode.CommandMessage;
 import com.vivo.push.c.ah;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class o implements IPushClientFactory {
     private ah a = new ah();
 
     @Override // com.vivo.push.IPushClientFactory
     public final y createReceiverCommand(Intent intent) {
         y yVar = null;
-        int intExtra = intent.getIntExtra(CommandMessage.COMMAND, -1);
+        int intExtra = intent.getIntExtra("command", -1);
         if (intExtra < 0) {
             intExtra = intent.getIntExtra("method", -1);
         }

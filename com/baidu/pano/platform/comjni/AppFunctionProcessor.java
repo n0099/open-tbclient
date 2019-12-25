@@ -12,6 +12,7 @@ import com.baidu.pano.platform.c.f;
 import com.baidu.pano.platform.c.g;
 import com.baidu.pano.platform.c.h;
 import com.baidu.pano.platform.c.i;
+import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes5.dex */
 public class AppFunctionProcessor {
     public static Object doGetSync(Object obj, String str) {
@@ -20,7 +21,7 @@ public class AppFunctionProcessor {
         }
         g.a("url:" + str);
         if (isPanoramaRequest(str)) {
-            str = str + "&" + f.a((Context) obj).toString();
+            str = str + ETAG.ITEM_SEPARATOR + f.a((Context) obj).toString();
         }
         g.a("finalUrl:" + str);
         return c.a((Context) obj).a(str);

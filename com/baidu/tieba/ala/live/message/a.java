@@ -3,12 +3,12 @@ package com.baidu.tieba.ala.live.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.av;
+import com.baidu.live.data.be;
 import com.baidu.live.tbadk.TbConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a extends HttpMessage {
     public a() {
-        super(1003029);
+        super(1003411);
     }
 
     public void a(int i, int i2, String str, int i3, int i4, int i5, String str2, String str3, String str4) {
@@ -25,14 +25,14 @@ public class a extends HttpMessage {
             i6 = 0;
         }
         addParam("no_wechat", i6);
-        av avVar = new av();
-        avVar.props_id = JavaTypesHelper.toInt(str, 0);
-        avVar.new_props_id = str;
-        avVar.Vb = i3;
-        avVar.Vc = i4;
-        avVar.wars_name = "";
-        avVar.wars_item = "";
-        addParam("wares", avVar.toJson());
+        be beVar = new be();
+        beVar.props_id = JavaTypesHelper.toInt(str, 0);
+        beVar.new_props_id = str;
+        beVar.money = i3;
+        beVar.acy = i4;
+        beVar.wars_name = "";
+        beVar.wars_item = "";
+        addParam("wares", beVar.toJson());
         if (!StringUtils.isNull(str3)) {
             addParam("refer_page", str3);
         }

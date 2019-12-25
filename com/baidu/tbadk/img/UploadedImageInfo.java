@@ -6,6 +6,10 @@ import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class UploadedImageInfo implements Serializable {
+    private static final String POST_BJH_FORMAT = "#(pic_bos,%s,%d,%d,%b)";
+    private static final String POST_FORMAT = "#(pic,%s,%d,%d)";
+    public boolean isBJH;
+    public boolean isGif;
     private String pic_id = null;
     private int width = 0;
     private int height = 0;
@@ -14,7 +18,10 @@ public class UploadedImageInfo implements Serializable {
         if (this.pic_id == null) {
             return "";
         }
-        return String.format("#(pic,%s,%d,%d)", this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height));
+        if (this.isBJH) {
+            return String.format(POST_BJH_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), Boolean.valueOf(this.isGif));
+        }
+        return String.format(POST_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height));
     }
 
     public String toString() {

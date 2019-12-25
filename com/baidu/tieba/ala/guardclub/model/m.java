@@ -3,10 +3,10 @@ package com.baidu.tieba.ala.guardclub.model;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import com.baidu.mobstat.Config;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class m extends HttpMessage {
-    private long Of;
-    private int dNr;
+    private long Vc;
+    private int eBz;
     private int pn;
     private int ps;
 
@@ -14,7 +14,7 @@ public class m extends HttpMessage {
         super(1021138);
         this.ps = 20;
         this.pn = 1;
-        this.dNr = 2;
+        this.eBz = 2;
     }
 
     public void setPs(int i) {
@@ -25,15 +25,15 @@ public class m extends HttpMessage {
         this.pn = i;
     }
 
-    public void bZ(long j) {
-        this.Of = j;
+    public void cu(long j) {
+        this.Vc = j;
     }
 
     public void setParams() {
-        addParam("scene_from", com.baidu.live.utils.o.wu());
+        addParam("scene_from", com.baidu.live.utils.p.yu());
         addParam("ps", this.ps);
         addParam(Config.PACKAGE_NAME, this.pn);
-        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.Of + ""));
-        addParam("client_type", this.dNr);
+        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.Vc + ""));
+        addParam("client_type", this.eBz);
     }
 }

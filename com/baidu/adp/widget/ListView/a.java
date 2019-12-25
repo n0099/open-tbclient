@@ -15,12 +15,12 @@ import com.baidu.adp.widget.ListView.v.a;
 public abstract class a<T, V extends v.a> {
     protected Context mContext;
     protected BdUniqueId mPageId;
-    protected s xj;
-    protected t xk;
-    protected BdUniqueId xl;
-    private q<m> xm;
-    protected V xn;
-    private com.baidu.adp.widget.a.a xo = new com.baidu.adp.widget.a.a();
+    protected s zH;
+    protected t zI;
+    protected BdUniqueId zJ;
+    private q<m> zK;
+    protected V zL;
+    private com.baidu.adp.widget.a.a zM = new com.baidu.adp.widget.a.a();
 
     protected abstract View a(int i, View view, ViewGroup viewGroup, T t, V v);
 
@@ -29,13 +29,13 @@ public abstract class a<T, V extends v.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.xl = bdUniqueId;
+        this.zJ = bdUniqueId;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         this.mContext = context;
-        this.xl = bdUniqueId;
+        this.zJ = bdUniqueId;
         this.mPageId = bdUniqueId2;
     }
 
@@ -44,10 +44,10 @@ public abstract class a<T, V extends v.a> {
     public View getView(int i, View view, ViewGroup viewGroup, T t) {
         View view2;
         if (needCreateNewHolder(view)) {
-            this.xn = (V) b(viewGroup);
-            view2 = this.xn.getView();
+            this.zL = (V) b(viewGroup);
+            view2 = this.zL.getView();
             if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.i("convertView is creating" + this.xn.getClass().getName());
+                BdLog.i("convertView is creating" + this.zL.getClass().getName());
             }
         } else {
             view2 = view;
@@ -56,7 +56,7 @@ public abstract class a<T, V extends v.a> {
     }
 
     private boolean needCreateNewHolder(View view) {
-        return view == null || view.getTag() == null || this.xn == null || !this.xn.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.xn.getClass());
+        return view == null || view.getTag() == null || this.zL == null || !this.zL.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.zL.getClass());
     }
 
     public V a(ViewGroup viewGroup, T t) {
@@ -68,19 +68,19 @@ public abstract class a<T, V extends v.a> {
     }
 
     public void a(s sVar) {
-        this.xj = sVar;
+        this.zH = sVar;
     }
 
-    public s jE() {
-        return this.xj;
+    public s jV() {
+        return this.zH;
     }
 
-    public t jF() {
-        return this.xk;
+    public t jW() {
+        return this.zI;
     }
 
     public BdUniqueId getType() {
-        return this.xl;
+        return this.zJ;
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
@@ -89,18 +89,18 @@ public abstract class a<T, V extends v.a> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(q<m> qVar) {
-        this.xm = qVar;
+        this.zK = qVar;
     }
 
     public void notifyDataSetChanged() {
-        if (this.xm != null) {
-            this.xm.notifyDataSetChanged();
+        if (this.zK != null) {
+            this.zK.notifyDataSetChanged();
         }
     }
 
     public m getItem(int i) {
-        if (this.xm != null) {
-            return this.xm.getItem(i);
+        if (this.zK != null) {
+            return this.zK.getItem(i);
         }
         return null;
     }
@@ -116,10 +116,10 @@ public abstract class a<T, V extends v.a> {
     }
 
     public boolean g(int i, int i2, int i3) {
-        return this.xo.g(i, i2, i3);
+        return this.zM.g(i, i2, i3);
     }
 
-    public boolean ab(int i) {
-        return this.xo.ab(i);
+    public boolean ae(int i) {
+        return this.zM.ae(i);
     }
 }

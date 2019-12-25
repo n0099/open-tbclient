@@ -1,26 +1,26 @@
 package kotlin.jvm.internal;
 
 import java.util.NoSuchElementException;
-import kotlin.collections.ag;
-/* loaded from: classes2.dex */
-final class k extends ag {
+import kotlin.collections.aj;
+/* loaded from: classes4.dex */
+final class k extends aj {
     private int index;
-    private final short[] kvg;
+    private final short[] mZc;
 
     public k(short[] sArr) {
-        p.i(sArr, "array");
-        this.kvg = sArr;
+        p.j(sArr, "array");
+        this.mZc = sArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.kvg.length;
+        return this.index < this.mZc.length;
     }
 
-    @Override // kotlin.collections.ag
-    public short cMR() {
+    @Override // kotlin.collections.aj
+    public short dEL() {
         try {
-            short[] sArr = this.kvg;
+            short[] sArr = this.mZc;
             int i = this.index;
             this.index = i + 1;
             return sArr[i];

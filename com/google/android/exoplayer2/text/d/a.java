@@ -1,0 +1,83 @@
+package com.google.android.exoplayer2.text.d;
+
+import android.text.Html;
+import android.text.TextUtils;
+import android.util.Log;
+import com.google.android.exoplayer2.text.c;
+import com.google.android.exoplayer2.util.g;
+import com.google.android.exoplayer2.util.l;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes4.dex */
+public final class a extends c {
+    private static final Pattern mwF = Pattern.compile("\\s*((?:(\\d+):)?(\\d+):(\\d+),(\\d+))\\s*-->\\s*((?:(\\d+):)?(\\d+):(\\d+),(\\d+))?\\s*");
+    private final StringBuilder mwG;
+
+    public a() {
+        super("SubripDecoder");
+        this.mwG = new StringBuilder();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.google.android.exoplayer2.text.c
+    /* renamed from: e */
+    public b b(byte[] bArr, int i, boolean z) {
+        boolean z2;
+        ArrayList arrayList = new ArrayList();
+        g gVar = new g();
+        l lVar = new l(bArr, i);
+        while (true) {
+            String readLine = lVar.readLine();
+            if (readLine == null) {
+                break;
+            } else if (readLine.length() != 0) {
+                try {
+                    Integer.parseInt(readLine);
+                    String readLine2 = lVar.readLine();
+                    if (readLine2 == null) {
+                        Log.w("SubripDecoder", "Unexpected end");
+                        break;
+                    }
+                    Matcher matcher = mwF.matcher(readLine2);
+                    if (matcher.matches()) {
+                        gVar.gD(a(matcher, 1));
+                        if (TextUtils.isEmpty(matcher.group(6))) {
+                            z2 = false;
+                        } else {
+                            gVar.gD(a(matcher, 6));
+                            z2 = true;
+                        }
+                        this.mwG.setLength(0);
+                        while (true) {
+                            String readLine3 = lVar.readLine();
+                            if (TextUtils.isEmpty(readLine3)) {
+                                break;
+                            }
+                            if (this.mwG.length() > 0) {
+                                this.mwG.append("<br>");
+                            }
+                            this.mwG.append(readLine3.trim());
+                        }
+                        arrayList.add(new com.google.android.exoplayer2.text.b(Html.fromHtml(this.mwG.toString())));
+                        if (z2) {
+                            arrayList.add(null);
+                        }
+                    } else {
+                        Log.w("SubripDecoder", "Skipping invalid timing: " + readLine2);
+                    }
+                } catch (NumberFormatException e) {
+                    Log.w("SubripDecoder", "Skipping invalid index: " + readLine);
+                }
+            }
+        }
+        com.google.android.exoplayer2.text.b[] bVarArr = new com.google.android.exoplayer2.text.b[arrayList.size()];
+        arrayList.toArray(bVarArr);
+        return new b(bVarArr, gVar.dwQ());
+    }
+
+    private static long a(Matcher matcher, int i) {
+        return ((Long.parseLong(matcher.group(i + 1)) * 60 * 60 * 1000) + (Long.parseLong(matcher.group(i + 2)) * 60 * 1000) + (Long.parseLong(matcher.group(i + 3)) * 1000) + Long.parseLong(matcher.group(i + 4))) * 1000;
+    }
+}

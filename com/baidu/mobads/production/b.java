@@ -32,7 +32,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLinearAdSlot {
     public static IXAdContainerFactory a;
     private static final String[] w = {"android.permission.READ_PHONE_STATE", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.WRITE_EXTERNAL_STORAGE"};
@@ -142,7 +142,7 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a implements IXActivateListener {
         private Context a;
 

@@ -1,109 +1,278 @@
 package com.baidu.live.gift;
 
-import android.graphics.PointF;
-import android.graphics.Rect;
-import android.text.TextUtils;
-import com.baidu.live.adp.lib.safe.JavaTypesHelper;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.CustomMessageListener;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.gift.AlaGiftShowPanel;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.mobstat.Config;
-import java.text.DecimalFormat;
+import com.baidu.live.tbadk.core.util.UtilHelper;
 import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class k implements Cloneable {
-    public int WP;
-    public int WQ;
-    public int WR;
-    public int WS;
-    public int WT;
-    public int WU;
-    public int WV;
-    public int WW;
-    public int WY;
-    public List<PointF> WX = new ArrayList();
-    public Rect WZ = new Rect();
-
-    public String pD() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("width", String.valueOf(this.WP));
-            jSONObject2.put("height", String.valueOf(this.WQ));
-            jSONObject.put("screen_size", jSONObject2);
-            jSONObject.put("ani_type", String.valueOf(this.WV));
-            JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put(Config.EVENT_HEAT_X, String.valueOf(this.WR));
-            jSONObject3.put("y", String.valueOf(this.WS));
-            jSONObject3.put("width", String.valueOf(this.WT));
-            jSONObject3.put("height", String.valueOf(this.WU));
-            jSONObject.put("draw_rect", jSONObject3);
-            jSONObject.put("point_count", this.WY);
-            JSONArray jSONArray = new JSONArray();
-            DecimalFormat decimalFormat = new DecimalFormat(".0");
-            for (int i = 0; i < this.WX.size(); i++) {
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put(Config.EVENT_HEAT_X, decimalFormat.format(this.WX.get(i).x));
-                jSONObject4.put("y", decimalFormat.format(this.WX.get(i).y));
-                jSONArray.put(jSONObject4);
+/* loaded from: classes2.dex */
+public class k implements t {
+    private AlaGiftShowPanel ael;
+    private com.baidu.live.gift.biggift.a aem;
+    private com.baidu.live.gift.smallgift.a aen;
+    private com.baidu.live.gift.graffitiGift.a aeo;
+    private Context mContext;
+    private boolean isDestroyed = false;
+    private boolean aep = false;
+    CustomMessageListener aeq = new CustomMessageListener(2913031) { // from class: com.baidu.live.gift.k.2
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.gift.a.b)) {
+                com.baidu.live.gift.a.b bVar = (com.baidu.live.gift.a.b) customResponsedMessage.getData();
+                k.this.a(bVar, bVar.aiB);
             }
-            jSONObject.put("point_data", jSONArray);
-            jSONObject.put("point_size", this.WW);
-            return jSONObject.toString();
-        } catch (Exception e) {
-            return null;
+        }
+    };
+    CustomMessageListener aer = new CustomMessageListener(2913138) { // from class: com.baidu.live.gift.k.3
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            com.baidu.live.gift.a.b bVar;
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.gift.a.b) && (bVar = (com.baidu.live.gift.a.b) customResponsedMessage.getData()) != null && !StringUtils.isNull(bVar.userId) && !StringUtils.isNull(bVar.giftId)) {
+                k.this.d(bVar);
+            }
+        }
+    };
+
+    public k(f fVar) {
+        this.mContext = fVar.context;
+        this.ael = (AlaGiftShowPanel) LayoutInflater.from(fVar.context).inflate(a.h.gift_popshow_contain_layout, (ViewGroup) null);
+        this.aem = new com.baidu.live.gift.biggift.a(this.mContext, this);
+        this.aen = new com.baidu.live.gift.smallgift.a(this.mContext, this, fVar.adx);
+        this.aeo = new com.baidu.live.gift.graffitiGift.a(this.mContext, this);
+        qS();
+    }
+
+    private void qS() {
+        MessageManager.getInstance().registerListener(this.aeq);
+        MessageManager.getInstance().registerListener(this.aer);
+        this.ael.setConfigurationChangedListener(new AlaGiftShowPanel.a() { // from class: com.baidu.live.gift.k.1
+            @Override // com.baidu.live.gift.AlaGiftShowPanel.a
+            public void onConfigurationChanged(Configuration configuration) {
+                k.this.aem.rx();
+                k.this.aem.rC();
+                k.this.aen.rC();
+                k.this.aeo.sT();
+            }
+        });
+    }
+
+    public void a(com.baidu.live.gift.a.b bVar, boolean z) {
+        boolean z2 = false;
+        if (bVar != null && !StringUtils.isNull(bVar.userId) && !StringUtils.isNull(bVar.giftId)) {
+            boolean z3 = a(bVar) || bVar.aiM;
+            if (!z3 || bVar.aiM || z || !this.aep || UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
+                z2 = z3;
+            }
+            if (z2) {
+                if (!bVar.aiM || bVar.priority == 1) {
+                    if (z) {
+                        bVar.priority = 9;
+                    } else {
+                        bVar.priority = 7;
+                    }
+                }
+            } else if (z) {
+                bVar.priority = 3;
+            } else {
+                bVar.priority = 1;
+            }
+            if (z2 && UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913024));
+            }
+            if (z2) {
+                c(bVar);
+            } else if (bVar.aiC.adW != null && bVar.aiH >= 2 && !ListUtils.isEmpty(bVar.aiC.adW.aeB)) {
+                e(bVar);
+            } else {
+                d(bVar);
+            }
         }
     }
 
-    public boolean cg(String str) {
-        if (TextUtils.isEmpty(str)) {
+    public boolean a(com.baidu.live.gift.a.b bVar) {
+        if (bVar == null) {
             return false;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.WV = JavaTypesHelper.toInt(jSONObject.optString("ani_type"), 0);
-            this.WW = jSONObject.optInt("point_size");
-            JSONObject optJSONObject = jSONObject.optJSONObject("screen_size");
-            this.WP = JavaTypesHelper.toInt(optJSONObject.optString("width"), 0);
-            this.WQ = JavaTypesHelper.toInt(optJSONObject.optString("height"), 0);
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("draw_rect");
-            this.WR = JavaTypesHelper.toInt(optJSONObject2.optString(Config.EVENT_HEAT_X), 0);
-            this.WS = JavaTypesHelper.toInt(optJSONObject2.optString("y"), 0);
-            this.WT = JavaTypesHelper.toInt(optJSONObject2.optString("width"), 0);
-            this.WU = JavaTypesHelper.toInt(optJSONObject2.optString("height"), 0);
-            this.WZ.left = this.WR;
-            this.WZ.top = this.WS;
-            this.WZ.right = this.WT;
-            this.WZ.bottom = this.WU + this.WS;
-            this.WY = JavaTypesHelper.toInt("point_count", 0);
-            JSONArray optJSONArray = jSONObject.optJSONArray("point_data");
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                this.WX.add(new PointF(JavaTypesHelper.toFloat(jSONObject2.optString(Config.EVENT_HEAT_X), 0.0f), JavaTypesHelper.toFloat(jSONObject2.optString("y"), 0.0f)));
-            }
-            if (this.WX.size() > 0) {
-                return isValid();
-            }
+        return b(bVar);
+    }
+
+    private boolean b(com.baidu.live.gift.a.b bVar) {
+        if (bVar == null || bVar.aiC == null) {
             return false;
-        } catch (Exception e) {
-            return false;
+        }
+        return com.baidu.live.gift.b.b.sK().dc(bVar.aiC.qx());
+    }
+
+    private void c(com.baidu.live.gift.a.b bVar) {
+        qT();
+        this.aem.f(bVar);
+        this.aem.rw();
+    }
+
+    public void qT() {
+        this.aen.qT();
+        this.aeo.qT();
+    }
+
+    public void qU() {
+        this.aen.qU();
+        this.aeo.qU();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d(com.baidu.live.gift.a.b bVar) {
+        this.aen.d(bVar);
+    }
+
+    private void e(com.baidu.live.gift.a.b bVar) {
+        this.aeo.e(bVar);
+    }
+
+    public void qV() {
+        int i = 0;
+        if (this.ael != null) {
+            int childCount = this.ael.getChildCount();
+            ArrayList arrayList = new ArrayList();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                if (!(this.ael.getChildAt(i2) instanceof com.baidu.live.gift.biggift.c)) {
+                    arrayList.add(this.ael.getChildAt(i2));
+                }
+            }
+            while (true) {
+                int i3 = i;
+                if (i3 < arrayList.size()) {
+                    this.ael.removeView((View) arrayList.get(i3));
+                    i = i3 + 1;
+                } else {
+                    arrayList.clear();
+                    return;
+                }
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: pE */
-    public k clone() {
-        try {
-            return (k) super.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-            return null;
+    public void qW() {
+        int i = 0;
+        if (this.ael != null) {
+            int childCount = this.ael.getChildCount();
+            ArrayList arrayList = new ArrayList();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                if (this.ael.getChildAt(i2) instanceof com.baidu.live.gift.biggift.c) {
+                    arrayList.add(this.ael.getChildAt(i2));
+                }
+            }
+            while (true) {
+                int i3 = i;
+                if (i3 < arrayList.size()) {
+                    this.ael.removeView((View) arrayList.get(i3));
+                    i = i3 + 1;
+                } else {
+                    arrayList.clear();
+                    return;
+                }
+            }
         }
     }
 
-    private boolean isValid() {
-        return !ListUtils.isEmpty(this.WX) && this.WP > 0 && this.WQ > 0 && this.WW > 0;
+    public void K(View view) {
+        if (this.ael.indexOfChild(view) < 0) {
+            this.ael.addView(view);
+        }
+    }
+
+    public void a(View view, RelativeLayout.LayoutParams layoutParams) {
+        if (layoutParams != null) {
+            if (this.ael.indexOfChild(view) < 0) {
+                this.ael.addView(view, layoutParams);
+                return;
+            }
+            return;
+        }
+        K(view);
+    }
+
+    @Override // com.baidu.live.gift.t
+    public void onDestroy() {
+        if (!this.isDestroyed) {
+            this.isDestroyed = true;
+            if (this.aem != null) {
+                this.aem.onDestroy();
+            }
+            if (this.aen != null) {
+                this.aen.onDestroy();
+            }
+            if (this.aeo != null) {
+                this.aeo.onDestroy();
+            }
+            if (this.ael != null) {
+                this.ael.clearAnimation();
+                this.ael.setConfigurationChangedListener(null);
+                this.ael.removeAllViews();
+            }
+            MessageManager.getInstance().unRegisterListener(this.aeq);
+            MessageManager.getInstance().unRegisterListener(this.aer);
+            this.mContext = null;
+        }
+    }
+
+    @Override // com.baidu.live.gift.t
+    public View qX() {
+        return this.ael;
+    }
+
+    @Override // com.baidu.live.gift.t
+    public void av(boolean z) {
+        if (this.aen != null) {
+            this.aen.av(z);
+        }
+    }
+
+    @Override // com.baidu.live.gift.t
+    public void bk(int i) {
+        if (this.aen != null) {
+            this.aen.bk(i);
+        }
+    }
+
+    @Override // com.baidu.live.gift.t
+    public View qY() {
+        return this.aen.qY();
+    }
+
+    @Override // com.baidu.live.gift.t
+    public void qZ() {
+        if (this.ael != null) {
+            this.ael.onConfigurationChanged(null);
+        }
+    }
+
+    @Override // com.baidu.live.gift.t
+    public void aw(boolean z) {
+        this.aep = z;
+        if (this.aeo != null) {
+            this.aeo.aw(z);
+        }
+        if (this.aem != null) {
+            this.aem.aw(z);
+        }
+    }
+
+    @Override // com.baidu.live.gift.t
+    public void ra() {
+        if (this.aeo != null) {
+            this.aeo.ra();
+        }
     }
 }

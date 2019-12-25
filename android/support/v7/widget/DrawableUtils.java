@@ -12,13 +12,14 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.graphics.drawable.DrawableWrapper;
+import android.support.v4.graphics.drawable.WrappedDrawable;
+import android.support.v7.graphics.drawable.DrawableWrapper;
 import android.util.Log;
 import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import java.lang.reflect.Field;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DrawableUtils {
     public static final Rect INSETS_NONE = new Rect();
     private static final String TAG = "DrawableUtils";
@@ -119,11 +120,11 @@ public class DrawableUtils {
                                 }
                             }
                         }
-                    } else if (drawable instanceof DrawableWrapper) {
-                        return canSafelyMutateDrawable(((DrawableWrapper) drawable).getWrappedDrawable());
+                    } else if (drawable instanceof WrappedDrawable) {
+                        return canSafelyMutateDrawable(((WrappedDrawable) drawable).getWrappedDrawable());
                     } else {
-                        if (drawable instanceof android.support.v7.graphics.drawable.DrawableWrapper) {
-                            return canSafelyMutateDrawable(((android.support.v7.graphics.drawable.DrawableWrapper) drawable).getWrappedDrawable());
+                        if (drawable instanceof DrawableWrapper) {
+                            return canSafelyMutateDrawable(((DrawableWrapper) drawable).getWrappedDrawable());
                         }
                         if (drawable instanceof ScaleDrawable) {
                             return canSafelyMutateDrawable(((ScaleDrawable) drawable).getDrawable());
@@ -171,10 +172,7 @@ public class DrawableUtils {
             case 15:
                 return PorterDuff.Mode.SCREEN;
             case 16:
-                if (Build.VERSION.SDK_INT >= 11) {
-                    return PorterDuff.Mode.valueOf("ADD");
-                }
-                return mode;
+                return PorterDuff.Mode.ADD;
         }
     }
 }

@@ -7,6 +7,7 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.graphics.PorterDuff;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.RestrictTo;
 import android.support.v4.internal.view.SupportMenu;
 import android.support.v4.view.ActionProvider;
@@ -30,7 +31,7 @@ import java.lang.reflect.Method;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SupportMenuInflater extends MenuInflater {
     static final String LOG_TAG = "SupportMenuInflater";
     static final int NO_ID = 0;
@@ -52,7 +53,7 @@ public class SupportMenuInflater extends MenuInflater {
     }
 
     @Override // android.view.MenuInflater
-    public void inflate(int i, Menu menu) {
+    public void inflate(@LayoutRes int i, Menu menu) {
         if (!(menu instanceof SupportMenu)) {
             super.inflate(i, menu);
             return;
@@ -114,7 +115,7 @@ public class SupportMenuInflater extends MenuInflater {
         r3 = r5;
      */
     /* JADX WARN: Code restructure failed: missing block: B:27:0x007e, code lost:
-        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_MENU) == false) goto L28;
+        if (r3.equals("menu") == false) goto L28;
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x0080, code lost:
         parseMenu(r11, r12, r7.addSubMenuItem());
@@ -165,7 +166,7 @@ public class SupportMenuInflater extends MenuInflater {
         r3 = r5;
      */
     /* JADX WARN: Code restructure failed: missing block: B:49:0x00d7, code lost:
-        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_MENU) == false) goto L10;
+        if (r3.equals("menu") == false) goto L10;
      */
     /* JADX WARN: Code restructure failed: missing block: B:50:0x00d9, code lost:
         r0 = true;
@@ -195,7 +196,7 @@ public class SupportMenuInflater extends MenuInflater {
         while (true) {
             if (eventType == 2) {
                 String name = xmlPullParser.getName();
-                if (name.equals(XML_MENU)) {
+                if (name.equals("menu")) {
                     eventType = xmlPullParser.next();
                 } else {
                     throw new RuntimeException("Expecting menu, got " + name);
@@ -224,7 +225,7 @@ public class SupportMenuInflater extends MenuInflater {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class InflatedOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
         private static final Class<?>[] PARAM_TYPES = {MenuItem.class};
         private Method mMethod;
@@ -257,7 +258,7 @@ public class SupportMenuInflater extends MenuInflater {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class MenuState {
         private static final int defaultGroupId = 0;
         private static final int defaultItemCategory = 0;
@@ -327,7 +328,7 @@ public class SupportMenuInflater extends MenuInflater {
         public void readItem(AttributeSet attributeSet) {
             TypedArray obtainStyledAttributes = SupportMenuInflater.this.mContext.obtainStyledAttributes(attributeSet, R.styleable.MenuItem);
             this.itemId = obtainStyledAttributes.getResourceId(R.styleable.MenuItem_android_id, 0);
-            this.itemCategoryOrder = (obtainStyledAttributes.getInt(R.styleable.MenuItem_android_menuCategory, this.groupCategory) & SupportMenu.CATEGORY_MASK) | (obtainStyledAttributes.getInt(R.styleable.MenuItem_android_orderInCategory, this.groupOrder) & SupportMenu.USER_MASK);
+            this.itemCategoryOrder = (obtainStyledAttributes.getInt(R.styleable.MenuItem_android_menuCategory, this.groupCategory) & SupportMenu.CATEGORY_MASK) | (obtainStyledAttributes.getInt(R.styleable.MenuItem_android_orderInCategory, this.groupOrder) & 65535);
             this.itemTitle = obtainStyledAttributes.getText(R.styleable.MenuItem_android_title);
             this.itemTitleCondensed = obtainStyledAttributes.getText(R.styleable.MenuItem_android_titleCondensed);
             this.itemIconResId = obtainStyledAttributes.getResourceId(R.styleable.MenuItem_android_icon, 0);

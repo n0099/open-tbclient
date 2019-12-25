@@ -1,6 +1,5 @@
 package com.baidu.platform.core.b;
 
-import android.net.http.Headers;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.mapapi.CoordType;
@@ -10,6 +9,7 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.geocode.GeoCodeResult;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -55,11 +55,11 @@ public class b extends com.baidu.platform.base.d {
                 geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                 return false;
             }
-            geoCodeResult.setLocation(a(optJSONObject.optJSONObject(Headers.LOCATION)));
+            geoCodeResult.setLocation(a(optJSONObject.optJSONObject("location")));
             geoCodeResult.setAddress(this.c);
             geoCodeResult.setPrecise(optJSONObject.optInt("precise"));
             geoCodeResult.setConfidence(optJSONObject.optInt("confidence"));
-            geoCodeResult.setLevel(optJSONObject.optString("level"));
+            geoCodeResult.setLevel(optJSONObject.optString(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL));
             geoCodeResult.error = SearchResult.ERRORNO.NO_ERROR;
             return true;
         } catch (JSONException e) {

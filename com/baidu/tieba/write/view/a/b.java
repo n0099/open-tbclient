@@ -8,13 +8,13 @@ import android.widget.TextView;
 import com.baidu.adp.base.e;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b extends a {
     private static int mPadding;
-    private TextView jSc;
-    private TextView jSd;
-    private TextView jSe;
-    private TextView jSf;
+    private TextView kMO;
+    private TextView kMP;
+    private TextView kMQ;
+    private TextView kMR;
 
     public b(e eVar) {
         super(eVar);
@@ -25,38 +25,38 @@ public class b extends a {
         return this.mRootView;
     }
 
-    public void C(View.OnClickListener onClickListener) {
-        this.jSc.setTag(0);
-        this.jSd.setTag(1);
-        this.jSe.setTag(2);
-        this.jSf.setTag(3);
-        this.jSc.setOnClickListener(onClickListener);
-        this.jSd.setOnClickListener(onClickListener);
-        this.jSe.setOnClickListener(onClickListener);
-        this.jSf.setOnClickListener(onClickListener);
+    public void D(View.OnClickListener onClickListener) {
+        this.kMO.setTag(0);
+        this.kMP.setTag(1);
+        this.kMQ.setTag(2);
+        this.kMR.setTag(3);
+        this.kMO.setOnClickListener(onClickListener);
+        this.kMP.setOnClickListener(onClickListener);
+        this.kMQ.setOnClickListener(onClickListener);
+        this.kMR.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_rorate_view, (ViewGroup) null);
-        this.jSc = (TextView) this.mRootView.findViewById(R.id.rotate_left);
-        this.jSd = (TextView) this.mRootView.findViewById(R.id.rotate_right);
-        this.jSe = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
-        this.jSf = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
+        this.kMO = (TextView) this.mRootView.findViewById(R.id.rotate_left);
+        this.kMP = (TextView) this.mRootView.findViewById(R.id.rotate_right);
+        this.kMQ = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
+        this.kMR = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
     }
 
     public void onChangeSkinType() {
-        am.setViewTextColor(this.jSc, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.jSd, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.jSe, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.jSf, (int) R.color.cp_cont_j);
-        this.jSc.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
-        this.jSd.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
-        this.jSf.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
-        this.jSe.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
-        this.jSc.setCompoundDrawablePadding(mPadding);
-        this.jSd.setCompoundDrawablePadding(mPadding);
-        this.jSf.setCompoundDrawablePadding(mPadding);
-        this.jSe.setCompoundDrawablePadding(mPadding);
+        am.setViewTextColor(this.kMO, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.kMP, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.kMQ, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.kMR, (int) R.color.cp_cont_j);
+        this.kMO.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
+        this.kMP.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
+        this.kMR.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
+        this.kMQ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
+        this.kMO.setCompoundDrawablePadding(mPadding);
+        this.kMP.setCompoundDrawablePadding(mPadding);
+        this.kMR.setCompoundDrawablePadding(mPadding);
+        this.kMQ.setCompoundDrawablePadding(mPadding);
     }
 }

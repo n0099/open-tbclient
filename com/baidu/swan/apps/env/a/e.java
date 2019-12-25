@@ -6,17 +6,17 @@ import android.util.Log;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class e implements a {
-    private Set<String> aPC;
+    private Set<String> bpd;
 
     public e(@Nullable Set<String> set) {
-        this.aPC = set;
+        this.bpd = set;
     }
 
     @Override // com.baidu.swan.apps.env.a.a
     @Nullable
-    public List<String> S(@Nullable List<String> list) {
+    public List<String> T(@Nullable List<String> list) {
         if (list == null || list.size() == 0) {
             return null;
         }
@@ -29,7 +29,7 @@ public class e implements a {
                         Log.d("IDiskCleanStrategy", "过滤「智能小程序」");
                     }
                     it.remove();
-                } else if (this.aPC != null && this.aPC.contains(next)) {
+                } else if (this.bpd != null && this.bpd.contains(next)) {
                     if (DEBUG) {
                         Log.d("IDiskCleanStrategy", "过滤指定id: " + next);
                     }

@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class BdAsyncTask<Params, Progress, Result> {
     private static final int MESSAGE_POST_PROGRESS = 2;
     private static final int MESSAGE_POST_RESULT = 1;
-    private static final com.baidu.adp.lib.asyncTask.a sDefaultExecutor = com.baidu.adp.lib.asyncTask.a.eW();
+    private static final com.baidu.adp.lib.asyncTask.a sDefaultExecutor = com.baidu.adp.lib.asyncTask.a.fq();
     private static final b sHandler = new b(Looper.getMainLooper());
     private volatile BdAsyncTaskStatus mStatus = BdAsyncTaskStatus.PENDING;
     private int mPriority = 1;
@@ -257,10 +257,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.nh.finish(aVar.mData[0]);
+                    aVar.pH.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.nh.onProgressUpdate(aVar.mData);
+                    aVar.pH.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;
@@ -281,10 +281,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* loaded from: classes.dex */
     public static class a<Data> {
         final Data[] mData;
-        final BdAsyncTask nh;
+        final BdAsyncTask pH;
 
         a(BdAsyncTask bdAsyncTask, Data... dataArr) {
-            this.nh = bdAsyncTask;
+            this.pH = bdAsyncTask;
             this.mData = dataArr;
         }
     }

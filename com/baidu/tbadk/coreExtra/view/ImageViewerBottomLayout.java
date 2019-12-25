@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
@@ -14,96 +15,99 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.AgreeView;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.tencent.connect.common.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ImageViewerBottomLayout extends LinearLayout implements View.OnClickListener, View.OnTouchListener {
-    public static final int cAf = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds130);
-    private a cAd;
-    private TextView cAg;
-    private TbImageView cAh;
-    private View cAi;
-    private TbImageView cAj;
-    private boolean cAk;
-    private AgreeView cpy;
-    private TextView cpz;
-    private ImageUrlData cyC;
+    public static final int dnM = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds130);
+    private AgreeView dcQ;
+    private TextView dcR;
+    private ImageView dcS;
+    private ImageUrlData dmk;
+    private a dnK;
+    private TextView dnN;
+    private ImageView dnO;
+    private View dnP;
+    private boolean dnQ;
     private String mUserId;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z);
     }
 
     public ImageViewerBottomLayout(Context context) {
         super(context);
-        this.cAd = null;
-        this.cAk = true;
+        this.dnK = null;
+        this.dnQ = true;
         init(context);
         initListener();
     }
 
     public ImageViewerBottomLayout(Context context, boolean z) {
         super(context);
-        this.cAd = null;
-        this.cAk = true;
-        this.cAk = z;
+        this.dnK = null;
+        this.dnQ = true;
+        this.dnQ = z;
         init(context);
         initListener();
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.image_viewer_bottom_layout, (ViewGroup) this, true);
-        this.cAi = findViewById(R.id.unfold_root);
-        this.cAg = (TextView) findViewById(R.id.unfold_text);
-        this.cAh = (TbImageView) findViewById(R.id.unfold_icon);
-        this.cAi.setVisibility(8);
-        am.setImageResource(this.cAh, R.drawable.icon_picture_unfold_white_n);
-        this.cAj = (TbImageView) findViewById(R.id.comment_icon);
-        am.setImageResource(this.cAj, R.drawable.icon_picture_comment_white_n);
-        this.cpz = (TextView) findViewById(R.id.comment_num);
-        this.cpz.setText("0");
-        this.cpy = (AgreeView) findViewById(R.id.agree_and_disagreeview);
-        this.cpy.setIsFromBigpic(true);
-        this.cpy.setAgreeAnimationResource(R.raw.agree_bigpic);
-        this.cpy.setDisagreeAnimationResource(R.raw.disagree_bigpic);
+        this.dnP = findViewById(R.id.unfold_root);
+        this.dnN = (TextView) findViewById(R.id.unfold_text);
+        this.dnO = (ImageView) findViewById(R.id.unfold_icon);
+        this.dnP.setVisibility(8);
+        SvgManager.aDW().a(this.dnO, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+        this.dcS = (ImageView) findViewById(R.id.comment_icon);
+        SvgManager.aDW().a(this.dcS, R.drawable.icon_pure_imageviewer_comment24_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+        this.dcR = (TextView) findViewById(R.id.comment_num);
+        this.dcR.setText("0");
+        this.dcQ = (AgreeView) findViewById(R.id.agree_and_disagreeview);
+        this.dcQ.setIsFromBigpic(true);
+        this.dcQ.setAgreeAnimationResource();
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.bWZ = 13;
-        dVar.bXe = 10;
-        this.cpy.setStatisticData(dVar);
+        dVar.cJm = 13;
+        dVar.cJs = 10;
+        this.dcQ.setStatisticData(dVar);
     }
 
     public void setExpandButtonListener(a aVar) {
-        this.cAd = aVar;
+        this.dnK = aVar;
     }
 
     public void setUserId(String str) {
         this.mUserId = str;
     }
 
+    public void setIsBjhDynamic(boolean z) {
+        if (this.dcQ != null) {
+            this.dcQ.setAgreeAlone(z);
+        }
+    }
+
     public void b(ImageUrlData imageUrlData) {
-        this.cyC = imageUrlData;
+        this.dmk = imageUrlData;
         if (imageUrlData != null && imageUrlData.agreeData != null) {
             setVisibility(0);
             if (imageUrlData.commentNum != null) {
-                this.cpz.setText(imageUrlData.commentNum);
+                this.dcR.setText(imageUrlData.commentNum);
             }
             if (imageUrlData.agreeData != null) {
-                this.cpy.setData(imageUrlData.agreeData);
+                this.dcQ.setData(imageUrlData.agreeData);
             }
-            if (!this.cAk) {
-                this.cAi.setVisibility(4);
+            if (!this.dnQ) {
+                this.dnP.setVisibility(4);
                 return;
             } else if (TextUtils.isEmpty(imageUrlData.richTextArray) || "[]".equals(imageUrlData.richTextArray)) {
-                this.cAi.setVisibility(4);
+                this.dnP.setVisibility(4);
                 return;
             } else {
-                this.cAi.setVisibility(0);
+                this.dnP.setVisibility(0);
                 return;
             }
         }
@@ -111,54 +115,54 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
     }
 
     private void initListener() {
-        this.cAj.setOnClickListener(this);
-        this.cpz.setOnClickListener(this);
-        this.cAi.setOnClickListener(this);
+        this.dcS.setOnClickListener(this);
+        this.dcR.setOnClickListener(this);
+        this.dnP.setOnClickListener(this);
         setOnTouchListener(this);
     }
 
-    public void eR(boolean z) {
+    public void gd(boolean z) {
         if (z) {
-            this.cAg.setText(getContext().getString(R.string.expand));
-            am.setImageResource(this.cAh, R.drawable.icon_picture_packup_white_n);
+            this.dnN.setText(getContext().getString(R.string.expand));
+            SvgManager.aDW().a(this.dnO, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
             return;
         }
-        this.cAg.setText(getContext().getString(R.string.fold));
-        am.setImageResource(this.cAh, R.drawable.icon_picture_unfold_white_n);
+        this.dnN.setText(getContext().getString(R.string.fold));
+        SvgManager.aDW().a(this.dnO, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cAj || view == this.cpz) {
-            TiebaStatic.log(new an("c12942").bS("obj_type", "2").bS("obj_locate", Constants.VIA_REPORT_TYPE_SET_AVATAR));
-            ash();
-        } else if (view == this.cAi) {
-            if (this.cAg.getText().toString().equals(getContext().getString(R.string.expand))) {
-                this.cAg.setText(getContext().getString(R.string.fold));
-                am.setImageResource(this.cAh, R.drawable.icon_picture_unfold_white_n);
-                if (this.cAd != null) {
-                    this.cAd.a(this, true);
+        if (view == this.dcS || view == this.dcR) {
+            TiebaStatic.log(new an("c12942").cp("obj_type", "2").cp("obj_locate", "12"));
+            aJG();
+        } else if (view == this.dnP) {
+            if (this.dnN.getText().toString().equals(getContext().getString(R.string.expand))) {
+                this.dnN.setText(getContext().getString(R.string.fold));
+                SvgManager.aDW().a(this.dnO, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+                if (this.dnK != null) {
+                    this.dnK.a(this, true);
                     return;
                 }
                 return;
             }
-            this.cAg.setText(getContext().getString(R.string.expand));
-            am.setImageResource(this.cAh, R.drawable.icon_picture_packup_white_n);
-            if (this.cAd != null) {
-                this.cAd.a(this, false);
+            this.dnN.setText(getContext().getString(R.string.expand));
+            SvgManager.aDW().a(this.dnO, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+            if (this.dnK != null) {
+                this.dnK.a(this, false);
             }
         }
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        TiebaStatic.log(new an("c13339").bS("uid", this.mUserId).p("post_id", this.cyC.threadId));
+        TiebaStatic.log(new an("c13339").cp("uid", this.mUserId).s("post_id", this.dmk.threadId));
         return true;
     }
 
-    private void ash() {
-        if (this.cyC != null) {
-            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.cyC.threadId), String.valueOf(this.cyC.postId), this.cyC.mIsSeeHost, this.cyC.mIsReserver, null);
+    private void aJG() {
+        if (this.dmk != null) {
+            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.dmk.threadId), String.valueOf(this.dmk.postId), this.dmk.mIsSeeHost, this.dmk.mIsReserver, null);
             createHistoryCfg.setJumpToCommentArea(true);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createHistoryCfg));
         }

@@ -3,7 +3,7 @@ package android.support.v4.content;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class MimeTypeFilter {
     private MimeTypeFilter() {
     }
@@ -31,6 +31,7 @@ public final class MimeTypeFilter {
         return mimeTypeAgainstFilter(str.split("/"), str2.split("/"));
     }
 
+    @Nullable
     public static String matches(@Nullable String str, @NonNull String[] strArr) {
         if (str == null) {
             return null;
@@ -44,6 +45,7 @@ public final class MimeTypeFilter {
         return null;
     }
 
+    @Nullable
     public static String matches(@Nullable String[] strArr, @NonNull String str) {
         if (strArr == null) {
             return null;
@@ -57,6 +59,7 @@ public final class MimeTypeFilter {
         return null;
     }
 
+    @NonNull
     public static String[] matchesMany(@Nullable String[] strArr, @NonNull String str) {
         if (strArr == null) {
             return new String[0];

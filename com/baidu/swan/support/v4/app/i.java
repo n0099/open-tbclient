@@ -12,24 +12,24 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class i {
-    private final j<?> bMJ;
+    private final j<?> cyz;
 
     public static final i a(j<?> jVar) {
         return new i(jVar);
     }
 
     private i(j<?> jVar) {
-        this.bMJ = jVar;
+        this.cyz = jVar;
     }
 
-    public k abV() {
-        return this.bMJ.abX();
+    public k arT() {
+        return this.cyz.arV();
     }
 
     public int getActiveFragmentsCount() {
-        ArrayList<Fragment> arrayList = this.bMJ.bMI.bMY;
+        ArrayList<Fragment> arrayList = this.cyz.cyy.cyQ;
         if (arrayList == null) {
             return 0;
         }
@@ -37,129 +37,129 @@ public class i {
     }
 
     public List<Fragment> getActiveFragments(List<Fragment> list) {
-        if (this.bMJ.bMI.bMY == null) {
+        if (this.cyz.cyy.cyQ == null) {
             return null;
         }
         if (list == null) {
             list = new ArrayList<>(getActiveFragmentsCount());
         }
-        list.addAll(this.bMJ.bMI.bMY);
+        list.addAll(this.cyz.cyy.cyQ);
         return list;
     }
 
     public void f(Fragment fragment) {
-        this.bMJ.bMI.a(this.bMJ, this.bMJ, fragment);
+        this.cyz.cyy.a(this.cyz, this.cyz, fragment);
     }
 
     public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.bMJ.bMI.onCreateView(view, str, context, attributeSet);
+        return this.cyz.cyy.onCreateView(view, str, context, attributeSet);
     }
 
     public void noteStateNotSaved() {
-        this.bMJ.bMI.noteStateNotSaved();
+        this.cyz.cyy.noteStateNotSaved();
     }
 
     public Parcelable saveAllState() {
-        return this.bMJ.bMI.saveAllState();
+        return this.cyz.cyy.saveAllState();
     }
 
     public void restoreAllState(Parcelable parcelable, List<Fragment> list) {
-        this.bMJ.bMI.restoreAllState(parcelable, list);
+        this.cyz.cyy.restoreAllState(parcelable, list);
     }
 
     public List<Fragment> retainNonConfig() {
-        return this.bMJ.bMI.abZ();
+        return this.cyz.cyy.arX();
     }
 
     public void dispatchCreate() {
-        this.bMJ.bMI.dispatchCreate();
+        this.cyz.cyy.dispatchCreate();
     }
 
     public void dispatchActivityCreated() {
-        this.bMJ.bMI.dispatchActivityCreated();
+        this.cyz.cyy.dispatchActivityCreated();
     }
 
     public void dispatchStart() {
-        this.bMJ.bMI.dispatchStart();
+        this.cyz.cyy.dispatchStart();
     }
 
     public void dispatchResume() {
-        this.bMJ.bMI.dispatchResume();
+        this.cyz.cyy.dispatchResume();
     }
 
     public void dispatchPause() {
-        this.bMJ.bMI.dispatchPause();
+        this.cyz.cyy.dispatchPause();
     }
 
     public void dispatchStop() {
-        this.bMJ.bMI.dispatchStop();
+        this.cyz.cyy.dispatchStop();
     }
 
     public void dispatchReallyStop() {
-        this.bMJ.bMI.dispatchReallyStop();
+        this.cyz.cyy.dispatchReallyStop();
     }
 
     public void dispatchDestroy() {
-        this.bMJ.bMI.dispatchDestroy();
+        this.cyz.cyy.dispatchDestroy();
     }
 
     public void dispatchConfigurationChanged(Configuration configuration) {
-        this.bMJ.bMI.dispatchConfigurationChanged(configuration);
+        this.cyz.cyy.dispatchConfigurationChanged(configuration);
     }
 
     public void dispatchLowMemory() {
-        this.bMJ.bMI.dispatchLowMemory();
+        this.cyz.cyy.dispatchLowMemory();
     }
 
     public boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        return this.bMJ.bMI.dispatchCreateOptionsMenu(menu, menuInflater);
+        return this.cyz.cyy.dispatchCreateOptionsMenu(menu, menuInflater);
     }
 
     public boolean dispatchPrepareOptionsMenu(Menu menu) {
-        return this.bMJ.bMI.dispatchPrepareOptionsMenu(menu);
+        return this.cyz.cyy.dispatchPrepareOptionsMenu(menu);
     }
 
     public boolean dispatchOptionsItemSelected(MenuItem menuItem) {
-        return this.bMJ.bMI.dispatchOptionsItemSelected(menuItem);
+        return this.cyz.cyy.dispatchOptionsItemSelected(menuItem);
     }
 
     public boolean dispatchContextItemSelected(MenuItem menuItem) {
-        return this.bMJ.bMI.dispatchContextItemSelected(menuItem);
+        return this.cyz.cyy.dispatchContextItemSelected(menuItem);
     }
 
     public void dispatchOptionsMenuClosed(Menu menu) {
-        this.bMJ.bMI.dispatchOptionsMenuClosed(menu);
+        this.cyz.cyy.dispatchOptionsMenuClosed(menu);
     }
 
     public boolean execPendingActions() {
-        return this.bMJ.bMI.execPendingActions();
+        return this.cyz.cyy.execPendingActions();
     }
 
     public void doLoaderStart() {
-        this.bMJ.doLoaderStart();
+        this.cyz.doLoaderStart();
     }
 
     public void doLoaderStop(boolean z) {
-        this.bMJ.doLoaderStop(z);
+        this.cyz.doLoaderStop(z);
     }
 
     public void doLoaderDestroy() {
-        this.bMJ.doLoaderDestroy();
+        this.cyz.doLoaderDestroy();
     }
 
     public void reportLoaderStart() {
-        this.bMJ.reportLoaderStart();
+        this.cyz.reportLoaderStart();
     }
 
-    public com.baidu.swan.support.v4.b.f<String, o> abW() {
-        return this.bMJ.abW();
+    public com.baidu.swan.support.v4.b.f<String, o> arU() {
+        return this.cyz.arU();
     }
 
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {
-        this.bMJ.a(fVar);
+        this.cyz.a(fVar);
     }
 
     public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        this.bMJ.dumpLoaders(str, fileDescriptor, printWriter, strArr);
+        this.cyz.dumpLoaders(str, fileDescriptor, printWriter, strArr);
     }
 }

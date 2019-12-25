@@ -1,27 +1,43 @@
 package com.baidu.swan.games.m;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.text.TextUtils;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes2.dex */
-public class b extends JSEvent {
+/* loaded from: classes9.dex */
+public class b {
+    private com.baidu.swan.games.e.b cln;
 
-    /* loaded from: classes2.dex */
-    public static class a {
-        @V8JavascriptField
-        public boolean devhook;
-        @V8JavascriptField
-        public String scene;
+    public b(com.baidu.swan.games.e.b bVar) {
+        this.cln = bVar;
     }
 
-    public b(com.baidu.swan.apps.v.b.b bVar) {
-        super("appshow");
-        this.data = z(bVar);
+    public void oU(String str) {
+        if (TextUtils.isEmpty(str)) {
+            str = "";
+        }
+        bF(str, "keyboardinput");
     }
 
-    private Object z(com.baidu.swan.apps.v.b.b bVar) {
-        a aVar = new a();
-        aVar.scene = bVar.KF();
-        aVar.devhook = bVar.KQ();
-        return aVar;
+    public void oV(String str) {
+        if (TextUtils.isEmpty(str)) {
+            str = "";
+        }
+        bF(str, "keyboardconfirm");
+    }
+
+    public void oW(String str) {
+        if (TextUtils.isEmpty(str)) {
+            str = "";
+        }
+        bF(str, "keyboardcomplete");
+    }
+
+    private void bF(String str, String str2) {
+        if (this.cln != null && this.cln.akN() != null && this.cln.akN().hasEventListener(str2)) {
+            com.baidu.swan.games.m.a.a aVar = new com.baidu.swan.games.m.a.a();
+            aVar.value = str;
+            JSEvent jSEvent = new JSEvent(str2);
+            jSEvent.data = aVar;
+            this.cln.akN().dispatchEvent(jSEvent);
+        }
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
 import com.baidu.tieba.chosen.posts.ChosenPostActivity;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ChosenPostModel extends NetAutoModel<a, b, ChosenPostActivity> {
     public ChosenPostModel(TbPageContext<ChosenPostActivity> tbPageContext, a aVar) {
         super(tbPageContext, aVar);
@@ -17,22 +17,22 @@ public class ChosenPostModel extends NetAutoModel<a, b, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends ChosenPostHttpResponse> awc() {
+    protected Class<? extends ChosenPostHttpResponse> aNM() {
         return ChosenPostHttpResponse.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends ChosenPostSocketResponse> awd() {
+    protected Class<? extends ChosenPostSocketResponse> aNN() {
         return ChosenPostSocketResponse.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int awe() {
+    protected int aNO() {
         return 1003005;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String awg() {
+    protected String aNQ() {
         return "c/f/choiceness/hotthread";
     }
 
@@ -42,7 +42,7 @@ public class ChosenPostModel extends NetAutoModel<a, b, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int awf() {
+    protected int aNP() {
         return CmdConfigSocket.CMD_GET_HOT_THREAD;
     }
 }

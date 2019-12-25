@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class LiveMarkInfo extends Message {
     public static final String DEFAULT_MARK_NAME = "";
     public static final String DEFAULT_MARK_PIC = "";
@@ -76,7 +76,7 @@ public final class LiveMarkInfo extends Message {
         this.width = builder.width;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<LiveMarkInfo> {
         public Long anchor_user_id;
         public Long height;

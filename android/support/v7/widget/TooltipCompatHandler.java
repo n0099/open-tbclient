@@ -9,13 +9,14 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityManager;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class TooltipCompatHandler implements View.OnAttachStateChangeListener, View.OnHoverListener, View.OnLongClickListener {
     private static final long HOVER_HIDE_TIMEOUT_MS = 15000;
     private static final long HOVER_HIDE_TIMEOUT_SHORT_MS = 3000;
     private static final long LONG_CLICK_HIDE_TIMEOUT_MS = 2500;
     private static final String TAG = "TooltipCompatHandler";
     private static TooltipCompatHandler sActiveHandler;
+    private static TooltipCompatHandler sPendingHandler;
     private final View mAnchor;
     private int mAnchorX;
     private int mAnchorY;
@@ -36,6 +37,9 @@ class TooltipCompatHandler implements View.OnAttachStateChangeListener, View.OnH
     };
 
     public static void setTooltipText(View view, CharSequence charSequence) {
+        if (sPendingHandler != null && sPendingHandler.mAnchor == view) {
+            setPendingHandler(null);
+        }
         if (TextUtils.isEmpty(charSequence)) {
             if (sActiveHandler != null && sActiveHandler.mAnchor == view) {
                 sActiveHandler.hide();
@@ -73,8 +77,7 @@ class TooltipCompatHandler implements View.OnAttachStateChangeListener, View.OnH
                         if (this.mAnchor.isEnabled() && this.mPopup == null) {
                             this.mAnchorX = (int) motionEvent.getX();
                             this.mAnchorY = (int) motionEvent.getY();
-                            this.mAnchor.removeCallbacks(this.mShowRunnable);
-                            this.mAnchor.postDelayed(this.mShowRunnable, ViewConfiguration.getLongPressTimeout());
+                            setPendingHandler(this);
                             break;
                         }
                         break;
@@ -100,6 +103,7 @@ class TooltipCompatHandler implements View.OnAttachStateChangeListener, View.OnH
     public void show(boolean z) {
         long longPressTimeout;
         if (ViewCompat.isAttachedToWindow(this.mAnchor)) {
+            setPendingHandler(null);
             if (sActiveHandler != null) {
                 sActiveHandler.hide();
             }
@@ -132,7 +136,27 @@ class TooltipCompatHandler implements View.OnAttachStateChangeListener, View.OnH
                 Log.e(TAG, "sActiveHandler.mPopup == null");
             }
         }
-        this.mAnchor.removeCallbacks(this.mShowRunnable);
+        if (sPendingHandler == this) {
+            setPendingHandler(null);
+        }
         this.mAnchor.removeCallbacks(this.mHideRunnable);
+    }
+
+    private static void setPendingHandler(TooltipCompatHandler tooltipCompatHandler) {
+        if (sPendingHandler != null) {
+            sPendingHandler.cancelPendingShow();
+        }
+        sPendingHandler = tooltipCompatHandler;
+        if (sPendingHandler != null) {
+            sPendingHandler.scheduleShow();
+        }
+    }
+
+    private void scheduleShow() {
+        this.mAnchor.postDelayed(this.mShowRunnable, ViewConfiguration.getLongPressTimeout());
+    }
+
+    private void cancelPendingShow() {
+        this.mAnchor.removeCallbacks(this.mShowRunnable);
     }
 }

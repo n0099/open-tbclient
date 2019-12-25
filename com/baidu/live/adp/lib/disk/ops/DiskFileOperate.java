@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.safe.BdCloseHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.File;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DiskFileOperate {
     protected Action mAction;
     private DiskWorker.DiskWorkerOperate mCustomOperate;
@@ -26,7 +26,7 @@ public class DiskFileOperate {
     private boolean mSdCard;
     private int mTrySuccessWeight;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum Action {
         READ,
         WRITE,
@@ -40,7 +40,7 @@ public class DiskFileOperate {
         CUSTOM
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum OperateType {
         MUST_SUCCESS,
         TRY_SUCCESS

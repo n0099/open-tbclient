@@ -1,5 +1,5 @@
 package com.baidu.tbadk.widget.timepicker.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface c {
-    void ad(Object obj);
+    void ak(Object obj);
 }

@@ -15,7 +15,7 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     private static Intent a(Context context, PublicMsg publicMsg) {
         try {
@@ -65,7 +65,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
     public static void a(Context context, String str, String str2, PublicMsg publicMsg) {
         Intent a;
         try {
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService(com.coloros.mcssdk.PushManager.MESSAGE_TYPE_NOTI);
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
             if (TextUtils.isEmpty(publicMsg.mPkgContent)) {
                 a = !TextUtils.isEmpty(publicMsg.mUrl) ? a(publicMsg.mUrl) : a(context, publicMsg);
             } else {
@@ -90,7 +90,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, String str, String str2, PublicMsg publicMsg, byte[] bArr, byte[] bArr2) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(com.coloros.mcssdk.PushManager.MESSAGE_TYPE_NOTI);
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
         Intent intent = new Intent();
         intent.setClassName(str, str2);
         intent.setAction("com.baidu.android.pushservice.action.privatenotification.CLICK");

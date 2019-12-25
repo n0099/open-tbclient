@@ -9,7 +9,7 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.framework.settings.HttpTaskSetting;
 import com.baidu.live.adp.framework.task.HttpMessageTask;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HttpManager extends Manager<HttpMessage, HttpMessageTask, HttpRule, HttpResponsedMessage> {
     private HttpClient mClient;
 

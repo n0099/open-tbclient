@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class MultiDexHelper {
     private static final String EXTRACTED_NAME_EXT = ".classes";
     private static final String EXTRACTED_SUFFIX = ".zip";

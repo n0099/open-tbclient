@@ -9,24 +9,24 @@ import android.provider.Settings;
 import com.baidu.tieba.play.p;
 /* loaded from: classes.dex */
 public class o {
-    private SensorManager aoj;
-    private Sensor aol;
-    private k ixt;
-    private p ixu;
+    private SensorManager awg;
+    private Sensor awi;
+    private k jrt;
+    private p jru;
     private Activity mActivity;
-    private boolean aom = false;
-    private boolean aon = false;
-    private boolean aop = false;
-    private boolean aoq = false;
+    private boolean awj = false;
+    private boolean awk = false;
+    private boolean awm = false;
+    private boolean awn = false;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.play.o.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message != null && o.this.mActivity != null && o.this.aoq) {
+            if (message != null && o.this.mActivity != null && o.this.awn) {
                 switch (message.what) {
                     case 1:
                         int requestedOrientation = o.this.mActivity.getRequestedOrientation();
                         int i = message.arg1;
-                        if (!o.this.aop) {
+                        if (!o.this.awm) {
                             if (i > 225 && i < 315) {
                                 if (requestedOrientation == 8) {
                                     o.this.mActivity.setRequestedOrientation(0);
@@ -40,7 +40,7 @@ public class o {
                                 return;
                             }
                         } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
-                            if (!o.this.aon) {
+                            if (!o.this.awk) {
                                 if (i > 55 && i < 125) {
                                     if (requestedOrientation != 8) {
                                         o.this.mActivity.setRequestedOrientation(8);
@@ -49,13 +49,13 @@ public class o {
                                     o.this.mActivity.setRequestedOrientation(0);
                                 }
                             }
-                            o.this.aom = false;
+                            o.this.awj = false;
                             return;
                         } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
-                            if (!o.this.aom && requestedOrientation != 1) {
+                            if (!o.this.awj && requestedOrientation != 1) {
                                 o.this.mActivity.setRequestedOrientation(1);
                             }
-                            o.this.aon = false;
+                            o.this.awk = false;
                             return;
                         } else {
                             return;
@@ -66,57 +66,57 @@ public class o {
             }
         }
     };
-    private p.a ixv = new p.a() { // from class: com.baidu.tieba.play.o.2
+    private p.a jrv = new p.a() { // from class: com.baidu.tieba.play.o.2
         @Override // com.baidu.tieba.play.p.a
         public void onChange(boolean z) {
-            o.this.aop = z;
+            o.this.awm = z;
         }
     };
 
-    public void vt() {
+    public void xr() {
         if (this.mActivity != null) {
             if (this.mActivity.getRequestedOrientation() == 1) {
                 this.mActivity.setRequestedOrientation(0);
-                this.aom = true;
+                this.awj = true;
                 return;
             }
             this.mActivity.setRequestedOrientation(1);
-            this.aon = true;
+            this.awk = true;
         }
     }
 
     public o(Activity activity) {
         if (activity != null) {
             this.mActivity = activity;
-            this.aoj = (SensorManager) activity.getSystemService("sensor");
-            this.aol = this.aoj.getDefaultSensor(1);
-            this.ixt = new k(this.mHandler);
+            this.awg = (SensorManager) activity.getSystemService("sensor");
+            this.awi = this.awg.getDefaultSensor(1);
+            this.jrt = new k(this.mHandler);
             if (!this.mActivity.getClass().getName().contains("SwanAppActivity")) {
                 this.mActivity.setRequestedOrientation(1);
             }
-            this.ixu = new p(this.mActivity, this.mHandler);
-            this.ixu.a(this.ixv);
-            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.ixu);
+            this.jru = new p(this.mActivity, this.mHandler);
+            this.jru.a(this.jrv);
+            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.jru);
         }
     }
 
     public void start() {
-        if (this.aoj != null) {
-            this.aoj.registerListener(this.ixt, this.aol, 2);
+        if (this.awg != null) {
+            this.awg.registerListener(this.jrt, this.awi, 2);
         }
     }
 
     public void stop() {
-        if (this.aoj != null) {
-            this.aoj.unregisterListener(this.ixt);
+        if (this.awg != null) {
+            this.awg.unregisterListener(this.jrt);
         }
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mActivity != null) {
-            this.mActivity.getContentResolver().unregisterContentObserver(this.ixu);
+            this.mActivity.getContentResolver().unregisterContentObserver(this.jru);
         }
     }
 
-    public void aK(boolean z) {
-        this.aoq = z;
+    public void bb(boolean z) {
+        this.awn = z;
     }
 }

@@ -7,7 +7,7 @@ import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TurnTableLuckyArrowView extends View {
     private Paint mPaint;
     private Path mPath;

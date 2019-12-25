@@ -3,25 +3,25 @@ package com.baidu.tieba.dnsproxy;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class d {
-    private static volatile d eWt = null;
+    private static volatile d fLc = null;
 
-    public static final d bcH() {
-        if (eWt == null) {
+    public static final d bue() {
+        if (fLc == null) {
             synchronized (d.class) {
-                if (eWt == null) {
-                    eWt = new d();
+                if (fLc == null) {
+                    fLc = new d();
                 }
             }
         }
-        return eWt;
+        return fLc;
     }
 
     private d() {
     }
 
-    public void ci(String str, String str2) {
+    public void bn(String str, String str2) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_error");
@@ -35,12 +35,12 @@ public class d {
         }
     }
 
-    public void U(String str, String str2, String str3) {
+    public void ai(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2) || !TextUtils.isEmpty(str3)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_event");
             if (!TextUtils.isEmpty(str)) {
-                statsItem.append(TiebaInitialize.Params.KEY, str);
+                statsItem.append("key", str);
             }
             if (!TextUtils.isEmpty(str2)) {
                 statsItem.append(TiebaInitialize.LogFields.REASON, str2);

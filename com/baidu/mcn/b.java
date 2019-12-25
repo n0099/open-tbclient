@@ -7,44 +7,44 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static String ayD = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
-    private SharedPreferences ayE;
-    private Set<String> ayF;
+    private static String aGq = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
+    private Set<String> aGr;
+    private SharedPreferences mPreference;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static b ayG = new b();
+        public static b aGs = new b();
     }
 
-    public static b ze() {
-        return a.ayG;
+    public static b AS() {
+        return a.aGs;
     }
 
     private b() {
-        this.ayE = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
+        this.mPreference = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public void dt(String str) {
+    public void ei(String str) {
         if (!StringUtils.isNull(str)) {
-            this.ayF = this.ayE.getStringSet(ayD, null);
-            if (this.ayF == null) {
-                this.ayF = new HashSet();
+            this.aGr = this.mPreference.getStringSet(aGq, null);
+            if (this.aGr == null) {
+                this.aGr = new HashSet();
             }
-            this.ayF.add(str);
-            this.ayE.edit().putStringSet(ayD, this.ayF).commit();
+            this.aGr.add(str);
+            this.mPreference.edit().putStringSet(aGq, this.aGr).commit();
         }
     }
 
-    public boolean du(String str) {
+    public boolean ej(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (this.ayF == null) {
-            this.ayF = this.ayE.getStringSet(ayD, null);
+        if (this.aGr == null) {
+            this.aGr = this.mPreference.getStringSet(aGq, null);
         }
-        if (this.ayF != null) {
-            return this.ayF.contains(str);
+        if (this.aGr != null) {
+            return this.aGr.contains(str);
         }
         return false;
     }

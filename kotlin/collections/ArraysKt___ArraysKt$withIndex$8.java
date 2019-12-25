@@ -1,7 +1,7 @@
 package kotlin.collections;
 
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class ArraysKt___ArraysKt$withIndex$8 extends Lambda implements kotlin.jvm.a.a<k> {
     final /* synthetic */ boolean[] receiver$0;
 

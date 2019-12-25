@@ -1,12 +1,13 @@
 package com.baidu.sapi2.result;
 
 import android.text.TextUtils;
+import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ExtendSysWebViewMethodResult extends SapiResult {
     public Map<String, Object> params = new HashMap();
     public PassFaceRecogResult recogResult;
@@ -45,7 +46,7 @@ public class ExtendSysWebViewMethodResult extends SapiResult {
             }
             jSONObject2.put("result", jSONObject3);
             if (this.recogResult != null) {
-                jSONObject2.put("retCode", this.recogResult.getResultCode());
+                jSONObject2.put(BaiduRimConstants.RETCODE_KEY, this.recogResult.getResultCode());
                 jSONObject2.put("retMsg", this.recogResult.getResultMsg());
             }
         } catch (JSONException e) {

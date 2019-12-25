@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
@@ -18,6 +19,8 @@ import com.baidu.cyberplayer.sdk.Utils;
 import com.baidu.cyberplayer.sdk.a.b;
 import com.baidu.cyberplayer.sdk.c;
 import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
+import com.baidu.webkit.internal.ETAG;
+import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileWriter;
@@ -55,7 +58,7 @@ public class CyberCfgManager {
     private String j;
     private static Context b = null;
     private static boolean g = false;
-    private static int h = 86400000;
+    private static int h = DateTimeUtil.TIME_DAY_MILLISECOND;
     public static ArrayList<String> a = new ArrayList<>();
     private static ArrayList<String> l = new ArrayList<>();
     private static ArrayList<String> m = new ArrayList<>();
@@ -162,7 +165,7 @@ public class CyberCfgManager {
 
     private String b(String str, String str2) {
         try {
-            return b != null ? b.getSharedPreferences("video_cfg_", 0).getString(str, str2) : str2;
+            return b != null ? b.getSharedPreferences(VideoCloudSetting.PREF_NAME, 0).getString(str, str2) : str2;
         } catch (Exception e) {
             return str2;
         }
@@ -245,7 +248,7 @@ public class CyberCfgManager {
         String packageName = b.getPackageName();
         String str = (getCfgValue("update_cloud_cfg_server", "https://browserkernel.baidu.com/video") + File.separator + "videoconfig") + "?cmd=1&";
         StringBuilder sb = new StringBuilder();
-        Utils.a(sb, Constants.PACKAGE_NAME, packageName);
+        Utils.a(sb, "package_name", packageName);
         Utils.a(sb, "sdk_ver", SDKVersion.VERSION);
         if (!TextUtils.isEmpty(this.e)) {
             Utils.a(sb, "appid", this.e);
@@ -253,11 +256,11 @@ public class CyberCfgManager {
         try {
             PackageManager packageManager = b.getPackageManager();
             if (packageManager != null) {
-                Utils.a(sb, "appversion", packageManager.getPackageInfo(packageName, 0).versionName);
+                Utils.a(sb, ETAG.KEY_APP_VERSION, packageManager.getPackageInfo(packageName, 0).versionName);
             }
         } catch (PackageManager.NameNotFoundException e) {
         }
-        Utils.a(sb, "dev_ver", Build.VERSION.SDK_INT);
+        Utils.a(sb, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
         Utils.a(sb, "net_type", DpNetworkUtils.getNetworkStatisticsData(b));
         if (!TextUtils.isEmpty(this.d)) {
             Utils.a(sb, "cuid", this.d);
@@ -338,7 +341,7 @@ public class CyberCfgManager {
                 this.c.put("enable_upload_session_log", Integer.toString(0));
                 return;
             }
-            if (new Random().nextInt(10000) + 1 <= a(this.c, "session_log_collect_percent", 10000)) {
+            if (new Random().nextInt(10000) + 1 <= a(this.c, VideoCloudSetting.PREF_KEY_SESSION_LOG_COLLECT_PERCENT, 10000)) {
                 this.c.put("enable_upload_session_log", Integer.toString(1));
             } else {
                 this.c.put("enable_upload_session_log", Integer.toString(0));
@@ -430,8 +433,8 @@ public class CyberCfgManager {
     private void p() {
         try {
             this.c.clear();
-            this.c.put("session_log_collect_percent", b("session_log_collect_percent", "10000"));
-            this.c.put(KEY_INT_PCDN_FORBIDDEN, b(KEY_INT_PCDN_FORBIDDEN, "0"));
+            this.c.put(VideoCloudSetting.PREF_KEY_SESSION_LOG_COLLECT_PERCENT, b(VideoCloudSetting.PREF_KEY_SESSION_LOG_COLLECT_PERCENT, "10000"));
+            this.c.put("pcdn_forbidden", b("pcdn_forbidden", "0"));
             e();
             f();
             CyberLog.d("CyberCfgManager", "updateCloudCfgFromT7Pref success!");
@@ -448,7 +451,7 @@ public class CyberCfgManager {
         boolean o2;
         o2 = o();
         if (!o2) {
-            o2 = TextUtils.equals(b("spring_festival_switch", Boolean.toString(false)), "true");
+            o2 = TextUtils.equals(b(VideoCloudSetting.PREF_KEY_SPRING_FESTIVAL_SWITCH, Boolean.toString(false)), "true");
         }
         CyberLog.d("CyberCfgManager", "isSFSwitchEnabled:" + o2);
         return o2;

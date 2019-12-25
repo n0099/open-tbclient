@@ -2,7 +2,7 @@ package com.baidu.tieba.videoplay.verticalviewpager.transforms;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ZoomOutTransformer implements ViewPager.PageTransformer {
     @Override // android.support.v4.view.ViewPager.PageTransformer
     public void transformPage(View view, float f) {

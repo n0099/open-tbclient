@@ -1,7 +1,6 @@
 package com.baidu.sapi2;
 
 import android.os.Looper;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.sapi2.callback.IqiyiLoginCallback;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.result.IqiyiLoginResult;
@@ -10,7 +9,7 @@ import com.baidu.sapi2.shell.response.SocialResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class p extends HttpHandlerWrap {
     final /* synthetic */ IqiyiLoginCallback a;
     final /* synthetic */ IqiyiLoginResult b;
@@ -68,7 +67,7 @@ public class p extends HttpHandlerWrap {
                 a.addDispersionCertification(b.tplStokenMap);
                 a.addIsGuestAccount(b.isGuestAccount);
                 sapiConfiguration2 = this.c.c;
-                a.putExtra(TableDefine.PaSubscribeColumns.COLUMN_TPL, sapiConfiguration2.tpl);
+                a.putExtra("tpl", sapiConfiguration2.tpl);
                 SapiShareClient.getInstance().validate(a);
                 this.a.onSuccess(this.b);
                 return;

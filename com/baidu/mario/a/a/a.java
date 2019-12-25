@@ -1,178 +1,185 @@
 package com.baidu.mario.a.a;
 
+import android.os.Build;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
-import com.baidu.mario.a.e;
-import com.baidu.mario.a.f;
+import com.baidu.mario.a.b.c;
+import com.baidu.mario.a.b.d;
+import com.baidu.mario.a.b.e;
 import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes2.dex */
-public class a implements com.baidu.mario.a.a, f {
+/* loaded from: classes9.dex */
+public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static volatile a awv;
-    private com.baidu.mario.a.b awu;
-    private ArrayList<b> mCallbackList;
-    private ArrayList<f> mVolumeListenerList;
-    private final Lock mAudioCallbackLock = new ReentrantLock(true);
-    private final Lock mVolumeListenerLock = new ReentrantLock(true);
+    private Handler aFA;
+    private com.baidu.mario.a.b.a aFB;
+    private volatile boolean aFC = false;
+    private e aFi;
+    private HandlerThread aFz;
 
-    public static a xt() {
-        if (awv == null) {
-            synchronized (a.class) {
-                if (awv == null) {
-                    awv = new a();
-                }
+    private void a(e eVar, c cVar) {
+        this.aFz = new HandlerThread("AudioRecorderThread");
+        this.aFz.start();
+        this.aFA = new b(this.aFz.getLooper());
+        try {
+            this.aFB = new com.baidu.mario.a.b.a();
+        } catch (VerifyError e) {
+            Log.e(TAG, "initRecorder verifyError");
+            if (this.aFB == null) {
+                return;
             }
         }
-        return awv;
-    }
-
-    private static void releaseInstance() {
-        awv = null;
-    }
-
-    private a() {
-    }
-
-    public void a(e eVar, b bVar) {
-        if (eVar == null || bVar == null) {
-            Log.e(TAG, "AudioParams && EasyAudioCallback can not be null!!!");
-            return;
-        }
-        if (this.awu == null) {
-            this.awu = com.baidu.mario.a.b.xm();
-        }
-        if (this.mCallbackList == null) {
-            this.mCallbackList = new ArrayList<>();
-        }
-        if (this.mCallbackList.contains(bVar)) {
-            Log.e(TAG, "EasyAudio has been started!!!");
-            return;
-        }
-        if (this.awu.isRunning()) {
-            bVar.a(true, this.awu.xn());
-        } else {
-            this.mCallbackList.clear();
-            this.awu.a(eVar, this);
-        }
-        this.mAudioCallbackLock.lock();
-        try {
-            this.mCallbackList.add(bVar);
-        } finally {
-            this.mAudioCallbackLock.unlock();
+        this.aFi = eVar;
+        if (Build.VERSION.SDK_INT >= 18) {
+            this.aFB.a(cVar);
         }
     }
 
-    public void a(b bVar) {
-        if (bVar == null) {
-            Log.e(TAG, "EasyAudioCallback can not be null!!!");
-        } else if (this.mCallbackList != null && this.mCallbackList.contains(bVar)) {
-            if (this.mCallbackList.size() > 1) {
-                this.mAudioCallbackLock.lock();
-                try {
-                    boolean remove = this.mCallbackList.remove(bVar);
-                    this.mAudioCallbackLock.unlock();
-                    bVar.onAudioStop(remove);
+    public boolean isRunning() {
+        return this.aFz != null && this.aFz.isAlive();
+    }
+
+    public boolean a(d dVar, e eVar, c cVar) {
+        if (isRunning()) {
+            Log.e(TAG, "setupRecorder error! As last audio recorder thread is alive!");
+            return false;
+        }
+        a(eVar, cVar);
+        this.aFA.sendMessage(this.aFA.obtainMessage(1001, dVar));
+        this.aFC = true;
+        return true;
+    }
+
+    public void Ap() {
+        if (this.aFA != null) {
+            this.aFA.sendMessage(this.aFA.obtainMessage(1002));
+        }
+    }
+
+    public void d(ByteBuffer byteBuffer, int i, long j) {
+        if (byteBuffer != null && i > 0) {
+            C0113a c0113a = new C0113a(byteBuffer, i, j);
+            if (this.aFA != null && this.aFC) {
+                this.aFA.sendMessage(this.aFA.obtainMessage(1003, c0113a));
+            }
+        }
+    }
+
+    public void stopRecording() {
+        if (this.aFA != null && this.aFC) {
+            this.aFC = false;
+            this.aFA.sendMessage(this.aFA.obtainMessage(1004));
+        }
+    }
+
+    public void Aq() {
+        if (this.aFA != null) {
+            this.aFA.removeCallbacksAndMessages(null);
+            this.aFA.sendMessage(this.aFA.obtainMessage(1005));
+            this.aFA.sendMessage(this.aFA.obtainMessage(1006));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes9.dex */
+    public class b extends Handler {
+        public b(Looper looper) {
+            super(looper);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            switch (message.what) {
+                case 1001:
+                    a.this.b((d) message.obj);
                     return;
-                } catch (Throwable th) {
-                    this.mAudioCallbackLock.unlock();
-                    throw th;
-                }
+                case 1002:
+                    a.this.Ar();
+                    return;
+                case 1003:
+                    C0113a c0113a = (C0113a) message.obj;
+                    a.this.e(c0113a.aFD, c0113a.aFE, c0113a.aFF);
+                    return;
+                case 1004:
+                    a.this.handleStopRecording();
+                    return;
+                case 1005:
+                    a.this.As();
+                    return;
+                case 1006:
+                    a.this.At();
+                    return;
+                default:
+                    return;
             }
-            stopAndReleaseAudioController();
-        } else {
-            Log.e(TAG, "Please confirm EasyAudio has been started!!!");
         }
     }
 
-    public void release() {
-        stopAndReleaseAudioController();
-        releaseEasyAudio();
-    }
-
-    private synchronized void stopAndReleaseAudioController() {
-        if (this.awu != null) {
-            this.awu.stopAudio();
-            this.awu.releaseAudio();
-            this.awu = null;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(d dVar) {
+        if (Build.VERSION.SDK_INT >= 18 && this.aFB != null) {
+            this.aFB.a(dVar, this.aFi);
         }
     }
 
-    @Override // com.baidu.mario.a.a
-    public void onAudioSetup(boolean z) {
-        if (z) {
-            if (this.awu != null) {
-                this.awu.startAudio();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Ar() {
+        if (Build.VERSION.SDK_INT >= 18) {
+            this.aFB.Az();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e(ByteBuffer byteBuffer, int i, long j) {
+        if (Build.VERSION.SDK_INT >= 18) {
+            this.aFB.b(false, byteBuffer, i, j);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void handleStopRecording() {
+        if (Build.VERSION.SDK_INT >= 18 && this.aFB != null) {
+            this.aFB.b(true, (ByteBuffer) null, 0, 0L);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void As() {
+        if (Build.VERSION.SDK_INT >= 18) {
+            if (this.aFB != null) {
+                this.aFB.Ay();
+                this.aFB.releaseEncoder();
             }
-        } else if (this.mCallbackList != null && this.mCallbackList.get(0) != null) {
-            this.mCallbackList.get(0).a(false, null);
-            release();
+            this.aFB = null;
+            this.aFi = null;
         }
     }
 
-    @Override // com.baidu.mario.a.a
-    public void onAudioStart(boolean z) {
-        if (this.mCallbackList != null && this.mCallbackList.get(0) != null && this.awu != null) {
-            this.mCallbackList.get(0).a(z, this.awu.xn());
+    /* JADX INFO: Access modifiers changed from: private */
+    public void At() {
+        if (this.aFA != null) {
+            this.aFA.removeCallbacksAndMessages(null);
+            this.aFA = null;
         }
-        if (!z) {
-            release();
-        }
-    }
-
-    @Override // com.baidu.mario.a.a
-    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j) {
-        this.mAudioCallbackLock.lock();
-        try {
-            if (this.mCallbackList != null) {
-                Iterator<b> it = this.mCallbackList.iterator();
-                while (it.hasNext()) {
-                    it.next().onAudioFrameAvailable(byteBuffer, i, j);
-                }
-            }
-        } finally {
-            this.mAudioCallbackLock.unlock();
+        if (this.aFz != null) {
+            this.aFz.quit();
+            this.aFz = null;
         }
     }
 
-    @Override // com.baidu.mario.a.a
-    public void onAudioStop(boolean z) {
-        if (this.mCallbackList != null && this.mCallbackList.get(0) != null) {
-            this.mCallbackList.get(0).onAudioStop(z);
-        }
-    }
+    /* renamed from: com.baidu.mario.a.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes9.dex */
+    private class C0113a {
+        ByteBuffer aFD;
+        int aFE;
+        long aFF;
 
-    @Override // com.baidu.mario.a.a
-    public void onAudioRelease() {
-        releaseEasyAudio();
-    }
-
-    private synchronized void releaseEasyAudio() {
-        if (this.mCallbackList != null) {
-            this.mCallbackList.clear();
-        }
-        this.mCallbackList = null;
-        if (this.mVolumeListenerList != null) {
-            this.mVolumeListenerList.clear();
-        }
-        this.mVolumeListenerList = null;
-        releaseInstance();
-    }
-
-    @Override // com.baidu.mario.a.f
-    public void onRealtimeVolume(int i) {
-        this.mVolumeListenerLock.lock();
-        try {
-            if (this.mVolumeListenerList != null) {
-                Iterator<f> it = this.mVolumeListenerList.iterator();
-                while (it.hasNext()) {
-                    it.next().onRealtimeVolume(i);
-                }
-            }
-        } finally {
-            this.mVolumeListenerLock.unlock();
+        public C0113a(ByteBuffer byteBuffer, int i, long j) {
+            this.aFD = byteBuffer;
+            this.aFE = i;
+            this.aFF = j;
         }
     }
 }

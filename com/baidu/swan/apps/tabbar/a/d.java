@@ -4,43 +4,35 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class d extends z {
+/* loaded from: classes9.dex */
+public class d extends a {
     public d(j jVar) {
-        super(jVar, "/swan/openTabBar");
+        super(jVar, "/swanAPI/closeTabBarRedDot");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.core.d.e AI = com.baidu.swan.apps.w.e.LE().AI();
-        if (AI == null) {
-            com.baidu.swan.apps.console.c.e("openTabBar", "fragmentManager is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
-        }
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
-            com.baidu.swan.apps.console.c.e("openTabBar", "paramsJson is null");
+            com.baidu.swan.apps.console.c.e("closeTabBarRedDot", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        boolean optBoolean = optParamsAsJo.optBoolean("animation");
-        com.baidu.swan.apps.core.d.d Fs = AI.Fs();
-        if (Fs == null) {
-            com.baidu.swan.apps.console.c.e("openTabBar", "swanAppFragment is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        int optInt = optParamsAsJo.optInt("index");
+        if (Hb()) {
+            com.baidu.swan.apps.console.c.e("CloseTabBarRedDotAction", "fail not TabBar page");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         }
-        com.baidu.swan.apps.tabbar.b.a Fe = Fs.Fe();
-        if (Fe == null) {
-            com.baidu.swan.apps.console.c.e("openTabBar", "bottomBarViewController is null");
+        com.baidu.swan.apps.tabbar.b.a Ha = Ha();
+        if (Ha == null) {
+            com.baidu.swan.apps.console.c.e("CloseTabBarRedDotAction", "tabBarViewController is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!Fe.cT(optBoolean)) {
-            com.baidu.swan.apps.console.c.e("openTabBar", "open bottom bar fail");
+        } else if (!Ha.gK(optInt)) {
+            com.baidu.swan.apps.console.c.e("closeTabBarRedDot", "close red dot fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {

@@ -1,13 +1,14 @@
 package com.meizu.cloud.pushsdk.c.e;
 
 import android.content.Context;
+import com.baidu.swan.apps.core.container.NgWebView;
 import com.meizu.cloud.pushsdk.PushManager;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class c {
     private static final String n = c.class.getSimpleName();
     protected com.meizu.cloud.pushsdk.c.b.c b;
@@ -24,7 +25,7 @@ public abstract class c {
     protected final String a = PushManager.TAG;
     protected AtomicBoolean m = new AtomicBoolean(true);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         protected final com.meizu.cloud.pushsdk.c.b.c a;
         protected final String b;
@@ -94,7 +95,7 @@ public abstract class c {
         }
         if (this.c != null) {
             if (!this.c.a().isEmpty()) {
-                list.add(new com.meizu.cloud.pushsdk.c.a.b("geolocation", this.c.a()));
+                list.add(new com.meizu.cloud.pushsdk.c.a.b(NgWebView.APP_GEO_PATH, this.c.a()));
             }
             if (!this.c.b().isEmpty()) {
                 list.add(new com.meizu.cloud.pushsdk.c.a.b("mobileinfo", this.c.b()));

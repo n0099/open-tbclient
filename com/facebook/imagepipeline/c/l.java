@@ -1,12 +1,18 @@
 package com.facebook.imagepipeline.c;
 
-import com.facebook.imagepipeline.request.ImageRequest;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
-public interface l {
-    bolts.g<com.facebook.imagepipeline.f.d> a(ImageRequest imageRequest, Object obj, AtomicBoolean atomicBoolean);
-
-    ImageRequest.CacheChoice a(ImageRequest imageRequest, com.facebook.imagepipeline.f.d dVar);
-
-    void a(com.facebook.imagepipeline.f.d dVar, ImageRequest imageRequest, Object obj);
+import com.facebook.common.memory.PooledByteBuffer;
+/* loaded from: classes9.dex */
+public class l {
+    public static h<com.facebook.cache.common.b, PooledByteBuffer> a(com.facebook.common.internal.j<q> jVar, com.facebook.common.memory.c cVar) {
+        h<com.facebook.cache.common.b, PooledByteBuffer> hVar = new h<>(new v<PooledByteBuffer>() { // from class: com.facebook.imagepipeline.c.l.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.facebook.imagepipeline.c.v
+            /* renamed from: a */
+            public int bg(PooledByteBuffer pooledByteBuffer) {
+                return pooledByteBuffer.size();
+            }
+        }, new s(), jVar);
+        cVar.a(hVar);
+        return hVar;
+    }
 }

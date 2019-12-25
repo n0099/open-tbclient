@@ -120,8 +120,8 @@ public class v extends BaseAdapter implements q<m> {
             } else {
                 aVar = this.mDelegateAdapters.valueAt(itemViewType);
             }
-            if (aVar != null && aVar.jE() != null) {
-                aVar.jE().a(view, item, aVar.getType(), viewGroup, i, j);
+            if (aVar != null && aVar.jV() != null) {
+                aVar.jV().a(view, item, aVar.getType(), viewGroup, i, j);
             }
         }
     }
@@ -138,10 +138,10 @@ public class v extends BaseAdapter implements q<m> {
         } else {
             aVar = this.mDelegateAdapters.valueAt(itemViewType);
         }
-        if (aVar == null || aVar.jF() == null) {
+        if (aVar == null || aVar.jW() == null) {
             return false;
         }
-        return aVar.jF().b(view, item, aVar.getType(), viewGroup, i, j);
+        return aVar.jW().b(view, item, aVar.getType(), viewGroup, i, j);
     }
 
     /* loaded from: classes.dex */

@@ -3,10 +3,9 @@ package com.baidu.live.adp.lib.image.loader.interfaces;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import java.io.File;
 import org.apache.http.HttpHost;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GenerateImageAddressImpl implements IGenerateImageAddress {
     public static String sBigHeaderPhotoUrlPrefix = null;
     private static final String sDefaultHeaderPhotoPrefix = "https://himg.baidu.com/sys/portrait/item/";
@@ -32,7 +31,7 @@ public class GenerateImageAddressImpl implements IGenerateImageAddress {
             case 35:
             case 36:
             case 37:
-                if (TextUtils.isEmpty(str) || !str.startsWith(SkiaImageDecoder.FILE_PREFIX)) {
+                if (TextUtils.isEmpty(str) || !str.startsWith("file://")) {
                     return Uri.fromFile(new File(str)).toString();
                 }
                 return str;

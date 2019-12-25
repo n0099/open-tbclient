@@ -34,7 +34,7 @@ public class aa {
         }
     }
 
-    public static synchronized a amu() {
+    public static synchronized a aDG() {
         a remove;
         synchronized (aa.class) {
             int size = mStatisticsDatas.size();

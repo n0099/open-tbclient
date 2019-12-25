@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdToast {
     private static SoftReference<Toast> mToastStatic;
     private static HashMap<DefaultIcon, Integer> sDefaultIconMap = new HashMap<>(2);
@@ -29,7 +29,7 @@ public class BdToast {
     private int offsetY = 0;
     private int paddingHorizontal = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum DefaultIcon {
         SUCCESS,
         FAILURE,

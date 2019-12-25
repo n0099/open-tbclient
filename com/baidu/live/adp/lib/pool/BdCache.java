@@ -1,8 +1,9 @@
 package com.baidu.live.adp.lib.pool;
 
+import com.baidu.webkit.internal.ETAG;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdCache<K, V> {
     private int evictionCount;
     private int hitCount;
@@ -110,7 +111,7 @@ public class BdCache<K, V> {
     private int safeSizeOf(K k, V v) {
         int sizeOf = sizeOf(k, v);
         if (sizeOf < 0) {
-            throw new IllegalStateException("Negative size: " + k + "=" + v);
+            throw new IllegalStateException("Negative size: " + k + ETAG.EQUAL + v);
         }
         return sizeOf;
     }

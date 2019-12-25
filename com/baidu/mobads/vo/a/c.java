@@ -6,7 +6,7 @@ import com.baidu.mobads.interfaces.download.activate.IXAppInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobstat.Config;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c extends a {
     public boolean o;
     private Context p;

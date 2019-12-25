@@ -26,17 +26,17 @@ public class a {
     private boolean mIsEmotionGif;
     public Rect mPadding;
     private boolean mRecyclable;
+    private int mRequestHeight;
+    private int mRequestWidth;
     private NinePatch ninePatch;
     public long timeStamp;
     private String url;
-    private int xa;
-    private int xb;
-    private com.baidu.adp.gif.b xc;
-    public C0025a xd;
+    private com.baidu.adp.gif.b zA;
+    public C0027a zB;
 
     /* renamed from: com.baidu.adp.widget.ImageView.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0025a {
+    public static class C0027a {
         public long costTime;
         public boolean isScuess;
         public String resourceFromType;
@@ -53,7 +53,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.xd = new C0025a();
+        this.zB = new C0027a();
         this.image = bitmap;
         this.isGif = z;
         checkIsNinePatchBitmap();
@@ -70,7 +70,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.xd = new C0025a();
+        this.zB = new C0027a();
         this.image = bitmap;
         this.isGif = z;
         this.url = str;
@@ -88,7 +88,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.xd = new C0025a();
+        this.zB = new C0027a();
         this.image = bitmap;
         this.isGif = z;
         this.url = str;
@@ -107,7 +107,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.xd = new C0025a();
+        this.zB = new C0027a();
         this.image = bitmap;
         this.isGif = z;
         this.url = str;
@@ -126,8 +126,8 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.xd = new C0025a();
-        this.xc = bVar;
+        this.zB = new C0027a();
+        this.zA = bVar;
         this.image = bitmap;
         this.isGif = z;
     }
@@ -143,8 +143,8 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.xd = new C0025a();
-        this.xc = bVar;
+        this.zB = new C0027a();
+        this.zA = bVar;
         this.mIsEmotionGif = true;
     }
 
@@ -161,7 +161,7 @@ public class a {
     }
 
     public com.baidu.adp.gif.b getGif() {
-        return this.xc;
+        return this.zA;
     }
 
     public int getWidth() {
@@ -233,9 +233,9 @@ public class a {
                 this.image = null;
                 bitmap.recycle();
             }
-            if (this.xc != null) {
-                com.baidu.adp.gif.b bVar = this.xc;
-                this.xc = null;
+            if (this.zA != null) {
+                com.baidu.adp.gif.b bVar = this.zA;
+                this.zA = null;
                 bVar.close();
             }
             return true;
@@ -309,11 +309,11 @@ public class a {
         return this.isNinePatchBitmap;
     }
 
-    public void ac(int i) {
-        this.xa = i;
+    public void af(int i) {
+        this.mRequestWidth = i;
     }
 
-    public void ad(int i) {
-        this.xb = i;
+    public void ag(int i) {
+        this.mRequestHeight = i;
     }
 }

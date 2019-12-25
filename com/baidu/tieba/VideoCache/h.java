@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h {
-    private String bTb;
-    private String deU;
-    private boolean deV;
-    private long deW = -1;
-    private long deX = -1;
-    private long deY = 0;
-    private long deZ = 0;
+    private String cFz;
+    private String dSG;
+    private boolean dSH;
+    private long dSI = -1;
+    private long dSJ = -1;
+    private long dSK = 0;
+    private long dSL = 0;
 
-    public String aCC() {
-        return this.deU;
+    public String aUw() {
+        return this.dSG;
     }
 
-    public void qQ(String str) {
-        this.deU = str;
+    public void vZ(String str) {
+        this.dSG = str;
     }
 
-    public String aCD() {
-        return this.bTb;
+    public String getOriginUrl() {
+        return this.cFz;
     }
 
-    public void qR(String str) {
-        this.bTb = str;
+    public void wa(String str) {
+        this.cFz = str;
     }
 
-    public boolean aCE() {
-        return this.deV;
+    public boolean aUx() {
+        return this.dSH;
     }
 
-    public void gb(boolean z) {
-        this.deV = z;
+    public void hp(boolean z) {
+        this.dSH = z;
     }
 
-    public long aCF() {
-        return this.deW;
+    public long aUy() {
+        return this.dSI;
     }
 
-    public void bC(long j) {
-        this.deW = j;
+    public void ce(long j) {
+        this.dSI = j;
     }
 
-    public long aCG() {
-        return this.deX;
+    public long aUz() {
+        return this.dSJ;
     }
 
-    public void bD(long j) {
-        this.deX = j;
+    public void cf(long j) {
+        this.dSJ = j;
     }
 
     public long getTotalLength() {
-        return this.deY;
+        return this.dSK;
     }
 
     public void setTotalLength(long j) {
-        this.deY = j;
+        this.dSK = j;
     }
 
-    public void bE(long j) {
-        this.deZ = j;
+    public void cg(long j) {
+        this.dSL = j;
     }
 
-    public long aCH() {
-        return this.deZ;
+    public long aUA() {
+        return this.dSL;
     }
 }

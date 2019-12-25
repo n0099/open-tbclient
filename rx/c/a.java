@@ -1,7 +1,7 @@
 package rx.c;
 
 import rx.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class a {
     @Deprecated
     public b.a b(b.a aVar) {
@@ -14,12 +14,12 @@ public abstract class a {
     }
 
     @Deprecated
-    public Throwable S(Throwable th) {
+    public Throwable V(Throwable th) {
         return th;
     }
 
     @Deprecated
-    public b.InterfaceC0596b a(b.InterfaceC0596b interfaceC0596b) {
-        return interfaceC0596b;
+    public b.InterfaceC0725b a(b.InterfaceC0725b interfaceC0725b) {
+        return interfaceC0725b;
     }
 }

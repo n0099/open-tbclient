@@ -1,31 +1,21 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.List;
-import tbclient.FrsPage.RecommendBook;
-/* loaded from: classes3.dex */
-public class z extends bh {
-    public static final BdUniqueId bYt = BdUniqueId.gen();
-    public String bXr;
-    public int bYu;
-    public List<String> bYv;
-    public String image;
-    public String linkUrl;
-    public String title;
+import tbclient.FrsPage.HeadSdk;
+/* loaded from: classes.dex */
+public class z {
+    private String cKG;
+    private String cKH;
+    private String cKI;
+    private String cKJ;
+    private int cKK;
 
-    public void a(RecommendBook recommendBook) {
-        if (recommendBook != null) {
-            this.bYu = recommendBook.type.intValue();
-            this.bXr = recommendBook.book_id;
-            this.title = recommendBook.title;
-            this.image = recommendBook.image;
-            this.bYv = recommendBook.desc;
-            this.linkUrl = recommendBook.link_url;
+    public void a(HeadSdk headSdk) {
+        if (headSdk != null) {
+            this.cKG = headSdk.head_pic;
+            this.cKH = headSdk.head_text;
+            this.cKI = headSdk.sdk_name;
+            this.cKJ = headSdk.sdk_params;
+            this.cKK = headSdk.head_type.intValue();
         }
-    }
-
-    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        return bYt;
     }
 }

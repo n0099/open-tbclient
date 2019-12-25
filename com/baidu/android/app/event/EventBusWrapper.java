@@ -11,7 +11,7 @@ import rx.d;
 import rx.functions.b;
 import rx.g;
 import rx.schedulers.Schedulers;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class EventBusWrapper {
     public static final boolean DEBUG = false;
     private static final int LAZY_POST_MSG = 2;
@@ -39,7 +39,7 @@ public final class EventBusWrapper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class LazySubscriber {
         final b action;
         final int mode;
@@ -63,7 +63,7 @@ public final class EventBusWrapper {
     }
 
     public static <T> d<T> register(Object obj, Class<T> cls) {
-        return RxBus.get().isRegistered(obj, cls) ? d.cOh() : RxBus.get().register(obj, cls);
+        return RxBus.get().isRegistered(obj, cls) ? d.dGb() : RxBus.get().register(obj, cls);
     }
 
     public static <T> void register(Object obj, Class<T> cls, b<T> bVar) {
@@ -80,25 +80,25 @@ public final class EventBusWrapper {
             };
             d<T> register = RxBus.get().register(obj, cls);
             if (i == 0) {
-                register.a(a.cOq()).b(bVar).a(bVar2).cOk().cNY();
+                register.c(a.dGl()).b(bVar).a(bVar2).dGe().dFU();
             } else if (i == 1) {
-                register.a(Schedulers.computation()).b(bVar).a(bVar2).cOk().cNY();
+                register.c(Schedulers.computation()).b(bVar).a(bVar2).dGe().dFU();
             } else if (i == 2) {
-                register.b(bVar).a(bVar2).cOk().cNY();
+                register.b(bVar).a(bVar2).dGe().dFU();
             } else {
-                register.b(bVar).a(bVar2).cOk().cNY();
+                register.b(bVar).a(bVar2).dGe().dFU();
             }
         }
     }
 
     public static <T> void register(Object obj, Class<T> cls, g gVar, b bVar) {
         if (obj != null && cls != null && bVar != null && gVar != null && !RxBus.get().isRegistered(obj, cls)) {
-            RxBus.get().register(obj, cls).a(gVar).b(bVar).a(new b<Throwable>() { // from class: com.baidu.android.app.event.EventBusWrapper.3
+            RxBus.get().register(obj, cls).c(gVar).b(bVar).a(new b<Throwable>() { // from class: com.baidu.android.app.event.EventBusWrapper.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 public void call(Throwable th) {
                 }
-            }).cOk().cNY();
+            }).dGe().dFU();
         }
     }
 
@@ -124,11 +124,11 @@ public final class EventBusWrapper {
 
     public static <T> d<T> registerOnMainThread(Object obj, Class<T> cls) {
         if (RxBus.get().isRegistered(obj, cls)) {
-            return d.cOh();
+            return d.dGb();
         }
         d register = register(obj, cls);
         if (register != null) {
-            return register.a(a.cOq());
+            return register.c(a.dGl());
         }
         return null;
     }
@@ -166,11 +166,11 @@ public final class EventBusWrapper {
 
     public static <T> d<T> registerOnBackgroundThread(Object obj, Class<T> cls) {
         if (RxBus.get().isRegistered(obj, cls)) {
-            return d.cOh();
+            return d.dGb();
         }
         d register = register(obj, cls);
         if (register != null) {
-            return register.a(Schedulers.computation());
+            return register.c(Schedulers.computation());
         }
         return null;
     }

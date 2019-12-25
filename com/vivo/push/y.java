@@ -3,8 +3,7 @@ package com.vivo.push;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.coloros.mcssdk.mode.CommandMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class y {
     private int a;
     private String b;
@@ -70,7 +69,7 @@ public abstract class y {
     }
 
     private final void e(a aVar) {
-        aVar.a(CommandMessage.COMMAND, this.a);
+        aVar.a("command", this.a);
         aVar.a("client_pkgname", this.b);
         c(aVar);
     }

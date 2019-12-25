@@ -1,9 +1,9 @@
 package org.java_websocket.e;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class b {
-    public static ByteBuffer cNW() {
+    public static ByteBuffer dFR() {
         return ByteBuffer.allocate(0);
     }
 }

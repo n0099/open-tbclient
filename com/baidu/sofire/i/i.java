@@ -3,14 +3,13 @@ package com.baidu.sofire.i;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.sofire.core.ApkInfo;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class i {
     public static final String[] a = {"java.lang.UnsatisfiedLinkError"};
     public static final String[] b = {"space left"};
@@ -75,7 +74,7 @@ public final class i {
             JSONArray jSONArray = new JSONArray();
             long j = 0;
             for (File file : filesDir.listFiles()) {
-                if (file.isDirectory() && file.getName().startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
+                if (file.isDirectory() && file.getName().startsWith(".")) {
                     j += a(file, jSONArray);
                 }
             }

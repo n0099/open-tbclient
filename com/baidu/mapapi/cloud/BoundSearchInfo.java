@@ -6,6 +6,7 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes5.dex */
 public class BoundSearchInfo extends BaseCloudSearchInfo {
@@ -41,9 +42,9 @@ public class BoundSearchInfo extends BaseCloudSearchInfo {
                 } catch (Exception e) {
                 }
             }
-            sb.append("&");
+            sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("bounds");
-            sb.append("=");
+            sb.append(ETAG.EQUAL);
             sb.append(this.bound);
             return sb.toString();
         }

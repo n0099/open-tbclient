@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -19,7 +18,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SapiAccount implements Parcelable, Cloneable {
     public static final Parcelable.Creator<SapiAccount> CREATOR;
     public static final String SAPI_ACCOUNT_APP = "app";
@@ -166,7 +165,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     public String getShareAccountTpl() {
-        return a(TableDefine.PaSubscribeColumns.COLUMN_TPL, "");
+        return a("tpl", "");
     }
 
     public String getSocialPortrait() {
@@ -295,7 +294,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class DispersionCertification implements c {
         protected Map<String, String> tplStokenMap = new HashMap();
 
@@ -387,7 +386,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         return str2;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class ExtraProperty implements c {
         protected static final String EXTRA_ACCOUNT_TYPE = "account_type";
         protected static final String EXTRA_IS_GUEST_ACCOUNT = "is_guest_account";

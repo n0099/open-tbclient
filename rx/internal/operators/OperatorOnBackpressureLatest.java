@@ -1,9 +1,10 @@
 package rx.internal.operators;
 
+import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -21,7 +22,7 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class LatestEmitter<T> extends AtomicLong implements rx.e<T>, rx.f, rx.k {
         static final Object EMPTY = new Object();
         static final long NOT_REQUESTED = -4611686018427387904L;
@@ -60,7 +61,7 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
                     }
                 } while (!compareAndSet(j2, j3));
                 if (j2 == NOT_REQUESTED) {
-                    this.parent.eo(Long.MAX_VALUE);
+                    this.parent.requestMore(Format.OFFSET_SAMPLE_RELATIVE);
                 }
                 emit();
             }
@@ -189,12 +190,12 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T> extends rx.j<T> {
-        private final LatestEmitter<T> kAI;
+        private final LatestEmitter<T> ngf;
 
         a(LatestEmitter<T> latestEmitter) {
-            this.kAI = latestEmitter;
+            this.ngf = latestEmitter;
         }
 
         @Override // rx.j
@@ -204,20 +205,20 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.kAI.onNext(t);
+            this.ngf.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.kAI.onError(th);
+            this.ngf.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.kAI.onCompleted();
+            this.ngf.onCompleted();
         }
 
-        void eo(long j) {
+        void requestMore(long j) {
             request(j);
         }
     }

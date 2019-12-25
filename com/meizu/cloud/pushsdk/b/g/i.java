@@ -1,6 +1,6 @@
 package com.meizu.cloud.pushsdk.b.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class i {
     final byte[] a;
     int b;

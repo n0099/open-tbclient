@@ -2,68 +2,69 @@ package com.baidu.tbadk.core.util;
 
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.android.util.devices.RomUtils;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ak {
-    private static String cjk;
-    private static String cjl;
+    private static String cVU;
+    private static String cVV;
 
-    public static boolean Uo() {
-        return amD();
+    public static boolean isEmui() {
+        return aDP();
     }
 
-    public static boolean amD() {
-        return check("EMUI") && Build.VERSION.SDK_INT >= 24;
+    public static boolean aDP() {
+        return check(RomUtils.ROM_EMUI) && Build.VERSION.SDK_INT >= 24;
     }
 
     public static boolean check(String str) {
-        if (cjk != null) {
-            return cjk.equals(str);
+        if (cVU != null) {
+            return cVU.equals(str);
         }
-        String hk = hk("ro.miui.ui.version.name");
-        cjl = hk;
-        if (!TextUtils.isEmpty(hk)) {
-            cjk = "MIUI";
+        String prop = getProp("ro.miui.ui.version.name");
+        cVV = prop;
+        if (!TextUtils.isEmpty(prop)) {
+            cVU = RomUtils.ROM_MIUI;
         } else {
-            String hk2 = hk("ro.build.version.emui");
-            cjl = hk2;
-            if (!TextUtils.isEmpty(hk2)) {
-                cjk = "EMUI";
+            String prop2 = getProp("ro.build.version.emui");
+            cVV = prop2;
+            if (!TextUtils.isEmpty(prop2)) {
+                cVU = RomUtils.ROM_EMUI;
             } else {
-                String hk3 = hk("ro.build.version.opporom");
-                cjl = hk3;
-                if (!TextUtils.isEmpty(hk3)) {
-                    cjk = "OPPO";
+                String prop3 = getProp("ro.build.version.opporom");
+                cVV = prop3;
+                if (!TextUtils.isEmpty(prop3)) {
+                    cVU = RomUtils.ROM_OPPO;
                 } else {
-                    String hk4 = hk("ro.vivo.os.version");
-                    cjl = hk4;
-                    if (!TextUtils.isEmpty(hk4)) {
-                        cjk = "VIVO";
+                    String prop4 = getProp("ro.vivo.os.version");
+                    cVV = prop4;
+                    if (!TextUtils.isEmpty(prop4)) {
+                        cVU = RomUtils.ROM_VIVO;
                     } else {
-                        String hk5 = hk("ro.smartisan.version");
-                        cjl = hk5;
-                        if (!TextUtils.isEmpty(hk5)) {
-                            cjk = "SMARTISAN";
+                        String prop5 = getProp("ro.smartisan.version");
+                        cVV = prop5;
+                        if (!TextUtils.isEmpty(prop5)) {
+                            cVU = RomUtils.ROM_SMARTISAN;
                         } else {
-                            cjl = Build.DISPLAY;
-                            if (cjl.toUpperCase().contains("FLYME")) {
-                                cjk = "FLYME";
+                            cVV = Build.DISPLAY;
+                            if (cVV.toUpperCase().contains(RomUtils.ROM_FLYME)) {
+                                cVU = RomUtils.ROM_FLYME;
                             } else {
-                                cjl = "unknown";
-                                cjk = Build.MANUFACTURER.toUpperCase();
+                                cVV = "unknown";
+                                cVU = Build.MANUFACTURER.toUpperCase();
                             }
                         }
                     }
                 }
             }
         }
-        return cjk.equals(str);
+        return cVU.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [91=4] */
-    public static String hk(String str) {
+    public static String getProp(String str) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         try {

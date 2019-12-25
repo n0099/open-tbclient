@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static SparseIntArray ifl = new SparseIntArray();
+    private static SparseIntArray iXs = new SparseIntArray();
 
     public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         if (smallTailInfo != null && smallTailInfo.tailSpannable != null && smallTailInfo.tailSpannable.length() != 0 && textView != null) {
@@ -25,23 +25,23 @@ public class b {
     private static void b(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         if (smallTailInfo != null && textView != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-            int xe = xe(R.dimen.ds32);
+            int zq = zq(R.dimen.ds32);
             if (z2 && z3) {
-                layoutParams.setMargins(xe, xe(R.dimen.ds8), xe, xe(R.dimen.ds18));
+                layoutParams.setMargins(zq, zq(R.dimen.ds8), zq, zq(R.dimen.ds18));
             } else if (z) {
-                layoutParams.setMargins(0, xe(R.dimen.ds8), 0, 0);
+                layoutParams.setMargins(0, zq(R.dimen.ds8), 0, 0);
             } else if (!z2) {
-                layoutParams.setMargins(xe(R.dimen.ds120), xe(R.dimen.ds8), xe(R.dimen.ds34), xe(R.dimen.ds14));
+                layoutParams.setMargins(zq(R.dimen.ds120), zq(R.dimen.ds8), zq(R.dimen.ds34), zq(R.dimen.ds14));
             } else {
-                layoutParams.setMargins(xe, xe(R.dimen.ds8), xe, xe(R.dimen.ds14));
+                layoutParams.setMargins(zq, zq(R.dimen.ds8), zq, zq(R.dimen.ds14));
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
             Drawable drawable = am.getDrawable(R.drawable.icon_pb_tail);
-            drawable.setBounds(0, 0, xe, xe);
+            drawable.setBounds(0, 0, zq, zq);
             com.baidu.tbadk.widget.c cVar = new com.baidu.tbadk.widget.c(drawable);
-            cVar.setPaddingRight(xe(R.dimen.ds4));
+            cVar.setPaddingRight(zq(R.dimen.ds4));
             spannableStringBuilder.setSpan(cVar, 0, 4, 33);
             textView.setLayoutParams(layoutParams);
             textView.setText(spannableStringBuilder);
@@ -50,11 +50,11 @@ public class b {
         }
     }
 
-    private static int xe(int i) {
-        int i2 = ifl.get(i, -1);
+    private static int zq(int i) {
+        int i2 = iXs.get(i, -1);
         if (i2 == -1) {
             int dimens = l.getDimens(TbadkCoreApplication.getInst().getContext(), i);
-            ifl.put(i, dimens);
+            iXs.put(i, dimens);
             return dimens;
         }
         return i2;

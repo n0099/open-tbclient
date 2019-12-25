@@ -3,7 +3,6 @@ package com.baidu.pano.platform.a;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 class h {
     private static final char[] a = com.coloros.mcssdk.c.a.f.toCharArray();
@@ -21,7 +20,7 @@ class h {
     public static String a(String str) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-            byte[] bytes = str.getBytes(HTTP.UTF_8);
+            byte[] bytes = str.getBytes("UTF-8");
             messageDigest.update(bytes, 0, bytes.length);
             return a(messageDigest.digest());
         } catch (UnsupportedEncodingException e) {

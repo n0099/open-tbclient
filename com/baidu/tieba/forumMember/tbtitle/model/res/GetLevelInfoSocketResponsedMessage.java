@@ -7,7 +7,7 @@ import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetLevelInfo.DataRes;
 import tbclient.GetLevelInfo.GetLevelInfoResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
     private DataRes mResult;
 
@@ -40,7 +40,7 @@ public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
             getLevelInfoRequestMessage = (GetLevelInfoRequestMessage) getOrginalMessage().getExtra();
         }
         if (getLevelInfoRequestMessage != null) {
-            new a().i(getLevelInfoRequestMessage.getForumId() + "", bArr);
+            new a().l(getLevelInfoRequestMessage.getForumId() + "", bArr);
         }
     }
 }

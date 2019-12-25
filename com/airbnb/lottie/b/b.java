@@ -6,88 +6,117 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import com.airbnb.lottie.c;
-import com.airbnb.lottie.g;
+import com.airbnb.lottie.h;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class b {
+    private static final Object hh = new Object();
     private final Context context;
-    private final Map<String, Bitmap> fA = new HashMap();
-    private String fx;
+    private String hi;
     @Nullable
-    private c fy;
-    private final Map<String, g> fz;
+    private c hj;
+    private final Map<String, h> hk;
 
-    public b(Drawable.Callback callback, String str, c cVar, Map<String, g> map) {
-        this.fx = str;
-        if (!TextUtils.isEmpty(str) && this.fx.charAt(this.fx.length() - 1) != '/') {
-            this.fx += '/';
+    public b(Drawable.Callback callback, String str, c cVar, Map<String, h> map) {
+        this.hi = str;
+        if (!TextUtils.isEmpty(str) && this.hi.charAt(this.hi.length() - 1) != '/') {
+            this.hi += '/';
         }
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
-            this.fz = new HashMap();
+            this.hk = new HashMap();
             this.context = null;
             return;
         }
         this.context = ((View) callback).getContext();
-        this.fz = map;
+        this.hk = map;
         a(cVar);
     }
 
     public void a(@Nullable c cVar) {
-        this.fy = cVar;
+        this.hj = cVar;
     }
 
     @Nullable
-    public Bitmap L(String str) {
-        Bitmap bitmap = this.fA.get(str);
+    public Bitmap updateBitmap(String str, @Nullable Bitmap bitmap) {
         if (bitmap == null) {
-            g gVar = this.fz.get(str);
-            if (gVar == null) {
-                return null;
+            h hVar = this.hk.get(str);
+            Bitmap bitmap2 = hVar.getBitmap();
+            hVar.setBitmap(null);
+            return bitmap2;
+        }
+        return b(str, bitmap);
+    }
+
+    @Nullable
+    public Bitmap N(String str) {
+        h hVar = this.hk.get(str);
+        if (hVar == null) {
+            return null;
+        }
+        Bitmap bitmap = hVar.getBitmap();
+        if (bitmap != null) {
+            return bitmap;
+        }
+        if (this.hj != null) {
+            Bitmap fetchBitmap = this.hj.fetchBitmap(hVar);
+            if (fetchBitmap != null) {
+                b(str, fetchBitmap);
+                return fetchBitmap;
             }
-            if (this.fy != null) {
-                Bitmap a = this.fy.a(gVar);
-                if (a != null) {
-                    this.fA.put(str, a);
-                    return a;
-                }
-                return a;
-            }
+            return fetchBitmap;
+        }
+        String fileName = hVar.getFileName();
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inScaled = true;
+        options.inDensity = 160;
+        if (fileName.startsWith("data:") && fileName.indexOf("base64,") > 0) {
             try {
-                if (TextUtils.isEmpty(this.fx)) {
-                    throw new IllegalStateException("You must set an images folder before loading an image. Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
-                }
-                InputStream open = this.context.getAssets().open(this.fx + gVar.getFileName());
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inScaled = true;
-                options.inDensity = 160;
-                Bitmap decodeStream = BitmapFactory.decodeStream(open, null, options);
-                this.fA.put(str, decodeStream);
-                return decodeStream;
-            } catch (IOException e) {
-                Log.w("LOTTIE", "Unable to open asset.", e);
+                byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
+                return b(str, BitmapFactory.decodeByteArray(decode, 0, decode.length, options));
+            } catch (IllegalArgumentException e) {
+                Log.w("LOTTIE", "data URL did not have correct base64 format.", e);
                 return null;
             }
         }
-        return bitmap;
+        try {
+            if (TextUtils.isEmpty(this.hi)) {
+                throw new IllegalStateException("You must set an images folder before loading an image. Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
+            }
+            return b(str, BitmapFactory.decodeStream(this.context.getAssets().open(this.hi + fileName), null, options));
+        } catch (IOException e2) {
+            Log.w("LOTTIE", "Unable to open asset.", e2);
+            return null;
+        }
     }
 
     public void recycleBitmaps() {
-        Iterator<Map.Entry<String, Bitmap>> it = this.fA.entrySet().iterator();
-        while (it.hasNext()) {
-            it.next().getValue().recycle();
-            it.remove();
+        synchronized (hh) {
+            for (Map.Entry<String, h> entry : this.hk.entrySet()) {
+                h value = entry.getValue();
+                Bitmap bitmap = value.getBitmap();
+                if (bitmap != null) {
+                    bitmap.recycle();
+                    value.setBitmap(null);
+                }
+            }
         }
     }
 
-    public boolean P(Context context) {
-        return (context == null && this.context == null) || (context != null && this.context.equals(context));
+    public boolean Q(Context context) {
+        return (context == null && this.context == null) || this.context.equals(context);
+    }
+
+    private Bitmap b(String str, @Nullable Bitmap bitmap) {
+        synchronized (hh) {
+            this.hk.get(str).setBitmap(bitmap);
+        }
+        return bitmap;
     }
 }

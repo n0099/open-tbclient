@@ -1,18 +1,17 @@
 package com.baidu.tieba.frs.adModel;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import tbclient.GetADList.DataReq;
 import tbclient.GetADList.GetADListReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ADRequestMessage extends NetMessage {
     private long fid;
     private long offset;
     private int rn;
 
     public ADRequestMessage() {
-        super(CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
+        super(1003411, 309611);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -22,7 +21,7 @@ public class ADRequestMessage extends NetMessage {
         builder.fid = Long.valueOf(this.fid);
         builder.rn = Integer.valueOf(this.rn);
         if (z) {
-            r.a(builder, true);
+            t.a(builder, true);
         }
         GetADListReqIdl.Builder builder2 = new GetADListReqIdl.Builder();
         builder2.data = builder.build(false);

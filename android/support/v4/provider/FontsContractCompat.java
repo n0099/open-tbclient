@@ -21,19 +21,17 @@ import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.content.res.FontResourcesParserCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.graphics.TypefaceCompat;
 import android.support.v4.graphics.TypefaceCompatUtil;
 import android.support.v4.provider.SelfDestructiveThread;
 import android.support.v4.util.LruCache;
 import android.support.v4.util.Preconditions;
 import android.support.v4.util.SimpleArrayMap;
-import android.widget.TextView;
 import com.baidu.android.imsdk.IMConstants;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,21 +41,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FontsContractCompat {
     private static final int BACKGROUND_THREAD_KEEP_ALIVE_DURATION_MS = 10000;
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final String PARCEL_FONT_RESULTS = "font_results";
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public static final int RESULT_CODE_PROVIDER_NOT_FOUND = -1;
+    static final int RESULT_CODE_PROVIDER_NOT_FOUND = -1;
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public static final int RESULT_CODE_WRONG_CERTIFICATES = -2;
+    static final int RESULT_CODE_WRONG_CERTIFICATES = -2;
     private static final String TAG = "FontsContractCompat";
     private static final LruCache<String, Typeface> sTypefaceCache = new LruCache<>(16);
     private static final SelfDestructiveThread sBackgroundThread = new SelfDestructiveThread("fonts", 10, 10000);
     private static final Object sLock = new Object();
     @GuardedBy("sLock")
-    private static final SimpleArrayMap<String, ArrayList<SelfDestructiveThread.ReplyCallback<Typeface>>> sPendingReplies = new SimpleArrayMap<>();
+    private static final SimpleArrayMap<String, ArrayList<SelfDestructiveThread.ReplyCallback<TypefaceResult>>> sPendingReplies = new SimpleArrayMap<>();
     private static final Comparator<byte[]> sByteArrayComparator = new Comparator<byte[]>() { // from class: android.support.v4.provider.FontsContractCompat.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -74,7 +72,7 @@ public class FontsContractCompat {
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Columns implements BaseColumns {
         public static final String FILE_ID = "file_id";
         public static final String ITALIC = "font_italic";
@@ -92,95 +90,129 @@ public class FontsContractCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static Typeface getFontInternal(Context context, FontRequest fontRequest, int i) {
+    @NonNull
+    public static TypefaceResult getFontInternal(Context context, FontRequest fontRequest, int i) {
         try {
             FontFamilyResult fetchFonts = fetchFonts(context, null, fontRequest);
             if (fetchFonts.getStatusCode() == 0) {
-                return TypefaceCompat.createFromFontInfo(context, null, fetchFonts.getFonts(), i);
+                Typeface createFromFontInfo = TypefaceCompat.createFromFontInfo(context, null, fetchFonts.getFonts(), i);
+                return new TypefaceResult(createFromFontInfo, createFromFontInfo != null ? 0 : -3);
             }
-            return null;
+            return new TypefaceResult(null, fetchFonts.getStatusCode() == 1 ? -2 : -3);
         } catch (PackageManager.NameNotFoundException e) {
-            return null;
+            return new TypefaceResult(null, -1);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes4.dex */
+    public static final class TypefaceResult {
+        final int mResult;
+        final Typeface mTypeface;
+
+        TypefaceResult(@Nullable Typeface typeface, int i) {
+            this.mTypeface = typeface;
+            this.mResult = i;
         }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public static Typeface getFontSync(final Context context, final FontRequest fontRequest, @Nullable final TextView textView, int i, int i2, final int i3) {
-        Typeface typeface;
-        final String str = fontRequest.getIdentifier() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + i3;
-        Typeface typeface2 = sTypefaceCache.get(str);
-        if (typeface2 == null) {
-            boolean z = i == 0;
-            if (z && i2 == -1) {
-                return getFontInternal(context, fontRequest, i3);
+    public static void resetCache() {
+        sTypefaceCache.evictAll();
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public static Typeface getFontSync(final Context context, final FontRequest fontRequest, @Nullable final ResourcesCompat.FontCallback fontCallback, @Nullable final Handler handler, boolean z, int i, final int i2) {
+        final String str = fontRequest.getIdentifier() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + i2;
+        Typeface typeface = sTypefaceCache.get(str);
+        if (typeface != null) {
+            if (fontCallback != null) {
+                fontCallback.onFontRetrieved(typeface);
             }
-            Callable<Typeface> callable = new Callable<Typeface>() { // from class: android.support.v4.provider.FontsContractCompat.1
+            return typeface;
+        } else if (z && i == -1) {
+            TypefaceResult fontInternal = getFontInternal(context, fontRequest, i2);
+            if (fontCallback != null) {
+                if (fontInternal.mResult == 0) {
+                    fontCallback.callbackSuccessAsync(fontInternal.mTypeface, handler);
+                } else {
+                    fontCallback.callbackFailAsync(fontInternal.mResult, handler);
+                }
+            }
+            return fontInternal.mTypeface;
+        } else {
+            Callable<TypefaceResult> callable = new Callable<TypefaceResult>() { // from class: android.support.v4.provider.FontsContractCompat.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // java.util.concurrent.Callable
-                public Typeface call() throws Exception {
-                    Typeface fontInternal = FontsContractCompat.getFontInternal(context, fontRequest, i3);
-                    if (fontInternal != null) {
-                        FontsContractCompat.sTypefaceCache.put(str, fontInternal);
+                public TypefaceResult call() throws Exception {
+                    TypefaceResult fontInternal2 = FontsContractCompat.getFontInternal(context, fontRequest, i2);
+                    if (fontInternal2.mTypeface != null) {
+                        FontsContractCompat.sTypefaceCache.put(str, fontInternal2.mTypeface);
                     }
-                    return fontInternal;
+                    return fontInternal2;
                 }
             };
             if (z) {
                 try {
-                    return (Typeface) sBackgroundThread.postAndWait(callable, i2);
+                    return ((TypefaceResult) sBackgroundThread.postAndWait(callable, i)).mTypeface;
                 } catch (InterruptedException e) {
                     return null;
                 }
             }
-            final WeakReference weakReference = new WeakReference(textView);
-            SelfDestructiveThread.ReplyCallback<Typeface> replyCallback = new SelfDestructiveThread.ReplyCallback<Typeface>() { // from class: android.support.v4.provider.FontsContractCompat.2
+            SelfDestructiveThread.ReplyCallback<TypefaceResult> replyCallback = fontCallback == null ? null : new SelfDestructiveThread.ReplyCallback<TypefaceResult>() { // from class: android.support.v4.provider.FontsContractCompat.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.support.v4.provider.SelfDestructiveThread.ReplyCallback
-                public void onReply(Typeface typeface3) {
-                    if (((TextView) weakReference.get()) != null) {
-                        textView.setTypeface(typeface3, i3);
+                public void onReply(TypefaceResult typefaceResult) {
+                    if (typefaceResult == null) {
+                        ResourcesCompat.FontCallback.this.callbackFailAsync(1, handler);
+                    } else if (typefaceResult.mResult == 0) {
+                        ResourcesCompat.FontCallback.this.callbackSuccessAsync(typefaceResult.mTypeface, handler);
+                    } else {
+                        ResourcesCompat.FontCallback.this.callbackFailAsync(typefaceResult.mResult, handler);
                     }
                 }
             };
             synchronized (sLock) {
                 if (sPendingReplies.containsKey(str)) {
-                    sPendingReplies.get(str).add(replyCallback);
-                    typeface = null;
-                } else {
-                    ArrayList<SelfDestructiveThread.ReplyCallback<Typeface>> arrayList = new ArrayList<>();
+                    if (replyCallback != null) {
+                        sPendingReplies.get(str).add(replyCallback);
+                    }
+                    return null;
+                }
+                if (replyCallback != null) {
+                    ArrayList<SelfDestructiveThread.ReplyCallback<TypefaceResult>> arrayList = new ArrayList<>();
                     arrayList.add(replyCallback);
                     sPendingReplies.put(str, arrayList);
-                    sBackgroundThread.postAndReply(callable, new SelfDestructiveThread.ReplyCallback<Typeface>() { // from class: android.support.v4.provider.FontsContractCompat.3
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // android.support.v4.provider.SelfDestructiveThread.ReplyCallback
-                        public void onReply(Typeface typeface3) {
-                            ArrayList arrayList2;
-                            synchronized (FontsContractCompat.sLock) {
-                                arrayList2 = (ArrayList) FontsContractCompat.sPendingReplies.get(str);
+                }
+                sBackgroundThread.postAndReply(callable, new SelfDestructiveThread.ReplyCallback<TypefaceResult>() { // from class: android.support.v4.provider.FontsContractCompat.3
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // android.support.v4.provider.SelfDestructiveThread.ReplyCallback
+                    public void onReply(TypefaceResult typefaceResult) {
+                        synchronized (FontsContractCompat.sLock) {
+                            ArrayList arrayList2 = (ArrayList) FontsContractCompat.sPendingReplies.get(str);
+                            if (arrayList2 != null) {
                                 FontsContractCompat.sPendingReplies.remove(str);
-                            }
-                            int i4 = 0;
-                            while (true) {
-                                int i5 = i4;
-                                if (i5 < arrayList2.size()) {
-                                    ((SelfDestructiveThread.ReplyCallback) arrayList2.get(i5)).onReply(typeface3);
-                                    i4 = i5 + 1;
-                                } else {
-                                    return;
+                                int i3 = 0;
+                                while (true) {
+                                    int i4 = i3;
+                                    if (i4 < arrayList2.size()) {
+                                        ((SelfDestructiveThread.ReplyCallback) arrayList2.get(i4)).onReply(typefaceResult);
+                                        i3 = i4 + 1;
+                                    } else {
+                                        return;
+                                    }
                                 }
                             }
                         }
-                    });
-                    typeface = null;
-                }
+                    }
+                });
+                return null;
             }
-            return typeface;
         }
-        return typeface2;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class FontInfo {
         private final boolean mItalic;
         private final int mResultCode;
@@ -221,7 +253,7 @@ public class FontsContractCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class FontFamilyResult {
         public static final int STATUS_OK = 0;
         public static final int STATUS_UNEXPECTED_DATA_PROVIDED = 2;
@@ -231,7 +263,7 @@ public class FontsContractCompat {
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         @interface FontResultStatus {
         }
 
@@ -250,19 +282,22 @@ public class FontsContractCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class FontRequestCallback {
         public static final int FAIL_REASON_FONT_LOAD_ERROR = -3;
         public static final int FAIL_REASON_FONT_NOT_FOUND = 1;
         public static final int FAIL_REASON_FONT_UNAVAILABLE = 2;
         public static final int FAIL_REASON_MALFORMED_QUERY = 3;
         public static final int FAIL_REASON_PROVIDER_NOT_FOUND = -1;
+        public static final int FAIL_REASON_SECURITY_VIOLATION = -4;
         public static final int FAIL_REASON_WRONG_CERTIFICATES = -2;
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        public static final int RESULT_OK = 0;
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes2.dex */
-        @interface FontRequestFailReason {
+        /* loaded from: classes4.dex */
+        public @interface FontRequestFailReason {
         }
 
         public void onTypefaceRetrieved(Typeface typeface) {
@@ -367,6 +402,7 @@ public class FontsContractCompat {
         });
     }
 
+    @Nullable
     public static Typeface buildTypeface(@NonNull Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontInfo[] fontInfoArr) {
         return TypefaceCompat.createFromFontInfo(context, cancellationSignal, fontInfoArr, 0);
     }
@@ -466,7 +502,7 @@ public class FontsContractCompat {
         Uri withAppendedId;
         ArrayList arrayList2 = new ArrayList();
         Uri build = new Uri.Builder().scheme("content").authority(str).build();
-        Uri build2 = new Uri.Builder().scheme("content").authority(str).appendPath(BdStatsConstant.OpSubType.FILE).build();
+        Uri build2 = new Uri.Builder().scheme("content").authority(str).appendPath("file").build();
         try {
             if (Build.VERSION.SDK_INT > 16) {
                 query = context.getContentResolver().query(build, new String[]{IMConstants.MSG_ROW_ID, Columns.FILE_ID, Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null, cancellationSignal);

@@ -1,7 +1,7 @@
 package android.support.v4.view;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface NestedScrollingChild {
     boolean dispatchNestedFling(float f, float f2, boolean z);
 

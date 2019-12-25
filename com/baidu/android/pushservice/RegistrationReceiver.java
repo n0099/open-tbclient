@@ -7,13 +7,13 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.i.k;
 import com.baidu.android.pushservice.i.l;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class RegistrationReceiver extends BroadcastReceiver {
     static void a(Context context, com.baidu.android.pushservice.a.f fVar) {
         Intent intent = new Intent();
         intent.setAction(PushConstants.ACTION_METHOD);
         intent.putExtra("method", "com.baidu.android.pushservice.action.UNBINDAPP");
-        intent.putExtra(Constants.PACKAGE_NAME, fVar.c());
+        intent.putExtra("package_name", fVar.c());
         intent.putExtra(Constants.APP_ID, fVar.a());
         intent.putExtra("user_id", fVar.f);
         k.a(context, intent);

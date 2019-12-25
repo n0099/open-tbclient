@@ -2,14 +2,15 @@ package com.google.zxing.oned;
 
 import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.down.manage.DownloadConstants;
+import com.baidu.down.utils.Constants;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.mapapi.UIMsg;
-import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class EANManufacturerOrgSupport {
     private final List<int[]> ranges = new ArrayList();
     private final List<String> countryIdentifiers = new ArrayList();
@@ -57,7 +58,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{477}, "LT");
             add(new int[]{478}, "UZ");
             add(new int[]{479}, "LK");
-            add(new int[]{CameraInterface.DEFAULT_PREVIEW_HEIGHT}, "PH");
+            add(new int[]{480}, "PH");
             add(new int[]{481}, "BY");
             add(new int[]{482}, "UA");
             add(new int[]{484}, "MD");
@@ -65,7 +66,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{486}, "GE");
             add(new int[]{487}, "KZ");
             add(new int[]{489}, "HK");
-            add(new int[]{490, 499}, "JP");
+            add(new int[]{490, DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR}, "JP");
             add(new int[]{500, 509}, "GB");
             add(new int[]{UIMsg.m_AppUI.MSG_PLACEFIELD_RELOAD}, "GR");
             add(new int[]{528}, ExpandedProductParsedResult.POUND);
@@ -80,7 +81,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{590}, "PL");
             add(new int[]{594}, "RO");
             add(new int[]{599}, "HU");
-            add(new int[]{600, LBSAuthManager.CODE_UNAUTHENTICATE}, "ZA");
+            add(new int[]{Constants.HTTP_DNS_INAVAILABLE_TIME, LBSAuthManager.CODE_UNAUTHENTICATE}, "ZA");
             add(new int[]{ResponseCode.TFE_IMMGR_KVACCESS_NOT_EXIST}, "GH");
             add(new int[]{608}, "BH");
             add(new int[]{609}, "MU");

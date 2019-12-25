@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -16,7 +15,7 @@ public class ay {
             mCurrentActivityName = str;
             return;
         }
-        int lastIndexOf = str.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR);
+        int lastIndexOf = str.lastIndexOf(".");
         if (lastIndexOf != -1 && lastIndexOf + 1 < str.length()) {
             str = str.substring(lastIndexOf + 1, str.length());
         }

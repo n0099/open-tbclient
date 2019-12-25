@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
@@ -27,7 +27,7 @@ public class PostWriteCallBackData implements Serializable {
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
     public int mFrom;
-    private bb mReplyPrivacyTip;
+    private bd mReplyPrivacyTip;
     private VideoEasterEggData mVideoEasterEggData;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
@@ -170,11 +170,11 @@ public class PostWriteCallBackData implements Serializable {
         return sb.toString();
     }
 
-    public void setReplyPrivacyTip(bb bbVar) {
-        this.mReplyPrivacyTip = bbVar;
+    public void setReplyPrivacyTip(bd bdVar) {
+        this.mReplyPrivacyTip = bdVar;
     }
 
-    public bb getReplyPrivacyTip() {
+    public bd getReplyPrivacyTip() {
         return this.mReplyPrivacyTip;
     }
 

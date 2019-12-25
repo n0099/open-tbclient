@@ -1,35 +1,29 @@
 package com.baidu.swan.game.ad.f;
 
-import android.content.Context;
-import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-/* loaded from: classes2.dex */
-public class d implements com.baidu.swan.game.ad.b.b {
-    private boolean a;
-    private Context b;
-
-    public d(Context context) {
-        this.b = context;
+import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class d {
+    public static JSONObject nB(String str) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("errCode", str);
+            jSONObject.put("errMsg", LivenessStat.TYPE_FACE_MATCH_FAIL);
+            jSONObject.put("errDes", com.baidu.swan.game.ad.e.b.nz(str));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return jSONObject;
     }
 
-    @Override // com.baidu.swan.game.ad.b.b
-    public void a(String str, ResponseCallback<com.baidu.swan.game.ad.a.b> responseCallback) {
-        this.a = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.a) {
-            HttpManager.getDefault(this.b).getRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.JG().Ke()).build().executeAsync(responseCallback);
-            return;
+    public static JSONObject b(f fVar) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("width", fVar.realWidth);
+            jSONObject.put("height", fVar.realHeight);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        HttpManager.getDefault(this.b).getRequest().url(str).build().executeAsync(responseCallback);
-    }
-
-    @Override // com.baidu.swan.game.ad.b.b
-    public void a(String str) {
-        this.a = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.a) {
-            HttpManager.getDefault(this.b).getRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.JG().Ke()).build().executeAsync(null);
-            return;
-        }
-        HttpManager.getDefault(this.b).getRequest().url(str).build().executeAsync(null);
+        return jSONObject;
     }
 }

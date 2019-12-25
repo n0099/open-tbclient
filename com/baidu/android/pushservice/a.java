@@ -2,7 +2,10 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes3.dex */
+import com.baidu.browser.sailor.platform.BdSailorPlatform;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
+import com.baidu.webkit.internal.GlobalConstants;
+/* loaded from: classes5.dex */
 public final class a {
     public static short a() {
         return (short) 80;
@@ -20,7 +23,7 @@ public final class a {
     }
 
     public static boolean a(String str) {
-        return "com.baidu.searchbox".equals(str) || "com.baidu.BaiduMap".equals(str) || "com.baidu.searchbox.lite".equals(str) || "com.baidu.haokan".equals(str) || "com.baidu.minivideo".equals(str) || "com.baidu.push.qa".equals(str) || "com.baidu.push.salon".equals(str);
+        return GlobalConstants.SEARCHBOX_PACKAGE_NAME.equals(str) || "com.baidu.BaiduMap".equals(str) || BdSailorPlatform.LITE_PACKAGE_NAME.equals(str) || "com.baidu.haokan".equals(str) || "com.baidu.minivideo".equals(str) || "com.baidu.push.qa".equals(str) || "com.baidu.push.salon".equals(str);
     }
 
     public static void b(Context context, boolean z) {
@@ -44,7 +47,7 @@ public final class a {
     }
 
     public static String c(Context context) {
-        return context.getSharedPreferences("pst", 4).getString("s_e", "default");
+        return context.getSharedPreferences("pst", 4).getString("s_e", DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
     }
 
     public static void c(Context context, boolean z) {

@@ -2,39 +2,38 @@ package com.xiaomi.push;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class iy extends jc {
     private static final jh a = new jh();
 
     /* renamed from: a  reason: collision with other field name */
-    protected int f781a;
+    protected int f786a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected boolean f782a;
+    protected boolean f787a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f783a;
+    private byte[] f788a;
     protected boolean b;
 
     /* renamed from: b  reason: collision with other field name */
-    private byte[] f784b;
+    private byte[] f789b;
     protected boolean c;
 
     /* renamed from: c  reason: collision with other field name */
-    private byte[] f785c;
+    private byte[] f790c;
     private byte[] d;
     private byte[] e;
     private byte[] f;
     private byte[] g;
     private byte[] h;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a implements je {
         protected int a;
 
         /* renamed from: a  reason: collision with other field name */
-        protected boolean f786a;
+        protected boolean f791a;
         protected boolean b;
 
         public a() {
@@ -46,16 +45,16 @@ public class iy extends jc {
         }
 
         public a(boolean z, boolean z2, int i) {
-            this.f786a = false;
+            this.f791a = false;
             this.b = true;
-            this.f786a = z;
+            this.f791a = z;
             this.b = z2;
             this.a = i;
         }
 
         @Override // com.xiaomi.push.je
         public jc a(jm jmVar) {
-            iy iyVar = new iy(jmVar, this.f786a, this.b);
+            iy iyVar = new iy(jmVar, this.f791a, this.b);
             if (this.a != 0) {
                 iyVar.b(this.a);
             }
@@ -65,18 +64,18 @@ public class iy extends jc {
 
     public iy(jm jmVar, boolean z, boolean z2) {
         super(jmVar);
-        this.f782a = false;
+        this.f787a = false;
         this.b = true;
         this.c = false;
-        this.f783a = new byte[1];
-        this.f784b = new byte[2];
-        this.f785c = new byte[4];
+        this.f788a = new byte[1];
+        this.f789b = new byte[2];
+        this.f790c = new byte[4];
         this.d = new byte[8];
         this.e = new byte[1];
         this.f = new byte[2];
         this.g = new byte[4];
         this.h = new byte[8];
-        this.f782a = z;
+        this.f787a = z;
         this.b = z2;
     }
 
@@ -91,7 +90,7 @@ public class iy extends jc {
             a(this.e, 0, 1);
             return this.e[0];
         }
-        byte b = this.a.m462a()[this.a.a()];
+        byte b = this.a.m465a()[this.a.a()];
         this.a.a(1);
         return b;
     }
@@ -106,7 +105,7 @@ public class iy extends jc {
         int i = 0;
         byte[] bArr = this.g;
         if (this.a.b() >= 4) {
-            bArr = this.a.m462a();
+            bArr = this.a.m465a();
             i = this.a.a();
             this.a.a(4);
         } else {
@@ -120,7 +119,7 @@ public class iy extends jc {
         int i = 0;
         byte[] bArr = this.h;
         if (this.a.b() >= 8) {
-            bArr = this.a.m462a();
+            bArr = this.a.m465a();
             i = this.a.a();
             this.a.a(8);
         } else {
@@ -160,7 +159,7 @@ public class iy extends jc {
         int a2 = a();
         if (this.a.b() >= a2) {
             try {
-                String str = new String(this.a.m462a(), this.a.a(), a2, HTTP.UTF_8);
+                String str = new String(this.a.m465a(), this.a.a(), a2, "UTF-8");
                 this.a.a(a2);
                 return str;
             } catch (UnsupportedEncodingException e) {
@@ -176,7 +175,7 @@ public class iy extends jc {
             c(i);
             byte[] bArr = new byte[i];
             this.a.b(bArr, 0, i);
-            return new String(bArr, HTTP.UTF_8);
+            return new String(bArr, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new iw("JVM DOES NOT SUPPORT UTF-8");
         }
@@ -187,7 +186,7 @@ public class iy extends jc {
         int a2 = a();
         c(a2);
         if (this.a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(this.a.m462a(), this.a.a(), a2);
+            ByteBuffer wrap = ByteBuffer.wrap(this.a.m465a(), this.a.a(), a2);
             this.a.a(a2);
             return wrap;
         }
@@ -201,7 +200,7 @@ public class iy extends jc {
         int i = 0;
         byte[] bArr = this.f;
         if (this.a.b() >= 2) {
-            bArr = this.a.m462a();
+            bArr = this.a.m465a();
             i = this.a.a();
             this.a.a(2);
         } else {
@@ -216,17 +215,17 @@ public class iy extends jc {
 
     @Override // com.xiaomi.push.jc
     public void a(byte b) {
-        this.f783a[0] = b;
-        this.a.m461a(this.f783a, 0, 1);
+        this.f788a[0] = b;
+        this.a.m464a(this.f788a, 0, 1);
     }
 
     @Override // com.xiaomi.push.jc
     public void a(int i) {
-        this.f785c[0] = (byte) ((i >> 24) & 255);
-        this.f785c[1] = (byte) ((i >> 16) & 255);
-        this.f785c[2] = (byte) ((i >> 8) & 255);
-        this.f785c[3] = (byte) (i & 255);
-        this.a.m461a(this.f785c, 0, 4);
+        this.f790c[0] = (byte) ((i >> 24) & 255);
+        this.f790c[1] = (byte) ((i >> 16) & 255);
+        this.f790c[2] = (byte) ((i >> 8) & 255);
+        this.f790c[3] = (byte) (i & 255);
+        this.a.m464a(this.f790c, 0, 4);
     }
 
     @Override // com.xiaomi.push.jc
@@ -239,26 +238,26 @@ public class iy extends jc {
         this.d[5] = (byte) ((j >> 16) & 255);
         this.d[6] = (byte) ((j >> 8) & 255);
         this.d[7] = (byte) (255 & j);
-        this.a.m461a(this.d, 0, 8);
+        this.a.m464a(this.d, 0, 8);
     }
 
     @Override // com.xiaomi.push.jc
     public void a(iz izVar) {
         a(izVar.a);
-        a(izVar.f788a);
+        a(izVar.f793a);
     }
 
     @Override // com.xiaomi.push.jc
     public void a(ja jaVar) {
         a(jaVar.a);
-        a(jaVar.f791a);
+        a(jaVar.f796a);
     }
 
     @Override // com.xiaomi.push.jc
     public void a(jb jbVar) {
         a(jbVar.a);
         a(jbVar.b);
-        a(jbVar.f792a);
+        a(jbVar.f797a);
     }
 
     @Override // com.xiaomi.push.jc
@@ -268,9 +267,9 @@ public class iy extends jc {
     @Override // com.xiaomi.push.jc
     public void a(String str) {
         try {
-            byte[] bytes = str.getBytes(HTTP.UTF_8);
+            byte[] bytes = str.getBytes("UTF-8");
             a(bytes.length);
-            this.a.m461a(bytes, 0, bytes.length);
+            this.a.m464a(bytes, 0, bytes.length);
         } catch (UnsupportedEncodingException e) {
             throw new iw("JVM DOES NOT SUPPORT UTF-8");
         }
@@ -280,14 +279,14 @@ public class iy extends jc {
     public void a(ByteBuffer byteBuffer) {
         int limit = (byteBuffer.limit() - byteBuffer.position()) - byteBuffer.arrayOffset();
         a(limit);
-        this.a.m461a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
+        this.a.m464a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
     }
 
     @Override // com.xiaomi.push.jc
     public void a(short s) {
-        this.f784b[0] = (byte) ((s >> 8) & 255);
-        this.f784b[1] = (byte) (s & 255);
-        this.a.m461a(this.f784b, 0, 2);
+        this.f789b[0] = (byte) ((s >> 8) & 255);
+        this.f789b[1] = (byte) (s & 255);
+        this.a.m464a(this.f789b, 0, 2);
     }
 
     @Override // com.xiaomi.push.jc
@@ -305,7 +304,7 @@ public class iy extends jc {
     }
 
     public void b(int i) {
-        this.f781a = i;
+        this.f786a = i;
         this.c = true;
     }
 
@@ -320,8 +319,8 @@ public class iy extends jc {
             throw new iw("Negative length: " + i);
         }
         if (this.c) {
-            this.f781a -= i;
-            if (this.f781a < 0) {
+            this.f786a -= i;
+            if (this.f786a < 0) {
                 throw new iw("Message length exceeded: " + i);
             }
         }

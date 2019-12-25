@@ -9,27 +9,27 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a extends v.a {
-    public int csg;
-    public RelativeLayout csk;
-    public TextView csl;
-    public IndicatorView csm;
-    public View csn;
-    public BdBaseViewPager cso;
+    public int MA;
+    public RelativeLayout dfY;
+    public TextView dfZ;
+    public IndicatorView dga;
+    public View dgb;
+    public BdBaseViewPager dgc;
     public TextView title;
 
     public a(View view, Context context) {
         super(view);
-        this.csg = 3;
+        this.MA = 3;
         this.title = null;
-        this.csl = null;
-        this.csm = null;
-        this.csn = null;
-        this.cso = null;
-        this.csk = (RelativeLayout) view.findViewById(R.id.top_area);
+        this.dfZ = null;
+        this.dga = null;
+        this.dgb = null;
+        this.dgc = null;
+        this.dfY = (RelativeLayout) view.findViewById(R.id.top_area);
         this.title = (TextView) view.findViewById(R.id.theme_title);
-        this.csl = (TextView) view.findViewById(R.id.more_textview);
-        this.csm = (IndicatorView) view.findViewById(R.id.tab_indicator);
-        this.csn = view.findViewById(R.id.bottom_divider_line);
-        this.cso = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
+        this.dfZ = (TextView) view.findViewById(R.id.more_textview);
+        this.dga = (IndicatorView) view.findViewById(R.id.tab_indicator);
+        this.dgb = view.findViewById(R.id.bottom_divider_line);
+        this.dgc = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
     }
 }

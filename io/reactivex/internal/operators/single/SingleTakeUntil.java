@@ -1,0 +1,122 @@
+package io.reactivex.internal.operators.single;
+
+import com.google.android.exoplayer2.Format;
+import io.reactivex.aa;
+import io.reactivex.internal.disposables.DisposableHelper;
+import io.reactivex.internal.subscriptions.SubscriptionHelper;
+import io.reactivex.j;
+import io.reactivex.w;
+import io.reactivex.y;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.atomic.AtomicReference;
+import org.a.b;
+import org.a.d;
+/* loaded from: classes4.dex */
+public final class SingleTakeUntil<T, U> extends w<T> {
+    final b<U> other;
+    final aa<T> source;
+
+    @Override // io.reactivex.w
+    protected void b(y<? super T> yVar) {
+        TakeUntilMainObserver takeUntilMainObserver = new TakeUntilMainObserver(yVar);
+        yVar.onSubscribe(takeUntilMainObserver);
+        this.other.subscribe(takeUntilMainObserver.other);
+        this.source.a(takeUntilMainObserver);
+    }
+
+    /* loaded from: classes4.dex */
+    static final class TakeUntilMainObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T> {
+        private static final long serialVersionUID = -622603812305745221L;
+        final y<? super T> actual;
+        final TakeUntilOtherSubscriber other = new TakeUntilOtherSubscriber(this);
+
+        TakeUntilMainObserver(y<? super T> yVar) {
+            this.actual = yVar;
+        }
+
+        @Override // io.reactivex.disposables.b
+        public void dispose() {
+            DisposableHelper.dispose(this);
+            this.other.dispose();
+        }
+
+        @Override // io.reactivex.disposables.b
+        public boolean isDisposed() {
+            return DisposableHelper.isDisposed(get());
+        }
+
+        @Override // io.reactivex.y
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
+            DisposableHelper.setOnce(this, bVar);
+        }
+
+        @Override // io.reactivex.y
+        public void onSuccess(T t) {
+            this.other.dispose();
+            if (getAndSet(DisposableHelper.DISPOSED) != DisposableHelper.DISPOSED) {
+                this.actual.onSuccess(t);
+            }
+        }
+
+        @Override // io.reactivex.y
+        public void onError(Throwable th) {
+            this.other.dispose();
+            if (get() != DisposableHelper.DISPOSED && getAndSet(DisposableHelper.DISPOSED) != DisposableHelper.DISPOSED) {
+                this.actual.onError(th);
+            } else {
+                io.reactivex.d.a.onError(th);
+            }
+        }
+
+        void otherError(Throwable th) {
+            io.reactivex.disposables.b andSet;
+            if (get() != DisposableHelper.DISPOSED && (andSet = getAndSet(DisposableHelper.DISPOSED)) != DisposableHelper.DISPOSED) {
+                if (andSet != null) {
+                    andSet.dispose();
+                }
+                this.actual.onError(th);
+                return;
+            }
+            io.reactivex.d.a.onError(th);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    static final class TakeUntilOtherSubscriber extends AtomicReference<d> implements j<Object> {
+        private static final long serialVersionUID = 5170026210238877381L;
+        final TakeUntilMainObserver<?> parent;
+
+        TakeUntilOtherSubscriber(TakeUntilMainObserver<?> takeUntilMainObserver) {
+            this.parent = takeUntilMainObserver;
+        }
+
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(d dVar) {
+            SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+        }
+
+        @Override // org.a.c
+        public void onNext(Object obj) {
+            if (SubscriptionHelper.cancel(this)) {
+                this.parent.otherError(new CancellationException());
+            }
+        }
+
+        @Override // org.a.c
+        public void onError(Throwable th) {
+            this.parent.otherError(th);
+        }
+
+        @Override // org.a.c
+        public void onComplete() {
+            if (get() != SubscriptionHelper.CANCELLED) {
+                lazySet(SubscriptionHelper.CANCELLED);
+                this.parent.otherError(new CancellationException());
+            }
+        }
+
+        public void dispose() {
+            SubscriptionHelper.cancel(this);
+        }
+    }
+}

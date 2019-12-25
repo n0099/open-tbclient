@@ -3,36 +3,37 @@ package com.baidu.tieba.pb.b.a;
 import android.content.Context;
 import android.text.SpannableStringBuilder;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.config.FontSizeConfig;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder icC;
-    private int icD;
+    private SpannableStringBuilder iRO;
+    private int iRP;
     private int textSize;
 
     public g() {
-        this.icD = 0;
+        this.iRP = 0;
         this.textSize = -1;
-        this.icC = new SpannableStringBuilder();
+        this.iRO = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.icD = 0;
+        this.iRP = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.icC = new SpannableStringBuilder();
+            this.iRO = new SpannableStringBuilder();
             if (excContent != null) {
-                this.icC.append((CharSequence) excContent.text);
+                this.iRO.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.icD = excContent.align.intValue();
+                this.iRP = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
             }
             if (excContent.size != null && excContent.size.intValue() > 0 && context != null && context.getResources() != null) {
-                int identifier = context.getResources().getIdentifier("fontsize" + excContent.size, "dimen", context.getPackageName());
+                int identifier = context.getResources().getIdentifier(FontSizeConfig.FONT_SIZE_COOKIE + excContent.size, "dimen", context.getPackageName());
                 if (identifier > 0) {
                     this.textSize = context.getResources().getDimensionPixelSize(identifier);
                 }
@@ -40,9 +41,9 @@ public class g implements c {
         }
     }
 
-    public void j(CharSequence charSequence) {
+    public void l(CharSequence charSequence) {
         if (charSequence != null) {
-            this.icC.append(charSequence);
+            this.iRO.append(charSequence);
         }
     }
 
@@ -52,21 +53,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence bXJ() {
-        return this.icC;
+    public CharSequence cpF() {
+        return this.iRO;
     }
 
-    public int bXL() {
-        return this.icD;
+    public int cpH() {
+        return this.iRP;
     }
 
-    public String bXM() {
+    public String cpI() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean bXK() {
-        return (this.icD > 0 && this.icD < 3) || !StringUtils.isNull(this.color);
+    public boolean cpG() {
+        return (this.iRP > 0 && this.iRP < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

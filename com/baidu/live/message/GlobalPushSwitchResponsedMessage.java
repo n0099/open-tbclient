@@ -3,7 +3,7 @@ package com.baidu.live.message;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GlobalPushSwitchResponsedMessage extends JsonHttpResponsedMessage {
     public int push_switch;
 

@@ -14,53 +14,53 @@ import com.baidu.tieba.pb.pb.main.emotion.message.GetSugMatchWordsResponseMessag
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.T;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GetSugMatchWordsModel extends BdBaseModel {
-    private static List<String> gFq = new ArrayList();
-    private a hXO;
-    private final HttpMessageListener hXP;
+    private static List<String> htu = new ArrayList();
+    private a iMO;
+    private final HttpMessageListener iMP;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void aD(List<String> list);
-
         void onFail(int i, String str);
+
+        void onSuccess(List<String> list);
     }
 
     public GetSugMatchWordsModel(e<T> eVar) {
         super(eVar);
-        this.hXP = new HttpMessageListener(1003370) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
+        this.iMP = new HttpMessageListener(1003370) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.hXO != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.iMO != null) {
                     GetSugMatchWordsResponseMessage getSugMatchWordsResponseMessage = (GetSugMatchWordsResponseMessage) httpResponsedMessage;
                     if (!v.isEmpty(getSugMatchWordsResponseMessage.getData())) {
-                        GetSugMatchWordsModel.this.hXO.aD(getSugMatchWordsResponseMessage.getData());
-                        GetSugMatchWordsModel.gFq.clear();
-                        GetSugMatchWordsModel.gFq.addAll(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.this.iMO.onSuccess(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.htu.clear();
+                        GetSugMatchWordsModel.htu.addAll(getSugMatchWordsResponseMessage.getData());
                         return;
                     }
-                    GetSugMatchWordsModel.this.hXO.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
+                    GetSugMatchWordsModel.this.iMO.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
                 }
             }
         };
-        registerTask();
-        this.hXP.setSelfListener(true);
-        registerListener(this.hXP);
+        rG();
+        this.iMP.setSelfListener(true);
+        registerListener(this.iMP);
     }
 
-    private void registerTask() {
+    private void rG() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003370, TbConfig.SERVER_ADDRESS + Config.GET_PB_SUG_MATCH_WORDS);
         tbHttpMessageTask.setResponsedClass(GetSugMatchWordsResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void b(a aVar) {
-        this.hXO = aVar;
-        if (this.hXO != null) {
-            if (!v.isEmpty(gFq)) {
-                this.hXO.aD(gFq);
+        this.iMO = aVar;
+        if (this.iMO != null) {
+            if (!v.isEmpty(htu)) {
+                this.iMO.onSuccess(htu);
             } else {
                 sendMessage(new HttpMessage(1003370));
             }
@@ -74,7 +74,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.hXP);
+        MessageManager.getInstance().unRegisterListener(this.iMP);
         MessageManager.getInstance().unRegisterTask(1003370);
         return true;
     }

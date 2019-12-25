@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.m;
@@ -16,73 +16,73 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.h;
+import com.baidu.tbadk.core.view.g;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.ah;
+import com.baidu.tieba.frs.ai;
 import com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class FrsGameRecommendFragment extends BaseFragment implements ah {
-    private com.baidu.tieba.frs.gamerecommend.c.a fHN;
-    private AlaGameRecommendModel fHO;
+/* loaded from: classes6.dex */
+public class FrsGameRecommendFragment extends BaseFragment implements ai {
+    private com.baidu.tieba.frs.gamerecommend.c.a gwc;
+    private AlaGameRecommendModel gwd;
     private String mForumId;
     private String mForumName;
-    private CustomMessageListener dAQ = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.1
+    private CustomMessageListener elP = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && !TextUtils.isEmpty((String) customResponsedMessage.getData())) {
                 String[] split = ((String) customResponsedMessage.getData()).split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 if (split.length == 2 && "FrsGameRecommend".equals(split[0]) && 11 == b.toInt(split[1], 0)) {
-                    FrsGameRecommendFragment.this.aKf();
+                    FrsGameRecommendFragment.this.baE();
                 }
             }
         }
     };
-    private AlaGameRecommendModel.a fHP = new AlaGameRecommendModel.a() { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.2
+    private AlaGameRecommendModel.a gwe = new AlaGameRecommendModel.a() { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.2
         @Override // com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel.a
         public void d(boolean z, List<m> list) {
-            FrsGameRecommendFragment.this.fHN.completePullRefresh();
-            FrsGameRecommendFragment.this.hideNetRefreshView(FrsGameRecommendFragment.this.fHN.bnR());
-            FrsGameRecommendFragment.this.hideLoadingView(FrsGameRecommendFragment.this.fHN.bnR());
-            FrsGameRecommendFragment.this.fHN.setData(list, z);
+            FrsGameRecommendFragment.this.gwc.completePullRefresh();
+            FrsGameRecommendFragment.this.hideNetRefreshView(FrsGameRecommendFragment.this.gwc.bFo());
+            FrsGameRecommendFragment.this.hideLoadingView(FrsGameRecommendFragment.this.gwc.bFo());
+            FrsGameRecommendFragment.this.gwc.setData(list, z);
         }
 
         @Override // com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel.a
-        public void d(int i, String str, boolean z) {
-            FrsGameRecommendFragment.this.fHN.completePullRefresh();
+        public void e(int i, String str, boolean z) {
+            FrsGameRecommendFragment.this.gwc.completePullRefresh();
             if (!z) {
-                FrsGameRecommendFragment.this.showNetRefreshView(FrsGameRecommendFragment.this.fHN.bnR(), str, false);
+                FrsGameRecommendFragment.this.showNetRefreshView(FrsGameRecommendFragment.this.gwc.bFo(), str, false);
             } else {
                 FrsGameRecommendFragment.this.showToast(R.string.card_vr_video_load_failed);
             }
-            FrsGameRecommendFragment.this.fHN.aJQ();
+            FrsGameRecommendFragment.this.gwc.bap();
         }
     };
-    private h.c cpa = new h.c() { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.3
-        @Override // com.baidu.tbadk.core.view.h.c
+    private g.c dcr = new g.c() { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.3
+        @Override // com.baidu.tbadk.core.view.g.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                if (FrsGameRecommendFragment.this.fHO != null) {
-                    FrsGameRecommendFragment.this.fHO.loadData();
+                if (FrsGameRecommendFragment.this.gwd != null) {
+                    FrsGameRecommendFragment.this.gwd.loadData();
                     return;
                 }
                 return;
             }
             FrsGameRecommendFragment.this.showToast(R.string.neterror);
-            FrsGameRecommendFragment.this.fHN.completePullRefresh();
+            FrsGameRecommendFragment.this.gwc.completePullRefresh();
         }
     };
-    private BdListView.e xE = new BdListView.e() { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.4
+    private BdListView.e Ac = new BdListView.e() { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.4
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (FrsGameRecommendFragment.this.fHO != null) {
-                FrsGameRecommendFragment.this.fHO.aIU();
+            if (FrsGameRecommendFragment.this.gwd != null) {
+                FrsGameRecommendFragment.this.gwd.aZs();
             }
         }
     };
 
-    public static FrsGameRecommendFragment cK(String str, String str2) {
+    public static FrsGameRecommendFragment de(String str, String str2) {
         FrsGameRecommendFragment frsGameRecommendFragment = new FrsGameRecommendFragment();
         Bundle bundle = new Bundle();
         bundle.putString("forum_id", str);
@@ -98,68 +98,68 @@ public class FrsGameRecommendFragment extends BaseFragment implements ah {
         if (arguments != null) {
             this.mForumId = arguments.getString("forum_id");
             this.mForumName = arguments.getString("forum_name");
-            this.fHN = new com.baidu.tieba.frs.gamerecommend.c.a(getPageContext(), this.mForumId, this.mForumName);
-            this.fHN.setListPullRefreshListener(this.cpa);
-            this.fHN.b(this.xE);
-            MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.dAQ);
-            this.fHO = new AlaGameRecommendModel(this.mForumId, this.fHP);
+            this.gwc = new com.baidu.tieba.frs.gamerecommend.c.a(getPageContext(), this.mForumId, this.mForumName);
+            this.gwc.setListPullRefreshListener(this.dcr);
+            this.gwc.b(this.Ac);
+            MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.elP);
+            this.gwd = new AlaGameRecommendModel(this.mForumId, this.gwe);
         }
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return this.fHN.getRootView();
+        return this.gwc.getRootView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKf() {
-        this.fHN.aKf();
+    public void baE() {
+        this.gwc.baE();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
-        if (this.fHO != null) {
-            this.fHO.loadData();
+        if (this.gwd != null) {
+            this.gwd.loadData();
         }
     }
 
-    @Override // com.baidu.tieba.frs.ah
-    public NavigationBar aKP() {
-        return this.fHN.aKP();
+    @Override // com.baidu.tieba.frs.ai
+    public NavigationBar bcb() {
+        return this.gwc.bcb();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (isAdded() && isPrimary() && this.fHO != null) {
-            if (this.fHO.hasData()) {
-                aKf();
+        if (isAdded() && isPrimary() && this.gwd != null) {
+            if (this.gwd.hasData()) {
+                baE();
                 return;
             }
-            this.fHO.loadData();
-            showLoadingView(this.fHN.bnR());
+            this.gwd.loadData();
+            showLoadingView(this.gwc.bFo());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.fHN != null) {
-            this.fHN.onDestroy();
+        if (this.gwc != null) {
+            this.gwc.onDestroy();
         }
-        if (this.fHO != null) {
-            this.fHO.onDestroy();
+        if (this.gwd != null) {
+            this.gwd.onDestroy();
         }
-        if (this.dAQ != null) {
-            MessageManager.getInstance().unRegisterListener(this.dAQ);
+        if (this.elP != null) {
+            MessageManager.getInstance().unRegisterListener(this.elP);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.fHN != null) {
-            this.fHN.onChangeSkinType(i);
+        if (this.gwc != null) {
+            this.gwc.onChangeSkinType(i);
         }
     }
 }

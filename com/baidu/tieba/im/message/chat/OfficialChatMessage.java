@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message.chat;
 
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.f.b;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;

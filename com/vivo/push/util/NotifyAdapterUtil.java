@@ -15,13 +15,13 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
-import com.coloros.mcssdk.PushManager;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.vivo.push.model.InsideNotificationItem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class NotifyAdapterUtil {
     public static final int NOTIFY_MULTITERM_STYLE = 1;
     public static final int NOTIFY_SINGLE_STYLE = 0;
@@ -49,14 +49,14 @@ public class NotifyAdapterUtil {
     private static synchronized void initAdapter(Context context) {
         synchronized (NotifyAdapterUtil.class) {
             if (sNotificationManager == null) {
-                sNotificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+                sNotificationManager = (NotificationManager) context.getSystemService("notification");
             }
             if (Build.VERSION.SDK_INT >= 26 && sNotificationManager != null) {
-                NotificationChannel notificationChannel = sNotificationManager.getNotificationChannel("default");
+                NotificationChannel notificationChannel = sNotificationManager.getNotificationChannel(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
                 if (notificationChannel != null) {
                     CharSequence name = notificationChannel.getName();
                     if (PUSH_ZH.equals(name) || PUSH_EN.equals(name)) {
-                        sNotificationManager.deleteNotificationChannel("default");
+                        sNotificationManager.deleteNotificationChannel(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
                     }
                 }
                 NotificationChannel notificationChannel2 = new NotificationChannel(PRIMARY_CHANNEL, isZh(context) ? PUSH_ZH : PUSH_EN, 4);

@@ -7,15 +7,14 @@ import android.graphics.Bitmap;
 import android.media.ExifInterface;
 import android.net.Uri;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SelectImageHelper {
     public static final int REQUEST_WRITE_EXTERNAL_STORGE_AND_CAMERA_PERMISSON = 1;
     public static final String TMP_IMAGE_NAME = "camera.jpg";
@@ -102,9 +101,9 @@ public class SelectImageHelper {
 
     public static int readPictureDegree(String str) {
         try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
+            switch (new ExifInterface(str).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1)) {
                 case 3:
-                    return SubsamplingScaleImageView.ORIENTATION_180;
+                    return 180;
                 case 4:
                 case 5:
                 case 7:
@@ -113,7 +112,7 @@ public class SelectImageHelper {
                 case 6:
                     return 90;
                 case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
+                    return 270;
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

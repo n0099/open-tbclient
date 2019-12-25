@@ -1,7 +1,7 @@
 package com.baidu.tbadk.game;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.f.b;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.GameInfo;
@@ -9,7 +9,7 @@ import tbclient.GetGameCenter.RecommendGame;
 import tbclient.GetGameDetailNew.CodeInfo;
 import tbclient.GetGameDetailNew.GiftPkgInfo;
 import tbclient.GetNewGameList.NewGameInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     public static final int APP_TYPE = 1;
     public static final int H5_TYPE = 2;
@@ -170,7 +170,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     }
 
     public void setPackageSize(String str) {
-        this.package_size = pS(str);
+        this.package_size = dealPackageSize(str);
     }
 
     public String getGameLink() {
@@ -539,7 +539,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
         this.app_id = str;
     }
 
-    private String pS(String str) {
+    private String dealPackageSize(String str) {
         return String.format("%.1f", Float.valueOf(b.toFloat(str, 0.0f)));
     }
 

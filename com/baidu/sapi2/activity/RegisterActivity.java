@@ -1,18 +1,17 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
-import com.baidu.d.a.a;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebRegDTO;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RegisterActivity extends BaseActivity {
     private WebAuthResult r = new WebAuthResult() { // from class: com.baidu.sapi2.activity.RegisterActivity.1
         @Override // com.baidu.sapi2.shell.result.WebAuthResult
@@ -42,7 +41,7 @@ public class RegisterActivity extends BaseActivity {
         super.onClose();
         WebAuthListener webAuthListener = PassportSDK.getInstance().getWebAuthListener();
         this.r.setResultCode(-301);
-        this.r.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+        this.r.setResultMsg("您已取消操作");
         if (webAuthListener != null) {
             webAuthListener.onFailure(this.r);
         }
@@ -63,7 +62,7 @@ public class RegisterActivity extends BaseActivity {
             WebAuthListener webAuthListener = PassportSDK.getInstance().getWebAuthListener();
             if (webAuthListener != null) {
                 this.r.setResultCode(-202);
-                this.r.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
+                this.r.setResultMsg("网络连接失败，请检查网络设置");
                 webAuthListener.onFailure(this.r);
             }
             finish();

@@ -8,11 +8,11 @@ import com.baidu.tieba.video.editvideo.b.b;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a jyg;
-    private b jyh;
-    b.a jyi;
+    private com.baidu.tieba.video.editvideo.data.a ksb;
+    private b ksc;
+    b.a ksd;
     private Context mContext;
 
     public a(Context context) {
@@ -20,49 +20,49 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.jyg = aVar;
+        this.ksb = aVar;
     }
 
-    public boolean cte() {
-        return (this.jyg == null || "normal".equalsIgnoreCase(this.jyg.value)) ? false : true;
+    public boolean cNg() {
+        return (this.ksb == null || "normal".equalsIgnoreCase(this.ksb.value)) ? false : true;
     }
 
-    public void EO(String str) {
-        if ((this.jyh == null || !this.jyh.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String cth = cth();
+    public void JC(String str) {
+        if ((this.ksc == null || !this.ksc.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String cNi = cNi();
             String str2 = "normal";
-            if (this.jyg != null) {
-                str2 = this.jyg.value;
+            if (this.ksb != null) {
+                str2 = this.ksb.value;
             }
-            this.jyh = new b(this.mContext, str, cth, str2);
-            if (this.jyi != null) {
-                this.jyh.a(this.jyi);
+            this.ksc = new b(this.mContext, str, cNi, str2);
+            if (this.ksd != null) {
+                this.ksc.a(this.ksd);
             }
-            this.jyh.cti();
+            this.ksc.cNj();
         }
     }
 
-    public boolean ctf() {
-        if (this.jyh != null) {
-            return this.jyh.isRunning();
+    public boolean cNh() {
+        if (this.ksc != null) {
+            return this.ksc.isRunning();
         }
         return false;
     }
 
-    public void ctg() {
-        if (this.jyh != null) {
-            this.jyh.ctj();
+    public void interruptProcess() {
+        if (this.ksc != null) {
+            this.ksc.cNk();
         }
     }
 
     public void a(b.a aVar) {
-        this.jyi = aVar;
-        if (this.jyh != null) {
-            this.jyh.a(this.jyi);
+        this.ksd = aVar;
+        if (this.ksc != null) {
+            this.ksc.a(this.ksd);
         }
     }
 
-    public static List<com.baidu.tieba.video.editvideo.data.a> eg(Context context) {
+    public static List<com.baidu.tieba.video.editvideo.data.a> fy(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             context = TbadkCoreApplication.getInst();
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String cth() {
-        return com.baidu.tieba.video.c.jwd + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String cNi() {
+        return com.baidu.tieba.video.c.kqg + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

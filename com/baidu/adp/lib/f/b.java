@@ -1,15 +1,69 @@
 package com.baidu.adp.lib.f;
 /* loaded from: classes.dex */
-public abstract class b<T> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onLoaded(T t, String str, int i) {
+public abstract class b {
+    public static int toInt(String str, int i) {
+        if (str != null) {
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception e) {
+                return i;
+            }
+        }
+        return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onProgressUpdate(Object... objArr) {
+    public static int toInt(String str, int i, int i2) {
+        if (str != null) {
+            try {
+                return Integer.parseInt(str, i2);
+            } catch (Exception e) {
+                return i;
+            }
+        }
+        return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onCancelled(String str) {
+    public static long toLong(String str, long j) {
+        if (str != null) {
+            try {
+                return Long.parseLong(str);
+            } catch (Exception e) {
+                return j;
+            }
+        }
+        return j;
+    }
+
+    public static float toFloat(String str, float f) {
+        if (str != null) {
+            try {
+                return Float.parseFloat(str);
+            } catch (Exception e) {
+                return f;
+            }
+        }
+        return f;
+    }
+
+    public static double toDouble(String str, double d) {
+        if (str != null) {
+            try {
+                return Double.parseDouble(str);
+            } catch (Exception e) {
+                return d;
+            }
+        }
+        return d;
+    }
+
+    public static boolean toBoolean(String str, boolean z) {
+        if (str != null) {
+            try {
+                return Boolean.parseBoolean(str);
+            } catch (Exception e) {
+                return z;
+            }
+        }
+        return z;
     }
 }

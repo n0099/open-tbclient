@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.d.a.a;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.SapiAccountManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class f extends Dialog implements com.baidu.sapi2.c.b {
     private LinearLayout a;
     private TextView b;

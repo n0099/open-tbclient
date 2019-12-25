@@ -8,7 +8,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -27,7 +26,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ShareStorage {
     public static final String TAG = "ShareStorage";
     private static final String a = "sapi_share";
@@ -40,7 +39,7 @@ public class ShareStorage {
     public boolean readSpFromChmodFile = false;
     private Context h = SapiAccountManager.getInstance().getConfignation().context;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class StorageModel {
         String a;
         public String app;
@@ -62,7 +61,7 @@ public class ShareStorage {
             storageModel.url = jSONObject.optString("url");
             storageModel.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
             storageModel.app = jSONObject.optString("app");
-            storageModel.tpl = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_TPL);
+            storageModel.tpl = jSONObject.optString("tpl");
             storageModel.a = jSONObject.optString("uid");
             storageModel.pkg = jSONObject.optString(Config.INPUT_DEF_PKG);
             storageModel.b = jSONObject.optInt(FrsActivityConfig.FLAG, -1);
@@ -113,7 +112,7 @@ public class ShareStorage {
                 jSONObject.put("url", this.url);
                 jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, this.displayname);
                 jSONObject.put("app", this.app);
-                jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_TPL, this.tpl);
+                jSONObject.put("tpl", this.tpl);
                 jSONObject.put("uid", this.a);
                 jSONObject.put(Config.INPUT_DEF_PKG, this.pkg);
                 jSONObject.put(FrsActivityConfig.FLAG, this.b);
@@ -147,7 +146,7 @@ public class ShareStorage {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(StorageModel storageModel);
     }

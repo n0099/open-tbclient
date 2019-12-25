@@ -1,9 +1,40 @@
 package com.baidu.swan.games.e;
+/* loaded from: classes9.dex */
+public final class h {
+    public String mID;
+    public int mType;
 
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-/* loaded from: classes2.dex */
-public interface h {
-    a a(String str, com.baidu.swan.games.e.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy);
+    private h() {
+    }
 
-    String getUserAgent();
+    public int getType() {
+        return this.mType;
+    }
+
+    public String getID() {
+        return this.mID;
+    }
+
+    public String toString() {
+        return "V8EngineModel{mType=" + this.mType + ", mID='" + this.mID + "'}";
+    }
+
+    /* loaded from: classes9.dex */
+    public static class a {
+        private h cio = new h();
+
+        public a hz(int i) {
+            this.cio.mType = i;
+            return this;
+        }
+
+        public a or(String str) {
+            this.cio.mID = str;
+            return this;
+        }
+
+        public h akW() {
+            return this.cio;
+        }
+    }
 }

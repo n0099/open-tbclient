@@ -1,4 +1,4 @@
 package kotlin;
-/* loaded from: classes2.dex */
-public interface a<T> {
+/* loaded from: classes4.dex */
+public final class a extends b {
 }

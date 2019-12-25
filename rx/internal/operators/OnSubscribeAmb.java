@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class OnSubscribeAmb<T> implements d.a<T> {
-    final Iterable<? extends rx.d<? extends T>> kyt;
+    final Iterable<? extends rx.d<? extends T>> mTB;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -14,20 +14,20 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T> extends rx.j<T> {
-        private final Selection<T> kyy;
-        private boolean kyz;
+        private final Selection<T> neb;
+        private boolean nec;
         private final rx.j<? super T> subscriber;
 
         a(long j, rx.j<? super T> jVar, Selection<T> selection) {
             this.subscriber = jVar;
-            this.kyy = selection;
+            this.neb = selection;
             request(j);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void eo(long j) {
+        public void requestMore(long j) {
             request(j);
         }
 
@@ -53,25 +53,25 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
         }
 
         private boolean isSelected() {
-            if (this.kyz) {
+            if (this.nec) {
                 return true;
             }
-            if (this.kyy.get() == this) {
-                this.kyz = true;
+            if (this.neb.get() == this) {
+                this.nec = true;
                 return true;
-            } else if (this.kyy.compareAndSet(null, this)) {
-                this.kyy.unsubscribeOthers(this);
-                this.kyz = true;
+            } else if (this.neb.compareAndSet(null, this)) {
+                this.neb.unsubscribeOthers(this);
+                this.nec = true;
                 return true;
             } else {
-                this.kyy.unsubscribeLosers();
+                this.neb.unsubscribeLosers();
                 return false;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Selection<T> extends AtomicReference<a<T>> {
         final Collection<a<T>> ambSubscribers = new ConcurrentLinkedQueue();
 
@@ -104,10 +104,10 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
                 if (aVar != null) {
                     aVar.unsubscribe();
                 }
-                OnSubscribeAmb.k(selection.ambSubscribers);
+                OnSubscribeAmb.p(selection.ambSubscribers);
             }
         }));
-        for (rx.d<? extends T> dVar : this.kyt) {
+        for (rx.d<? extends T> dVar : this.mTB) {
             if (jVar.isUnsubscribed()) {
                 break;
             }
@@ -121,30 +121,30 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
             dVar.a((rx.j<? super Object>) aVar);
         }
         if (jVar.isUnsubscribed()) {
-            k(selection.ambSubscribers);
+            p(selection.ambSubscribers);
         }
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.OnSubscribeAmb.2
             @Override // rx.f
             public void request(long j) {
                 a<T> aVar3 = selection.get();
                 if (aVar3 != null) {
-                    aVar3.eo(j);
+                    aVar3.requestMore(j);
                     return;
                 }
                 for (a<T> aVar4 : selection.ambSubscribers) {
                     if (!aVar4.isUnsubscribed()) {
                         if (selection.get() == aVar4) {
-                            aVar4.eo(j);
+                            aVar4.requestMore(j);
                             return;
                         }
-                        aVar4.eo(j);
+                        aVar4.requestMore(j);
                     }
                 }
             }
         });
     }
 
-    static <T> void k(Collection<a<T>> collection) {
+    static <T> void p(Collection<a<T>> collection) {
         if (!collection.isEmpty()) {
             for (a<T> aVar : collection) {
                 aVar.unsubscribe();

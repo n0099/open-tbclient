@@ -1,7 +1,13 @@
 package com.baidu.adp.lib.c;
 
-import android.view.View;
+import com.baidu.adp.lib.c.a;
 /* loaded from: classes.dex */
 public interface b {
-    void onItemViewLongClick(View view, int i, int i2, long j);
+    void a(a.b bVar);
+
+    void destroy();
+
+    void startLocation(boolean z);
+
+    void stopLocation();
 }

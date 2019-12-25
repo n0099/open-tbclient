@@ -2,91 +2,90 @@ package com.baidu.tieba.frs.smartsort;
 
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.aq;
-import com.baidu.tieba.frs.k;
-/* loaded from: classes4.dex */
+import com.baidu.tieba.frs.ar;
+import com.baidu.tieba.frs.l;
+/* loaded from: classes6.dex */
 public class a {
-    private TextView fHn;
-    private aq fMB;
-    private final FrsFragment fNh;
-    private boolean fPi;
-    private int fPj = -1;
-    private int fjR;
+    private int aVq;
+    private ar gAO;
+    private final FrsFragment gBu;
+    private boolean gDv;
+    private int gDw = -1;
+    private TextView gvG;
 
     public a(FrsFragment frsFragment) {
-        this.fjR = 0;
+        this.aVq = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.fNh = frsFragment;
+        this.gBu = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.fjR = UtilHelper.getStatusBarHeight();
+            this.aVq = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void bpD() {
-        if (this.fPi && this.fPj >= 0) {
-            rA(this.fPj);
+    public void bGZ() {
+        if (this.gDv && this.gDw >= 0) {
+            tG(this.gDw);
         }
-        this.fPi = false;
+        this.gDv = false;
     }
 
-    public void rz(int i) {
+    public void tF(int i) {
         if (i >= 0) {
-            kB(true);
-            rB(i);
+            lN(true);
+            tH(i);
             return;
         }
-        kB(false);
-        rB(i);
+        lN(false);
+        tH(i);
     }
 
-    private void rA(int i) {
+    private void tG(int i) {
         FrameLayout frameLayout;
         String string;
-        k bjN = this.fNh.bjN();
-        if (bjN != null && bjN.getListView() != null && (frameLayout = (FrameLayout) bjN.bld()) != null) {
-            if (this.fHn == null && this.fNh.getPageContext() != null) {
-                this.fHn = new TextView(this.fNh.getPageContext().getPageActivity());
-                this.fHn.setTextSize(0, this.fNh.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.fHn.setGravity(17);
+        l bBi = this.gBu.bBi();
+        if (bBi != null && bBi.getListView() != null && (frameLayout = (FrameLayout) bBi.bCz()) != null) {
+            if (this.gvG == null && this.gBu.getPageContext() != null) {
+                this.gvG = new TextView(this.gBu.getPageContext().getPageActivity());
+                this.gvG.setTextSize(0, this.gBu.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.gvG.setGravity(17);
             }
-            if (this.fHn != null) {
+            if (this.gvG != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.fHn.setText(string);
+                this.gvG.setText(string);
             }
-            am.setBackgroundResource(this.fHn, R.color.cp_link_tip_a);
-            am.setViewTextColor(this.fHn, (int) R.color.cp_cont_i);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.fMB == null) {
-                this.fMB = new aq();
+            am.setBackgroundResource(this.gvG, R.color.cp_link_tip_a);
+            am.setViewTextColor(this.gvG, (int) R.color.cp_cont_i);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
+            if (this.gAO == null) {
+                this.gAO = new ar();
             }
-            this.fMB.a(this.fHn, frameLayout, layoutParams, 2000);
-            this.fPj = -1;
+            this.gAO.a(this.gvG, frameLayout, layoutParams, 2000);
+            this.gDw = -1;
         }
     }
 
-    public void kB(boolean z) {
-        this.fPi = z;
+    public void lN(boolean z) {
+        this.gDv = z;
     }
 
-    public void rB(int i) {
-        this.fPj = i;
+    public void tH(int i) {
+        this.gDw = i;
     }
 
     public void onDestroy() {
-        if (this.fMB != null) {
-            this.fMB.onDestroy();
+        if (this.gAO != null) {
+            this.gAO.onDestroy();
         }
     }
 }

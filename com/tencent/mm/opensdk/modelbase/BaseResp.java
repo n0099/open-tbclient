@@ -1,14 +1,14 @@
 package com.tencent.mm.opensdk.modelbase;
 
 import android.os.Bundle;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseResp {
     public int errCode;
     public String errStr;
     public String openId;
     public String transaction;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface ErrCode {
         public static final int ERR_AUTH_DENIED = -4;
         public static final int ERR_BAN = -6;

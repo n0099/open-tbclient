@@ -1,35 +1,77 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.tbadk.TbConfig;
+import android.net.wifi.WifiManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
-public class u extends Thread {
-    private int cOt;
-    private int imageNum;
-    private String type = null;
+public class u {
+    private CustomMessageListener tA;
+    private static final byte[] mlock = new byte[1];
+    private static u dCr = null;
 
-    public u(int i, int i2) {
-        this.imageNum = 0;
-        this.cOt = 0;
-        this.imageNum = i;
-        this.cOt = i2;
-    }
-
-    public void setType(String str) {
-        this.type = str;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            com.baidu.tbadk.core.util.x xVar = new com.baidu.tbadk.core.util.x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            xVar.addPostData("img_num", String.valueOf(this.imageNum));
-            xVar.addPostData("img_total", String.valueOf(this.cOt));
-            if (this.type != null) {
-                xVar.addPostData("img_type", this.type);
+    public static u aPw() {
+        if (dCr == null) {
+            synchronized (mlock) {
+                if (dCr == null) {
+                    dCr = new u();
+                }
             }
-            xVar.postNetData();
+        }
+        return dCr;
+    }
+
+    private u() {
+        com.baidu.adp.lib.util.j.init();
+    }
+
+    public void registerNetworkChangedListener() {
+        try {
+            if (this.tA == null) {
+                this.tA = aPx();
+                MessageManager.getInstance().registerListener(this.tA);
+            }
+        } catch (Exception e) {
+            this.tA = null;
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    private CustomMessageListener aPx() {
+        return new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.util.u.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                    u.this.handleNetworkState();
+                }
+            }
+        };
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void handleNetworkState() {
+        try {
+            boolean isNetWorkAvailable = com.baidu.adp.lib.util.j.isNetWorkAvailable();
+            if (isNetWorkAvailable) {
+                if (com.baidu.adp.lib.util.j.isWifiNet()) {
+                    ar.aDX().setNetworkIsWifi(true);
+                    com.baidu.tieba.recapp.d.a.cAE().Hz(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                } else if (com.baidu.adp.lib.util.j.isMobileNet()) {
+                    ar.aDX().setNetworkIsWifi(false);
+                }
+            }
+            NoNetworkView.setIsHasNetwork(isNetWorkAvailable);
+            CompatibleUtile.dealWebView(null);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
         }
     }
 }

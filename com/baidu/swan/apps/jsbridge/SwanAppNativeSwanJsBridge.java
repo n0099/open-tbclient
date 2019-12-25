@@ -2,9 +2,10 @@ package com.baidu.swan.apps.jsbridge;
 
 import android.support.annotation.Keep;
 import android.webkit.JavascriptInterface;
+import com.baidu.swan.apps.as.g;
 import com.baidu.swan.apps.b;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class SwanAppNativeSwanJsBridge {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "_naSwan";
@@ -12,6 +13,11 @@ public class SwanAppNativeSwanJsBridge {
 
     @JavascriptInterface
     public String getEnvVariables() {
-        return com.baidu.swan.apps.jsbridge.a.a.getEnvVariables();
+        return com.baidu.swan.apps.jsbridge.a.b.getEnvVariables();
+    }
+
+    @JavascriptInterface
+    public String getAPIs(int i) {
+        return DEBUG ? com.baidu.swan.apps.ah.a.a.XS() ? g.t(i, false) : "" : (g.adS() && com.baidu.swan.apps.w.a.Rn().Es()) ? g.t(i, false) : "";
     }
 }

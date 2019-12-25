@@ -2,66 +2,66 @@ package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class h implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId gGs = BdUniqueId.gen();
-    private Object Hc;
-    private NoDataViewFactory.ImgType gGt;
-    private String gGu;
-    private String gGv;
-    private String gGw;
-    private int gGx;
+    public static final BdUniqueId huw = BdUniqueId.gen();
+    private Object Mn;
+    private String huA;
+    private int huB;
+    private NoDataViewFactory.ImgType hux;
+    private String huy;
+    private String huz;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gGs;
+        return huw;
     }
 
-    public String bAW() {
-        return this.gGu;
+    public String bSi() {
+        return this.huy;
     }
 
-    public void xT(String str) {
-        this.gGu = str;
+    public void CC(String str) {
+        this.huy = str;
     }
 
-    public String bAX() {
-        return this.gGv;
+    public String bSj() {
+        return this.huz;
     }
 
-    public void xU(String str) {
-        this.gGv = str;
+    public void CD(String str) {
+        this.huz = str;
     }
 
-    public String bAY() {
-        return this.gGw;
+    public String bSk() {
+        return this.huA;
     }
 
-    public void xV(String str) {
-        this.gGw = str;
+    public void CE(String str) {
+        this.huA = str;
     }
 
-    public int bAZ() {
-        return this.gGx;
+    public int bSl() {
+        return this.huB;
     }
 
-    public void uf(int i) {
-        this.gGx = i;
+    public void wh(int i) {
+        this.huB = i;
     }
 
-    public Object mb() {
-        return this.Hc;
+    public Object mY() {
+        return this.Mn;
     }
 
     public void setExtraData(Object obj) {
-        this.Hc = obj;
+        this.Mn = obj;
     }
 
-    public NoDataViewFactory.ImgType bBa() {
-        return this.gGt;
+    public NoDataViewFactory.ImgType bSm() {
+        return this.hux;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.gGt = imgType;
+        this.hux = imgType;
     }
 }

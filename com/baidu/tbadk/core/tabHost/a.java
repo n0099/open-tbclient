@@ -8,8 +8,8 @@ import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.e;
 import com.baidu.adp.base.i;
-import com.baidu.adp.lib.f.b;
-import com.baidu.adp.lib.f.c;
+import com.baidu.adp.lib.e.b;
+import com.baidu.adp.lib.e.c;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
@@ -17,14 +17,14 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private final b<com.baidu.adp.widget.ImageView.a> chB = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
+    private final b<com.baidu.adp.widget.ImageView.a> cUm = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.f.b
+        @Override // com.baidu.adp.lib.e.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass1) aVar, str, i);
             if (a.this.mTabHost == null || aVar == null || !aVar.isValidNow()) {
-                a.this.alR();
+                a.this.aDd();
                 return;
             }
             FragmentTabWidget fragmentTabWidget = a.this.mTabHost.getFragmentTabWidget();
@@ -56,17 +56,17 @@ public class a {
             String str = (String) pair.first;
             String str2 = (String) pair.second;
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-                nA(str2);
+                sL(str2);
             } else if (!TextUtils.isEmpty(str)) {
-                nA(str);
+                sL(str);
             } else {
-                alR();
+                aDd();
             }
         }
     }
 
-    private void nA(String str) {
-        c.fT().a(str, 10, this.chB, getBdUniqueId());
+    private void sL(String str) {
+        c.gs().a(str, 10, this.cUm, getBdUniqueId());
     }
 
     private BdUniqueId getBdUniqueId() {
@@ -78,7 +78,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alR() {
+    public void aDd() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.mBackgroundColorResId);
             am.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), this.mBackgroundColorResId);

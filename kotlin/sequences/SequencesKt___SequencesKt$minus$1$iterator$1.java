@@ -4,7 +4,7 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
 import kotlin.jvm.internal.p;
 import kotlin.sequences.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class SequencesKt___SequencesKt$minus$1$iterator$1 extends Lambda implements kotlin.jvm.a.b<T, Boolean> {
     final /* synthetic */ Ref.BooleanRef $removed;
     final /* synthetic */ f.a this$0;
@@ -27,7 +27,7 @@ final class SequencesKt___SequencesKt$minus$1$iterator$1 extends Lambda implemen
     @Override // kotlin.jvm.a.b
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2(T t) {
-        if (this.$removed.element || !p.f(t, this.this$0.kvC)) {
+        if (this.$removed.element || !p.h(t, this.this$0.mZx)) {
             return 1;
         }
         this.$removed.element = true;

@@ -8,7 +8,7 @@ import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.imsdk.IMService;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class Heartbeat {
     public static int ALARM_TIMEOUT = 120000;
     public static final int HEARTBEAT_TYPE_NORMAL = 0;
@@ -54,7 +54,7 @@ public class Heartbeat {
         this.mOperator.cancelHearbeat();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class BoxHeartbeat implements HeartbeatOpearation {
         private Runnable startIMServiceTask = new Runnable() { // from class: com.baidu.android.imsdk.internal.Heartbeat.BoxHeartbeat.1
             @Override // java.lang.Runnable
@@ -96,7 +96,7 @@ public class Heartbeat {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class NormalHeartbeat implements HeartbeatOpearation {
         public NormalHeartbeat() {
         }

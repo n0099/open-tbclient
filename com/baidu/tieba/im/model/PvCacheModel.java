@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.e.a;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.d.a;
+import com.baidu.adp.lib.f.b;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PvCacheModel {
     private static PvCacheModel mCacheModel;
     private a<String, String> mCache;

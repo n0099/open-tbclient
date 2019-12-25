@@ -13,7 +13,7 @@ import android.support.v4.view.ViewCompat;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CircleImageView extends ImageView {
     private static final int FILL_SHADOW_COLOR = 1023410176;
     private static final int KEY_SHADOW_COLOR = 503316480;
@@ -29,7 +29,7 @@ public class CircleImageView extends ImageView {
         super(context);
         ShapeDrawable shapeDrawable;
         float f = getContext().getResources().getDisplayMetrics().density;
-        int i2 = (int) (Y_OFFSET * f);
+        int i2 = (int) (1.75f * f);
         int i3 = (int) (0.0f * f);
         this.mShadowRadius = (int) (SHADOW_RADIUS * f);
         if (elevationSupported()) {
@@ -89,7 +89,7 @@ public class CircleImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private class OvalShadow extends OvalShape {
         private RadialGradient mRadialGradient;
         private Paint mShadowPaint = new Paint();

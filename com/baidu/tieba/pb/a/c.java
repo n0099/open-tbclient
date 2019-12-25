@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private View anH;
-    private a hJn;
+    private View avF;
+    private a ixA;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.hJn = aVar;
+        this.ixA = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.anH = view;
+        this.avF = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -60,29 +60,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.hJn != null) {
-            return this.hJn.onDoubleTap(this.anH, motionEvent);
+        if (this.ixA != null) {
+            return this.ixA.onDoubleTap(this.avF, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.hJn != null) {
-            return this.hJn.onDoubleTapEvent(this.anH, motionEvent);
+        if (this.ixA != null) {
+            return this.ixA.onDoubleTapEvent(this.avF, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.hJn != null) {
-            return this.hJn.onSingleTapConfirmed(this.anH, motionEvent);
+        if (this.ixA != null) {
+            return this.ixA.onSingleTapConfirmed(this.avF, motionEvent);
         }
         return false;
     }
 
-    public void N(View view) {
-        this.anH = view;
+    public void O(View view) {
+        this.avF = view;
     }
 }

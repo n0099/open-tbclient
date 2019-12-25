@@ -2,26 +2,36 @@ package com.baidu.searchbox.unitedscheme;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.security.SchemeSecurity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispatcher {
     public static final String ACTION_KEY = "action";
-    private static final boolean DEBUG = false;
+    public static final String DISPATCHER_NOT_FIRST_LEVEL = "dispatcher_not_first_level";
+    protected final Map<String, UnitedSchemeBaseAction> schemeActionMap = new HashMap();
+    private static final boolean DEBUG = UnitedSchemeConstants.DEBUG;
     private static final String TAG = UnitedSchemeBaseDispatcher.class.getSimpleName();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface ConfirmDialogCallback {
         void onCancel();
 
         void onConfirm();
     }
 
+    public abstract String getDispatcherName();
+
     public abstract Class<? extends UnitedSchemeAbsDispatcher> getSubDispatcher(String str);
 
     public abstract boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
+
+    public void addRedirectScheme(HashMap<String, String> hashMap) {
+    }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher
     public boolean dispatch(Context context, UnitedSchemeEntity unitedSchemeEntity) {
@@ -83,7 +93,14 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
         if (unitedSchemeEntity == null || unitedSchemeEntity.getUri() == null) {
             return false;
         }
-        return TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) || TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_ENTERANCE);
+        if (TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) || TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE)) {
+            return true;
+        }
+        if (DEBUG) {
+            Log.d(TAG, "invoke from outside");
+            return true;
+        }
+        return false;
     }
 
     private boolean needConfirm(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -106,5 +123,12 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(401));
             }
         });
+    }
+
+    public void regAction(UnitedSchemeBaseAction unitedSchemeBaseAction) {
+        if (DEBUG && this.schemeActionMap.containsKey(unitedSchemeBaseAction.getActionName())) {
+            throw new IllegalArgumentException("duplicate action: " + unitedSchemeBaseAction);
+        }
+        this.schemeActionMap.put(unitedSchemeBaseAction.getActionName(), unitedSchemeBaseAction);
     }
 }

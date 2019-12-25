@@ -31,7 +31,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 @CoordinatorLayout.DefaultBehavior(Behavior.class)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AppBarLayout extends LinearLayout {
     private static final int INVALID_SCROLL_RANGE = -1;
     static final int PENDING_ACTION_ANIMATE_ENABLED = 4;
@@ -50,7 +50,7 @@ public class AppBarLayout extends LinearLayout {
     private int[] mTmpStatesArray;
     private int mTotalScrollRange;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnOffsetChangedListener {
         void onOffsetChanged(AppBarLayout appBarLayout, int i);
     }
@@ -407,7 +407,7 @@ public class AppBarLayout extends LinearLayout {
         return windowInsetsCompat;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         static final int COLLAPSIBLE_FLAGS = 10;
         static final int FLAG_QUICK_RETURN = 5;
@@ -422,7 +422,7 @@ public class AppBarLayout extends LinearLayout {
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public @interface ScrollFlags {
         }
 
@@ -492,7 +492,7 @@ public class AppBarLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Behavior extends HeaderBehavior<AppBarLayout> {
         private static final int INVALID_POSITION = -1;
         private static final int MAX_OFFSET_ANIMATION_DURATION = 600;
@@ -504,7 +504,7 @@ public class AppBarLayout extends LinearLayout {
         private float mOffsetToChildIndexOnLayoutPerc;
         private DragCallback mOnDragCallback;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static abstract class DragCallback {
             public abstract boolean canDrag(@NonNull AppBarLayout appBarLayout);
         }
@@ -622,7 +622,7 @@ public class AppBarLayout extends LinearLayout {
             } else {
                 this.mOffsetAnimator.cancel();
             }
-            this.mOffsetAnimator.setDuration(Math.min(i2, (int) MAX_OFFSET_ANIMATION_DURATION));
+            this.mOffsetAnimator.setDuration(Math.min(i2, 600));
             this.mOffsetAnimator.setIntValues(topBottomOffsetForScrollingSibling, i);
             this.mOffsetAnimator.start();
         }
@@ -911,7 +911,7 @@ public class AppBarLayout extends LinearLayout {
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static class SavedState extends AbsSavedState {
             public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.design.widget.AppBarLayout.Behavior.SavedState.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -958,7 +958,7 @@ public class AppBarLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ScrollingViewBehavior extends HeaderScrollingViewBehavior {
         @Override // android.support.design.widget.HeaderScrollingViewBehavior
         /* bridge */ /* synthetic */ View findFirstDependency(List list) {

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.sapi2.activity.AccountCenterActivity;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.activity.social.HuaweiLoginActivity;
@@ -24,7 +23,7 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import java.net.HttpCookie;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ThirdPartyService implements AbstractThirdPartyService {
     private static final long MIN_INVOKE_INTER_TIME = 500;
     private long lastInvokeTime = 0;
@@ -36,12 +35,12 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public List<HttpCookie> getCookies(Context context, SapiConfiguration sapiConfiguration) {
         ArrayList arrayList = new ArrayList();
         if (Build.VERSION.SDK_INT >= 9) {
-            String aGn = SapiContext.getInstance(context).aGn();
+            String deviceInfo = SapiContext.getInstance(context).getDeviceInfo();
             HttpCookie httpCookie = new HttpCookie("cuid", SapiUtils.getClientId(sapiConfiguration.context));
-            if (aGn == null) {
-                aGn = "";
+            if (deviceInfo == null) {
+                deviceInfo = "";
             }
-            HttpCookie httpCookie2 = new HttpCookie("DVIF", aGn);
+            HttpCookie httpCookie2 = new HttpCookie("DVIF", deviceInfo);
             String replaceAll = sapiConfiguration.environment.getURL().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
             String replaceAll2 = sapiConfiguration.environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
             httpCookie.setDomain(replaceAll);
@@ -122,7 +121,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
             sapiAccount.addSocialInfo(sapiAccountResponse.socialType, sapiAccountResponse.socialPortraitUrl);
             sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
         }
-        sapiAccount.putExtra(TableDefine.PaSubscribeColumns.COLUMN_TPL, sapiConfiguration.tpl);
+        sapiAccount.putExtra("tpl", sapiConfiguration.tpl);
         if (!sapiAccountResponse.tplStokenMap.isEmpty()) {
             sapiAccount.addDispersionCertification(sapiAccountResponse.tplStokenMap);
         }

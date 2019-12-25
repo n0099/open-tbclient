@@ -20,10 +20,11 @@ import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.TbConfig;
+import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BDLayoutMode {
     private static final String ATTR_NAME_BACKGROUND = "tb_background";
     private static final String ATTR_NAME_DIVIDER = "tb_divider";
@@ -129,7 +130,7 @@ public class BDLayoutMode {
                     z = true;
                 }
                 if (z && TbConfig.getDebugSwitch() && (i = JavaTypesHelper.toInt(attributeValue.substring(1), 0)) != 0) {
-                    bDLayoutInfo.appendTag(attributeName + "=" + this.contextRes.getResourceName(i));
+                    bDLayoutInfo.appendTag(attributeName + ETAG.EQUAL + this.contextRes.getResourceName(i));
                 }
             }
             if (z) {

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class WXEmojiPageSharedObject implements WXMediaMessage.IMediaObject {
     private static final String TAG = "MicroMsg.SDK.WXEmojiSharedObject";
     public String desc;
@@ -32,7 +32,7 @@ public class WXEmojiPageSharedObject implements WXMediaMessage.IMediaObject {
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if (d.b(this.title) || d.b(this.iconUrl)) {
+        if (d.a(this.title) || d.a(this.iconUrl)) {
             Log.e(TAG, "checkArgs fail, title or iconUrl is invalid");
             return false;
         }

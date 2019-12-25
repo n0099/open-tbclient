@@ -3,10 +3,10 @@ package com.tb.airbnb.lottie.model.a;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class o<V, O> implements m<V, O> {
-    final List<com.tb.airbnb.lottie.a.a<V>> eR;
-    final V fg;
+    final List<com.tb.airbnb.lottie.a.a<V>> gD;
+    final V mNB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(V v) {
@@ -15,29 +15,29 @@ public abstract class o<V, O> implements m<V, O> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(List<com.tb.airbnb.lottie.a.a<V>> list, V v) {
-        this.eR = list;
-        this.fg = v;
+        this.gD = list;
+        this.mNB = v;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: V */
     /* JADX WARN: Multi-variable type inference failed */
-    O k(V v) {
+    O bD(V v) {
         return v;
     }
 
     public boolean hasAnimation() {
-        return !this.eR.isEmpty();
+        return !this.gD.isEmpty();
     }
 
-    public O ca() {
-        return k(this.fg);
+    public O dBs() {
+        return bD(this.mNB);
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("parseInitialValue=").append(this.fg);
-        if (!this.eR.isEmpty()) {
-            sb.append(", values=").append(Arrays.toString(this.eR.toArray()));
+        sb.append("parseInitialValue=").append(this.mNB);
+        if (!this.gD.isEmpty()) {
+            sb.append(", values=").append(Arrays.toString(this.gD.toArray()));
         }
         return sb.toString();
     }

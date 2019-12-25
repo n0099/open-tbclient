@@ -7,13 +7,13 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class AlbumCompressProgressView extends View {
-    private int aoh;
-    private Paint ceA;
-    private RectF ceB;
-    private int cey;
-    private Paint cez;
+    private int awe;
+    private int cQY;
+    private Paint cQZ;
+    private Paint cRa;
+    private RectF cRb;
     private int mValue;
     private int mWidth;
 
@@ -44,24 +44,24 @@ public class AlbumCompressProgressView extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.ds100);
-        this.aoh = getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.cey = getResources().getDimensionPixelSize(R.dimen.ds2);
-        this.cez = new Paint();
-        this.cez.setStrokeWidth(this.aoh);
-        this.cez.setColor(getResources().getColor(R.color.cp_bg_line_d));
-        this.cez.setStyle(Paint.Style.STROKE);
-        this.cez.setAntiAlias(true);
-        this.ceA = new Paint();
-        this.ceA.setStrokeWidth(this.cey);
-        this.ceA.setColor(getResources().getColor(R.color.cp_cont_a));
-        this.ceA.setStyle(Paint.Style.STROKE);
-        this.ceA.setAntiAlias(true);
-        this.ceB = new RectF(this.aoh, this.aoh, this.mWidth + this.aoh, this.mWidth + this.aoh);
+        this.awe = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.cQY = getResources().getDimensionPixelSize(R.dimen.ds2);
+        this.cQZ = new Paint();
+        this.cQZ.setStrokeWidth(this.awe);
+        this.cQZ.setColor(getResources().getColor(R.color.cp_bg_line_d));
+        this.cQZ.setStyle(Paint.Style.STROKE);
+        this.cQZ.setAntiAlias(true);
+        this.cRa = new Paint();
+        this.cRa.setStrokeWidth(this.cQY);
+        this.cRa.setColor(getResources().getColor(R.color.cp_cont_a));
+        this.cRa.setStyle(Paint.Style.STROKE);
+        this.cRa.setAntiAlias(true);
+        this.cRb = new RectF(this.awe, this.awe, this.mWidth + this.awe, this.mWidth + this.awe);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.ceB, 270.0f, 360.0f, false, this.ceA);
-        canvas.drawArc(this.ceB, 270.0f, (this.mValue * 360) / 100, false, this.cez);
+        canvas.drawArc(this.cRb, 270.0f, 360.0f, false, this.cRa);
+        canvas.drawArc(this.cRb, 270.0f, (this.mValue * 360) / 100, false, this.cQZ);
     }
 }

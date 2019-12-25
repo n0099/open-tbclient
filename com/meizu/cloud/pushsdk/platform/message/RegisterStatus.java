@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.platform.message;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class RegisterStatus extends BasicPushStatus {
     private int expireTime;
     private String pushId;

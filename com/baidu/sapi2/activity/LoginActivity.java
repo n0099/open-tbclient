@@ -9,7 +9,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.widget.Toast;
-import com.baidu.d.a.a;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
@@ -18,7 +18,6 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.share.m;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
@@ -32,7 +31,7 @@ import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LoginActivity extends BaseActivity {
     public static final String EXTRA_LOGIN_FINISH_AFTER_SUC = "extra_login_finish_after_suc";
     public static final String EXTRA_LOGIN_TYPE = "extra_login_type";
@@ -100,7 +99,7 @@ public class LoginActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.activity.LoginActivity$4  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class AnonymousClass4 extends Handler {
         AnonymousClass4() {
         }
@@ -206,7 +205,7 @@ public class LoginActivity extends BaseActivity {
     public void onClose() {
         super.onClose();
         this.t.setResultCode(-301);
-        this.t.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+        this.t.setResultMsg("您已取消操作");
         a(this.t);
     }
 
@@ -220,7 +219,7 @@ public class LoginActivity extends BaseActivity {
         } catch (Throwable th) {
             reportWebviewError(th);
             this.t.setResultCode(-202);
-            this.t.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
+            this.t.setResultMsg("网络连接失败，请检查网络设置");
             a(this.t);
         }
     }

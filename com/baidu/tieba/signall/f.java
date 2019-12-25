@@ -1,20 +1,25 @@
 package com.baidu.tieba.signall;
 
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f {
-    public String bWv;
-    public String iZs;
+    public String cII;
+    public String jTO;
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.iZs = jSONObject.optString("banner_pic");
-                this.bWv = jSONObject.optString("banner_url");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (jSONObject == null) {
+            BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, TiebaInitialize.LogFields.REASON, "null");
+            return;
+        }
+        try {
+            this.jTO = jSONObject.optString("banner_pic");
+            this.cII = jSONObject.optString("banner_url");
+        } catch (Exception e) {
+            BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, TiebaInitialize.LogFields.REASON, e.toString());
+            BdLog.e(e.getMessage());
         }
     }
 }

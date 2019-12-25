@@ -22,13 +22,14 @@ import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.imsdk.IMService;
+import com.google.android.exoplayer2.Format;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class McastManagerImpl {
     private static final int FIRST_RETRY = 0;
     private static final long FIRST_RETRY_TIME = 1000;
@@ -78,7 +79,7 @@ public class McastManagerImpl {
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     interface HeartbeatOpearation {
         void cancelHearbeat();
 
@@ -270,7 +271,7 @@ public class McastManagerImpl {
         if (McastConfig.mLiveShowing) {
             long maxReliableMsgId = ChatMsgManagerImpl.getInstance(mContext).getMaxReliableMsgId(this.mCastId);
             if (this.mIsPull) {
-                fetchCastMsg(maxReliableMsgId > 0 ? maxReliableMsgId : 0L, Long.MAX_VALUE);
+                fetchCastMsg(maxReliableMsgId > 0 ? maxReliableMsgId : 0L, Format.OFFSET_SAMPLE_RELATIVE);
             } else if (maxReliableMsgId <= 0) {
                 fetchCastMsg(0L, this.mMaxMsgId);
             } else if (maxReliableMsgId < this.mMaxMsgId) {
@@ -361,7 +362,7 @@ public class McastManagerImpl {
         resetHeartBeat(120000);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class McastHeartbeat implements HeartbeatOpearation {
         private Runnable startHeartBeatTask = new Runnable() { // from class: com.baidu.android.imsdk.mcast.McastManagerImpl.McastHeartbeat.1
             @Override // java.lang.Runnable
@@ -405,7 +406,7 @@ public class McastManagerImpl {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     class McastTodoAfterLogin implements TodoAfterLogin {
         McastTodoAfterLogin() {
         }

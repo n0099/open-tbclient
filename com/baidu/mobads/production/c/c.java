@@ -2,6 +2,8 @@ package com.baidu.mobads.production.c;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.down.utils.Constants;
+import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.AdSize;
 import com.baidu.mobads.g.q;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
@@ -18,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c extends com.baidu.mobads.production.b {
     private d w;
     private ArrayList<IXAdInstanceInfo> x;
@@ -44,7 +46,7 @@ public class c extends com.baidu.mobads.production.b {
             arrayList.add(adConstants.getSupportedActionType4RequestingDownload());
         }
         this.w.b(XAdSDKFoundationFacade.getInstance().getCommonUtils().a((List<String>) arrayList));
-        this.w.d(600);
+        this.w.d(Constants.HTTP_DNS_INAVAILABLE_TIME);
         this.w.e(500);
         this.w.h(0);
         this.w.d(str);
@@ -53,9 +55,9 @@ public class c extends com.baidu.mobads.production.b {
         this.w.i(XAdSDKFoundationFacade.getInstance().getAdConstants().getAdCreativeTypeImage());
     }
 
-    public void a(com.baidu.mobad.feeds.a aVar) {
-        int width = aVar.getWidth();
-        int height = aVar.getHeight();
+    public void a(RequestParameters requestParameters) {
+        int width = requestParameters.getWidth();
+        int height = requestParameters.getHeight();
         if (width > 0 && height > 0) {
             this.w.d(width);
             this.w.e(height);

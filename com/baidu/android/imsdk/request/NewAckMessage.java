@@ -10,14 +10,14 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class NewAckMessage extends Message {
     private Context mContext;
     private JSONArray mJsonArray = null;
     private long mTriggerId;
     private List<Tripule> tripules;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class Tripule {
         private long fromUser;
         private JSONObject jack = null;

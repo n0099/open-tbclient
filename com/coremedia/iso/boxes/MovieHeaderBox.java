@@ -1,11 +1,12 @@
 package com.coremedia.iso.boxes;
 
-import android.support.v7.widget.helper.ItemTouchHelper;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.down.manage.DownloadConstants;
+import com.baidu.fsg.base.activity.BaseActivity;
 import com.baidu.live.adp.lib.util.FieldUtil;
+import com.baidu.minivideo.effect.core.entity.AEffectParams;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.util.DateHelper;
@@ -14,39 +15,38 @@ import java.nio.ByteBuffer;
 import java.util.Date;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MovieHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mvhd";
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_20 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_21 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_22 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_23 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_24 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_25 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_26 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_27 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_28 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_20 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_21 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_22 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_23 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_24 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_25 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_26 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_27 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_28 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_9 = null;
     private Date creationTime;
     private int currentTime;
     private long duration;
@@ -74,29 +74,29 @@ public class MovieHeaderBox extends AbstractFullBox {
         ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setTimescale", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "timescale", "", "void"), 211);
         ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "setDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "duration", "", "void"), 215);
         ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setRate", "com.coremedia.iso.boxes.MovieHeaderBox", "double", "rate", "", "void"), 222);
-        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "setVolume", "com.coremedia.iso.boxes.MovieHeaderBox", "float", "volume", "", "void"), 226);
+        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "setVolume", "com.coremedia.iso.boxes.MovieHeaderBox", AEffectParams.VALUE_TYPE_FLOAT, "volume", "", "void"), 226);
         ajc$tjp_15 = bVar.a("method-execution", bVar.b("1", "setMatrix", "com.coremedia.iso.boxes.MovieHeaderBox", "com.googlecode.mp4parser.util.Matrix", "matrix", "", "void"), 230);
         ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "setNextTrackId", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "nextTrackId", "", "void"), 234);
         ajc$tjp_17 = bVar.a("method-execution", bVar.b("1", "getPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 238);
-        ajc$tjp_18 = bVar.a("method-execution", bVar.b("1", "setPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewTime", "", "void"), 242);
+        ajc$tjp_18 = bVar.a("method-execution", bVar.b("1", "setPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewTime", "", "void"), BaseActivity.DIALOG_LOADING);
         ajc$tjp_19 = bVar.a("method-execution", bVar.b("1", "getPreviewDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 246);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getTimescale", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 71);
-        ajc$tjp_20 = bVar.a("method-execution", bVar.b("1", "setPreviewDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewDuration", "", "void"), ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION);
+        ajc$tjp_20 = bVar.a("method-execution", bVar.b("1", "setPreviewDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewDuration", "", "void"), 250);
         ajc$tjp_21 = bVar.a("method-execution", bVar.b("1", "getPosterTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 254);
         ajc$tjp_22 = bVar.a("method-execution", bVar.b("1", "setPosterTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "posterTime", "", "void"), 258);
         ajc$tjp_23 = bVar.a("method-execution", bVar.b("1", "getSelectionTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 262);
         ajc$tjp_24 = bVar.a("method-execution", bVar.b("1", "setSelectionTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "selectionTime", "", "void"), 266);
-        ajc$tjp_25 = bVar.a("method-execution", bVar.b("1", "getSelectionDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), SubsamplingScaleImageView.ORIENTATION_270);
+        ajc$tjp_25 = bVar.a("method-execution", bVar.b("1", "getSelectionDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 270);
         ajc$tjp_26 = bVar.a("method-execution", bVar.b("1", "setSelectionDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "selectionDuration", "", "void"), 274);
         ajc$tjp_27 = bVar.a("method-execution", bVar.b("1", "getCurrentTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 278);
         ajc$tjp_28 = bVar.a("method-execution", bVar.b("1", "setCurrentTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "currentTime", "", "void"), 282);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 75);
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getRate", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "double"), 79);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getVolume", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "float"), 83);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getVolume", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", AEffectParams.VALUE_TYPE_FLOAT), 83);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getMatrix", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "com.googlecode.mp4parser.util.Matrix"), 87);
         ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "getNextTrackId", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 91);
         ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", FieldUtil.TYPE_STRING), 139);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setCreationTime", "com.coremedia.iso.boxes.MovieHeaderBox", FieldUtil.TYPE_DATE, "creationTime", "", "void"), 195);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setCreationTime", "com.coremedia.iso.boxes.MovieHeaderBox", FieldUtil.TYPE_DATE, "creationTime", "", "void"), DownloadConstants.STATUS_WAITING_FOR_NETWORK);
     }
 
     public MovieHeaderBox() {
@@ -235,7 +235,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     public void setCreationTime(Date date) {
         RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, date));
         this.creationTime = date;
-        if (DateHelper.convert(date) >= IjkMediaMeta.AV_CH_WIDE_RIGHT) {
+        if (DateHelper.convert(date) >= 4294967296L) {
             setVersion(1);
         }
     }
@@ -243,31 +243,31 @@ public class MovieHeaderBox extends AbstractFullBox {
     public void setModificationTime(Date date) {
         RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, date));
         this.modificationTime = date;
-        if (DateHelper.convert(date) >= IjkMediaMeta.AV_CH_WIDE_RIGHT) {
+        if (DateHelper.convert(date) >= 4294967296L) {
             setVersion(1);
         }
     }
 
     public void setTimescale(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.em(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.gU(j)));
         this.timescale = j;
     }
 
     public void setDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.em(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.gU(j)));
         this.duration = j;
-        if (j >= IjkMediaMeta.AV_CH_WIDE_RIGHT) {
+        if (j >= 4294967296L) {
             setVersion(1);
         }
     }
 
     public void setRate(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.r(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.z(d)));
         this.rate = d;
     }
 
     public void setVolume(float f) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.aM(f)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.bJ(f)));
         this.volume = f;
     }
 
@@ -277,7 +277,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setNextTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.em(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.gU(j)));
         this.nextTrackId = j;
     }
 
@@ -287,7 +287,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setPreviewTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.Dk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.MS(i)));
         this.previewTime = i;
     }
 
@@ -297,7 +297,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setPreviewDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_20, this, this, org.aspectj.a.a.a.Dk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_20, this, this, org.aspectj.a.a.a.MS(i)));
         this.previewDuration = i;
     }
 
@@ -307,7 +307,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setPosterTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_22, this, this, org.aspectj.a.a.a.Dk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_22, this, this, org.aspectj.a.a.a.MS(i)));
         this.posterTime = i;
     }
 
@@ -317,7 +317,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setSelectionTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_24, this, this, org.aspectj.a.a.a.Dk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_24, this, this, org.aspectj.a.a.a.MS(i)));
         this.selectionTime = i;
     }
 
@@ -327,7 +327,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setSelectionDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.Dk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.MS(i)));
         this.selectionDuration = i;
     }
 
@@ -337,7 +337,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setCurrentTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.Dk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.MS(i)));
         this.currentTime = i;
     }
 }

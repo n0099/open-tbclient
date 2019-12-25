@@ -5,20 +5,20 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AbsListView;
 import com.baidu.live.adp.widget.listview.BdListView;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.view.LoadMoreFooter;
-import com.baidu.tieba.ala.guardclub.l;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.ala.guardclub.k;
+/* loaded from: classes2.dex */
 public class GuardClubRankListView extends BdListView {
-    private a dPt;
-    private boolean dPu;
-    private LoadMoreFooter dPv;
+    private boolean eDA;
+    private LoadMoreFooter eDB;
+    private a eDz;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void aLU();
+        void bdd();
 
-        void aLV();
+        void bde();
     }
 
     public GuardClubRankListView(Context context, AttributeSet attributeSet) {
@@ -27,24 +27,24 @@ public class GuardClubRankListView extends BdListView {
     }
 
     public void setCallback(a aVar) {
-        this.dPt = aVar;
+        this.eDz = aVar;
     }
 
     public void setLoadMoreEnabled(boolean z, boolean z2) {
-        this.dPu = z;
+        this.eDA = z;
         if (z) {
-            aLp();
+            bcz();
         } else {
-            hf(z2);
+            im(z2);
         }
     }
 
     public void release() {
-        this.dPt = null;
-        aMe();
+        this.eDz = null;
+        bdn();
     }
 
-    public void aMe() {
+    public void bdn() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -52,8 +52,8 @@ public class GuardClubRankListView extends BdListView {
                 View childAt = getChildAt(i2);
                 if (childAt != null) {
                     Object tag = childAt.getTag();
-                    if (tag instanceof l.b) {
-                        ((l.b) tag).recycle();
+                    if (tag instanceof k.b) {
+                        ((k.b) tag).recycle();
                     }
                 }
                 i = i2 + 1;
@@ -65,9 +65,9 @@ public class GuardClubRankListView extends BdListView {
 
     private void init() {
         initUI();
-        aMf();
-        aMg();
-        aMh();
+        bdo();
+        bdp();
+        bdq();
     }
 
     private void initUI() {
@@ -79,7 +79,7 @@ public class GuardClubRankListView extends BdListView {
         setVerticalScrollBarEnabled(false);
     }
 
-    private void aMf() {
+    private void bdo() {
         setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -87,62 +87,62 @@ public class GuardClubRankListView extends BdListView {
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                if (GuardClubRankListView.this.dPt != null) {
-                    GuardClubRankListView.this.dPt.aLU();
+                if (GuardClubRankListView.this.eDz != null) {
+                    GuardClubRankListView.this.eDz.bdd();
                 }
-                if (GuardClubRankListView.this.dPt != null && GuardClubRankListView.this.dPu && !GuardClubRankListView.this.dPv.isLoading() && i + i2 > i3 - 2) {
-                    GuardClubRankListView.this.aMi();
-                    GuardClubRankListView.this.dPt.aLV();
+                if (GuardClubRankListView.this.eDz != null && GuardClubRankListView.this.eDA && !GuardClubRankListView.this.eDB.isLoading() && i + i2 > i3 - 2) {
+                    GuardClubRankListView.this.bdr();
+                    GuardClubRankListView.this.eDz.bde();
                 }
             }
         });
     }
 
-    private void aMg() {
+    private void bdp() {
         setRecyclerListener(new AbsListView.RecyclerListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.2
             @Override // android.widget.AbsListView.RecyclerListener
             public void onMovedToScrapHeap(View view) {
                 Object tag = view.getTag();
-                if (tag instanceof l.b) {
-                    ((l.b) tag).recycle();
+                if (tag instanceof k.b) {
+                    ((k.b) tag).recycle();
                 }
             }
         });
     }
 
-    private void aMh() {
-        this.dPv = new LoadMoreFooter(getContext());
-        this.dPv.setBackgroundColor(getResources().getColor(a.d.live_gcb_primary));
-        this.dPv.createView();
+    private void bdq() {
+        this.eDB = new LoadMoreFooter(getContext());
+        this.eDB.setBackgroundColor(getResources().getColor(a.d.live_gcb_primary));
+        this.eDB.createView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aMi() {
-        if (this.dPv != null) {
-            if (this.dPv.getView().getParent() == null) {
-                setNextPage(this.dPv);
+    public void bdr() {
+        if (this.eDB != null) {
+            if (this.eDB.getView().getParent() == null) {
+                setNextPage(this.eDB);
             }
-            this.dPv.showLoadView();
+            this.eDB.showLoadView();
         }
     }
 
-    private void aLp() {
-        if (this.dPv != null) {
-            this.dPv.endLoadData();
+    private void bcz() {
+        if (this.eDB != null) {
+            this.eDB.endLoadData();
             setNextPage(null);
         }
     }
 
-    private void hf(boolean z) {
+    private void im(boolean z) {
         if (z) {
-            if (this.dPv != null) {
+            if (this.eDB != null) {
                 setNextPage(null);
             }
-        } else if (this.dPv != null) {
-            if (this.dPv.getView().getParent() == null) {
-                setNextPage(this.dPv);
+        } else if (this.eDB != null) {
+            if (this.eDB.getView().getParent() == null) {
+                setNextPage(this.eDB);
             }
-            this.dPv.showNoMoreData();
+            this.eDB.showNoMoreData();
         }
     }
 }

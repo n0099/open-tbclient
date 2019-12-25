@@ -1,11 +1,12 @@
 package com.baidu.mobads.interfaces;
 
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.searchbox.picture.component.BaseBrowseView;
+import com.baidu.searchbox.ugc.model.QuestionResponseModel;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IXAdInstanceInfo {
     boolean getAPOOpen();
 
@@ -296,14 +297,14 @@ public interface IXAdInstanceInfo {
 
     void setWinurl(String str);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum CreativeType {
-        NONE(IXAdSystemUtils.NT_NONE),
+        NONE("none"),
         TEXT("text"),
         STATIC_IMAGE("static_image"),
-        GIF("gif"),
+        GIF(BaseBrowseView.IMG_TYPE_GIF),
         RM("rich_media"),
-        HTML("html"),
+        HTML(QuestionResponseModel.TEXT),
         HYBRID("hybrid"),
         VIDEO("video");
         

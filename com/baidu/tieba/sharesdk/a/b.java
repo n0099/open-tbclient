@@ -7,69 +7,69 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tbadk.core.util.e.f;
+import com.baidu.tbadk.core.util.d.f;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.tieba.sharesdk.a.a {
-    protected int iWG;
-    protected Tencent iWM;
-    IUiListener iWN;
-    private final com.baidu.adp.lib.f.b<f.a> iWO;
+    protected int jRb;
+    protected Tencent jRg;
+    IUiListener jRh;
+    private final com.baidu.adp.lib.e.b<f.a> jRi;
 
     public b(Context context) {
         super(context);
-        this.iWG = 8;
-        this.iWO = new com.baidu.adp.lib.f.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.b.1
+        this.jRb = 8;
+        this.jRi = new com.baidu.adp.lib.e.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.f.b
+            @Override // com.baidu.adp.lib.e.b
             /* renamed from: a */
             public void onLoaded(f.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
-                if (aVar != null && aVar.ckS != null && !TextUtils.isEmpty(aVar.path)) {
-                    b.this.a(aVar.path, b.this.iWN);
+                if (aVar != null && aVar.cXq != null && !TextUtils.isEmpty(aVar.path)) {
+                    b.this.a(aVar.path, b.this.jRh);
                 } else {
-                    b.this.ze(2);
+                    b.this.BA(2);
                 }
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.f.b
+            @Override // com.baidu.adp.lib.e.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                b.this.ze(3);
+                b.this.BA(3);
             }
         };
-        this.iWM = Tencent.createInstance("101462192", context.getApplicationContext());
+        this.jRg = Tencent.createInstance("101462192", context.getApplicationContext());
     }
 
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.iWM == null) {
-            ze(2);
+        if (shareEntity == null || this.jRg == null) {
+            BA(2);
             if (bVar != null) {
-                bVar.cj(0, 2);
+                bVar.cD(0, 2);
             }
         } else if (this.context == null || !(this.context instanceof Activity)) {
-            ze(2);
+            BA(2);
             if (bVar != null) {
-                bVar.cj(0, 2);
+                bVar.cD(0, 2);
             }
         } else {
-            this.iWN = new a(bVar);
-            String ahd = shareEntity.ahd();
-            if (oY(shareEntity.ckC())) {
-                a(shareEntity.ckC(), this.iWN);
-            } else if (shareEntity.ckE() != 0 && !TextUtils.isEmpty(ahd) && (ahd.startsWith("http://") || ahd.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
-                com.baidu.adp.lib.f.c.fT().a(ahd, 34, this.iWO, 0, 0, getPageId(), new Object[0]);
+            this.jRh = new a(bVar);
+            String axX = shareEntity.axX();
+            if (uc(shareEntity.cEI())) {
+                a(shareEntity.cEI(), this.jRh);
+            } else if (shareEntity.cEK() != 0 && !TextUtils.isEmpty(axX) && (axX.startsWith("http://") || axX.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
+                com.baidu.adp.lib.e.c.gs().a(axX, 34, this.jRi, 0, 0, getPageId(), new Object[0]);
             } else if (!TextUtils.isEmpty(shareEntity.getLinkUrl()) && !TextUtils.isEmpty(shareEntity.getTitle())) {
-                a(shareEntity, this.iWN);
-            } else if (t(shareEntity.getImageUri())) {
-                a(shareEntity.getImageUri().getPath(), this.iWN);
+                a(shareEntity, this.jRh);
+            } else if (v(shareEntity.getImageUri())) {
+                a(shareEntity.getImageUri().getPath(), this.jRh);
             } else {
                 b(shareEntity, bVar);
             }
@@ -83,8 +83,8 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             bundle.putString("summary", shareEntity.getContent());
             bundle.putString("targetUrl", shareEntity.getLinkUrl());
             bundle.putInt("req_type", 1);
-            bundle.putString("imageUrl", shareEntity.ahd());
-            this.iWM.shareToQQ((Activity) this.context, bundle, iUiListener);
+            bundle.putString("imageUrl", shareEntity.axX());
+            this.jRg.shareToQQ((Activity) this.context, bundle, iUiListener);
         }
     }
 
@@ -95,7 +95,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             bundle.putString("imageLocalUrl", str);
             bundle.putInt("req_type", 5);
             bundle.putInt("cflag", 2);
-            this.iWM.shareToQQ((Activity) this.context, bundle, iUiListener);
+            this.jRg.shareToQQ((Activity) this.context, bundle, iUiListener);
         }
     }
 
@@ -124,48 +124,48 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             intent2.setFlags(268435456);
             if (com.baidu.tieba.sharesdk.c.a.startActivity(this.context, intent2)) {
                 if (bVar != null) {
-                    bVar.cj(this.iWG, 1);
+                    bVar.cD(this.jRb, 1);
                     return;
                 }
                 return;
             }
             if (bVar != null) {
-                bVar.cj(this.iWG, 2);
+                bVar.cD(this.jRb, 2);
             }
-            ze(2);
+            BA(2);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     protected class a implements IUiListener {
-        private com.baidu.tieba.sharesdk.b.b iWQ;
+        private com.baidu.tieba.sharesdk.b.b jRk;
 
         public a(com.baidu.tieba.sharesdk.b.b bVar) {
-            this.iWQ = bVar;
+            this.jRk = bVar;
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
-            if (this.iWQ != null) {
-                this.iWQ.cj(b.this.iWG, 1);
+            if (this.jRk != null) {
+                this.jRk.cD(b.this.jRb, 1);
             }
-            b.this.ze(1);
+            b.this.BA(1);
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            if (this.iWQ != null) {
-                this.iWQ.cj(b.this.iWG, 2);
+            if (this.jRk != null) {
+                this.jRk.cD(b.this.jRb, 2);
             }
-            b.this.aE(2, uiError != null ? uiError.errorMessage : null);
+            b.this.aU(2, uiError != null ? uiError.errorMessage : null);
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
-            if (this.iWQ != null) {
-                this.iWQ.cj(b.this.iWG, 3);
+            if (this.jRk != null) {
+                this.jRk.cD(b.this.jRb, 3);
             }
-            if (b.this.iWG != 8 && b.this.iWG == 4) {
+            if (b.this.jRb != 8 && b.this.jRb == 4) {
             }
         }
     }

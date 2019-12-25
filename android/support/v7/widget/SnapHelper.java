@@ -7,7 +7,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     static final float MILLISECONDS_PER_INCH = 100.0f;
     private Scroller mGravityScroller;
@@ -116,12 +116,14 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
             return new LinearSmoothScroller(this.mRecyclerView.getContext()) { // from class: android.support.v7.widget.SnapHelper.2
                 @Override // android.support.v7.widget.LinearSmoothScroller, android.support.v7.widget.RecyclerView.SmoothScroller
                 protected void onTargetFound(View view, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
-                    int[] calculateDistanceToFinalSnap = SnapHelper.this.calculateDistanceToFinalSnap(SnapHelper.this.mRecyclerView.getLayoutManager(), view);
-                    int i = calculateDistanceToFinalSnap[0];
-                    int i2 = calculateDistanceToFinalSnap[1];
-                    int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i), Math.abs(i2)));
-                    if (calculateTimeForDeceleration > 0) {
-                        action.update(i, i2, calculateTimeForDeceleration, this.mDecelerateInterpolator);
+                    if (SnapHelper.this.mRecyclerView != null) {
+                        int[] calculateDistanceToFinalSnap = SnapHelper.this.calculateDistanceToFinalSnap(SnapHelper.this.mRecyclerView.getLayoutManager(), view);
+                        int i = calculateDistanceToFinalSnap[0];
+                        int i2 = calculateDistanceToFinalSnap[1];
+                        int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i), Math.abs(i2)));
+                        if (calculateTimeForDeceleration > 0) {
+                            action.update(i, i2, calculateTimeForDeceleration, this.mDecelerateInterpolator);
+                        }
                     }
                 }
 

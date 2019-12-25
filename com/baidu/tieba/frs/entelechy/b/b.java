@@ -1,19 +1,19 @@
 package com.baidu.tieba.frs.entelechy.b;
 
 import android.view.View;
-import com.baidu.tieba.frs.k;
-import com.baidu.tieba.frs.vc.f;
+import com.baidu.tieba.frs.l;
+import com.baidu.tieba.frs.vc.h;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface b {
     int a(int i, FrsRequestData frsRequestData);
 
-    void a(f fVar, k kVar, FrsViewData frsViewData);
+    void a(h hVar, l lVar, FrsViewData frsViewData);
 
-    void a(f fVar, FrsViewData frsViewData);
+    void a(h hVar, FrsViewData frsViewData);
 
-    void bP(View view);
+    void bK(View view);
 
-    boolean qT(int i);
+    boolean sZ(int i);
 }

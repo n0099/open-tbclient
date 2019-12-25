@@ -1,56 +1,53 @@
 package com.baidu.swan.games.view.a;
 
-import android.app.Activity;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.o.d;
-import com.baidu.swan.apps.statistic.a.f;
-import com.baidu.swan.apps.statistic.e;
-/* loaded from: classes2.dex */
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.statistic.f;
+import com.baidu.swan.apps.x.b.b;
+import com.baidu.swan.games.u.d;
+/* loaded from: classes9.dex */
 public class b {
-    public static void br(String str, String str2) {
-        f fVar = new f();
-        fVar.mType = str;
-        fVar.mValue = str2;
-        if (com.baidu.swan.apps.ae.b.Ra() != null && com.baidu.swan.apps.ae.b.Ra().AK() != null) {
-            com.baidu.swan.apps.v.b.b AK = com.baidu.swan.apps.ae.b.Ra().AK();
-            fVar.mFrom = e.eL(AK.KP());
-            fVar.mAppId = AK.getAppId();
-            fVar.mSource = AK.KF();
+    public static void bN(String str, String str2) {
+        a aVar = new a();
+        aVar.mType = str;
+        aVar.mValue = str2;
+        if (e.ZS() != null && e.ZS().DR() != null) {
+            b.a DR = e.ZS().DR();
+            aVar.mFrom = f.ga(DR.getAppFrameType());
+            aVar.mAppId = DR.getAppId();
+            aVar.mSource = DR.SW();
         }
-        e.a("916", fVar);
+        f.a("916", aVar);
     }
 
-    public static void kH(String str) {
-        f fVar = new f();
-        fVar.mType = str;
-        fVar.mValue = "show";
-        if (com.baidu.swan.apps.ae.b.Ra() != null && com.baidu.swan.apps.ae.b.Ra().AK() != null) {
-            com.baidu.swan.apps.v.b.b AK = com.baidu.swan.apps.ae.b.Ra().AK();
-            fVar.mFrom = e.eL(AK.KP());
-            fVar.mAppId = AK.getAppId();
-            fVar.mSource = AK.KF();
+    public static void M(String str, String str2, String str3) {
+        a aVar = new a();
+        aVar.mType = str;
+        aVar.mValue = str2;
+        if (e.ZS() != null && e.ZS().DR() != null) {
+            b.a DR = e.ZS().DR();
+            aVar.mFrom = f.ga(DR.getAppFrameType());
+            aVar.mAppId = DR.getAppId();
+            aVar.mSource = DR.SW();
         }
-        fVar.h("early", Ys() ? "0" : "1");
-        e.a("916", fVar);
+        aVar.mErrorCode = str3;
+        f.a("916", aVar);
     }
 
-    private static boolean Ys() {
-        return Yt() > 0 && com.baidu.swan.games.glsurface.a.b.Xd() && System.currentTimeMillis() - Yt() > 6000;
+    public static void pA(String str) {
+        a aVar = new a();
+        aVar.mType = str;
+        aVar.mValue = "show";
+        if (e.ZS() != null && e.ZS().DR() != null) {
+            b.a DR = e.ZS().DR();
+            aVar.mFrom = f.ga(DR.getAppFrameType());
+            aVar.mAppId = DR.getAppId();
+            aVar.mSource = DR.SW();
+        }
+        aVar.n("early", anP() ? "0" : "1");
+        f.a("916", aVar);
     }
 
-    private static long Yt() {
-        com.baidu.swan.apps.ae.b Ra = com.baidu.swan.apps.ae.b.Ra();
-        if (Ra == null) {
-            return 0L;
-        }
-        Activity activity = Ra.getActivity();
-        if (activity instanceof SwanAppActivity) {
-            d AD = ((SwanAppActivity) activity).AD();
-            if (AD instanceof com.baidu.swan.games.g.a) {
-                return ((com.baidu.swan.games.g.a) AD).WT();
-            }
-            return 0L;
-        }
-        return 0L;
+    private static boolean anP() {
+        return d.amX() > 0 && com.baidu.swan.games.glsurface.a.b.alM() && System.currentTimeMillis() - d.amX() > 6000;
     }
 }

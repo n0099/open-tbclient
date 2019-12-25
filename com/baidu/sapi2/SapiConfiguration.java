@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class SapiConfiguration implements c {
     public static final int JOIN_LOGIN = 4;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_CHINA_MOBILE_OAUTH = 5;
@@ -215,7 +215,7 @@ public final class SapiConfiguration implements c {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Builder implements c {
         private String C;
         private String D;
@@ -455,7 +455,7 @@ public final class SapiConfiguration implements c {
         public Builder setProcessName(String str) {
             boolean z;
             if (!TextUtils.isEmpty(str)) {
-                Iterator<String> it = S.Vy().iterator();
+                Iterator<String> it = S.n().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -651,7 +651,7 @@ public final class SapiConfiguration implements c {
         this.supportGestureSlide = builder.ga;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SmsLoginConfig implements c {
         public Switch flagHideExtraEntry;
         public Switch flagLoginBtnType;

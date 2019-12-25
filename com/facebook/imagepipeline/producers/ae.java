@@ -6,133 +6,137 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
-public class ae implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.common.memory.a kat;
-    private final com.facebook.common.memory.g kfD;
-    private final af khM;
+/* loaded from: classes9.dex */
+public class ae implements aj<com.facebook.imagepipeline.g.e> {
+    private final com.facebook.common.memory.a lEt;
+    private final com.facebook.common.memory.g lLT;
+    private final af lNQ;
 
     public ae(com.facebook.common.memory.g gVar, com.facebook.common.memory.a aVar, af afVar) {
-        this.kfD = gVar;
-        this.kat = aVar;
-        this.khM = afVar;
+        this.lLT = gVar;
+        this.lEt = aVar;
+        this.lNQ = afVar;
     }
 
-    @Override // com.facebook.imagepipeline.producers.ai
-    public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        ajVar.cIG().en(ajVar.getId(), "NetworkFetchProducer");
-        final s d = this.khM.d(jVar, ajVar);
-        this.khM.a((af) d, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
+    @Override // com.facebook.imagepipeline.producers.aj
+    public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
+        akVar.doY().fc(akVar.getId(), "NetworkFetchProducer");
+        final t b = this.lNQ.b(kVar, akVar);
+        this.lNQ.a((af) b, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
             @Override // com.facebook.imagepipeline.producers.af.a
-            public void f(InputStream inputStream, int i) throws IOException {
-                ae.this.a(d, inputStream, i);
+            public void g(InputStream inputStream, int i) throws IOException {
+                ae.this.a(b, inputStream, i);
             }
 
             @Override // com.facebook.imagepipeline.producers.af.a
-            public void B(Throwable th) {
-                ae.this.a(d, th);
+            public void D(Throwable th) {
+                ae.this.a(b, th);
             }
 
             @Override // com.facebook.imagepipeline.producers.af.a
-            public void cCF() {
-                ae.this.b(d);
+            public void dim() {
+                ae.this.b(b);
             }
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(s sVar, InputStream inputStream, int i) throws IOException {
-        com.facebook.common.memory.i cCO;
+    protected void a(t tVar, InputStream inputStream, int i) throws IOException {
+        com.facebook.common.memory.i diy;
         if (i > 0) {
-            cCO = this.kfD.BY(i);
+            diy = this.lLT.Hk(i);
         } else {
-            cCO = this.kfD.cCO();
+            diy = this.lLT.diy();
         }
-        byte[] bArr = this.kat.get(16384);
+        byte[] bArr = this.lEt.get(16384);
         while (true) {
             try {
                 int read = inputStream.read(bArr);
                 if (read >= 0) {
                     if (read > 0) {
-                        cCO.write(bArr, 0, read);
-                        a(cCO, sVar);
-                        sVar.cIS().av(cF(cCO.size(), i));
+                        diy.write(bArr, 0, read);
+                        a(diy, tVar);
+                        tVar.dpj().aM(dB(diy.size(), i));
                     }
                 } else {
-                    this.khM.a((af) sVar, cCO.size());
-                    b(cCO, sVar);
+                    this.lNQ.b((af) tVar, diy.size());
+                    b(diy, tVar);
                     return;
                 }
             } finally {
-                this.kat.release(bArr);
-                cCO.close();
+                this.lEt.release(bArr);
+                diy.close();
             }
         }
     }
 
-    private static float cF(int i, int i2) {
+    protected static float dB(int i, int i2) {
         return i2 > 0 ? i / i2 : 1.0f - ((float) Math.exp((-i) / 50000.0d));
     }
 
-    private void a(com.facebook.common.memory.i iVar, s sVar) {
+    protected void a(com.facebook.common.memory.i iVar, t tVar) {
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (c(sVar) && uptimeMillis - sVar.cIU() >= 100) {
-            sVar.eh(uptimeMillis);
-            sVar.cIG().ai(sVar.getId(), "NetworkFetchProducer", "intermediate_result");
-            a(iVar, false, sVar.cIS());
+        if (c(tVar) && uptimeMillis - tVar.dpl() >= 100) {
+            tVar.fg(uptimeMillis);
+            tVar.doY().ay(tVar.getId(), "NetworkFetchProducer", "intermediate_result");
+            a(iVar, tVar.dpm(), tVar.dpn(), tVar.dpj());
         }
     }
 
-    private void b(com.facebook.common.memory.i iVar, s sVar) {
-        sVar.cIG().a(sVar.getId(), "NetworkFetchProducer", b(sVar, iVar.size()));
-        a(iVar, true, sVar.cIS());
+    protected void b(com.facebook.common.memory.i iVar, t tVar) {
+        Map<String, String> a = a(tVar, iVar.size());
+        am doY = tVar.doY();
+        doY.a(tVar.getId(), "NetworkFetchProducer", a);
+        doY.C(tVar.getId(), "NetworkFetchProducer", true);
+        a(iVar, tVar.dpm() | 1, tVar.dpn(), tVar.dpj());
     }
 
-    private void a(com.facebook.common.memory.i iVar, boolean z, j<com.facebook.imagepipeline.f.d> jVar) {
-        com.facebook.imagepipeline.f.d dVar;
-        com.facebook.common.references.a c = com.facebook.common.references.a.c(iVar.cCP());
+    private void a(com.facebook.common.memory.i iVar, int i, @Nullable com.facebook.imagepipeline.common.a aVar, k<com.facebook.imagepipeline.g.e> kVar) {
+        com.facebook.imagepipeline.g.e eVar;
+        com.facebook.common.references.a b = com.facebook.common.references.a.b(iVar.diz());
         try {
-            dVar = new com.facebook.imagepipeline.f.d(c);
+            eVar = new com.facebook.imagepipeline.g.e(b);
             try {
-                dVar.cHP();
-                jVar.f(dVar, z);
-                com.facebook.imagepipeline.f.d.e(dVar);
-                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) c);
+                eVar.b(aVar);
+                eVar.dof();
+                kVar.g(eVar, i);
+                com.facebook.imagepipeline.g.e.e(eVar);
+                com.facebook.common.references.a.c(b);
             } catch (Throwable th) {
                 th = th;
-                com.facebook.imagepipeline.f.d.e(dVar);
-                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) c);
+                com.facebook.imagepipeline.g.e.e(eVar);
+                com.facebook.common.references.a.c(b);
                 throw th;
             }
         } catch (Throwable th2) {
             th = th2;
-            dVar = null;
+            eVar = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(s sVar, Throwable th) {
-        sVar.cIG().a(sVar.getId(), "NetworkFetchProducer", th, null);
-        sVar.cIS().B(th);
+    public void a(t tVar, Throwable th) {
+        tVar.doY().a(tVar.getId(), "NetworkFetchProducer", th, (Map<String, String>) null);
+        tVar.doY().C(tVar.getId(), "NetworkFetchProducer", false);
+        tVar.dpj().D(th);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(s sVar) {
-        sVar.cIG().b(sVar.getId(), "NetworkFetchProducer", null);
-        sVar.cIS().cCF();
+    public void b(t tVar) {
+        tVar.doY().b(tVar.getId(), "NetworkFetchProducer", null);
+        tVar.dpj().dim();
     }
 
-    private boolean c(s sVar) {
-        if (sVar.cIT().cIF().cJy()) {
-            return this.khM.a(sVar);
+    private boolean c(t tVar) {
+        if (tVar.dpk().dpc()) {
+            return this.lNQ.a(tVar);
         }
         return false;
     }
 
     @Nullable
-    private Map<String, String> b(s sVar, int i) {
-        if (sVar.cIG().GH(sVar.getId())) {
-            return this.khM.b(sVar, i);
+    private Map<String, String> a(t tVar, int i) {
+        if (tVar.doY().OF(tVar.getId())) {
+            return this.lNQ.a((af) tVar, i);
         }
         return null;
     }

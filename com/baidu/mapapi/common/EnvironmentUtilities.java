@@ -2,6 +2,7 @@ package com.baidu.mapapi.common;
 
 import android.content.Context;
 import com.baidu.mapsdkplatform.comapi.util.e;
+import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
 /* loaded from: classes5.dex */
 public class EnvironmentUtilities {
@@ -62,7 +63,7 @@ public class EnvironmentUtilities {
         c = g.b().d();
         d = 20971520;
         e = 52428800;
-        f = 5242880;
+        f = BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE;
     }
 
     public static void setSDCardPath(String str) {

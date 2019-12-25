@@ -7,8 +7,8 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.Message;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.k.a;
 import com.baidu.live.liveroom.c.d;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.CustomToast;
@@ -16,59 +16,59 @@ import com.baidu.live.tbadk.core.view.TbListCommonPullView;
 import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
 import com.baidu.tieba.ala.charm.data.ALaCharmDataList;
 import com.baidu.tieba.ala.charm.model.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a implements d {
-    private boolean agL;
-    private String agM;
-    private b dET;
-    private String dEr;
-    private com.baidu.tieba.ala.charm.model.a dEw;
+    private boolean aoM;
+    private String aoN;
+    private b eqW;
+    private String eqf;
+    private com.baidu.tieba.ala.charm.model.a eqk;
     private String mGroupId;
     private String mLiveId;
     private TbPageContext mPageContext;
     private BdUniqueId mPageId;
     private String mUid;
-    private boolean dEU = true;
-    a.InterfaceC0336a dEA = new a.InterfaceC0336a() { // from class: com.baidu.tieba.ala.charm.a.a.1
-        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0336a
+    private boolean eqX = true;
+    a.InterfaceC0414a eqo = new a.InterfaceC0414a() { // from class: com.baidu.tieba.ala.charm.a.a.1
+        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0414a
         public void a(ALaCharmDataList aLaCharmDataList) {
-            a.this.dET.hideLoadingView();
-            a.this.dET.completePullRefresh();
-            a.this.dET.K(aLaCharmDataList.data);
-            a.this.dEU = false;
+            a.this.eqW.hideLoadingView();
+            a.this.eqW.completePullRefresh();
+            a.this.eqW.Q(aLaCharmDataList.data);
+            a.this.eqX = false;
         }
 
-        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0336a
-        public void R(int i, String str) {
+        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0414a
+        public void aa(int i, String str) {
             if (str != null) {
                 CustomToast.newInstance().showToast(str);
             }
-            a.this.dET.completePullRefresh();
-            a.this.dET.hideLoadingView();
-            a.this.dET.aKv();
-            a.this.dEU = true;
+            a.this.eqW.completePullRefresh();
+            a.this.eqW.hideLoadingView();
+            a.this.eqW.bbl();
+            a.this.eqX = true;
         }
     };
-    private TbListCommonPullView.ListPullRefreshListener dEV = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.charm.a.a.2
+    private TbListCommonPullView.ListPullRefreshListener eqY = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.charm.a.a.2
         @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
         public void onListPullRefresh(boolean z) {
-            if (a.this.dEw != null) {
-                a.this.dEw.aL(1, 10);
+            if (a.this.eqk != null) {
+                a.this.eqk.bb(1, 10);
             }
         }
     };
-    private CustomMessageListener afD = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.charm.a.a.3
+    private CustomMessageListener anF = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.charm.a.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             if ((customResponsedMessage instanceof UpdateAttentionMessage) && (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage) != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
                 if (!updateAttentionMessage.getData().isSucc) {
-                    if (a.this.dET != null) {
-                        a.this.dET.T(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
+                    if (a.this.eqW != null) {
+                        a.this.eqW.X(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
                     }
                     Message<?> message = updateAttentionMessage.getmOrginalMessage();
-                    if (message != null && message.getTag() != null && message.getTag().equals(a.this.mPageId) && !com.baidu.live.view.a.wy().a(updateAttentionMessage.getData(), a.this.mPageContext, false) && !StringUtils.isNull(updateAttentionMessage.getData().errorString)) {
+                    if (message != null && message.getTag() != null && message.getTag().equals(a.this.mPageId) && !com.baidu.live.view.a.yy().a(updateAttentionMessage.getData(), a.this.mPageContext, false) && !StringUtils.isNull(updateAttentionMessage.getData().errorString)) {
                         a.this.mPageContext.showToast(updateAttentionMessage.getData().errorString);
                         return;
                     }
@@ -76,11 +76,11 @@ public class a implements d {
                 }
                 Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
                 if (message2 == null || message2.getTag() == null || !message2.getTag().equals(a.this.mPageId)) {
-                    if (a.this.dET != null) {
-                        a.this.dET.T(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().isAttention);
+                    if (a.this.eqW != null) {
+                        a.this.eqW.X(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().isAttention);
                     }
                 } else if (updateAttentionMessage.getData().isAttention) {
-                    com.baidu.live.view.a.wy().a(a.this.mPageContext, true);
+                    com.baidu.live.view.a.yy().a(a.this.mPageContext, true);
                 }
             }
         }
@@ -88,52 +88,52 @@ public class a implements d {
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.afD);
+        MessageManager.getInstance().registerListener(this.anF);
         this.mPageId = BdUniqueId.gen();
     }
 
-    public void nw() {
-        if (this.dET == null) {
-            this.dET = new b(this.mPageContext, this.mPageId, this.mGroupId, this.mLiveId, this.agL, this.agM);
-            this.dET.sW(this.dEr);
-            this.dET.a(this.dEV);
+    public void createView() {
+        if (this.eqW == null) {
+            this.eqW = new b(this.mPageContext, this.mPageId, this.mGroupId, this.mLiveId, this.aoM, this.aoN);
+            this.eqW.xE(this.eqf);
+            this.eqW.a(this.eqY);
         }
-        this.dEw = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUid, this.dEA);
+        this.eqk = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUid, this.eqo);
         if (!StringUtils.isNull(this.mUid) && !this.mUid.equals("0")) {
-            this.dET.showLoadingView();
-            this.dEw.aL(1, 10);
+            this.eqW.showLoadingView();
+            this.eqk.bb(1, 10);
         }
     }
 
-    public a sS(String str) {
+    public a xA(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public a sT(String str) {
+    public a xB(String str) {
         this.mLiveId = str;
         return this;
     }
 
-    public a sU(String str) {
+    public a xC(String str) {
         this.mUid = str;
         return this;
     }
 
-    public a sV(String str) {
-        this.dEr = str;
+    public a xD(String str) {
+        this.eqf = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public View ss() {
-        if (this.dET == null) {
-            nw();
+    public View uj() {
+        if (this.eqW == null) {
+            createView();
         }
-        if (this.dET == null) {
+        if (this.eqW == null) {
             return null;
         }
-        return this.dET.getView();
+        return this.eqW.getView();
     }
 
     @Override // com.baidu.live.liveroom.c.d
@@ -142,12 +142,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public String st() {
+    public String uk() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public short su() {
+    public short ul() {
         return (short) 3;
     }
 
@@ -161,19 +161,19 @@ public class a implements d {
 
     @Override // com.baidu.live.liveroom.c.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.afD);
-        if (this.dEw != null) {
-            this.dEw.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.anF);
+        if (this.eqk != null) {
+            this.eqk.onDestroy();
         }
-        if (this.dET != null) {
-            this.dET.hideLoadingView();
+        if (this.eqW != null) {
+            this.eqW.hideLoadingView();
         }
     }
 
     @Override // com.baidu.live.liveroom.c.d
     public void onChangeSkinType(int i) {
-        if (this.dET != null) {
-            this.dET.onSkinTypeChanged(i);
+        if (this.eqW != null) {
+            this.eqW.onSkinTypeChanged(i);
         }
     }
 }

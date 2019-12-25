@@ -2,22 +2,22 @@ package com.baidu.swan.apps.storage.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.scheme.actions.ab;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class g extends z {
+@Deprecated
+/* loaded from: classes9.dex */
+public class g extends ab {
     public g(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/getStorageSync");
+        super(jVar, "/swanAPI/getStorageSync");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (bVar == null) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
@@ -26,22 +26,22 @@ public class g extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String optString = optParamsAsJo.optString(TiebaInitialize.Params.KEY);
+        String optString = optParamsAsJo.optString("key");
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        String string = bVar.Re().SN().getString(optString, "");
+        String string = eVar.aaa().acv().getString(optString, "");
         try {
-            JSONObject is = is(string);
-            if (is == null) {
-                is = new JSONObject();
+            JSONObject fG = fG(string);
+            if (fG == null) {
+                fG = new JSONObject();
                 if (TextUtils.isEmpty(string)) {
                     string = "";
                 }
-                is.put("data", string);
+                fG.put("data", string);
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(is, 0);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(fG, 0);
             return true;
         } catch (JSONException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
@@ -52,14 +52,14 @@ public class g extends z {
         }
     }
 
-    private JSONObject is(String str) {
+    private JSONObject fG(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject.has(TiebaInitialize.Params.KEY)) {
-                jSONObject.remove(TiebaInitialize.Params.KEY);
+            if (jSONObject.has("key")) {
+                jSONObject.remove("key");
             }
             return jSONObject;
         } catch (JSONException e) {

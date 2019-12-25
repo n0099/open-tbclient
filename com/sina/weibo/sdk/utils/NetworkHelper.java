@@ -3,7 +3,8 @@ package com.sina.weibo.sdk.utils;
 import android.content.Context;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.ala.live.walletconfig.CashierData;
+/* loaded from: classes4.dex */
 public class NetworkHelper {
     public static boolean hasInternetPermission(Context context) {
         return context == null || context.checkCallingOrSelfPermission("android.permission.INTERNET") == 0;
@@ -15,7 +16,7 @@ public class NetworkHelper {
         sb.append("__");
         sb.append(LogConfig.LIVE_SHARE_HK_WEIBO);
         sb.append("__");
-        sb.append("sdk");
+        sb.append(CashierData.SDK);
         sb.append("__");
         try {
             sb.append(context.getPackageManager().getPackageInfo(context.getPackageName(), 16).versionName.replaceAll("\\s+", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS));

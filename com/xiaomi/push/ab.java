@@ -1,13 +1,13 @@
 package com.xiaomi.push;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ab {
     private static int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f112a;
+    public static final String f117a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final boolean f113a;
+    public static final boolean f118a;
     public static final boolean b;
     public static final boolean c;
     public static final boolean d;
@@ -17,21 +17,21 @@ public class ab {
 
     static {
         boolean z = false;
-        f112a = ae.f114a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
-        f113a = f112a.contains("2A2FE0D7");
-        b = f113a || "DEBUG".equalsIgnoreCase(f112a);
-        c = "LOGABLE".equalsIgnoreCase(f112a);
-        d = f112a.contains("YY");
-        e = f112a.equalsIgnoreCase("TEST");
-        f = "BETA".equalsIgnoreCase(f112a);
-        if (f112a != null && f112a.startsWith("RC")) {
+        f117a = ae.f119a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
+        f118a = f117a.contains("2A2FE0D7");
+        b = f118a || "DEBUG".equalsIgnoreCase(f117a);
+        c = "LOGABLE".equalsIgnoreCase(f117a);
+        d = f117a.contains("YY");
+        e = f117a.equalsIgnoreCase("TEST");
+        f = "BETA".equalsIgnoreCase(f117a);
+        if (f117a != null && f117a.startsWith("RC")) {
             z = true;
         }
         g = z;
         a = 1;
-        if (f112a.equalsIgnoreCase("SANDBOX")) {
+        if (f117a.equalsIgnoreCase("SANDBOX")) {
             a = 2;
-        } else if (f112a.equalsIgnoreCase("ONEBOX")) {
+        } else if (f117a.equalsIgnoreCase("ONEBOX")) {
             a = 3;
         } else {
             a = 1;
@@ -47,7 +47,7 @@ public class ab {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m107a() {
+    public static boolean m110a() {
         return a == 2;
     }
 

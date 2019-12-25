@@ -5,11 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.live.data.z;
-import com.baidu.live.k.a;
+import com.baidu.live.data.ac;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.tieba.ala.guardclub.m;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.ala.guardclub.l;
+/* loaded from: classes2.dex */
 public class d {
     private TbPageContext mContext;
     private View mView;
@@ -23,9 +23,9 @@ public class d {
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(a.h.view_guardclub_im_entry, (ViewGroup) null);
         this.textView = (TextView) this.mView.findViewById(a.g.textView);
-        z aLx = m.aLv().aLx();
-        if (aLx != null && !TextUtils.isEmpty(aLx.Tm)) {
-            this.textView.setText(aLx.Tm);
+        ac bcG = l.bcE().bcG();
+        if (bcG != null && !TextUtils.isEmpty(bcG.aac)) {
+            this.textView.setText(bcG.aac);
         }
         this.mView.setOnClickListener(onClickListener);
     }

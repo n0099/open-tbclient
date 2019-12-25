@@ -1,5 +1,6 @@
 package com.baidu.mobads.production;
 
+import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
 import com.baidu.mobads.interfaces.error.IXAdErrorCode;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
@@ -7,7 +8,7 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c implements IOAdEventListener {
     final /* synthetic */ b a;
 
@@ -36,7 +37,7 @@ public class c implements IOAdEventListener {
                         iXAdResponseInfo6 = this.a.x;
                         bVar.d = iXAdResponseInfo6.getPrimaryAdInstanceInfo();
                         JSONObject originJsonObject = this.a.d.getOriginJsonObject();
-                        this.a.r = originJsonObject.optString("mimetype");
+                        this.a.r = originJsonObject.optString(DownloadDataConstants.Columns.COLUMN_MIME_TYPE);
                         this.a.q();
                         this.a.a();
                         return;

@@ -4,42 +4,42 @@ import android.annotation.TargetApi;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.ala.livePlayer.StreamConfig;
+import com.baidu.ala.player.StreamConfig;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteOrder;
 import tv.danmaku.ijk.media.player.IMediaFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class g {
-    public static boolean jBP = false;
+    public static boolean kvF = false;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public int aVS = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+        public int sampleRate = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
         public int channelCount = 1;
-        public int jBM = 16;
-        public int jBQ = 0;
+        public int kvC = 16;
+        public int reason = 0;
 
-        public boolean cut() {
-            return this.jBQ == 1 || this.jBQ == 4 || this.jBQ == 6 || this.jBQ == 9;
+        public boolean cOp() {
+            return this.reason == 1 || this.reason == 4 || this.reason == 6 || this.reason == 9;
         }
 
-        public boolean cuu() {
-            return this.jBQ == 3 || this.jBQ == 4 || this.jBQ == 8 || this.jBQ == 9;
+        public boolean cOq() {
+            return this.reason == 3 || this.reason == 4 || this.reason == 8 || this.reason == 9;
         }
 
-        public boolean cuv() {
-            return this.jBQ == 5 || this.jBQ == 6 || this.jBQ == 8 || this.jBQ == 9;
+        public boolean cOr() {
+            return this.reason == 5 || this.reason == 6 || this.reason == 8 || this.reason == 9;
         }
     }
 
-    public static void cus() {
+    public static void cOo() {
         if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-            jBP = true;
+            kvF = true;
         } else {
-            jBP = false;
+            kvF = false;
         }
     }
 
@@ -50,16 +50,16 @@ public class g {
         }
         boolean z = true;
         for (int i = 1; i < aVarArr.length; i++) {
-            if (aVar.aVS != aVarArr[i].aVS) {
-                aVarArr[i].jBQ++;
+            if (aVar.sampleRate != aVarArr[i].sampleRate) {
+                aVarArr[i].reason++;
                 z = false;
             }
             if (aVar.channelCount != aVarArr[i].channelCount) {
-                aVarArr[i].jBQ += 3;
+                aVarArr[i].reason += 3;
                 z = false;
             }
-            if (aVar.jBM != aVarArr[i].jBM) {
-                aVarArr[i].jBQ += 5;
+            if (aVar.kvC != aVarArr[i].kvC) {
+                aVarArr[i].reason += 5;
                 z = false;
             }
         }
@@ -67,7 +67,7 @@ public class g {
     }
 
     @TargetApi(16)
-    public static a Fe(String str) {
+    public static a JQ(String str) {
         MediaFormat mediaFormat;
         MediaExtractor mediaExtractor = new MediaExtractor();
         try {
@@ -91,9 +91,9 @@ public class g {
                 return null;
             }
             a aVar = new a();
-            aVar.aVS = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+            aVar.sampleRate = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
             aVar.channelCount = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-            aVar.jBM = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+            aVar.kvC = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
             mediaExtractor.release();
             return aVar;
         } catch (IOException e) {
@@ -175,7 +175,7 @@ public class g {
                                             break;
                                         case 2:
                                             for (int i6 = 0; i6 < i5; i6 += 2) {
-                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], jBP);
+                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], kvF);
                                                 bArr3[i6] = a2[0];
                                                 bArr3[i6 + 1] = a2[1];
                                             }
@@ -195,7 +195,7 @@ public class g {
         return bArr;
     }
 
-    public static byte[] c(int i, int i2, byte[] bArr) {
+    public static byte[] b(int i, int i2, byte[] bArr) {
         BdLog.e("convertChannelCount sourceByteWidth = " + i + " outputByteWidth = " + i2);
         if (i != i2) {
             int length = bArr.length;
@@ -205,7 +205,7 @@ public class g {
                         case 2:
                             byte[] bArr2 = new byte[length * 2];
                             for (int i3 = 0; i3 < length; i3++) {
-                                byte[] a2 = a((short) (bArr[i3] * 256), jBP);
+                                byte[] a2 = a((short) (bArr[i3] * 256), kvF);
                                 bArr2[i3 * 2] = a2[0];
                                 bArr2[(i3 * 2) + 1] = a2[1];
                             }
@@ -219,7 +219,7 @@ public class g {
                             int i4 = length / 2;
                             byte[] bArr3 = new byte[i4];
                             for (int i5 = 0; i5 < i4; i5++) {
-                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], jBP) / 256);
+                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], kvF) / 256);
                             }
                             return bArr3;
                         default:

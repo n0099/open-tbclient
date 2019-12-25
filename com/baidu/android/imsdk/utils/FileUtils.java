@@ -3,11 +3,13 @@ package com.baidu.android.imsdk.utils;
 import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.util.media.MimeType;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class FileUtils {
     public static String getFileName(String str) {
         if (str.length() > str.lastIndexOf(47) + 1) {
@@ -18,10 +20,10 @@ public class FileUtils {
 
     public static String getContentType(String str) {
         if (str.endsWith(".jpg")) {
-            return "image/jpeg";
+            return MimeType.Image.JPEG;
         }
         if (str.endsWith(".amr")) {
-            return "audio/amr";
+            return MimeType.Audio.AMR;
         }
         return "binary/octet-stream";
     }
@@ -196,6 +198,6 @@ public class FileUtils {
         if (!Environment.getExternalStorageState().equals("mounted") || TextUtils.isEmpty(str)) {
             return null;
         }
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + IMConstants.IM_ICON_DIR + File.separator + str + ".png";
+        return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + IMConstants.IM_ICON_DIR + File.separator + str + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
     }
 }

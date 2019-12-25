@@ -1,44 +1,73 @@
 package com.baidu.swan.apps.scheme.actions.k;
 
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.scheme.actions.ab;
+import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public final class d extends com.baidu.swan.apps.model.a.a.a {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String mSrc;
-
-    public d() {
-        super("viewId", "webView");
+@Deprecated
+/* loaded from: classes9.dex */
+public class d extends ab {
+    public d(com.baidu.swan.apps.scheme.j jVar) {
+        super(jVar, "/swanAPI/navigateBack");
     }
 
-    @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
-    public void parseFromJson(JSONObject jSONObject) throws JSONException {
-        if (jSONObject != null) {
-            super.parseFromJson(jSONObject);
-            this.mSrc = jSONObject.optString("src");
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        int optInt;
+        if (DEBUG) {
+            Log.d("NavigateBackAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static d m(UnitedSchemeEntity unitedSchemeEntity) {
-        if (unitedSchemeEntity == null) {
-            return null;
-        }
+        String uuid = UUID.randomUUID().toString();
+        com.baidu.swan.apps.performance.g.jJ(uuid);
         String str = unitedSchemeEntity.getParams().get("params");
-        d dVar = new d();
-        try {
-            dVar.parseFromJson(new JSONObject(str));
-            return dVar;
-        } catch (JSONException e) {
-            com.baidu.swan.apps.console.c.e("WebView", "parsing params occurs exception", e);
-            return null;
+        if (TextUtils.isEmpty(str)) {
+            optInt = 1;
+        } else {
+            try {
+                optInt = new JSONObject(str).optInt("delta", 1);
+            } catch (JSONException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+                com.baidu.swan.apps.console.c.e("navigateBack", "params parse fail");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
         }
-    }
-
-    @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
-    public boolean isValid() {
-        return !TextUtils.isEmpty(this.aXp);
+        com.baidu.swan.apps.core.d.e DP = com.baidu.swan.apps.y.f.Uf().DP();
+        if (DP == null) {
+            com.baidu.swan.apps.console.c.e("navigateBack", "fragmentManager is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        if (DEBUG) {
+            Log.d("NavigateBackAction", "back delta: " + optInt);
+        }
+        if (optInt >= DP.LE()) {
+            optInt = DP.LE() - 1;
+        }
+        if (DEBUG) {
+            Log.d("NavigateBackAction", "real back delta: " + optInt);
+        }
+        com.baidu.swan.apps.as.d.b(DP, context);
+        DP.gJ("navigateBack").U(com.baidu.swan.apps.core.d.e.bjh, com.baidu.swan.apps.core.d.e.bjg).eh(optInt).commit();
+        com.baidu.swan.apps.performance.f.aO("route", uuid).f(new UbcFlowEvent("na_push_page_end"));
+        com.baidu.swan.apps.performance.g.v(1, uuid);
+        com.baidu.swan.apps.performance.g.jK(uuid);
+        if (!(DP.LB() instanceof com.baidu.swan.apps.core.d.d)) {
+            com.baidu.swan.apps.console.c.e("navigateBack", "top fragment error");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+            return false;
+        }
+        com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) DP.LB();
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.lb(dVar != null ? dVar.Ln() : ""), 0));
+        return true;
     }
 }

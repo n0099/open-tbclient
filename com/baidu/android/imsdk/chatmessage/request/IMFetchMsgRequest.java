@@ -14,6 +14,7 @@ import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.webkit.internal.ETAG;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +23,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMFetchMsgRequest extends BaseHttpRequest {
     private Long mAppid;
     private long mBeginid;
@@ -133,7 +134,7 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         sb.append("&sdk_version=").append(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
         sb.append("&to=").append(this.mContacter);
         sb.append("&uk=").append(this.mUk);
-        String[] split = sb.toString().split("&");
+        String[] split = sb.toString().split(ETAG.ITEM_SEPARATOR);
         Arrays.sort(split);
         String str = "";
         for (int i = 0; i < split.length; i++) {

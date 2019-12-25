@@ -1,13 +1,11 @@
 package com.baidu.swan.games.audio;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface a {
     void destroy();
 
     int getCurrentTime();
 
     int getDuration();
-
-    boolean isPaused();
 
     void pause();
 

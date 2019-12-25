@@ -2,8 +2,9 @@ package android.support.v7.widget;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes2.dex */
-class ScrollbarHelper {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes4.dex */
+public class ScrollbarHelper {
     ScrollbarHelper() {
     }
 

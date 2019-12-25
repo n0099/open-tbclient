@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DialogFragment extends Fragment implements DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
     private static final String SAVED_BACK_STACK_ID = "android:backStackId";
     private static final String SAVED_CANCELABLE = "android:cancelable";
@@ -36,7 +36,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private @interface DialogStyle {
     }
 
@@ -67,6 +67,14 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         return this.mBackStackId;
     }
 
+    public void showNow(FragmentManager fragmentManager, String str) {
+        this.mDismissed = false;
+        this.mShownByMe = true;
+        FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+        beginTransaction.add(this, str);
+        beginTransaction.commitNow();
+    }
+
     public void dismiss() {
         dismissInternal(false);
     }
@@ -81,7 +89,6 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             this.mShownByMe = false;
             if (this.mDialog != null) {
                 this.mDialog.dismiss();
-                this.mDialog = null;
             }
             this.mViewDestroyed = true;
             if (this.mBackStackId >= 0) {

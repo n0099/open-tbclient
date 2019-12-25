@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.pb.report;
 
 import com.baidu.adp.framework.message.HttpMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UEGReportRequestMessage extends HttpMessage {
     private String mPid;
     private String mTUid;

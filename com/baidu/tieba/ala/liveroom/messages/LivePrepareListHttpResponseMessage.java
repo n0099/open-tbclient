@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class LivePrepareListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public String ekD;
-    public String ekE;
-    public List<String> ekF;
+    public String faU;
+    public String faV;
+    public List<String> faW;
 
     public LivePrepareListHttpResponseMessage() {
         super(1021147);
@@ -22,15 +22,15 @@ public class LivePrepareListHttpResponseMessage extends JsonHttpResponsedMessage
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ekD = optJSONObject.optString(LogConfig.LIVE_SHARE_HK_WEIBO);
-            this.ekE = optJSONObject.optString("tencent");
+            this.faU = optJSONObject.optString(LogConfig.LIVE_SHARE_HK_WEIBO);
+            this.faV = optJSONObject.optString("tencent");
             JSONArray optJSONArray = optJSONObject.optJSONArray("title");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.ekF = new ArrayList();
+                this.faW = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     String optString = optJSONArray.optString(i2);
                     if (!TextUtils.isEmpty(optString)) {
-                        this.ekF.add(optString);
+                        this.faW.add(optString);
                     }
                 }
             }

@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import com.baidu.mobstat.cq;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class co extends cr implements cn {
     static final ByteBuffer a = ByteBuffer.allocate(0);
     private int f;

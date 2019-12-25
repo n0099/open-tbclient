@@ -5,106 +5,106 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CountDownTextView extends TextView {
-    private int aKs;
-    private b dlb;
-    private final Runnable dlc;
-    private boolean dld;
+    private int biF;
+    private b dYG;
+    private final Runnable dYH;
+    private boolean dYI;
     private Handler mHandler;
     private String mText;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void bp(View view);
+        void bm(View view);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> dku;
+        private final WeakReference<CountDownTextView> dYc;
 
         private a(CountDownTextView countDownTextView) {
-            this.dku = new WeakReference<>(countDownTextView);
+            this.dYc = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.dku.get();
+            CountDownTextView countDownTextView = this.dYc.get();
             if (countDownTextView != null) {
-                countDownTextView.lI(1);
+                countDownTextView.nW(1);
             }
         }
     }
 
     public CountDownTextView(Context context) {
         super(context);
-        this.aKs = 0;
+        this.biF = 0;
         this.mText = "";
-        this.dlb = null;
+        this.dYG = null;
         this.mHandler = new Handler();
-        this.dld = false;
-        this.dlc = new a();
+        this.dYI = false;
+        this.dYH = new a();
     }
 
     public void setNumTypeFromBes(boolean z) {
-        this.dld = z;
+        this.dYI = z;
     }
 
     public void setTimeoutListener(b bVar) {
-        this.dlb = bVar;
+        this.dYG = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        lI(0);
+        nW(0);
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        aES();
+        aWI();
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i == 0) {
-            lI(0);
+            nW(0);
         } else {
-            aES();
+            aWI();
         }
     }
 
-    public void aa(String str, int i) {
+    public void am(String str, int i) {
         this.mText = str;
         if (i > 0) {
-            this.aKs = i;
+            this.biF = i;
         }
     }
 
-    private void aES() {
+    private void aWI() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lI(int i) {
-        this.aKs -= i;
-        if (this.aKs == 0) {
-            if (this.dlb != null) {
-                this.dlb.bp(this);
+    public void nW(int i) {
+        this.biF -= i;
+        if (this.biF == 0) {
+            if (this.dYG != null) {
+                this.dYG.bm(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
         }
-        if (this.aKs > 0) {
-            if (this.dld) {
-                setText(String.format("%s 0%s", this.mText, Integer.valueOf(this.aKs)));
+        if (this.biF > 0) {
+            if (this.dYI) {
+                setText(String.format("%s 0%s", this.mText, Integer.valueOf(this.biF)));
             } else {
-                setText(String.format("%s %s", this.mText, Integer.valueOf(this.aKs)));
+                setText(String.format("%s %s", this.mText, Integer.valueOf(this.biF)));
             }
         }
-        this.mHandler.removeCallbacks(this.dlc);
-        this.mHandler.postDelayed(this.dlc, 1000L);
+        this.mHandler.removeCallbacks(this.dYH);
+        this.mHandler.postDelayed(this.dYH, 1000L);
     }
 }

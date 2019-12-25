@@ -11,18 +11,18 @@ import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RatingBox extends AbstractFullBox {
     public static final String TYPE = "rtng";
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_8 = null;
     private String language;
     private String ratingCriteria;
     private String ratingEntity;

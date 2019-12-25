@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ad;
+import com.baidu.tbadk.core.data.ae;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.ArrayList;
@@ -22,19 +22,19 @@ public class s {
             boolean z2 = MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null;
             int i3 = 0;
             while (i3 < list.size()) {
-                if (list.get(i3) instanceof ad) {
+                if (list.get(i3) instanceof ae) {
                     if (z2) {
-                        if (!((ad) list.get(i3)).isValid()) {
-                            ((ad) list.get(i3)).ahi();
+                        if (!((ae) list.get(i3)).isValid()) {
+                            ((ae) list.get(i3)).ayc();
                         }
-                        if (((ad) list.get(i3)).isValid()) {
-                            ICardInfo ahj = ((ad) list.get(i3)).ahj();
-                            int viewCount = ahj.getViewCount();
+                        if (((ae) list.get(i3)).isValid()) {
+                            ICardInfo ayd = ((ae) list.get(i3)).ayd();
+                            int viewCount = ayd.getViewCount();
                             ArrayList arrayList = new ArrayList();
                             for (int i4 = 0; i4 < viewCount; i4++) {
-                                ICardInfo viewItem = ahj.getViewItem(i4, i);
+                                ICardInfo viewItem = ayd.getViewItem(i4, i);
                                 if (viewItem != null) {
-                                    viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.hdW.get(viewItem.getCardType()));
+                                    viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.hSd.get(viewItem.getCardType()));
                                     arrayList.add(viewItem);
                                 }
                             }
@@ -82,7 +82,7 @@ public class s {
                         for (int i4 = 0; i4 < viewCount; i4++) {
                             ICardInfo viewItem = iCardInfo.getViewItem(i4, i);
                             if (viewItem != null) {
-                                viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.hdW.get(viewItem.getCardType()));
+                                viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.hSd.get(viewItem.getCardType()));
                                 arrayList.add(viewItem);
                             }
                         }
@@ -111,16 +111,16 @@ public class s {
         }
     }
 
-    public static ArrayList<BdUniqueId> cnB() {
-        int size = com.baidu.tieba.lego.card.e.hdW.size();
+    public static ArrayList<BdUniqueId> cHG() {
+        int size = com.baidu.tieba.lego.card.e.hSd.size();
         ArrayList<BdUniqueId> arrayList = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            arrayList.add(com.baidu.tieba.lego.card.e.hdW.valueAt(i));
+            arrayList.add(com.baidu.tieba.lego.card.e.hSd.valueAt(i));
         }
         return arrayList;
     }
 
-    public static boolean DH(String str) {
+    public static boolean Iw(String str) {
         return str != null && str.startsWith("tieba://deeplink?");
     }
 
@@ -140,20 +140,20 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        if (ba.amO().UrlValidated(str)) {
-            ba.amO().a((TbPageContext<?>) tbPageContext, strArr, true);
+        if (ba.aEa().UrlValidated(str)) {
+            ba.aEa().a((TbPageContext<?>) tbPageContext, strArr, true);
             return true;
         }
-        return ba.amO().b(tbPageContext, strArr);
+        return ba.aEa().b(tbPageContext, strArr);
     }
 
-    public static boolean bYl() {
+    public static boolean crE() {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        return !(adAdSense == null || adAdSense.aoT()) ? com.baidu.adp.lib.util.j.isWifiNet() : (com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.j.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlay() != 1);
+        return !(adAdSense == null || adAdSense.aGv()) ? com.baidu.adp.lib.util.j.isWifiNet() : (com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.j.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlay() != 1);
     }
 
-    public static boolean cnC() {
+    public static boolean cHH() {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        return !(adAdSense != null && adAdSense.aoU()) ? com.baidu.adp.lib.util.j.isWifiNet() : (com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.j.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlay() != 1);
+        return !(adAdSense != null && adAdSense.aGw()) ? com.baidu.adp.lib.util.j.isWifiNet() : (com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.j.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlay() != 1);
     }
 }

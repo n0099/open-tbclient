@@ -1,9 +1,8 @@
 package com.google.zxing.datamatrix.encoder;
 
 import android.support.v4.view.InputDeviceCompat;
-import android.support.v7.widget.helper.ItemTouchHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Base256Encoder implements Encoder {
     @Override // com.google.zxing.datamatrix.encoder.Encoder
     public int getEncodingMode() {
@@ -34,8 +33,8 @@ public final class Base256Encoder implements Encoder {
             if (length <= 249) {
                 sb.setCharAt(0, (char) length);
             } else if (length <= 1555) {
-                sb.setCharAt(0, (char) ((length / ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION) + 249));
-                sb.insert(1, (char) (length % ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION));
+                sb.setCharAt(0, (char) ((length / 250) + 249));
+                sb.insert(1, (char) (length % 250));
             } else {
                 throw new IllegalStateException("Message length not in valid ranges: " + length);
             }

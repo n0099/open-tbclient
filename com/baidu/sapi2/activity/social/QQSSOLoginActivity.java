@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.baidu.d.a.a.a.a;
+import com.baidu.i.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.ThirdPartyService;
@@ -19,6 +19,7 @@ import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.views.LoadingDialog;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.tencent.connect.UnionInfo;
 import com.tencent.open.SocialOperation;
 import com.tencent.tauth.IUiListener;
@@ -27,14 +28,14 @@ import com.tencent.tauth.UiError;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class QQSSOLoginActivity extends BaseSSOLoginActivity {
     private static final String DEFAULT_QQ_NOT_INSTALL_ERROR = "QQ未安装";
     private static final int SUCCESS_RESULTCODE = -1;
     private static final String TAG = "QQSSOLoginActivity";
     private IUiListener qqLoginListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface QrCallback {
         void onFailure();
 
@@ -87,7 +88,7 @@ public class QQSSOLoginActivity extends BaseSSOLoginActivity {
                 qrCallback.onFailure();
             }
         };
-        createInstance.login(this, "all", this.qqLoginListener);
+        createInstance.login(this, SchemeCollecter.CLASSIFY_ALL, this.qqLoginListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -186,8 +187,8 @@ public class QQSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.b.sapi_sdk_title_login_qq);
-        RelativeLayout relativeLayout = this.ebP;
+        setTitleText(a.c.sapi_sdk_title_login_qq);
+        RelativeLayout relativeLayout = this.rootView;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(4);
         }

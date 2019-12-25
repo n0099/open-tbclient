@@ -4,13 +4,13 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.webkit.WebView;
-import com.baidu.d.a.a;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.net.URLDecoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AuthWidgetActivity extends BaseActivity {
     public static final String EXTRA_PARAM_AUTH_URL = "auth_url";
     private String r;
@@ -25,7 +25,7 @@ public class AuthWidgetActivity extends BaseActivity {
             return;
         }
         this.t.setResultCode(-301);
-        this.t.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+        this.t.setResultMsg("您已取消操作");
         finishActivity();
     }
 
@@ -55,7 +55,7 @@ public class AuthWidgetActivity extends BaseActivity {
     public void onClose() {
         super.onClose();
         this.t.setResultCode(-301);
-        this.t.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+        this.t.setResultMsg("您已取消操作");
         finishActivity();
     }
 
@@ -72,7 +72,7 @@ public class AuthWidgetActivity extends BaseActivity {
                 return;
             }
             this.t.setResultCode(-204);
-            this.t.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
+            this.t.setResultMsg("参数错误，请稍后再试");
             finishActivity();
         } catch (Throwable th) {
             reportWebviewError(th);

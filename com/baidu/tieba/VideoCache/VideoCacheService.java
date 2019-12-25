@@ -4,7 +4,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+/* loaded from: classes6.dex */
 public class VideoCacheService extends Service {
     private static final String TAG = VideoCacheService.class.getSimpleName();
     private n mHttpServer;
@@ -12,7 +13,7 @@ public class VideoCacheService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        j.au(TAG, "onCreate");
+        j.aJ(TAG, MissionEvent.MESSAGE_CREATE);
         this.mHttpServer = new n(this);
     }
 
@@ -29,10 +30,10 @@ public class VideoCacheService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        j.au(TAG, "onDestroy");
+        j.aJ(TAG, MissionEvent.MESSAGE_DESTROY);
         if (this.mHttpServer != null) {
             this.mHttpServer.destroy();
         }
-        l.aCJ().destroy();
+        l.aUC().destroy();
     }
 }

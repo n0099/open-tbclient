@@ -16,9 +16,9 @@ public class PluginStatus extends OrmObject {
     String errorMsg;
     String pkgName;
     int priority;
-    PluginPackageManager.PluginStatus wu;
-    String wv;
-    boolean ww;
+    PluginPackageManager.PluginStatus yU;
+    String yV;
+    boolean yW;
 
     public String getPkgName() {
         return this.pkgName;
@@ -36,7 +36,7 @@ public class PluginStatus extends OrmObject {
         return this.errorMsg;
     }
 
-    public String ju() {
-        return this.wv;
+    public String jM() {
+        return this.yV;
     }
 }

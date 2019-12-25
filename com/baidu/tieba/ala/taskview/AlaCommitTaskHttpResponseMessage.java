@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.taskview;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaCommitTaskHttpResponseMessage extends JsonHttpResponsedMessage {
     public AlaCommitTaskHttpResponseMessage() {
         super(1021067);

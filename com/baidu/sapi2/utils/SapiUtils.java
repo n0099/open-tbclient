@@ -31,8 +31,7 @@ import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.gid.BaiduGIDManager;
 import com.baidu.pass.gid.utils.Event;
@@ -45,6 +44,9 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.account.contants.LoginConstants;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -73,11 +75,10 @@ import java.util.Map;
 import java.util.Random;
 import java.util.SimpleTimeZone;
 import java.util.regex.Pattern;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SapiUtils implements com.baidu.sapi2.c {
     public static final String COOKIE_HTTPS_URL_PREFIX = "https://";
     public static final String COOKIE_URL_PREFIX = "https://www.";
@@ -186,7 +187,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(str3).append("=").append(URLEncoder.encode(str4, HTTP.UTF_8)).append("&");
+                    sb.append(str3).append(ETAG.EQUAL).append(URLEncoder.encode(str4, "UTF-8")).append(ETAG.ITEM_SEPARATOR);
                 }
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
@@ -219,9 +220,9 @@ public class SapiUtils implements com.baidu.sapi2.c {
             for (PassNameValuePair passNameValuePair : list) {
                 if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
                     if (TextUtils.isEmpty(sb.toString())) {
-                        sb.append(passNameValuePair.getName()).append("=").append(passNameValuePair.getValue());
+                        sb.append(passNameValuePair.getName()).append(ETAG.EQUAL).append(passNameValuePair.getValue());
                     } else {
-                        sb.append("&").append(passNameValuePair.getName()).append("=").append(passNameValuePair.getValue());
+                        sb.append(ETAG.ITEM_SEPARATOR).append(passNameValuePair.getName()).append(ETAG.EQUAL).append(passNameValuePair.getValue());
                     }
                 }
             }
@@ -273,7 +274,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
             for (String str3 : cookie.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
                 String trim = str3.trim();
                 if (!TextUtils.isEmpty(trim)) {
-                    String[] split = trim.split("=");
+                    String[] split = trim.split(ETAG.EQUAL);
                     if (split.length == 2 && split[0].equals(str2)) {
                         return split[1];
                     }
@@ -369,12 +370,12 @@ public class SapiUtils implements com.baidu.sapi2.c {
     public static int getLastLoginType() {
         String string = SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getString(SapiContext.KEY_PRE_LOGIN_TYPE);
         if (TextUtils.isEmpty(string)) {
-            string = IXAdSystemUtils.NT_NONE;
+            string = "none";
         }
         HashMap hashMap = new HashMap();
-        hashMap.put(IXAdSystemUtils.NT_NONE, 0);
+        hashMap.put("none", 0);
         hashMap.put("password", 1);
-        hashMap.put("sms", 2);
+        hashMap.put(LoginConstants.SMS_LOGIN, 2);
         hashMap.put("face", 3);
         hashMap.put(SocialType.WEIXIN.getName() + "", 4);
         hashMap.put(SocialType.SINA_WEIBO_SSO.getName() + "", 5);
@@ -446,10 +447,10 @@ public class SapiUtils implements com.baidu.sapi2.c {
                     case 13:
                         return "4G";
                     default:
-                        return "UNKNOWN";
+                        return RomUtils.UNKNOWN;
                 }
             }
-            return "UNKNOWN";
+            return RomUtils.UNKNOWN;
         }
         return "UNCNCT";
     }
@@ -761,7 +762,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (String str2 : new String[]{"ucenter/qrlivingnav", "url", TableDefine.PaSubscribeColumns.COLUMN_TPL}) {
+        for (String str2 : new String[]{"ucenter/qrlivingnav", "url", "tpl"}) {
             if (!str.contains(str2)) {
                 return null;
             }
@@ -783,7 +784,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
                 } else {
                     hashMap2.put("islogin", "1");
                 }
-                hashMap2.put("client", "android");
+                hashMap2.put("client", PraiseDataPassUtil.KEY_FROM_OS);
                 r.a(r.a, hashMap2);
             }
             return urlParamsToMap;
@@ -849,8 +850,8 @@ public class SapiUtils implements com.baidu.sapi2.c {
                     Log.e(e2);
                 }
             }
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
+            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
+                String[] split = str2.split(ETAG.EQUAL);
                 if (split.length == 2) {
                     hashMap.put(split[0], split[1]);
                 }
@@ -1077,17 +1078,17 @@ public class SapiUtils implements com.baidu.sapi2.c {
             if (sb.length() <= 0 && !z) {
                 sb.append("?");
             } else {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             }
             if (value == null) {
                 try {
-                    sb.append(key).append("=");
+                    sb.append(key).append(ETAG.EQUAL);
                 } catch (Exception e2) {
-                    sb.append(key).append("=").append((Object) value);
+                    sb.append(key).append(ETAG.EQUAL).append((Object) value);
                     e2.printStackTrace();
                 }
             } else {
-                sb.append(key).append("=").append(URLEncoder.encode(value.toString(), HTTP.UTF_8));
+                sb.append(key).append(ETAG.EQUAL).append(URLEncoder.encode(value.toString(), "UTF-8"));
             }
         }
         return sb.toString();
@@ -1119,7 +1120,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
     private static String a(String str, String str2, String str3, Date date, boolean z) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(c, Locale.US);
         simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-        return str2 + "=" + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ";httponly" + (z ? ";secure" : "");
+        return str2 + ETAG.EQUAL + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ";httponly" + (z ? ";secure" : "");
     }
 
     static String a(String str, String str2, String str3) {

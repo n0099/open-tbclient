@@ -1,19 +1,19 @@
 package com.baidu.tbadk.BdToken;
 /* loaded from: classes.dex */
 public class l extends h {
-    private volatile long bRO;
+    private volatile long cEo;
 
     public l(b bVar) {
         super(bVar);
-        this.bRO = System.currentTimeMillis();
+        this.cEo = System.currentTimeMillis();
     }
 
-    public synchronized long aev() {
-        this.bRO = System.currentTimeMillis() + 60000;
-        return this.bRO;
+    public synchronized long avo() {
+        this.cEo = System.currentTimeMillis() + 60000;
+        return this.cEo;
     }
 
     public boolean isTimeout() {
-        return System.currentTimeMillis() - this.bRO >= 60000;
+        return System.currentTimeMillis() - this.cEo >= 60000;
     }
 }

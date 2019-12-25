@@ -7,13 +7,13 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     private boolean isPrimary;
     private List<a> mFragments;
     private int mPrimaryPosition;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public Fragment fragment;
         public String title;

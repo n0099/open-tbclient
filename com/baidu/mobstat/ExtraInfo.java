@@ -1,9 +1,11 @@
 package com.baidu.mobstat;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidubce.AbstractBceClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ExtraInfo {
     String a = "";
     String b = "";
@@ -123,7 +125,7 @@ public class ExtraInfo {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(this.a)) {
-                jSONObject.put("v1", this.a);
+                jSONObject.put(AbstractBceClient.URL_PREFIX, this.a);
             }
             if (!TextUtils.isEmpty(this.b)) {
                 jSONObject.put("v2", this.b);
@@ -144,7 +146,7 @@ public class ExtraInfo {
                 jSONObject.put("v7", this.g);
             }
             if (!TextUtils.isEmpty(this.h)) {
-                jSONObject.put("v8", this.h);
+                jSONObject.put(V8Engine.TYPE_V8, this.h);
             }
             if (!TextUtils.isEmpty(this.i)) {
                 jSONObject.put("v9", this.i);

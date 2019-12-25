@@ -7,20 +7,20 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.storage.PathType;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class c extends z {
+/* loaded from: classes9.dex */
+public class c extends ab {
     public c(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/file/getInfo");
+        super(jVar, "/swanAPI/file/getInfo");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (context == null || callbackHandler == null || bVar == null || bVar.Re() == null) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.aaa() == null) {
             com.baidu.swan.apps.console.c.e("fileInfo", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -33,10 +33,10 @@ public class c extends z {
         }
         String optString = optParamsAsJo.optString("filePath");
         String str = "";
-        if (com.baidu.swan.apps.storage.b.im(optString) == PathType.BD_FILE) {
-            str = com.baidu.swan.apps.storage.b.aL(optString, com.baidu.swan.apps.ae.b.Rm());
-        } else if (com.baidu.swan.apps.storage.b.im(optString) == PathType.RELATIVE) {
-            str = com.baidu.swan.apps.storage.b.a(optString, bVar, bVar.getVersion());
+        if (com.baidu.swan.apps.storage.b.lI(optString) == PathType.BD_FILE) {
+            str = com.baidu.swan.apps.storage.b.bf(optString, com.baidu.swan.apps.runtime.e.ZU());
+        } else if (com.baidu.swan.apps.storage.b.lI(optString) == PathType.RELATIVE) {
+            str = com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion());
         }
         if (DEBUG) {
             Log.d("GetFileInfoAction", "——> handle: fileUrl " + optString);
@@ -48,8 +48,8 @@ public class c extends z {
             return false;
         }
         File file = new File(str);
-        String a = com.baidu.swan.apps.an.i.a(TextUtils.equals(optParamsAsJo.optString("digestAlgorithm", "md5"), "md5") ? "MD5" : "SHA-1", file, false);
-        if (TextUtils.isEmpty(a)) {
+        String encrypt = com.baidu.swan.apps.as.l.encrypt(TextUtils.equals(optParamsAsJo.optString("digestAlgorithm", "md5"), "md5") ? "MD5" : "SHA-1", file, false);
+        if (TextUtils.isEmpty(encrypt)) {
             com.baidu.swan.apps.console.c.e("fileInfo", "hash is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, com.baidu.swan.apps.scheme.f.getErrMessage(2001)));
             if (DEBUG) {
@@ -59,7 +59,7 @@ public class c extends z {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("digest", a);
+            jSONObject.put("digest", encrypt);
             jSONObject.put(TiebaInitialize.LogFields.SIZE, file.length());
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;

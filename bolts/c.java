@@ -1,15 +1,15 @@
 package bolts;
 
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class c {
-    private final e bZ;
+    private final e cZ;
 
-    public boolean aG() {
-        return this.bZ.aG();
+    public boolean aS() {
+        return this.cZ.aS();
     }
 
     public String toString() {
-        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(this.bZ.aG()));
+        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(this.cZ.aS()));
     }
 }

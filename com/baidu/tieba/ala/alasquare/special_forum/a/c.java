@@ -5,19 +5,19 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.data.g;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<g, d.a> {
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), g.dxg);
+        super(tbPageContext.getPageActivity(), g.eii);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: G */
+    /* renamed from: F */
     public d.a b(ViewGroup viewGroup) {
         return new d.a(new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.d(this.mPageContext, viewGroup).getView());
     }

@@ -5,44 +5,45 @@ import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.android.util.time.DateTimeUtil;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class d {
-    private static com.baidu.crabsdk.c.b<List> Jt = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
-    private static float Ju = 0.0f;
-    private static float Jv = 0.0f;
-    private static float Jw = 0.0f;
-    private static float Jx = 0.0f;
-    private static String Jy = "";
-    private static long Jz = 0;
-    private static long JA = 0;
-    private static Rect JB = null;
+    private static com.baidu.crabsdk.c.b<List> PU = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
+    private static float PV = 0.0f;
+    private static float PW = 0.0f;
+    private static float PY = 0.0f;
+    private static float PZ = 0.0f;
+    private static String Qa = "";
+    private static long Qb = 0;
+    private static long Qc = 0;
+    private static Rect Qe = null;
 
-    private static List<View> G(View view) {
+    private static List<View> H(View view) {
         ArrayList arrayList = new ArrayList();
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    int i2 = (int) Ju;
-                    int i3 = (int) Jv;
-                    if (JB == null) {
-                        JB = new Rect();
+                    int i2 = (int) PV;
+                    int i3 = (int) PW;
+                    if (Qe == null) {
+                        Qe = new Rect();
                     }
-                    childAt.getDrawingRect(JB);
+                    childAt.getDrawingRect(Qe);
                     int[] iArr = new int[2];
                     childAt.getLocationOnScreen(iArr);
-                    JB.left = iArr[0];
-                    JB.top = iArr[1];
-                    JB.right += iArr[0];
-                    JB.bottom = iArr[1] + JB.bottom;
-                    if (JB.contains(i2, i3)) {
+                    Qe.left = iArr[0];
+                    Qe.top = iArr[1];
+                    Qe.right += iArr[0];
+                    Qe.bottom = iArr[1] + Qe.bottom;
+                    if (Qe.contains(i2, i3)) {
                         arrayList.add(childAt);
-                        arrayList.addAll(G(childAt));
+                        arrayList.addAll(H(childAt));
                     }
                 }
             }
@@ -53,12 +54,12 @@ public final class d {
     private static void a(int i, Activity activity) {
         View decorView;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis())));
+        arrayList.add(new SimpleDateFormat(DateTimeUtil.TIME_FORMAT).format(new Date(System.currentTimeMillis())));
         StringBuilder sb = new StringBuilder();
         if (activity != null && (decorView = activity.getWindow().getDecorView()) != null) {
-            List<View> G = G(decorView);
+            List<View> H = H(decorView);
             String str = "";
-            for (View view : G) {
+            for (View view : H) {
                 str = view.getClass().getName() + ", id=" + view.getId();
             }
             sb.append(str);
@@ -67,51 +68,51 @@ public final class d {
         switch (i) {
             case 1:
                 arrayList.add("click");
-                arrayList.add("(" + Ju + ", " + Jv + ")");
+                arrayList.add("(" + PV + ", " + PW + ")");
                 break;
             case 2:
                 arrayList.add("doubleClick");
-                arrayList.add("(" + Ju + ", " + Jv + ")");
+                arrayList.add("(" + PV + ", " + PW + ")");
                 break;
             case 3:
                 arrayList.add("longPressed");
-                arrayList.add("(" + Ju + ", " + Jv + ")");
+                arrayList.add("(" + PV + ", " + PW + ")");
                 break;
             case 4:
                 arrayList.add("scroll");
-                arrayList.add("from:(" + Ju + ", " + Jv + ") to:(" + Jw + ", " + Jx + ")");
+                arrayList.add("from:(" + PV + ", " + PW + ") to:(" + PY + ", " + PZ + ")");
                 break;
             case 5:
                 arrayList.add("fling");
-                arrayList.add("from:(" + Ju + ", " + Jv + ") to:(" + Jw + ", " + Jx + ")");
+                arrayList.add("from:(" + PV + ", " + PW + ") to:(" + PY + ", " + PZ + ")");
                 break;
         }
-        arrayList.add(Jy);
-        Jt.add(arrayList);
+        arrayList.add(Qa);
+        PU.add(arrayList);
     }
 
     public static void dispatchTouchEvent(MotionEvent motionEvent, Activity activity) {
         if (activity == null) {
             return;
         }
-        Jy = activity.getClass().getName();
+        Qa = activity.getClass().getName();
         switch (motionEvent.getAction()) {
             case 0:
-                Ju = motionEvent.getX();
-                Jv = motionEvent.getY();
-                Jz = System.currentTimeMillis();
+                PV = motionEvent.getX();
+                PW = motionEvent.getY();
+                Qb = System.currentTimeMillis();
                 return;
             case 1:
-                Jw = motionEvent.getX();
-                Jx = motionEvent.getY();
-                JA = System.currentTimeMillis();
-                if (Math.abs(Jx - Jv) > 30.0f) {
+                PY = motionEvent.getX();
+                PZ = motionEvent.getY();
+                Qc = System.currentTimeMillis();
+                if (Math.abs(PZ - PW) > 30.0f) {
                     a(4, activity);
                     return;
-                } else if (Math.abs(Jw - Ju) > 30.0f && Math.abs(Jx - Jv) < 30.0f) {
+                } else if (Math.abs(PY - PV) > 30.0f && Math.abs(PZ - PW) < 30.0f) {
                     a(5, activity);
                     return;
-                } else if (JA - Jz > 300) {
+                } else if (Qc - Qb > 300) {
                     a(3, activity);
                     return;
                 } else {
@@ -126,9 +127,9 @@ public final class d {
 
     public static String t() {
         StringBuilder sb = new StringBuilder();
-        int size = Jt.size();
+        int size = PU.size();
         for (int i = 0; i < size; i++) {
-            List list = Jt.get(i);
+            List list = PU.get(i);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }

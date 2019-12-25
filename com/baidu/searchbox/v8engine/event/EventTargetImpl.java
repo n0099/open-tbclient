@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class EventTargetImpl implements EventTarget {
     private static final boolean DEBUG = false;
     private static final String EVENT_TYPE = "type";
@@ -34,11 +34,13 @@ public class EventTargetImpl implements EventTarget {
             public void run() {
                 try {
                     EventTargetImpl.this.mLock.lock();
-                    for (JsFunction jsFunction : EventTargetImpl.this.getEventListeners(jSEvent.type)) {
+                    for (JsFunction jsFunction : new ArrayList(EventTargetImpl.this.getEventListeners(jSEvent.type))) {
                         if (jsFunction != null) {
                             jsFunction.call(EventTargetImpl.this, jSEvent.data, false);
                         }
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 } finally {
                     EventTargetImpl.this.mLock.unlock();
                 }
@@ -59,12 +61,14 @@ public class EventTargetImpl implements EventTarget {
             public void run() {
                 try {
                     EventTargetImpl.this.mLock.lock();
-                    for (JsFunction jsFunction : EventTargetImpl.this.getEventListeners(parseEventType)) {
+                    for (JsFunction jsFunction : new ArrayList(EventTargetImpl.this.getEventListeners(parseEventType))) {
                         if (jsFunction != null) {
                             jsFunction.call(EventTargetImpl.this, jsObject, false);
                         }
                     }
                     jsObject.release();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 } finally {
                     EventTargetImpl.this.mLock.unlock();
                 }
@@ -125,7 +129,7 @@ public class EventTargetImpl implements EventTarget {
         removeEventListener(str, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [240=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [248=4] */
     @Override // com.baidu.searchbox.v8engine.event.EventTarget
     @JavascriptInterface
     public void removeEventListener(String str, JsFunction jsFunction) {
@@ -169,10 +173,7 @@ public class EventTargetImpl implements EventTarget {
     /* JADX INFO: Access modifiers changed from: private */
     public List<JsFunction> getEventListeners(String str) {
         List<JsFunction> list = getTargetMap().get(str);
-        if (list == null) {
-            return new ArrayList();
-        }
-        return list;
+        return list == null ? new ArrayList() : list;
     }
 
     public Map<String, List<JsFunction>> getTargetMap() {

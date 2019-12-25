@@ -1,0 +1,19 @@
+package com.baidu.tbadk.editortools;
+/* loaded from: classes.dex */
+public interface m extends b {
+    void b(a aVar);
+
+    int getToolId();
+
+    void hide();
+
+    void init();
+
+    void lw();
+
+    void onChangeSkinType(int i);
+
+    void setEditorTools(EditorTools editorTools);
+
+    void setToolId(int i);
+}

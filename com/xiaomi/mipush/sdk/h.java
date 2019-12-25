@@ -4,7 +4,7 @@ import android.content.Context;
 import com.xiaomi.push.hl;
 import com.xiaomi.push.service.ag;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class h extends ag.a {
     final /* synthetic */ g a;
 
@@ -20,12 +20,12 @@ public class h extends ag.a {
         Context context;
         boolean z;
         Context context2;
-        context = this.a.f68a;
+        context = this.a.f73a;
         boolean a = com.xiaomi.push.service.ag.a(context).a(hl.AggregatePushSwitch.a(), true);
-        z = this.a.f71a;
+        z = this.a.f76a;
         if (z != a) {
-            this.a.f71a = a;
-            context2 = this.a.f68a;
+            this.a.f76a = a;
+            context2 = this.a.f73a;
             j.b(context2);
         }
     }

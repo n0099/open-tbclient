@@ -1,0 +1,30 @@
+package com.baidu.android.util.media;
+/* loaded from: classes9.dex */
+public class MimeType {
+
+    /* loaded from: classes9.dex */
+    public static final class Audio {
+        public static final String AMR = "audio/amr";
+        public static final String M4A = "audio/mp4";
+        public static final String OGG = "audio/ogg";
+        public static final String WAV = "audio/x-wav";
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class Image {
+        public static final String GIF = "image/gif";
+        public static final String HEIF = "image/heif";
+        public static final String JPEG = "image/jpeg";
+        public static final String PNG = "image/png";
+        public static final String WEBP = "image/webp";
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class Video {
+        public static final String AVI = "video/avi";
+        public static final String GP3 = "video/3gpp";
+        public static final String MKV = "video/x-matroska";
+        public static final String MP4 = "video/mp4";
+        public static final String MPEG = "video/mpeg";
+    }
+}

@@ -28,7 +28,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class QzoneShare extends BaseApi {
     public static final String SHARE_TO_QQ_APP_NAME = "appName";
     public static final String SHARE_TO_QQ_AUDIO_URL = "audio_url";
@@ -178,7 +178,7 @@ public class QzoneShare extends BaseApi {
                 bundle.putString("title", j.a(str, 200, (String) null, (String) null));
             }
             if (!j.e(string2) && string2.length() > 600) {
-                bundle.putString("summary", j.a(string2, 600, (String) null, (String) null));
+                bundle.putString("summary", j.a(string2, (int) com.baidu.down.utils.Constants.HTTP_DNS_INAVAILABLE_TIME, (String) null, (String) null));
             }
         }
         if (!TextUtils.isEmpty(a)) {
@@ -366,10 +366,10 @@ public class QzoneShare extends BaseApi {
                     }
                 }
                 if (!a(intent)) {
-                    d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "0", this.mViaShareQzoneType, "0", "1", "0");
+                    d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QZONE, "11", "3", "0", this.mViaShareQzoneType, "0", "1", "0");
                     d.a().a(0, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
                 } else {
-                    d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "1", this.mViaShareQzoneType, "0", "1", "0");
+                    d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QZONE, "11", "3", "1", this.mViaShareQzoneType, "0", "1", "0");
                     d.a().a(1, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent fail");
                 }
                 f.c("openSDK_LOG", "doShareToQzone() --end");

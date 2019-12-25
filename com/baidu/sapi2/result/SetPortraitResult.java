@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SetPortraitResult extends SapiResult {
     public static final String ERROR_MSG_UNKNOWN = "设置头像失败";
     public static final int RESULT_CODE_BDUSS_EXPIRED = 160103;

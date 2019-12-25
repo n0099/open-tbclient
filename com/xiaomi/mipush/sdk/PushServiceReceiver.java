@@ -3,7 +3,7 @@ package com.xiaomi.mipush.sdk;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {

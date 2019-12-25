@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class RatingView extends LinearLayout {
-    private a iKH;
+    private a jEX;
     private Context mContext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public String hhU;
-        public Double hhV;
+        public String hVW;
+        public Double hVX;
         public String title;
     }
 
@@ -39,7 +39,7 @@ public class RatingView extends LinearLayout {
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
     }
 
-    private ImageView d(Drawable drawable) {
+    private ImageView h(Drawable drawable) {
         ImageView imageView = new ImageView(this.mContext);
         imageView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
         imageView.setPadding(0, 0, l.getDimens(this.mContext, R.dimen.ds4), 0);
@@ -47,7 +47,7 @@ public class RatingView extends LinearLayout {
         return imageView;
     }
 
-    private a CJ(String str) {
+    private a Hw(String str) {
         a aVar = new a();
         aVar.title = "";
         if (!TextUtils.isEmpty(str)) {
@@ -57,7 +57,7 @@ public class RatingView extends LinearLayout {
                     if (!TextUtils.isEmpty(matcher.group(1))) {
                         aVar.title = matcher.group(1);
                     }
-                    aVar.hhV = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
+                    aVar.hVX = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
                 } catch (NumberFormatException e) {
                     aVar.title = str;
                 }
@@ -69,19 +69,19 @@ public class RatingView extends LinearLayout {
     }
 
     public void setRating(String str, String str2) {
-        this.iKH = CJ(str2);
-        this.iKH.hhU = str;
-        bIW();
+        this.jEX = Hw(str2);
+        this.jEX.hVW = str;
+        caj();
     }
 
-    private void bIW() {
+    private void caj() {
         int i;
         removeAllViews();
-        if (this.iKH != null) {
-            if (!TextUtils.isEmpty(this.iKH.hhU)) {
+        if (this.jEX != null) {
+            if (!TextUtils.isEmpty(this.jEX.hVW)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView = new TextView(this.mContext);
-                textView.setText(this.iKH.hhU);
+                textView.setText(this.jEX.hVW);
                 textView.setTextSize(0, l.getDimens(this.mContext, R.dimen.fontsize24));
                 textView.setTextColor(am.getColor(R.color.cp_cont_d));
                 textView.setPadding(0, 0, l.getDimens(this.mContext, R.dimen.ds30), 0);
@@ -89,10 +89,10 @@ public class RatingView extends LinearLayout {
                 textView.setIncludeFontPadding(false);
                 addView(textView);
             }
-            if (!TextUtils.isEmpty(this.iKH.title)) {
+            if (!TextUtils.isEmpty(this.jEX.title)) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView2 = new TextView(this.mContext);
-                textView2.setText(this.iKH.title);
+                textView2.setText(this.jEX.title);
                 textView2.setTextSize(0, l.getDimens(this.mContext, R.dimen.fontsize24));
                 textView2.setTextColor(am.getColor(R.color.cp_cont_d));
                 textView2.setPadding(0, 0, l.getDimens(this.mContext, R.dimen.ds6), 0);
@@ -100,8 +100,8 @@ public class RatingView extends LinearLayout {
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
             }
-            if (this.iKH.hhV != null && !Double.isNaN(this.iKH.hhV.doubleValue())) {
-                Integer valueOf = Integer.valueOf(this.iKH.hhV.intValue());
+            if (this.jEX.hVX != null && !Double.isNaN(this.jEX.hVX.doubleValue())) {
+                Integer valueOf = Integer.valueOf(this.jEX.hVX.intValue());
                 if (valueOf.intValue() > 10) {
                     valueOf = 10;
                 }
@@ -110,17 +110,17 @@ public class RatingView extends LinearLayout {
                 }
                 int intValue = valueOf.intValue() >> 1;
                 for (int i2 = 0; i2 < intValue; i2++) {
-                    addView(d(am.getDrawable(R.drawable.icon_star_full)));
+                    addView(h(am.getDrawable(R.drawable.icon_star_full)));
                 }
                 int i3 = 5 - intValue;
                 if (valueOf.intValue() <= 0 || valueOf.intValue() % 2 != 1) {
                     i = i3;
                 } else {
-                    addView(d(am.getDrawable(R.drawable.icon_star_half)));
+                    addView(h(am.getDrawable(R.drawable.icon_star_half)));
                     i = i3 - 1;
                 }
                 for (int i4 = 0; i4 < i; i4++) {
-                    addView(d(am.getDrawable(R.drawable.icon_star_empty)));
+                    addView(h(am.getDrawable(R.drawable.icon_star_empty)));
                 }
             }
         }

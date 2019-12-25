@@ -3,7 +3,7 @@ package com.facebook.common.internal;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class a {
     public static long e(InputStream inputStream, OutputStream outputStream) throws IOException {
         g.checkNotNull(inputStream);

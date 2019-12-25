@@ -1,6 +1,5 @@
 package com.baidu.mapapi.cloud;
 
-import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -70,7 +69,7 @@ public class CloudRgcResult {
                 this.uid = jSONObject.optString("id");
                 this.address = jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME);
                 this.tag = jSONObject.optString("tag");
-                JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);
+                JSONObject optJSONObject = jSONObject.optJSONObject("location");
                 if (optJSONObject != null) {
                     this.location = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
                     if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
@@ -93,7 +92,7 @@ public class CloudRgcResult {
             if (this.status != 0) {
                 return;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);
+            JSONObject optJSONObject = jSONObject.optJSONObject("location");
             if (optJSONObject != null) {
                 this.location = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02) {

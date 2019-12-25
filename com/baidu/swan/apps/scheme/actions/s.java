@@ -1,47 +1,51 @@
 package com.baidu.swan.apps.scheme.actions;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
-import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import org.json.JSONArray;
+import com.baidu.swan.apps.as.af;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class s extends z {
+/* loaded from: classes9.dex */
+public class s extends ab {
     public s(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/performancePanel");
+        super(jVar, "/swanAPI/pageScrollTo");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (bVar == null) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (eVar == null || context == null) {
+            com.baidu.swan.apps.console.c.e("PageScrollToAction", "swanApp is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        if (optParamsAsJo == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+        JSONObject b = b(unitedSchemeEntity, "params");
+        if (b == null) {
+            com.baidu.swan.apps.console.c.i("PageScrollToAction", "params is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
             return false;
         }
-        JSONArray optJSONArray = optParamsAsJo.optJSONArray("data");
-        if (optJSONArray == null || optJSONArray.length() <= 0) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty data");
+        int optInt = b.optInt("scrollTop", -1);
+        int optInt2 = b.optInt("duration", -1);
+        if (optInt <= -1 || optInt2 <= -1) {
+            com.baidu.swan.apps.console.c.e("PageScrollToAction", "illegal scrollTop or duration");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
             return false;
         }
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("slaveId");
-                String optString2 = optJSONObject.optString("actionName");
-                long optLong = optJSONObject.optLong("timestamp", -1L);
-                if (DEBUG) {
-                    Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
+        final com.baidu.swan.apps.adaptation.b.d TR = com.baidu.swan.apps.y.f.Uf().TR();
+        if (TR != null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(TR.getWebViewScrollY(), com.baidu.swan.apps.api.module.e.d.a(TR, af.dip2px(context, optInt)));
+            ofInt.setDuration(optInt2);
+            ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.scheme.actions.s.1
+                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    TR.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
-                com.baidu.swan.apps.performance.c.d.NR().d(optString, optString2, optLong);
-            }
+            });
+            ofInt.start();
         }
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+        unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 }

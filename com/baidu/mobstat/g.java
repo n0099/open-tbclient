@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public enum g {
     AP_LIST,
     APP_USER_LIST,

@@ -7,19 +7,19 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SpecialLiveTabInfo implements Parcelable {
     public static final Parcelable.Creator<SpecialLiveTabInfo> CREATOR = new Parcelable.Creator<SpecialLiveTabInfo>() { // from class: com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveTabInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: O */
+        /* renamed from: Z */
         public SpecialLiveTabInfo createFromParcel(Parcel parcel) {
             return new SpecialLiveTabInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mk */
+        /* renamed from: ot */
         public SpecialLiveTabInfo[] newArray(int i) {
             return new SpecialLiveTabInfo[i];
         }

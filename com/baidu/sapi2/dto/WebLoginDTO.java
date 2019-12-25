@@ -8,8 +8,7 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class WebLoginDTO extends SapiWebDTO {
     public static final String EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT = "extra_join_login_without_third_account";
     public static final String EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT = "extra_join_login_with_third_account";
@@ -28,7 +27,7 @@ public class WebLoginDTO extends SapiWebDTO {
     public List<PassNameValuePair> extraParams = new ArrayList();
     public boolean shareV2Disable = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Config {
         public List<FastLoginFeature> fastLoginFeatureList;
         public boolean supportTouchGuide = true;
@@ -36,7 +35,7 @@ public class WebLoginDTO extends SapiWebDTO {
 
     public static String getStatExtraDecode(String str) {
         try {
-            return TextUtils.isEmpty(str) ? "" : URLDecoder.decode(str, HTTP.UTF_8);
+            return TextUtils.isEmpty(str) ? "" : URLDecoder.decode(str, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             return "";
         }

@@ -10,7 +10,7 @@ import android.graphics.Path;
 import android.graphics.Region;
 import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class RoundCornerDecor23 extends BitmapDrawable implements RoundCornerDecor {
     private int mHeight;
     private final ImageView mImageView;

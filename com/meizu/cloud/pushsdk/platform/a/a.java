@@ -9,7 +9,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.io.File;
 import java.util.LinkedHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a {
     public String a;
     private String b;

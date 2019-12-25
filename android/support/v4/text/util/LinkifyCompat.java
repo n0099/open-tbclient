@@ -11,9 +11,9 @@ import android.text.method.LinkMovementMethod;
 import android.text.method.MovementMethod;
 import android.text.style.URLSpan;
 import android.text.util.Linkify;
-import android.webkit.WebView;
 import android.widget.TextView;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.webkit.sdk.WebView;
 import java.io.UnsupportedEncodingException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -25,14 +25,13 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class LinkifyCompat {
     private static final String[] EMPTY_STRING = new String[0];
     private static final Comparator<LinkSpec> COMPARATOR = new Comparator<LinkSpec>() { // from class: android.support.v4.text.util.LinkifyCompat.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
-        public final int compare(LinkSpec linkSpec, LinkSpec linkSpec2) {
+        public int compare(LinkSpec linkSpec, LinkSpec linkSpec2) {
             if (linkSpec.start < linkSpec2.start) {
                 return -1;
             }
@@ -45,12 +44,12 @@ public final class LinkifyCompat {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface LinkifyMask {
     }
 
-    public static final boolean addLinks(@NonNull Spannable spannable, int i) {
-        if (Build.VERSION.SDK_INT >= 26) {
+    public static boolean addLinks(@NonNull Spannable spannable, int i) {
+        if (Build.VERSION.SDK_INT >= 27) {
             return Linkify.addLinks(spannable, i);
         }
         if (i == 0) {
@@ -68,7 +67,7 @@ public final class LinkifyCompat {
             gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_WEB_URL, new String[]{"http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX, "rtsp://"}, Linkify.sUrlMatchFilter, null);
         }
         if ((i & 2) != 0) {
-            gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_EMAIL_ADDRESS, new String[]{"mailto:"}, null, null);
+            gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_EMAIL_ADDRESS, new String[]{WebView.SCHEME_MAILTO}, null, null);
         }
         if ((i & 8) != 0) {
             gatherMapLinks(arrayList, spannable);
@@ -87,7 +86,7 @@ public final class LinkifyCompat {
         return true;
     }
 
-    public static final boolean addLinks(@NonNull TextView textView, int i) {
+    public static boolean addLinks(@NonNull TextView textView, int i) {
         if (Build.VERSION.SDK_INT >= 26) {
             return Linkify.addLinks(textView, i);
         }
@@ -111,7 +110,7 @@ public final class LinkifyCompat {
         return false;
     }
 
-    public static final void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str) {
+    public static void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str) {
         if (Build.VERSION.SDK_INT >= 26) {
             Linkify.addLinks(textView, pattern, str);
         } else {
@@ -119,7 +118,7 @@ public final class LinkifyCompat {
         }
     }
 
-    public static final void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
+    public static void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
         if (Build.VERSION.SDK_INT >= 26) {
             Linkify.addLinks(textView, pattern, str, matchFilter, transformFilter);
         } else {
@@ -127,7 +126,7 @@ public final class LinkifyCompat {
         }
     }
 
-    public static final void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str, @Nullable String[] strArr, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
+    public static void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str, @Nullable String[] strArr, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
         if (Build.VERSION.SDK_INT >= 26) {
             Linkify.addLinks(textView, pattern, str, strArr, matchFilter, transformFilter);
             return;
@@ -139,15 +138,15 @@ public final class LinkifyCompat {
         }
     }
 
-    public static final boolean addLinks(@NonNull Spannable spannable, @NonNull Pattern pattern, @Nullable String str) {
+    public static boolean addLinks(@NonNull Spannable spannable, @NonNull Pattern pattern, @Nullable String str) {
         return Build.VERSION.SDK_INT >= 26 ? Linkify.addLinks(spannable, pattern, str) : addLinks(spannable, pattern, str, (String[]) null, (Linkify.MatchFilter) null, (Linkify.TransformFilter) null);
     }
 
-    public static final boolean addLinks(@NonNull Spannable spannable, @NonNull Pattern pattern, @Nullable String str, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
+    public static boolean addLinks(@NonNull Spannable spannable, @NonNull Pattern pattern, @Nullable String str, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
         return Build.VERSION.SDK_INT >= 26 ? Linkify.addLinks(spannable, pattern, str, matchFilter, transformFilter) : addLinks(spannable, pattern, str, (String[]) null, matchFilter, transformFilter);
     }
 
-    public static final boolean addLinks(@NonNull Spannable spannable, @NonNull Pattern pattern, @Nullable String str, @Nullable String[] strArr, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
+    public static boolean addLinks(@NonNull Spannable spannable, @NonNull Pattern pattern, @Nullable String str, @Nullable String[] strArr, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
         if (Build.VERSION.SDK_INT >= 26) {
             return Linkify.addLinks(spannable, pattern, str, strArr, matchFilter, transformFilter);
         }
@@ -224,13 +223,13 @@ public final class LinkifyCompat {
         spannable.setSpan(new URLSpan(str), i, i2, 33);
     }
 
-    private static final void gatherMapLinks(ArrayList<LinkSpec> arrayList, Spannable spannable) {
+    private static void gatherMapLinks(ArrayList<LinkSpec> arrayList, Spannable spannable) {
         int indexOf;
         String obj = spannable.toString();
         int i = 0;
         while (true) {
             try {
-                String findAddress = WebView.findAddress(obj);
+                String findAddress = android.webkit.WebView.findAddress(obj);
                 if (findAddress != null && (indexOf = obj.indexOf(findAddress)) >= 0) {
                     LinkSpec linkSpec = new LinkSpec();
                     int length = findAddress.length() + indexOf;
@@ -239,7 +238,7 @@ public final class LinkifyCompat {
                     obj = obj.substring(length);
                     i += length;
                     try {
-                        linkSpec.url = "geo:0,0?q=" + URLEncoder.encode(findAddress, HTTP.UTF_8);
+                        linkSpec.url = WebView.SCHEME_GEO + URLEncoder.encode(findAddress, "UTF-8");
                         arrayList.add(linkSpec);
                     } catch (UnsupportedEncodingException e) {
                     }
@@ -252,7 +251,7 @@ public final class LinkifyCompat {
         }
     }
 
-    private static final void pruneOverlaps(ArrayList<LinkSpec> arrayList, Spannable spannable) {
+    private static void pruneOverlaps(ArrayList<LinkSpec> arrayList, Spannable spannable) {
         int i;
         int i2 = 0;
         Object[] objArr = (URLSpan[]) spannable.getSpans(0, spannable.length(), URLSpan.class);
@@ -293,7 +292,7 @@ public final class LinkifyCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LinkSpec {
         int end;
         URLSpan frameworkAddedSpan;

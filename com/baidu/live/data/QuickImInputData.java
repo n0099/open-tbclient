@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class QuickImInputData implements Serializable {
     public List<String> originTexts;
     public List<String> sortedTexts;

@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class CompositeException extends RuntimeException {
     private static final long serialVersionUID = 3026362227162912146L;
     private Throwable cause;
@@ -82,7 +82,7 @@ public final class CompositeException extends RuntimeException {
                 if (!hashSet.contains(th)) {
                     hashSet.add(th);
                     RuntimeException runtimeException = th;
-                    for (Throwable th2 : I(th)) {
+                    for (Throwable th2 : getListOfCauses(th)) {
                         if (hashSet.contains(th2)) {
                             runtimeException = new RuntimeException("Duplicate found in causal chain so cropping to prevent loop ...");
                         } else {
@@ -93,7 +93,7 @@ public final class CompositeException extends RuntimeException {
                         compositeExceptionCausalChain2.initCause(runtimeException);
                     } catch (Throwable th3) {
                     }
-                    compositeExceptionCausalChain2 = J(compositeExceptionCausalChain2);
+                    compositeExceptionCausalChain2 = getRootCause(compositeExceptionCausalChain2);
                 }
             }
             this.cause = compositeExceptionCausalChain;
@@ -108,15 +108,15 @@ public final class CompositeException extends RuntimeException {
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintStream printStream) {
-        a(new b(printStream));
+        printStackTrace(new b(printStream));
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintWriter printWriter) {
-        a(new c(printWriter));
+        printStackTrace(new c(printWriter));
     }
 
-    private void a(a aVar) {
+    private void printStackTrace(a aVar) {
         StringBuilder sb = new StringBuilder(128);
         sb.append(this).append('\n');
         for (StackTraceElement stackTraceElement : getStackTrace()) {
@@ -128,79 +128,79 @@ public final class CompositeException extends RuntimeException {
             int i2 = i;
             if (it.hasNext()) {
                 sb.append("  ComposedException ").append(i2).append(" :\n");
-                a(sb, it.next(), "\t");
+                appendStackTrace(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.cOr()) {
-                    aVar.bj(sb.toString());
+                synchronized (aVar.dGm()) {
+                    aVar.bG(sb.toString());
                 }
                 return;
             }
         }
     }
 
-    private void a(StringBuilder sb, Throwable th, String str) {
+    private void appendStackTrace(StringBuilder sb, Throwable th, String str) {
         sb.append(str).append(th).append('\n');
         for (StackTraceElement stackTraceElement : th.getStackTrace()) {
             sb.append("\t\tat ").append(stackTraceElement).append('\n');
         }
         if (th.getCause() != null) {
             sb.append("\tCaused by: ");
-            a(sb, th.getCause(), "");
+            appendStackTrace(sb, th.getCause(), "");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a {
-        abstract void bj(Object obj);
+        abstract void bG(Object obj);
 
-        abstract Object cOr();
+        abstract Object dGm();
 
         a() {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class b extends a {
-        private final PrintStream kxZ;
+        private final PrintStream mTd;
 
         b(PrintStream printStream) {
-            this.kxZ = printStream;
+            this.mTd = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object cOr() {
-            return this.kxZ;
+        Object dGm() {
+            return this.mTd;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void bj(Object obj) {
-            this.kxZ.println(obj);
+        void bG(Object obj) {
+            this.mTd.println(obj);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class c extends a {
-        private final PrintWriter kya;
+        private final PrintWriter mTe;
 
         c(PrintWriter printWriter) {
-            this.kya = printWriter;
+            this.mTe = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object cOr() {
-            return this.kya;
+        Object dGm() {
+            return this.mTe;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void bj(Object obj) {
-            this.kya.println(obj);
+        void bG(Object obj) {
+            this.mTe.println(obj);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class CompositeExceptionCausalChain extends RuntimeException {
         static final String MESSAGE = "Chain of Causes for CompositeException In Order Received =>";
         private static final long serialVersionUID = 3875212506787802066L;
@@ -214,7 +214,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    private List<Throwable> I(Throwable th) {
+    private List<Throwable> getListOfCauses(Throwable th) {
         ArrayList arrayList = new ArrayList();
         Throwable cause = th.getCause();
         if (cause == null || cause == th) {
@@ -231,7 +231,7 @@ public final class CompositeException extends RuntimeException {
         return arrayList;
     }
 
-    private Throwable J(Throwable th) {
+    private Throwable getRootCause(Throwable th) {
         Throwable cause = th.getCause();
         if (cause == null || cause == th) {
             return th;

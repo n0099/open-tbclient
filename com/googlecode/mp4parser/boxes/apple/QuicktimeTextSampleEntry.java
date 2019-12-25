@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.boxes.apple;
 
-import android.support.v4.internal.view.SupportMenu;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -12,8 +11,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     public static final String TYPE = "text";
     int backgroundB;
@@ -35,9 +33,9 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
 
     public QuicktimeTextSampleEntry() {
         super("text");
-        this.foregroundR = SupportMenu.USER_MASK;
-        this.foregroundG = SupportMenu.USER_MASK;
-        this.foregroundB = SupportMenu.USER_MASK;
+        this.foregroundR = 65535;
+        this.foregroundG = 65535;
+        this.foregroundB = 65535;
         this.fontName = "";
     }
 
@@ -110,7 +108,7 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = 52 + getContainerSize() + (this.fontName != null ? this.fontName.length() : 0);
-        return ((this.largeBox || 8 + containerSize >= IjkMediaMeta.AV_CH_WIDE_RIGHT) ? 16 : 8) + containerSize;
+        return ((this.largeBox || 8 + containerSize >= 4294967296L) ? 16 : 8) + containerSize;
     }
 
     public int getDisplayFlags() {

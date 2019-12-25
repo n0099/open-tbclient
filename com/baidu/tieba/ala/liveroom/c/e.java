@@ -2,15 +2,15 @@ package com.baidu.tieba.ala.liveroom.c;
 
 import com.baidu.live.data.AlaLiveInfoData;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface e {
     void A(boolean z, boolean z2);
 
-    void O(ArrayList<AlaLiveInfoData> arrayList);
+    void U(ArrayList<AlaLiveInfoData> arrayList);
 
-    void aPI();
+    void iR(boolean z);
 
-    void hD(boolean z);
+    void iS(boolean z);
 
-    void hE(boolean z);
+    void iT(boolean z);
 }

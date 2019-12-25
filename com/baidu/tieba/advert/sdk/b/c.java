@@ -8,7 +8,7 @@ import com.baidu.android.common.util.CommonParam;
 import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.coloros.mcssdk.mode.CommandMessage;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static String a(Context context, AdInfo adInfo) {
         String str = "";

@@ -1,86 +1,155 @@
 package rx.internal.operators;
 
+import com.google.android.exoplayer2.Format;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicLong;
+import rx.a;
 import rx.d;
-import rx.g;
-/* loaded from: classes2.dex */
-public final class m<T> implements d.a<T> {
-    final rx.d<T> kyh;
-    final rx.g scheduler;
+import rx.exceptions.MissingBackpressureException;
+import rx.internal.util.BackpressureDrainManager;
+/* loaded from: classes4.dex */
+public class m<T> implements d.b<T, T> {
+    private final Long nfX = null;
+    private final rx.functions.a nfY = null;
+    private final a.d nfZ = rx.a.ncV;
 
-    @Override // rx.functions.b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((rx.j) ((rx.j) obj));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes4.dex */
+    public static final class b {
+        static final m<?> nge = new m<>();
     }
 
-    public m(rx.d<T> dVar, rx.g gVar) {
-        this.scheduler = gVar;
-        this.kyh = dVar;
+    @Override // rx.functions.f
+    public /* bridge */ /* synthetic */ Object call(Object obj) {
+        return call((rx.j) ((rx.j) obj));
     }
 
-    public void call(rx.j<? super T> jVar) {
-        g.a createWorker = this.scheduler.createWorker();
-        jVar.add(createWorker);
-        createWorker.c(new AnonymousClass1(jVar, createWorker));
+    public static <T> m<T> dGA() {
+        return (m<T>) b.nge;
+    }
+
+    m() {
+    }
+
+    public rx.j<? super T> call(rx.j<? super T> jVar) {
+        a aVar = new a(jVar, this.nfX, this.nfY, this.nfZ);
+        jVar.add(aVar);
+        jVar.setProducer(aVar.dGC());
+        return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: rx.internal.operators.m$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
-    public class AnonymousClass1 implements rx.functions.a {
-        final /* synthetic */ g.a kBi;
-        final /* synthetic */ rx.j val$subscriber;
+    /* loaded from: classes4.dex */
+    public static final class a<T> extends rx.j<T> implements BackpressureDrainManager.a {
+        private final rx.j<? super T> child;
+        private final rx.functions.a nfY;
+        private final a.d nfZ;
+        private final AtomicLong ngb;
+        private final BackpressureDrainManager ngd;
+        private final ConcurrentLinkedQueue<Object> nga = new ConcurrentLinkedQueue<>();
+        private final AtomicBoolean ngc = new AtomicBoolean(false);
 
-        AnonymousClass1(rx.j jVar, g.a aVar) {
-            this.val$subscriber = jVar;
-            this.kBi = aVar;
+        public a(rx.j<? super T> jVar, Long l, rx.functions.a aVar, a.d dVar) {
+            this.child = jVar;
+            this.ngb = l != null ? new AtomicLong(l.longValue()) : null;
+            this.nfY = aVar;
+            this.ngd = new BackpressureDrainManager(this);
+            this.nfZ = dVar;
         }
 
-        @Override // rx.functions.a
-        public void call() {
-            final Thread currentThread = Thread.currentThread();
-            m.this.kyh.a((rx.j) new rx.j<T>(this.val$subscriber) { // from class: rx.internal.operators.m.1.1
-                @Override // rx.e
-                public void onNext(T t) {
-                    AnonymousClass1.this.val$subscriber.onNext(t);
-                }
+        @Override // rx.j
+        public void onStart() {
+            request(Format.OFFSET_SAMPLE_RELATIVE);
+        }
 
-                @Override // rx.e
-                public void onError(Throwable th) {
+        @Override // rx.e
+        public void onCompleted() {
+            if (!this.ngc.get()) {
+                this.ngd.terminateAndDrain();
+            }
+        }
+
+        @Override // rx.e
+        public void onError(Throwable th) {
+            if (!this.ngc.get()) {
+                this.ngd.terminateAndDrain(th);
+            }
+        }
+
+        @Override // rx.e
+        public void onNext(T t) {
+            if (dGB()) {
+                this.nga.offer(NotificationLite.next(t));
+                this.ngd.drain();
+            }
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public boolean bY(Object obj) {
+            return NotificationLite.a(this.child, obj);
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public void T(Throwable th) {
+            if (th != null) {
+                this.child.onError(th);
+            } else {
+                this.child.onCompleted();
+            }
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public Object peek() {
+            return this.nga.peek();
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public Object poll() {
+            Object poll = this.nga.poll();
+            if (this.ngb != null && poll != null) {
+                this.ngb.incrementAndGet();
+            }
+            return poll;
+        }
+
+        private boolean dGB() {
+            long j;
+            boolean z;
+            if (this.ngb == null) {
+                return true;
+            }
+            do {
+                j = this.ngb.get();
+                if (j <= 0) {
                     try {
-                        AnonymousClass1.this.val$subscriber.onError(th);
-                    } finally {
-                        AnonymousClass1.this.kBi.unsubscribe();
-                    }
-                }
-
-                @Override // rx.e
-                public void onCompleted() {
-                    try {
-                        AnonymousClass1.this.val$subscriber.onCompleted();
-                    } finally {
-                        AnonymousClass1.this.kBi.unsubscribe();
-                    }
-                }
-
-                @Override // rx.j
-                public void setProducer(final rx.f fVar) {
-                    AnonymousClass1.this.val$subscriber.setProducer(new rx.f() { // from class: rx.internal.operators.m.1.1.1
-                        @Override // rx.f
-                        public void request(final long j) {
-                            if (currentThread == Thread.currentThread()) {
-                                fVar.request(j);
-                            } else {
-                                AnonymousClass1.this.kBi.c(new rx.functions.a() { // from class: rx.internal.operators.m.1.1.1.1
-                                    @Override // rx.functions.a
-                                    public void call() {
-                                        fVar.request(j);
-                                    }
-                                });
-                            }
+                        z = this.nfZ.dFT() && poll() != null;
+                    } catch (MissingBackpressureException e) {
+                        if (this.ngc.compareAndSet(false, true)) {
+                            unsubscribe();
+                            this.child.onError(e);
                         }
-                    });
+                        z = false;
+                    }
+                    if (this.nfY != null) {
+                        try {
+                            this.nfY.call();
+                        } catch (Throwable th) {
+                            rx.exceptions.a.I(th);
+                            this.ngd.terminateAndDrain(th);
+                            return false;
+                        }
+                    }
+                    if (!z) {
+                        return false;
+                    }
                 }
-            });
+            } while (!this.ngb.compareAndSet(j, j - 1));
+            return true;
+        }
+
+        protected rx.f dGC() {
+            return this.ngd;
         }
     }
 }

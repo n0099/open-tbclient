@@ -79,7 +79,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean cm(JSONObject jSONObject) {
+    public boolean dc(JSONObject jSONObject) {
         String optString = jSONObject.optString("forum_name");
         String optString2 = jSONObject.optString("thread_id");
         String optString3 = jSONObject.optString("thread_name");
@@ -177,7 +177,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String bNQ() {
+    public String cfc() {
         return this.threadName;
     }
 
@@ -193,7 +193,7 @@ public class a implements f {
         this.threadId = str;
     }
 
-    public void Ah(String str) {
+    public void setThreadName(String str) {
         this.threadName = str;
     }
 
@@ -201,27 +201,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String aus() {
+    public String aLX() {
         return this.postID;
     }
 
-    public void Ai(String str) {
+    public void EP(String str) {
         this.postID = str;
     }
 
-    public boolean bNR() {
+    public boolean cfd() {
         return this.isHostOnly;
     }
 
-    public void nz(boolean z) {
+    public void oO(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean bNS() {
+    public boolean cfe() {
         return this.isSquence;
     }
 
-    public void nA(boolean z) {
+    public void oP(boolean z) {
         this.isSquence = z;
     }
 
@@ -229,7 +229,7 @@ public class a implements f {
         return this.liveId;
     }
 
-    public void cK(String str) {
+    public void dB(String str) {
         this.liveId = str;
     }
 
@@ -255,15 +255,15 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String avK() {
+    public String aNu() {
         return toJsonObject().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean qc(String str) {
+    public boolean ve(String str) {
         if (str != null) {
             try {
-                return cm(new JSONObject(str));
+                return dc(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

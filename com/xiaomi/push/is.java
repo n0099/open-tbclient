@@ -10,11 +10,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class is {
     private static final Comparator a = new a();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     private static class a implements Comparator {
         private a() {
         }
@@ -159,7 +159,7 @@ public final class is {
     }
 
     public static ByteBuffer a(ByteBuffer byteBuffer) {
-        return m445a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m446a(byteBuffer));
+        return m448a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m449a(byteBuffer));
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
@@ -179,13 +179,13 @@ public final class is {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m445a(ByteBuffer byteBuffer) {
+    public static boolean m448a(ByteBuffer byteBuffer) {
         return byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m446a(ByteBuffer byteBuffer) {
-        if (m445a(byteBuffer)) {
+    public static byte[] m449a(ByteBuffer byteBuffer) {
+        if (m448a(byteBuffer)) {
             return byteBuffer.array();
         }
         byte[] bArr = new byte[byteBuffer.remaining()];

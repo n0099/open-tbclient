@@ -5,8 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class CodedInputStream {
     private static final int BUFFER_SIZE = 4096;
     private static final int DEFAULT_RECURSION_LIMIT = 64;
@@ -129,9 +128,9 @@ public final class CodedInputStream {
     public String readString() throws IOException {
         int readRawVarint32 = readRawVarint32();
         if (readRawVarint32 > this.bufferSize - this.bufferPos || readRawVarint32 <= 0) {
-            return new String(readRawBytes(readRawVarint32), HTTP.UTF_8);
+            return new String(readRawBytes(readRawVarint32), "UTF-8");
         }
-        String str = new String(this.buffer, this.bufferPos, readRawVarint32, HTTP.UTF_8);
+        String str = new String(this.buffer, this.bufferPos, readRawVarint32, "UTF-8");
         this.bufferPos = readRawVarint32 + this.bufferPos;
         return str;
     }

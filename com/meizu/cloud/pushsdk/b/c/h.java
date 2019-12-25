@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class h extends j {
     public static final g a = g.a("multipart/mixed");
     public static final g b = g.a("multipart/alternative");
@@ -21,7 +20,7 @@ public final class h extends j {
     private final List<b> l;
     private long m = -1;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private final com.meizu.cloud.pushsdk.b.g.d a;
         private g b;
@@ -68,7 +67,7 @@ public final class h extends j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         private final c a;
         private final j b;
@@ -83,7 +82,7 @@ public final class h extends j {
                 throw new NullPointerException("body == null");
             }
             if (cVar == null || cVar.a("Content-Type") == null) {
-                if (cVar == null || cVar.a(HTTP.CONTENT_LEN) == null) {
+                if (cVar == null || cVar.a("Content-Length") == null) {
                     return new b(cVar, jVar);
                 }
                 throw new IllegalArgumentException("Unexpected header: Content-Length");

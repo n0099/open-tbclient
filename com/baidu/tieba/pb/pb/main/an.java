@@ -3,13 +3,13 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class an {
-    private PbActivity hNh;
-    private com.baidu.tieba.c.d hTS;
+    private PbFragment iIC;
+    private com.baidu.tieba.c.d iID;
 
-    public an(PbActivity pbActivity) {
-        this.hNh = pbActivity;
+    public an(PbFragment pbFragment) {
+        this.iIC = pbFragment;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003374, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
         tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -17,8 +17,8 @@ public class an {
     }
 
     public void destroy() {
-        if (this.hTS != null) {
-            this.hTS.uQ();
+        if (this.iID != null) {
+            this.iID.wP();
         }
     }
 }

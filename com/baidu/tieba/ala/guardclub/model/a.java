@@ -3,13 +3,13 @@ package com.baidu.tieba.ala.guardclub.model;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public String id;
     public String date = "";
-    public int dNf = 0;
+    public int eBn = 0;
+    public String id;
 
-    public static a bK(JSONObject jSONObject) {
+    public static a cv(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -20,7 +20,7 @@ public class a {
         a aVar = new a();
         aVar.id = optString;
         aVar.date = jSONObject.optString("date");
-        aVar.dNf = jSONObject.optInt("times");
+        aVar.eBn = jSONObject.optInt("times");
         return aVar;
     }
 
@@ -29,7 +29,7 @@ public class a {
         try {
             jSONObject.put("id", this.id);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.dNf);
+            jSONObject.put("times", this.eBn);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryUserPermission.DataReq;
 import protobuf.QueryUserPermission.QueryUserPermissionReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class RequestUserPermissionMessage extends TbSocketMessage {
     private long forumId;
 
@@ -24,7 +24,7 @@ public class RequestUserPermissionMessage extends TbSocketMessage {
     public Object encode() {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.forumId = Integer.valueOf(com.baidu.adp.lib.g.b.toInt(String.valueOf(getForumId()), 0));
+            builder.forumId = Integer.valueOf(com.baidu.adp.lib.f.b.toInt(String.valueOf(getForumId()), 0));
             QueryUserPermissionReqIdl.Builder builder2 = new QueryUserPermissionReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

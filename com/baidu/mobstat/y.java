@@ -2,12 +2,11 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
+import com.baidu.android.util.time.DateTimeUtil;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class y {
     private static y a;
     private Context b;
@@ -117,7 +116,7 @@ public class y {
                     bb.c().b(e4);
                 }
                 try {
-                    this.d = jSONObject.getLong(BdStatsConstant.StatsKey.FROM);
+                    this.d = jSONObject.getLong("f");
                 } catch (JSONException e5) {
                     bb.c().b(e5);
                 }
@@ -137,7 +136,7 @@ public class y {
                     bb.c().b(e8);
                 }
                 try {
-                    this.m = jSONObject.getLong(AdvanceSetting.ADVANCE_SETTING);
+                    this.m = jSONObject.getLong("as");
                 } catch (JSONException e9) {
                     bb.c().b(e9);
                 }
@@ -233,7 +232,7 @@ public class y {
     }
 
     public boolean a(long j) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DateTimeUtil.DAY_FORMAT);
         return simpleDateFormat.format(Long.valueOf(j)).equals(simpleDateFormat.format(Long.valueOf(System.currentTimeMillis())));
     }
 

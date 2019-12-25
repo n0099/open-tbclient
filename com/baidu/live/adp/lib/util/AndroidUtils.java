@@ -3,11 +3,12 @@ package com.baidu.live.adp.lib.util;
 import android.content.Context;
 import android.text.ClipboardManager;
 import com.baidu.live.adp.base.BdBaseApplication;
-/* loaded from: classes6.dex */
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
+/* loaded from: classes2.dex */
 public class AndroidUtils {
     public static int getStatusBarHeight(Context context) {
         int identifier;
-        if (context != null && (identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android")) > 0) {
+        if (context != null && (identifier = context.getResources().getIdentifier("status_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS)) > 0) {
             return context.getResources().getDimensionPixelSize(identifier);
         }
         return 0;
@@ -15,7 +16,7 @@ public class AndroidUtils {
 
     public static int getNavigationBarHeight(Context context) {
         int identifier;
-        if (context != null && (identifier = context.getResources().getIdentifier("navigation_bar_height", "dimen", "android")) > 0) {
+        if (context != null && (identifier = context.getResources().getIdentifier("navigation_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS)) > 0) {
             return context.getResources().getDimensionPixelSize(identifier);
         }
         return 0;
@@ -23,7 +24,7 @@ public class AndroidUtils {
 
     public static int getNavigationBarLandscapeHeight(Context context) {
         int identifier;
-        if (context != null && (identifier = context.getResources().getIdentifier("navigation_bar_height_landscape", "dimen", "android")) > 0) {
+        if (context != null && (identifier = context.getResources().getIdentifier("navigation_bar_height_landscape", "dimen", PraiseDataPassUtil.KEY_FROM_OS)) > 0) {
             return context.getResources().getDimensionPixelSize(identifier);
         }
         return 0;

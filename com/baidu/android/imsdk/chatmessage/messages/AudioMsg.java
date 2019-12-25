@@ -6,11 +6,10 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AudioMsg extends RichMediaMsg {
     public static final Parcelable.Creator<AudioMsg> CREATOR = new Parcelable.Creator<AudioMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.AudioMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,7 +85,7 @@ public class AudioMsg extends RichMediaMsg {
 
     private void transCodeUrl(JSONObject jSONObject) {
         try {
-            String decode = URLDecoder.decode(this.mRemoteUrl, HTTP.UTF_8);
+            String decode = URLDecoder.decode(this.mRemoteUrl, "UTF-8");
             LogUtils.d("ChatMsg", decode);
             this.mRemoteUrl = decode;
             jSONObject.put("url", decode);

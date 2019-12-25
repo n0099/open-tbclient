@@ -4,44 +4,44 @@ import android.graphics.Camera;
 import android.graphics.Matrix;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a extends Animation {
-    private final float aoL;
-    private final float aoM;
-    private float aoN;
-    private float aoO;
-    private final float aoP;
-    private final boolean aoQ;
-    private Camera aoR;
+    private final float awG;
+    private final float awH;
+    private float awI;
+    private float awJ;
+    private final float awK;
+    private Camera awL;
+    private final boolean mReverse;
 
     public a(float f, float f2, float f3, boolean z) {
-        this.aoL = f;
-        this.aoM = f2;
-        this.aoP = f3;
-        this.aoQ = z;
+        this.awG = f;
+        this.awH = f2;
+        this.awK = f3;
+        this.mReverse = z;
     }
 
     @Override // android.view.animation.Animation
     public void initialize(int i, int i2, int i3, int i4) {
         super.initialize(i, i2, i3, i4);
-        this.aoN = i / 2;
-        this.aoO = i / 2;
-        this.aoR = new Camera();
+        this.awI = i / 2;
+        this.awJ = i / 2;
+        this.awL = new Camera();
     }
 
     @Override // android.view.animation.Animation
     protected void applyTransformation(float f, Transformation transformation) {
-        float f2 = this.aoL;
-        float f3 = f2 + ((this.aoM - f2) * f);
-        float f4 = this.aoN;
-        float f5 = this.aoO;
-        Camera camera = this.aoR;
+        float f2 = this.awG;
+        float f3 = f2 + ((this.awH - f2) * f);
+        float f4 = this.awI;
+        float f5 = this.awJ;
+        Camera camera = this.awL;
         Matrix matrix = transformation.getMatrix();
         camera.save();
-        if (this.aoQ) {
-            camera.translate(0.0f, 0.0f, this.aoP * f);
+        if (this.mReverse) {
+            camera.translate(0.0f, 0.0f, this.awK * f);
         } else {
-            camera.translate(0.0f, 0.0f, this.aoP * (1.0f - f));
+            camera.translate(0.0f, 0.0f, this.awK * (1.0f - f));
         }
         camera.rotateY(f3);
         camera.getMatrix(matrix);

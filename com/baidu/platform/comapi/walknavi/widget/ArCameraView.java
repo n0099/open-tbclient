@@ -9,7 +9,6 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
 import com.baidu.platform.comapi.wnplatform.o.g;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback {
@@ -127,10 +126,10 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
                     i2 = 90;
                     break;
                 case 2:
-                    i2 = SubsamplingScaleImageView.ORIENTATION_180;
+                    i2 = 180;
                     break;
                 case 3:
-                    i2 = SubsamplingScaleImageView.ORIENTATION_270;
+                    i2 = 270;
                     break;
                 default:
                     i2 = 0;

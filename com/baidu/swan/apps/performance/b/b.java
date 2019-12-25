@@ -1,13 +1,29 @@
 package com.baidu.swan.apps.performance.b;
+/* loaded from: classes9.dex */
+public class b implements e {
+    private long mStartTime = -1;
+    private long bDa = -1;
 
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.d;
-/* loaded from: classes2.dex */
-public class b implements com.baidu.swan.apps.an.d.a<HybridUbcFlow> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.an.d.a
-    /* renamed from: a */
-    public void B(HybridUbcFlow hybridUbcFlow) {
-        hybridUbcFlow.gC("670").az("preload_scene", "1").g("from", "swan").a(HybridUbcFlow.ExtensionType.COMPONENT_REPORTER, new d()).a(HybridUbcFlow.ExtensionType.CALLBACK_ON_SUBMIT, new c());
+    @Override // com.baidu.swan.apps.performance.b.e
+    public void setStart(long j) {
+        this.mStartTime = j;
+    }
+
+    @Override // com.baidu.swan.apps.performance.b.e
+    public void setEnd(long j) {
+        this.bDa = j;
+    }
+
+    @Override // com.baidu.swan.apps.performance.b.e
+    public long Xn() {
+        if (this.mStartTime < 0 || this.bDa < 0) {
+            return -1L;
+        }
+        return this.bDa - this.mStartTime;
+    }
+
+    @Override // com.baidu.swan.apps.performance.b.e
+    public String getType() {
+        return "PageSwitchCost";
     }
 }

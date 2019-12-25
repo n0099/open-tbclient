@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.StringHelper;
@@ -19,7 +19,7 @@ import com.baidu.tieba.live.tbean.data.IconInfoData;
 import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BuyTBeanGridAdapter extends BaseAdapter {
     private Context mContext;
     private List<IconInfoData> mIconInfoDatas = new ArrayList();
@@ -102,7 +102,7 @@ public class BuyTBeanGridAdapter extends BaseAdapter {
         return view;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private class BeanHolder {
         TbImageView ivIcon;
         TextView tvBeanName;

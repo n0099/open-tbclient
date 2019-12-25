@@ -5,7 +5,7 @@ import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.shell.callback.SapiCallBack;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class z extends HttpHandlerWrap {
     final /* synthetic */ SapiCallBack a;
     final /* synthetic */ boolean b;

@@ -1,24 +1,52 @@
 package com.airbnb.lottie;
 
-import java.util.Map;
-/* loaded from: classes2.dex */
-public class l {
-    private final Map<String, String> dI;
-    private boolean dJ;
+import android.support.annotation.Nullable;
+import java.util.Arrays;
+/* loaded from: classes4.dex */
+public final class l<V> {
+    @Nullable
+    private final Throwable exception;
+    @Nullable
+    private final V value;
 
-    public String I(String str) {
-        return str;
+    public l(V v) {
+        this.value = v;
+        this.exception = null;
     }
 
-    public final String J(String str) {
-        if (this.dJ && this.dI.containsKey(str)) {
-            return this.dI.get(str);
+    public l(Throwable th) {
+        this.exception = th;
+        this.value = null;
+    }
+
+    @Nullable
+    public V getValue() {
+        return this.value;
+    }
+
+    @Nullable
+    public Throwable bx() {
+        return this.exception;
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
-        String I = I(str);
-        if (this.dJ) {
-            this.dI.put(str, I);
-            return I;
+        if (obj instanceof l) {
+            l lVar = (l) obj;
+            if (getValue() == null || !getValue().equals(lVar.getValue())) {
+                if (bx() == null || lVar.bx() == null) {
+                    return false;
+                }
+                return bx().toString().equals(bx().toString());
+            }
+            return true;
         }
-        return I;
+        return false;
+    }
+
+    public int hashCode() {
+        return Arrays.hashCode(new Object[]{getValue(), bx()});
     }
 }

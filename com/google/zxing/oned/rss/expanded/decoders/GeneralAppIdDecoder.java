@@ -1,12 +1,11 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
-import android.support.v7.widget.helper.ItemTouchHelper;
-import com.baidu.live.adp.lib.util.BdFileHelper;
+import com.baidu.fsg.base.activity.BaseActivity;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class GeneralAppIdDecoder {
     private final BitArray information;
     private final CurrentParsingState current = new CurrentParsingState();
@@ -243,14 +242,14 @@ public final class GeneralAppIdDecoder {
             case 240:
                 c = '+';
                 break;
-            case 241:
+            case BaseActivity.DIALOG_PROMPT /* 241 */:
                 c = ',';
                 break;
-            case 242:
+            case BaseActivity.DIALOG_LOADING /* 242 */:
                 c = '-';
                 break;
             case 243:
-                c = BdFileHelper.EXTENSION_SEPARATOR;
+                c = '.';
                 break;
             case 244:
                 c = '/';
@@ -270,7 +269,7 @@ public final class GeneralAppIdDecoder {
             case 249:
                 c = '>';
                 break;
-            case ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION /* 250 */:
+            case 250:
                 c = '?';
                 break;
             case 251:
@@ -321,7 +320,7 @@ public final class GeneralAppIdDecoder {
                 c = '-';
                 break;
             case 61:
-                c = BdFileHelper.EXTENSION_SEPARATOR;
+                c = '.';
                 break;
             case 62:
                 c = '/';

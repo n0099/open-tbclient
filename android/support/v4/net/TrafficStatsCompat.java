@@ -3,57 +3,12 @@ package android.support.v4.net;
 import android.net.TrafficStats;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
-import android.support.annotation.RequiresApi;
+import android.support.annotation.NonNull;
 import java.net.DatagramSocket;
 import java.net.Socket;
 import java.net.SocketException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class TrafficStatsCompat {
-    private static final TrafficStatsCompatBaseImpl IMPL;
-
-    /* loaded from: classes2.dex */
-    static class TrafficStatsCompatBaseImpl {
-        TrafficStatsCompatBaseImpl() {
-        }
-
-        public void tagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
-            ParcelFileDescriptor fromDatagramSocket = ParcelFileDescriptor.fromDatagramSocket(datagramSocket);
-            TrafficStats.tagSocket(new DatagramSocketWrapper(datagramSocket, fromDatagramSocket.getFileDescriptor()));
-            fromDatagramSocket.detachFd();
-        }
-
-        public void untagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
-            ParcelFileDescriptor fromDatagramSocket = ParcelFileDescriptor.fromDatagramSocket(datagramSocket);
-            TrafficStats.untagSocket(new DatagramSocketWrapper(datagramSocket, fromDatagramSocket.getFileDescriptor()));
-            fromDatagramSocket.detachFd();
-        }
-    }
-
-    @RequiresApi(24)
-    /* loaded from: classes2.dex */
-    static class TrafficStatsCompatApi24Impl extends TrafficStatsCompatBaseImpl {
-        TrafficStatsCompatApi24Impl() {
-        }
-
-        @Override // android.support.v4.net.TrafficStatsCompat.TrafficStatsCompatBaseImpl
-        public void tagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
-            TrafficStats.tagDatagramSocket(datagramSocket);
-        }
-
-        @Override // android.support.v4.net.TrafficStatsCompat.TrafficStatsCompatBaseImpl
-        public void untagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
-            TrafficStats.untagDatagramSocket(datagramSocket);
-        }
-    }
-
-    static {
-        if (Build.VERSION.SDK_INT >= 24) {
-            IMPL = new TrafficStatsCompatApi24Impl();
-        } else {
-            IMPL = new TrafficStatsCompatBaseImpl();
-        }
-    }
-
     @Deprecated
     public static void clearThreadStatsTag() {
         TrafficStats.clearThreadStatsTag();
@@ -89,12 +44,24 @@ public final class TrafficStatsCompat {
         TrafficStats.untagSocket(socket);
     }
 
-    public static void tagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
-        IMPL.tagDatagramSocket(datagramSocket);
+    public static void tagDatagramSocket(@NonNull DatagramSocket datagramSocket) throws SocketException {
+        if (Build.VERSION.SDK_INT >= 24) {
+            TrafficStats.tagDatagramSocket(datagramSocket);
+            return;
+        }
+        ParcelFileDescriptor fromDatagramSocket = ParcelFileDescriptor.fromDatagramSocket(datagramSocket);
+        TrafficStats.tagSocket(new DatagramSocketWrapper(datagramSocket, fromDatagramSocket.getFileDescriptor()));
+        fromDatagramSocket.detachFd();
     }
 
-    public static void untagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
-        IMPL.untagDatagramSocket(datagramSocket);
+    public static void untagDatagramSocket(@NonNull DatagramSocket datagramSocket) throws SocketException {
+        if (Build.VERSION.SDK_INT >= 24) {
+            TrafficStats.untagDatagramSocket(datagramSocket);
+            return;
+        }
+        ParcelFileDescriptor fromDatagramSocket = ParcelFileDescriptor.fromDatagramSocket(datagramSocket);
+        TrafficStats.untagSocket(new DatagramSocketWrapper(datagramSocket, fromDatagramSocket.getFileDescriptor()));
+        fromDatagramSocket.detachFd();
     }
 
     private TrafficStatsCompat() {

@@ -1,17 +1,17 @@
 package com.baidu.tieba.write.share;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c {
     public String appKey;
     public String appName;
     public String content;
     public String forumId;
     public String imageUrl;
-    public String jPR;
-    public String jPS;
-    public String jPT;
-    public String jPU;
-    public String jPV;
+    public String kKE;
+    public String kKF;
+    public String kKG;
+    public String kKH;
+    public String kKI;
     public String linkUrl;
-    public String tD;
     public String title;
+    public String wk;
 }

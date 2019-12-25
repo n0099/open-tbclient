@@ -15,17 +15,17 @@ import com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollVi
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.CardFrsGameSpecialTopicItemView;
 import com.baidu.tieba.card.CardFrsGameSpecialTopicLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i extends com.baidu.tieba.frs.h<com.baidu.tieba.e.h, a> {
-    private com.baidu.adp.lib.e.b<CardFrsGameSpecialTopicItemView> fDU;
+    private com.baidu.adp.lib.d.b<CardFrsGameSpecialTopicItemView> gsn;
     private String mForumId;
 
     public i(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.fDU = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<CardFrsGameSpecialTopicItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.a.i.1
+        this.gsn = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameSpecialTopicItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: bnN */
+            @Override // com.baidu.adp.lib.d.c
+            /* renamed from: bFk */
             public CardFrsGameSpecialTopicItemView makeObject() {
                 CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView = new CardFrsGameSpecialTopicItemView(i.this.mContext);
                 cardFrsGameSpecialTopicItemView.setForumId(i.this.mForumId);
@@ -33,20 +33,20 @@ public class i extends com.baidu.tieba.frs.h<com.baidu.tieba.e.h, a> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
+            @Override // com.baidu.adp.lib.d.c
             /* renamed from: b */
             public void destroyObject(CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
+            @Override // com.baidu.adp.lib.d.c
             /* renamed from: c */
             public CardFrsGameSpecialTopicItemView activateObject(CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView) {
                 return cardFrsGameSpecialTopicItemView;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
+            @Override // com.baidu.adp.lib.d.c
             /* renamed from: d */
             public CardFrsGameSpecialTopicItemView passivateObject(CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView) {
                 return cardFrsGameSpecialTopicItemView;
@@ -58,10 +58,10 @@ public class i extends com.baidu.tieba.frs.h<com.baidu.tieba.e.h, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ba */
+    /* renamed from: aX */
     public a b(ViewGroup viewGroup) {
         a aVar = new a(LayoutInflater.from(this.mContext).inflate(R.layout.card_frs_game_special_topic_layout, viewGroup, false));
-        aVar.fIs.setViewPool(this.fDU);
+        aVar.gwH.setViewPool(this.gsn);
         return aVar;
     }
 
@@ -69,39 +69,39 @@ public class i extends com.baidu.tieba.frs.h<com.baidu.tieba.e.h, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.h hVar, a aVar) {
-        if (hVar != null && hVar.bcB() != null) {
+        if (hVar != null && hVar.btY() != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            aVar.fIq.setText(hVar.bcB().title);
-            aVar.fIq.setTextColor(am.getColor(skinType, R.color.cp_cont_b));
-            aVar.fIs.setPageContext(this.mPageContext);
-            aVar.fIs.setData(hVar.bcB().sub_nodes);
-            aVar.fIr.setMaxOverScrollDistance(aVar.fIs.getChildItemWidth());
-            aVar.fIp.setBackgroundColor(am.getColor(skinType, R.color.cp_bg_line_d));
-            am.setBackgroundResource(aVar.fId, R.color.cp_bg_line_e);
-            am.setBackgroundResource(aVar.fnP, R.color.cp_bg_line_e);
+            aVar.gwF.setText(hVar.btY().title);
+            aVar.gwF.setTextColor(am.getColor(skinType, R.color.cp_cont_b));
+            aVar.gwH.setPageContext(this.mPageContext);
+            aVar.gwH.setData(hVar.btY().sub_nodes);
+            aVar.gwG.setMaxOverScrollDistance(aVar.gwH.getChildItemWidth());
+            aVar.gwE.setBackgroundColor(am.getColor(skinType, R.color.cp_bg_line_d));
+            am.setBackgroundResource(aVar.gws, R.color.cp_bg_line_e);
+            am.setBackgroundResource(aVar.gcl, R.color.cp_bg_line_e);
         }
         return aVar.getView();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends v.a {
-        private View fId;
-        private LinearLayout fIp;
-        private TextView fIq;
-        private FlexibleHorizontalScrollView fIr;
-        private CardFrsGameSpecialTopicLayout fIs;
-        private View fnP;
+        private View gcl;
+        private LinearLayout gwE;
+        private TextView gwF;
+        private FlexibleHorizontalScrollView gwG;
+        private CardFrsGameSpecialTopicLayout gwH;
+        private View gws;
 
         public a(View view) {
             super(view);
-            this.fIp = (LinearLayout) view.findViewById(R.id.card_game_special_topic_content);
-            this.fIq = (TextView) view.findViewById(R.id.game_special_topic_title);
-            this.fIr = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_special_topic_scroll_container);
-            this.fIs = (CardFrsGameSpecialTopicLayout) view.findViewById(R.id.game_special_topic_container);
-            this.fIs.setItemSpace(l.getDimens(view.getContext(), R.dimen.tbds20));
-            this.fIs.setItemWidth(((l.getDimens(view.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
-            this.fId = view.findViewById(R.id.divider_line_1);
-            this.fnP = view.findViewById(R.id.divider_line_2);
+            this.gwE = (LinearLayout) view.findViewById(R.id.card_game_special_topic_content);
+            this.gwF = (TextView) view.findViewById(R.id.game_special_topic_title);
+            this.gwG = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_special_topic_scroll_container);
+            this.gwH = (CardFrsGameSpecialTopicLayout) view.findViewById(R.id.game_special_topic_container);
+            this.gwH.setItemSpace(l.getDimens(view.getContext(), R.dimen.tbds20));
+            this.gwH.setItemWidth(((l.getDimens(view.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
+            this.gws = view.findViewById(R.id.divider_line_1);
+            this.gcl = view.findViewById(R.id.divider_line_2);
         }
     }
 }

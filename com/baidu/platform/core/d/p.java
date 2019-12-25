@@ -12,7 +12,7 @@ public class p extends com.baidu.platform.base.e {
     private void a(WalkingRoutePlanOption walkingRoutePlanOption) {
         this.a.a("qt", "walk2");
         this.a.a(IXAdRequestInfo.SN, a(walkingRoutePlanOption.mFrom));
-        this.a.a("en", a(walkingRoutePlanOption.mTo));
+        this.a.a(com.baidu.fsg.base.statistics.h.a, a(walkingRoutePlanOption.mTo));
         if (walkingRoutePlanOption.mFrom != null) {
             this.a.a(Config.STAT_SDK_CHANNEL, walkingRoutePlanOption.mFrom.getCity());
         }

@@ -15,6 +15,7 @@ public class NoDataViewFactory {
         CREATE,
         NODATA,
         FINDBAR,
+        COLLECTION,
         EMOTION,
         SINGALL,
         GIFT,
@@ -26,33 +27,33 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        final a cou;
-        final a cov;
-        final int cow;
+        final a dbI;
+        final a dbJ;
+        final int dbK;
 
         private b(a aVar) {
-            this.cou = aVar.cou;
-            this.cov = aVar.cov;
-            this.cow = aVar.cow;
+            this.dbI = aVar.dbI;
+            this.dbJ = aVar.dbJ;
+            this.dbK = aVar.dbK;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private a cou = null;
-            private a cov = null;
-            private int cow = -1;
+            private a dbI = null;
+            private a dbJ = null;
+            private int dbK = -1;
 
             public a b(a aVar) {
-                this.cou = aVar;
+                this.dbI = aVar;
                 return this;
             }
 
-            public a iF(int i) {
-                this.cow = i;
+            public a kL(int i) {
+                this.dbK = i;
                 return this;
             }
 
-            public b anF() {
+            public b aEV() {
                 return new b(this);
             }
         }
@@ -60,78 +61,78 @@ public class NoDataViewFactory {
         public static b a(a aVar) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            return aVar2.anF();
+            return aVar2.aEV();
         }
 
         public static b a(a aVar, int i) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            aVar2.iF(i);
-            return aVar2.anF();
+            aVar2.kL(i);
+            return aVar2.aEV();
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        View.OnClickListener cot;
+        View.OnClickListener dbH;
         String mText;
 
         public a(String str, View.OnClickListener onClickListener) {
             this.mText = str;
-            this.cot = onClickListener;
+            this.dbH = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        final int biB;
-        final int cor;
-        final ImgType cox;
+        final int dbF;
+        final ImgType dbL;
         final int mHeight;
+        final int mMarginTop;
         final int mWidth;
 
         private c(a aVar) {
-            this.cox = aVar.cox;
-            this.biB = aVar.biB;
-            this.cor = aVar.cor;
+            this.dbL = aVar.dbL;
+            this.mMarginTop = aVar.mMarginTop;
+            this.dbF = aVar.dbF;
             this.mHeight = aVar.mHeight;
             this.mWidth = aVar.mWidth;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private ImgType cox = ImgType.NONE;
-            private int biB = -1;
-            private int cor = -1;
+            private ImgType dbL = ImgType.NONE;
+            private int mMarginTop = -1;
+            private int dbF = -1;
             private int mHeight = -1;
             private int mWidth = -1;
 
             public a b(ImgType imgType) {
-                this.cox = imgType;
+                this.dbL = imgType;
                 return this;
             }
 
-            public a iG(int i) {
-                this.biB = i;
+            public a kM(int i) {
+                this.mMarginTop = i;
                 return this;
             }
 
-            public a iH(int i) {
-                this.cor = i;
+            public a kN(int i) {
+                this.dbF = i;
                 return this;
             }
 
-            public a iI(int i) {
+            public a kO(int i) {
                 this.mHeight = i;
                 return this;
             }
 
-            public a iJ(int i) {
+            public a kP(int i) {
                 this.mWidth = i;
                 return this;
             }
 
-            public c anG() {
+            public c aEW() {
                 return new c(this);
             }
         }
@@ -139,97 +140,97 @@ public class NoDataViewFactory {
         public static c a(ImgType imgType, int i) {
             a aVar = new a();
             aVar.b(imgType);
-            aVar.iG(i);
-            return aVar.anG();
+            aVar.kM(i);
+            return aVar.aEW();
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             a aVar = new a();
             aVar.b(imgType);
-            aVar.iH(i);
-            aVar.iG(i2);
-            aVar.iI(i3);
-            aVar.iJ(i4);
-            return aVar.anG();
+            aVar.kN(i);
+            aVar.kM(i2);
+            aVar.kO(i3);
+            aVar.kP(i4);
+            return aVar.aEW();
         }
 
         public static c a(ImgType imgType) {
             a aVar = new a();
             aVar.b(imgType);
-            return aVar.anG();
+            return aVar.aEW();
         }
     }
 
     /* loaded from: classes.dex */
     public static class d {
-        final String bXU;
-        final int coA;
-        final String coy;
-        final int coz;
+        final String dbM;
+        final int dbN;
+        final int dbO;
+        final String mSubTitle;
         final String mTitle;
 
         private d(a aVar) {
             this.mTitle = aVar.mTitle;
-            this.bXU = aVar.bXU;
-            this.coy = aVar.coy;
-            this.coz = aVar.coB;
-            this.coA = aVar.coA;
+            this.mSubTitle = aVar.mSubTitle;
+            this.dbM = aVar.dbM;
+            this.dbN = aVar.dbP;
+            this.dbO = aVar.dbO;
         }
 
         /* loaded from: classes.dex */
         public static class a {
             private String mTitle = null;
-            private String bXU = null;
-            private String coy = null;
-            private int coB = -1;
-            private int coA = 0;
+            private String mSubTitle = null;
+            private String dbM = null;
+            private int dbP = -1;
+            private int dbO = 0;
 
-            public a ox(String str) {
+            public a tB(String str) {
                 this.mTitle = str;
                 return this;
             }
 
-            public a oy(String str) {
-                this.bXU = str;
+            public a tC(String str) {
+                this.mSubTitle = str;
                 return this;
             }
 
-            public a iL(int i) {
-                this.coB = i;
+            public a kR(int i) {
+                this.dbP = i;
                 return this;
             }
 
-            public d anH() {
+            public d aEX() {
                 return new d(this);
             }
         }
 
-        public static d ah(int i, int i2) {
+        public static d aA(int i, int i2) {
             a aVar = new a();
-            aVar.oy(TbadkCoreApplication.getInst().getResources().getString(i));
-            aVar.iL(i2);
-            return aVar.anH();
+            aVar.tC(TbadkCoreApplication.getInst().getResources().getString(i));
+            aVar.kR(i2);
+            return aVar.aEX();
         }
 
-        public static d iK(int i) {
-            return ow(TbadkCoreApplication.getInst().getResources().getString(i));
+        public static d kQ(int i) {
+            return tA(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 
-        public static d ai(int i, int i2) {
-            return bU(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
+        public static d aB(int i, int i2) {
+            return cr(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
         }
 
-        public static d ow(String str) {
+        public static d tA(String str) {
             a aVar = new a();
-            aVar.oy(str);
-            return aVar.anH();
+            aVar.tC(str);
+            return aVar.aEX();
         }
 
-        public static d bU(String str, String str2) {
+        public static d cr(String str, String str2) {
             a aVar = new a();
-            aVar.oy(str);
-            aVar.ox(str2);
-            return aVar.anH();
+            aVar.tC(str);
+            aVar.tB(str2);
+            return aVar.aEX();
         }
     }
 

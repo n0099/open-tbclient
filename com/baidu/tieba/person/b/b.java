@@ -8,11 +8,11 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b extends v.a {
-    public ImageView ijQ;
-    public TextView ijR;
-    private m ijS;
+    public ImageView jbH;
+    public TextView jbI;
+    private m jbJ;
     private View.OnClickListener mClickListener;
     private int mSkinType;
     public View rootView;
@@ -21,17 +21,17 @@ public class b extends v.a {
         super(view);
         this.mSkinType = 3;
         this.rootView = view.findViewById(R.id.add_pic_root);
-        this.ijQ = (ImageView) view.findViewById(R.id.add_image_view);
-        this.ijR = (TextView) view.findViewById(R.id.tip_left_count_view);
+        this.jbH = (ImageView) view.findViewById(R.id.add_image_view);
+        this.jbI = (TextView) view.findViewById(R.id.tip_left_count_view);
     }
 
     public void h(m mVar) {
         if (mVar instanceof com.baidu.tieba.person.data.c) {
-            this.ijS = mVar;
+            this.jbJ = mVar;
             com.baidu.tieba.person.data.c cVar = (com.baidu.tieba.person.data.c) mVar;
-            am.setImageResource(this.ijQ, R.drawable.icon_mine_pic_add);
-            if (cVar.bZc() > 0) {
-                this.ijR.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.bZc())));
+            am.setImageResource(this.jbH, R.drawable.icon_mine_pic_add);
+            if (cVar.csv() > 0) {
+                this.jbI.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.csv())));
             }
             getView().setOnClickListener(this.mClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -40,17 +40,17 @@ public class b extends v.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            am.setViewTextColor(this.ijR, R.color.cp_cont_e, 1);
+            am.setViewTextColor(this.jbI, R.color.cp_cont_e, 1);
             am.setBackgroundColor(getView(), R.color.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
 
-    public m aok() {
-        return this.ijS;
+    public m aFN() {
+        return this.jbJ;
     }
 
-    public void C(View.OnClickListener onClickListener) {
+    public void D(View.OnClickListener onClickListener) {
         this.mClickListener = onClickListener;
     }
 }

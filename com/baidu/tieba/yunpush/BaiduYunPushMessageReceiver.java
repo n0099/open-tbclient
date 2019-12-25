@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.pushservice.PushMessageReceiver;
+import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
@@ -14,7 +15,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static final String KEY_SHAREDPRE_PUSH_STARTWORK = "baidu_yunpush_start_work";
     private static final String TAG = "BaiduYunPush";
@@ -23,7 +24,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onBind(Context context, int i, String str, String str2, String str3, String str4) {
         String str5 = "onBind errorCode=" + i;
         if (i == 0) {
-            b.alP().putBoolean(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+            b.aCY().putBoolean(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
             TbadkCoreApplication.getInst().setYunpushChannelId(str3);
         }
     }
@@ -63,8 +64,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                 String string2 = !jSONObject2.isNull("description") ? jSONObject2.getString("description") : null;
                 if (!jSONObject2.isNull("custom_content")) {
                     JSONObject jSONObject3 = new JSONObject(jSONObject2.getString("custom_content"));
-                    if (!jSONObject3.isNull("scheme")) {
-                        str3 = jSONObject3.getString("scheme");
+                    if (!jSONObject3.isNull(SuspensionBallEntity.KEY_SCHEME)) {
+                        str3 = jSONObject3.getString(SuspensionBallEntity.KEY_SCHEME);
                         String str4 = "";
                         if (!TextUtils.isEmpty(str3) && str3.contains("tbyunpushnotifybody=")) {
                             jSONObject = new JSONObject(str3.substring(str3.indexOf("tbyunpushnotifybody=") + "tbyunpushnotifybody=".length()));
@@ -72,7 +73,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                                 str4 = jSONObject.getString("task_id");
                             }
                         }
-                        i = com.baidu.adp.lib.g.b.toInt(str4, TbConfig.NOTIFY_YUN_PUSH);
+                        i = com.baidu.adp.lib.f.b.toInt(str4, TbConfig.NOTIFY_YUN_PUSH);
                         if (i < 2500) {
                             i += TbConfig.NOTIFY_YUN_PUSH;
                         }
@@ -88,7 +89,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     if (!jSONObject.isNull("task_id")) {
                     }
                 }
-                i = com.baidu.adp.lib.g.b.toInt(str42, TbConfig.NOTIFY_YUN_PUSH);
+                i = com.baidu.adp.lib.f.b.toInt(str42, TbConfig.NOTIFY_YUN_PUSH);
                 if (i < 2500) {
                 }
                 Intent parseUri2 = Intent.parseUri(str3, 1);
@@ -105,8 +106,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
             try {
                 JSONObject jSONObject = new JSONObject(str3);
                 String str4 = null;
-                if (!jSONObject.isNull("scheme")) {
-                    str4 = jSONObject.getString("scheme");
+                if (!jSONObject.isNull(SuspensionBallEntity.KEY_SCHEME)) {
+                    str4 = jSONObject.getString(SuspensionBallEntity.KEY_SCHEME);
                 }
                 if (!TextUtils.isEmpty(str4)) {
                     Intent parseUri = Intent.parseUri(str4, 1);

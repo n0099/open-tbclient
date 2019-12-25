@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import com.baidu.live.adp.lib.guide.GuideBuilder;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class Guide implements View.OnClickListener, View.OnKeyListener {
     static final /* synthetic */ boolean $assertionsDisabled;
     private Component[] mComponents;

@@ -1,4 +1,4 @@
 package com.baidu.searchbox.process.ipc.agent.activity;
-/* loaded from: classes.dex */
+/* loaded from: classes9.dex */
 public class MainProcessDelegateActivity extends ProcessDelegateBaseActivity {
 }

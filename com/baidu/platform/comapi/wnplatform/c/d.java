@@ -5,12 +5,12 @@ import android.location.GpsStatus;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.net.http.Headers;
 import android.os.Handler;
 import android.os.Message;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.map.MessageCenter;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
+import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -58,7 +58,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     public synchronized void a(Context context) {
         this.k = context;
         if (this.d == null) {
-            this.d = (LocationManager) context.getSystemService(Headers.LOCATION);
+            this.d = (LocationManager) context.getSystemService("location");
         }
         this.j = new a(this, null);
         MessageCenter.registMessage(4103, this.j);
@@ -145,7 +145,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
             try {
                 this.h = false;
                 if (this.d == null) {
-                    this.d = (LocationManager) context.getSystemService(Headers.LOCATION);
+                    this.d = (LocationManager) context.getSystemService("location");
                 }
                 this.d.requestLocationUpdates("gps", 0L, 0.0f, this.v);
                 this.d.addGpsStatusListener(this.r);
@@ -205,8 +205,8 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         if (com.baidu.platform.comapi.wnplatform.a.a().d() || this.h) {
         }
         if (wLocData.accuracy < 80.0f) {
-            this.c = wLocData.m15clone();
-            a(this.c, "sdk");
+            this.c = wLocData.m16clone();
+            a(this.c, CashierData.SDK);
             if (wLocData.isIndoorMode) {
                 a++;
                 if (a > 3 && this.i != null) {
@@ -222,7 +222,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(WLocData wLocData, String str) {
         ArrayList arrayList;
-        this.b = wLocData.m15clone();
+        this.b = wLocData.m16clone();
         GeoPoint a2 = com.baidu.platform.comapi.wnplatform.o.b.a(wLocData.longitude, wLocData.latitude);
         g.setLongitudeE6(a2.getLongitudeE6());
         g.setLatitudeE6(a2.getLatitudeE6());

@@ -4,7 +4,7 @@ import android.os.Looper;
 import android.os.MessageQueue;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.p.a.b;
+import com.baidu.tbadk.n.a.b;
 /* loaded from: classes.dex */
 public class a extends Thread {
     public a(String str) {
@@ -14,11 +14,11 @@ public class a extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         synchronized (this) {
-            afz();
+            awr();
         }
     }
 
-    private void afz() {
+    private void awr() {
         float f = 10.0f;
         double nanoTime = System.nanoTime();
         for (int i = 0; i < 1000000; i++) {
@@ -29,7 +29,7 @@ public class a extends Thread {
         b.log();
     }
 
-    public static void afA() {
+    public static void aws() {
         Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tbadk.f.a.1
             @Override // android.os.MessageQueue.IdleHandler
             public boolean queueIdle() {

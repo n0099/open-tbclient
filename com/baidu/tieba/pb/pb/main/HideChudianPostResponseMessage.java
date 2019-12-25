@@ -4,7 +4,7 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class HideChudianPostResponseMessage extends JsonHttpResponsedMessage {
     private int errorCode;
     private String errorMessage;

@@ -1,23 +1,22 @@
 package com.google.protobuf;
 
 import java.io.UnsupportedEncodingException;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class Internal {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface EnumLite {
         int getNumber();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface EnumLiteMap<T extends EnumLite> {
         T findValueByNumber(int i);
     }
 
     public static String stringDefaultValue(String str) {
         try {
-            return new String(str.getBytes("ISO-8859-1"), HTTP.UTF_8);
+            return new String(str.getBytes("ISO-8859-1"), "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new IllegalStateException("Java VM does not support a standard character set.", e);
         }

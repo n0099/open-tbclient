@@ -4,150 +4,137 @@ import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private int ggN;
-    private int ggO;
-    private int ggP;
-    private int ggQ;
-    private int ggR;
-    private int ggS;
-    private int ggT;
-    private int ggU = 1;
+    private int gUm;
+    private int gUn;
+    private int gUo;
+    private int gUp;
+    private int gUq;
+    private int gUr;
+    private int gUs = 1;
 
     public a() {
-        this.ggN = -1;
-        this.ggO = -1;
-        this.ggP = -1;
-        this.ggQ = -1;
-        this.ggR = -1;
-        this.ggS = -1;
-        this.ggT = -1;
-        this.ggN = 0;
-        this.ggO = 1;
+        this.gUm = -1;
+        this.gUn = -1;
+        this.gUo = -1;
+        this.gUp = -1;
+        this.gUq = -1;
+        this.gUr = -1;
+        this.gUm = 0;
+        this.gUn = 1;
         int i = 2;
-        int btJ = btJ();
-        if ((btJ & 16) > 0) {
-            this.ggR = 2;
+        int bKX = bKX();
+        if ((bKX & 16) > 0) {
+            this.gUo = 2;
             i = 3;
         }
-        if ((btJ & 32) > 0 && MessageManager.getInstance().findTask(2921399) != null) {
-            this.ggS = i;
+        if ((bKX & 128) > 0) {
+            this.gUr = i;
             i++;
         }
-        if ((btJ & 64) > 0) {
-            this.ggT = i;
+        if ((bKX & 32) > 0 && MessageManager.getInstance().findTask(2921399) != null) {
+            this.gUp = i;
             i++;
         }
-        int i2 = com.baidu.tbadk.core.sharedPref.b.alP().getInt("ribao_switch", 0);
-        if ((btJ & 1) > 0) {
-            this.ggP = i2 == 0 ? i : -1;
-            this.ggQ = i2 != 0 ? i : -1;
-            int i3 = i + 1;
+        if ((bKX & 64) > 0) {
+            this.gUq = i;
+            int i2 = i + 1;
         }
     }
 
-    public int sU(int i) {
+    public int getPosition(int i) {
         switch (i) {
             case 0:
-                return this.ggN;
+                return this.gUm;
             case 1:
-                return this.ggO;
+                return this.gUn;
             case 2:
+            case 3:
+            case 4:
             default:
                 return -1;
-            case 3:
-                return this.ggP;
-            case 4:
-                return this.ggQ;
             case 5:
-                return this.ggR;
+                return this.gUo;
             case 6:
-                return this.ggS;
+                return this.gUp;
             case 7:
-                return this.ggT;
+                return this.gUq;
+            case 8:
+                return this.gUr;
         }
     }
 
     public int getType(int i) {
-        if (i == this.ggN) {
+        if (i == this.gUm) {
             return 0;
         }
-        if (i == this.ggO) {
+        if (i == this.gUn) {
             return 1;
         }
-        if (i == this.ggP) {
-            return 3;
-        }
-        if (i == this.ggQ) {
-            return 4;
-        }
-        if (i == this.ggR) {
+        if (i == this.gUo) {
             return 5;
         }
-        if (i == this.ggS) {
+        if (i == this.gUp) {
             return 6;
         }
-        if (i == this.ggT) {
+        if (i == this.gUq) {
             return 7;
+        }
+        if (i == this.gUr) {
+            return 8;
         }
         return -1;
     }
 
-    public int btI() {
-        return this.ggU;
+    public int bKW() {
+        return this.gUs;
     }
 
-    private int btJ() {
-        return com.baidu.tbadk.core.sharedPref.b.alP().getInt("recommend_tab_show", 23);
+    private int bKX() {
+        return com.baidu.tbadk.core.sharedPref.b.aCY().getInt("recommend_tab_show", 23);
     }
 
-    public String u(Context context, int i) {
+    public String B(Context context, int i) {
         if (context == null) {
             return null;
         }
-        if (i == this.ggN) {
-            String string = com.baidu.tbadk.core.sharedPref.b.alP().getString("key_concern", "");
+        if (i == this.gUm) {
+            String string = com.baidu.tbadk.core.sharedPref.b.aCY().getString("key_concern", "");
             if (StringUtils.isNull(string)) {
                 return context.getString(R.string.tab_name_concern);
             }
             return string;
-        } else if (i == this.ggO) {
-            String string2 = com.baidu.tbadk.core.sharedPref.b.alP().getString("key_rec", "");
+        } else if (i == this.gUn) {
+            String string2 = com.baidu.tbadk.core.sharedPref.b.aCY().getString("key_rec", "");
             if (StringUtils.isNull(string2)) {
                 return context.getString(R.string.tab_name_recommend);
             }
             return string2;
-        } else if (i == this.ggP) {
-            String string3 = com.baidu.tbadk.core.sharedPref.b.alP().getString("key_video", "");
+        } else if (i == this.gUo) {
+            String string3 = com.baidu.tbadk.core.sharedPref.b.aCY().getString("key_topic", "");
             if (StringUtils.isNull(string3)) {
-                return context.getString(R.string.tab_name_video_recommend);
-            }
-            return string3;
-        } else if (i == this.ggQ) {
-            String string4 = com.baidu.tbadk.core.sharedPref.b.alP().getString("key_daily", "");
-            if (StringUtils.isNull(string4)) {
-                return context.getString(R.string.tab_name_daily);
-            }
-            return string4;
-        } else if (i == this.ggR) {
-            String string5 = com.baidu.tbadk.core.sharedPref.b.alP().getString("key_topic", "");
-            if (StringUtils.isNull(string5)) {
                 return context.getString(R.string.tab_name_topic);
             }
-            return string5;
-        } else if (i == this.ggS) {
-            String string6 = com.baidu.tbadk.core.sharedPref.b.alP().getString("key_live", "");
-            if (StringUtils.isNull(string6)) {
+            return string3;
+        } else if (i == this.gUp) {
+            String string4 = com.baidu.tbadk.core.sharedPref.b.aCY().getString("key_live", "");
+            if (StringUtils.isNull(string4)) {
                 return context.getString(R.string.tab_name_live);
             }
-            return string6;
-        } else if (i == this.ggT) {
-            String string7 = com.baidu.tbadk.core.sharedPref.b.alP().getString("key_game_video", "");
-            if (StringUtils.isNull(string7)) {
+            return string4;
+        } else if (i == this.gUq) {
+            String string5 = com.baidu.tbadk.core.sharedPref.b.aCY().getString("key_game_video", "");
+            if (StringUtils.isNull(string5)) {
                 return context.getString(R.string.tab_name_game_video);
             }
-            return string7;
+            return string5;
+        } else if (i == this.gUr) {
+            String string6 = com.baidu.tbadk.core.sharedPref.b.aCY().getString("key_video_tab", "");
+            if (StringUtils.isNull(string6)) {
+                return context.getString(R.string.tab_name_video_recommend);
+            }
+            return string6;
         } else {
             return null;
         }

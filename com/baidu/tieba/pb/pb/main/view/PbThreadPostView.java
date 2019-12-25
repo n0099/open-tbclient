@@ -10,13 +10,13 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.data.d;
-/* loaded from: classes4.dex */
+import com.baidu.tieba.pb.data.f;
+/* loaded from: classes6.dex */
 public class PbThreadPostView extends LinearLayout {
-    private d hQG;
-    public View hZS;
-    public TextView hZT;
-    public TextView hZU;
+    public View iPd;
+    public TextView iPe;
+    public TextView iPf;
+    private f izO;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -36,30 +36,30 @@ public class PbThreadPostView extends LinearLayout {
         setOrientation(1);
         setGravity(17);
         LayoutInflater.from(getContext()).inflate(R.layout.pb_thread_post_view, (ViewGroup) this, true);
-        md();
+        na();
     }
 
-    private void md() {
-        this.hZS = findViewById(R.id.pb_thread_post_container);
-        this.hZT = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.hZU = (TextView) findViewById(R.id.pb_thread_post_button);
+    private void na() {
+        this.iPd = findViewById(R.id.pb_thread_post_container);
+        this.iPe = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.iPf = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
-    public void setData(d dVar) {
-        this.hQG = dVar;
-        mD(TbadkCoreApplication.getInst().getSkinType());
+    public void setData(f fVar) {
+        this.izO = fVar;
+        oT(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.hZU.setOnClickListener(this.mOnClickListener);
+            this.iPf.setOnClickListener(this.mOnClickListener);
         }
     }
 
-    public void mD(int i) {
-        am.setBackgroundColor(this.hZS, R.color.cp_bg_line_e, i);
-        am.setViewTextColor(this.hZT, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.hZU, (int) R.color.cp_link_tip_a);
+    public void oT(int i) {
+        am.setBackgroundColor(this.iPd, R.color.cp_bg_line_e, i);
+        am.setViewTextColor(this.iPe, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.iPf, (int) R.color.cp_link_tip_a);
     }
 }

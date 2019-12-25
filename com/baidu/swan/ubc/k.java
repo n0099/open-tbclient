@@ -4,19 +4,21 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface k {
-    int AC();
+    int DH();
 
-    ExecutorService BF();
+    l FO();
 
-    String JW();
+    ExecutorService Fb();
 
-    l Kh();
+    String Sk();
 
-    String Nd();
+    String WD();
 
-    boolean Ne();
+    boolean WE();
+
+    boolean WF();
 
     void a(String str, int i, JSONArray jSONArray);
 
@@ -26,6 +28,8 @@ public interface k {
 
     void c(String str, Object obj, int i);
 
+    String cl(Context context);
+
     void e(String str, int i, String str2);
 
     String getAppId();
@@ -34,9 +38,13 @@ public interface k {
 
     String getDeviceId(Context context);
 
+    String getHostName();
+
+    String getUserId(Context context);
+
     SQLiteDatabase getWritableDatabase();
 
-    boolean gv(String str);
+    boolean jr(String str);
 
-    void t(String str, int i);
+    void w(String str, int i);
 }

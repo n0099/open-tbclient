@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ez extends ex {
     private static int a = 3600000;
 

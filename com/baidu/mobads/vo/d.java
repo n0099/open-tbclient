@@ -17,10 +17,11 @@ import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class d implements IXAdRequestInfo {
     protected Context d;
     protected Activity e;
@@ -31,7 +32,7 @@ public abstract class d implements IXAdRequestInfo {
     private int p;
     private int r;
     protected String c = "TODO";
-    private String a = "android";
+    private String a = PraiseDataPassUtil.KEY_FROM_OS;
     private String j = "";
     private int m = XAdSDKFoundationFacade.getInstance().getAdConstants().getAdCreativeTypeImage();
     private String n = "LP,DL";
@@ -77,7 +78,7 @@ public abstract class d implements IXAdRequestInfo {
             hashMap.put("v", f() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30");
             hashMap.put(IXAdRequestInfo.CS, "");
             hashMap.put("pk", commonUtils.getAppPackage(this.d));
-            hashMap.put(IXAdRequestInfo.SDK_VALID, "sdk_8.8079");
+            hashMap.put(IXAdRequestInfo.SDK_VALID, "sdk_8.8146");
             String appId = commonUtils.getAppId(this.d);
             hashMap.put(IXAdRequestInfo.COST_NAME, appId + "_cpr");
             hashMap.put("appid", appId);
@@ -144,7 +145,7 @@ public abstract class d implements IXAdRequestInfo {
             hashMap.put("sdc", systemUtils.getAppSDC() + Constants.ACCEPT_TIME_SEPARATOR_SP + systemUtils.getMem());
             hashMap.put("act", getAct());
             hashMap.put("prod", getProd());
-            hashMap.put("os", "android");
+            hashMap.put("os", PraiseDataPassUtil.KEY_FROM_OS);
             hashMap.put(IXAdRequestInfo.OSV, Build.VERSION.RELEASE);
             hashMap.put(IXAdRequestInfo.BDR, "" + Build.VERSION.SDK_INT);
             hashMap.put("apinfo", commonUtils.getBaiduMapsInfo(this.d));
@@ -160,10 +161,10 @@ public abstract class d implements IXAdRequestInfo {
             hashMap.put("mac", systemUtils.getMacAddress(this.d));
             hashMap.put("cuid", systemUtils.getCUID(this.d));
             hashMap.put("snfrom", systemUtils.getSnFrom(this.d));
-            hashMap.put(IXAdRequestInfo.P_VER, "8.8079");
+            hashMap.put(IXAdRequestInfo.P_VER, "8.8146");
             hashMap.put("req_id", commonUtils.createRequestId(this.d, getApid()));
             hashMap.put("cssid", systemUtils.isWifiConnected(this.d).booleanValue() ? systemUtils.getWifiConnected(this.d) : "");
-            if (AdSettings.zn().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a())) {
+            if (AdSettings.getSupportHttps().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a())) {
                 hashMap.put("rpt", String.valueOf(AdSettings.b.HTTPS_PROTOCOL_TYPE.a()));
             }
             hashMap.put(IXAdRequestInfo.APP_VERSION_NAME, "" + b(this.d));

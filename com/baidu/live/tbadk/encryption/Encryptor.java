@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.encryption;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface Encryptor {
     String doDecrypt(String str);
 

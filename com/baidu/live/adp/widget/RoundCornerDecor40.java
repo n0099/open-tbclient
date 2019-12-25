@@ -11,7 +11,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class RoundCornerDecor40 extends BitmapDrawable implements RoundCornerDecor {
     private RectF mActureRect;
     private int mHeight;

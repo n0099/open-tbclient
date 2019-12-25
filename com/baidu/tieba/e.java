@@ -1,84 +1,236 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.s;
-import com.baidu.adp.lib.util.u;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import java.io.File;
-import java.io.FileInputStream;
-import java.security.PublicKey;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes.dex */
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.searchbox.publisher.controller.IPublisherManagerInterface;
+import com.baidu.searchbox.publisher.controller.PublisherManagerFactory;
+import com.baidu.searchbox.ugc.model.UgcConstant;
+import com.baidu.searchbox.ugc.utils.UgcServerApiUtils;
+import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
+import com.baidu.searchbox.ugc.webjs.UnitedSchemeUGCDispatcher;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.b.a;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.data.h;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
 public class e {
-    public static boolean d(String str, File file) {
-        if (TextUtils.isEmpty(str) || file == null || !file.exists()) {
-            TiebaStatic.log(new an("c10836").bS("obj_type", "checkRSA input args is null"));
-            return false;
+    private static com.baidu.tieba.publisher.service.a dRP;
+    private static com.baidu.tbadk.core.util.b.a mPermissionJudgement;
+    private static IPublisherManagerInterface mPublisherInterfaceManager;
+
+    public static com.baidu.tieba.publisher.service.a aUe() {
+        if (dRP == null) {
+            dRP = new com.baidu.tieba.publisher.service.a();
         }
-        try {
-            PublicKey loadRSAPublicKey = u.loadRSAPublicKey(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
-            if (loadRSAPublicKey == null) {
-                TiebaStatic.log(new an("c10836").bS("obj_type", "publicKeyCode is null").bS("obj_source", file.getName()));
-                return false;
-            }
-            byte[] decodeHex = decodeHex(str);
-            if (decodeHex == null || decodeHex.length <= 0) {
-                TiebaStatic.log(new an("c10836").bS("obj_type", "server_data is null").bS("obj_source", file.getName()));
-                return false;
-            }
-            byte[] decryptWithRSA = u.decryptWithRSA(loadRSAPublicKey, decodeHex);
-            if (decryptWithRSA == null || decryptWithRSA.length <= 0) {
-                TiebaStatic.log(new an("c10836").bS("obj_type", "des is null").bS("obj_source", file.getName()));
-                return false;
-            }
-            String trim = new String(decryptWithRSA, HTTP.UTF_8).trim();
-            String md5 = s.toMd5(new FileInputStream(file));
-            if (md5 != null) {
-                md5 = md5.trim();
-            }
-            if (TextUtils.isEmpty(md5) || TextUtils.isEmpty(trim)) {
-                TiebaStatic.log(new an("c10836").bS("obj_type", "apkMd5 or serverMD5 is null").bS("obj_source", file.getName()));
-                return false;
-            } else if (md5.equalsIgnoreCase(trim)) {
-                return true;
-            } else {
-                TiebaStatic.log(new an("c10836").bS("obj_type", "apkMd5 != serverMD5").bS("obj_source", file.getName()));
-                BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
-                return false;
-            }
-        } catch (Exception e) {
-            TiebaStatic.log(new an("c10836").bS("obj_type", "exception:" + e.getMessage()).bS("obj_source", file.getName()));
-            BdLog.e("download MD5 RSA ERROR！Exception:" + e.getMessage() + " ; file:" + file.getName());
-            return false;
-        }
+        return dRP;
     }
 
-    private static int d(char c) {
-        int digit = Character.digit(c, 16);
-        if (digit == -1) {
-            throw new RuntimeException("Illegal hexadecimal character " + c);
-        }
-        return digit;
+    /* JADX INFO: Access modifiers changed from: private */
+    public static boolean el(Context context) {
+        return bc.checkUpIsLogin(context);
     }
 
-    public static byte[] decodeHex(String str) {
-        int i = 0;
-        if (str == null) {
-            throw new IllegalArgumentException("binary string is null");
+    public static void a(final Activity activity, final h hVar) {
+        if (mPermissionJudgement == null) {
+            mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
         }
-        char[] charArray = str.toCharArray();
-        byte[] bArr = new byte[charArray.length / 2];
-        if (charArray.length % 2 != 0) {
-            return null;
+        mPermissionJudgement.clearRequestPermissionList();
+        mPermissionJudgement.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
+        mPermissionJudgement.a(new a.InterfaceC0366a() { // from class: com.baidu.tieba.e.1
+            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0366a
+            public void onPermissionsGranted() {
+                if (e.el(activity)) {
+                    UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
+                    ugcSchemeModel.publishType = "0";
+                    if (!StringUtils.isNull(hVar.placeholder)) {
+                        ugcSchemeModel.placeholder = hVar.placeholder;
+                    } else {
+                        ugcSchemeModel.placeholder = TbadkCoreApplication.getInst().getString(R.string.main_body);
+                    }
+                    if (!StringUtils.isNull(hVar.placeTitle)) {
+                        ugcSchemeModel.placeTitle = hVar.placeTitle;
+                    } else {
+                        ugcSchemeModel.placeTitle = TbadkCoreApplication.getInst().getString(R.string.publisher_place_title);
+                    }
+                    ugcSchemeModel.sourceFrom = "tieba";
+                    ugcSchemeModel.serverTopicsRule = 0;
+                    try {
+                        JSONObject jSONObject = new JSONObject("{\"poi_id\":\"\"}");
+                        jSONObject.put(UgcConstant.POI_ID, UgcServerApiUtils.getLocationInfo());
+                        ugcSchemeModel.location = jSONObject.toString();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    ugcSchemeModel.atSchema = "https://mbd.baidu.com/webpage?type=topic&action=at";
+                    ugcSchemeModel.url = "publisher?action=ugc&cmd=177";
+                    ugcSchemeModel.callType = 1;
+                    ugcSchemeModel.ugcCallback = "tieba";
+                    UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.1.1
+                        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
+                        public void handleSchemeDispatchCallback(String str, String str2) {
+                            if (hVar.dqV != null) {
+                                hVar.dqV.onSuccess();
+                            }
+                        }
+
+                        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
+                        public String getCurrentPageUrl() {
+                            return null;
+                        }
+                    });
+                    if (e.mPublisherInterfaceManager == null) {
+                        IPublisherManagerInterface unused = e.mPublisherInterfaceManager = PublisherManagerFactory.get();
+                    }
+                    e.mPublisherInterfaceManager.openPublisher(activity, ugcSchemeModel, -1);
+                }
+            }
+        });
+        mPermissionJudgement.startRequestPermission(activity);
+    }
+
+    public static void b(final Activity activity, final h hVar) {
+        if (mPermissionJudgement == null) {
+            mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
         }
-        for (int i2 = 0; i + 1 < charArray.length && i2 < bArr.length; i2++) {
-            int i3 = i + 1;
-            int d = d(charArray[i]) << 4;
-            i = i3 + 1;
-            bArr[i2] = (byte) (d(charArray[i3]) | d);
+        mPermissionJudgement.clearRequestPermissionList();
+        mPermissionJudgement.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
+        mPermissionJudgement.a(new a.InterfaceC0366a() { // from class: com.baidu.tieba.e.2
+            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0366a
+            public void onPermissionsGranted() {
+                if (e.el(activity)) {
+                    UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
+                    ugcSchemeModel.publishType = "4";
+                    if (!StringUtils.isNull(hVar.placeholder)) {
+                        ugcSchemeModel.placeholder = hVar.placeholder;
+                    } else {
+                        ugcSchemeModel.placeholder = TbadkCoreApplication.getInst().getString(R.string.main_body);
+                    }
+                    if (!StringUtils.isNull(hVar.placeTitle)) {
+                        ugcSchemeModel.placeTitle = hVar.placeTitle;
+                    } else {
+                        ugcSchemeModel.placeTitle = TbadkCoreApplication.getInst().getString(R.string.publisher_place_title);
+                    }
+                    ugcSchemeModel.sourceFrom = "tieba";
+                    ugcSchemeModel.serverTopicsRule = 0;
+                    try {
+                        JSONObject jSONObject = new JSONObject("{\"poi_id\":\"\"}");
+                        jSONObject.put(UgcConstant.POI_ID, UgcServerApiUtils.getLocationInfo());
+                        ugcSchemeModel.location = jSONObject.toString();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    ugcSchemeModel.atSchema = "https://mbd.baidu.com/webpage?type=topic&action=at";
+                    ugcSchemeModel.url = "publisher?action=ugc&cmd=177";
+                    ugcSchemeModel.callType = 1;
+                    ugcSchemeModel.ugcCallback = "tieba";
+                    UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.2.1
+                        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
+                        public void handleSchemeDispatchCallback(String str, String str2) {
+                            if (hVar.dqV != null) {
+                                hVar.dqV.onSuccess();
+                            }
+                        }
+
+                        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
+                        public String getCurrentPageUrl() {
+                            return null;
+                        }
+                    });
+                    if (e.mPublisherInterfaceManager == null) {
+                        IPublisherManagerInterface unused = e.mPublisherInterfaceManager = PublisherManagerFactory.get();
+                    }
+                    e.mPublisherInterfaceManager.openPublisher(activity, ugcSchemeModel, -1);
+                }
+            }
+        });
+        mPermissionJudgement.startRequestPermission(activity);
+    }
+
+    public static void c(final Activity activity, final h hVar) {
+        if (mPermissionJudgement == null) {
+            mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
         }
-        return bArr;
+        mPermissionJudgement.clearRequestPermissionList();
+        mPermissionJudgement.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
+        mPermissionJudgement.a(new a.InterfaceC0366a() { // from class: com.baidu.tieba.e.3
+            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0366a
+            public void onPermissionsGranted() {
+                if (e.el(activity)) {
+                    UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
+                    ugcSchemeModel.url = "publisher?action=ugc&cmd=177";
+                    ugcSchemeModel.atSchema = "https://mbd.baidu.com/webpage?type=topic&action=at";
+                    ugcSchemeModel.publishType = "5";
+                    ugcSchemeModel.callType = 1;
+                    if (!StringUtils.isNull(hVar.placeholder)) {
+                        ugcSchemeModel.placeholder = hVar.placeholder;
+                    } else {
+                        ugcSchemeModel.placeholder = TbadkCoreApplication.getInst().getString(R.string.publisher_forward_place_hint);
+                    }
+                    if (!StringUtils.isNull(hVar.placeTitle)) {
+                        ugcSchemeModel.placeTitle = hVar.placeTitle;
+                    } else {
+                        ugcSchemeModel.placeTitle = TbadkCoreApplication.getInst().getString(R.string.publisher_forward_place_title);
+                    }
+                    ugcSchemeModel.sourceFrom = "tieba";
+                    if (!StringUtils.isNull(hVar.dqW)) {
+                        ugcSchemeModel.forwardContent = hVar.dqW;
+                    }
+                    if (hVar.dqX != null) {
+                        try {
+                            JSONObject jSONObject = new JSONObject();
+                            jSONObject.put("title", hVar.dqX.title);
+                            jSONObject.put("ref_type", hVar.dqX.ref_type);
+                            jSONObject.put("thumbpic", hVar.dqX.thumbpic);
+                            jSONObject.put("channel", hVar.dqX.channel);
+                            jSONObject.put("url", hVar.dqX.url);
+                            jSONObject.put("account_type", hVar.dqX.drg);
+                            jSONObject.put("id", hVar.dqX.id);
+                            jSONObject.put("nid", hVar.dqX.nid);
+                            jSONObject.put("video_duration", hVar.dqX.video_duration);
+                            jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, hVar.dqX.avatar);
+                            jSONObject.put("tid", hVar.dqX.tid);
+                            ugcSchemeModel.referenceDt = jSONObject.toString();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (hVar.dqY != null) {
+                        try {
+                            JSONObject jSONObject2 = new JSONObject();
+                            jSONObject2.put("share_type", hVar.dqY.drd);
+                            jSONObject2.put("forward_rel_id", hVar.dqY.dre);
+                            jSONObject2.put("forward_is_comment", hVar.dqY.drf);
+                            ugcSchemeModel.ext = jSONObject2.toString();
+                        } catch (JSONException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                    ugcSchemeModel.ugcCallback = "tieba";
+                    UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.3.1
+                        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
+                        public void handleSchemeDispatchCallback(String str, String str2) {
+                            if (hVar.dqV != null) {
+                                hVar.dqV.onSuccess();
+                            }
+                        }
+
+                        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
+                        public String getCurrentPageUrl() {
+                            return null;
+                        }
+                    });
+                    if (e.mPublisherInterfaceManager == null) {
+                        IPublisherManagerInterface unused = e.mPublisherInterfaceManager = PublisherManagerFactory.get();
+                    }
+                    e.mPublisherInterfaceManager.openPublisher(activity, ugcSchemeModel, -1);
+                }
+            }
+        });
+        mPermissionJudgement.startRequestPermission(activity);
     }
 }

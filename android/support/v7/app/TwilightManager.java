@@ -1,15 +1,16 @@
 package android.support.v7.app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
-import android.net.http.Headers;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresPermission;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.content.PermissionChecker;
 import android.util.Log;
 import java.util.Calendar;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class TwilightManager {
     private static final int SUNRISE = 6;
     private static final int SUNSET = 22;
@@ -23,7 +24,7 @@ class TwilightManager {
     public static TwilightManager getInstance(@NonNull Context context) {
         if (sInstance == null) {
             Context applicationContext = context.getApplicationContext();
-            sInstance = new TwilightManager(applicationContext, (LocationManager) applicationContext.getSystemService(Headers.LOCATION));
+            sInstance = new TwilightManager(applicationContext, (LocationManager) applicationContext.getSystemService("location"));
         }
         return sInstance;
     }
@@ -55,6 +56,7 @@ class TwilightManager {
         return i < 6 || i >= 22;
     }
 
+    @SuppressLint({"MissingPermission"})
     private Location getLastKnownLocation() {
         Location lastKnownLocationForProvider = PermissionChecker.checkSelfPermission(this.mContext, "android.permission.ACCESS_COARSE_LOCATION") == 0 ? getLastKnownLocationForProvider("network") : null;
         Location lastKnownLocationForProvider2 = PermissionChecker.checkSelfPermission(this.mContext, "android.permission.ACCESS_FINE_LOCATION") == 0 ? getLastKnownLocationForProvider("gps") : null;
@@ -67,21 +69,20 @@ class TwilightManager {
         return lastKnownLocationForProvider2;
     }
 
+    @RequiresPermission(anyOf = {"android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_FINE_LOCATION"})
     private Location getLastKnownLocationForProvider(String str) {
-        if (this.mLocationManager != null) {
-            try {
-                if (this.mLocationManager.isProviderEnabled(str)) {
-                    return this.mLocationManager.getLastKnownLocation(str);
-                }
-            } catch (Exception e) {
-                Log.d(TAG, "Failed to get last known location", e);
+        try {
+            if (this.mLocationManager.isProviderEnabled(str)) {
+                return this.mLocationManager.getLastKnownLocation(str);
             }
+        } catch (Exception e) {
+            Log.d(TAG, "Failed to get last known location", e);
         }
         return null;
     }
 
     private boolean isStateValid() {
-        return this.mTwilightState != null && this.mTwilightState.nextUpdate > System.currentTimeMillis();
+        return this.mTwilightState.nextUpdate > System.currentTimeMillis();
     }
 
     private void updateState(@NonNull Location location) {
@@ -119,7 +120,7 @@ class TwilightManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class TwilightState {
         boolean isNight;
         long nextUpdate;

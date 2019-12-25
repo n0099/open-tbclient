@@ -8,8 +8,7 @@ import android.support.v4.app.NotificationCompat;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static void a(Context context, int i, boolean z) {
         long j = KeepJobService.JOB_CHECK_PERIODIC;
@@ -28,7 +27,7 @@ public final class b {
                 PendingIntent service = PendingIntent.getService(context, 1001, intent, 134217728);
                 switch (i) {
                     case 0:
-                        j = StatisticConfig.MIN_UPLOAD_INTERVAL;
+                        j = 30000;
                         break;
                     case 1:
                         j = 180000;

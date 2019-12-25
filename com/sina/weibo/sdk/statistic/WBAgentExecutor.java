@@ -3,7 +3,7 @@ package com.sina.weibo.sdk.statistic;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class WBAgentExecutor {
     private static ExecutorService mExecutor = Executors.newSingleThreadExecutor();
     private static long TIMEOUT = 5;

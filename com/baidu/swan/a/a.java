@@ -1,19 +1,10 @@
 package com.baidu.swan.a;
 
-import com.baidu.swan.c.d;
-/* loaded from: classes2.dex */
-public class a extends d {
-    private a() {
-        super("app_quick_config");
-    }
-
-    /* renamed from: com.baidu.swan.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    private static final class C0145a {
-        private static final a bvR = new a();
-    }
-
-    public static a Vv() {
-        return C0145a.bvR;
+import com.baidu.swan.pms.a.g;
+import com.baidu.swan.pms.model.e;
+/* loaded from: classes9.dex */
+public abstract class a<T extends com.baidu.swan.pms.model.e> extends g {
+    public com.baidu.swan.pms.a.c<T> agA() {
+        return null;
     }
 }

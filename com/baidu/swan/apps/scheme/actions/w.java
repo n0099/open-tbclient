@@ -1,47 +1,46 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.os.Bundle;
 import android.util.Log;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
+import com.baidu.swan.apps.as.ai;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class w extends z {
+/* loaded from: classes9.dex */
+public class w extends ab {
     public w(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/preventPullDownRefresh");
+        super(jVar, "/swanAPI/preloadSwanCore");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (DEBUG) {
-            Log.d("PreventPullDownRefresh", "handle entity: " + unitedSchemeEntity.toString());
+            Log.d("PreloadSwanCoreAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        JSONObject c = c(unitedSchemeEntity, "params");
-        if (c == null) {
-            com.baidu.swan.apps.console.c.e("preventPullDownRefresh", "none params");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
+        if (!ProcessUtils.isMainProcess()) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal process");
             return false;
         }
-        String optString = c.optString("slaveId");
-        if (TextUtils.isEmpty(optString)) {
-            com.baidu.swan.apps.console.c.e("preventPullDownRefresh", "slaveId null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "slaveId null");
-            return false;
+        JSONObject b = b(unitedSchemeEntity, "params");
+        int optInt = b == null ? 0 : b.optInt("delay", 0);
+        if (optInt < 0) {
+            optInt = 0;
         }
-        com.baidu.swan.apps.b.c.e eH = com.baidu.swan.apps.w.e.LE().eH(optString);
-        if (!(eH instanceof com.baidu.swan.apps.b.c.c)) {
-            com.baidu.swan.apps.console.c.e("preventPullDownRefresh", "webViewManager not a SwanAppSlaveManager");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "webViewManager not a SwanAppSlaveManager");
-            return false;
+        if (DEBUG) {
+            Log.d("PreloadSwanCoreAction", "delay: " + optInt);
         }
-        boolean optBoolean = c.optBoolean("prevent", false);
-        PullToRefreshBaseWebView Cm = ((com.baidu.swan.apps.b.c.c) eH).Cm();
-        if (Cm != null) {
-            Cm.setIsPreventPullToRefresh(optBoolean);
-        }
+        ai.b(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.w.1
+            @Override // java.lang.Runnable
+            public void run() {
+                Bundle bundle = new Bundle();
+                bundle.putString("bundle_key_preload_preload_scene", "5");
+                com.baidu.swan.apps.process.messaging.service.b.b(context, bundle);
+            }
+        }, optInt);
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
 }

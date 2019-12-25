@@ -3,18 +3,22 @@ package rx.internal.operators;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class CompletableOnSubscribeConcatIterable implements b.a {
-    final Iterable<? extends rx.b> kyt;
+    final Iterable<? extends rx.b> mTB;
+
+    public CompletableOnSubscribeConcatIterable(Iterable<? extends rx.b> iterable) {
+        this.mTB = iterable;
+    }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
-    /* renamed from: c */
+    /* renamed from: a */
     public void call(rx.c cVar) {
         try {
-            Iterator<? extends rx.b> it = this.kyt.iterator();
+            Iterator<? extends rx.b> it = this.mTB.iterator();
             if (it == null) {
-                cVar.onSubscribe(rx.subscriptions.e.cQd());
+                cVar.onSubscribe(rx.subscriptions.e.dHK());
                 cVar.onError(new NullPointerException("The iterator returned is null"));
                 return;
             }
@@ -22,13 +26,13 @@ public final class CompletableOnSubscribeConcatIterable implements b.a {
             cVar.onSubscribe(concatInnerSubscriber.sd);
             concatInnerSubscriber.next();
         } catch (Throwable th) {
-            cVar.onSubscribe(rx.subscriptions.e.cQd());
+            cVar.onSubscribe(rx.subscriptions.e.dHK());
             cVar.onError(th);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class ConcatInnerSubscriber extends AtomicInteger implements rx.c {
         private static final long serialVersionUID = -7965400327305809232L;
         final rx.c actual;
@@ -70,7 +74,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.a {
                                 this.actual.onError(new NullPointerException("The completable returned is null"));
                                 return;
                             }
-                            next.a(this);
+                            next.b(this);
                             if (decrementAndGet() == 0) {
                                 return;
                             }

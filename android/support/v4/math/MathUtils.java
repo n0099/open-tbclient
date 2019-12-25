@@ -1,5 +1,5 @@
 package android.support.v4.math;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MathUtils {
     private MathUtils() {
     }

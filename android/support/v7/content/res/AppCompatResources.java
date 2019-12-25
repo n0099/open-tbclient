@@ -16,7 +16,7 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.util.TypedValue;
 import java.util.WeakHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class AppCompatResources {
     private static final String LOG_TAG = "AppCompatResources";
     private static final ThreadLocal<TypedValue> TL_TYPED_VALUE = new ThreadLocal<>();
@@ -106,7 +106,7 @@ public final class AppCompatResources {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ColorStateListCacheEntry {
         final Configuration configuration;
         final ColorStateList value;

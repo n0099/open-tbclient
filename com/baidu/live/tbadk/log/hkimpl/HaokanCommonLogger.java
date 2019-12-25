@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.statics.AlaStaticsManager;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HaokanCommonLogger implements ICommonLogger {
     @Override // com.baidu.live.tbadk.log.ICommonLogger
     public void doTestLog() {

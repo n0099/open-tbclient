@@ -2,6 +2,8 @@ package com.baidu.android.pushservice.e;
 
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.webkit.internal.ETAG;
+import com.baidubce.http.Headers;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -20,8 +22,7 @@ import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b {
     static {
         if (Build.VERSION.SDK_INT <= 8) {
@@ -111,16 +112,16 @@ public class b {
             }
             Map.Entry<String, String> next = it.next();
             if (i2 != 0) {
-                stringBuffer.append("&");
+                stringBuffer.append(ETAG.ITEM_SEPARATOR);
             }
             String key = next.getKey();
             if (!TextUtils.isEmpty(key)) {
-                stringBuffer.append(key).append("=");
+                stringBuffer.append(key).append(ETAG.EQUAL);
                 String value = next.getValue();
                 if (TextUtils.isEmpty(value)) {
-                    stringBuffer.append(URLEncoder.encode("", HTTP.UTF_8));
+                    stringBuffer.append(URLEncoder.encode("", "UTF-8"));
                 } else {
-                    stringBuffer.append(URLEncoder.encode(value, HTTP.UTF_8));
+                    stringBuffer.append(URLEncoder.encode(value, "UTF-8"));
                 }
             }
             i = i2 + 1;
@@ -144,9 +145,9 @@ public class b {
                 }
                 httpURLConnection.setRequestMethod(str2);
                 httpURLConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-                httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
+                httpURLConnection.setRequestProperty(Headers.ACCEPT_ENCODING, "gzip");
                 if (!TextUtils.isEmpty(str3)) {
-                    httpURLConnection.setRequestProperty(HTTP.USER_AGENT, str3);
+                    httpURLConnection.setRequestProperty("User-Agent", str3);
                 }
                 if (httpURLConnection instanceof HttpsURLConnection) {
                 }
@@ -204,7 +205,7 @@ public class b {
                 dataOutputStream = null;
             }
             try {
-                dataOutputStream.write(a(hashMap).getBytes(HTTP.UTF_8));
+                dataOutputStream.write(a(hashMap).getBytes("UTF-8"));
                 dataOutputStream.flush();
                 a(dataOutputStream, outputStream);
                 return z;
@@ -249,7 +250,7 @@ public class b {
     }
 
     private static boolean b(HttpURLConnection httpURLConnection) {
-        String headerField = httpURLConnection.getHeaderField(HTTP.CONTENT_ENCODING);
+        String headerField = httpURLConnection.getHeaderField("Content-Encoding");
         return !TextUtils.isEmpty(headerField) && headerField.contains("zip");
     }
 }

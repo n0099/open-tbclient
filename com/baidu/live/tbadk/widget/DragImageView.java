@@ -31,7 +31,7 @@ import android.widget.ImageView;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.BlockingLinkedDeque;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.SkinManager;
@@ -40,7 +40,7 @@ import com.baidu.live.tbadk.widget.largeimage.logic.ILoadBlockBitmapCallback;
 import com.baidu.live.tbadk.widget.largeimage.logic.LargeImageDelegate;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DragImageView extends ImageView {
     public static final int DEFAULT_MODE = 0;
     static final int DRAG = 1;
@@ -122,30 +122,30 @@ public class DragImageView extends ImageView {
     private static final String TAG = DragImageView.class.getSimpleName();
     private static final int EXIT_DISTANCE = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) / 5;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class Frame {
         public Bitmap bm;
         public int delay;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface IDragToExitListener {
         void onDragEnd();
 
         void onDragStart();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnGifSetListener {
         void gifSet(DragImageView dragImageView);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnImageScrollListener {
         void imageScroll(DragImageView dragImageView, int i, int i2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnSizeChangedListener {
         void sizeChenged(DragImageView dragImageView, boolean z, boolean z2);
     }
@@ -1272,7 +1272,7 @@ public class DragImageView extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class DecelerateAnimation extends Animation {
         static final long Decelerate = 2500;
         private int mStartX;

@@ -7,6 +7,8 @@ import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.Overlay;
 import com.baidu.mapsdkplatform.comjni.map.basemap.JNIBaseMap;
+import com.baidu.webkit.internal.ABTestConstants;
+import com.baidu.webkit.net.BdNetTask;
 /* loaded from: classes5.dex */
 public class WNaviBaiduMap {
     private static long b;
@@ -43,7 +45,7 @@ public class WNaviBaiduMap {
     public static int getScaleDis(int i) {
         switch (i) {
             case 1:
-                return 10000000;
+                return ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT;
             case 2:
                 return 5000000;
             case 3:
@@ -59,7 +61,7 @@ public class WNaviBaiduMap {
             case 8:
                 return IMConstants.ERROR_BASE;
             case 9:
-                return 25000;
+                return BdNetTask.TIMEOUT_READ;
             case 10:
                 return MessageConfig.SOCKET_TIME_OUT_MS_2G;
             case 11:

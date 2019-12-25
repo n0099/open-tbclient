@@ -9,6 +9,7 @@ import android.os.StatFs;
 import android.os.storage.StorageManager;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mobstat.Config;
+import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public final class b {
                 c = context.getCacheDir().getAbsolutePath();
                 d = 20971520;
                 e = 52428800;
-                f = 5242880;
+                f = BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE;
                 return;
             }
             if (context.getCacheDir() != null) {
@@ -67,7 +68,7 @@ public final class b {
             c = "";
             d = 10485760;
             e = 10485760;
-            f = 5242880;
+            f = BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE;
         }
     }
 

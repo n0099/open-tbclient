@@ -7,19 +7,19 @@ import java.util.Collections;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class n<T> {
     private final com.tb.airbnb.lottie.e composition;
     @Nullable
-    private final JSONObject gp;
-    private final m.a<T> ktr;
+    private final JSONObject mOj;
+    private final m.a<T> mOk;
     private final float scale;
 
     private n(@Nullable JSONObject jSONObject, float f, com.tb.airbnb.lottie.e eVar, m.a<T> aVar) {
-        this.gp = jSONObject;
+        this.mOj = jSONObject;
         this.scale = f;
         this.composition = eVar;
-        this.ktr = aVar;
+        this.mOk = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,16 +28,16 @@ public class n<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a<T> cLC() {
-        List<com.tb.airbnb.lottie.a.a<T>> ct = ct();
-        return new a<>(ct, h(ct));
+    public a<T> dBK() {
+        List<com.tb.airbnb.lottie.a.a<T>> dBL = dBL();
+        return new a<>(dBL, fw(dBL));
     }
 
-    private List<com.tb.airbnb.lottie.a.a<T>> ct() {
-        if (this.gp != null) {
-            Object opt = this.gp.opt("k");
-            if (j(opt)) {
-                return a.C0570a.a((JSONArray) opt, this.composition, this.scale, this.ktr);
+    private List<com.tb.airbnb.lottie.a.a<T>> dBL() {
+        if (this.mOj != null) {
+            Object opt = this.mOj.opt("k");
+            if (bC(opt)) {
+                return a.C0685a.a((JSONArray) opt, this.composition, this.scale, this.mOk);
             }
             return Collections.emptyList();
         }
@@ -45,17 +45,17 @@ public class n<T> {
     }
 
     @Nullable
-    private T h(List<com.tb.airbnb.lottie.a.a<T>> list) {
-        if (this.gp != null) {
+    private T fw(List<com.tb.airbnb.lottie.a.a<T>> list) {
+        if (this.mOj != null) {
             if (!list.isEmpty()) {
-                return list.get(0).dK;
+                return list.get(0).kn;
             }
-            return this.ktr.b(this.gp.opt("k"), this.scale);
+            return this.mOk.c(this.mOj.opt("k"), this.scale);
         }
         return null;
     }
 
-    private static boolean j(Object obj) {
+    private static boolean bC(Object obj) {
         if (obj instanceof JSONArray) {
             Object opt = ((JSONArray) obj).opt(0);
             return (opt instanceof JSONObject) && ((JSONObject) opt).has("t");
@@ -64,15 +64,15 @@ public class n<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a<T> {
-        final List<com.tb.airbnb.lottie.a.a<T>> eR;
+        final List<com.tb.airbnb.lottie.a.a<T>> gD;
         @Nullable
-        final T fg;
+        final T mNB;
 
         a(List<com.tb.airbnb.lottie.a.a<T>> list, @Nullable T t) {
-            this.eR = list;
-            this.fg = t;
+            this.gD = list;
+            this.mNB = t;
         }
     }
 }

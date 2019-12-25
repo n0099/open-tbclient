@@ -2,19 +2,19 @@ package com.baidu.afd.videopaster;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface a {
     int height();
 
-    int jY();
+    void j(HashMap hashMap);
 
-    void k(HashMap hashMap);
+    String kC();
 
-    int ka();
+    int kp();
 
-    Map<String, String> kb();
+    int kr();
 
-    String kl();
+    Map<String, String> ks();
 
     int width();
 }

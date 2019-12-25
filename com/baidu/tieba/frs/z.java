@@ -1,27 +1,71 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
 import android.util.SparseArray;
-/* loaded from: classes.dex */
-public class z {
-    private static z fyo = new z();
-    private final SparseArray<String> fyn = new SparseArray<>();
+import com.baidu.adp.BdUniqueId;
+/* loaded from: classes5.dex */
+public class z extends SparseArray<ag> {
+    public BdUniqueId dwY = null;
 
-    private z() {
+    public void a(aj ajVar) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                ag valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(ajVar);
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public static z blB() {
-        return fyo;
+    public void init() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                ag valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public void qJ(int i) {
-        this.fyn.put(i, "1");
+    public void destory() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                ag valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(null);
+                    valueAt.bep();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public boolean qK(int i) {
+    public void a(int i, ag agVar) {
         if (i > 100) {
             i = 100;
         }
-        return !TextUtils.isEmpty(this.fyn.get(i));
+        put(i, agVar);
+    }
+
+    public ag sO(int i) {
+        if (i > 100) {
+            i = 100;
+        }
+        return get(i);
     }
 }

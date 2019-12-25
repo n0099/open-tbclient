@@ -3,13 +3,12 @@ package com.baidu.live.adp.lib.stats;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Address;
-import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.lbs.BdLocationMananger;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tieba.compatible.EditorHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdStatisticsManager {
     private static BdStatisticsManager statisticsManager = null;
     private Context mContext;
@@ -33,7 +32,7 @@ public class BdStatisticsManager {
         if (bdStatsItem != null) {
             Address address = BdLocationMananger.getInstance().getAddress(false, false);
             if (address != null) {
-                bdStatsItem.append(Headers.LOCATION, address.getLocality());
+                bdStatsItem.append("location", address.getLocality());
             }
             addLog(BdStatsConstant.StatsType.PERFORMANCE, str, -1L, null, bdStatsItem, new Object[0]);
         }
@@ -132,7 +131,7 @@ public class BdStatisticsManager {
     }
 
     public void file(String str, String str2, int i, String str3, Object... objArr) {
-        op(true, BdStatsConstant.OpSubType.FILE, str, str2, 0L, i, str3, objArr);
+        op(true, "file", str, str2, 0L, i, str3, objArr);
     }
 
     public void db(String str, String str2, int i, String str3, Object... objArr) {
@@ -165,7 +164,7 @@ public class BdStatisticsManager {
             bdStatsItem.append(BdStatsConstant.StatsKey.CRASH_INFO, str2);
         }
         if (!TextUtils.isEmpty(str3)) {
-            bdStatsItem.append(BdStatsConstant.StatsKey.FROM, str3);
+            bdStatsItem.append("f", str3);
         }
         bdStatsItem.append("t", String.valueOf(System.currentTimeMillis()));
         if (objArr != null && objArr.length > 0) {

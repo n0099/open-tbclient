@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import rx.Notification;
 import rx.d;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public enum InternalObservableUtils {
     ;
     
@@ -13,22 +13,22 @@ public enum InternalObservableUtils {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.g
         /* renamed from: a */
-        public Long h(Long l2, Object obj) {
+        public Long m(Long l2, Object obj) {
             return Long.valueOf(l2.longValue() + 1);
         }
     };
     public static final f OBJECT_EQUALS = new rx.functions.g<Object, Object, Boolean>() { // from class: rx.internal.util.InternalObservableUtils.f
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.g
-        /* renamed from: i */
-        public Boolean h(Object obj, Object obj2) {
+        /* renamed from: n */
+        public Boolean m(Object obj, Object obj2) {
             return Boolean.valueOf(obj == obj2 || (obj != null && obj.equals(obj2)));
         }
     };
     public static final q TO_ARRAY = new rx.functions.f<List<? extends rx.d<?>>, rx.d<?>[]>() { // from class: rx.internal.util.InternalObservableUtils.q
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.f
-        /* renamed from: fb */
+        /* renamed from: fG */
         public rx.d<?>[] call(List<? extends rx.d<?>> list) {
             return (rx.d[]) list.toArray(new rx.d[list.size()]);
         }
@@ -38,7 +38,7 @@ public enum InternalObservableUtils {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.g
         /* renamed from: a */
-        public Integer h(Integer num, Object obj) {
+        public Integer m(Integer num, Object obj) {
             return Integer.valueOf(num.intValue() + 1);
         }
     };
@@ -50,13 +50,13 @@ public enum InternalObservableUtils {
             throw new OnErrorNotImplementedException(th);
         }
     };
-    public static final d.b<Boolean, Object> IS_EMPTY = new rx.internal.operators.h(UtilityFunctions.cPf(), true);
+    public static final d.b<Boolean, Object> IS_EMPTY = new rx.internal.operators.i(UtilityFunctions.dGQ(), true);
 
     public static rx.functions.f<Object, Boolean> equalsWith(Object obj) {
         return new b(obj);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class b implements rx.functions.f<Object, Boolean> {
         final Object other;
 
@@ -77,7 +77,7 @@ public enum InternalObservableUtils {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class d implements rx.functions.f<Object, Boolean> {
         final Class<?> clazz;
 
@@ -97,31 +97,31 @@ public enum InternalObservableUtils {
         return new i(fVar);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class i implements rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>> {
-        final rx.functions.f<? super rx.d<? extends Void>, ? extends rx.d<?>> kDn;
+        final rx.functions.f<? super rx.d<? extends Void>, ? extends rx.d<?>> niy;
 
         public i(rx.functions.f<? super rx.d<? extends Void>, ? extends rx.d<?>> fVar) {
-            this.kDn = fVar;
+            this.niy = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.f
         /* renamed from: c */
         public rx.d<?> call(rx.d<? extends Notification<?>> dVar) {
-            return this.kDn.call(dVar.d(InternalObservableUtils.RETURNS_VOID));
+            return this.niy.call(dVar.d(InternalObservableUtils.RETURNS_VOID));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class o implements rx.functions.f<Object, Void> {
         o() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.f
-        /* renamed from: bv */
+        /* renamed from: bZ */
         public Void call(Object obj) {
             return null;
         }
@@ -131,13 +131,13 @@ public enum InternalObservableUtils {
         return new p(fVar, gVar);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class p<T, R> implements rx.functions.f<rx.d<T>, rx.d<R>> {
-        final rx.functions.f<? super rx.d<T>, ? extends rx.d<R>> kDo;
+        final rx.functions.f<? super rx.d<T>, ? extends rx.d<R>> niz;
         final rx.g scheduler;
 
         public p(rx.functions.f<? super rx.d<T>, ? extends rx.d<R>> fVar, rx.g gVar) {
-            this.kDo = fVar;
+            this.niz = fVar;
             this.scheduler = gVar;
         }
 
@@ -145,7 +145,7 @@ public enum InternalObservableUtils {
         @Override // rx.functions.f
         /* renamed from: c */
         public rx.d<R> call(rx.d<T> dVar) {
-            return this.kDo.call(dVar).a(this.scheduler);
+            return this.niz.call(dVar).c(this.scheduler);
         }
     }
 
@@ -153,24 +153,24 @@ public enum InternalObservableUtils {
         return new n(fVar);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class n implements rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>> {
-        final rx.functions.f<? super rx.d<? extends Throwable>, ? extends rx.d<?>> kDn;
+        final rx.functions.f<? super rx.d<? extends Throwable>, ? extends rx.d<?>> niy;
 
         public n(rx.functions.f<? super rx.d<? extends Throwable>, ? extends rx.d<?>> fVar) {
-            this.kDn = fVar;
+            this.niy = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.f
         /* renamed from: c */
         public rx.d<?> call(rx.d<? extends Notification<?>> dVar) {
-            return this.kDn.call(dVar.d(InternalObservableUtils.ERROR_EXTRACTOR));
+            return this.niy.call(dVar.d(InternalObservableUtils.ERROR_EXTRACTOR));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class e implements rx.functions.f<Notification<?>, Throwable> {
         e() {
         }
@@ -179,7 +179,7 @@ public enum InternalObservableUtils {
         @Override // rx.functions.f
         /* renamed from: c */
         public Throwable call(Notification<?> notification) {
-            return notification.cOa();
+            return notification.getThrowable();
         }
     }
 
@@ -187,19 +187,19 @@ public enum InternalObservableUtils {
         return new l(dVar);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class l<T> implements rx.functions.e<rx.observables.a<T>> {
-        private final rx.d<T> kyh;
+        private final rx.d<T> ndN;
 
         l(rx.d<T> dVar) {
-            this.kyh = dVar;
+            this.ndN = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: cOU */
+        /* renamed from: dGJ */
         public rx.observables.a<T> call() {
-            return this.kyh.cOj();
+            return this.ndN.dGd();
         }
     }
 
@@ -207,21 +207,21 @@ public enum InternalObservableUtils {
         return new j(dVar, i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class j<T> implements rx.functions.e<rx.observables.a<T>> {
         private final int bufferSize;
-        private final rx.d<T> kyh;
+        private final rx.d<T> ndN;
 
         j(rx.d<T> dVar, int i) {
-            this.kyh = dVar;
+            this.ndN = dVar;
             this.bufferSize = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: cOU */
+        /* renamed from: dGJ */
         public rx.observables.a<T> call() {
-            return this.kyh.Ds(this.bufferSize);
+            return this.ndN.Nc(this.bufferSize);
         }
     }
 
@@ -229,25 +229,25 @@ public enum InternalObservableUtils {
         return new k(dVar, j2, timeUnit, gVar);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class k<T> implements rx.functions.e<rx.observables.a<T>> {
-        private final rx.d<T> kyh;
+        private final rx.d<T> ndN;
         private final rx.g scheduler;
         private final long time;
         private final TimeUnit unit;
 
         k(rx.d<T> dVar, long j, TimeUnit timeUnit, rx.g gVar) {
             this.unit = timeUnit;
-            this.kyh = dVar;
+            this.ndN = dVar;
             this.time = j;
             this.scheduler = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: cOU */
+        /* renamed from: dGJ */
         public rx.observables.a<T> call() {
-            return this.kyh.a(this.time, this.unit, this.scheduler);
+            return this.ndN.b(this.time, this.unit, this.scheduler);
         }
     }
 
@@ -255,10 +255,10 @@ public enum InternalObservableUtils {
         return new m(dVar, i2, j2, timeUnit, gVar);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class m<T> implements rx.functions.e<rx.observables.a<T>> {
         private final int bufferSize;
-        private final rx.d<T> kyh;
+        private final rx.d<T> ndN;
         private final rx.g scheduler;
         private final long time;
         private final TimeUnit unit;
@@ -268,14 +268,14 @@ public enum InternalObservableUtils {
             this.unit = timeUnit;
             this.scheduler = gVar;
             this.bufferSize = i;
-            this.kyh = dVar;
+            this.ndN = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: cOU */
+        /* renamed from: dGJ */
         public rx.observables.a<T> call() {
-            return this.kyh.a(this.bufferSize, this.time, this.unit, this.scheduler);
+            return this.ndN.a(this.bufferSize, this.time, this.unit, this.scheduler);
         }
     }
 
@@ -283,17 +283,17 @@ public enum InternalObservableUtils {
         return new a(cVar);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class a<T, R> implements rx.functions.g<R, T, R> {
-        final rx.functions.c<R, ? super T> kDm;
+        final rx.functions.c<R, ? super T> nix;
 
         public a(rx.functions.c<R, ? super T> cVar) {
-            this.kDm = cVar;
+            this.nix = cVar;
         }
 
         @Override // rx.functions.g
-        public R h(R r, T t) {
-            this.kDm.g(r, t);
+        public R m(R r, T t) {
+            this.nix.l(r, t);
             return r;
         }
     }

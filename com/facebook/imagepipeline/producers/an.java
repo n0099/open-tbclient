@@ -1,12 +1,25 @@
 package com.facebook.imagepipeline.producers;
 
-import com.facebook.imagepipeline.common.Priority;
+import android.content.ContentResolver;
 import com.facebook.imagepipeline.request.ImageRequest;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
-/* loaded from: classes2.dex */
-public class an extends d {
-    public an(ImageRequest imageRequest, String str, al alVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
-        super(imageRequest, str, alVar, obj, requestLevel, z, z2, priority);
+import java.io.IOException;
+import java.util.concurrent.Executor;
+/* loaded from: classes9.dex */
+public class an extends z {
+    private final ContentResolver mContentResolver;
+
+    public an(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
+        super(executor, gVar);
+        this.mContentResolver = contentResolver;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.z
+    protected com.facebook.imagepipeline.g.e h(ImageRequest imageRequest) throws IOException {
+        return f(this.mContentResolver.openInputStream(imageRequest.dpN()), -1);
+    }
+
+    @Override // com.facebook.imagepipeline.producers.z
+    protected String dph() {
+        return "QualifiedResourceFetchProducer";
     }
 }

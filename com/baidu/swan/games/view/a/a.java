@@ -1,7 +1,28 @@
 package com.baidu.swan.games.view.a;
-/* loaded from: classes2.dex */
-public interface a {
-    void VE();
 
-    void VF();
+import android.util.Log;
+import com.baidu.swan.apps.statistic.a.e;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class a extends e {
+    public String mErrorCode = "";
+
+    @Override // com.baidu.swan.apps.statistic.a.e
+    public JSONObject toJSONObject() {
+        if (this.bQv == null) {
+            this.bQv = new JSONObject();
+        }
+        try {
+            this.bQv.put("error_code", this.mErrorCode);
+        } catch (JSONException e) {
+            if (DEBUG) {
+                e.printStackTrace();
+            }
+        }
+        if (DEBUG) {
+            Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.bQv + "\t " + Thread.currentThread().getId());
+        }
+        return super.toJSONObject();
+    }
 }

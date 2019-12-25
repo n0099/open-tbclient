@@ -3,7 +3,7 @@ package com.baidu.sapi2.views;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class e implements View.OnClickListener {
     final /* synthetic */ View.OnClickListener a;
     final /* synthetic */ f b;

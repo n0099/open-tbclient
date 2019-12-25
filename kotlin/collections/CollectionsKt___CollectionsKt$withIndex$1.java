@@ -2,7 +2,7 @@ package kotlin.collections;
 
 import java.util.Iterator;
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class CollectionsKt___CollectionsKt$withIndex$1 extends Lambda implements kotlin.jvm.a.a<Iterator<? extends T>> {
     final /* synthetic */ Iterable receiver$0;
 

@@ -1,11 +1,11 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
-import com.baidu.d.a.a;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.SapiWebDTO;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ForgetPwdActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {

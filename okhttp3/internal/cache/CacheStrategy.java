@@ -1,5 +1,6 @@
 package okhttp3.internal.cache;
 
+import com.baidubce.http.Headers;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
@@ -10,9 +11,7 @@ import okhttp3.Response;
 import okhttp3.internal.Internal;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.http.HttpHeaders;
-import okhttp3.internal.http.StatusLine;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class CacheStrategy {
     @Nullable
     public final Response cacheResponse;
@@ -31,7 +30,7 @@ public final class CacheStrategy {
             case 204:
             case 300:
             case 301:
-            case StatusLine.HTTP_PERM_REDIRECT /* 308 */:
+            case 308:
             case 404:
             case 405:
             case 410:
@@ -42,7 +41,7 @@ public final class CacheStrategy {
                 return false;
             case 302:
             case 307:
-                if (response.header("Expires") == null && response.cacheControl().maxAgeSeconds() == -1 && !response.cacheControl().isPublic() && !response.cacheControl().isPrivate()) {
+                if (response.header(Headers.EXPIRES) == null && response.cacheControl().maxAgeSeconds() == -1 && !response.cacheControl().isPublic() && !response.cacheControl().isPrivate()) {
                     return false;
                 }
                 break;
@@ -50,7 +49,7 @@ public final class CacheStrategy {
         return (response.cacheControl().noStore() || request.cacheControl().noStore()) ? false : true;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Factory {
         private int ageSeconds;
         final Response cacheResponse;
@@ -73,20 +72,20 @@ public final class CacheStrategy {
             if (response != null) {
                 this.sentRequestMillis = response.sentRequestAtMillis();
                 this.receivedResponseMillis = response.receivedResponseAtMillis();
-                Headers headers = response.headers();
+                okhttp3.Headers headers = response.headers();
                 int size = headers.size();
                 for (int i = 0; i < size; i++) {
                     String name = headers.name(i);
                     String value = headers.value(i);
-                    if (HTTP.DATE_HEADER.equalsIgnoreCase(name)) {
+                    if ("Date".equalsIgnoreCase(name)) {
                         this.servedDate = HttpDate.parse(value);
                         this.servedDateString = value;
-                    } else if ("Expires".equalsIgnoreCase(name)) {
+                    } else if (Headers.EXPIRES.equalsIgnoreCase(name)) {
                         this.expires = HttpDate.parse(value);
-                    } else if ("Last-Modified".equalsIgnoreCase(name)) {
+                    } else if (Headers.LAST_MODIFIED.equalsIgnoreCase(name)) {
                         this.lastModified = HttpDate.parse(value);
                         this.lastModifiedString = value;
-                    } else if ("ETag".equalsIgnoreCase(name)) {
+                    } else if (Headers.ETAG.equalsIgnoreCase(name)) {
                         this.etag = value;
                     } else if ("Age".equalsIgnoreCase(name)) {
                         this.ageSeconds = HttpHeaders.parseSeconds(value, -1);
@@ -162,18 +161,11 @@ public final class CacheStrategy {
 
         private long computeFreshnessLifetime() {
             CacheControl cacheControl;
-            long j;
-            long j2;
             if (this.cacheResponse.cacheControl().maxAgeSeconds() != -1) {
                 return TimeUnit.SECONDS.toMillis(cacheControl.maxAgeSeconds());
             }
             if (this.expires != null) {
-                if (this.servedDate != null) {
-                    j2 = this.servedDate.getTime();
-                } else {
-                    j2 = this.receivedResponseMillis;
-                }
-                long time = this.expires.getTime() - j2;
+                long time = this.expires.getTime() - (this.servedDate != null ? this.servedDate.getTime() : this.receivedResponseMillis);
                 if (time <= 0) {
                     time = 0;
                 }
@@ -181,12 +173,7 @@ public final class CacheStrategy {
             } else if (this.lastModified == null || this.cacheResponse.request().url().query() != null) {
                 return 0L;
             } else {
-                if (this.servedDate != null) {
-                    j = this.servedDate.getTime();
-                } else {
-                    j = this.sentRequestMillis;
-                }
-                long time2 = j - this.lastModified.getTime();
+                long time2 = (this.servedDate != null ? this.servedDate.getTime() : this.sentRequestMillis) - this.lastModified.getTime();
                 if (time2 > 0) {
                     return time2 / 10;
                 }

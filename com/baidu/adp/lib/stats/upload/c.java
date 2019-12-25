@@ -3,13 +3,15 @@ package com.baidu.adp.lib.stats.upload;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 class c {
     public static String a(com.baidu.adp.lib.stats.base.a aVar, com.baidu.adp.lib.stats.c cVar) {
-        if (aVar.gz() != null && (aVar.gz().equals(BdStatsConstant.FILE_OMP) || aVar.gz().equals(BdStatsConstant.FILE_MON))) {
+        if (aVar.gX() != null && (aVar.gX().equals(BdStatsConstant.FILE_OMP) || aVar.gX().equals(BdStatsConstant.FILE_MON))) {
             return a(cVar);
         }
         return a(true, cVar);
@@ -19,18 +21,18 @@ class c {
         HashMap<String, Object> hashMap = new HashMap<>();
         a(hashMap, "_client_type", "2");
         a(hashMap, "_client_version", cVar.mAppVersion);
-        a(hashMap, "_phone_imei", cVar.pQ);
-        a(hashMap, "_client_id", cVar.pN);
-        a(hashMap, "subapp_type", cVar.pR);
+        a(hashMap, "_phone_imei", cVar.sC);
+        a(hashMap, "_client_id", cVar.sz);
+        a(hashMap, "subapp_type", cVar.sD);
         a(hashMap, "from", cVar.mChannel);
-        a(hashMap, "net_type", cVar.pU);
+        a(hashMap, "net_type", cVar.sG);
         a(hashMap, "cuid", cVar.mCuid);
-        a(hashMap, "model", cVar.pS);
+        a(hashMap, "model", cVar.sE);
         if (TextUtils.isEmpty(cVar.mUid)) {
             cVar.mUid = "0";
         }
         a(hashMap, "uid", cVar.mUid);
-        a(hashMap, "un", cVar.pT);
+        a(hashMap, "un", cVar.sF);
         a(hashMap, "BDUSS", cVar.mBduss);
         if (z) {
             a(hashMap, "find_bug", "2");
@@ -52,74 +54,74 @@ class c {
         }
         StringBuilder sb = new StringBuilder();
         try {
-            sb.append(BdStatsConstant.StatsKey.PRODUCT);
-            sb.append("=");
-            sb.append(URLEncoder.encode(cVar.pK, "utf-8"));
-            sb.append("&");
+            sb.append("product");
+            sb.append(ETAG.EQUAL);
+            sb.append(URLEncoder.encode(cVar.sw, "utf-8"));
+            sb.append(ETAG.ITEM_SEPARATOR);
             sb.append(BdStatsConstant.StatsKey.SUB_SYSTEM);
-            sb.append("=");
-            sb.append(URLEncoder.encode(cVar.pL, "utf-8"));
-            sb.append("&");
+            sb.append(ETAG.EQUAL);
+            sb.append(URLEncoder.encode(cVar.sx, "utf-8"));
+            sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("version");
-            sb.append("=");
+            sb.append(ETAG.EQUAL);
             sb.append(URLEncoder.encode(cVar.mAppVersion, "utf-8"));
-            sb.append("&");
+            sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("os");
-            sb.append("=");
-            sb.append("android");
-            sb.append("&");
+            sb.append(ETAG.EQUAL);
+            sb.append(PraiseDataPassUtil.KEY_FROM_OS);
+            sb.append(ETAG.ITEM_SEPARATOR);
             sb.append(BdStatsConstant.StatsKey.OS_VERSION);
-            sb.append("=");
-            sb.append(URLEncoder.encode(cVar.pV, "utf-8"));
+            sb.append(ETAG.EQUAL);
+            sb.append(URLEncoder.encode(cVar.sH, "utf-8"));
             if (!TextUtils.isEmpty(cVar.mChannel)) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("from");
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
                 sb.append(URLEncoder.encode(cVar.mChannel, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.pM)) {
-                sb.append("&");
+            if (!TextUtils.isEmpty(cVar.sy)) {
+                sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(BdStatsConstant.StatsKey.CURRENT_CHANNEL);
-                sb.append("=");
-                sb.append(URLEncoder.encode(cVar.pM, "utf-8"));
+                sb.append(ETAG.EQUAL);
+                sb.append(URLEncoder.encode(cVar.sy, "utf-8"));
             }
-            sb.append("&");
+            sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("phone");
-            sb.append("=");
-            sb.append(URLEncoder.encode(cVar.pS, "utf-8"));
+            sb.append(ETAG.EQUAL);
+            sb.append(URLEncoder.encode(cVar.sE, "utf-8"));
             if (!TextUtils.isEmpty(cVar.mUid)) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("uid");
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
                 sb.append(URLEncoder.encode(cVar.mUid, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.pN)) {
-                sb.append("&");
+            if (!TextUtils.isEmpty(cVar.sz)) {
+                sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("client_id");
-                sb.append("=");
-                sb.append(URLEncoder.encode(cVar.pN, "utf-8"));
+                sb.append(ETAG.EQUAL);
+                sb.append(URLEncoder.encode(cVar.sz, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.pQ)) {
-                sb.append("&");
+            if (!TextUtils.isEmpty(cVar.sC)) {
+                sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("imei");
-                sb.append("=");
-                sb.append(URLEncoder.encode(cVar.pQ, "utf-8"));
+                sb.append(ETAG.EQUAL);
+                sb.append(URLEncoder.encode(cVar.sC, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.pT)) {
-                sb.append("&");
+            if (!TextUtils.isEmpty(cVar.sF)) {
+                sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(BdStatsConstant.StatsKey.UNAME);
-                sb.append("=");
-                sb.append(URLEncoder.encode(cVar.pT, "utf-8"));
+                sb.append(ETAG.EQUAL);
+                sb.append(URLEncoder.encode(cVar.sF, "utf-8"));
             }
             if (!TextUtils.isEmpty(cVar.mCuid)) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("cuid");
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
                 sb.append(URLEncoder.encode(cVar.mCuid, "utf-8"));
             }
-            sb.append("&");
+            sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("net");
-            sb.append("=");
+            sb.append(ETAG.EQUAL);
             sb.append(URLEncoder.encode(cVar.mNetType, "utf-8"));
         } catch (UnsupportedEncodingException e) {
             BdLog.e(e);
@@ -131,7 +133,7 @@ class c {
         if (sb != null && !TextUtils.isEmpty(str)) {
             try {
                 String str3 = TextUtils.isEmpty(str2) ? "" : str2;
-                StringBuilder append = sb.append("&").append(str).append("=");
+                StringBuilder append = sb.append(ETAG.ITEM_SEPARATOR).append(str).append(ETAG.EQUAL);
                 if (z) {
                     str3 = URLEncoder.encode(str3, "utf-8");
                 }
@@ -149,21 +151,21 @@ class c {
         StringBuilder sb = new StringBuilder();
         sb.append("_client_type=2");
         a(sb, "_client_version", cVar.mAppVersion, z);
-        a(sb, "_phone_imei", cVar.pQ, z);
-        a(sb, "_client_id", cVar.pN, z);
-        a(sb, "subapp_type", cVar.pR, z);
-        a(sb, BdStatsConstant.StatsKey.OS_VERSION, cVar.pV, z);
+        a(sb, "_phone_imei", cVar.sC, z);
+        a(sb, "_client_id", cVar.sz, z);
+        a(sb, "subapp_type", cVar.sD, z);
+        a(sb, BdStatsConstant.StatsKey.OS_VERSION, cVar.sH, z);
         a(sb, "from", cVar.mChannel, z);
-        a(sb, BdStatsConstant.StatsKey.CURRENT_CHANNEL, cVar.pM, z);
-        a(sb, "net_type", cVar.pU, z);
+        a(sb, BdStatsConstant.StatsKey.CURRENT_CHANNEL, cVar.sy, z);
+        a(sb, "net_type", cVar.sG, z);
         a(sb, "cuid", cVar.mCuid, z);
-        a(sb, "model", cVar.pS, z);
+        a(sb, "model", cVar.sE, z);
         if (TextUtils.isEmpty(cVar.mUid)) {
             a(sb, "uid", "0", z);
         } else {
             a(sb, "uid", cVar.mUid, z);
         }
-        a(sb, "un", cVar.pT, z);
+        a(sb, "un", cVar.sF, z);
         return sb.toString();
     }
 }

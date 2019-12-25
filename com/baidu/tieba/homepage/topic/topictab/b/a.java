@@ -2,51 +2,51 @@ package com.baidu.tieba.homepage.topic.topictab.b;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.aj;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.al;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.TopicModule;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.card.data.c {
-    public static final BdUniqueId goq = BdUniqueId.gen();
-    public static final BdUniqueId gor = BdUniqueId.gen();
-    public String bZW;
-    public long bZX;
-    public String bZY;
-    private bh cqG;
+    public static final BdUniqueId hbR = BdUniqueId.gen();
+    public static final BdUniqueId hbS = BdUniqueId.gen();
+    private bj Nl;
+    public String cMn;
+    public long cMo;
+    public String cMp;
     public int from = 0;
-    public String gmW;
-    public b gos;
-    public PostData got;
+    public String hax;
+    public b hbT;
+    public PostData hbU;
     public int index;
     public long topicId;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.from == 0 ? goq : gor;
+        return this.from == 0 ? hbR : hbS;
     }
 
-    public static boolean V(bh bhVar) {
-        return bhVar != null && bhVar.getType() == bh.caO;
+    public static boolean Y(bj bjVar) {
+        return bjVar != null && bjVar.getType() == bj.cNh;
     }
 
     public void a(NewTopicList newTopicList) {
         if (newTopicList != null) {
             this.topicId = newTopicList.topic_id.longValue();
-            this.bZW = newTopicList.topic_name;
-            this.bZY = newTopicList.topic_desc;
-            this.bZX = newTopicList.discuss_num.longValue();
-            this.gmW = newTopicList.topic_image;
+            this.cMn = newTopicList.topic_name;
+            this.cMp = newTopicList.topic_desc;
+            this.cMo = newTopicList.discuss_num.longValue();
+            this.hax = newTopicList.topic_image;
             if (newTopicList.pk_module != null && newTopicList.pk_module.agree != null && newTopicList.pk_module.disagree != null) {
-                this.gos = new b();
-                this.gos.topicId = this.topicId;
-                this.gos.from = 1;
-                this.gos.a(newTopicList.pk_module);
+                this.hbT = new b();
+                this.hbT.topicId = this.topicId;
+                this.hbT.from = 1;
+                this.hbT.a(newTopicList.pk_module);
             }
             if (newTopicList.top_agree_post != null) {
-                this.got = new PostData();
-                this.got.a(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
+                this.hbU = new PostData();
+                this.hbU.a(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
             }
         }
     }
@@ -54,33 +54,33 @@ public class a extends com.baidu.tieba.card.data.c {
     public void a(TopicModule topicModule) {
         if (topicModule != null) {
             this.topicId = topicModule.topic_id.longValue();
-            this.bZW = topicModule.topic_name;
-            this.bZY = topicModule.topic_desc;
-            this.gmW = topicModule.topic_image;
+            this.cMn = topicModule.topic_name;
+            this.cMp = topicModule.topic_desc;
+            this.hax = topicModule.topic_image;
             if (topicModule.pk_module != null && topicModule.pk_module.agree != null && topicModule.pk_module.disagree != null) {
-                this.gos = new b();
-                this.gos.topicId = this.topicId;
-                this.gos.from = 3;
-                this.gos.a(topicModule.pk_module);
+                this.hbT = new b();
+                this.hbT.topicId = this.topicId;
+                this.hbT.from = 3;
+                this.hbT.a(topicModule.pk_module);
             }
         }
     }
 
-    public void ai(bh bhVar) {
-        this.cqG = bhVar;
+    public void setThreadData(bj bjVar) {
+        this.Nl = bjVar;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public bh agG() {
-        return this.cqG;
+    public bj axx() {
+        return this.Nl;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public aj agI() {
-        aj agI = super.agI();
-        if (agI != null) {
-            agI.aH(this.topicId);
+    public al axz() {
+        al axz = super.axz();
+        if (axz != null) {
+            axz.bm(this.topicId);
         }
-        return agI;
+        return axz;
     }
 }

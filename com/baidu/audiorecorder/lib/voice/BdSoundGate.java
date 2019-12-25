@@ -1,9 +1,9 @@
 package com.baidu.audiorecorder.lib.voice;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BdSoundGate {
-    private static BdSoundGate Cw;
-    private int Cu = -1;
-    private int Cv;
+    private static BdSoundGate Fd;
+    private int Fc = -1;
+    private int blockSize;
 
     private native void close(int i);
 
@@ -17,37 +17,37 @@ public class BdSoundGate {
         System.loadLibrary("sound_gate");
     }
 
-    public static BdSoundGate kY() {
-        if (Cw == null) {
-            Cw = new BdSoundGate();
+    public static BdSoundGate lq() {
+        if (Fd == null) {
+            Fd = new BdSoundGate();
         }
-        return Cw;
+        return Fd;
     }
 
     private BdSoundGate() {
     }
 
-    public void l(int i, int i2) {
-        kY().a(i, 0.0f, d.ay(i2), 0.0f);
+    public void init(int i, int i2) {
+        lq().a(i, 0.0f, d.aB(i2), 0.0f);
     }
 
     public void a(int i, float f, float f2, float f3) {
-        this.Cv = i;
-        this.Cu = getChanger(i, f, f2, f3);
+        this.blockSize = i;
+        this.Fc = getChanger(i, f, f2, f3);
     }
 
     public int getBlockSize() {
-        return this.Cv;
+        return this.blockSize;
     }
 
     public void release() {
-        if (this.Cu > 0) {
-            close(this.Cu);
-            this.Cu = -1;
+        if (this.Fc > 0) {
+            close(this.Fc);
+            this.Fc = -1;
         }
     }
 
     public void a(short[] sArr, short[] sArr2) {
-        throughMono(this.Cu, sArr, sArr2);
+        throughMono(this.Fc, sArr, sArr2);
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.location;
 
 import android.text.TextUtils;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-/* loaded from: classes3.dex */
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+/* loaded from: classes5.dex */
 public final class LocationClientOption {
     public static final int GpsFirst = 1;
     public static final int GpsOnly = 3;
@@ -39,7 +39,7 @@ public final class LocationClientOption {
     public int timeOut;
     public int wifiCacheTimeOut;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public enum LocationMode {
         Hight_Accuracy,
         Battery_Saving,
@@ -47,7 +47,7 @@ public final class LocationClientOption {
     }
 
     public LocationClientOption() {
-        this.coorType = CoordinateType.GCJ02;
+        this.coorType = "gcj02";
         this.addrType = "detail";
         this.openGps = false;
         this.scanSpan = 0;
@@ -75,7 +75,7 @@ public final class LocationClientOption {
     }
 
     public LocationClientOption(LocationClientOption locationClientOption) {
-        this.coorType = CoordinateType.GCJ02;
+        this.coorType = "gcj02";
         this.addrType = "detail";
         this.openGps = false;
         this.scanSpan = 0;
@@ -207,7 +207,7 @@ public final class LocationClientOption {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        if ("all".equals(str)) {
+        if (SchemeCollecter.CLASSIFY_ALL.equals(str)) {
             setIsNeedAddress(true);
         } else {
             setIsNeedAddress(false);
@@ -216,7 +216,7 @@ public final class LocationClientOption {
 
     public void setCoorType(String str) {
         String lowerCase = str.toLowerCase();
-        if (lowerCase.equals(CoordinateType.GCJ02) || lowerCase.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09) || lowerCase.equals("bd09ll")) {
+        if (lowerCase.equals("gcj02") || lowerCase.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09) || lowerCase.equals("bd09ll")) {
             this.coorType = lowerCase;
         }
     }
@@ -231,7 +231,7 @@ public final class LocationClientOption {
 
     public void setIsNeedAddress(boolean z) {
         if (z) {
-            this.addrType = "all";
+            this.addrType = SchemeCollecter.CLASSIFY_ALL;
         } else {
             this.addrType = "noaddr";
         }

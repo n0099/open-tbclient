@@ -86,7 +86,7 @@ public class b {
             JSONObject jSONObject2 = new JSONObject();
             a(jSONObject2);
             jSONArray.put(jSONObject2);
-            jSONObject.put(DpStatConstants.KEY_ITEMS, jSONArray);
+            jSONObject.put("items", jSONArray);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

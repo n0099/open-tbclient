@@ -19,73 +19,73 @@ import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class IMPushPb {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface AckOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface ActionOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface AppInfoOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface CommonOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface ConnectionOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface CrashOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface DbOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface DeviceIDOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface MetaDataOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface MsgOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface NetInfoOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface PushImClientOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface RequestOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface TerminalInfoOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface UiOrBuilder extends MessageLiteOrBuilder {
     }
 
     private IMPushPb() {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum OSType implements Internal.EnumLite {
         OS_TYPE_UNKNWON(0, 0),
         IOS(1, 1),
@@ -127,7 +127,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum ActionType implements Internal.EnumLite {
         UI(0, 101),
         CRASH(1, 201),
@@ -178,7 +178,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class DeviceID extends GeneratedMessageLite implements DeviceIDOrBuilder {
         public static Parser<DeviceID> PARSER = new AbstractParser<DeviceID>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceID.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -350,7 +350,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<DeviceID, Builder> implements DeviceIDOrBuilder {
             private int bitField0;
             private Object cuid = "";
@@ -496,7 +496,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class TerminalInfo extends GeneratedMessageLite implements TerminalInfoOrBuilder {
         public static Parser<TerminalInfo> PARSER = new AbstractParser<TerminalInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfo.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -825,7 +825,7 @@ public final class IMPushPb {
             return newBuilder();
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<TerminalInfo, Builder> implements TerminalInfoOrBuilder {
             private int bitField0;
             private int ppi;
@@ -1161,7 +1161,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class AppInfo extends GeneratedMessageLite implements AppInfoOrBuilder {
         public static Parser<AppInfo> PARSER = new AbstractParser<AppInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfo.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1407,7 +1407,7 @@ public final class IMPushPb {
             return newBuilder();
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<AppInfo, Builder> implements AppInfoOrBuilder {
             private int bitField0;
             private Object appName = "";
@@ -1644,7 +1644,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class NetInfo extends GeneratedMessageLite implements NetInfoOrBuilder {
         public static Parser<NetInfo> PARSER = new AbstractParser<NetInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfo.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1851,7 +1851,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<NetInfo, Builder> implements NetInfoOrBuilder {
             private int bitField0;
             private Object netType = "";
@@ -2044,7 +2044,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Common extends GeneratedMessageLite implements CommonOrBuilder {
         public static Parser<Common> PARSER = new AbstractParser<Common>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Common.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -2397,8 +2397,8 @@ public final class IMPushPb {
             return Builder.create();
         }
 
-        public static Builder newBuilder(Common common) {
-            return newBuilder().mergeFrom(common);
+        public static Builder newBuilder(Common common2) {
+            return newBuilder().mergeFrom(common2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2407,7 +2407,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Common, Builder> implements CommonOrBuilder {
             private int bitField0;
             private long timestamp;
@@ -2479,40 +2479,40 @@ public final class IMPushPb {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
             public Common buildPartial() {
-                Common common = new Common(this);
+                Common common2 = new Common(this);
                 int i = this.bitField0;
                 int i2 = (i & 1) != 1 ? 0 : 1;
-                common.productName = this.productName;
+                common2.productName = this.productName;
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                common.moduleName = this.moduleName;
+                common2.moduleName = this.moduleName;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
-                common.deviceId = this.deviceId;
+                common2.deviceId = this.deviceId;
                 if ((i & 8) == 8) {
                     i2 |= 8;
                 }
-                common.timestamp = this.timestamp;
+                common2.timestamp = this.timestamp;
                 if ((i & 16) == 16) {
                     i2 |= 16;
                 }
-                common.userTimestamp = this.userTimestamp;
+                common2.userTimestamp = this.userTimestamp;
                 if ((i & 32) == 32) {
                     i2 |= 32;
                 }
-                common.terminalInfo = this.terminalInfo;
+                common2.terminalInfo = this.terminalInfo;
                 if ((i & 64) == 64) {
                     i2 |= 64;
                 }
-                common.appInfo = this.appInfo;
+                common2.appInfo = this.appInfo;
                 if ((i & 128) == 128) {
                     i2 |= 128;
                 }
-                common.netInfo = this.netInfo;
-                common.bitField0 = i2;
-                return common;
+                common2.netInfo = this.netInfo;
+                common2.bitField0 = i2;
+                return common2;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -2525,33 +2525,33 @@ public final class IMPushPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
-            public Builder mergeFrom(Common common) {
-                if (common != Common.getDefaultInstance()) {
-                    if (common.hasProductName()) {
+            public Builder mergeFrom(Common common2) {
+                if (common2 != Common.getDefaultInstance()) {
+                    if (common2.hasProductName()) {
                         this.bitField0 |= 1;
-                        this.productName = common.productName;
+                        this.productName = common2.productName;
                     }
-                    if (common.hasModuleName()) {
+                    if (common2.hasModuleName()) {
                         this.bitField0 |= 2;
-                        this.moduleName = common.moduleName;
+                        this.moduleName = common2.moduleName;
                     }
-                    if (common.hasDeviceId()) {
-                        mergeDeviceId(common.getDeviceId());
+                    if (common2.hasDeviceId()) {
+                        mergeDeviceId(common2.getDeviceId());
                     }
-                    if (common.hasTimestamp()) {
-                        setTimestamp(common.getTimestamp());
+                    if (common2.hasTimestamp()) {
+                        setTimestamp(common2.getTimestamp());
                     }
-                    if (common.hasUserTimestamp()) {
-                        setUserTimestamp(common.getUserTimestamp());
+                    if (common2.hasUserTimestamp()) {
+                        setUserTimestamp(common2.getUserTimestamp());
                     }
-                    if (common.hasTerminalInfo()) {
-                        mergeTerminalInfo(common.getTerminalInfo());
+                    if (common2.hasTerminalInfo()) {
+                        mergeTerminalInfo(common2.getTerminalInfo());
                     }
-                    if (common.hasAppInfo()) {
-                        mergeAppInfo(common.getAppInfo());
+                    if (common2.hasAppInfo()) {
+                        mergeAppInfo(common2.getAppInfo());
                     }
-                    if (common.hasNetInfo()) {
-                        mergeNetInfo(common.getNetInfo());
+                    if (common2.hasNetInfo()) {
+                        mergeNetInfo(common2.getNetInfo());
                     }
                 }
                 return this;
@@ -2564,7 +2564,7 @@ public final class IMPushPb {
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Common common;
+                Common common2;
                 Throwable th;
                 try {
                     try {
@@ -2575,20 +2575,20 @@ public final class IMPushPb {
                         return this;
                     } catch (Throwable th2) {
                         th = th2;
-                        common = null;
-                        if (common != null) {
-                            mergeFrom(common);
+                        common2 = null;
+                        if (common2 != null) {
+                            mergeFrom(common2);
                         }
                         throw th;
                     }
                 } catch (InvalidProtocolBufferException e) {
-                    Common common2 = (Common) e.getUnfinishedMessage();
+                    Common common3 = (Common) e.getUnfinishedMessage();
                     try {
                         throw e;
                     } catch (Throwable th3) {
-                        common = common2;
+                        common2 = common3;
                         th = th3;
-                        if (common != null) {
+                        if (common2 != null) {
                         }
                         throw th;
                     }
@@ -2781,7 +2781,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class PushImClient extends GeneratedMessageLite implements PushImClientOrBuilder {
         public static Parser<PushImClient> PARSER = new AbstractParser<PushImClient>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClient.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -2794,7 +2794,9 @@ public final class IMPushPb {
         private static final long serialVersionUID = 0;
         private List<Action> actions;
         private int bitField0;
-        private Common common;
+
+        /* renamed from: common  reason: collision with root package name */
+        private Common f967common;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private MetaData metadata;
@@ -2854,11 +2856,11 @@ public final class IMPushPb {
                                 z2 = z5;
                                 break;
                             case 330:
-                                Common.Builder builder2 = (this.bitField0 & 2) == 2 ? this.common.toBuilder() : null;
-                                this.common = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
+                                Common.Builder builder2 = (this.bitField0 & 2) == 2 ? this.f967common.toBuilder() : null;
+                                this.f967common = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
-                                    builder2.mergeFrom(this.common);
-                                    this.common = builder2.buildPartial();
+                                    builder2.mergeFrom(this.f967common);
+                                    this.f967common = builder2.buildPartial();
                                 }
                                 this.bitField0 |= 2;
                                 z3 = z4;
@@ -2954,7 +2956,7 @@ public final class IMPushPb {
         }
 
         public Common getCommon() {
-            return this.common;
+            return this.f967common;
         }
 
         public boolean hasSdkName() {
@@ -3006,7 +3008,7 @@ public final class IMPushPb {
 
         private void initFields() {
             this.metadata = MetaData.getDefaultInstance();
-            this.common = Common.getDefaultInstance();
+            this.f967common = Common.getDefaultInstance();
             this.sdkName = "";
             this.sdkVersion = 0L;
             this.actions = Collections.emptyList();
@@ -3036,7 +3038,7 @@ public final class IMPushPb {
                 codedOutputStream.writeMessage(25, this.metadata);
             }
             if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeMessage(41, this.common);
+                codedOutputStream.writeMessage(41, this.f967common);
             }
             if ((this.bitField0 & 4) == 4) {
                 codedOutputStream.writeBytes(130, getSdkNameBytes());
@@ -3063,7 +3065,7 @@ public final class IMPushPb {
             if (i2 == -1) {
                 int computeMessageSize = (this.bitField0 & 1) == 1 ? CodedOutputStream.computeMessageSize(25, this.metadata) + 0 : 0;
                 if ((this.bitField0 & 2) == 2) {
-                    computeMessageSize += CodedOutputStream.computeMessageSize(41, this.common);
+                    computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f967common);
                 }
                 if ((this.bitField0 & 4) == 4) {
                     computeMessageSize += CodedOutputStream.computeBytesSize(130, getSdkNameBytes());
@@ -3109,12 +3111,14 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<PushImClient, Builder> implements PushImClientOrBuilder {
             private int bitField0;
             private long sdkVersion;
             private MetaData metadata = MetaData.getDefaultInstance();
-            private Common common = Common.getDefaultInstance();
+
+            /* renamed from: common  reason: collision with root package name */
+            private Common f968common = Common.getDefaultInstance();
             private Object sdkName = "";
             private List<Action> actions = Collections.emptyList();
 
@@ -3136,7 +3140,7 @@ public final class IMPushPb {
                 super.clear();
                 this.metadata = MetaData.getDefaultInstance();
                 this.bitField0 &= -2;
-                this.common = Common.getDefaultInstance();
+                this.f968common = Common.getDefaultInstance();
                 this.bitField0 &= -3;
                 this.sdkName = "";
                 this.bitField0 &= -5;
@@ -3179,7 +3183,7 @@ public final class IMPushPb {
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                pushImClient.common = this.common;
+                pushImClient.f967common = this.f968common;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
@@ -3293,23 +3297,23 @@ public final class IMPushPb {
             }
 
             public Common getCommon() {
-                return this.common;
+                return this.f968common;
             }
 
-            public Builder setCommon(Common common) {
-                if (common == null) {
+            public Builder setCommon(Common common2) {
+                if (common2 == null) {
                     throw new NullPointerException();
                 }
-                this.common = common;
+                this.f968common = common2;
                 this.bitField0 |= 2;
                 return this;
             }
 
-            public Builder mergeCommon(Common common) {
-                if ((this.bitField0 & 2) == 2 && this.common != Common.getDefaultInstance()) {
-                    this.common = Common.newBuilder(this.common).mergeFrom(common).buildPartial();
+            public Builder mergeCommon(Common common2) {
+                if ((this.bitField0 & 2) == 2 && this.f968common != Common.getDefaultInstance()) {
+                    this.f968common = Common.newBuilder(this.f968common).mergeFrom(common2).buildPartial();
                 } else {
-                    this.common = common;
+                    this.f968common = common2;
                 }
                 this.bitField0 |= 2;
                 return this;
@@ -3389,7 +3393,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Action extends GeneratedMessageLite implements ActionOrBuilder {
         public static Parser<Action> PARSER = new AbstractParser<Action>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Action.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -3735,7 +3739,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Action, Builder> implements ActionOrBuilder {
             private int bitField0;
             private ActionType actionType = ActionType.UI;
@@ -4126,7 +4130,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Ui extends GeneratedMessageLite implements UiOrBuilder {
         public static Parser<Ui> PARSER = new AbstractParser<Ui>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ui.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -4452,7 +4456,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ui, Builder> implements UiOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -4785,7 +4789,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Crash extends GeneratedMessageLite implements CrashOrBuilder {
         public static Parser<Crash> PARSER = new AbstractParser<Crash>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Crash.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -5032,7 +5036,7 @@ public final class IMPushPb {
             return newBuilder();
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Crash, Builder> implements CrashOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -5273,7 +5277,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Db extends GeneratedMessageLite implements DbOrBuilder {
         public static Parser<Db> PARSER = new AbstractParser<Db>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Db.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -5677,7 +5681,7 @@ public final class IMPushPb {
             return newBuilder();
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Db, Builder> implements DbOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -6098,7 +6102,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Connection extends GeneratedMessageLite implements ConnectionOrBuilder {
         public static Parser<Connection> PARSER = new AbstractParser<Connection>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Connection.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -6405,7 +6409,7 @@ public final class IMPushPb {
             return newBuilder();
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Connection, Builder> implements ConnectionOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -6718,7 +6722,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Request extends GeneratedMessageLite implements RequestOrBuilder {
         public static Parser<Request> PARSER = new AbstractParser<Request>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Request.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -7044,7 +7048,7 @@ public final class IMPushPb {
             return newBuilder();
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Request, Builder> implements RequestOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -7377,7 +7381,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Ack extends GeneratedMessageLite implements AckOrBuilder {
         public static Parser<Ack> PARSER = new AbstractParser<Ack>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ack.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -7663,7 +7667,7 @@ public final class IMPushPb {
             return newBuilder();
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ack, Builder> implements AckOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -7947,7 +7951,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Msg extends GeneratedMessageLite implements MsgOrBuilder {
         public static Parser<Msg> PARSER = new AbstractParser<Msg>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Msg.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -8254,7 +8258,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Msg, Builder> implements MsgOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -8567,7 +8571,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class MetaData extends GeneratedMessageLite implements MetaDataOrBuilder {
         public static Parser<MetaData> PARSER = new AbstractParser<MetaData>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaData.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -8794,7 +8798,7 @@ public final class IMPushPb {
             return newBuilder();
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<MetaData, Builder> implements MetaDataOrBuilder {
             private int bitField0;
             private int logModuleId = 7399;

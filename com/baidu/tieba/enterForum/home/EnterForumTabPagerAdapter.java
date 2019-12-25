@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.enterForum.recommend.RecommendFragment;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class EnterForumTabPagerAdapter extends FragmentPagerAdapter {
-    private BaseFragment fbv;
+    private BaseFragment fPZ;
     private boolean isPrimary;
     private List<a> mFragments;
     private int mPrimaryPosition;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public Fragment fragment;
         public String title;
@@ -70,16 +70,16 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter {
             if (obj instanceof BaseFragment) {
                 BaseFragment baseFragment = (BaseFragment) obj;
                 baseFragment.setPrimary(true);
-                this.fbv = baseFragment;
+                this.fPZ = baseFragment;
             }
         }
     }
 
-    public int beu() {
-        if (this.fbv instanceof EnterForumFragment) {
+    public int bvP() {
+        if (this.fPZ instanceof EnterForumFragment) {
             return 1;
         }
-        if (this.fbv instanceof RecommendFragment) {
+        if (this.fPZ instanceof RecommendFragment) {
             return 2;
         }
         return -1;
@@ -90,8 +90,8 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter {
     }
 
     public String getCurrentPageKey() {
-        if (this.fbv instanceof BaseFragment) {
-            return this.fbv.getCurrentPageKey();
+        if (this.fPZ instanceof BaseFragment) {
+            return this.fPZ.getCurrentPageKey();
         }
         return null;
     }

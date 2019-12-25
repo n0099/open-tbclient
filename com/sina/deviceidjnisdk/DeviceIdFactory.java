@@ -3,7 +3,7 @@ package com.sina.deviceidjnisdk;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DeviceIdFactory {
     private static volatile IDeviceId sInstance;
 

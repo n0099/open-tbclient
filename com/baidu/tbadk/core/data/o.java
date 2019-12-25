@@ -1,37 +1,21 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
-import org.json.JSONObject;
-import tbclient.CartoonThread;
+import tbclient.FrsPage.CarrierEnter;
 /* loaded from: classes.dex */
 public class o {
-    private long cartoonId;
-    private int chapterId;
+    private String headline_cover;
+    private String obj_id;
+    private String text;
+    private String title;
+    private String url;
 
-    public void a(CartoonThread cartoonThread) {
-        if (cartoonThread != null) {
-            this.cartoonId = cartoonThread.cartoon_id.longValue();
-            this.chapterId = cartoonThread.chapter_id.intValue();
+    public void a(CarrierEnter carrierEnter) {
+        if (carrierEnter != null) {
+            this.title = carrierEnter.title;
+            this.text = carrierEnter.text;
+            this.headline_cover = carrierEnter.headline_cover;
+            this.url = carrierEnter.url;
+            this.obj_id = carrierEnter.obj_id;
         }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.cartoonId = jSONObject.optLong("cartoon_id");
-                this.chapterId = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
-    }
-
-    public long getCartoonId() {
-        return this.cartoonId;
-    }
-
-    public int getChapterId() {
-        return this.chapterId;
     }
 }

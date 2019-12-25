@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import com.baidu.live.adp.lib.util.BdLog;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdBaseView<T> {
     protected BdPageContext<T> mContext;
     private InputMethodManager mInputManager = null;
@@ -57,7 +57,7 @@ public class BdBaseView<T> {
         new Handler().postDelayed(new DelayRunnable(view), i);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     class DelayRunnable implements Runnable {
         private View mView;
 

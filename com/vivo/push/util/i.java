@@ -4,9 +4,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class i implements BaseNotifyDataAdapter {
     private Resources a;
     private String b;
@@ -23,7 +22,7 @@ public final class i implements BaseNotifyDataAdapter {
         if (TextUtils.isEmpty(str)) {
             replace = null;
         } else {
-            replace = str.replace(DefaultConfig.TOKEN_SEPARATOR, "");
+            replace = str.replace(".", "");
         }
         this.d = replace;
     }

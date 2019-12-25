@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
-import com.baidu.d.a.a.a.a;
+import com.baidu.i.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -23,7 +23,7 @@ import sdk.meizu.auth.MzAuthenticator;
 import sdk.meizu.auth.OAuthError;
 import sdk.meizu.auth.OAuthToken;
 import sdk.meizu.auth.callback.ImplictCallback;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
     private static final String TAG = "MeizuSSOLoginActivity";
 
@@ -79,8 +79,8 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.b.sapi_sdk_title_login_mz);
-        RelativeLayout relativeLayout = this.ebP;
+        setTitleText(a.c.sapi_sdk_title_login_mz);
+        RelativeLayout relativeLayout = this.rootView;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(4);
         }

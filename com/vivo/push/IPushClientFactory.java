@@ -1,7 +1,7 @@
 package com.vivo.push;
 
 import android.content.Intent;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface IPushClientFactory {
     com.vivo.push.c.aa createReceiveTask(y yVar);
 

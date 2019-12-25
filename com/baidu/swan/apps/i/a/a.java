@@ -10,71 +10,78 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.ae.b;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class a extends z {
+/* loaded from: classes9.dex */
+public class a extends ab {
     private String callback;
 
     public a(j jVar) {
-        super(jVar, "/swan/setPhoneContact");
+        super(jVar, "/swanAPI/setPhoneContact");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b bVar) {
-        if (context == null || callbackHandler == null || bVar == null) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
+        if (context == null || callbackHandler == null || eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        }
-        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        if (optParamsAsJo == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+        } else if (eVar.GS()) {
+            if (DEBUG) {
+                Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
             return false;
-        }
-        if (DEBUG) {
-            Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
-        }
-        String optString = optParamsAsJo.optString("action");
-        if (TextUtils.isEmpty(optString)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            return false;
-        }
-        com.baidu.swan.apps.i.a T = com.baidu.swan.apps.i.a.T(optParamsAsJo);
-        if (!T.isValid()) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            return false;
-        }
-        this.callback = optParamsAsJo.optString("cb");
-        char c = 65535;
-        switch (optString.hashCode()) {
-            case -1183792455:
-                if (optString.equals("insert")) {
-                    c = 0;
-                    break;
-                }
-                break;
-            case 3108362:
-                if (optString.equals("edit")) {
-                    c = 1;
-                    break;
-                }
-                break;
-        }
-        switch (c) {
-            case 0:
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                a(context, T, callbackHandler);
-                return true;
-            case 1:
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                b(context, T, callbackHandler);
-                return true;
-            default:
+        } else {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            if (DEBUG) {
+                Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
+            }
+            String optString = optParamsAsJo.optString("action");
+            if (TextUtils.isEmpty(optString)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
+            }
+            com.baidu.swan.apps.i.a ag = com.baidu.swan.apps.i.a.ag(optParamsAsJo);
+            if (!ag.isValid()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            this.callback = optParamsAsJo.optString("cb");
+            char c = 65535;
+            switch (optString.hashCode()) {
+                case -1183792455:
+                    if (optString.equals("insert")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 3108362:
+                    if (optString.equals("edit")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    a(context, ag, callbackHandler);
+                    return true;
+                case 1:
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    b(context, ag, callbackHandler);
+                    return true;
+                default:
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+            }
         }
     }
 
@@ -115,20 +122,20 @@ public class a extends z {
 
     private ArrayList<ContentValues> a(com.baidu.swan.apps.i.a aVar) {
         ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-        arrayList.add(aVar.Dx());
-        arrayList.add(aVar.Dy());
-        arrayList.add(aVar.Dz());
-        arrayList.add(aVar.DA());
-        arrayList.add(aVar.DB());
-        arrayList.add(aVar.DC());
-        arrayList.add(aVar.Dv());
-        arrayList.add(aVar.DD());
-        arrayList.add(aVar.DF());
-        arrayList.add(aVar.Dw());
-        arrayList.add(aVar.DE());
-        arrayList.add(aVar.DG());
-        arrayList.add(aVar.DH());
-        arrayList.add(aVar.DI());
+        arrayList.add(aVar.JK());
+        arrayList.add(aVar.JL());
+        arrayList.add(aVar.JM());
+        arrayList.add(aVar.JN());
+        arrayList.add(aVar.JO());
+        arrayList.add(aVar.JP());
+        arrayList.add(aVar.JI());
+        arrayList.add(aVar.JQ());
+        arrayList.add(aVar.JS());
+        arrayList.add(aVar.JJ());
+        arrayList.add(aVar.JR());
+        arrayList.add(aVar.JT());
+        arrayList.add(aVar.JU());
+        arrayList.add(aVar.JV());
         return arrayList;
     }
 }

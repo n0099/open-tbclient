@@ -7,12 +7,12 @@ import android.arch.lifecycle.Lifecycle;
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ReportFragment extends Fragment {
-    private a bN;
+    private a cK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onCreate();
 
@@ -27,6 +27,11 @@ public class ReportFragment extends Fragment {
             fragmentManager.beginTransaction().add(new ReportFragment(), "android.arch.lifecycle.LifecycleDispatcher.report_fragment_tag").commit();
             fragmentManager.executePendingTransactions();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static ReportFragment k(Activity activity) {
+        return (ReportFragment) activity.getFragmentManager().findFragmentByTag("android.arch.lifecycle.LifecycleDispatcher.report_fragment_tag");
     }
 
     private void a(a aVar) {
@@ -50,52 +55,57 @@ public class ReportFragment extends Fragment {
     @Override // android.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        a(this.bN);
-        c(Lifecycle.Event.ON_CREATE);
+        a(this.cK);
+        a(Lifecycle.Event.ON_CREATE);
     }
 
     @Override // android.app.Fragment
     public void onStart() {
         super.onStart();
-        b(this.bN);
-        c(Lifecycle.Event.ON_START);
+        b(this.cK);
+        a(Lifecycle.Event.ON_START);
     }
 
     @Override // android.app.Fragment
     public void onResume() {
         super.onResume();
-        c(this.bN);
-        c(Lifecycle.Event.ON_RESUME);
+        c(this.cK);
+        a(Lifecycle.Event.ON_RESUME);
     }
 
     @Override // android.app.Fragment
     public void onPause() {
         super.onPause();
-        c(Lifecycle.Event.ON_PAUSE);
+        a(Lifecycle.Event.ON_PAUSE);
     }
 
     @Override // android.app.Fragment
     public void onStop() {
         super.onStop();
-        c(Lifecycle.Event.ON_STOP);
+        a(Lifecycle.Event.ON_STOP);
     }
 
     @Override // android.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        c(Lifecycle.Event.ON_DESTROY);
-        this.bN = null;
+        a(Lifecycle.Event.ON_DESTROY);
+        this.cK = null;
     }
 
-    private void c(Lifecycle.Event event) {
+    private void a(Lifecycle.Event event) {
         Activity activity = getActivity();
-        if (activity instanceof d) {
-            ((d) activity).ay().a(event);
-        } else if (activity instanceof b) {
-            Lifecycle lifecycle = ((b) activity).getLifecycle();
-            if (lifecycle instanceof c) {
-                ((c) lifecycle).a(event);
+        if (activity instanceof l) {
+            ((l) activity).ax().b(event);
+        } else if (activity instanceof j) {
+            Lifecycle lifecycle = ((j) activity).getLifecycle();
+            if (lifecycle instanceof k) {
+                ((k) lifecycle).b(event);
             }
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void d(a aVar) {
+        this.cK = aVar;
     }
 }

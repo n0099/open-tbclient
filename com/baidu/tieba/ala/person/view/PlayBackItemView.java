@@ -7,16 +7,16 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.view.RatioTbImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PlayBackItemView extends RelativeLayout {
-    private RatioTbImageView ewk;
-    private LinearLayout ewl;
-    private TextView ewm;
-    private TextView ewn;
+    private RatioTbImageView fnK;
+    private LinearLayout fnL;
+    private TextView fnM;
+    private TextView fnN;
     private TextView mTitleView;
 
     public PlayBackItemView(Context context) {
@@ -36,23 +36,23 @@ public class PlayBackItemView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_person_palyback_item, this);
-        this.ewl = (LinearLayout) findViewById(a.g.playback_info_layout);
-        this.ewk = (RatioTbImageView) findViewById(a.g.playback_cover);
-        this.ewm = (TextView) findViewById(a.g.playback_audience_count);
-        this.ewn = (TextView) findViewById(a.g.playback_time);
+        this.fnL = (LinearLayout) findViewById(a.g.playback_info_layout);
+        this.fnK = (RatioTbImageView) findViewById(a.g.playback_cover);
+        this.fnM = (TextView) findViewById(a.g.playback_audience_count);
+        this.fnN = (TextView) findViewById(a.g.playback_time);
         this.mTitleView = (TextView) findViewById(a.g.playback_title);
     }
 
     public void setData(String str, long j, long j2, String str2) {
-        this.ewk.startLoad(str, 10, false);
+        this.fnK.startLoad(str, 10, false);
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            this.ewl.setVisibility(8);
+            this.fnL.setVisibility(8);
         } else {
-            this.ewl.setVisibility(0);
-            String format = String.format(getContext().getString(a.i.ala_person_audience), com.baidu.tieba.ala.person.d.a.co(j));
+            this.fnL.setVisibility(0);
+            String format = String.format(getContext().getString(a.i.ala_person_audience), com.baidu.tieba.ala.person.d.a.cW(j));
             String timeInterval = StringHelper.getTimeInterval(j2);
-            this.ewm.setText(format);
-            this.ewn.setText(timeInterval);
+            this.fnM.setText(format);
+            this.fnN.setText(timeInterval);
         }
         if (StringUtils.isNull(str2)) {
             this.mTitleView.setText(StringHelper.STRING_MORE);

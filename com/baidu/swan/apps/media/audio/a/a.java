@@ -8,18 +8,19 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.media.audio.d;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class a extends z {
+/* loaded from: classes9.dex */
+public class a extends ab {
     public a(j jVar) {
-        super(jVar, "/swan/backgroundAudio");
+        super(jVar, "/swanAPI/backgroundAudio");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         if (DEBUG) {
             Log.d("AudioBGPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
             return false;
@@ -27,115 +28,119 @@ public class a extends z {
         return false;
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
         com.baidu.swan.apps.media.audio.a a;
         JSONObject jSONObject;
         boolean z;
         if (DEBUG) {
             Log.d("AudioBGPlayerAction", "handleSubAction subAction: " + str);
         }
-        JSONObject fT = fT(unitedSchemeEntity.getParam("params"));
-        if (fT == null) {
+        if (eVar == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        JSONObject iH = iH(unitedSchemeEntity.getParam("params"));
+        if (iH == null) {
             c.e("backgroundAudio", "param is null!");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        d Rk = bVar.Rk();
-        if (TextUtils.equals(str, "/swan/backgroundAudio/open")) {
-            a = com.baidu.swan.apps.media.audio.a.a(fT, new com.baidu.swan.apps.media.audio.a());
+        d aah = eVar.aah();
+        if (TextUtils.equals(str, "/swanAPI/backgroundAudio/open")) {
+            a = com.baidu.swan.apps.media.audio.a.a(iH, new com.baidu.swan.apps.media.audio.a());
         } else {
-            a = com.baidu.swan.apps.media.audio.a.a(fT, Rk.Mb());
+            a = com.baidu.swan.apps.media.audio.a.a(iH, aah.Ux());
         }
         if (DEBUG) {
             Log.d("AudioBGPlayerAction", "subAction is : " + str);
         }
         char c = 65535;
         switch (str.hashCode()) {
-            case -2055590369:
-                if (str.equals("/swan/backgroundAudio/update")) {
-                    c = 1;
-                    break;
-                }
-                break;
-            case -71356960:
-                if (str.equals("/swan/backgroundAudio/pause")) {
-                    c = 3;
-                    break;
-                }
-                break;
-            case 239897377:
-                if (str.equals("/swan/backgroundAudio/getParamsSync")) {
+            case 312101659:
+                if (str.equals("/swanAPI/backgroundAudio/getParamsSync")) {
                     c = 6;
                     break;
                 }
                 break;
-            case 1798797600:
-                if (str.equals("/swan/backgroundAudio/open")) {
+            case 335869926:
+                if (str.equals("/swanAPI/backgroundAudio/open")) {
                     c = 0;
                     break;
                 }
                 break;
-            case 1798823434:
-                if (str.equals("/swan/backgroundAudio/play")) {
+            case 335895760:
+                if (str.equals("/swanAPI/backgroundAudio/play")) {
                     c = 2;
                     break;
                 }
                 break;
-            case 1798906190:
-                if (str.equals("/swan/backgroundAudio/seek")) {
+            case 335978516:
+                if (str.equals("/swanAPI/backgroundAudio/seek")) {
                     c = 4;
                     break;
                 }
                 break;
-            case 1798920920:
-                if (str.equals("/swan/backgroundAudio/stop")) {
+            case 335993246:
+                if (str.equals("/swanAPI/backgroundAudio/stop")) {
                     c = 5;
+                    break;
+                }
+                break;
+            case 820188005:
+                if (str.equals("/swanAPI/backgroundAudio/update")) {
+                    c = 1;
+                    break;
+                }
+                break;
+            case 1822525402:
+                if (str.equals("/swanAPI/backgroundAudio/pause")) {
+                    c = 3;
                     break;
                 }
                 break;
         }
         switch (c) {
             case 0:
-                c.i("backgroundAudio", "open, audioId " + a.aUw);
-                Rk.a(a, callbackHandler);
+                c.i("backgroundAudio", "open, audioId " + a.bvC);
+                aah.a(a, callbackHandler);
                 jSONObject = null;
                 z = true;
                 break;
             case 1:
-                c.i("backgroundAudio", "update, audioId " + a.aUw);
-                Rk.a(a);
+                c.i("backgroundAudio", "update, audioId " + a.bvC);
+                aah.a(a);
                 jSONObject = null;
                 z = true;
                 break;
             case 2:
-                c.i("backgroundAudio", "play, audioId " + a.aUw);
-                Rk.resume();
+                c.i("backgroundAudio", "play, audioId " + a.bvC);
+                aah.resume();
                 jSONObject = null;
                 z = true;
                 break;
             case 3:
-                c.i("backgroundAudio", "pause, audioId " + a.aUw);
-                Rk.pause();
+                c.i("backgroundAudio", "pause, audioId " + a.bvC);
+                aah.pause();
                 jSONObject = null;
                 z = true;
                 break;
             case 4:
-                c.i("backgroundAudio", "seek, audioId " + a.aUw + " position " + a.mPos);
-                Rk.seekTo(a.mPos);
+                c.i("backgroundAudio", "seek, audioId " + a.bvC + " position " + a.mPos);
+                aah.seekTo(a.mPos);
                 jSONObject = null;
                 z = true;
                 break;
             case 5:
-                c.i("backgroundAudio", "stop, audioId " + a.aUw);
-                Rk.stop();
+                c.i("backgroundAudio", "stop, audioId " + a.bvC);
+                aah.stop();
                 jSONObject = null;
                 z = true;
                 break;
             case 6:
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.putOpt(a.aUB, Rk.fS(a.aUB));
+                    jSONObject2.putOpt(a.bvG, aah.iG(a.bvG));
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0);
                     return true;
                 } catch (JSONException e) {
@@ -156,10 +161,10 @@ public class a extends z {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;
         }
-        return super.a(context, unitedSchemeEntity, callbackHandler, str, bVar);
+        return super.e(context, unitedSchemeEntity, callbackHandler, str, eVar);
     }
 
-    private JSONObject fT(String str) {
+    private JSONObject iH(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 return new JSONObject(str);

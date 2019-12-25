@@ -3,6 +3,7 @@ package com.baidu.tbadk;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
@@ -39,9 +40,8 @@ import com.baidu.tbadk.core.util.e;
 import com.baidu.tbadk.core.util.g.c;
 import com.baidu.tbadk.core.util.g.d;
 import com.baidu.tbadk.core.view.GuidPageView;
-import com.baidu.tbadk.core.view.f;
-import com.baidu.tbadk.m.g;
-import com.baidu.tbadk.m.h;
+import com.baidu.tbadk.k.g;
+import com.baidu.tbadk.k.h;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -108,7 +108,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.alU();
+        this.customToast = e.aDg();
         super.onCreate(bundle);
         this.mLayoutMode = new com.baidu.tbadk.core.c();
         this.mLayoutInflateFactory = new a();
@@ -193,13 +193,13 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
 
     protected void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
-            f.Y(getPageContext().getPageActivity());
+            com.baidu.tbadk.core.view.e.ac(getPageContext().getPageActivity());
         }
     }
 
     protected void adjustResizeForSoftInput(int i, boolean z) {
         if (this.mUseStyleImmersiveSticky) {
-            f.a(getPageContext().getPageActivity(), i, z);
+            com.baidu.tbadk.core.view.e.a(getPageContext().getPageActivity(), i, z);
         }
     }
 
@@ -333,7 +333,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     }
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (!isFinishing() && com.baidu.adp.lib.g.g.isActivityCanShowDialogOrPopupWindow(getActivity())) {
+        if (!isFinishing() && com.baidu.adp.lib.f.g.isActivityCanShowDialogOrPopupWindow(getActivity())) {
             String string = str != null ? str : TbadkCoreApplication.getInst().getResources().getString(R.string.Waiting);
             if (onCancelListener != null) {
                 this.mWaitingDialog = ProgressDialog.show(getActivity(), "", string, true, true, onCancelListener);
@@ -347,7 +347,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         if (this.mWaitingDialog != null) {
             try {
                 if (this.mWaitingDialog.isShowing()) {
-                    com.baidu.adp.lib.g.g.dismissDialog(this.mWaitingDialog, getActivity());
+                    com.baidu.adp.lib.f.g.dismissDialog(this.mWaitingDialog, getActivity());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -361,19 +361,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.b(getActivity(), str, i, false).akR();
+        BdToast.a((Context) getActivity(), (CharSequence) str, i, false).aCb();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2, false).akR();
+        BdToast.a(getActivity(), str, i, i2, false).aCb();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).akR();
+        BdToast.a(getActivity(), str, defaultIcon).aCb();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).akR();
+        BdToast.a(getActivity(), str, defaultIcon, i).aCb();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -461,13 +461,13 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
 
     protected void showListMenu() {
         if (this.mListMenu != null && !this.mListMenu.isShowing()) {
-            com.baidu.adp.lib.g.g.showDialog(this.mListMenu, getActivity());
+            com.baidu.adp.lib.f.g.showDialog(this.mListMenu, getActivity());
         }
     }
 
     protected void hideListMenu() {
         if (this.mListMenu != null && this.mListMenu.isShowing()) {
-            com.baidu.adp.lib.g.g.dismissDialog(this.mListMenu, getActivity());
+            com.baidu.adp.lib.f.g.dismissDialog(this.mListMenu, getActivity());
         }
     }
 
@@ -599,7 +599,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     }
 
     public boolean showDialog(Dialog dialog) {
-        if (com.baidu.adp.lib.g.g.showDialog(dialog, getActivity())) {
+        if (com.baidu.adp.lib.f.g.showDialog(dialog, getActivity())) {
             if (this.dialogList == null) {
                 this.dialogList = new LinkedList();
             }
@@ -619,20 +619,20 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         if (this.dialogList != null) {
             this.dialogList.remove(dialog);
         }
-        com.baidu.adp.lib.g.g.dismissDialog(dialog, getActivity());
+        com.baidu.adp.lib.f.g.dismissDialog(dialog, getActivity());
     }
 
     public void dismissAllDialog() {
         if (this.dialogList != null) {
             for (Dialog dialog : this.dialogList) {
-                com.baidu.adp.lib.g.g.dismissDialog(dialog, getActivity());
+                com.baidu.adp.lib.f.g.dismissDialog(dialog, getActivity());
             }
             this.dialogList.clear();
         }
     }
 
     public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view) {
-        if (com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(popupWindow, view)) {
+        if (com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(popupWindow, view)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -643,7 +643,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     }
 
     public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i, int i2) {
-        if (com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(popupWindow, view, i, i2)) {
+        if (com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(popupWindow, view, i, i2)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -654,7 +654,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     }
 
     public boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-        if (com.baidu.adp.lib.g.g.showPopupWindowAtLocation(popupWindow, view, i, i2, i3)) {
+        if (com.baidu.adp.lib.f.g.showPopupWindowAtLocation(popupWindow, view, i, i2, i3)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -665,7 +665,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     }
 
     public void dismissPopupWindow(PopupWindow popupWindow) {
-        com.baidu.adp.lib.g.g.dismissPopupWindow(popupWindow, getActivity());
+        com.baidu.adp.lib.f.g.dismissPopupWindow(popupWindow, getActivity());
         if (this.popupWindowList != null) {
             this.popupWindowList.remove(popupWindow);
         }
@@ -674,7 +674,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     public void dismissAllPopupWindow() {
         if (this.popupWindowList != null) {
             for (PopupWindow popupWindow : this.popupWindowList) {
-                com.baidu.adp.lib.g.g.dismissPopupWindow(popupWindow, getActivity());
+                com.baidu.adp.lib.f.g.dismissPopupWindow(popupWindow, getActivity());
             }
             this.popupWindowList.clear();
         }

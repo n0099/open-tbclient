@@ -6,6 +6,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.webkit.internal.ETAG;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class i {
@@ -52,7 +53,7 @@ public class i {
 
     public static void debugWebSocketInfo() {
         try {
-            BdStatisticsManager.getInstance().debug("socket", "url", com.baidu.adp.lib.webSocket.h.hr().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.hr().ho()), "con_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.hr().hx()), "remote_ip", com.baidu.adp.lib.webSocket.h.hr().hn(), "local_dns", com.baidu.adp.lib.webSocket.h.hr().getLocalDns(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.hr().getLocalDnsBak(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
+            BdStatisticsManager.getInstance().debug("socket", "url", com.baidu.adp.lib.webSocket.h.hN().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.hN().hK()), "con_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.hN().hS()), "remote_ip", com.baidu.adp.lib.webSocket.h.hN().hJ(), ETAG.KEY_LOCAL_DNS, com.baidu.adp.lib.webSocket.h.hN().getLocalDns(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.hN().getLocalDnsBak(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -62,7 +63,7 @@ public class i {
         try {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem(BdStatsConstant.StatsType.PERFORMANCE);
             statsItem.append("action", "imconn");
-            statsItem.append("con_cost", String.valueOf(com.baidu.adp.lib.webSocket.h.hr().hx()));
+            statsItem.append("con_cost", String.valueOf(com.baidu.adp.lib.webSocket.h.hN().hS()));
             statsItem.append("nettype", com.baidu.adp.lib.stats.d.getNetType(BdBaseApplication.getInst()));
             BdStatisticsManager.getInstance().performance("im", statsItem);
         } catch (Exception e) {

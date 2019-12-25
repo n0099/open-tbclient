@@ -12,16 +12,16 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tieba.video.editvideo.data.a jya;
+    private com.baidu.tieba.video.editvideo.data.a krV;
     private List<com.baidu.tieba.video.editvideo.data.a> mList = new ArrayList();
 
     public void setData(List<com.baidu.tieba.video.editvideo.data.a> list) {
         if (list != null) {
             this.mList = list;
             if (this.mList.size() > 0) {
-                this.jya = this.mList.get(0);
+                this.krV = this.mList.get(0);
             }
         }
     }
@@ -50,16 +50,16 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_filter, (ViewGroup) null);
-            aVar.jyb = (TbImageView) view.findViewById(R.id.iv_effect);
-            aVar.jyb.setIsRound(true);
-            aVar.jyb.setDrawerType(1);
-            aVar.jyb.setDefaultBgResource(R.color.transparent);
-            aVar.jyb.setBorderWidth(l.getDimens(viewGroup.getContext(), R.dimen.ds4));
-            aVar.jyb.setBorderColor(am.getColor(R.color.cp_link_tip_a));
-            aVar.jyb.setConrers(15);
-            aVar.hPC = (TextView) view.findViewById(R.id.tv_name);
-            am.setViewTextColor(aVar.hPC, (int) R.color.cp_cont_j);
-            aVar.hPC = (TextView) view.findViewById(R.id.tv_name);
+            aVar.krW = (TbImageView) view.findViewById(R.id.iv_effect);
+            aVar.krW.setIsRound(true);
+            aVar.krW.setDrawerType(1);
+            aVar.krW.setDefaultBgResource(R.color.transparent);
+            aVar.krW.setBorderWidth(l.getDimens(viewGroup.getContext(), R.dimen.ds4));
+            aVar.krW.setBorderColor(am.getColor(R.color.cp_link_tip_a));
+            aVar.krW.setConrers(15);
+            aVar.mTvName = (TextView) view.findViewById(R.id.tv_name);
+            am.setViewTextColor(aVar.mTvName, (int) R.color.cp_cont_j);
+            aVar.mTvName = (TextView) view.findViewById(R.id.tv_name);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -67,15 +67,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (i >= 0 && i < this.mList.size()) {
             com.baidu.tieba.video.editvideo.data.a aVar2 = this.mList.get(i);
             if (aVar2 != null) {
-                aVar.jyb.setTag(aVar2);
-                aVar.jyb.setOnClickListener(this);
-                aVar.jyb.startLoad(String.valueOf(aVar2.jyD), 24, false);
-                aVar.hPC.setText(aVar2.name);
+                aVar.krW.setTag(aVar2);
+                aVar.krW.setOnClickListener(this);
+                aVar.krW.startLoad(String.valueOf(aVar2.coverId), 24, false);
+                aVar.mTvName.setText(aVar2.name);
             }
-            if (!TextUtils.isEmpty(aVar2.name) && this.jya != null && TextUtils.equals(aVar2.name, this.jya.name)) {
-                aVar.jyb.setDrawBorder(true);
+            if (!TextUtils.isEmpty(aVar2.name) && this.krV != null && TextUtils.equals(aVar2.name, this.krV.name)) {
+                aVar.krW.setDrawBorder(true);
             } else {
-                aVar.jyb.setDrawBorder(false);
+                aVar.krW.setDrawBorder(false);
             }
         }
         return view;
@@ -84,15 +84,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.iv_effect && (view.getTag() instanceof com.baidu.tieba.video.editvideo.data.a)) {
-            this.jya = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
+            this.krV = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
             notifyDataSetChanged();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     class a {
-        TextView hPC;
-        TbImageView jyb;
+        TbImageView krW;
+        TextView mTvName;
 
         a() {
         }

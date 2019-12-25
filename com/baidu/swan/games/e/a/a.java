@@ -1,23 +1,23 @@
 package com.baidu.swan.games.e.a;
 
 import com.baidu.searchbox.v8engine.V8Engine;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private V8Engine byU;
+    private V8Engine mEngine;
 
     public a(V8Engine v8Engine) {
-        this.byU = v8Engine;
+        this.mEngine = v8Engine;
     }
 
     public void log(String str) {
-        y(1, str);
+        E(1, str);
     }
 
-    public void jI(String str) {
-        y(4, str);
+    public void error(String str) {
+        E(4, str);
     }
 
-    private void y(int i, String str) {
-        this.byU.onConsoleCallBack(i, str);
+    private void E(int i, String str) {
+        this.mEngine.onConsoleCallBack(i, str);
     }
 }

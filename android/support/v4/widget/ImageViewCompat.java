@@ -4,13 +4,15 @@ import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.widget.ImageView;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ImageViewCompat {
     static final ImageViewCompatImpl IMPL;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     interface ImageViewCompatImpl {
         ColorStateList getImageTintList(ImageView imageView);
 
@@ -21,7 +23,7 @@ public class ImageViewCompat {
         void setImageTintMode(ImageView imageView, PorterDuff.Mode mode);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class BaseViewCompatImpl implements ImageViewCompatImpl {
         BaseViewCompatImpl() {
         }
@@ -58,7 +60,7 @@ public class ImageViewCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class LollipopViewCompatImpl extends BaseViewCompatImpl {
         LollipopViewCompatImpl() {
         }
@@ -112,19 +114,21 @@ public class ImageViewCompat {
         }
     }
 
-    public static ColorStateList getImageTintList(ImageView imageView) {
+    @Nullable
+    public static ColorStateList getImageTintList(@NonNull ImageView imageView) {
         return IMPL.getImageTintList(imageView);
     }
 
-    public static void setImageTintList(ImageView imageView, ColorStateList colorStateList) {
+    public static void setImageTintList(@NonNull ImageView imageView, @Nullable ColorStateList colorStateList) {
         IMPL.setImageTintList(imageView, colorStateList);
     }
 
-    public static PorterDuff.Mode getImageTintMode(ImageView imageView) {
+    @Nullable
+    public static PorterDuff.Mode getImageTintMode(@NonNull ImageView imageView) {
         return IMPL.getImageTintMode(imageView);
     }
 
-    public static void setImageTintMode(ImageView imageView, PorterDuff.Mode mode) {
+    public static void setImageTintMode(@NonNull ImageView imageView, @Nullable PorterDuff.Mode mode) {
         IMPL.setImageTintMode(imageView, mode);
     }
 

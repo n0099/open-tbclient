@@ -26,7 +26,7 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class QQShare extends BaseApi {
     public static final int QQ_SHARE_SUMMARY_MAX_LENGTH = 512;
     public static final int QQ_SHARE_TITLE_MAX_LENGTH = 128;
@@ -301,9 +301,9 @@ public class QQShare extends BaseApi {
                 a(activity, Constants.REQUEST_QQ_SHARE, intent, true);
             }
         }
-        String str = Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;
+        String str = "10";
         if (i2 == 1) {
-            str = Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE;
+            str = "11";
         }
         if (a(intent)) {
             d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QQ, str, "3", "0", this.mViaShareQQType, "0", "1", "0");

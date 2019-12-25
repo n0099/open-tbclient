@@ -50,6 +50,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_FROM_WRITESHARE = "tb_write_share";
     public static final String FRS_GAME_DEFAULT_TAB_ID = "frs_game_default_tab_id";
     public static final String FRS_HOT_THREAD_ID = "frs_hot_thread_id";
+    public static final String FRS_PB_CARD_GIFT = "tb_pb_card_gift";
     public static final String FRS_TO_PB = "tb_frslist";
     public static final String GOOD = "good";
     public static final String IS_SELECTION = "is_selection";

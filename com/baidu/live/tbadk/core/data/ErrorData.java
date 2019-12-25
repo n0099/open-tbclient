@@ -1,11 +1,12 @@
 package com.baidu.live.tbadk.core.data;
 
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ErrorData implements Serializable {
     private static final long serialVersionUID = -2582050549890612990L;
     public int error_code = -1;
@@ -54,7 +55,7 @@ public class ErrorData implements Serializable {
                     this.error_data = jSONObject.optString("error_data");
                 } else {
                     this.error_code = optJSONObject.optInt("errno", 0);
-                    this.error_msg = optJSONObject.optString("errmsg");
+                    this.error_msg = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
                     this.error_data = optJSONObject.optString("usermsg");
                 }
             } catch (Exception e) {

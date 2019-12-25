@@ -4,8 +4,10 @@ import android.content.Context;
 import android.support.annotation.DrawableRes;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputConnection;
 import android.widget.CheckedTextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AppCompatCheckedTextView extends CheckedTextView {
     private static final int[] TINT_ATTRS = {16843016};
     private final AppCompatTextHelper mTextHelper;
@@ -47,5 +49,10 @@ public class AppCompatCheckedTextView extends CheckedTextView {
         if (this.mTextHelper != null) {
             this.mTextHelper.applyCompoundDrawablesTints();
         }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
+        return AppCompatHintHelper.onCreateInputConnection(super.onCreateInputConnection(editorInfo), editorInfo, this);
     }
 }

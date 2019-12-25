@@ -28,17 +28,17 @@ import com.baidu.tieba.chosen.unlike.UnlikeRequest;
 import com.baidu.tieba.chosen.unlike.UnlikeSocketReponse;
 import java.util.List;
 import tbclient.HotThread.tinfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> implements NetModel.b<com.baidu.tieba.chosen.posts.request.a, com.baidu.tieba.chosen.posts.request.b> {
-    private ChosenPostActivity eTY;
-    private ChosenPostModel eTZ;
-    private ChosenPostCacheModel eUa;
-    private com.baidu.tbadk.mvc.d.a eUb;
-    private com.baidu.tieba.chosen.posts.request.a eUc;
-    private CacheModel.a<com.baidu.tieba.chosen.posts.request.b> eUd;
-    private com.baidu.adp.framework.listener.a eUe;
+    private ChosenPostActivity fIF;
+    private ChosenPostModel fIG;
+    private ChosenPostCacheModel fIH;
+    private com.baidu.tbadk.mvc.d.a fII;
+    private com.baidu.tieba.chosen.posts.request.a fIJ;
+    private CacheModel.a<com.baidu.tieba.chosen.posts.request.b> fIK;
+    private com.baidu.adp.framework.listener.a fIL;
 
-    private void bbH() {
+    private void btf() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(CmdConfigSocket.CMD_HOT_THREAD_UNLIKE);
         socketMessageTask.setNeedAck(true);
         socketMessageTask.setResponsedClass(UnlikeSocketReponse.class);
@@ -46,25 +46,25 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
         MessageManager.getInstance().registerTask(socketMessageTask);
     }
 
-    private void aMH() {
+    private void bem() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003017, com.baidu.tieba.tbadkCore.a.a.bl(TbConfig.HOT_THREAD_UNLIKE, CmdConfigSocket.CMD_HOT_THREAD_UNLIKE));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003017, com.baidu.tieba.tbadkCore.a.a.bu(TbConfig.HOT_THREAD_UNLIKE, CmdConfigSocket.CMD_HOT_THREAD_UNLIKE));
         tbHttpMessageTask.setResponsedClass(UnlikeHttpResponse.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cz(long j) {
+    public void df(long j) {
         com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4102, null, null, null);
         bVar.setExtra(Long.valueOf(j));
         bVar.setUniqueId(getUniqueId());
-        this.eTY.awv().dispatchMvcEvent(bVar);
+        this.fIF.aOf().dispatchMvcEvent(bVar);
     }
 
     public ChosenPostModelController(ChosenPostActivity chosenPostActivity) {
         super(chosenPostActivity.getPageContext());
-        this.eUb = new com.baidu.tbadk.mvc.d.a();
-        this.eUd = new CacheModel.a<com.baidu.tieba.chosen.posts.request.b>() { // from class: com.baidu.tieba.chosen.posts.ChosenPostModelController.1
+        this.fII = new com.baidu.tbadk.mvc.d.a();
+        this.fIK = new CacheModel.a<com.baidu.tieba.chosen.posts.request.b>() { // from class: com.baidu.tieba.chosen.posts.ChosenPostModelController.1
             @Override // com.baidu.tbadk.mvc.model.CacheModel.a
             public void a(ReadCacheRespMsg<List<com.baidu.tieba.chosen.posts.request.b>> readCacheRespMsg, ReadCacheMessage<com.baidu.tieba.chosen.posts.request.b> readCacheMessage) {
                 com.baidu.tieba.chosen.posts.request.b bVar;
@@ -72,41 +72,41 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
                 if (data != null && !data.isEmpty() && (bVar = data.get(0)) != null) {
                     com.baidu.tbadk.mvc.c.b bVar2 = new com.baidu.tbadk.mvc.c.b(4099, bVar, null, null);
                     bVar2.setUniqueId(ChosenPostModelController.this.getUniqueId());
-                    ChosenPostModelController.this.eTY.awv().dispatchMvcEvent(bVar2);
+                    ChosenPostModelController.this.fIF.aOf().dispatchMvcEvent(bVar2);
                 }
-                ChosenPostModelController.this.eUc.bbN();
-                ChosenPostModelController.this.eTZ.loadData();
+                ChosenPostModelController.this.fIJ.btl();
+                ChosenPostModelController.this.fIG.loadData();
             }
 
             @Override // com.baidu.tbadk.mvc.model.CacheModel.a
             public void a(WriteCacheRespMsg<List<com.baidu.tieba.chosen.posts.request.b>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.chosen.posts.request.b> writeCacheMessage) {
             }
         };
-        this.eUe = new com.baidu.adp.framework.listener.a(1003017, CmdConfigSocket.CMD_HOT_THREAD_UNLIKE) { // from class: com.baidu.tieba.chosen.posts.ChosenPostModelController.2
+        this.fIL = new com.baidu.adp.framework.listener.a(1003017, CmdConfigSocket.CMD_HOT_THREAD_UNLIKE) { // from class: com.baidu.tieba.chosen.posts.ChosenPostModelController.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
                     if (responsedMessage.getError() != 0) {
-                        BdToast.b(ChosenPostModelController.this.eTY.getActivity(), responsedMessage.getErrorString(), 0).akQ().akR();
+                        BdToast.a(ChosenPostModelController.this.fIF.getActivity(), responsedMessage.getErrorString(), 0).aCa().aCb();
                     } else if (responsedMessage instanceof UnlikeHttpResponse) {
-                        ChosenPostModelController.this.cz(((UnlikeHttpResponse) responsedMessage).getThreadId());
+                        ChosenPostModelController.this.df(((UnlikeHttpResponse) responsedMessage).getThreadId());
                     } else if (responsedMessage instanceof UnlikeSocketReponse) {
-                        ChosenPostModelController.this.cz(((UnlikeSocketReponse) responsedMessage).getThreadId());
+                        ChosenPostModelController.this.df(((UnlikeSocketReponse) responsedMessage).getThreadId());
                     }
                 }
             }
         };
-        this.eTY = chosenPostActivity;
-        aMH();
-        bbH();
-        registerListener(this.eUe);
+        this.fIF = chosenPostActivity;
+        bem();
+        btf();
+        registerListener(this.fIL);
     }
 
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        if (bVar.avO() == 4100) {
-            this.eTZ.loadData();
+        if (bVar.aNy() == 4100) {
+            this.fIG.loadData();
             return false;
-        } else if (bVar.avO() == 4101) {
+        } else if (bVar.aNy() == 4101) {
             Object extra = bVar.getExtra();
             if (extra instanceof tinfo) {
                 tinfo tinfoVar = (tinfo) extra;
@@ -123,52 +123,52 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bbI() {
-        this.eUa.avT();
+    public boolean btg() {
+        this.fIH.aND();
         return true;
     }
 
     protected boolean a(com.baidu.tieba.chosen.posts.request.a aVar, com.baidu.tieba.chosen.posts.request.b bVar) {
-        this.eTY.bbG().a(bVar);
+        this.fIF.bte().a(bVar);
         if (bVar != null) {
-            this.eUb.fr(false);
-            this.eUb.fs(false);
-            this.eTY.bbG().c(this.eUb);
+            this.fII.gC(false);
+            this.fII.gD(false);
+            this.fIF.bte().c(this.fII);
             return true;
         }
         return true;
     }
 
-    public void K(Bundle bundle) {
-        this.eUc = new com.baidu.tieba.chosen.posts.request.a();
-        this.eTZ = new ChosenPostModel(this.eTY.getPageContext(), this.eUc);
-        this.eTZ.a(this);
-        this.eUa = new ChosenPostCacheModel(this.eTY.getPageContext());
-        this.eUa.a(this.eUd);
+    public void ad(Bundle bundle) {
+        this.fIJ = new com.baidu.tieba.chosen.posts.request.a();
+        this.fIG = new ChosenPostModel(this.fIF.getPageContext(), this.fIJ);
+        this.fIG.a(this);
+        this.fIH = new ChosenPostCacheModel(this.fIF.getPageContext());
+        this.fIH.a(this.fIK);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean iV(boolean z) {
-        this.eUb.fr(true);
-        this.eTY.bbG().c(this.eUb);
-        iW(true);
-        this.eUc.bbN();
-        this.eTZ.loadData();
+    public boolean kh(boolean z) {
+        this.fII.gC(true);
+        this.fIF.bte().c(this.fII);
+        ki(true);
+        this.fIJ.btl();
+        this.fIG.loadData();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bbJ() {
-        this.eUc.bbN();
-        this.eTZ.loadData();
-        this.eUb.fs(true);
-        this.eUb.fu(true);
-        iW(false);
-        this.eTY.bbG().c(this.eUb);
+    public boolean bth() {
+        this.fIJ.btl();
+        this.fIG.loadData();
+        this.fII.gD(true);
+        this.fII.gF(true);
+        ki(false);
+        this.fIF.bte().c(this.fII);
         return true;
     }
 
-    private void iW(boolean z) {
+    private void ki(boolean z) {
         com.baidu.tbadk.mvc.c.b bVar;
         if (z) {
             bVar = new com.baidu.tbadk.mvc.c.b(4097, null, null, null);
@@ -176,7 +176,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             bVar = new com.baidu.tbadk.mvc.c.b(4098, null, null, null);
         }
         bVar.setUniqueId(getUniqueId());
-        this.eTY.awv().dispatchMvcEvent(bVar);
+        this.fIF.aOf().dispatchMvcEvent(bVar);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
@@ -199,8 +199,8 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.eTY.a(errorData);
-            this.eTY.bbG().a(errorData);
+            this.fIF.a(errorData);
+            this.fIF.bte().a(errorData);
         }
     }
 
@@ -224,8 +224,8 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.eTY.a(errorData);
-            this.eTY.bbG().a(errorData);
+            this.fIF.a(errorData);
+            this.fIF.bte().a(errorData);
         }
     }
 

@@ -3,12 +3,13 @@ package com.baidu.tieba.personPolymeric.mode.message;
 import UserPost.DataReq;
 import UserPost.UserPostReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.f.b;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.squareup.wire.Message;
-/* loaded from: classes6.dex */
+import tbclient.User;
+/* loaded from: classes8.dex */
 public class UserPostPageRequestMessage extends NetMessage {
     private int from;
     private boolean isHost;
@@ -24,6 +25,7 @@ public class UserPostPageRequestMessage extends NetMessage {
     private int scr_h;
     private int scr_w;
     private int sub_type;
+    private User threadUser;
     private String uid;
 
     public UserPostPageRequestMessage() {
@@ -118,6 +120,14 @@ public class UserPostPageRequestMessage extends NetMessage {
         this.is_view_card = i;
     }
 
+    public void setThreadUser(User user) {
+        this.threadUser = user;
+    }
+
+    public User getThreadUser() {
+        return this.threadUser;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.NetMessage
     public Message encode(boolean z) {
@@ -134,7 +144,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         builder.subtype = Integer.valueOf(this.sub_type);
         builder.is_view_card = Integer.valueOf(this.is_view_card);
         if (z) {
-            r.a(builder, true);
+            t.a(builder, true);
         }
         UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
         builder2.data = builder.build(false);

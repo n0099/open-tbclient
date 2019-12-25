@@ -1,12 +1,16 @@
 package android.support.v4.util;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class Pair<F, S> {
+    @Nullable
     public final F first;
+    @Nullable
     public final S second;
 
-    public Pair(F f, S s) {
+    public Pair(@Nullable F f, @Nullable S s) {
         this.first = f;
         this.second = s;
     }
@@ -31,7 +35,8 @@ public class Pair<F, S> {
         return "Pair{" + String.valueOf(this.first) + HanziToPinyin.Token.SEPARATOR + String.valueOf(this.second) + "}";
     }
 
-    public static <A, B> Pair<A, B> create(A a, B b) {
+    @NonNull
+    public static <A, B> Pair<A, B> create(@Nullable A a, @Nullable B b) {
         return new Pair<>(a, b);
     }
 }

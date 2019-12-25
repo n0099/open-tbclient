@@ -1,60 +1,40 @@
 package com.baidu.live.d;
 
-import android.text.TextUtils;
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.adp.lib.util.Md5;
-import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.util.FileHelper;
-import java.io.File;
-/* loaded from: classes6.dex */
-public class a {
-    public static String getFileMd5(File file) {
-        String md5 = Md5.toMd5(FileHelper.GetStreamFromFile(file));
-        if (!StringUtils.isNull(md5)) {
-            return md5.toLowerCase();
-        }
-        return md5;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.live.data.k;
+import com.baidu.live.im.d;
+/* loaded from: classes2.dex */
+public interface a {
+
+    /* renamed from: com.baidu.live.d.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0075a {
     }
 
-    public static boolean existFile(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        try {
-            return new File(str).exists();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return false;
-        }
-    }
+    void a(ViewGroup viewGroup, k kVar);
 
-    public static boolean isDirectory(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        try {
-            return new File(str).isDirectory();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return false;
-        }
-    }
+    void a(InterfaceC0075a interfaceC0075a);
 
-    public static void cleanDir(File file) {
-        try {
-            if (file.exists() && file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                int length = listFiles.length;
-                for (int i = 0; i < length; i++) {
-                    if (listFiles[i].isFile()) {
-                        listFiles[i].delete();
-                    } else {
-                        cleanDir(listFiles[i]);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
+    void a(d dVar, boolean z, boolean z2);
+
+    void ao(boolean z);
+
+    void b(k kVar);
+
+    void bb(int i);
+
+    View getRootView();
+
+    boolean oR();
+
+    void oS();
+
+    void oT();
+
+    void onDestroy();
+
+    void setCanVisible(boolean z);
+
+    void setVisible(int i);
 }

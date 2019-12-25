@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class WebSocketReader {
     boolean closed;
     final FrameCallback frameCallback;
@@ -21,7 +21,7 @@ final class WebSocketReader {
     private final Buffer controlFrameBuffer = new Buffer();
     private final Buffer messageFrameBuffer = new Buffer();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface FrameCallback {
         void onReadClose(int i, String str);
 
@@ -62,7 +62,6 @@ final class WebSocketReader {
     /* JADX DEBUG: Incorrect finally slice size: {[IGET, INVOKE, SGET, INVOKE, ARITH] complete}, expected: {[IGET, INVOKE, SGET, INVOKE] complete} */
     /* JADX WARN: Finally extract failed */
     private void readHeader() throws IOException {
-        String str;
         if (this.closed) {
             throw new IOException("closed");
         }
@@ -86,12 +85,7 @@ final class WebSocketReader {
             int readByte2 = this.source.readByte() & 255;
             boolean z4 = (readByte2 & 128) != 0;
             if (z4 == this.isClient) {
-                if (this.isClient) {
-                    str = "Server-sent frames must not be masked.";
-                } else {
-                    str = "Client-sent frames must be masked.";
-                }
-                throw new ProtocolException(str);
+                throw new ProtocolException(this.isClient ? "Server-sent frames must not be masked." : "Client-sent frames must be masked.");
             }
             this.frameLength = readByte2 & 127;
             if (this.frameLength == 126) {

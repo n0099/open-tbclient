@@ -26,11 +26,11 @@ import android.view.TouchDelegate;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.live.adp.R;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.widget.ICustomToast;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
@@ -42,8 +42,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdUtilHelper {
     private static final double EARTH_RADIUS = 6378.137d;
     private static final int TOAST_LONG = 3500;
@@ -55,7 +54,7 @@ public class BdUtilHelper {
     private static ICustomToast mToast = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface ICustomToastView {
         View getToastContentView();
 
@@ -274,7 +273,7 @@ public class BdUtilHelper {
             return false;
         }
         try {
-            String str = new String(bArr, 0, 16, HTTP.UTF_8);
+            String str = new String(bArr, 0, 16, "UTF-8");
             if (str == null || str.indexOf("RIFF") != 0) {
                 return false;
             }
@@ -379,8 +378,8 @@ public class BdUtilHelper {
         if (str != null && str2 != null) {
             if (str.indexOf("?") < 0) {
                 str = str + "?";
-            } else if (!str.endsWith("?") && !str.endsWith("&")) {
-                str = str + "&";
+            } else if (!str.endsWith("?") && !str.endsWith(ETAG.ITEM_SEPARATOR)) {
+                str = str + ETAG.ITEM_SEPARATOR;
             }
             return str + str2;
         }
@@ -503,7 +502,7 @@ public class BdUtilHelper {
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
                     sb.append(stackTrace[i].getClassName());
-                    sb.append(DefaultConfig.TOKEN_SEPARATOR);
+                    sb.append(".");
                     sb.append(stackTrace[i].getMethodName());
                     sb.append("  lines = ");
                     sb.append(stackTrace[i].getLineNumber());

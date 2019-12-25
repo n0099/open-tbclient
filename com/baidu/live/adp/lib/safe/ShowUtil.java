@@ -7,7 +7,7 @@ import android.os.IBinder;
 import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.live.adp.base.BdPageContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ShowUtil {
     public static final boolean showDialog(Dialog dialog, BdPageContext<?> bdPageContext) {
         if (bdPageContext == null || bdPageContext.getPageActivity() == null) {

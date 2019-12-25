@@ -1,12 +1,12 @@
 package rx.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class e extends d {
-    private static final e kEJ = new e();
+    private static final e njC = new e();
 
     private e() {
     }
 
-    public static d cPy() {
-        return kEJ;
+    public static d dHf() {
+        return njC;
     }
 }

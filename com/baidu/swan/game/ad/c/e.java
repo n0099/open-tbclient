@@ -2,30 +2,29 @@ package com.baidu.swan.game.ad.c;
 
 import android.content.Context;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.tencent.connect.common.Constants;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class e extends d {
-    private String c;
-    private String d;
-    private String e;
-    private String f;
+    private String cds;
+    private String cdt;
+    private String cdu;
+    private String cdv;
 
     public e(Context context, b bVar) {
         super(context, bVar);
-        this.c = "rvideo";
-        this.d = Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;
-        this.e = "MSSP,ANTI,VIDEO,NMON";
-        this.f = "LP,DL";
+        this.cds = "rvideo";
+        this.cdt = "10";
+        this.cdu = "MSSP,ANTI,VIDEO,NMON";
+        this.cdv = "LP,DL";
     }
 
     @Override // com.baidu.swan.game.ad.c.d
-    protected HashMap<String, String> a() {
+    protected HashMap<String, String> ahR() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("act", this.f);
-        hashMap.put("prod", this.c);
-        hashMap.put("at", this.d);
-        hashMap.put(IXAdRequestInfo.FET, this.e);
+        hashMap.put("act", this.cdv);
+        hashMap.put("prod", this.cds);
+        hashMap.put("at", this.cdt);
+        hashMap.put(IXAdRequestInfo.FET, this.cdu);
         return hashMap;
     }
 }

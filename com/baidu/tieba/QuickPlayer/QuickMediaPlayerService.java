@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class QuickMediaPlayerService extends Service implements com.baidu.tieba.QuickPlayer.a {
     public static final String KEY_RELEASE_ALL_PLAYERS = "KEY_RELEASE_ALL_PLAYERS";
     public static final String KEY_RELEASE_PLAYERS_IDS = "KEY_RELEASE_PLAYERS_IDS";
@@ -30,7 +30,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
         return new QuickMediaPlayerServiceBinder();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public class QuickMediaPlayerServiceBinder extends IQuickMediaPlayerService.Stub {
         public QuickMediaPlayerServiceBinder() {
         }
@@ -50,7 +50,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
                 while (it.hasNext()) {
                     Map.Entry<Uri, a> next = it.next();
                     if (next != null && next.getValue() != null && it.hasNext()) {
-                        next.getValue().aBY();
+                        next.getValue().aTQ();
                         it.remove();
                     }
                 }
@@ -62,7 +62,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
     public void addPlayer(IMediaPlayer iMediaPlayer, Uri uri) {
         synchronized (QuickMediaPlayerService.class) {
             if (this.mPlayerList.containsKey(uri) && this.mPlayerList.get(uri) != null) {
-                this.mPlayerList.get(uri).aBY();
+                this.mPlayerList.get(uri).aTQ();
             }
             this.mPlayerList.put(uri, new a(iMediaPlayer));
         }
@@ -73,17 +73,8 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
         synchronized (QuickMediaPlayerService.class) {
             a aVar = this.mPlayerList.get(uri);
             if (aVar != null) {
-                aVar.count--;
-                IMediaPlayer iMediaPlayer = aVar.dcQ;
-                if (iMediaPlayer != null) {
-                    if (iMediaPlayer.isPlaying()) {
-                        iMediaPlayer.pause();
-                    }
-                    if (aVar.count <= 0) {
-                        iMediaPlayer.resetListeners();
-                        iMediaPlayer.setSurface(null);
-                    }
-                }
+                aVar.aTQ();
+                this.mPlayerList.remove(uri);
             }
         }
     }
@@ -91,9 +82,9 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
     @Override // com.baidu.tieba.QuickPlayer.a
     public IMediaPlayer getPlayer(Uri uri) {
         synchronized (QuickMediaPlayerService.class) {
-            if (this.mPlayerList.get(uri) != null && this.mPlayerList.get(uri).dcQ != null) {
+            if (this.mPlayerList.get(uri) != null && this.mPlayerList.get(uri).dQL != null) {
                 this.mPlayerList.get(uri).count++;
-                return this.mPlayerList.get(uri).dcQ;
+                return this.mPlayerList.get(uri).dQL;
             }
             return null;
         }
@@ -117,15 +108,15 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
         ArrayList arrayList = new ArrayList();
         synchronized (QuickMediaPlayerService.class) {
             for (Map.Entry<Uri, a> entry : this.mPlayerList.entrySet()) {
-                if (entry != null && entry.getKey() != null && entry.getValue() != null && entry.getValue().dcQ != null) {
-                    arrayList.add(entry.getValue().dcQ.generateMediaID());
+                if (entry != null && entry.getKey() != null && entry.getValue() != null && entry.getValue().dQL != null) {
+                    arrayList.add(entry.getValue().dQL.generateMediaID());
                 }
             }
         }
         return arrayList;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     class LRULinkedHashMap<K, V> extends LinkedHashMap<K, V> {
         public static final int MAX_PLAYERS = 3;
         private static final long serialVersionUID = 1;
@@ -139,32 +130,32 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
             boolean z = size() > 3;
             V value = entry.getValue();
             if (z && (value instanceof a)) {
-                ((a) value).aBY();
+                ((a) value).aTQ();
             }
             return z;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     class a {
         public int count = 1;
-        public IMediaPlayer dcQ;
+        public IMediaPlayer dQL;
 
         public a(IMediaPlayer iMediaPlayer) {
-            this.dcQ = iMediaPlayer;
+            this.dQL = iMediaPlayer;
         }
 
         public boolean equals(Object obj) {
-            return (obj instanceof a) && this.dcQ == ((a) obj).dcQ;
+            return (obj instanceof a) && this.dQL == ((a) obj).dQL;
         }
 
-        public void aBY() {
-            if (this.dcQ != null) {
+        public void aTQ() {
+            if (this.dQL != null) {
                 try {
-                    this.dcQ.reset();
+                    this.dQL.reset();
                 } catch (Throwable th) {
                 }
-                this.dcQ.release();
+                this.dQL.release();
             }
         }
     }

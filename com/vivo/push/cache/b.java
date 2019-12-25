@@ -4,7 +4,7 @@ import android.content.Context;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class b {
     private static final Object a = new Object();
     private static volatile b b;

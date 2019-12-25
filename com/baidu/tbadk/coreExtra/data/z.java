@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class z {
-    private String cuK;
-    private long cuL;
-    private long cuM;
-    private long cuN;
-    private String cuO;
-    private String cuP;
+    private String diA;
+    private String div;
+    private long diw;
+    private long dix;
+    private long diy;
+    private String diz;
 
     public void parseJson(String str) {
         if (!aq.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.cuK = jSONObject.optString("splash_video_url");
-                this.cuL = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.cuM = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.cuN = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.cuO = jSONObject.optString("splash_video_h5_url");
-                this.cuP = jSONObject.optString("splash_video_h5_text");
+                this.div = jSONObject.optString("splash_video_url");
+                this.diw = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.dix = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.diy = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.diz = jSONObject.optString("splash_video_h5_url");
+                this.diA = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String apu() {
-        return this.cuK;
+    public String aGS() {
+        return this.div;
     }
 
-    public long apv() {
-        return this.cuL;
+    public long aGT() {
+        return this.diw;
     }
 
-    public long apw() {
-        return this.cuM;
+    public long aGU() {
+        return this.dix;
     }
 
-    public long apx() {
-        return this.cuN;
+    public long aGV() {
+        return this.diy;
     }
 
-    public String apy() {
-        return this.cuO;
+    public String aGW() {
+        return this.diz;
     }
 
-    public String apz() {
-        return this.cuP;
+    public String aGX() {
+        return this.diA;
     }
 }

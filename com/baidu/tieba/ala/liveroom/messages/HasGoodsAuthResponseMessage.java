@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HasGoodsAuthResponseMessage extends JsonHttpResponsedMessage {
-    public boolean ekB;
+    public boolean faS;
 
     public HasGoodsAuthResponseMessage() {
         super(1021143);
@@ -15,7 +15,7 @@ public class HasGoodsAuthResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ekB = optJSONObject.optBoolean("isAuth");
+            this.faS = optJSONObject.optBoolean("isAuth");
         }
     }
 }

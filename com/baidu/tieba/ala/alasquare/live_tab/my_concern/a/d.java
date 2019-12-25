@@ -9,29 +9,29 @@ import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.h;
-import com.baidu.tieba.card.ab;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.card.z;
+/* loaded from: classes2.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a, h> {
-    private boolean dxb;
-    private ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a> dxc;
+    private boolean eid;
+    private z<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a> eie;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a.dxg);
-        this.dxb = false;
-        this.dxc = new ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.d.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a.eii);
+        this.eid = false;
+        this.eie = new z<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.ab
+            @Override // com.baidu.tieba.card.z
             public void a(View view, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a aVar) {
                 if (view.getId() == R.id.id_tab_live_sub_notification_close_btn) {
-                    if (!d.this.dxb) {
-                        d.this.dxb = true;
+                    if (!d.this.eid) {
+                        d.this.eid = true;
                         AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921420));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
                     }
                 } else if (view.getId() == R.id.id_tab_live_sub_notification_close_go_to_open) {
-                    com.baidu.tieba.ala.alasquare.live_tab.my_concern.b.a.i(d.this.mPageContext);
+                    com.baidu.tieba.ala.alasquare.live_tab.my_concern.b.a.k(d.this.mPageContext);
                 }
             }
         };
@@ -41,10 +41,10 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: A */
+    /* renamed from: z */
     public h b(ViewGroup viewGroup) {
         com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.g gVar = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.g(this.mPageContext, viewGroup);
-        gVar.d(this.dxc);
+        gVar.c(this.eie);
         return new h(gVar);
     }
 
@@ -52,11 +52,11 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a aVar, h hVar) {
-        if (hVar == null || hVar.dyd == null) {
+        if (hVar == null || hVar.ejf == null) {
             return null;
         }
-        this.dxb = false;
-        hVar.dyd.a(aVar);
+        this.eid = false;
+        hVar.ejf.a(aVar);
         return hVar.getView();
     }
 }

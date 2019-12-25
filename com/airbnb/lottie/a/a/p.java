@@ -1,32 +1,67 @@
 package com.airbnb.lottie.a.a;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Matrix;
+import android.graphics.Path;
 import android.support.annotation.Nullable;
-import com.airbnb.lottie.model.content.ShapeStroke;
-/* loaded from: classes2.dex */
-public class p extends a {
-    private final com.airbnb.lottie.a.b.a<Integer, Integer> ej;
+import com.airbnb.lottie.a.b.a;
+import com.airbnb.lottie.model.content.ShapeTrimPath;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class p implements l, a.InterfaceC0010a {
+    @Nullable
+    private r fP;
+    private boolean fV;
+    private final com.airbnb.lottie.a.b.a<?, Path> gx;
+    private final com.airbnb.lottie.g lottieDrawable;
     private final String name;
+    private final Path path = new Path();
 
-    public p(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
-        super(fVar, aVar, shapeStroke.cC().toPaintCap(), shapeStroke.cD().toPaintJoin(), shapeStroke.cn(), shapeStroke.cB(), shapeStroke.cE(), shapeStroke.cF());
-        this.name = shapeStroke.getName();
-        this.ej = shapeStroke.cV().bY();
-        this.ej.b(this);
-        aVar.a(this.ej);
+    public p(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.k kVar) {
+        this.name = kVar.getName();
+        this.lottieDrawable = gVar;
+        this.gx = kVar.cZ().cm();
+        aVar.a(this.gx);
+        this.gx.b(this);
     }
 
-    @Override // com.airbnb.lottie.a.a.d
-    public void b(@Nullable String str, @Nullable String str2, @Nullable ColorFilter colorFilter) {
-        this.paint.setColorFilter(colorFilter);
+    @Override // com.airbnb.lottie.a.b.a.InterfaceC0010a
+    public void bC() {
+        invalidate();
     }
 
-    @Override // com.airbnb.lottie.a.a.a, com.airbnb.lottie.a.a.d
-    public void a(Canvas canvas, Matrix matrix, int i) {
-        this.paint.setColor(this.ej.getValue().intValue());
-        super.a(canvas, matrix, i);
+    private void invalidate() {
+        this.fV = false;
+        this.lottieDrawable.invalidateSelf();
+    }
+
+    @Override // com.airbnb.lottie.a.a.b
+    public void b(List<b> list, List<b> list2) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < list.size()) {
+                b bVar = list.get(i2);
+                if ((bVar instanceof r) && ((r) bVar).bM() == ShapeTrimPath.Type.Simultaneously) {
+                    this.fP = (r) bVar;
+                    this.fP.a(this);
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
+    }
+
+    @Override // com.airbnb.lottie.a.a.l
+    public Path bF() {
+        if (this.fV) {
+            return this.path;
+        }
+        this.path.reset();
+        this.path.set(this.gx.getValue());
+        this.path.setFillType(Path.FillType.EVEN_ODD);
+        com.airbnb.lottie.d.f.a(this.path, this.fP);
+        this.fV = true;
+        return this.path;
     }
 
     @Override // com.airbnb.lottie.a.a.b

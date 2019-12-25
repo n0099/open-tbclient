@@ -1,8 +1,11 @@
 package android.arch.lifecycle;
-/* loaded from: classes2.dex */
+
+import android.support.annotation.MainThread;
+import android.support.annotation.NonNull;
+/* loaded from: classes4.dex */
 public abstract class Lifecycle {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public enum Event {
         ON_CREATE,
         ON_START,
@@ -13,7 +16,17 @@ public abstract class Lifecycle {
         ON_ANY
     }
 
-    /* loaded from: classes2.dex */
+    @MainThread
+    public abstract void a(@NonNull i iVar);
+
+    @NonNull
+    @MainThread
+    public abstract State au();
+
+    @MainThread
+    public abstract void b(@NonNull i iVar);
+
+    /* loaded from: classes4.dex */
     public enum State {
         DESTROYED,
         INITIALIZED,
@@ -21,7 +34,7 @@ public abstract class Lifecycle {
         STARTED,
         RESUMED;
 
-        public boolean isAtLeast(State state) {
+        public boolean isAtLeast(@NonNull State state) {
             return compareTo(state) >= 0;
         }
     }

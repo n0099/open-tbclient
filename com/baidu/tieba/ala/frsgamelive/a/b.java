@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.frsgamelive.c.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsgamelive.b.b, b.a> {
     private TbPageContext<?> mPageContext;
 

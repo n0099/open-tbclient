@@ -1,9 +1,17 @@
 package com.facebook.imagepipeline.c;
+/* loaded from: classes11.dex */
+public class q {
+    public final int lMN;
+    public final int lMO;
+    public final int lMP;
+    public final int lMQ;
+    public final int lMR;
 
-import android.net.Uri;
-import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
-public interface q {
-    @Nullable
-    String H(Uri uri);
+    public q(int i, int i2, int i3, int i4, int i5) {
+        this.lMN = i;
+        this.lMO = i2;
+        this.lMP = i3;
+        this.lMQ = i4;
+        this.lMR = i5;
+    }
 }

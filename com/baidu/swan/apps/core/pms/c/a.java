@@ -1,235 +1,146 @@
 package com.baidu.swan.apps.core.pms.c;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.an.w;
-import com.baidu.swan.apps.install.a.a;
-import com.baidu.swan.apps.install.e;
-import com.baidu.swan.games.i.a;
-import java.io.BufferedInputStream;
+import com.baidu.swan.apps.as.ab;
+import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.core.pms.c;
+import com.baidu.swan.apps.core.pms.j;
+import com.baidu.swan.apps.t.e;
+import com.baidu.swan.pms.a.c;
+import com.baidu.swan.pms.model.g;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-/* loaded from: classes2.dex */
-public final class a {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-
-    /* renamed from: com.baidu.swan.apps.core.pms.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0178a {
-        public int aMO = 0;
-        public boolean aMP = false;
-        public String aMQ = "";
-    }
-
-    public static File Ea() {
-        return e.d.Jc();
-    }
-
-    public static File Gz() {
-        return a.d.Jc();
-    }
-
-    public static String GA() {
-        return e.d.Jc().getPath();
-    }
-
-    public static String Gy() {
-        return e.d.Jc().getPath();
-    }
-
-    public static String GB() {
-        return a.d.Jc().getPath();
-    }
-
-    public static String GC() {
-        return null;
-    }
-
-    public static com.baidu.swan.games.p.a.a u(String str, int i) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+import java.util.Set;
+/* loaded from: classes9.dex */
+public class a extends j {
+    private static final boolean DEBUG = b.DEBUG;
+    private com.baidu.swan.apps.core.pms.b blB;
+    private String blC;
+    private c<g> blh = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.apps.core.pms.c.a.1
+        @Override // com.baidu.swan.pms.a.e
+        @NonNull
+        public Bundle a(@NonNull Bundle bundle, Set<String> set) {
+            return a.this.a(bundle, set);
         }
-        return com.baidu.swan.games.p.a.a.ku(com.baidu.swan.c.a.l(new File(a.d.am(str, String.valueOf(i)), "game.json")));
-    }
 
-    public static com.baidu.swan.apps.ak.a a(com.baidu.swan.pms.model.e eVar, com.baidu.swan.pms.a.b bVar) {
-        if (eVar == null || TextUtils.isEmpty(eVar.filePath)) {
-            com.baidu.swan.apps.ak.a iL = new com.baidu.swan.apps.ak.a().ar(11L).as(2300L).iL("pkg info is empty");
-            com.baidu.swan.apps.ak.e.TR().b(iL);
-            return iL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.swan.pms.a.c
+        /* renamed from: c */
+        public String I(g gVar) {
+            return com.baidu.swan.apps.core.pms.d.b.gR(a.this.blC);
         }
-        ReadableByteChannel readableByteChannel = null;
-        try {
-            readableByteChannel = Channels.newChannel(new FileInputStream(new File(eVar.filePath)));
-            return a(readableByteChannel, eVar.sign, bVar);
-        } catch (IOException e) {
-            if (DEBUG) {
-                e.printStackTrace();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
+        /* renamed from: e */
+        public void H(g gVar) {
+            super.H(gVar);
+            if (a.DEBUG) {
+                Log.i("SwanAppSubPkgDownload", "onDownloading");
             }
-            com.baidu.swan.apps.ak.a iL2 = new com.baidu.swan.apps.ak.a().ar(11L).as(2300L).iL("cannot found filePath: " + eVar.filePath);
-            com.baidu.swan.apps.ak.e.TR().b(iL2);
-            return iL2;
-        } finally {
-            com.baidu.swan.c.a.b(readableByteChannel);
+            a.this.h(gVar);
         }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
+        public void a(g gVar, com.baidu.swan.pms.model.a aVar) {
+            super.a((AnonymousClass1) gVar, aVar);
+            if (a.DEBUG) {
+                Log.e("SwanAppSubPkgDownload", "onDownloadError:" + aVar.toString());
+            }
+            a.this.es(3);
+            com.baidu.swan.apps.core.pms.c.My().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aB(12L).aC(aVar.errorNo).mg("分包下载失败").mh(aVar.toString()));
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
+        /* renamed from: f */
+        public void E(g gVar) {
+            super.E(gVar);
+            if (a.DEBUG) {
+                Log.e("SwanAppSubPkgDownload", "onDownloadFinish:" + gVar.toString());
+            }
+            a.this.g(gVar);
+        }
+    };
+    private String mAppId;
+
+    public a(String str, String str2, com.baidu.swan.apps.core.pms.b bVar) {
+        this.mAppId = str;
+        this.blB = bVar;
+        this.blC = e.d.aA(str, str2).getPath();
     }
 
-    public static com.baidu.swan.apps.ak.a a(ReadableByteChannel readableByteChannel, String str, com.baidu.swan.pms.a.b bVar) throws IOException {
-        if (readableByteChannel == null) {
-            com.baidu.swan.apps.ak.a iL = new com.baidu.swan.apps.ak.a().ar(11L).as(2300L).iL("empty source");
-            com.baidu.swan.apps.ak.e.TR().b(iL);
-            if (DEBUG) {
-                Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + iL);
-                return iL;
-            }
-            return iL;
-        }
-        bVar.af("670", "aiapp_aps_check_sign_start_timestamp");
-        bVar.af("770", "na_pms_start_check_sign");
-        if (w.a(readableByteChannel, str, new com.baidu.swan.apps.an.a.c())) {
-            bVar.af("670", "aiapp_aps_check_sign_end_timestamp");
-            bVar.af("770", "na_pms_end_check_sign");
-            return null;
-        }
-        com.baidu.swan.apps.ak.a iL2 = new com.baidu.swan.apps.ak.a().ar(11L).as(2300L).iL("check zip file sign fail.");
-        com.baidu.swan.apps.ak.e.TR().b(iL2);
-        if (DEBUG) {
-            Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + iL2);
-            return iL2;
-        }
-        return iL2;
+    @Override // com.baidu.swan.pms.a.g
+    public void a(com.baidu.swan.pms.model.a aVar) {
+        super.a(aVar);
+        es(1);
     }
 
-    public static com.baidu.swan.apps.ak.a b(com.baidu.swan.pms.model.e eVar) {
-        String str;
-        if (eVar == null) {
-            com.baidu.swan.apps.ak.a iL = new com.baidu.swan.apps.ak.a().ar(11L).as(2310L).iL("pkg info is empty");
-            com.baidu.swan.apps.ak.e.TR().b(iL);
-            return iL;
-        }
-        if (eVar.category == 0) {
-            str = Ea() + File.separator + eVar.bLj + ".aiapps";
-        } else if (eVar.category == 1) {
-            str = Gz() + File.separator + eVar.bLj + ".aigames";
-        } else {
-            com.baidu.swan.apps.ak.a iL2 = new com.baidu.swan.apps.ak.a().ar(11L).as(2310L).iL("pkh category illegal");
-            com.baidu.swan.apps.ak.e.TR().b(iL2);
-            return iL2;
-        }
-        com.baidu.swan.c.a.deleteFile(str);
-        File file = new File(str);
-        File file2 = new File(eVar.filePath);
-        if (file2.renameTo(file)) {
-            if (DEBUG) {
-                Log.i("PkgDownloadUtil", "重命名成功,from:" + file2.getPath() + " to:" + file.getPath());
-            }
-            return null;
-        }
-        com.baidu.swan.c.a.deleteFile(file2);
-        com.baidu.swan.apps.ak.a iL3 = new com.baidu.swan.apps.ak.a().ar(11L).as(2310L).iL("rename zip fail");
-        com.baidu.swan.apps.ak.e.TR().b(iL3);
-        return iL3;
+    @Override // com.baidu.swan.pms.a.g
+    public void Mw() {
+        super.Mw();
+        es(2);
     }
 
-    public static com.baidu.swan.apps.ak.a b(com.baidu.swan.pms.model.e eVar, com.baidu.swan.pms.a.b bVar) {
-        File file;
-        File am;
-        if (eVar == null) {
-            com.baidu.swan.apps.ak.a iL = new com.baidu.swan.apps.ak.a().ar(11L).as(2320L).iL("pkg info is empty");
-            com.baidu.swan.apps.ak.e.TR().b(iL);
-            return iL;
-        }
-        if (eVar.category == 1) {
-            file = new File(Gz(), eVar.bLj + ".aigames");
-            am = a.d.am(eVar.bLj, String.valueOf(eVar.versionCode));
-        } else if (eVar.category == 0) {
-            file = new File(Ea(), eVar.bLj + ".aiapps");
-            am = e.d.am(eVar.bLj, String.valueOf(eVar.versionCode));
-        } else {
-            com.baidu.swan.apps.ak.a iL2 = new com.baidu.swan.apps.ak.a().ar(11L).as(2320L).iL("pkh category illegal");
-            com.baidu.swan.apps.ak.e.TR().b(iL2);
-            return iL2;
-        }
-        if (!file.exists()) {
-            com.baidu.swan.apps.ak.a iL3 = new com.baidu.swan.apps.ak.a().ar(11L).as(2320L).iL("解压失败：包不存在");
-            com.baidu.swan.apps.ak.e.TR().b(iL3);
-            return iL3;
-        } else if (am.isFile() && !am.delete()) {
+    @Override // com.baidu.swan.pms.a.g
+    public c<g> MF() {
+        return this.blh;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void g(g gVar) {
+        if (!ab.d(new File(gVar.filePath), gVar.sign)) {
             if (DEBUG) {
-                Log.e("PkgDownloadUtil", "解压失败：解压目录被文件占用，且无法删除");
+                Log.e("SwanAppSubPkgDownload", "onDownloadFinish: 签名校验失败");
             }
-            com.baidu.swan.apps.ak.a iL4 = new com.baidu.swan.apps.ak.a().ar(11L).as(2320L).iL("解压失败：解压目录被文件占用，且无法删除");
-            com.baidu.swan.apps.ak.e.TR().b(iL4);
-            return iL4;
-        } else if (!am.exists() && !am.mkdirs()) {
+            es(4);
+            com.baidu.swan.apps.core.pms.c.My().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aB(12L).aC(2300L).mg("分包签名校验"));
+        } else if (com.baidu.swan.apps.core.pms.d.b.e(new File(gVar.filePath), new File(this.blC, gVar.pkgName))) {
             if (DEBUG) {
-                Log.e("PkgDownloadUtil", "解压失败：解压文件夹创建失败");
+                Log.i("SwanAppSubPkgDownload", "onDownloadFinish: 解压成功");
             }
-            com.baidu.swan.apps.ak.a iL5 = new com.baidu.swan.apps.ak.a().ar(11L).as(2320L).iL("解压失败：解压文件夹创建失败");
-            com.baidu.swan.apps.ak.e.TR().b(iL5);
-            return iL5;
+            gVar.appId = this.mAppId;
+            com.baidu.swan.pms.database.a.aqM().c(gVar);
+            MU();
+            com.baidu.swan.apps.core.pms.c.My().a(gVar, PMSDownloadType.ALONE_SUB);
         } else {
             if (DEBUG) {
-                Log.i("PkgDownloadUtil", "开始执行解压操作, bundle:" + file.getPath() + " , folder:" + am.getPath());
+                Log.e("SwanAppSubPkgDownload", "onDownloadFinish: 解压失败");
             }
-            if (a(file, am, bVar).aMP) {
-                return null;
-            }
-            C0178a a = a(file, am, bVar);
-            if (a.aMP) {
-                com.baidu.swan.apps.statistic.c.a(bVar, eVar.category, true);
-                return null;
-            }
-            com.baidu.swan.apps.statistic.c.a(bVar, eVar.category, false);
-            com.baidu.swan.c.a.m(am);
-            com.baidu.swan.pms.database.a.aaV().d(eVar);
-            com.baidu.swan.apps.ak.a aVar = new com.baidu.swan.apps.ak.a();
-            switch (a.aMO) {
-                case 0:
-                    aVar.ar(11L).as(2320L).iL("unzip failed");
-                    break;
-                case 1:
-                    aVar.ar(11L).as(2330L).iL("decryt failed:" + a.aMQ);
-                    break;
-                default:
-                    aVar.ar(4L).as(7L).iL("Unkown bundle type");
-                    break;
-            }
-            com.baidu.swan.apps.ak.e.TR().b(aVar);
-            return aVar;
+            es(5);
+            com.baidu.swan.apps.core.pms.c.My().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aB(12L).aC(2320L).mg("分包解压失败"));
         }
     }
 
-    @NonNull
-    private static C0178a a(@NonNull File file, @NonNull File file2, @NonNull com.baidu.swan.pms.a.b bVar) {
-        C0178a c0178a = new C0178a();
-        long currentTimeMillis = System.currentTimeMillis();
-        BufferedInputStream h = com.baidu.swan.apps.install.a.a.h(file);
-        if (h != null) {
-            c0178a.aMO = 1;
-            bVar.af("670", "aiapp_aps_decrypt_start_timestamp");
-            bVar.af("770", "na_package_start_decrypt");
-            a.C0186a a = com.baidu.swan.apps.install.a.a.a(h, file2);
-            bVar.af("670", "aiapp_aps_decrypt_end_timestamp");
-            bVar.af("770", "na_package_end_decrypt");
-            c0178a.aMP = a.isSuccess;
-            c0178a.aMQ = a.aMQ;
-        } else {
-            c0178a.aMO = 0;
-            bVar.af("670", "aiapp_aps_unzip_start_timestamp");
-            bVar.af("770", "na_package_start_unzip");
-            c0178a.aMP = com.baidu.swan.c.a.bz(file.getPath(), file2.getPath());
-            bVar.af("670", "aiapp_aps_unzip_end_timestamp");
-            bVar.af("770", "na_package_end_unzip");
+    /* JADX INFO: Access modifiers changed from: private */
+    public void h(g gVar) {
+        com.baidu.swan.apps.core.pms.c.My().a(gVar, new c.b() { // from class: com.baidu.swan.apps.core.pms.c.a.2
+            @Override // com.baidu.swan.apps.core.pms.c.b
+            public void a(PMSDownloadType pMSDownloadType) {
+                a.this.MU();
+            }
+
+            @Override // com.baidu.swan.apps.core.pms.c.b
+            public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ap.a aVar) {
+                a.this.es(0);
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void es(int i) {
+        if (this.blB != null) {
+            this.blB.ep(i);
         }
-        long currentTimeMillis2 = System.currentTimeMillis();
-        if (DEBUG) {
-            com.baidu.swan.apps.install.a.a.dw((int) (currentTimeMillis2 - currentTimeMillis));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void MU() {
+        if (this.blB != null) {
+            this.blB.Mx();
         }
-        return c0178a;
     }
 }

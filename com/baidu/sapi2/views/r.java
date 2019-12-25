@@ -14,8 +14,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class r {
     public static final int a = -1728053248;
     private static String b;
@@ -25,7 +26,7 @@ public class r {
     private View f;
     private View g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         private static final String a = "status_bar_height";
         private static final String b = "navigation_bar_height";
@@ -60,7 +61,7 @@ public class r {
         @TargetApi(14)
         private boolean c(Context context) {
             Resources resources = context.getResources();
-            int identifier = resources.getIdentifier(e, "bool", "android");
+            int identifier = resources.getIdentifier(e, "bool", PraiseDataPassUtil.KEY_FROM_OS);
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
                 if ("1".equals(r.b)) {
@@ -101,7 +102,7 @@ public class r {
         }
 
         private int a(Resources resources, String str) {
-            int identifier = resources.getIdentifier(str, "dimen", "android");
+            int identifier = resources.getIdentifier(str, "dimen", PraiseDataPassUtil.KEY_FROM_OS);
             if (identifier > 0) {
                 return resources.getDimensionPixelSize(identifier);
             }
@@ -212,7 +213,7 @@ public class r {
             layoutParams.gravity = 5;
         }
         this.g.setLayoutParams(layoutParams);
-        this.g.setBackgroundColor(a);
+        this.g.setBackgroundColor(-1728053248);
         this.g.setVisibility(8);
         viewGroup.addView(this.g);
     }
@@ -225,7 +226,7 @@ public class r {
             layoutParams.rightMargin = this.c.b();
         }
         this.f.setLayoutParams(layoutParams);
-        this.f.setBackgroundColor(a);
+        this.f.setBackgroundColor(-1728053248);
         this.f.setVisibility(8);
         viewGroup.addView(this.f);
     }

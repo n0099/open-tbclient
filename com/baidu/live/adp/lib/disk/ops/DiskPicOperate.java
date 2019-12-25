@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.disk.ops.DiskFileOperate;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DiskPicOperate extends DiskFileOperate {
     protected Bitmap mBitmap;
     protected DiskPicHeader mDiskPicHeader;
@@ -101,7 +101,7 @@ public class DiskPicOperate extends DiskFileOperate {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class DiskPicHeader {
         private static byte GIF_FLAG = Byte.MIN_VALUE;
         private static byte HQ_FLAG = Byte.MIN_VALUE;

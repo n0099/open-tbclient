@@ -11,110 +11,168 @@ import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.Log;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class DrawableCompat {
-    static final DrawableCompatBaseImpl IMPL;
+    private static final String TAG = "DrawableCompat";
+    private static Method sGetLayoutDirectionMethod;
+    private static boolean sGetLayoutDirectionMethodFetched;
+    private static Method sSetLayoutDirectionMethod;
+    private static boolean sSetLayoutDirectionMethodFetched;
 
-    /* loaded from: classes2.dex */
-    static class DrawableCompatBaseImpl {
-        DrawableCompatBaseImpl() {
+    @Deprecated
+    public static void jumpToCurrentState(@NonNull Drawable drawable) {
+        drawable.jumpToCurrentState();
+    }
+
+    public static void setAutoMirrored(@NonNull Drawable drawable, boolean z) {
+        if (Build.VERSION.SDK_INT >= 19) {
+            drawable.setAutoMirrored(z);
         }
+    }
 
-        public void jumpToCurrentState(Drawable drawable) {
-            drawable.jumpToCurrentState();
+    public static boolean isAutoMirrored(@NonNull Drawable drawable) {
+        if (Build.VERSION.SDK_INT >= 19) {
+            return drawable.isAutoMirrored();
         }
+        return false;
+    }
 
-        public void setAutoMirrored(Drawable drawable, boolean z) {
+    public static void setHotspot(@NonNull Drawable drawable, float f, float f2) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            drawable.setHotspot(f, f2);
         }
+    }
 
-        public boolean isAutoMirrored(Drawable drawable) {
-            return false;
+    public static void setHotspotBounds(@NonNull Drawable drawable, int i, int i2, int i3, int i4) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            drawable.setHotspotBounds(i, i2, i3, i4);
         }
+    }
 
-        public void setHotspot(Drawable drawable, float f, float f2) {
+    public static void setTint(@NonNull Drawable drawable, @ColorInt int i) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            drawable.setTint(i);
+        } else if (drawable instanceof TintAwareDrawable) {
+            ((TintAwareDrawable) drawable).setTint(i);
         }
+    }
 
-        public void setHotspotBounds(Drawable drawable, int i, int i2, int i3, int i4) {
+    public static void setTintList(@NonNull Drawable drawable, @Nullable ColorStateList colorStateList) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            drawable.setTintList(colorStateList);
+        } else if (drawable instanceof TintAwareDrawable) {
+            ((TintAwareDrawable) drawable).setTintList(colorStateList);
         }
+    }
 
-        public void setTint(Drawable drawable, int i) {
-            if (drawable instanceof TintAwareDrawable) {
-                ((TintAwareDrawable) drawable).setTint(i);
+    public static void setTintMode(@NonNull Drawable drawable, @NonNull PorterDuff.Mode mode) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            drawable.setTintMode(mode);
+        } else if (drawable instanceof TintAwareDrawable) {
+            ((TintAwareDrawable) drawable).setTintMode(mode);
+        }
+    }
+
+    public static int getAlpha(@NonNull Drawable drawable) {
+        if (Build.VERSION.SDK_INT >= 19) {
+            return drawable.getAlpha();
+        }
+        return 0;
+    }
+
+    public static void applyTheme(@NonNull Drawable drawable, @NonNull Resources.Theme theme) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            drawable.applyTheme(theme);
+        }
+    }
+
+    public static boolean canApplyTheme(@NonNull Drawable drawable) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            return drawable.canApplyTheme();
+        }
+        return false;
+    }
+
+    public static ColorFilter getColorFilter(@NonNull Drawable drawable) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            return drawable.getColorFilter();
+        }
+        return null;
+    }
+
+    public static void clearColorFilter(@NonNull Drawable drawable) {
+        DrawableContainer.DrawableContainerState drawableContainerState;
+        if (Build.VERSION.SDK_INT >= 23) {
+            drawable.clearColorFilter();
+        } else if (Build.VERSION.SDK_INT >= 21) {
+            drawable.clearColorFilter();
+            if (drawable instanceof InsetDrawable) {
+                clearColorFilter(((InsetDrawable) drawable).getDrawable());
+            } else if (drawable instanceof WrappedDrawable) {
+                clearColorFilter(((WrappedDrawable) drawable).getWrappedDrawable());
+            } else if ((drawable instanceof DrawableContainer) && (drawableContainerState = (DrawableContainer.DrawableContainerState) ((DrawableContainer) drawable).getConstantState()) != null) {
+                int childCount = drawableContainerState.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    Drawable child = drawableContainerState.getChild(i);
+                    if (child != null) {
+                        clearColorFilter(child);
+                    }
+                }
             }
-        }
-
-        public void setTintList(Drawable drawable, ColorStateList colorStateList) {
-            if (drawable instanceof TintAwareDrawable) {
-                ((TintAwareDrawable) drawable).setTintList(colorStateList);
-            }
-        }
-
-        public void setTintMode(Drawable drawable, PorterDuff.Mode mode) {
-            if (drawable instanceof TintAwareDrawable) {
-                ((TintAwareDrawable) drawable).setTintMode(mode);
-            }
-        }
-
-        public Drawable wrap(Drawable drawable) {
-            if (!(drawable instanceof TintAwareDrawable)) {
-                return new DrawableWrapperApi14(drawable);
-            }
-            return drawable;
-        }
-
-        public boolean setLayoutDirection(Drawable drawable, int i) {
-            return false;
-        }
-
-        public int getLayoutDirection(Drawable drawable) {
-            return 0;
-        }
-
-        public int getAlpha(Drawable drawable) {
-            return 0;
-        }
-
-        public void applyTheme(Drawable drawable, Resources.Theme theme) {
-        }
-
-        public boolean canApplyTheme(Drawable drawable) {
-            return false;
-        }
-
-        public ColorFilter getColorFilter(Drawable drawable) {
-            return null;
-        }
-
-        public void clearColorFilter(Drawable drawable) {
+        } else {
             drawable.clearColorFilter();
         }
+    }
 
-        public void inflate(Drawable drawable, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws IOException, XmlPullParserException {
+    public static void inflate(@NonNull Drawable drawable, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
+        if (Build.VERSION.SDK_INT >= 21) {
+            drawable.inflate(resources, xmlPullParser, attributeSet, theme);
+        } else {
             drawable.inflate(resources, xmlPullParser, attributeSet);
         }
     }
 
-    @RequiresApi(17)
-    /* loaded from: classes2.dex */
-    static class DrawableCompatApi17Impl extends DrawableCompatBaseImpl {
-        private static final String TAG = "DrawableCompatApi17";
-        private static Method sGetLayoutDirectionMethod;
-        private static boolean sGetLayoutDirectionMethodFetched;
-        private static Method sSetLayoutDirectionMethod;
-        private static boolean sSetLayoutDirectionMethodFetched;
-
-        DrawableCompatApi17Impl() {
+    public static Drawable wrap(@NonNull Drawable drawable) {
+        if (Build.VERSION.SDK_INT < 23) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                if (!(drawable instanceof TintAwareDrawable)) {
+                    return new WrappedDrawableApi21(drawable);
+                }
+                return drawable;
+            } else if (Build.VERSION.SDK_INT >= 19) {
+                if (!(drawable instanceof TintAwareDrawable)) {
+                    return new WrappedDrawableApi19(drawable);
+                }
+                return drawable;
+            } else if (!(drawable instanceof TintAwareDrawable)) {
+                return new WrappedDrawableApi14(drawable);
+            } else {
+                return drawable;
+            }
         }
+        return drawable;
+    }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public boolean setLayoutDirection(Drawable drawable, int i) {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: android.graphics.drawable.Drawable */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static <T extends Drawable> T unwrap(@NonNull Drawable drawable) {
+        if (drawable instanceof WrappedDrawable) {
+            return (T) ((WrappedDrawable) drawable).getWrappedDrawable();
+        }
+        return drawable;
+    }
+
+    public static boolean setLayoutDirection(@NonNull Drawable drawable, int i) {
+        if (Build.VERSION.SDK_INT >= 23) {
+            return drawable.setLayoutDirection(i);
+        }
+        if (Build.VERSION.SDK_INT >= 17) {
             if (!sSetLayoutDirectionMethodFetched) {
                 try {
                     sSetLayoutDirectionMethod = Drawable.class.getDeclaredMethod("setLayoutDirection", Integer.TYPE);
@@ -135,9 +193,14 @@ public final class DrawableCompat {
             }
             return false;
         }
+        return false;
+    }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public int getLayoutDirection(Drawable drawable) {
+    public static int getLayoutDirection(@NonNull Drawable drawable) {
+        if (Build.VERSION.SDK_INT >= 23) {
+            return drawable.getLayoutDirection();
+        }
+        if (Build.VERSION.SDK_INT >= 17) {
             if (!sGetLayoutDirectionMethodFetched) {
                 try {
                     sGetLayoutDirectionMethod = Drawable.class.getDeclaredMethod("getLayoutDirection", new Class[0]);
@@ -157,233 +220,7 @@ public final class DrawableCompat {
             }
             return 0;
         }
-    }
-
-    @RequiresApi(19)
-    /* loaded from: classes2.dex */
-    static class DrawableCompatApi19Impl extends DrawableCompatApi17Impl {
-        DrawableCompatApi19Impl() {
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public void setAutoMirrored(Drawable drawable, boolean z) {
-            drawable.setAutoMirrored(z);
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public boolean isAutoMirrored(Drawable drawable) {
-            return drawable.isAutoMirrored();
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public Drawable wrap(Drawable drawable) {
-            if (!(drawable instanceof TintAwareDrawable)) {
-                return new DrawableWrapperApi19(drawable);
-            }
-            return drawable;
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public int getAlpha(Drawable drawable) {
-            return drawable.getAlpha();
-        }
-    }
-
-    @RequiresApi(21)
-    /* loaded from: classes2.dex */
-    static class DrawableCompatApi21Impl extends DrawableCompatApi19Impl {
-        DrawableCompatApi21Impl() {
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public void setHotspot(Drawable drawable, float f, float f2) {
-            drawable.setHotspot(f, f2);
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public void setHotspotBounds(Drawable drawable, int i, int i2, int i3, int i4) {
-            drawable.setHotspotBounds(i, i2, i3, i4);
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public void setTint(Drawable drawable, int i) {
-            drawable.setTint(i);
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public void setTintList(Drawable drawable, ColorStateList colorStateList) {
-            drawable.setTintList(colorStateList);
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public void setTintMode(Drawable drawable, PorterDuff.Mode mode) {
-            drawable.setTintMode(mode);
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatApi19Impl, android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public Drawable wrap(Drawable drawable) {
-            if (!(drawable instanceof TintAwareDrawable)) {
-                return new DrawableWrapperApi21(drawable);
-            }
-            return drawable;
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public void applyTheme(Drawable drawable, Resources.Theme theme) {
-            drawable.applyTheme(theme);
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public boolean canApplyTheme(Drawable drawable) {
-            return drawable.canApplyTheme();
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public ColorFilter getColorFilter(Drawable drawable) {
-            return drawable.getColorFilter();
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public void clearColorFilter(Drawable drawable) {
-            DrawableContainer.DrawableContainerState drawableContainerState;
-            drawable.clearColorFilter();
-            if (drawable instanceof InsetDrawable) {
-                clearColorFilter(((InsetDrawable) drawable).getDrawable());
-            } else if (drawable instanceof DrawableWrapper) {
-                clearColorFilter(((DrawableWrapper) drawable).getWrappedDrawable());
-            } else if ((drawable instanceof DrawableContainer) && (drawableContainerState = (DrawableContainer.DrawableContainerState) ((DrawableContainer) drawable).getConstantState()) != null) {
-                int childCount = drawableContainerState.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    Drawable child = drawableContainerState.getChild(i);
-                    if (child != null) {
-                        clearColorFilter(child);
-                    }
-                }
-            }
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public void inflate(Drawable drawable, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws IOException, XmlPullParserException {
-            drawable.inflate(resources, xmlPullParser, attributeSet, theme);
-        }
-    }
-
-    @RequiresApi(23)
-    /* loaded from: classes2.dex */
-    static class DrawableCompatApi23Impl extends DrawableCompatApi21Impl {
-        DrawableCompatApi23Impl() {
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatApi17Impl, android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public boolean setLayoutDirection(Drawable drawable, int i) {
-            return drawable.setLayoutDirection(i);
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatApi17Impl, android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public int getLayoutDirection(Drawable drawable) {
-            return drawable.getLayoutDirection();
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatApi21Impl, android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatApi19Impl, android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public Drawable wrap(Drawable drawable) {
-            return drawable;
-        }
-
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatApi21Impl, android.support.v4.graphics.drawable.DrawableCompat.DrawableCompatBaseImpl
-        public void clearColorFilter(Drawable drawable) {
-            drawable.clearColorFilter();
-        }
-    }
-
-    static {
-        if (Build.VERSION.SDK_INT >= 23) {
-            IMPL = new DrawableCompatApi23Impl();
-        } else if (Build.VERSION.SDK_INT >= 21) {
-            IMPL = new DrawableCompatApi21Impl();
-        } else if (Build.VERSION.SDK_INT >= 19) {
-            IMPL = new DrawableCompatApi19Impl();
-        } else if (Build.VERSION.SDK_INT >= 17) {
-            IMPL = new DrawableCompatApi17Impl();
-        } else {
-            IMPL = new DrawableCompatBaseImpl();
-        }
-    }
-
-    public static void jumpToCurrentState(@NonNull Drawable drawable) {
-        IMPL.jumpToCurrentState(drawable);
-    }
-
-    public static void setAutoMirrored(@NonNull Drawable drawable, boolean z) {
-        IMPL.setAutoMirrored(drawable, z);
-    }
-
-    public static boolean isAutoMirrored(@NonNull Drawable drawable) {
-        return IMPL.isAutoMirrored(drawable);
-    }
-
-    public static void setHotspot(@NonNull Drawable drawable, float f, float f2) {
-        IMPL.setHotspot(drawable, f, f2);
-    }
-
-    public static void setHotspotBounds(@NonNull Drawable drawable, int i, int i2, int i3, int i4) {
-        IMPL.setHotspotBounds(drawable, i, i2, i3, i4);
-    }
-
-    public static void setTint(@NonNull Drawable drawable, @ColorInt int i) {
-        IMPL.setTint(drawable, i);
-    }
-
-    public static void setTintList(@NonNull Drawable drawable, @Nullable ColorStateList colorStateList) {
-        IMPL.setTintList(drawable, colorStateList);
-    }
-
-    public static void setTintMode(@NonNull Drawable drawable, @Nullable PorterDuff.Mode mode) {
-        IMPL.setTintMode(drawable, mode);
-    }
-
-    public static int getAlpha(@NonNull Drawable drawable) {
-        return IMPL.getAlpha(drawable);
-    }
-
-    public static void applyTheme(@NonNull Drawable drawable, @NonNull Resources.Theme theme) {
-        IMPL.applyTheme(drawable, theme);
-    }
-
-    public static boolean canApplyTheme(@NonNull Drawable drawable) {
-        return IMPL.canApplyTheme(drawable);
-    }
-
-    public static ColorFilter getColorFilter(@NonNull Drawable drawable) {
-        return IMPL.getColorFilter(drawable);
-    }
-
-    public static void clearColorFilter(@NonNull Drawable drawable) {
-        IMPL.clearColorFilter(drawable);
-    }
-
-    public static void inflate(@NonNull Drawable drawable, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
-        IMPL.inflate(drawable, resources, xmlPullParser, attributeSet, theme);
-    }
-
-    public static Drawable wrap(@NonNull Drawable drawable) {
-        return IMPL.wrap(drawable);
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: android.graphics.drawable.Drawable */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static <T extends Drawable> T unwrap(@NonNull Drawable drawable) {
-        if (drawable instanceof DrawableWrapper) {
-            return (T) ((DrawableWrapper) drawable).getWrappedDrawable();
-        }
-        return drawable;
-    }
-
-    public static boolean setLayoutDirection(@NonNull Drawable drawable, int i) {
-        return IMPL.setLayoutDirection(drawable, i);
-    }
-
-    public static int getLayoutDirection(@NonNull Drawable drawable) {
-        return IMPL.getLayoutDirection(drawable);
+        return 0;
     }
 
     private DrawableCompat() {

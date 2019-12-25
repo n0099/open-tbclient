@@ -5,20 +5,20 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a extends ThreadPoolExecutor {
 
     /* renamed from: com.baidu.android.pushservice.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    protected class C0037a<V> extends FutureTask<V> implements Comparable<C0037a<V>> {
+    /* loaded from: classes5.dex */
+    protected class C0042a<V> extends FutureTask<V> implements Comparable<C0042a<V>> {
         private Object b;
 
-        public C0037a(Runnable runnable, V v) {
+        public C0042a(Runnable runnable, V v) {
             super(runnable, v);
             this.b = runnable;
         }
 
-        public C0037a(Callable<V> callable) {
+        public C0042a(Callable<V> callable) {
             super(callable);
             this.b = callable;
         }
@@ -26,17 +26,17 @@ public class a extends ThreadPoolExecutor {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         /* renamed from: a */
-        public int compareTo(C0037a<V> c0037a) {
-            if (this == c0037a) {
+        public int compareTo(C0042a<V> c0042a) {
+            if (this == c0042a) {
                 return 0;
             }
-            if (c0037a == null) {
+            if (c0042a == null) {
                 return -1;
             }
-            if (this.b == null || c0037a.b == null || !(this.b instanceof c) || !(c0037a.b instanceof c)) {
+            if (this.b == null || c0042a.b == null || !(this.b instanceof c) || !(c0042a.b instanceof c)) {
                 return 0;
             }
-            return ((c) c0037a.b).d() - ((c) this.b).d();
+            return ((c) c0042a.b).d() - ((c) this.b).d();
         }
     }
 
@@ -60,11 +60,11 @@ public class a extends ThreadPoolExecutor {
 
     @Override // java.util.concurrent.AbstractExecutorService
     protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T t) {
-        return new C0037a(runnable, t);
+        return new C0042a(runnable, t);
     }
 
     @Override // java.util.concurrent.AbstractExecutorService
     protected <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {
-        return new C0037a(callable);
+        return new C0042a(callable);
     }
 }

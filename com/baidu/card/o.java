@@ -1,93 +1,90 @@
 package com.baidu.card;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.card.a.a;
-import com.baidu.card.view.MultiImgLayout;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.card.view.InterviewLiveLayout;
+import com.baidu.card.view.RoundCornerFrameLayout;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
-public class o extends b<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a EX;
-    private MultiImgLayout FA;
-    private String mFrom;
+/* loaded from: classes5.dex */
+public class o extends al {
+    private static final int JX = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
+    private InterviewLiveLayout JY;
+    private TextView JZ;
     private int mSkinType;
 
     public o(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.FA = new MultiImgLayout(context);
+        initUI();
     }
 
-    public void setFrom(String str) {
-        this.mFrom = str;
+    private void initUI() {
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+        this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
+        this.JZ = (TextView) this.mRootView.findViewById(R.id.video_seg_abstract);
+        this.Mf = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
+        this.JY = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
+        this.Mg = mK();
+        this.Mg.cvN().setBackgroundResource(R.color.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.card.b
+    @Override // com.baidu.card.al, com.baidu.card.b
     public View getView() {
-        return this.FA;
+        return this.mRootView;
     }
 
     @Override // com.baidu.card.b
-    public void a(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.FA.setSubClickListener(abVar);
+    public void setOnCardSubClickListener(com.baidu.tieba.card.z<com.baidu.tbadk.core.data.a> zVar) {
+        this.JY.setSubClickListener(zVar);
+    }
+
+    @Override // com.baidu.card.al
+    protected com.baidu.tieba.play.operableVideoView.a mK() {
+        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.Mf);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.i
-    /* renamed from: a */
-    public void z(com.baidu.tbadk.core.data.a aVar) {
-        this.EX = aVar;
-        this.FA.setFrom(this.mFrom);
-        this.FA.z(aVar);
+    @Override // com.baidu.card.al, com.baidu.card.m
+    /* renamed from: b */
+    public void A(com.baidu.tbadk.core.data.a aVar) {
+        this.JB = aVar;
+        if (this.JB != null && this.JB.axx() != null) {
+            bj axx = aVar.axx();
+            if (axx.azV() != null) {
+                this.JY.setVisibility(8);
+                this.Mf.setVisibility(0);
+                this.JZ.setVisibility(8);
+                super.A(aVar);
+                return;
+            }
+            this.Mf.setVisibility(8);
+            this.JY.setVisibility(0);
+            this.JZ.setVisibility(0);
+            this.JY.A(aVar);
+            au.a(this.mTitle, axx);
+            au.a(this.JZ, this.mTitle, axx, JX);
+        }
     }
 
-    @Override // com.baidu.card.j
+    @Override // com.baidu.card.al, com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-            this.FA.HI.onChangeSkinType();
+            am.setBackgroundResource(this.JY, R.drawable.addresslist_item_bg);
+            this.JY.onChangeSkinType(this.mSkinType);
         }
         this.mSkinType = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.card.b
-    public void lG() {
-        a(1, new a.b() { // from class: com.baidu.card.o.1
-            @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0044a c0044a) {
-                if (o.this.EX != null && o.this.EX.agG() != null) {
-                    com.baidu.tieba.card.n.uz(o.this.EX.agG().getId());
-                    com.baidu.tieba.card.n.a(o.this.FA.mTitle, o.this.EX.agG().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                    com.baidu.tieba.card.n.a(o.this.FA.Fk, o.this.EX.agG().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                }
-                return false;
-            }
-        });
-    }
-
-    public void setConstrainLayoutPool(com.baidu.adp.lib.e.b<ConstrainImageLayout> bVar) {
-        if (this.FA != null) {
-            this.FA.setConstrainLayoutPool(bVar);
-        }
-    }
-
-    public void setConstrainImagePool(com.baidu.adp.lib.e.b<TbImageView> bVar) {
-        if (this.FA != null) {
-            this.FA.setConstrainImagePool(bVar);
-        }
-    }
-
     public void setFromCDN(boolean z) {
-        this.FA.setFromCDN(z);
-    }
-
-    public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {
-        this.FA.setPreloadSizeReadyCallback(bVar);
+        this.JY.setFromCDN(z);
     }
 }

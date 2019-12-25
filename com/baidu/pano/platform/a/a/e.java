@@ -3,6 +3,7 @@ package com.baidu.pano.platform.a.a;
 import android.os.SystemClock;
 import com.baidu.pano.platform.a.b;
 import com.baidu.pano.platform.a.w;
+import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.BufferedInputStream;
 import java.io.EOFException;
 import java.io.File;
@@ -17,7 +18,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public class e implements com.baidu.pano.platform.a.b {
     private final Map<String, a> a;
@@ -33,7 +33,7 @@ public class e implements com.baidu.pano.platform.a.b {
     }
 
     public e(File file) {
-        this(file, 5242880);
+        this(file, BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [129=5, 131=4, 132=4, 133=6] */
@@ -415,13 +415,13 @@ public class e implements com.baidu.pano.platform.a.b {
     }
 
     static void a(OutputStream outputStream, String str) throws IOException {
-        byte[] bytes = str.getBytes(HTTP.UTF_8);
+        byte[] bytes = str.getBytes("UTF-8");
         a(outputStream, bytes.length);
         outputStream.write(bytes, 0, bytes.length);
     }
 
     static String c(InputStream inputStream) throws IOException {
-        return new String(a(inputStream, (int) b(inputStream)), HTTP.UTF_8);
+        return new String(a(inputStream, (int) b(inputStream)), "UTF-8");
     }
 
     static void a(Map<String, String> map, OutputStream outputStream) throws IOException {

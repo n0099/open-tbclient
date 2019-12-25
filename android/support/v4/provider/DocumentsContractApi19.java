@@ -8,7 +8,7 @@ import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.Log;
 @RequiresApi(19)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class DocumentsContractApi19 {
     private static final int FLAG_VIRTUAL_DOCUMENT = 512;
     private static final String TAG = "DocumentFile";
@@ -81,14 +81,6 @@ class DocumentsContractApi19 {
             return (TextUtils.isEmpty(rawType) || (queryForInt & 2) == 0) ? false : true;
         }
         return true;
-    }
-
-    public static boolean delete(Context context, Uri uri) {
-        try {
-            return DocumentsContract.deleteDocument(context.getContentResolver(), uri);
-        } catch (Exception e) {
-            return false;
-        }
     }
 
     public static boolean exists(Context context, Uri uri) {

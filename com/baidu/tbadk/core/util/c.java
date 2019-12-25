@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class c {
-    public static void alT() {
+    public static void aDf() {
         com.baidu.adp.base.a.b mainDBDatabaseManager;
         if (TbadkCoreApplication.getCurrentAccount() != null && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
             mainDBDatabaseManager.execSQLNoException("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
         }
     }
 
-    public static void nC(String str) {
+    public static void sM(String str) {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (str != null && mainDBDatabaseManager != null) {
@@ -35,7 +35,7 @@ public class c {
         return mainDBDatabaseManager.execSQLNoException("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{kVar.getMd5(), Long.valueOf(kVar.getTotalLength()), Integer.valueOf(kVar.getChunkNo()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static com.baidu.tbadk.coreExtra.data.k nD(String str) {
+    public static com.baidu.tbadk.coreExtra.data.k sN(String str) {
         Cursor cursor;
         Exception e;
         com.baidu.tbadk.coreExtra.data.k kVar;
@@ -56,20 +56,20 @@ public class c {
                         } catch (Exception e2) {
                             e = e2;
                             mainDBDatabaseManager.notifySQLException(e, "getChunkUploadDataByMd5");
-                            com.baidu.adp.lib.g.a.close(cursor);
+                            com.baidu.adp.lib.f.a.close(cursor);
                             return kVar;
                         }
                     } else {
                         kVar = null;
                     }
-                    com.baidu.adp.lib.g.a.close(cursor);
+                    com.baidu.adp.lib.f.a.close(cursor);
                 } catch (Exception e3) {
                     kVar = null;
                     e = e3;
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.g.a.close(cursor);
+                com.baidu.adp.lib.f.a.close(cursor);
                 throw th;
             }
         } catch (Exception e4) {

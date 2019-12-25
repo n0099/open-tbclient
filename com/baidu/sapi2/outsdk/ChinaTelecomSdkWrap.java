@@ -7,7 +7,6 @@ import cn.com.chinatelecom.account.api.CtSetting;
 import cn.com.chinatelecom.account.api.ResultListener;
 import cn.com.chinatelecom.account.api.TraceLogger;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.outsdk.c;
@@ -16,7 +15,7 @@ import com.baidu.sapi2.utils.SapiStatUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ChinaTelecomSdkWrap {
     private static final String a = "login";
     private static final String b = "init";
@@ -25,7 +24,7 @@ public class ChinaTelecomSdkWrap {
     private static final int e = 15000;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface PreLoginCallback {
         void onError(int i);
 
@@ -75,7 +74,7 @@ public class ChinaTelecomSdkWrap {
             public void onResult(String str) {
                 int i = 0;
                 Log.i(c.a, "requestPreLogin result = " + str);
-                String str2 = LivenessStat.TYPE_STRING_DEFAULT;
+                String str2 = "-1";
                 String str3 = preLoginCallback == null ? ChinaTelecomSdkWrap.b : ChinaTelecomSdkWrap.a;
                 try {
                     try {

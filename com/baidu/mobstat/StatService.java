@@ -15,17 +15,17 @@ import com.baidu.mobstat.BaiduStatJSInterface;
 import com.baidu.mobstat.MtjConfig;
 import com.baidu.mobstat.af;
 import com.baidu.mobstat.av;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.ArrayList;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class StatService {
     public static final int EXCEPTION_LOG = 1;
     public static final int JAVA_EXCEPTION_LOG = 16;
     private static boolean a = false;
     private static boolean b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }
@@ -64,7 +64,7 @@ public class StatService {
     public static synchronized void onResume(Activity activity) {
         synchronized (StatService.class) {
             if (a(activity, "onResume(...)")) {
-                if (!a(Activity.class, "onResume")) {
+                if (!a(Activity.class, MissionEvent.MESSAGE_RESUME)) {
                     bc.c().c("[WARNING] onResume must be called in Activity.onResume()");
                 } else {
                     BDStatCore.instance().onResume(activity, false);
@@ -82,7 +82,7 @@ public class StatService {
     public static synchronized void onPause(Activity activity, ExtraInfo extraInfo) {
         synchronized (StatService.class) {
             if (a(activity, "onPause(...)")) {
-                if (!a(Activity.class, "onPause")) {
+                if (!a(Activity.class, MissionEvent.MESSAGE_PAUSE)) {
                     bc.c().c("[WARNING] onPause must be called in Activity.onPause");
                 } else {
                     BDStatCore.instance().onPause(activity, false, extraInfo);
@@ -133,7 +133,7 @@ public class StatService {
 
     public static void start(Context context) {
         if (a(context, "start(...)")) {
-            boolean a2 = bx.a(Application.class, "onCreate");
+            boolean a2 = bx.a(Application.class, MissionEvent.MESSAGE_CREATE);
             if (a2) {
                 bc.c().c("[WARNING] start 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
@@ -144,7 +144,7 @@ public class StatService {
     @Deprecated
     public static void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i, boolean z) {
         if (a(context, "setSendLogStrategy(...)")) {
-            boolean a2 = bx.a(Application.class, "onCreate");
+            boolean a2 = bx.a(Application.class, MissionEvent.MESSAGE_CREATE);
             if (a2) {
                 bc.c().c("[WARNING] setSendLogStrategy 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
@@ -167,7 +167,7 @@ public class StatService {
 
     private static void a(Context context, String str, String str2, int i, ExtraInfo extraInfo, Map<String, String> map) {
         if (a(context, "onEvent(...)") && !TextUtils.isEmpty(str)) {
-            boolean a2 = bx.a(Application.class, "onCreate");
+            boolean a2 = bx.a(Application.class, MissionEvent.MESSAGE_CREATE);
             if (a2) {
                 bc.c().c("[WARNING] onEvent 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
@@ -217,7 +217,7 @@ public class StatService {
                 bc.c().b("[WARNING] onEventDuration duration must be greater than zero");
                 return;
             }
-            boolean a2 = bx.a(Application.class, "onCreate");
+            boolean a2 = bx.a(Application.class, MissionEvent.MESSAGE_CREATE);
             if (a2) {
                 bc.c().c("[WARNING] onEventDuration 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
@@ -304,7 +304,7 @@ public class StatService {
             a(webView);
             WebSettings settings = webView.getSettings();
             settings.setJavaScriptEnabled(true);
-            settings.setDefaultTextEncodingName(HTTP.UTF_8);
+            settings.setDefaultTextEncodingName("UTF-8");
             settings.setJavaScriptCanOpenWindowsAutomatically(true);
             if (!z) {
                 webView.setWebViewClient(new BaiduStatJSInterface.CustomWebViewClient(context, webViewClient, null, null));

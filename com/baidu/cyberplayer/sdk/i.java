@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -440,13 +439,13 @@ public class i extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
                     return;
                 }
             }
-            String str = map.get(HTTP.USER_AGENT);
+            String str = map.get("User-Agent");
             if (TextUtils.isEmpty(str)) {
                 str = "dumedia/6.14.2.2";
             } else if (str.indexOf("dumedia") == -1) {
                 str = str + " dumedia/" + SDKVersion.VERSION;
             }
-            map.put(HTTP.USER_AGENT, str);
+            map.put("User-Agent", str);
             this.b.setDataSource(context, uri, map);
         }
     }

@@ -1,13 +1,22 @@
 package com.baidu.swan.games.network.a;
 
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class a {
     @V8JavascriptField
-    public JsArrayBuffer data;
+    public int progress;
     @V8JavascriptField
-    public Object header;
+    public long totalBytesExpectedToWrite;
     @V8JavascriptField
-    public int statusCode;
+    public long totalBytesWritten;
+
+    public a(int i, long j, long j2) {
+        this.progress = i;
+        this.totalBytesExpectedToWrite = j;
+        this.totalBytesWritten = j2;
+    }
+
+    public String toString() {
+        return "TaskProgressData{progress=" + this.progress + ", totalBytesExpectedToWrite=" + this.totalBytesExpectedToWrite + ", totalBytesWritten=" + this.totalBytesWritten + '}';
+    }
 }

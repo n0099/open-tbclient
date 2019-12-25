@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.TestClose.TestCloseResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ResponseHttpTestCloseMessage extends TbHttpResponsedMessage {
     public ResponseHttpTestCloseMessage() {
         super(CmdConfigHttp.CMD_RECOMMEND_TEST_CLOSE);

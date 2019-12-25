@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.util.TiebaStaticClassesArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class Tasks {
     public static void initial() {
         try {

@@ -13,7 +13,7 @@ import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Adapter;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     public static final int INVALID_POSITION = -1;
     public static final long INVALID_ROW_ID = Long.MIN_VALUE;
@@ -49,17 +49,17 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     int mSyncPosition;
     long mSyncRowId;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface d {
         boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface e {
         void onItemSelected(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j);
 
@@ -149,14 +149,14 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         return this.mOnItemSelectedListener;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a implements ContextMenu.ContextMenuInfo {
-        public View amp;
         public long id;
         public int position;
+        public View targetView;
 
         public a(View view, int i, long j) {
-            this.amp = view;
+            this.targetView = view;
             this.position = i;
             this.id = j;
         }
@@ -325,9 +325,9 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         dispatchThawSelfOnly(sparseArray);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     class b extends DataSetObserver {
-        private Parcelable amq = null;
+        private Parcelable mInstanceState = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -335,13 +335,13 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
-            com.huewu.pla.lib.a.GS("data changed by onChanged()");
+            com.huewu.pla.lib.a.Qu("data changed by onChanged()");
             PLA_AdapterView.this.mDataChanged = true;
             PLA_AdapterView.this.mOldItemCount = PLA_AdapterView.this.mItemCount;
             PLA_AdapterView.this.mItemCount = PLA_AdapterView.this.getAdapter().getCount();
-            if (PLA_AdapterView.this.getAdapter().hasStableIds() && this.amq != null && PLA_AdapterView.this.mOldItemCount == 0 && PLA_AdapterView.this.mItemCount > 0) {
-                PLA_AdapterView.this.onRestoreInstanceState(this.amq);
-                this.amq = null;
+            if (PLA_AdapterView.this.getAdapter().hasStableIds() && this.mInstanceState != null && PLA_AdapterView.this.mOldItemCount == 0 && PLA_AdapterView.this.mItemCount > 0) {
+                PLA_AdapterView.this.onRestoreInstanceState(this.mInstanceState);
+                this.mInstanceState = null;
             } else {
                 PLA_AdapterView.this.rememberSyncState();
             }
@@ -350,10 +350,10 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
 
         @Override // android.database.DataSetObserver
         public void onInvalidated() {
-            com.huewu.pla.lib.a.GS("data changed by onInvalidated()");
+            com.huewu.pla.lib.a.Qu("data changed by onInvalidated()");
             PLA_AdapterView.this.mDataChanged = true;
             if (PLA_AdapterView.this.getAdapter().hasStableIds()) {
-                this.amq = PLA_AdapterView.this.onSaveInstanceState();
+                this.mInstanceState = PLA_AdapterView.this.onSaveInstanceState();
             }
             PLA_AdapterView.this.mOldItemCount = PLA_AdapterView.this.mItemCount;
             PLA_AdapterView.this.mItemCount = 0;
@@ -372,7 +372,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class f implements Runnable {
         private f() {
         }

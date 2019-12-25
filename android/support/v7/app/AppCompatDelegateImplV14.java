@@ -16,14 +16,16 @@ import android.support.annotation.RequiresApi;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatDelegateImplBase;
 import android.support.v7.view.SupportActionModeWrapper;
+import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.ActionMode;
+import android.view.View;
 import android.view.Window;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(14)
-/* loaded from: classes2.dex */
-public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV11 {
+/* loaded from: classes4.dex */
+public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV9 {
     private static final String KEY_LOCAL_NIGHT_MODE = "appcompat:local_night_mode";
     private boolean mApplyDayNightCalled;
     private AutoNightModeManager mAutoNightModeManager;
@@ -43,6 +45,16 @@ public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV11 {
         if (bundle != null && this.mLocalNightMode == -100) {
             this.mLocalNightMode = bundle.getInt(KEY_LOCAL_NIGHT_MODE, -100);
         }
+    }
+
+    @Override // android.support.v7.app.AppCompatDelegateImplV9, android.support.v7.app.AppCompatDelegate
+    public boolean hasWindowFeature(int i) {
+        return super.hasWindowFeature(i) || this.mWindow.hasFeature(i);
+    }
+
+    @Override // android.support.v7.app.AppCompatDelegateImplV9
+    View callActivityOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return null;
     }
 
     @Override // android.support.v7.app.AppCompatDelegateImplBase
@@ -191,7 +203,7 @@ public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV11 {
         return false;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     class AppCompatWindowCallbackV14 extends AppCompatDelegateImplBase.AppCompatWindowCallbackBase {
         /* JADX INFO: Access modifiers changed from: package-private */
         public AppCompatWindowCallbackV14(Window.Callback callback) {
@@ -216,7 +228,7 @@ public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV11 {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public final class AutoNightModeManager {
         private BroadcastReceiver mAutoTimeChangeReceiver;
         private IntentFilter mAutoTimeChangeReceiverFilter;

@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class iw extends Exception {
     public iw() {
     }

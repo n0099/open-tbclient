@@ -6,11 +6,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.R;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ColumnLayout extends ViewGroup {
     private static final int COLUMN_NUMBER = 3;
     private static final boolean DEBUG = false;
@@ -52,7 +53,7 @@ public class ColumnLayout extends ViewGroup {
         }
         if (COLUMN_ORIENTATION_PATTERN.matcher(string).matches()) {
             this.mColumnOrientation = new int[3];
-            String[] split = string.split("\\|");
+            String[] split = string.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
             if (split.length == 1) {
                 int orientationStrToI = orientationStrToI(split[0]);
                 for (int i = 0; i < this.mColumnOrientation.length; i++) {
@@ -375,7 +376,7 @@ public class ColumnLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class LayoutParams extends FrameLayout.LayoutParams {
         public static final int DEFAULT_COLUMN = 1;
         public static final int DEFAULT_GRAVITY = 51;

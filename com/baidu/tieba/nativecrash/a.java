@@ -10,42 +10,41 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tieba.nativecrash.BdNativeCrash;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static String hzV = "native_crash_log.log";
-    private static List<String> hzW = new ArrayList();
-    private static BroadcastReceiver uj = new BroadcastReceiver() { // from class: com.baidu.tieba.nativecrash.a.1
+    private static String inZ = "native_crash_log.log";
+    private static List<String> ioa = new ArrayList();
+    private static BroadcastReceiver wO = new BroadcastReceiver() { // from class: com.baidu.tieba.nativecrash.a.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent != null) {
-                String stringExtra = intent.getStringExtra(Constants.PACKAGE_NAME);
+                String stringExtra = intent.getStringExtra("package_name");
                 if (!TextUtils.isEmpty(stringExtra) && "com.baidu.adp.plugin.installed".equals(intent.getAction())) {
-                    b.alP().putInt("native_crash_count_" + stringExtra, 0);
+                    b.aCY().putInt("native_crash_count_" + stringExtra, 0);
                 }
             }
         }
     };
-    private static BdNativeCrash.a hzX = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
+    private static BdNativeCrash.a iob = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
     };
 
-    public static void bNV() {
-        if (BdNativeCrash.hzU) {
-            BdNativeCrash.bNU().dw(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.bNU().a(hzX);
-            bNW();
+    public static void cfh() {
+        if (BdNativeCrash.inY) {
+            BdNativeCrash.cfg().dP(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
+            BdNativeCrash.cfg().a(iob);
+            cfi();
         }
     }
 
-    private static void bNW() {
+    private static void cfi() {
         try {
             Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.adp.plugin.installed");
             intentFilter.setPriority(-1000);
-            applicationContext.registerReceiver(uj, intentFilter);
+            applicationContext.registerReceiver(wO, intentFilter);
         } catch (Exception e) {
             BdLog.e(e);
         }

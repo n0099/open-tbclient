@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.tbadk.core.BaseFragment;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class LazyLoadFragment extends BaseFragment {
     private ILazyLoadFragmentController mController;
     protected boolean mInitialed;

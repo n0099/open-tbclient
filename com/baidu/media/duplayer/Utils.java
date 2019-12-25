@@ -56,6 +56,10 @@ public class Utils {
         nativeSetFileacheWorkDirectory(str);
     }
 
+    public static void a(byte[] bArr, int i, byte[] bArr2) {
+        nativeKernelEncrypt(bArr, i, bArr2);
+    }
+
     public static String b() {
         StringBuilder sb = new StringBuilder();
         String defaultHost = Proxy.getDefaultHost();
@@ -77,10 +81,6 @@ public class Utils {
         }
         new File(str).mkdirs();
         return str + File.separator + "video_session_log_" + CyberPlayerManager.getCoreVersion() + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
-    }
-
-    public static void b(byte[] bArr, int i, byte[] bArr2) {
-        nativeKernelEncrypt(bArr, i, bArr2);
     }
 
     public static void c() {

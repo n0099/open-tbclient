@@ -6,34 +6,34 @@ import com.tb.airbnb.lottie.a.a.n;
 import com.tb.airbnb.lottie.model.a.b;
 import com.tb.airbnb.lottie.model.a.l;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class g implements b {
-    private final com.tb.airbnb.lottie.model.a.b ktM;
-    private final com.tb.airbnb.lottie.model.a.b ktN;
-    private final l ktO;
+    private final com.tb.airbnb.lottie.model.a.b mOF;
+    private final com.tb.airbnb.lottie.model.a.b mOG;
+    private final l mOH;
     private final String name;
 
     g(String str, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, l lVar) {
         this.name = str;
-        this.ktM = bVar;
-        this.ktN = bVar2;
-        this.ktO = lVar;
+        this.mOF = bVar;
+        this.mOG = bVar2;
+        this.mOH = lVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLW() {
-        return this.ktM;
+    public com.tb.airbnb.lottie.model.a.b dCf() {
+        return this.mOF;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLX() {
-        return this.ktN;
+    public com.tb.airbnb.lottie.model.a.b dCg() {
+        return this.mOG;
     }
 
-    public l cLY() {
-        return this.ktO;
+    public l dCh() {
+        return this.mOH;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -43,7 +43,7 @@ public class g implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static g u(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {

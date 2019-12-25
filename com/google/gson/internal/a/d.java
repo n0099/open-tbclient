@@ -1,40 +1,43 @@
 package com.google.gson.internal.a;
 
-import com.google.gson.n;
-import com.google.gson.o;
-/* loaded from: classes2.dex */
-public final class d implements o {
-    private final com.google.gson.internal.b knr;
+import com.google.gson.Gson;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonSerializer;
+import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+/* loaded from: classes4.dex */
+public final class d implements TypeAdapterFactory {
+    private final com.google.gson.internal.b constructorConstructor;
 
     public d(com.google.gson.internal.b bVar) {
-        this.knr = bVar;
+        this.constructorConstructor = bVar;
     }
 
-    @Override // com.google.gson.o
-    public <T> n<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-        com.google.gson.a.b bVar = (com.google.gson.a.b) aVar.cKC().getAnnotation(com.google.gson.a.b.class);
+    @Override // com.google.gson.TypeAdapterFactory
+    public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
+        com.google.gson.a.b bVar = (com.google.gson.a.b) aVar.getRawType().getAnnotation(com.google.gson.a.b.class);
         if (bVar == null) {
             return null;
         }
-        return (n<T>) a(this.knr, dVar, aVar, bVar);
+        return (TypeAdapter<T>) a(this.constructorConstructor, gson, aVar, bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n<?> a(com.google.gson.internal.b bVar, com.google.gson.d dVar, com.google.gson.b.a<?> aVar, com.google.gson.a.b bVar2) {
-        n<?> kVar;
-        Object cKj = bVar.b(com.google.gson.b.a.C(bVar2.value())).cKj();
-        if (cKj instanceof n) {
-            kVar = (n) cKj;
-        } else if (cKj instanceof o) {
-            kVar = ((o) cKj).a(dVar, aVar);
-        } else if ((cKj instanceof com.google.gson.m) || (cKj instanceof com.google.gson.g)) {
-            kVar = new k<>(cKj instanceof com.google.gson.m ? (com.google.gson.m) cKj : null, cKj instanceof com.google.gson.g ? (com.google.gson.g) cKj : null, dVar, aVar, null);
+    public TypeAdapter<?> a(com.google.gson.internal.b bVar, Gson gson, com.google.gson.b.a<?> aVar, com.google.gson.a.b bVar2) {
+        TypeAdapter<?> lVar;
+        Object construct = bVar.a(com.google.gson.b.a.get((Class) bVar2.value())).construct();
+        if (construct instanceof TypeAdapter) {
+            lVar = (TypeAdapter) construct;
+        } else if (construct instanceof TypeAdapterFactory) {
+            lVar = ((TypeAdapterFactory) construct).create(gson, aVar);
+        } else if ((construct instanceof JsonSerializer) || (construct instanceof JsonDeserializer)) {
+            lVar = new l<>(construct instanceof JsonSerializer ? (JsonSerializer) construct : null, construct instanceof JsonDeserializer ? (JsonDeserializer) construct : null, gson, aVar, null);
         } else {
-            throw new IllegalArgumentException("@JsonAdapter value must be TypeAdapter, TypeAdapterFactory, JsonSerializer or JsonDeserializer reference.");
+            throw new IllegalArgumentException("Invalid attempt to bind an instance of " + construct.getClass().getName() + " as a @JsonAdapter for " + aVar.toString() + ". @JsonAdapter value must be a TypeAdapter, TypeAdapterFactory, JsonSerializer or JsonDeserializer.");
         }
-        if (kVar != null && bVar2.cKg()) {
-            return kVar.cKd();
+        if (lVar != null && bVar2.dyd()) {
+            return lVar.nullSafe();
         }
-        return kVar;
+        return lVar;
     }
 }

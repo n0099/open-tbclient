@@ -1,25 +1,84 @@
 package com.baidu.swan.apps.core.i;
 
-import android.content.Context;
-import com.baidu.swan.apps.b.c.g;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes2.dex */
-public class e {
-    private static ArrayList<g> aNx = new ArrayList<>();
+import android.os.Environment;
+import android.util.Log;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.channels.Channels;
+import java.util.HashMap;
+/* loaded from: classes9.dex */
+public class e extends b {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private File bmc = Nj();
 
-    static {
-        aNx.add(new a());
+    @Override // com.baidu.swan.apps.core.i.b
+    public /* bridge */ /* synthetic */ HashMap Nh() {
+        return super.Nh();
     }
 
-    public static boolean O(Context context, String str) {
-        Iterator<g> it = aNx.iterator();
-        while (it.hasNext()) {
-            g next = it.next();
-            if (next != null && next.O(context, str)) {
-                return true;
+    @Override // com.baidu.swan.apps.core.i.b
+    public /* bridge */ /* synthetic */ void a(c cVar, d dVar) {
+        super.a(cVar, dVar);
+    }
+
+    @Override // com.baidu.swan.apps.core.i.b
+    protected String Ng() {
+        if (this.bmc.exists()) {
+            File file = new File(this.bmc, "preset_list.json");
+            if (file.exists()) {
+                return com.baidu.swan.d.c.readFileData(file);
+            }
+            return null;
+        }
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.core.i.b
+    protected String gX(String str) {
+        if (this.bmc.exists()) {
+            File file = new File(this.bmc, str + File.separator + "app_info.json");
+            if (file.exists()) {
+                return com.baidu.swan.d.c.readFileData(file);
+            }
+            return null;
+        }
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.core.i.b
+    protected boolean a(c cVar) {
+        boolean z = false;
+        if (cVar != null && this.bmc.exists()) {
+            File file = new File(this.bmc, cVar.cwO + File.separator + cVar.bmb);
+            if (file.exists()) {
+                try {
+                    if (!a(Channels.newChannel(new FileInputStream(file)), cVar.sign)) {
+                        if (DEBUG) {
+                            Log.e("SdCardPresetController", "校验签名失败");
+                        }
+                    } else {
+                        File d = d(cVar.category, cVar.cwO, cVar.versionCode);
+                        if (d == null) {
+                            if (DEBUG) {
+                                Log.e("SdCardPresetController", "获取解压路径失败");
+                            }
+                        } else {
+                            z = a(new BufferedInputStream(new FileInputStream(file)), d);
+                        }
+                    }
+                } catch (IOException e) {
+                    if (DEBUG) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
-        return false;
+        return z;
+    }
+
+    private File Nj() {
+        return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
     }
 }

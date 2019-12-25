@@ -1,26 +1,41 @@
 package com.baidu.tieba.ala.live.personcenter.guardian;
 
-import com.baidu.live.tbadk.core.data.BaseData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class d extends BaseData {
-    private ArrayList<a> dSa = new ArrayList<>();
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
+public class d {
+    private LinearLayout eHI;
+    private TextView eHJ;
+    protected Context mContext;
+    private View mRootView;
 
-    public ArrayList<a> aMF() {
-        return this.dSa;
+    public d(Context context) {
+        this.mContext = context;
+        initView(bdY());
     }
 
-    @Override // com.baidu.live.tbadk.core.data.BaseData
-    public void parserJson(JSONObject jSONObject) {
-        JSONArray optJSONArray = jSONObject.optJSONArray("data");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                a aVar = new a();
-                aVar.parserJson(optJSONArray.optJSONObject(i));
-                this.dSa.add(aVar);
-            }
+    public View bdY() {
+        if (this.mRootView == null) {
+            this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_guardian_header, (ViewGroup) null);
         }
+        return this.mRootView;
+    }
+
+    private void initView(View view) {
+        this.eHI = (LinearLayout) view.findViewById(a.g.ala_guardian_header_root);
+        this.eHJ = (TextView) view.findViewById(a.g.ala_guardian_header_title);
+    }
+
+    public void yh(String str) {
+        this.eHJ.setText(str);
+    }
+
+    public void a(AlaGuardianListActivity alaGuardianListActivity, int i) {
+        alaGuardianListActivity.getLayoutMode().onModeChanged(this.eHI);
     }
 }

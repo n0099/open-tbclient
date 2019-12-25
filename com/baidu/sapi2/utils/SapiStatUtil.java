@@ -11,13 +11,15 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.share.m;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidubce.AbstractBceClient;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SapiStatUtil {
     public static final String LOGIN_STATUS_BDUSS_INVALIDATE = "2";
     public static final String LOGIN_STATUS_BDUSS_VALIDATE = "0";
@@ -60,7 +62,7 @@ public class SapiStatUtil {
         buildStatExtraMap(hashMap, list);
         if (str.equals("v2")) {
             r.a("share_v2_click_other", hashMap);
-        } else if (str.equals("v1")) {
+        } else if (str.equals(AbstractBceClient.URL_PREFIX)) {
             r.a("share_v1_click_other", hashMap);
         }
     }
@@ -200,7 +202,7 @@ public class SapiStatUtil {
     public static void statThirdLoginEnter(SocialType socialType) {
         HashMap hashMap = new HashMap();
         hashMap.put("clientip", SapiUtils.getLocalIpAddress());
-        hashMap.put("client", "android");
+        hashMap.put("client", PraiseDataPassUtil.KEY_FROM_OS);
         hashMap.put(LoginActivityConfig.SOCIAL_TYPE, socialType.getType() + "");
         if (SocialType.SINA_WEIBO_SSO == socialType) {
             hashMap.put("is_sso", "1");

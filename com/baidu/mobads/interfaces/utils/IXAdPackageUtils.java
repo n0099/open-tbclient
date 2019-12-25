@@ -6,7 +6,7 @@ import android.content.pm.PackageInfo;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IXAdPackageUtils {
     int getAppVersion(Context context);
 
@@ -28,7 +28,7 @@ public interface IXAdPackageUtils {
 
     void sendDialerIsSuccess(Context context, boolean z, int i, String str);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ApkInfo {
         private PackageInfo a;
         public final String appName;

@@ -1,8 +1,9 @@
 package com.baidu.crius;
 
 import com.baidu.crius.proguard.annotations.DoNotStrip;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 @DoNotStrip
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class CriusValue {
     public final CriusUnit unit;
     public final float value;
@@ -38,7 +39,7 @@ public class CriusValue {
     public String toString() {
         switch (this.unit) {
             case UNDEFINED:
-                return "undefined";
+                return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
             case POINT:
                 return Float.toString(this.value);
             case PERCENT:
@@ -54,7 +55,7 @@ public class CriusValue {
         if (str == null) {
             return null;
         }
-        if ("undefined".equals(str)) {
+        if (SessionMonitorEngine.PUBLIC_DATA_UNDIFNED.equals(str)) {
             return UNDEFINED;
         }
         if ("auto".equals(str)) {

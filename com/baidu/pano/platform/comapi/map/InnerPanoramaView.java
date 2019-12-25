@@ -12,7 +12,6 @@ import com.baidu.lbsapi.panoramaview.PanoramaView;
 import com.baidu.lbsapi.panoramaview.PanoramaViewListener;
 import com.baidu.lbsapi.panoramaview.StatisticsCallback;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.mobstat.Config;
 import com.baidu.pano.platform.comjni.MessageProxy;
 import java.util.HashMap;
@@ -288,7 +287,7 @@ public class InnerPanoramaView extends BaseGLMapView {
             return false;
         }
         Bundle bundle = new Bundle();
-        bundle.putString(TiebaInitialize.Params.KEY, str);
+        bundle.putString("key", str);
         bundle.putDouble(Config.EVENT_HEAT_X, d * 100.0d);
         bundle.putDouble("y", d2 * 100.0d);
         bundle.putFloat("z", ((float) d3) * 100.0f);

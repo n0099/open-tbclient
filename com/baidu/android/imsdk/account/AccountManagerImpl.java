@@ -37,7 +37,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AccountManagerImpl {
     private static Context mContext;
     private static volatile AccountManagerImpl mInstance;

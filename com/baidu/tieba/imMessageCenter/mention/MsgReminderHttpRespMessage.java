@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
     private h msgData;
 

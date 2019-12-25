@@ -9,15 +9,15 @@ import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannel;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.c.e;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.livesdk.b;
 import com.baidu.tieba.sdk.a.f;
 import com.baidu.tieba.tbadkCore.w;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a implements IShareChannel, f {
     @Override // com.baidu.tieba.sdk.a.f
     public void e(ShareEntity shareEntity) {
-        e f;
+        ShareItem f;
         if (shareEntity != null && (f = f(shareEntity)) != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaSDKShareEmptyActivityConfig(TbadkCoreApplication.getInst(), f, 0, 1)));
         }
@@ -45,21 +45,21 @@ public class a implements IShareChannel, f {
 
     private void a(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
         if (shareEntity != null) {
-            if (!vu(i)) {
+            if (!xw(i)) {
                 if (iShareCallback != null) {
                     iShareCallback.onShare(0, 0, "");
                     return;
                 }
                 return;
             }
-            e f = f(shareEntity);
+            ShareItem f = f(shareEntity);
             if (f != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaSDKShareEmptyActivityConfig(TbadkCoreApplication.getInst(), f, i, 2)));
             }
         }
     }
 
-    private boolean vu(int i) {
+    private boolean xw(int i) {
         boolean z = false;
         switch (i) {
             case 2:
@@ -88,15 +88,15 @@ public class a implements IShareChannel, f {
         return z;
     }
 
-    private e f(ShareEntity shareEntity) {
+    private ShareItem f(ShareEntity shareEntity) {
         if (shareEntity == null) {
             return null;
         }
-        e eVar = new e();
-        eVar.title = shareEntity.title;
-        eVar.content = shareEntity.content;
-        eVar.imageUrl = shareEntity.imageUrl;
-        eVar.linkUrl = shareEntity.linkUrl;
-        return eVar;
+        ShareItem shareItem = new ShareItem();
+        shareItem.title = shareEntity.title;
+        shareItem.content = shareEntity.content;
+        shareItem.imageUrl = shareEntity.imageUrl;
+        shareItem.linkUrl = shareEntity.linkUrl;
+        return shareItem;
     }
 }

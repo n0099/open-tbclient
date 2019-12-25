@@ -10,21 +10,19 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.mobads.AppActivity;
 import com.baidu.mobads.interfaces.download.activate.IXAppInfo;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.m;
 import com.baidu.mobads.utils.p;
-import com.coloros.mcssdk.PushManager;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b implements Observer {
     private static NotificationManager a;
     private static int b = 10091;
@@ -79,7 +77,7 @@ public class b implements Observer {
         this.c = null;
         XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdApkDownloaderObserver", "observer created");
         if (a == null) {
-            a = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+            a = (NotificationManager) context.getSystemService("notification");
         }
         this.d = context.getApplicationContext();
         this.c = aVar;
@@ -121,7 +119,7 @@ public class b implements Observer {
             if (z) {
                 XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdApkDownloaderObserver", "launch installing .............");
                 String str = this.c.c + this.c.b;
-                if (!this.c.i.contains(DefaultConfig.TOKEN_SEPARATOR)) {
+                if (!this.c.i.contains(".")) {
                     this.c.i = XAdSDKFoundationFacade.getInstance().getPackageUtils().getLocalApkFileInfo(this.d, str).packageName;
                 }
                 if (this.e == null) {
@@ -193,7 +191,7 @@ public class b implements Observer {
             str4 = this.c.g.getMessage();
             i = 17301633;
         }
-        Intent intent = new Intent(this.d, AppActivity.zr());
+        Intent intent = new Intent(this.d, AppActivity.getActivityClass());
         intent.putExtra("dealWithDownload", true);
         intent.putExtra("pausedManually", iOAdDownloader.isPausedManually());
         intent.putExtra("status", this.c.g.getCode());

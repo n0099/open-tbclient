@@ -1,7 +1,7 @@
 package com.baidu.ala.helper;
 
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveStreamCmdInfo {
     public int appStatus;
     public boolean isCalling;

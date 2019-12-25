@@ -1,6 +1,8 @@
 package com.baidu.tbadk.baseEditMark;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.db.DBTableDefine;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -8,6 +10,7 @@ import com.baidu.tbadk.core.util.aq;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.BaijiahaoInfo;
 /* loaded from: classes.dex */
 public class MarkData implements Serializable {
     private static final long serialVersionUID = 2647743141824773827L;
@@ -346,6 +349,17 @@ public class MarkData implements Serializable {
             this.is_follow = jSONObject.optInt("is_follow");
             this.is_deleted = jSONObject.optInt("is_deleted");
             this.mState = jSONObject.optString("post_no_msg");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("author").optJSONObject("baijiahao_info");
+            if (optJSONObject2 != null) {
+                BaijiahaoInfo.Builder builder = new BaijiahaoInfo.Builder();
+                builder.name = optJSONObject2.optString("name");
+                builder.avatar = optJSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                builder.avatar_h = optJSONObject2.optString("avatar_h");
+                builder.brief = optJSONObject2.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+                builder.auth_id = Integer.valueOf(optJSONObject2.optInt("auth_id"));
+                builder.auth_desc = optJSONObject2.optString("auth_desc");
+                this.metaData.setBaijiahaoInfo(builder.build(false));
+            }
             if (aq.isEmpty(this.portrait)) {
                 this.metaData.setPortrait("null");
             } else {
@@ -355,11 +369,11 @@ public class MarkData implements Serializable {
             this.metaData.setUserId(this.mUesrId);
             this.metaData.setIsBigV(this.is_god == 5);
             this.metaData.setIsLike(this.is_follow == 1);
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("cartoon_info");
-            if (optJSONObject2 != null) {
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("cartoon_info");
+            if (optJSONObject3 != null) {
                 this.isManga = true;
-                this.cartoonId = optJSONObject2.optLong("cartoon_id");
-                this.chapterId = optJSONObject2.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+                this.cartoonId = optJSONObject3.optLong("cartoon_id");
+                this.chapterId = optJSONObject3.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
             }
             if (optInt == 0) {
                 this.mSequence = true;

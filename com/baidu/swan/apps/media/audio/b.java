@@ -1,43 +1,44 @@
 package com.baidu.swan.apps.media.audio;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String aUC;
-    public String aUw = "";
-    public String aUx = "";
+    public String bvH;
+    public String bvC = "";
+    public String aXf = "";
     public String mUrl = "";
-    public int aUA = 0;
-    public boolean aUF = false;
-    public boolean aUG = false;
-    public boolean aUH = true;
+    public int bvF = 0;
+    public boolean bvK = false;
+    public boolean bvL = false;
+    public boolean bvM = true;
     public int mPos = 0;
-    public float aUI = 1.0f;
+    public float mVolume = 1.0f;
 
     public static b a(JSONObject jSONObject, b bVar) {
         b bVar2 = new b();
         if (jSONObject != null) {
-            bVar2.aUw = jSONObject.optString("audioId", bVar.aUw);
-            bVar2.aUx = jSONObject.optString("slaveId", bVar.aUx);
-            bVar2.aUF = jSONObject.optBoolean("autoplay", bVar.aUF);
-            bVar2.aUG = jSONObject.optBoolean("loop", bVar.aUG);
-            bVar2.mUrl = jSONObject.optString("src", bVar.mUrl);
-            bVar2.aUA = jSONObject.optInt("startTime", bVar.aUA);
-            bVar2.aUH = jSONObject.optBoolean("obeyMuteSwitch", bVar.aUH);
+            bVar2.bvC = jSONObject.optString("audioId", bVar.bvC);
+            bVar2.aXf = jSONObject.optString("slaveId", bVar.aXf);
+            bVar2.bvK = jSONObject.optBoolean("autoplay", bVar.bvK);
+            bVar2.bvL = jSONObject.optBoolean("loop", bVar.bvL);
+            bVar2.mUrl = jSONObject.optString(UserAccountActionItem.KEY_SRC, bVar.mUrl);
+            bVar2.bvF = jSONObject.optInt("startTime", bVar.bvF);
+            bVar2.bvM = jSONObject.optBoolean("obeyMuteSwitch", bVar.bvM);
             bVar2.mPos = jSONObject.optInt("position", bVar.mPos);
-            bVar2.aUI = (float) jSONObject.optDouble("volume", bVar.aUI);
-            bVar2.aUC = jSONObject.optString("cb", bVar.aUC);
+            bVar2.mVolume = (float) jSONObject.optDouble("volume", bVar.mVolume);
+            bVar2.bvH = jSONObject.optString("cb", bVar.bvH);
         }
         return bVar2;
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aUw);
+        return !TextUtils.isEmpty(this.bvC);
     }
 
     public String toString() {
-        return "playerId : " + this.aUw + "; slaveId : " + this.aUx + "; url : " + this.mUrl + "; AutoPlay : " + this.aUF + "; Loop : " + this.aUG + "; startTime : " + this.aUA + "; ObeyMute : " + this.aUH + "; pos : " + this.mPos;
+        return "playerId : " + this.bvC + "; slaveId : " + this.aXf + "; url : " + this.mUrl + "; AutoPlay : " + this.bvK + "; Loop : " + this.bvL + "; startTime : " + this.bvF + "; ObeyMute : " + this.bvM + "; pos : " + this.mPos;
     }
 }

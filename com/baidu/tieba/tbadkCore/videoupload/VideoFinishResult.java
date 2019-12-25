@@ -1,13 +1,18 @@
 package com.baidu.tieba.tbadkCore.videoupload;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class VideoFinishResult implements Serializable {
+    private static final String KEY_ERROR = "error";
+    private static final String KEY_ERROR_MSG = "errmsg";
+    private static final String KEY_ERROR_NO = "errno";
+    private static final String KEY_ERROR_USER_MSG = "usermsg";
+    private static final String KEY_VIDEO_MD5 = "video_md5";
+    private static final String KEY_VIDEO_URL = "video_url";
     private static final long serialVersionUID = 6275774083063164456L;
     private String errorMessage;
     private int errorNo;
@@ -19,13 +24,13 @@ public class VideoFinishResult implements Serializable {
         if (!StringUtils.isNull(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
+                JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
                     this.errorNo = optJSONObject.optInt("errno");
                     this.errorMessage = optJSONObject.optString("errmsg");
-                    this.userMessage = optJSONObject.optString("usermsg");
+                    this.userMessage = optJSONObject.optString(KEY_ERROR_USER_MSG);
                 }
-                this.videoMd5 = jSONObject.optString("video_md5");
+                this.videoMd5 = jSONObject.optString(KEY_VIDEO_MD5);
                 this.videoUrl = jSONObject.optString("video_url");
             } catch (JSONException e) {
             }

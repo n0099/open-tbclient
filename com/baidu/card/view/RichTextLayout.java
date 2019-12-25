@@ -1,0 +1,109 @@
+package com.baidu.card.view;
+
+import android.content.Context;
+import android.text.SpannableString;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.l;
+import com.baidu.card.m;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.a;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tieba.R;
+/* loaded from: classes5.dex */
+public class RichTextLayout extends LinearLayout implements View.OnClickListener, m<a> {
+    private View.OnClickListener JC;
+    public TextView JZ;
+    private final int NV;
+    private boolean NX;
+    private Context mContext;
+    public TextView mTitle;
+
+    public RichTextLayout(Context context) {
+        super(context);
+        this.NV = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
+        this.NX = false;
+        this.mContext = context;
+        initUI();
+    }
+
+    private void initUI() {
+        LayoutInflater.from(getContext()).inflate(R.layout.richtext_normal_layout, (ViewGroup) this, true);
+        setOrientation(1);
+        setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.JZ = (TextView) findViewById(R.id.thread_card_abstract);
+        this.mTitle = (TextView) findViewById(R.id.thread_card_title);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.card.m
+    /* renamed from: b */
+    public void A(a aVar) {
+        if (aVar != null && aVar.axx() != null) {
+            bj axx = aVar.axx();
+            OriginalThreadInfo originalThreadInfo = axx.cPD;
+            if (originalThreadInfo != null && this.NX) {
+                this.mTitle.setVisibility(8);
+                this.JZ.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
+                if (originalThreadInfo.cKv) {
+                    au.a(this.JZ, this.mTitle, new SpannableString(originalThreadInfo.title), axx, this.NV, this.NX);
+                    am.setViewTextColor(this.JZ, (int) R.color.cp_cont_c);
+                } else {
+                    au.a(this.JZ, this.mTitle, originalThreadInfo.cLx, axx, this.NV, this.NX);
+                }
+            } else {
+                au.a(this.mTitle, axx);
+                this.JZ.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize44));
+                au.a(this.JZ, this.mTitle, axx.azf(), axx, this.NV, this.NX);
+            }
+            if (!this.NX) {
+                this.JZ.setClickable(false);
+                this.mTitle.setClickable(false);
+            } else if (originalThreadInfo != null && originalThreadInfo.cKv) {
+                setOnClickListener(null);
+                setClickable(true);
+            } else {
+                setOnClickListener(this);
+                this.JZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.RichTextLayout.1
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        if (RichTextLayout.this.JC != null) {
+                            RichTextLayout.this.JC.onClick(view);
+                        }
+                    }
+                });
+                this.mTitle.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.RichTextLayout.2
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        if (RichTextLayout.this.JC != null) {
+                            RichTextLayout.this.JC.onClick(view);
+                        }
+                    }
+                });
+                this.JZ.setClickable(true);
+                this.mTitle.setClickable(true);
+            }
+        }
+    }
+
+    public void setTransmit(boolean z) {
+        this.NX = z;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.JC != null) {
+            this.JC.onClick(view);
+        }
+    }
+
+    public void setJumpToPbListener(View.OnClickListener onClickListener) {
+        this.JC = onClickListener;
+    }
+}

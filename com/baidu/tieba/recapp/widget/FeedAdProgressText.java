@@ -6,37 +6,37 @@ import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class FeedAdProgressText extends AppCompatTextView implements a {
-    private int dhe;
-    private int iPo;
+    private int jJH;
     private int mColor;
+    private int mMax;
     private int mProgress;
 
     public FeedAdProgressText(Context context) {
         super(context);
-        this.dhe = 100;
+        this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.iPo = 0;
+        this.jJH = 0;
         init(context);
     }
 
     public FeedAdProgressText(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dhe = 100;
+        this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.iPo = 0;
+        this.jJH = 0;
         init(context);
     }
 
     public FeedAdProgressText(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dhe = 100;
+        this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.iPo = 0;
+        this.jJH = 0;
         init(context);
     }
 
@@ -45,7 +45,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
     }
 
     public void setMax(int i) {
-        this.dhe = i;
+        this.mMax = i;
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
@@ -72,19 +72,19 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setButtonTextNightColor(int i) {
-        this.iPo = i;
+        this.jJH = i;
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setProgress(int i) {
-        if (i <= this.dhe) {
+        if (i <= this.mMax) {
             this.mProgress = i;
             setText("已下载" + i + "%");
         }
     }
 
     public int getMax() {
-        return this.dhe;
+        return this.mMax;
     }
 
     public int getProgress() {
@@ -97,7 +97,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
-    public void bno() {
+    public void bEM() {
         setTextColor(am.getColor(R.color.cp_cont_d));
     }
 }

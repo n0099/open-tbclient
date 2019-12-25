@@ -11,7 +11,7 @@ import com.baidu.pass.biometrics.base.utils.StatService;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LivenessStat {
     public static final int DEFAULT_INT_NUM = 0;
     public static final String KEY_NAME_LIVENESS_STAT = "living_recog";
@@ -40,16 +40,16 @@ public class LivenessStat {
     public int findFaceNum = 0;
     public int livingPassEyesNum = 0;
     public int livingPassMouthNum = 0;
-    public String livingPassType = TYPE_STRING_DEFAULT;
+    public String livingPassType = "-1";
     public int whiteBg = -1;
     public float illumValue = -1.0f;
     public int onLineIllum = -1;
     public int guideLiveness = 0;
-    public String livingPassPeriod = TYPE_STRING_DEFAULT;
+    public String livingPassPeriod = "-1";
     public int getIDLPicture = -1;
-    public String faceMatchType = TYPE_STRING_DEFAULT;
-    public String clickCloseType = TYPE_STRING_DEFAULT;
-    public String clickVoiceType = TYPE_STRING_DEFAULT;
+    public String faceMatchType = "-1";
+    public String clickCloseType = "-1";
+    public String clickVoiceType = "-1";
     public int tipDistanceNearNum = 0;
     public int tipDistanceFarNum = 0;
     public int tipEyeSlopeNum = 0;
@@ -107,22 +107,22 @@ public class LivenessStat {
         if (this.livingPassMouthNum != 0) {
             hashMap.put("living_pass_mouth_num", this.livingPassMouthNum + "");
         }
-        if (this.livingPassType != TYPE_STRING_DEFAULT && this.isLivenessSuc) {
+        if (this.livingPassType != "-1" && this.isLivenessSuc) {
             hashMap.put("living_pass_type", this.livingPassType + "");
         }
-        if (this.livingPassPeriod != TYPE_STRING_DEFAULT) {
+        if (this.livingPassPeriod != "-1") {
             hashMap.put("living_pass_period", this.livingPassPeriod + "");
         }
         if (this.getIDLPicture != -1) {
             hashMap.put("get_idl_pic", this.getIDLPicture + "");
         }
-        if (this.faceMatchType != TYPE_STRING_DEFAULT) {
+        if (this.faceMatchType != "-1") {
             hashMap.put("face_match_type", this.faceMatchType + "");
         }
-        if (this.clickCloseType != TYPE_STRING_DEFAULT) {
+        if (this.clickCloseType != "-1") {
             hashMap.put("click_close_type", this.clickCloseType + "");
         }
-        if (this.clickVoiceType != TYPE_STRING_DEFAULT) {
+        if (this.clickVoiceType != "-1") {
             hashMap.put("click_voice_type", this.clickVoiceType + "");
         }
         if (this.tipLightLowNum != 0) {

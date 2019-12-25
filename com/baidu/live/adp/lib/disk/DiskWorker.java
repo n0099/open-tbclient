@@ -11,14 +11,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.InvalidParameterException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DiskWorker {
     protected final int BUFFER_SIZE = 1024;
     protected DiskFileFactory mDiskFileFactory;
     private DiskFileOperate mDiskFileOp;
     protected AtomicBoolean mIsCanceled;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface DiskWorkerOperate {
         boolean operate(DiskWorker diskWorker, DiskFileOperate diskFileOperate, DiskFileFactory diskFileFactory);
     }

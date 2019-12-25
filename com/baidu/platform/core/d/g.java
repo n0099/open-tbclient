@@ -22,7 +22,7 @@ public class g extends com.baidu.platform.base.e {
         }
         GeoPoint ll2mc2 = CoordUtil.ll2mc(indoorRoutePlanOption.mTo.getLocation());
         if (ll2mc2 != null) {
-            this.a.a("en", (String.format("%f,%f", Double.valueOf(ll2mc2.getLongitudeE6()), Double.valueOf(ll2mc2.getLatitudeE6())) + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(HanziToPinyin.Token.SEPARATOR, ""));
+            this.a.a(com.baidu.fsg.base.statistics.h.a, (String.format("%f,%f", Double.valueOf(ll2mc2.getLongitudeE6()), Double.valueOf(ll2mc2.getLatitudeE6())) + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(HanziToPinyin.Token.SEPARATOR, ""));
         }
     }
 

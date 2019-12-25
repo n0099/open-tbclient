@@ -26,9 +26,8 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a {
     private static a b;
     private static final Object c = new Object();
@@ -161,7 +160,7 @@ public class a {
             } catch (ProtocolException e) {
                 e.printStackTrace();
             }
-            httpURLConnection.setRequestProperty("Charset", HTTP.UTF_8);
+            httpURLConnection.setRequestProperty("Charset", "UTF-8");
             DataOutputStream dataOutputStream = null;
             try {
                 b("code = " + httpURLConnection.getResponseCode());

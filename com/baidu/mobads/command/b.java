@@ -6,7 +6,7 @@ import com.baidu.mobads.interfaces.IXAdResource;
 import com.baidu.mobads.interfaces.IXNonLinearAdSlot;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class b {
     protected Context a;
     protected IXNonLinearAdSlot b;

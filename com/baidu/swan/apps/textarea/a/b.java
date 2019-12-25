@@ -6,21 +6,23 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.component.components.textarea.a;
+import com.baidu.swan.apps.core.d.d;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.apps.textarea.c.b;
-import java.util.HashMap;
+import com.baidu.swan.apps.y.f;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class b extends z {
-    private HashMap<String, String> mCallbackMap;
-
+/* loaded from: classes9.dex */
+public class b extends ab {
     public b(j jVar) {
-        super(jVar, "/swan/openTextarea");
+        super(jVar, "/swanAPI/openTextarea");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, e eVar) {
         if (DEBUG) {
             Log.d("OpenTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
         }
@@ -30,20 +32,39 @@ public class b extends z {
             return false;
         }
         com.baidu.swan.apps.console.c.d("OpenTextAreaAction", "OpenTextAreaAction paramsJson: " + optParamsAsJo);
-        String optString = optParamsAsJo.optString("inputId");
-        String optString2 = optParamsAsJo.optString("slaveId");
-        String optString3 = optParamsAsJo.optString("cb");
-        if (this.mCallbackMap == null) {
-            this.mCallbackMap = new HashMap<>();
+        com.baidu.swan.apps.component.components.textarea.b bVar = new com.baidu.swan.apps.component.components.textarea.b();
+        try {
+            bVar.parseFromJson(optParamsAsJo);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "model parse exception:", e);
         }
-        this.mCallbackMap.put(optString, optString3);
-        if (!com.baidu.swan.apps.textarea.c.a.TG().iF(optString2).a(new b.a() { // from class: com.baidu.swan.apps.textarea.a.b.1
-            @Override // com.baidu.swan.apps.textarea.c.b.a
-            public void d(String str, JSONObject jSONObject) {
-                b.this.a(str, callbackHandler, 0, jSONObject);
+        SwanAppActivity TQ = f.Uf().TQ();
+        if (TQ == null) {
+            com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "activity is null when add textarea");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add textarea");
+            return false;
+        }
+        com.baidu.swan.apps.core.d.e DP = f.Uf().DP();
+        if (DP == null) {
+            com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "fragmentManager is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
+            return false;
+        }
+        d LC = DP.LC();
+        if (LC == null) {
+            com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "fragment is null when add input");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
+            return false;
+        }
+        com.baidu.swan.apps.component.b.c HS = new com.baidu.swan.apps.component.components.textarea.a(context, bVar, TQ, LC, new a.InterfaceC0221a() { // from class: com.baidu.swan.apps.textarea.a.b.1
+            @Override // com.baidu.swan.apps.component.components.textarea.a.InterfaceC0221a
+            public void b(String str, String str2, JSONObject jSONObject) {
+                b.this.a(str, str2, callbackHandler, 0, jSONObject);
             }
-        }, context, optParamsAsJo)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        }).HS();
+        if (!HS.isSuccess()) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, HS.msg);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -51,13 +72,14 @@ public class b extends z {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, CallbackHandler callbackHandler, int i, JSONObject jSONObject) {
+    public void a(String str, String str2, CallbackHandler callbackHandler, int i, JSONObject jSONObject) {
         if (DEBUG) {
             Log.d("OpenTextAreaAction", "sendAsyncCallback, arg0: " + i + ", arg1: " + jSONObject);
         }
         com.baidu.swan.apps.console.c.d("OpenTextAreaAction", "sendAsyncCallback, arg0: " + i + ", arg1: " + jSONObject);
-        String str2 = this.mCallbackMap.get(str);
-        if (!TextUtils.isEmpty(str2)) {
+        if (TextUtils.isEmpty(str2)) {
+            com.baidu.swan.apps.component.e.a.aj("OpenTextAreaAction", "sendAsyncCallback with a empty callback");
+        } else {
             callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         }
     }

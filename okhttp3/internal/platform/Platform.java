@@ -22,7 +22,7 @@ import okhttp3.internal.tls.BasicTrustRootIndex;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.TrustRootIndex;
 import okio.Buffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class Platform {
     public static final int INFO = 4;
     public static final int WARN = 5;

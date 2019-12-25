@@ -4,11 +4,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class i {
-    private a ipj;
+    private a jhA;
     private boolean isLoading = false;
-    private com.baidu.adp.framework.listener.a bRo = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HISTORY_SWAN, 309638) { // from class: com.baidu.tieba.personExtra.i.1
+    private com.baidu.adp.framework.listener.a cDO = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HISTORY_SWAN, 309638) { // from class: com.baidu.tieba.personExtra.i.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             i.this.isLoading = false;
@@ -22,26 +22,26 @@ public class i {
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(boolean z, com.baidu.tieba.personExtra.a aVar);
     }
 
     public i() {
-        registerTask();
+        rG();
         registerListener();
     }
 
-    private void registerTask() {
+    private void rG() {
         com.baidu.tieba.tbadkCore.a.a.c(309638, SmartAppBrowseHistorySocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(309638, CmdConfigHttp.CMD_HISTORY_SWAN, TbConfig.URL_HISTORY_SWAN, SmartAppBrowseHistoryHttpResponsedMessage.class, false, false, true, false);
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.bRo);
+        MessageManager.getInstance().registerListener(this.cDO);
     }
 
-    public void aNO() {
+    public void bfk() {
         if (!this.isLoading) {
             this.isLoading = true;
             MessageManager.getInstance().sendMessage(new SmartAppBrowseHistoryRequestMessage());
@@ -50,12 +50,12 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, com.baidu.tieba.personExtra.a aVar) {
-        if (this.ipj != null) {
-            this.ipj.a(z, aVar);
+        if (this.jhA != null) {
+            this.jhA.a(z, aVar);
         }
     }
 
     public void a(a aVar) {
-        this.ipj = aVar;
+        this.jhA = aVar;
     }
 }

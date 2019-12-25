@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMGetUserProfileMsg extends Message {
     private static final String TAG = "IMGetUserProfileMsg";
     private Context mContext;

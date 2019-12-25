@@ -22,8 +22,9 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.webkit.internal.ETAG;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BrowserHelper {
     static String parseWebViewUrl(String str, String str2) {
         String str3;
@@ -123,9 +124,9 @@ public class BrowserHelper {
             }
             for (Pair<String, String> pair : list) {
                 if (pair != null && !TextUtils.isEmpty((CharSequence) pair.first)) {
-                    sb.append("&");
+                    sb.append(ETAG.ITEM_SEPARATOR);
                     sb.append((String) pair.first);
-                    sb.append("=");
+                    sb.append(ETAG.EQUAL);
                     sb.append((String) pair.second);
                 }
             }
@@ -139,7 +140,7 @@ public class BrowserHelper {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             } else {
                 sb.append("?");
             }

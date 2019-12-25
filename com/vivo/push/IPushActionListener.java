@@ -1,5 +1,5 @@
 package com.vivo.push;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface IPushActionListener {
     void onStateChanged(int i);
 }

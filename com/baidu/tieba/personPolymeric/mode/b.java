@@ -1,5 +1,5 @@
 package com.baidu.tieba.personPolymeric.mode;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface b {
-    void b(com.baidu.tieba.personPolymeric.c.a aVar);
+    void c(com.baidu.tieba.personPolymeric.c.a aVar);
 }

@@ -4,45 +4,44 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
     private ByteBuffer mBuffer;
-    private final int rE;
-    private final int rF;
+    private final int uA;
+    private final int uz;
 
     public a() {
         this(131072, 65536);
     }
 
     public a(int i, int i2) {
-        this.rE = i;
-        this.rF = i2;
-        this.mBuffer = ByteBuffer.allocateDirect(this.rE);
+        this.uz = i;
+        this.uA = i2;
+        this.mBuffer = ByteBuffer.allocateDirect(this.uz);
         this.mBuffer.clear();
     }
 
-    public ByteBuffer hi() {
+    public ByteBuffer getBuffer() {
         return this.mBuffer;
     }
 
-    public Buffer hj() {
+    public Buffer hF() {
         return this.mBuffer.flip();
     }
 
-    public Buffer hk() {
+    public Buffer hG() {
         return this.mBuffer.clear();
     }
 
-    public int hl() {
+    public int hH() {
         return this.mBuffer.remaining();
     }
 
-    public synchronized void W(int i) {
+    public synchronized void expand(int i) {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
-            this.mBuffer = ByteBuffer.allocateDirect(((i / this.rF) + 1) * this.rF);
+            this.mBuffer = ByteBuffer.allocateDirect(((i / this.uA) + 1) * this.uA);
             byteBuffer.clear();
             this.mBuffer.clear();
             this.mBuffer.put(byteBuffer);
@@ -53,7 +52,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(int i) throws IOException {
         if (this.mBuffer.position() + 1 > this.mBuffer.capacity()) {
-            W(this.mBuffer.capacity() + 1);
+            expand(this.mBuffer.capacity() + 1);
         }
         this.mBuffer.put((byte) i);
     }
@@ -61,7 +60,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
         if (this.mBuffer.position() + i2 > this.mBuffer.capacity()) {
-            W(this.mBuffer.capacity() + i2);
+            expand(this.mBuffer.capacity() + i2);
         }
         this.mBuffer.put(bArr, i, i2);
     }
@@ -71,11 +70,11 @@ public class a extends OutputStream {
         write(bArr, 0, bArr.length);
     }
 
-    public synchronized void ax(String str) throws IOException {
-        write(str.getBytes(HTTP.UTF_8));
+    public synchronized void aJ(String str) throws IOException {
+        write(str.getBytes("UTF-8"));
     }
 
-    public synchronized void hm() throws IOException {
+    public synchronized void hI() throws IOException {
         write(13);
         write(10);
     }

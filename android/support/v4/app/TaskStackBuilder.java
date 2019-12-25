@@ -8,25 +8,28 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class TaskStackBuilder implements Iterable<Intent> {
     private static final TaskStackBuilderBaseImpl IMPL;
     private static final String TAG = "TaskStackBuilder";
     private final ArrayList<Intent> mIntents = new ArrayList<>();
     private final Context mSourceContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface SupportParentable {
+        @Nullable
         Intent getSupportParentActivityIntent();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class TaskStackBuilderBaseImpl {
         TaskStackBuilderBaseImpl() {
         }
@@ -38,7 +41,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
     }
 
     @RequiresApi(16)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class TaskStackBuilderApi16Impl extends TaskStackBuilderBaseImpl {
         TaskStackBuilderApi16Impl() {
         }
@@ -62,7 +65,8 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         this.mSourceContext = context;
     }
 
-    public static TaskStackBuilder create(Context context) {
+    @NonNull
+    public static TaskStackBuilder create(@NonNull Context context) {
         return new TaskStackBuilder(context);
     }
 
@@ -71,12 +75,14 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return create(context);
     }
 
-    public TaskStackBuilder addNextIntent(Intent intent) {
+    @NonNull
+    public TaskStackBuilder addNextIntent(@NonNull Intent intent) {
         this.mIntents.add(intent);
         return this;
     }
 
-    public TaskStackBuilder addNextIntentWithParentStack(Intent intent) {
+    @NonNull
+    public TaskStackBuilder addNextIntentWithParentStack(@NonNull Intent intent) {
         ComponentName component = intent.getComponent();
         if (component == null) {
             component = intent.resolveActivity(this.mSourceContext.getPackageManager());
@@ -88,7 +94,8 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return this;
     }
 
-    public TaskStackBuilder addParentStack(Activity activity) {
+    @NonNull
+    public TaskStackBuilder addParentStack(@NonNull Activity activity) {
         Intent intent = null;
         if (activity instanceof SupportParentable) {
             intent = ((SupportParentable) activity).getSupportParentActivityIntent();
@@ -105,7 +112,8 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return this;
     }
 
-    public TaskStackBuilder addParentStack(Class<?> cls) {
+    @NonNull
+    public TaskStackBuilder addParentStack(@NonNull Class<?> cls) {
         return addParentStack(new ComponentName(this.mSourceContext, cls));
     }
 
@@ -133,6 +141,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return editIntentAt(i);
     }
 
+    @Nullable
     public Intent editIntentAt(int i) {
         return this.mIntents.get(i);
     }
@@ -147,7 +156,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         startActivities(null);
     }
 
-    public void startActivities(Bundle bundle) {
+    public void startActivities(@Nullable Bundle bundle) {
         if (this.mIntents.isEmpty()) {
             throw new IllegalStateException("No intents added to TaskStackBuilder; cannot startActivities");
         }
@@ -160,11 +169,13 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         }
     }
 
+    @Nullable
     public PendingIntent getPendingIntent(int i, int i2) {
         return getPendingIntent(i, i2, null);
     }
 
-    public PendingIntent getPendingIntent(int i, int i2, Bundle bundle) {
+    @Nullable
+    public PendingIntent getPendingIntent(int i, int i2, @Nullable Bundle bundle) {
         if (this.mIntents.isEmpty()) {
             throw new IllegalStateException("No intents added to TaskStackBuilder; cannot getPendingIntent");
         }
@@ -173,6 +184,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return IMPL.getPendingIntent(this.mSourceContext, intentArr, i, i2, bundle);
     }
 
+    @NonNull
     public Intent[] getIntents() {
         Intent[] intentArr = new Intent[this.mIntents.size()];
         if (intentArr.length == 0) {

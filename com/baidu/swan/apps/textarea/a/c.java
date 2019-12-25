@@ -5,17 +5,18 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class c extends z {
+/* loaded from: classes9.dex */
+public class c extends ab {
     public c(j jVar) {
-        super(jVar, "/swan/updateTextarea");
+        super(jVar, "/swanAPI/updateTextarea");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         if (DEBUG) {
             Log.d("UpdateTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
         }
@@ -24,18 +25,25 @@ public class c extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.console.c.d("UpdateTextAreaAction", "UpdateTextAreaAction paramsJson: " + optParamsAsJo);
-        com.baidu.swan.apps.textarea.c.b iG = com.baidu.swan.apps.textarea.c.a.TG().iG(optParamsAsJo.optString("slaveId"));
-        if (iG == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        com.baidu.swan.apps.console.c.d("UpdateTextAreaAction", "UpdateTextAreaAction updateParams: " + optParamsAsJo);
+        String optString = optParamsAsJo.optString("slaveId");
+        String optString2 = optParamsAsJo.optString("inputId");
+        com.baidu.swan.apps.component.components.textarea.a aVar = (com.baidu.swan.apps.component.components.textarea.a) com.baidu.swan.apps.component.container.a.ai(optString, optString2);
+        if (aVar == null) {
+            String str = "can't find textarea component:#" + optString2;
+            com.baidu.swan.apps.console.c.e("UpdateTextAreaAction", str);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
             return false;
-        } else if (!iG.aL(optParamsAsJo)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
-        } else {
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            iG.iJ(optParamsAsJo.optString("inputId"));
-            return true;
         }
+        com.baidu.swan.apps.component.components.textarea.b bVar = (com.baidu.swan.apps.component.components.textarea.b) aVar.HW();
+        bVar.Y(optParamsAsJo);
+        com.baidu.swan.apps.component.b.c a = aVar.a((com.baidu.swan.apps.component.components.textarea.a) bVar);
+        if (!a.isSuccess()) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, a.msg);
+            return false;
+        }
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        aVar.gb(optString2);
+        return true;
     }
 }

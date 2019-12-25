@@ -1,6 +1,5 @@
 package com.baidu.platform.core.d;
 
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.search.route.TransitRoutePlanOption;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 /* loaded from: classes5.dex */
@@ -20,12 +19,12 @@ public class n extends com.baidu.platform.base.e {
         this.a.a("ic_info", "2");
         this.a.a("exptype", "depall");
         this.a.a(IXAdRequestInfo.SN, a(transitRoutePlanOption.mFrom));
-        this.a.a("en", a(transitRoutePlanOption.mTo));
+        this.a.a(com.baidu.fsg.base.statistics.h.a, a(transitRoutePlanOption.mTo));
         if (transitRoutePlanOption.mCityName != null) {
             this.a.a("c", transitRoutePlanOption.mCityName);
         }
         if (TransitRoutePlanOption.TransitPolicy.EBUS_NO_SUBWAY == transitRoutePlanOption.mPolicy) {
-            this.a.a(BdStatsConstant.StatsKey.FROM, "[0,2,4,7,5,8,9,10,11]");
+            this.a.a("f", "[0,2,4,7,5,8,9,10,11]");
         }
     }
 

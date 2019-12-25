@@ -10,7 +10,7 @@ import com.baidu.mobads.interfaces.IXNonLinearAdSlot;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.production.v;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.mobads.production.b implements IXNonLinearAdSlot {
     private d w;
 

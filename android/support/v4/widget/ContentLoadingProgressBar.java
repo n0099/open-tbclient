@@ -1,9 +1,11 @@
 package android.support.v4.widget;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ContentLoadingProgressBar extends ProgressBar {
     private static final int MIN_DELAY = 500;
     private static final int MIN_SHOW_TIME = 500;
@@ -14,11 +16,11 @@ public class ContentLoadingProgressBar extends ProgressBar {
     boolean mPostedShow;
     long mStartTime;
 
-    public ContentLoadingProgressBar(Context context) {
+    public ContentLoadingProgressBar(@NonNull Context context) {
         this(context, null);
     }
 
-    public ContentLoadingProgressBar(Context context, AttributeSet attributeSet) {
+    public ContentLoadingProgressBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet, 0);
         this.mStartTime = -1L;
         this.mPostedHide = false;
@@ -61,9 +63,10 @@ public class ContentLoadingProgressBar extends ProgressBar {
         removeCallbacks(this.mDelayedShow);
     }
 
-    public void hide() {
+    public synchronized void hide() {
         this.mDismissed = true;
         removeCallbacks(this.mDelayedShow);
+        this.mPostedShow = false;
         long currentTimeMillis = System.currentTimeMillis() - this.mStartTime;
         if (currentTimeMillis >= 500 || this.mStartTime == -1) {
             setVisibility(8);
@@ -73,10 +76,11 @@ public class ContentLoadingProgressBar extends ProgressBar {
         }
     }
 
-    public void show() {
+    public synchronized void show() {
         this.mStartTime = -1L;
         this.mDismissed = false;
         removeCallbacks(this.mDelayedHide);
+        this.mPostedHide = false;
         if (!this.mPostedShow) {
             postDelayed(this.mDelayedShow, 500L);
             this.mPostedShow = true;

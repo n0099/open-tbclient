@@ -14,8 +14,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SapiSystemBarTintManager {
     private static final int DEFAULT_TINT_COLOR = -1728053248;
     private static String sNavBarOverride;
@@ -128,7 +129,7 @@ public class SapiSystemBarTintManager {
         viewGroup.addView(this.mNavBarTintView);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SystemBarConfig {
         private static final String NAV_BAR_HEIGHT_LANDSCAPE_RES_NAME = "navigation_bar_height_landscape";
         private static final String NAV_BAR_HEIGHT_RES_NAME = "navigation_bar_height";
@@ -187,7 +188,7 @@ public class SapiSystemBarTintManager {
         @TargetApi(14)
         private boolean hasNavBar(Context context) {
             Resources resources = context.getResources();
-            int identifier = resources.getIdentifier(SHOW_NAV_BAR_RES_NAME, "bool", "android");
+            int identifier = resources.getIdentifier(SHOW_NAV_BAR_RES_NAME, "bool", PraiseDataPassUtil.KEY_FROM_OS);
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
                 if ("1".equals(SapiSystemBarTintManager.sNavBarOverride)) {
@@ -202,7 +203,7 @@ public class SapiSystemBarTintManager {
         }
 
         private int getInternalDimensionSize(Resources resources, String str) {
-            int identifier = resources.getIdentifier(str, "dimen", "android");
+            int identifier = resources.getIdentifier(str, "dimen", PraiseDataPassUtil.KEY_FROM_OS);
             if (identifier <= 0) {
                 return 0;
             }

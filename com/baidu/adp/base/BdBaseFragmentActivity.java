@@ -33,8 +33,16 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mId = BdUniqueId.gen();
-        a.em().pushActivity(getPageContext().getPageActivity());
+        if (this.mId == null) {
+            this.mId = BdUniqueId.gen();
+        }
+        a.eG().pushActivity(getPageContext().getPageActivity());
+    }
+
+    public void initUniqueId() {
+        if (this.mId == null) {
+            this.mId = BdUniqueId.gen();
+        }
     }
 
     @Override // android.app.Activity
@@ -143,16 +151,16 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.f.c.fT().d(this.mId);
+        com.baidu.adp.lib.e.c.gs().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
-        a.em().popActivity(getPageContext().getPageActivity());
+        a.eG().popActivity(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.f.c.fT().e(this.mId);
+        com.baidu.adp.lib.e.c.gs().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -218,7 +226,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.eo().getResources();
+        Resources resources = g.eI().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

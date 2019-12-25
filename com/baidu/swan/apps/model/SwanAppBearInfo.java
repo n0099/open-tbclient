@@ -3,75 +3,81 @@ package com.baidu.swan.apps.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class SwanAppBearInfo extends SwanAppIPCData {
-    public String aXe;
-    public String aXf;
-    public String aXg;
-    public String aXh;
-    public String aXi;
-    public String aXj;
+    private static final String BEAR_DESC = "sign";
+    private static final String BEAR_ID = "office_id";
+    private static final String BEAR_INFO = "bear_info";
+    private static final String BEAR_LOGO = "avatar";
+    private static final String BEAR_NAME = "name";
+    private static final String BEAR_URL = "url";
+    private static final String BEAR_VIP_TYPE = "v_type";
+    public String bearDesc;
+    public String bearHomeUrl;
+    public String bearId;
+    public String bearLogo;
+    public String bearName;
+    public String bearVipType;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static final Parcelable.Creator<SwanAppBearInfo> CREATOR = new Parcelable.Creator<SwanAppBearInfo>() { // from class: com.baidu.swan.apps.model.SwanAppBearInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: q */
+        /* renamed from: A */
         public SwanAppBearInfo createFromParcel(Parcel parcel) {
             return new SwanAppBearInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: dH */
+        /* renamed from: fg */
         public SwanAppBearInfo[] newArray(int i) {
             return new SwanAppBearInfo[i];
         }
     };
 
     public SwanAppBearInfo() {
-        this.aXe = "";
-        this.aXf = "";
-        this.aXg = "";
-        this.aXh = "";
-        this.aXi = "";
-        this.aXj = "";
+        this.bearId = "";
+        this.bearName = "";
+        this.bearLogo = "";
+        this.bearHomeUrl = "";
+        this.bearDesc = "";
+        this.bearVipType = "";
     }
 
     private SwanAppBearInfo(Parcel parcel) {
-        this.aXe = "";
-        this.aXf = "";
-        this.aXg = "";
-        this.aXh = "";
-        this.aXi = "";
-        this.aXj = "";
-        this.aXe = parcel.readString();
-        this.aXf = parcel.readString();
-        this.aXg = parcel.readString();
-        this.aXh = parcel.readString();
-        this.aXi = parcel.readString();
-        this.aXj = parcel.readString();
+        this.bearId = "";
+        this.bearName = "";
+        this.bearLogo = "";
+        this.bearHomeUrl = "";
+        this.bearDesc = "";
+        this.bearVipType = "";
+        this.bearId = parcel.readString();
+        this.bearName = parcel.readString();
+        this.bearLogo = parcel.readString();
+        this.bearHomeUrl = parcel.readString();
+        this.bearDesc = parcel.readString();
+        this.bearVipType = parcel.readString();
     }
 
     public SwanAppBearInfo(String str) {
-        this.aXe = "";
-        this.aXf = "";
-        this.aXg = "";
-        this.aXh = "";
-        this.aXi = "";
-        this.aXj = "";
+        this.bearId = "";
+        this.bearName = "";
+        this.bearLogo = "";
+        this.bearHomeUrl = "";
+        this.bearDesc = "";
+        this.bearVipType = "";
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.aXe = jSONObject.optString("office_id");
-                this.aXi = jSONObject.optString("sign");
-                this.aXh = jSONObject.optString("url");
-                this.aXg = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-                this.aXf = jSONObject.optString("name");
-                this.aXj = jSONObject.optString("v_type");
+                this.bearId = jSONObject.optString(BEAR_ID);
+                this.bearDesc = jSONObject.optString("sign");
+                this.bearHomeUrl = jSONObject.optString("url");
+                this.bearLogo = jSONObject.optString("avatar");
+                this.bearName = jSONObject.optString("name");
+                this.bearVipType = jSONObject.optString(BEAR_VIP_TYPE);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -81,7 +87,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aXe);
+        return !TextUtils.isEmpty(this.bearId);
     }
 
     @Override // android.os.Parcelable
@@ -91,11 +97,11 @@ public class SwanAppBearInfo extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.aXe);
-        parcel.writeString(this.aXf);
-        parcel.writeString(this.aXg);
-        parcel.writeString(this.aXh);
-        parcel.writeString(this.aXi);
-        parcel.writeString(this.aXj);
+        parcel.writeString(this.bearId);
+        parcel.writeString(this.bearName);
+        parcel.writeString(this.bearLogo);
+        parcel.writeString(this.bearHomeUrl);
+        parcel.writeString(this.bearDesc);
+        parcel.writeString(this.bearVipType);
     }
 }

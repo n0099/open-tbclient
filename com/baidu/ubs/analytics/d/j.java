@@ -2,35 +2,35 @@ package com.baidu.ubs.analytics.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class j {
     private static int bn = 1000;
-    private static boolean jYf = true;
+    private static boolean kSA = true;
 
     public static void c(boolean z) {
-        jYf = z;
+        kSA = z;
     }
 
-    public static void Gf(String str) {
-        if (jYf) {
+    public static void KV(String str) {
+        if (kSA) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (jYf) {
+        if (kSA) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
-    public static void Gm(String str) {
-        if (jYf) {
+    public static void Lc(String str) {
+        if (kSA) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (jYf) {
+        if (kSA) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
@@ -79,23 +79,23 @@ public final class j {
             }
         }
         if (th != null) {
-            String p = p(th);
-            if (!TextUtils.isEmpty(p)) {
+            String s = s(th);
+            if (!TextUtils.isEmpty(s)) {
                 switch (i) {
                     case 1:
-                        Log.v(str, p);
+                        Log.v(str, s);
                         return;
                     case 2:
-                        Log.d(str, p);
+                        Log.d(str, s);
                         return;
                     case 3:
-                        Log.i(str, p);
+                        Log.i(str, s);
                         return;
                     case 4:
-                        Log.w(str, p);
+                        Log.w(str, s);
                         return;
                     case 5:
-                        Log.e(str, p);
+                        Log.e(str, s);
                         return;
                     default:
                         Log.d(str, str2);
@@ -113,7 +113,7 @@ public final class j {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    private static java.lang.String p(java.lang.Throwable r5) {
+    private static java.lang.String s(java.lang.Throwable r5) {
         /*
             r3 = 0
             java.lang.String r0 = ""
@@ -186,6 +186,6 @@ public final class j {
             r3 = r4
             goto L29
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.ubs.analytics.d.j.p(java.lang.Throwable):java.lang.String");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.ubs.analytics.d.j.s(java.lang.Throwable):java.lang.String");
     }
 }

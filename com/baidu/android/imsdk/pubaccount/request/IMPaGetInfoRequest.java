@@ -22,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMPaGetInfoRequest extends PaBaseHttpRequest {
     private static final String TAG = IMPaGetInfoRequest.class.getSimpleName();
     private long mAppid;
@@ -91,7 +91,7 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                                 paInfo.setAvatar(jSONObject2.optString("pa_avatar"));
                                 paInfo.setDescription(jSONObject2.optString("description"));
                                 paInfo.setDetail(jSONObject2.optString("detail_description"));
-                                paInfo.setTPL(jSONObject2.optLong(TableDefine.PaSubscribeColumns.COLUMN_TPL, -1L));
+                                paInfo.setTPL(jSONObject2.optLong("tpl", -1L));
                                 paInfo.setAcceptPush(jSONObject2.optBoolean("is_accept_msg"));
                                 paInfo.setUrl(jSONObject2.optString("pa_url"));
                                 paInfo.setSubcribeTime(jSONObject2.optLong("create_time"));

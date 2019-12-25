@@ -1,7 +1,7 @@
 package com.google.zxing.datamatrix.decoder;
 
 import com.google.zxing.FormatException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Version {
     private static final Version[] VERSIONS = buildVersions();
     private final int dataRegionSizeColumns;
@@ -71,7 +71,7 @@ public final class Version {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class ECBlocks {
         private final ECB[] ecBlocks;
         private final int ecCodewords;
@@ -98,7 +98,7 @@ public final class Version {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class ECB {
         private final int count;
         private final int dataCodewords;

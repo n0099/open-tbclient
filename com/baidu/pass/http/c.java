@@ -2,7 +2,7 @@ package com.baidu.pass.http;
 
 import android.util.Log;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c {
     private static final String b = c.class.getSimpleName();
     private static final Pattern c = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");

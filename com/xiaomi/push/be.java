@@ -13,7 +13,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class be {
     public static String a() {
         return Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL;
@@ -23,7 +23,7 @@ public class be {
         String a = bh.a(context).a("sp_client_report_status", "sp_client_report_key", "");
         if (TextUtils.isEmpty(a)) {
             String a2 = ay.a(20);
-            bh.a(context).m145a("sp_client_report_status", "sp_client_report_key", a2);
+            bh.a(context).m148a("sp_client_report_status", "sp_client_report_key", a2);
             return a2;
         }
         return a;
@@ -85,7 +85,7 @@ public class be {
                         if (!TextUtils.isEmpty(file3.getAbsolutePath())) {
                             file = new File(file3.getAbsolutePath() + ".lock");
                             try {
-                                y.m551a(file);
+                                y.m554a(file);
                                 randomAccessFile = new RandomAccessFile(file, "rw");
                                 try {
                                     fileLock = randomAccessFile.getChannel().lock();
@@ -214,7 +214,7 @@ public class be {
     }
 
     public static void a(Context context, List<String> list) {
-        if (list == null || list.size() <= 0 || !m141a(context)) {
+        if (list == null || list.size() <= 0 || !m144a(context)) {
             return;
         }
         for (String str : list) {
@@ -225,7 +225,7 @@ public class be {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m141a(Context context) {
+    public static boolean m144a(Context context) {
         try {
             return context.getApplicationContext().getPackageManager().getPackageInfo("com.xiaomi.xmsf", 0).versionCode >= 108;
         } catch (PackageManager.NameNotFoundException e) {
@@ -235,7 +235,7 @@ public class be {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m142a(Context context, String str) {
+    public static boolean m145a(Context context, String str) {
         File file = new File(str);
         long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).a().getMaxFileLength();
         if (file.exists()) {
@@ -248,7 +248,7 @@ public class be {
                 return false;
             }
         } else {
-            y.m551a(file);
+            y.m554a(file);
         }
         return true;
     }
@@ -262,7 +262,7 @@ public class be {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static File[] m143a(Context context, String str) {
+    public static File[] m146a(Context context, String str) {
         File externalFilesDir = context.getExternalFilesDir(str);
         if (externalFilesDir != null) {
             return externalFilesDir.listFiles(new bg());

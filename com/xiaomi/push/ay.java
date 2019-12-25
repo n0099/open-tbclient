@@ -9,8 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.regex.Pattern;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ay {
     public static String a(int i) {
         Random random = new Random();
@@ -27,7 +26,7 @@ public class ay {
         }
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(m124a(str));
+            messageDigest.update(m127a(str));
             return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
         } catch (NoSuchAlgorithmException e) {
             return str;
@@ -98,7 +97,7 @@ public class ay {
             return null;
         }
         try {
-            return new String(bArr, HTTP.UTF_8);
+            return new String(bArr, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             return new String(bArr);
         }
@@ -135,7 +134,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m123a(String str) {
+    public static boolean m126a(String str) {
         if (str != null) {
             for (int i = 0; i < str.length(); i++) {
                 char charAt = str.charAt(i);
@@ -148,9 +147,9 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m124a(String str) {
+    public static byte[] m127a(String str) {
         try {
-            return str.getBytes(HTTP.UTF_8);
+            return str.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
             return str.getBytes();
         }
@@ -160,7 +159,7 @@ public class ay {
         if (str != null) {
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                messageDigest.update(m124a(str));
+                messageDigest.update(m127a(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException e) {
                 return str;
@@ -170,7 +169,7 @@ public class ay {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m125b(String str) {
+    public static boolean m128b(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

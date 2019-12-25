@@ -8,10 +8,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.games.view.recommend.a.d;
-/* loaded from: classes2.dex */
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+/* loaded from: classes9.dex */
 public class a extends com.baidu.swan.games.view.recommend.a.a {
-    private b bFh;
-    private b bFi;
+    private b cpO;
+    private b cpP;
     private int mPosition;
 
     public a(@NonNull Context context, @NonNull d dVar) {
@@ -20,24 +21,24 @@ public class a extends com.baidu.swan.games.view.recommend.a.a {
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.a
-    protected View YQ() {
+    protected View aom() {
         FrameLayout frameLayout = new FrameLayout(this.mContext);
-        this.bFi = new b(this.mContext);
-        this.bFi.bFk.setAlpha(0.0f);
-        frameLayout.addView(this.bFi.bFk);
-        this.bFh = new b(this.mContext);
-        this.bFh.bFk.setAlpha(0.0f);
-        this.bFh.bFl.setActualImageResource(17170445);
-        this.bFh.bFm.setText((CharSequence) null);
-        frameLayout.addView(this.bFh.bFk);
-        this.bFh.bFk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.b.a.1
+        this.cpP = new b(this.mContext);
+        this.cpP.cpR.setAlpha(0.0f);
+        frameLayout.addView(this.cpP.cpR);
+        this.cpO = new b(this.mContext);
+        this.cpO.cpR.setAlpha(0.0f);
+        this.cpO.cpS.setActualImageResource(17170445);
+        this.cpO.cpT.setText((CharSequence) null);
+        frameLayout.addView(this.cpO.cpR);
+        this.cpO.cpR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.b.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.bEW != null && a.this.mPosition >= -1) {
+                if (a.this.cpE != null && a.this.mPosition >= -1) {
                     if (a.this.mPosition == -1) {
-                        a.this.bEW.YW();
+                        a.this.cpE.aos();
                     } else {
-                        a.this.bEW.gh(a.this.mPosition);
+                        a.this.cpE.hM(a.this.mPosition);
                     }
                 }
             }
@@ -46,57 +47,57 @@ public class a extends com.baidu.swan.games.view.recommend.a.a {
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.a, com.baidu.swan.games.view.recommend.a.b
-    public void a(com.baidu.swan.games.view.recommend.d.b bVar) {
-        super.a(bVar);
-        if (!c(bVar)) {
+    public void a(com.baidu.swan.games.view.recommend.model.a aVar) {
+        super.a(aVar);
+        if (!c(aVar)) {
             this.mPosition = -2;
-            this.bFi.bFl.setImageURI(bVar.bFy.iconUrl);
-            this.bFi.bFm.setText(bVar.bFy.appName);
+            this.cpP.cpS.setImageURI(aVar.cqf.iconUrl);
+            this.cpP.cpT.setText(aVar.cqf.appName);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.view.recommend.a.a
-    public void YR() {
-        if (c(this.bEV)) {
-            this.bFh.bFk.setAlpha(1.0f);
-            this.bFh.bFl.setActualImageResource(a.e.swangame_recommend_gamecenter);
-            this.bFh.bFm.setText(a.h.swangame_recommend_button_goto_game_center);
-            super.YR();
+    public void aon() {
+        if (c(this.cpD)) {
+            this.cpO.cpR.setAlpha(1.0f);
+            this.cpO.cpS.setActualImageResource(a.e.swangame_recommend_gamecenter);
+            this.cpO.cpT.setText(a.h.swangame_recommend_button_goto_game_center);
+            super.aon();
             return;
         }
-        this.mPosition = gj(this.mPosition);
-        this.bFi.bFk.animate().setDuration(160L).alpha(1.0f);
-        this.bFh.bFk.animate().setDuration(160L).alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.games.view.recommend.b.a.2
+        this.mPosition = hO(this.mPosition);
+        this.cpP.cpR.animate().setDuration(160L).alpha(1.0f);
+        this.cpO.cpR.animate().setDuration(160L).alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.games.view.recommend.b.a.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                com.baidu.swan.games.view.recommend.d.a gk = a.this.gk(a.this.mPosition);
-                a.this.bFh.bFl.setImageURI(gk.iconUrl);
-                a.this.bFh.bFm.setText(gk.appName);
-                a.this.bFh.bFk.setAlpha(1.0f);
-                com.baidu.swan.games.view.recommend.d.a gk2 = a.this.gk(a.this.gj(a.this.mPosition));
-                a.this.bFi.bFl.setImageURI(gk2.iconUrl);
-                a.this.bFi.bFm.setText(gk2.appName);
-                a.this.bFi.bFk.setAlpha(0.0f);
-                a.super.YR();
+                RecommendItemModel hP = a.this.hP(a.this.mPosition);
+                a.this.cpO.cpS.setImageURI(hP.iconUrl);
+                a.this.cpO.cpT.setText(hP.appName);
+                a.this.cpO.cpR.setAlpha(1.0f);
+                RecommendItemModel hP2 = a.this.hP(a.this.hO(a.this.mPosition));
+                a.this.cpP.cpS.setImageURI(hP2.iconUrl);
+                a.this.cpP.cpT.setText(hP2.appName);
+                a.this.cpP.cpR.setAlpha(0.0f);
+                a.super.aon();
             }
         });
     }
 
-    private boolean c(com.baidu.swan.games.view.recommend.d.b bVar) {
-        return bVar == null || bVar.bFz == null || bVar.bFy == null;
+    private boolean c(com.baidu.swan.games.view.recommend.model.a aVar) {
+        return aVar == null || aVar.cqg == null || aVar.cqf == null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int gj(int i) {
-        if (i + 1 == this.bEV.bFz.size()) {
+    public int hO(int i) {
+        if (i + 1 == this.cpD.cqg.size()) {
             return -1;
         }
         return i + 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.swan.games.view.recommend.d.a gk(int i) {
-        return i == -1 ? this.bEV.bFy : this.bEV.bFz.get(i);
+    public RecommendItemModel hP(int i) {
+        return i == -1 ? this.cpD.cqf : this.cpD.cqg.get(i);
     }
 }

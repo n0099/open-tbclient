@@ -4,11 +4,11 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class b extends g implements Runnable {
-    private boolean kdg;
-    float kdh;
-    private boolean kdi;
+    private boolean lHI;
+    float lHJ;
+    private boolean lHK;
     private int mInterval;
 
     public b(Drawable drawable, int i) {
@@ -17,10 +17,10 @@ public class b extends g implements Runnable {
 
     public b(Drawable drawable, int i, boolean z) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.kdh = 0.0f;
-        this.kdi = false;
+        this.lHJ = 0.0f;
+        this.lHK = false;
         this.mInterval = i;
-        this.kdg = z;
+        this.lHI = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -29,31 +29,31 @@ public class b extends g implements Runnable {
         Rect bounds = getBounds();
         int i = bounds.right - bounds.left;
         int i2 = bounds.bottom - bounds.top;
-        float f = this.kdh;
-        if (!this.kdg) {
-            f = 360.0f - this.kdh;
+        float f = this.lHJ;
+        if (!this.lHI) {
+            f = 360.0f - this.lHJ;
         }
         canvas.rotate(f, (i / 2) + bounds.left, bounds.top + (i2 / 2));
         super.draw(canvas);
         canvas.restoreToCount(save);
-        cEn();
+        dka();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.kdi = false;
-        this.kdh += cEo();
+        this.lHK = false;
+        this.lHJ += dkb();
         invalidateSelf();
     }
 
-    private void cEn() {
-        if (!this.kdi) {
-            this.kdi = true;
+    private void dka() {
+        if (!this.lHK) {
+            this.lHK = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + 20);
         }
     }
 
-    private int cEo() {
+    private int dkb() {
         return (int) ((20.0f / this.mInterval) * 360.0f);
     }
 }

@@ -24,7 +24,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AlertDialog extends AppCompatDialog implements DialogInterface {
     static final int LAYOUT_HINT_NONE = 0;
     static final int LAYOUT_HINT_SIDE = 1;
@@ -90,11 +90,15 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
     }
 
     public void setButton(int i, CharSequence charSequence, Message message) {
-        this.mAlert.setButton(i, charSequence, null, message);
+        this.mAlert.setButton(i, charSequence, null, message, null);
     }
 
     public void setButton(int i, CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-        this.mAlert.setButton(i, charSequence, onClickListener, null);
+        this.mAlert.setButton(i, charSequence, onClickListener, null, null);
+    }
+
+    public void setButton(int i, CharSequence charSequence, Drawable drawable, DialogInterface.OnClickListener onClickListener) {
+        this.mAlert.setButton(i, charSequence, onClickListener, null, drawable);
     }
 
     public void setIcon(int i) {
@@ -134,7 +138,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         return super.onKeyUp(i, keyEvent);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         private final AlertController.AlertParams P;
         private final int mTheme;
@@ -207,6 +211,11 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return this;
         }
 
+        public Builder setPositiveButtonIcon(Drawable drawable) {
+            this.P.mPositiveButtonIcon = drawable;
+            return this;
+        }
+
         public Builder setNegativeButton(@StringRes int i, DialogInterface.OnClickListener onClickListener) {
             this.P.mNegativeButtonText = this.P.mContext.getText(i);
             this.P.mNegativeButtonListener = onClickListener;
@@ -219,6 +228,11 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return this;
         }
 
+        public Builder setNegativeButtonIcon(Drawable drawable) {
+            this.P.mNegativeButtonIcon = drawable;
+            return this;
+        }
+
         public Builder setNeutralButton(@StringRes int i, DialogInterface.OnClickListener onClickListener) {
             this.P.mNeutralButtonText = this.P.mContext.getText(i);
             this.P.mNeutralButtonListener = onClickListener;
@@ -228,6 +242,11 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         public Builder setNeutralButton(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
             this.P.mNeutralButtonText = charSequence;
             this.P.mNeutralButtonListener = onClickListener;
+            return this;
+        }
+
+        public Builder setNeutralButtonIcon(Drawable drawable) {
+            this.P.mNeutralButtonIcon = drawable;
             return this;
         }
 

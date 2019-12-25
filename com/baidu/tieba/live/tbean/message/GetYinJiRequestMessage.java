@@ -1,7 +1,7 @@
 package com.baidu.tieba.live.tbean.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GetYinJiRequestMessage extends HttpMessage {
     private String st_type;
 

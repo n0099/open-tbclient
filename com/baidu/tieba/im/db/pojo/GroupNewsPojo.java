@@ -82,7 +82,7 @@ public class GroupNewsPojo implements Serializable {
             setContent(chatMessage.getContent());
             setTime(chatMessage.getTime() * 1000);
             setNotice_id(String.valueOf(chatMessage.getMsgId()));
-            bAI();
+            setSelfNewsRead();
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
                 try {
@@ -95,12 +95,12 @@ public class GroupNewsPojo implements Serializable {
                 }
             }
             if (str2.equals("apply_join_group") && ModelHelper.getInstance().getValidateModel() != null) {
-                b(ModelHelper.getInstance().getValidateModel().convertToValidateItemData(this));
+                initByValidateData(ModelHelper.getInstance().getValidateModel().convertToValidateItemData(this));
             }
         }
     }
 
-    private void bAI() {
+    private void setSelfNewsRead() {
         UpdatesItemData convertToUpdatesItem;
         if (!TextUtils.isEmpty(getCmd())) {
             if ((getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) && ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(this)) != null) {
@@ -120,10 +120,10 @@ public class GroupNewsPojo implements Serializable {
     }
 
     public GroupNewsPojo(ValidateItemData validateItemData) {
-        b(validateItemData);
+        initByValidateData(validateItemData);
     }
 
-    private void b(ValidateItemData validateItemData) {
+    private void initByValidateData(ValidateItemData validateItemData) {
         if (validateItemData != null) {
             setCmd("apply_join_group");
             this.notice_id = validateItemData.getNotice_id();

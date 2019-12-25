@@ -2,12 +2,12 @@ package com.baidu.tieba.write.transmit.model;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.f.b;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import tbclient.GetRepostRecommendForum.DataReq;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class GetRepostForumReqMessage extends NetMessage {
     private long forumId;
     private BdUniqueId mRequestId;
@@ -31,7 +31,7 @@ public class GetRepostForumReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                r.a(builder, true);
+                t.a(builder, true);
             }
             builder.title = this.threadTitle;
             builder.content = this.threadContent;

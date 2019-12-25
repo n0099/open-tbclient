@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class CommonWebViewActivityConfig extends IntentConfig {
+    public static final String CERT_RETRY = "retry";
     public static final String TAG_TITLE = "tag_title";
     public static final String TAG_URL = "tag_url";
 
@@ -26,5 +27,9 @@ public class CommonWebViewActivityConfig extends IntentConfig {
         }
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    public void setCertRetryTag(String str) {
+        getIntent().putExtra("retry", str);
     }
 }

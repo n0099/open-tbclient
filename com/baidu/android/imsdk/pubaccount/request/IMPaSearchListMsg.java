@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMPaSearchListMsg extends Message {
     private Context mContext;
     private String mSearchContent;

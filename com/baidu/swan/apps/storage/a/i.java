@@ -2,21 +2,21 @@ package com.baidu.swan.apps.storage.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.scheme.actions.ab;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class i extends z {
+@Deprecated
+/* loaded from: classes9.dex */
+public class i extends ab {
     public i(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/removeStorage");
+        super(jVar, "/swanAPI/removeStorage");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (bVar == null) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
@@ -25,13 +25,13 @@ public class i extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String optString = optParamsAsJo.optString(TiebaInitialize.Params.KEY);
+        String optString = optParamsAsJo.optString("key");
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        bVar.Re().SN().remove(optString);
-        com.baidu.swan.apps.ak.e.bsj.update();
+        eVar.aaa().acv().remove(optString);
+        com.baidu.swan.apps.ap.e.bTz.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

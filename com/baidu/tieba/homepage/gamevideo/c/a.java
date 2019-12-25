@@ -1,9 +1,10 @@
 package com.baidu.tieba.homepage.gamevideo.c;
 
+import com.baidu.fsg.face.base.b.c;
 import com.baidu.tbadk.core.data.k;
 import org.json.JSONObject;
 import tbclient.RecomVertical.SubClassItem;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends k {
     public int enable;
     public String sub_class_icon;
@@ -16,7 +17,7 @@ public class a extends k {
             this.sub_class_id = jSONObject.optInt("sub_class_id");
             this.sub_class_name = jSONObject.optString("sub_class_name");
             this.sub_class_icon = jSONObject.optString("sub_class_icon");
-            this.enable = jSONObject.optInt("enable");
+            this.enable = jSONObject.optInt(c.l);
         }
     }
 

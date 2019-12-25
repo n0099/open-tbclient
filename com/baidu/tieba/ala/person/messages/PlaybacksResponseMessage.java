@@ -1,15 +1,16 @@
 package com.baidu.tieba.ala.person.messages;
 
 import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.person.a.e;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PlaybacksResponseMessage extends JsonHttpResponsedMessage {
     public int errCode;
     public String errMsg;
-    public e euM;
+    public e fmi;
 
     public PlaybacksResponseMessage(int i) {
         super(i);
@@ -22,10 +23,10 @@ public class PlaybacksResponseMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
             try {
                 this.errCode = jSONObject.optInt("errno");
-                this.errMsg = jSONObject.optString("errmsg");
+                this.errMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 if (!TextUtils.isEmpty(jSONObject.optString("data"))) {
-                    this.euM = new e();
-                    this.euM.parserJson(jSONObject.optString("data"));
+                    this.fmi = new e();
+                    this.fmi.parserJson(jSONObject.optString("data"));
                 }
             } catch (Exception e) {
                 BdLog.e(e);

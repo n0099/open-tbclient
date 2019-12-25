@@ -6,24 +6,24 @@ import android.support.v4.view.ViewCompat;
 import android.text.TextPaint;
 import com.baidu.swan.apps.canvas.view.CanvasView;
 import java.util.Stack;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class b implements Cloneable {
-    CanvasView aFD;
-    ak aFE;
-    private Stack<b> aFA = new Stack<>();
+    CanvasView bbo;
+    ak bbp;
+    private Stack<b> bbl = new Stack<>();
     Paint mFillPaint = new Paint();
     Paint mStrokePaint = new Paint();
     Paint mBitmapPaint = new Paint();
-    TextPaint aFB = new TextPaint();
+    TextPaint bbm = new TextPaint();
     Path mPath = new Path();
-    boolean aFC = false;
-    int aFF = -1;
-    int aFG = 0;
-    int aFH = 0;
+    boolean bbn = false;
+    int bbq = -1;
+    int bbr = 0;
+    int bbs = 0;
     int mStrokeColor = ViewCompat.MEASURED_STATE_MASK;
 
     public b(CanvasView canvasView) {
-        this.aFD = canvasView;
+        this.bbo = canvasView;
         init();
     }
 
@@ -32,28 +32,28 @@ public class b implements Cloneable {
         bVar.mFillPaint = new Paint(this.mFillPaint);
         bVar.mStrokePaint = new Paint(this.mStrokePaint);
         bVar.mBitmapPaint = new Paint(this.mBitmapPaint);
-        bVar.aFB = new TextPaint(this.aFB);
+        bVar.bbm = new TextPaint(this.bbm);
         bVar.mPath = new Path(this.mPath);
-        bVar.aFG = this.aFG;
-        bVar.aFH = this.aFH;
+        bVar.bbr = this.bbr;
+        bVar.bbs = this.bbs;
         bVar.mStrokeColor = this.mStrokeColor;
-        this.aFA.push(bVar);
+        this.bbl.push(bVar);
     }
 
-    public void CS() {
-        if (!this.aFA.empty()) {
-            b pop = this.aFA.pop();
+    public void HC() {
+        if (!this.bbl.empty()) {
+            b pop = this.bbl.pop();
             this.mFillPaint = pop.mFillPaint;
             this.mStrokePaint = pop.mStrokePaint;
             this.mBitmapPaint = pop.mBitmapPaint;
-            this.aFB = pop.aFB;
+            this.bbm = pop.bbm;
             this.mPath = pop.mPath;
-            this.aFC = pop.aFC;
-            this.aFA = pop.aFA;
-            this.aFE = pop.aFE;
-            this.aFF = pop.aFF;
-            this.aFG = pop.aFG;
-            this.aFH = pop.aFH;
+            this.bbn = pop.bbn;
+            this.bbl = pop.bbl;
+            this.bbp = pop.bbp;
+            this.bbq = pop.bbq;
+            this.bbr = pop.bbr;
+            this.bbs = pop.bbs;
             this.mStrokeColor = pop.mStrokeColor;
         }
     }
@@ -61,21 +61,21 @@ public class b implements Cloneable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Paint paint) {
         if (paint != null) {
-            if (this.aFD != null && this.aFE != null && this.aFE.aGl != null && !this.aFE.aGl.CU()) {
-                paint.setShadowLayer(this.aFE.aGA, this.aFE.aGy, this.aFE.aGz, this.aFE.aGl.getColor());
+            if (this.bbo != null && this.bbp != null && this.bbp.bbT != null && !this.bbp.bbT.HE()) {
+                paint.setShadowLayer(this.bbp.bch, this.bbp.bcg, this.bbp.mOffsetY, this.bbp.bbT.getColor());
             }
-            if (this.aFF >= 0 && this.aFF <= 255) {
-                paint.setAlpha(Math.min((paint.getAlpha() * this.aFF) >> 8, 255));
+            if (this.bbq >= 0 && this.bbq <= 255) {
+                paint.setAlpha(Math.min((paint.getAlpha() * this.bbq) >> 8, 255));
             }
         }
     }
 
-    public void cN(int i) {
-        this.aFH = i;
+    public void dL(int i) {
+        this.bbs = i;
     }
 
-    public int CT() {
-        return this.aFH;
+    public int HD() {
+        return this.bbs;
     }
 
     public void init() {
@@ -84,10 +84,10 @@ public class b implements Cloneable {
         this.mFillPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mStrokePaint.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mBitmapPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.aFB.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.mStrokePaint.setStrokeWidth(com.baidu.swan.apps.an.z.S(1.0f));
+        this.bbm.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.mStrokePaint.setStrokeWidth(com.baidu.swan.apps.as.af.T(1.0f));
         this.mStrokePaint.setAntiAlias(true);
-        this.aFB.setAntiAlias(true);
+        this.bbm.setAntiAlias(true);
         this.mBitmapPaint.setAntiAlias(true);
         this.mPath.reset();
     }
